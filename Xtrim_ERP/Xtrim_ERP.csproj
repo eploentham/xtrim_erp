@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="control\XtrimControl.cs" />
     <Compile Include="gui\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,7 +88,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="control\" />
     <Folder Include="objdb\" />
     <Folder Include="report\" />
   </ItemGroup>
