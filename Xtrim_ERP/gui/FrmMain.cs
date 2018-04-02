@@ -17,12 +17,6 @@ namespace Xtrim_ERP
         {
             InitializeComponent();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            ExAirLine aa = new ExAirLine();
-            aa.Code = "";
-
-        }
+        
     }
 }
