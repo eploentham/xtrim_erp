@@ -21,7 +21,7 @@ namespace Xtrim_ERP
         private void Form1_Load(object sender, EventArgs e)
         {
             ExAirLine aa = new ExAirLine();
-            aa.Code = "";
+            aa.code = "";
 
         }
     }
