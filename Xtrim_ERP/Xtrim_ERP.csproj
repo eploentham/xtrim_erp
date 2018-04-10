@@ -32,7 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Reference Include="C1.Win.4, Version=4.0.20173.282, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
     <Reference Include="C1.Win.C1Command.4, Version=4.0.20173.282, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Input.2, Version=2.0.20173.282, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
@@ -52,9 +51,7 @@
     <Reference Include="GrapeCity.Spreadsheet.Win, Version=11.40.20177.0, Culture=neutral, PublicKeyToken=327c3516b1b18457" />
     <Reference Include="GrapeCity.Win.PluginInputMan, Version=11.40.20177.0, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-=======
     <Reference Include="C1.Win.C1Command.4, Version=4.0.20173.282, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
->>>>>>> 67797074da1a4ea07327d03edaebcb623a94aad7
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -72,11 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="control\XtrimControl.cs" />
-<<<<<<< HEAD
-    <Compile Include="Form1.cs">
-=======
     <Compile Include="gui\FrmMain.cs">
->>>>>>> 67797074da1a4ea07327d03edaebcb623a94aad7
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gui\FrmMain.Designer.cs">
@@ -116,7 +109,6 @@
     <EmbeddedResource Include="gui\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
     <EmbeddedResource Include="gui\ImJView.resx">
       <DependentUpon>ImJView.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,8 +118,6 @@
     <EmbeddedResource Include="gui\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
-=======
->>>>>>> 67797074da1a4ea07327d03edaebcb623a94aad7
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -152,10 +142,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-=======
-    <Folder Include="objdb\" />
->>>>>>> 67797074da1a4ea07327d03edaebcb623a94aad7
     <Folder Include="report\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
