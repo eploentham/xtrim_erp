@@ -47,11 +47,12 @@
             // grdView
             // 
             this.grdView.AccessibleDescription = "";
-            this.grdView.Location = new System.Drawing.Point(12, 103);
+            this.grdView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grdView.Location = new System.Drawing.Point(0, 91);
             this.grdView.Name = "grdView";
             this.grdView.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
             this.fpSpread1_Sheet1});
-            this.grdView.Size = new System.Drawing.Size(816, 557);
+            this.grdView.Size = new System.Drawing.Size(932, 632);
             this.grdView.TabIndex = 0;
             // 
             // fpSpread1_Sheet1
@@ -62,10 +63,11 @@
             // c1InputPanel1
             // 
             this.c1InputPanel1.AutoSizeElement = C1.Framework.AutoSizeElement.Both;
+            this.c1InputPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.c1InputPanel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.c1InputPanel1.Location = new System.Drawing.Point(12, 12);
+            this.c1InputPanel1.Location = new System.Drawing.Point(0, 0);
             this.c1InputPanel1.Name = "c1InputPanel1";
-            this.c1InputPanel1.Size = new System.Drawing.Size(816, 85);
+            this.c1InputPanel1.Size = new System.Drawing.Size(932, 85);
             this.c1InputPanel1.TabIndex = 1;
             // 
             // c1SuperLabel1
@@ -110,7 +112,7 @@
             // btnOk
             // 
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOk.Location = new System.Drawing.Point(688, 29);
+            this.btnOk.Location = new System.Drawing.Point(789, 16);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(131, 53);
             this.btnOk.TabIndex = 4;

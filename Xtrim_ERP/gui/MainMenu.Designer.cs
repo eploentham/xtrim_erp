@@ -46,74 +46,77 @@
             C1.Win.C1Command.C1TopicLink c1TopicLink11 = new C1.Win.C1Command.C1TopicLink();
             C1.Win.C1Command.C1TopicLink c1TopicLink12 = new C1.Win.C1Command.C1TopicLink();
             this.c1CommandDock1 = new C1.Win.C1Command.C1CommandDock();
-            this.c1CommandDock2 = new C1.Win.C1Command.C1CommandDock();
             this.c1DockingTab1 = new C1.Win.C1Command.C1DockingTab();
             this.c1DockingTabPage1 = new C1.Win.C1Command.C1DockingTabPage();
             this.c1TopicBar1 = new C1.Win.C1Command.C1TopicBar();
+            this.c1CommandDock2 = new C1.Win.C1Command.C1CommandDock();
             this.c1DockingTab2 = new C1.Win.C1Command.C1DockingTab();
             this.c1DockingTabPage2 = new C1.Win.C1Command.C1DockingTabPage();
+            this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandDock1)).BeginInit();
             this.c1CommandDock1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CommandDock2)).BeginInit();
-            this.c1CommandDock2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).BeginInit();
             this.c1DockingTab1.SuspendLayout();
             this.c1DockingTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1TopicBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CommandDock2)).BeginInit();
+            this.c1CommandDock2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab2)).BeginInit();
             this.c1DockingTab2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
             this.SuspendLayout();
             // 
             // c1CommandDock1
             // 
+            this.c1CommandDock1.BackColor = System.Drawing.Color.White;
             this.c1CommandDock1.Controls.Add(this.c1DockingTab1);
             this.c1CommandDock1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.c1CommandDock1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(20)))), ((int)(((byte)(0)))));
             this.c1CommandDock1.Id = 1;
             this.c1CommandDock1.Location = new System.Drawing.Point(0, 0);
             this.c1CommandDock1.Name = "c1CommandDock1";
             this.c1CommandDock1.Size = new System.Drawing.Size(300, 718);
-            // 
-            // c1CommandDock2
-            // 
-            this.c1CommandDock2.Controls.Add(this.c1DockingTab2);
-            this.c1CommandDock2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.c1CommandDock2.Id = 3;
-            this.c1CommandDock2.Location = new System.Drawing.Point(300, 0);
-            this.c1CommandDock2.Name = "c1CommandDock2";
-            this.c1CommandDock2.Size = new System.Drawing.Size(536, 718);
+            this.c1ThemeController1.SetTheme(this.c1CommandDock1, "(default)");
             // 
             // c1DockingTab1
             // 
             this.c1DockingTab1.Alignment = System.Windows.Forms.TabAlignment.Bottom;
-            this.c1DockingTab1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.c1DockingTab1.BackColor = System.Drawing.Color.White;
+            this.c1DockingTab1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.c1DockingTab1.CanAutoHide = true;
             this.c1DockingTab1.CanCloseTabs = true;
             this.c1DockingTab1.CanMoveTabs = true;
             this.c1DockingTab1.Controls.Add(this.c1DockingTabPage1);
+            this.c1DockingTab1.HotTrack = true;
             this.c1DockingTab1.Location = new System.Drawing.Point(0, 0);
             this.c1DockingTab1.Name = "c1DockingTab1";
             this.c1DockingTab1.ShowCaption = true;
             this.c1DockingTab1.Size = new System.Drawing.Size(300, 718);
             this.c1DockingTab1.TabIndex = 0;
             this.c1DockingTab1.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
-            this.c1DockingTab1.TabsSpacing = 5;
+            this.c1DockingTab1.TabsShowFocusCues = false;
+            this.c1DockingTab1.TabsSpacing = 2;
+            this.c1DockingTab1.TabStyle = C1.Win.C1Command.TabStyleEnum.Office2007;
+            this.c1ThemeController1.SetTheme(this.c1DockingTab1, "Windows8Red");
             // 
             // c1DockingTabPage1
             // 
             this.c1DockingTabPage1.CaptionVisible = true;
             this.c1DockingTabPage1.Controls.Add(this.c1TopicBar1);
-            this.c1DockingTabPage1.Location = new System.Drawing.Point(0, 0);
+            this.c1DockingTabPage1.Location = new System.Drawing.Point(1, 1);
             this.c1DockingTabPage1.Name = "c1DockingTabPage1";
-            this.c1DockingTabPage1.Size = new System.Drawing.Size(297, 694);
+            this.c1DockingTabPage1.Size = new System.Drawing.Size(295, 693);
             this.c1DockingTabPage1.TabIndex = 0;
             this.c1DockingTabPage1.Text = "Page1";
             // 
             // c1TopicBar1
             // 
-            this.c1TopicBar1.AutoScrollMinSize = new System.Drawing.Size(0, 477);
+            this.c1TopicBar1.AutoScrollMinSize = new System.Drawing.Size(0, 471);
+            this.c1TopicBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(228)))), ((int)(((byte)(228)))));
             this.c1TopicBar1.ImageList = null;
             this.c1TopicBar1.Location = new System.Drawing.Point(3, 27);
             this.c1TopicBar1.Name = "c1TopicBar1";
+            this.c1TopicBar1.Padding = new System.Windows.Forms.Padding(12);
             this.c1TopicBar1.PagePadding = new System.Windows.Forms.Padding(10);
             c1TopicPage1.ImageList = null;
             c1TopicLink1.Text = "Import JOB";
@@ -156,32 +159,54 @@
             this.c1TopicBar1.Pages.Add(c1TopicPage5);
             this.c1TopicBar1.Size = new System.Drawing.Size(271, 527);
             this.c1TopicBar1.TabIndex = 1;
+            this.c1ThemeController1.SetTheme(this.c1TopicBar1, "Office2016Colorful");
             this.c1TopicBar1.LinkClick += new C1.Win.C1Command.C1TopicBarClickEventHandler(this.c1TopicBar1_LinkClick);
+            // 
+            // c1CommandDock2
+            // 
+            this.c1CommandDock2.BackColor = System.Drawing.Color.White;
+            this.c1CommandDock2.Controls.Add(this.c1DockingTab2);
+            this.c1CommandDock2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c1CommandDock2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(20)))), ((int)(((byte)(0)))));
+            this.c1CommandDock2.Id = 3;
+            this.c1CommandDock2.Location = new System.Drawing.Point(300, 0);
+            this.c1CommandDock2.Name = "c1CommandDock2";
+            this.c1CommandDock2.Size = new System.Drawing.Size(536, 718);
+            this.c1ThemeController1.SetTheme(this.c1CommandDock2, "Windows8Red");
             // 
             // c1DockingTab2
             // 
             this.c1DockingTab2.Alignment = System.Windows.Forms.TabAlignment.Bottom;
-            this.c1DockingTab2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.c1DockingTab2.BackColor = System.Drawing.Color.White;
+            this.c1DockingTab2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.c1DockingTab2.CanAutoHide = true;
             this.c1DockingTab2.CanCloseTabs = true;
             this.c1DockingTab2.CanMoveTabs = true;
             this.c1DockingTab2.Controls.Add(this.c1DockingTabPage2);
+            this.c1DockingTab2.HotTrack = true;
             this.c1DockingTab2.Location = new System.Drawing.Point(0, 0);
             this.c1DockingTab2.Name = "c1DockingTab2";
             this.c1DockingTab2.ShowCaption = true;
             this.c1DockingTab2.Size = new System.Drawing.Size(536, 718);
             this.c1DockingTab2.TabIndex = 0;
             this.c1DockingTab2.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
-            this.c1DockingTab2.TabsSpacing = 5;
+            this.c1DockingTab2.TabsShowFocusCues = false;
+            this.c1DockingTab2.TabsSpacing = 2;
+            this.c1DockingTab2.TabStyle = C1.Win.C1Command.TabStyleEnum.Office2007;
+            this.c1ThemeController1.SetTheme(this.c1DockingTab2, "Windows8Red");
             // 
             // c1DockingTabPage2
             // 
             this.c1DockingTabPage2.CaptionVisible = true;
-            this.c1DockingTabPage2.Location = new System.Drawing.Point(0, 0);
+            this.c1DockingTabPage2.Location = new System.Drawing.Point(1, 1);
             this.c1DockingTabPage2.Name = "c1DockingTabPage2";
-            this.c1DockingTabPage2.Size = new System.Drawing.Size(536, 694);
+            this.c1DockingTabPage2.Size = new System.Drawing.Size(534, 693);
             this.c1DockingTabPage2.TabIndex = 0;
             this.c1DockingTabPage2.Text = "Page2";
+            // 
+            // c1ThemeController1
+            // 
+            this.c1ThemeController1.Theme = "Windows8Red";
             // 
             // MainMenu
             // 
@@ -190,20 +215,23 @@
             this.ClientSize = new System.Drawing.Size(836, 718);
             this.Controls.Add(this.c1CommandDock2);
             this.Controls.Add(this.c1CommandDock1);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(20)))), ((int)(((byte)(0)))));
             this.Name = "MainMenu";
             this.Text = "MainMenu";
+            this.c1ThemeController1.SetTheme(this, "(default)");
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandDock1)).EndInit();
             this.c1CommandDock1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.c1CommandDock2)).EndInit();
-            this.c1CommandDock2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).EndInit();
             this.c1DockingTab1.ResumeLayout(false);
             this.c1DockingTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1TopicBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CommandDock2)).EndInit();
+            this.c1CommandDock2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab2)).EndInit();
             this.c1DockingTab2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -217,5 +245,6 @@
         private C1.Win.C1Command.C1TopicBar c1TopicBar1;
         private C1.Win.C1Command.C1DockingTab c1DockingTab2;
         private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage2;
+        private C1.Win.C1Themes.C1ThemeController c1ThemeController1;
     }
 }

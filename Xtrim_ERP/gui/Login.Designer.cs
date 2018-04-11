@@ -32,10 +32,12 @@
             this.btnOk = new C1.Win.C1Input.C1Button();
             this.c1TextBox1 = new C1.Win.C1Input.C1TextBox();
             this.c1TextBox2 = new C1.Win.C1Input.C1TextBox();
+            this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -48,7 +50,6 @@
             this.btnCancel.TabStop = false;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.VisualStyle = C1.Win.C1Input.VisualStyle.System;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOk
@@ -60,7 +61,6 @@
             this.btnOk.TabIndex = 1;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.VisualStyle = C1.Win.C1Input.VisualStyle.System;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // c1TextBox1
@@ -78,6 +78,7 @@
             // c1TextBox2
             // 
             this.c1TextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
+            this.c1TextBox2.BorderColor = System.Drawing.SystemColors.WindowFrame;
             this.c1TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.c1TextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.c1TextBox2.Location = new System.Drawing.Point(118, 114);
@@ -86,6 +87,10 @@
             this.c1TextBox2.TabIndex = 3;
             this.c1TextBox2.Tag = null;
             this.c1TextBox2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Black;
+            // 
+            // c1ThemeController1
+            // 
+            this.c1ThemeController1.Theme = "Windows8Gray";
             // 
             // Login
             // 
@@ -96,13 +101,18 @@
             this.Controls.Add(this.c1TextBox1);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancel);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.c1ThemeController1.SetTheme(this, "Windows8Gray");
+            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -113,5 +123,6 @@
         private C1.Win.C1Input.C1Button btnOk;
         private C1.Win.C1Input.C1TextBox c1TextBox1;
         private C1.Win.C1Input.C1TextBox c1TextBox2;
+        private C1.Win.C1Themes.C1ThemeController c1ThemeController1;
     }
 }

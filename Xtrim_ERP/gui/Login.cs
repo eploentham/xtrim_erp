@@ -32,5 +32,10 @@ namespace Xtrim_ERP.gui
             //Application.Exit();
             Application.Exit();
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

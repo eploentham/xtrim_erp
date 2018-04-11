@@ -3,18 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-<<<<<<< HEAD
 using System.Windows.Forms;
 using Xtrim_ERP.objdb;
 using Xtrim_ERP.object1;
-=======
->>>>>>> 67797074da1a4ea07327d03edaebcb623a94aad7
 
 namespace Xtrim_ERP.control
 {
     public class XtrimControl
     {
-<<<<<<< HEAD
         public InitConfig iniC;
         private IniFile iniF;
         public ConnectDB conn;
@@ -59,8 +55,5 @@ namespace Xtrim_ERP.control
             iniC.userDBEx = iniF.Read("userDBEx");
             iniC.userDBIm = iniF.Read("userDBIm");
         }
-=======
-
->>>>>>> 67797074da1a4ea07327d03edaebcb623a94aad7
     }
 }

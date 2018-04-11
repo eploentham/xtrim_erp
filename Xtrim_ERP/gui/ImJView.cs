@@ -28,8 +28,8 @@ namespace Xtrim_ERP.gui
         }
         private void setResize()
         {
-            grdView.Width = this.Width - 50;
-            grdView.Height = this.Height - 150;
+            //grdView.Width = this.Width - 20;
+            //grdView.Height = this.Height - c1InputPanel1.Height;
             //groupBox1.Width = this.Width - 50;
             //pB1.Width = this.Width - 900;
         }
@@ -61,8 +61,8 @@ namespace Xtrim_ERP.gui
             ctest.SetCalculatorText("Accept", "Cancel");
 
             //grdView.sheet
-            grdView.Height = 330;
-            grdView.Width = 765;
+            //grdView.Height = 330;
+            //grdView.Width = 765;
             grdView.Sheets[0].ColumnCount = 8;
             grdView.Sheets[0].RowCount = 100;
 
@@ -75,7 +75,7 @@ namespace Xtrim_ERP.gui
 
         private void ImJView_Resize(object sender, EventArgs e)
         {
-            setResize();
+            //setResize();
         }
 
         private void ImJView_ResizeEnd(object sender, EventArgs e)
