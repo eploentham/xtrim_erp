@@ -17,6 +17,16 @@ namespace Xtrim_ERP
         {
             InitializeComponent();
         }
+<<<<<<< HEAD:Xtrim_ERP/Form1.cs
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            ExAirLine aa = new ExAirLine();
+            aa.code = "";
+
+        }
+=======
         
+>>>>>>> 67797074da1a4ea07327d03edaebcb623a94aad7:Xtrim_ERP/gui/FrmMain.cs
     }
 }
