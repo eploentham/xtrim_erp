@@ -10,6 +10,8 @@ namespace Xtrim_ERP.objdb
     {
         ConnectDB conn;
 
+        public StaffDB sfDB;
+
         public XtrimDB(ConnectDB c)
         {
             conn = c;
@@ -17,7 +19,7 @@ namespace Xtrim_ERP.objdb
         }
         private void initConfig()
         {
-
+            sfDB = new StaffDB(conn);
         }
     }
 }

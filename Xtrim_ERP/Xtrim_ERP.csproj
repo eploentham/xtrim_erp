@@ -34,7 +34,6 @@
   <ItemGroup>
     <Reference Include="C1.C1Zip.4, Version=4.0.20173.282, Culture=neutral, PublicKeyToken=79882d576c6336da" />
     <Reference Include="C1.Win.4, Version=4.0.20173.282, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
-    <Reference Include="C1.Win.C1Command.4, Version=4.0.20173.282, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Input.2, Version=2.0.20173.282, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1InputPanel.4, Version=4.0.20173.282, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1List.4, Version=4.0.20173.282, Culture=neutral, PublicKeyToken=6b24f8f981dbd7bc, processorArchitecture=MSIL" />
@@ -52,8 +51,8 @@
     <Reference Include="GrapeCity.Spreadsheet, Version=11.40.20177.0, Culture=neutral, PublicKeyToken=327c3516b1b18457" />
     <Reference Include="GrapeCity.Spreadsheet.Win, Version=11.40.20177.0, Culture=neutral, PublicKeyToken=327c3516b1b18457" />
     <Reference Include="GrapeCity.Win.PluginInputMan, Version=11.40.20177.0, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Command.4, Version=4.0.20173.282, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.10.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -95,9 +94,14 @@
     <Compile Include="gui\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="objdb\BankDB.cs" />
+    <Compile Include="objdb\CompanyDB.cs" />
     <Compile Include="objdb\ConnectDB.cs" />
+    <Compile Include="objdb\StaffDB.cs" />
     <Compile Include="objdb\XtrimDB.cs" />
     <Compile Include="object1\Bank.cs" />
+    <Compile Include="object1\Company.cs" />
+    <Compile Include="object1\Staff.cs" />
     <Compile Include="object1\ComboBoxItem.cs" />
     <Compile Include="object1\ExAirLine.cs" />
     <Compile Include="object1\ExAutho.cs" />

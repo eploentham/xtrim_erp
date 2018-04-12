@@ -13,9 +13,7 @@ namespace Xtrim_ERP.objdb
     {
         public MySqlConnection connIm, connEx, conn;
         MySqlCommand comNoClose = new MySqlCommand();
-
-
-
+        
         public int _rowsAffected = 0;
         private InitConfig initC;
 
@@ -92,9 +90,9 @@ namespace Xtrim_ERP.objdb
             try
             {
                 con.Open();
-                //_rowsAffected = comMainhis.ExecuteNonQuery();
-                _rowsAffected = (int)com.ExecuteScalar();
-                toReturn = _rowsAffected.ToString();
+                _rowsAffected = com.ExecuteNonQuery();
+                //_rowsAffected = (int)com.ExecuteScalar();
+                toReturn = com.LastInsertedId.ToString();
             }
             catch (Exception ex)
             {
