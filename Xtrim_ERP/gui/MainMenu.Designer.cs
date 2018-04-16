@@ -48,6 +48,8 @@
             C1.Win.C1Command.C1TopicLink c1TopicLink12 = new C1.Win.C1Command.C1TopicLink();
             C1.Win.C1Command.C1TopicLink c1TopicLink13 = new C1.Win.C1Command.C1TopicLink();
             C1.Win.C1Command.C1TopicLink c1TopicLink14 = new C1.Win.C1Command.C1TopicLink();
+            C1.Win.C1Command.C1TopicLink c1TopicLink15 = new C1.Win.C1Command.C1TopicLink();
+            C1.Win.C1Command.C1TopicLink c1TopicLink16 = new C1.Win.C1Command.C1TopicLink();
             this.c1CommandDock1 = new C1.Win.C1Command.C1CommandDock();
             this.c1DockingTab1 = new C1.Win.C1Command.C1DockingTab();
             this.c1DockingTabPage1 = new C1.Win.C1Command.C1DockingTabPage();
@@ -118,7 +120,7 @@
             // 
             // c1TopicBar1
             // 
-            this.c1TopicBar1.AutoScrollMinSize = new System.Drawing.Size(0, 503);
+            this.c1TopicBar1.AutoScrollMinSize = new System.Drawing.Size(0, 535);
             this.c1TopicBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(228)))), ((int)(((byte)(228)))));
             this.c1TopicBar1.ImageList = null;
             this.c1TopicBar1.Location = new System.Drawing.Point(3, 27);
@@ -157,11 +159,15 @@
             c1TopicLink12.Text = "สกุลเงิน";
             c1TopicLink13.Text = "ธนาคาร";
             c1TopicLink14.Text = "บริษัท";
+            c1TopicLink15.Text = "พนักงาน";
+            c1TopicLink16.Text = "ลูกค้า";
             c1TopicPage5.Links.Add(c1TopicLink10);
             c1TopicPage5.Links.Add(c1TopicLink11);
             c1TopicPage5.Links.Add(c1TopicLink12);
             c1TopicPage5.Links.Add(c1TopicLink13);
             c1TopicPage5.Links.Add(c1TopicLink14);
+            c1TopicPage5.Links.Add(c1TopicLink15);
+            c1TopicPage5.Links.Add(c1TopicLink16);
             c1TopicPage5.Text = "Initial กำหนดค่าโปรแกรม";
             this.c1TopicBar1.Pages.Add(c1TopicPage1);
             this.c1TopicBar1.Pages.Add(c1TopicPage2);

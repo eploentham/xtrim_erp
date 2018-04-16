@@ -80,7 +80,6 @@ namespace Xtrim_ERP.objdb
             {
                 re = update(p);
             }
-
             return re;
         }
         public String voidBank(String id)

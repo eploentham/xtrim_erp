@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace Xtrim_ERP.objdb
             stf.staff_lname_e = "staff_lname_e";
             stf.password1 = "password1";
             stf.active = "active";
-            stf.remark = "staff_remark";
+            stf.remark = "remark";
             stf.priority = "priority";
             stf.tele = "tele";
             stf.mobile = "mobile";
@@ -43,6 +44,11 @@ namespace Xtrim_ERP.objdb
             stf.user_create = "user_create";
             stf.user_modi = "user_modi";
             stf.user_cancel = "user_cancel";
+            stf.pid = "pid";
+            stf.logo = "logo";
+
+            stf.table = "b_staff";
+            stf.pkField = "staff_id";
         }
         public String insert(Staff p)
         {
@@ -50,6 +56,16 @@ namespace Xtrim_ERP.objdb
             String sql = "";
             p.active = "1";
             //p.ssdata_id = "";
+            int chk = 0;
+
+            p.date_modi = p.date_modi == null ? "" : p.date_modi;
+            p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
+            p.user_create = p.user_create == null ? "" : p.user_create;
+            p.user_modi = p.user_modi == null ? "" : p.user_modi;
+            p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
+            p.prefix_id = int.TryParse(p.prefix_id, out chk) ? chk.ToString() : "0";
+
+
             sql = "Insert Into " + stf.table + "(" + stf.staff_code + "," + stf.username + "," + stf.prefix_id + "," +
                 stf.staff_fname_t + "," + stf.staff_fname_e + "," + stf.password1 + "," +
                 stf.active + "," + stf.remark + "," + stf.priority + "," +
@@ -57,7 +73,8 @@ namespace Xtrim_ERP.objdb
                 stf.email + "," + stf.posi_id + "," + stf.posi_name + "," +
                 stf.date_create + "," + stf.date_modi + "," + stf.date_cancel + "," +
                 stf.user_create + "," + stf.user_modi + "," + stf.user_cancel + ","+
-                stf.staff_lname_t + "," + stf.staff_lname_e + " " +
+                stf.staff_lname_t + "," + stf.staff_lname_e + ", " + stf.pid + ", " +
+                stf.logo + " " +
                 ") " +
                 "Values ('" + p.staff_code + "','" + p.username + "','" + p.prefix_id + "'," +
                 "'" + p.staff_fname_t.Replace("'", "''") + "','" + p.staff_fname_e.Replace("'", "''") + "','" + p.password1 + "'," +
@@ -66,11 +83,142 @@ namespace Xtrim_ERP.objdb
                 "'" + p.email + "','" + p.posi_id + "','" + p.posi_name + "'," +
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "', " +
-                "'" + p.staff_lname_t.Replace("'", "''") + "','" + p.staff_lname_e.Replace("'", "''") + "' " +
+                "'" + p.staff_lname_t.Replace("'", "''") + "','" + p.staff_lname_e.Replace("'", "''") + "','" + p.pid + "', " +
+                "'" + p.logo+"' " +
                 ")";
-            re = conn.ExecuteNonQuery(conn.conn, sql);
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
 
             return re;
+        }
+        public String update(Staff p)
+        {
+            String re = "";
+            String sql = "";
+
+            sql = "Update " + stf.table + " Set " +
+                " "+stf.staff_code + " = '" + p.staff_code + "'" +
+                "," + stf.username + " = '" + p.username.Replace("'","''") + "'" +
+                "," + stf.prefix_id + " = '" + p.prefix_id + "'" +
+                "," + stf.staff_fname_t + " = '" + p.staff_fname_t.Replace("'", "''") + "'" +
+                "," + stf.staff_fname_e + " = '" + p.staff_fname_e.Replace("'", "''") + "'" +
+                "," + stf.staff_lname_t + " = '" + p.staff_lname_t.Replace("'", "''") + "'" +
+                "," + stf.staff_lname_e + " = '" + p.staff_lname_e.Replace("'", "''") + "'" +
+                "," + stf.password1 + " = '" + p.password1.Replace("'", "''") + "'" +
+                "," + stf.remark + " = '" + p.remark.Replace("'", "''") + "'" +
+                "," + stf.priority + " = '" + p.priority + "'" +
+                "," + stf.tele + " = '" + p.tele + "'" +
+                "," + stf.mobile + " = '" + p.mobile + "'" +
+                "," + stf.fax + " = '" + p.fax + "'" +
+                "," + stf.email + " = '" + p.email + "'" +
+                "," + stf.posi_id + " = '" + p.posi_id + "'" +
+                "," + stf.posi_name + " = '" + p.posi_name.Replace("'", "''") + "'" +
+                "," + stf.date_modi + " = now()" +
+                "," + stf.pid + " = '" + p.pid + "'" +
+                "," + stf.logo + " = '" + p.logo + "' " +
+                "," + stf.user_modi + " = '" + p.user_modi + "' " +
+                "Where " + stf.pkField + "='" + p.staff_id + "'"
+                ;
+
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
+
+            return re;
+        }
+        public String insertStaff(Staff p)
+        {
+            String re = "";
+
+            if (p.staff_id.Equals(""))
+            {
+                re = insert(p);
+            }
+            else
+            {
+                re = update(p);
+            }
+
+            return re;
+        }
+        public DataTable selectAll()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cop.*  " +
+                "From " + stf.table + " cop " +
+                " " +
+                "Where cop." + stf.active + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectByPk(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select stf.* " +
+                "From " + stf.table + " stf " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where stf." + stf.pkField + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
+        public Staff selectByPk1(String copId)
+        {
+            Staff cop1 = new Staff();
+            DataTable dt = new DataTable();
+            String sql = "select stf.* " +
+                "From " + stf.table + " stf " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where stf." + stf.pkField + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            cop1 = setStaff(dt);
+            return cop1;
+        }
+        private Staff setStaff(DataTable dt)
+        {
+            Staff stf1 = new Staff();
+            if (dt.Rows.Count > 0)
+            {
+                stf1.staff_id = dt.Rows[0][stf.staff_id].ToString();
+                stf1.staff_code = dt.Rows[0][stf.staff_code].ToString();
+                stf1.username = dt.Rows[0][stf.username].ToString();
+                stf1.prefix_id = dt.Rows[0][stf.prefix_id].ToString();
+                stf1.staff_fname_t = dt.Rows[0][stf.staff_fname_t].ToString();
+                stf1.staff_fname_e = dt.Rows[0][stf.staff_fname_e].ToString();
+                stf1.staff_lname_t = dt.Rows[0][stf.staff_lname_t].ToString();
+                stf1.staff_lname_e = dt.Rows[0][stf.staff_lname_e].ToString();
+                stf1.password1 = dt.Rows[0][stf.password1].ToString();
+                stf1.active = dt.Rows[0][stf.active].ToString();
+                stf1.remark = dt.Rows[0][stf.remark].ToString();
+                stf1.priority = dt.Rows[0][stf.priority].ToString();
+                stf1.tele = dt.Rows[0][stf.tele].ToString();
+                stf1.mobile = dt.Rows[0][stf.mobile].ToString();
+                stf1.fax = dt.Rows[0][stf.fax].ToString();
+                stf1.email = dt.Rows[0][stf.email].ToString();
+                stf1.posi_id = dt.Rows[0][stf.posi_id].ToString();
+                stf1.posi_name = dt.Rows[0][stf.posi_name].ToString();
+                stf1.date_create = dt.Rows[0][stf.date_create].ToString();
+                stf1.date_modi = dt.Rows[0][stf.date_modi].ToString();
+                stf1.date_cancel = dt.Rows[0][stf.date_cancel].ToString();
+                stf1.user_create = dt.Rows[0][stf.user_create].ToString();
+                stf1.user_modi = dt.Rows[0][stf.user_modi].ToString();
+                stf1.user_cancel = dt.Rows[0][stf.user_cancel].ToString();
+                stf1.pid = dt.Rows[0][stf.pid].ToString();
+                stf1.logo = dt.Rows[0][stf.logo].ToString();
+            }
+
+            return stf1;
         }
     }
 }

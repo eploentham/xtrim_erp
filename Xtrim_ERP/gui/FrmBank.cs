@@ -20,9 +20,6 @@ namespace Xtrim_ERP.gui
         Font fEdit, fEditB;
 
         int colID = 0, colE = 1, colS = 2, colCode = 3, colNameT = 4, colNameE = 5, colRemark = 6, coledit=7;
-
-        
-
         int colCnt = 8;
 
         public FrmBank(XtrimControl x)
@@ -144,7 +141,6 @@ namespace Xtrim_ERP.gui
             grdView.Sheets[grdView.ActiveSheet.SheetName].Cells[e.Row, coledit].Value = "1";
             grdView.Sheets[grdView.ActiveSheet.SheetName].Cells[e.Row, e.Column].Font = fEdit;
             grdView.Sheets[grdView.ActiveSheet.SheetName].Cells[e.Row, e.Column].ForeColor = Color.Red;
-            
         }
         private void grdView_ButtonClicked(object sender, FarPoint.Win.Spread.EditorNotifyEventArgs e)
         {

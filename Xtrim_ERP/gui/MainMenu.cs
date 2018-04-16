@@ -110,6 +110,20 @@ namespace Xtrim_ERP.gui
                 TabPage tab = new TabPage(e.Link.Text);
                 AddNewTab(frm, e.Link.Text);
             }
+            else if (e.Link.Text.Equals("พนักงาน"))
+            {
+                FrmStaff frm = new FrmStaff(xC);
+                frm.FormBorderStyle = FormBorderStyle.None;
+                TabPage tab = new TabPage(e.Link.Text);
+                AddNewTab(frm, e.Link.Text);
+            }
+            else if (e.Link.Text.Equals("ลูกค้า"))
+            {
+                FrmCustomer frm = new FrmCustomer(xC);
+                frm.FormBorderStyle = FormBorderStyle.None;
+                TabPage tab = new TabPage(e.Link.Text);
+                AddNewTab(frm, e.Link.Text);
+            }
         }
 
         private void tC1_DrawItem(object sender, DrawItemEventArgs e)

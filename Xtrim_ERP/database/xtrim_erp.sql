@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: xtrim_erp
+-- Host: localhost    Database: xtrim_erp
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.25-MariaDB
+-- Server version	5.7.21-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -108,7 +108,7 @@ CREATE TABLE `b_company` (
   `eaddr3` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `eaddr4` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`comp_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,6 +117,7 @@ CREATE TABLE `b_company` (
 
 LOCK TABLES `b_company` WRITE;
 /*!40000 ALTER TABLE `b_company` DISABLE KEYS */;
+INSERT INTO `b_company` VALUES (1,'001','บริษัท เอ็กซ์ทริม โลจิสติกส์ จำกัด','XTRIM LOGISTICS CO.,LTD.','','','','','','','','10110','02-6123519','02-6123051','','xtrim-logistics.co.th','','0105549126051','','','2018-04-16 10:47:45','2018-04-16 11:04:59','','','','','','','','','','','','','','','','','','','1','','47 อาคาร เอ็มที เแอนด์ ที่ ชั้น 4','พระโขนง','วัฒนา','กทมฯ','','','','');
 /*!40000 ALTER TABLE `b_company` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,16 +164,16 @@ DROP TABLE IF EXISTS `b_contact`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `b_contact` (
-  `contact_id` int(11) NOT NULL AUTO_INCREMENT,
-  `comp_id` int(11) DEFAULT NULL,
-  `contact_code` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `cont_id` int(11) NOT NULL AUTO_INCREMENT,
+  `cust_id` int(11) DEFAULT NULL,
+  `cont_code` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `username` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `password1` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `prefix_id` int(11) DEFAULT NULL,
-  `contact_fname_t` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `contact_fname_e` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `contact_lname_t` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `contact_lname_e` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `cont_fname_t` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `cont_fname_e` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `cont_lname_t` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `cont_lname_e` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `active` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `priority` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `tele` varchar(255) COLLATE utf8_bin DEFAULT NULL,
@@ -188,7 +189,7 @@ CREATE TABLE `b_contact` (
   `user_modi` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `user_cancel` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `remark` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`contact_id`)
+  PRIMARY KEY (`cont_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -401,8 +402,10 @@ CREATE TABLE `b_staff` (
   `user_modi` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `user_cancel` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `remark` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `pid` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `logo` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`staff_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -411,6 +414,7 @@ CREATE TABLE `b_staff` (
 
 LOCK TABLES `b_staff` WRITE;
 /*!40000 ALTER TABLE `b_staff` DISABLE KEYS */;
+INSERT INTO `b_staff` VALUES (1,'001','','',0,'เอกภพ','Ekapop','เพลินธรรม','Ploentham','1','','','','','','','','2018-04-16 15:26:45','2018-04-16 15:30:36','','','','','','','');
 /*!40000 ALTER TABLE `b_staff` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -528,4 +532,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-16  8:12:57
+-- Dump completed on 2018-04-16 18:58:35

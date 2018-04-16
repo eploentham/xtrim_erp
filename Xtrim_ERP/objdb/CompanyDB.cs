@@ -66,12 +66,12 @@ namespace Xtrim_ERP.objdb
             cop.taddr2 = "taddr2";
             cop.taddr3 = "taddr3";
             cop.taddr4 = "taddr4";
-            cop.taddr1 = "taddr1";
-            cop.taddr2 = "taddr2";
-            cop.taddr3 = "taddr3";
-            cop.taddr4 = "taddr4";
+            cop.eaddr1 = "eaddr1";
+            cop.eaddr2 = "eaddr2";
+            cop.eaddr3 = "eaddr3";
+            cop.eaddr4 = "eaddr4";
 
-            cop.table = "company";
+            cop.table = "b_company";
             cop.pkField = "comp_id";
         }
         public String insert(Company p)
@@ -98,6 +98,11 @@ namespace Xtrim_ERP.objdb
             p.qu_line3 = p.inv_line3 == null ? "" : p.inv_line3;
             p.po_line1 = p.po_line1 == null ? "" : p.po_line1;
             p.po_due_period = p.po_due_period == null ? "" : p.po_due_period;
+            p.addr1 = p.addr1 == null ? "" : p.addr1;
+            p.addr2 = p.addr2 == null ? "" : p.addr2;
+            p.amphur_id = p.amphur_id == null ? "" : p.amphur_id;
+            p.district_id = p.district_id == null ? "" : p.district_id;
+            p.province_id = p.province_id == null ? "" : p.province_id;
 
             sql = "Insert Into " + cop.table + "(" + cop.comp_code + "," + cop.comp_name_t + "," + cop.comp_name_e + "," +
                 cop.comp_address_e + "," + cop.comp_address_t + ", " + cop.addr1 + ", " +
@@ -125,7 +130,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.logo + "','" + p.tax_id + "','" + p.vat + "'," +
                 "'" + p.spec1 + "',now(),'" + p.date_modi + "'," +
                 "'" + p.date_cancel + "','" + p.user_create + "','" + p.user_modi + "'," +
-                "'" + p.user_cancel + "','" + p.remark.Replace("'", "''") + "','" +
+                "'" + p.user_cancel + "','" + p.remark.Replace("'", "''") + "'," +
                 "'" + p.qu_line1 + "','" + p.qu_line2 + "','" + p.qu_line3 + "'," +
                 "'" + p.qu_line4 + "','" + p.qu_line5 + "','" + p.qu_line6 + "'," +
                 "'" + p.inv_line1 + "','" + p.inv_line2 + "','" + p.inv_line3 + "'," +
@@ -135,7 +140,15 @@ namespace Xtrim_ERP.objdb
                 "'" + p.taddr4 + "','" + p.eaddr1 + "','" + p.eaddr2 + "', " +
                 "'" + p.eaddr3 + "','" + p.eaddr4 + "' " +
                 ")";
-            re = conn.ExecuteNonQuery(conn.conn, sql);
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " "+ex.InnerException;
+            }
+            
 
             return re;
         }
@@ -223,7 +236,29 @@ namespace Xtrim_ERP.objdb
                 "," + cop.eaddr4 + "='" + p.eaddr4.Replace("'", "''") + "' " +
                 "Where " + cop.pkField + "='" + p.comp_id + "'"
                 ;
-            re = conn.ExecuteNonQuery(conn.conn, sql);
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
+
+            return re;
+        }
+        public String insertCompany(Company p)
+        {
+            String re = "";
+
+            if (p.comp_id.Equals(""))
+            {
+                re = insert(p);
+            }
+            else
+            {
+                re = update(p);
+            }
 
             return re;
         }
@@ -233,7 +268,7 @@ namespace Xtrim_ERP.objdb
             String sql = "select cop.*  " +
                 "From " + cop.table + " cop " +
                 " " +
-                "Where ban." + cop.active + " ='1' ";
+                "Where cop." + cop.active + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -244,7 +279,7 @@ namespace Xtrim_ERP.objdb
             String sql = "select cop.* " +
                 "From " + cop.table + " cop " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where bd." + cop.comp_id + " ='" + copId + "' ";
+                "Where cop." + cop.comp_id + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);            
             return dt;
         }
@@ -255,7 +290,7 @@ namespace Xtrim_ERP.objdb
             String sql = "select cop.* " +
                 "From " + cop.table + " cop " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where bd." + cop.comp_id + " ='" + copId + "' ";
+                "Where cop." + cop.comp_id + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setCompany(dt);
             return cop1;
