@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Xtrim_ERP.object1
 {
-    public class Company:Peinvistent
+    public class Company:Persistent
     {
         public String comp_id { get; set; }
         public String comp_code { get; set; }
@@ -27,13 +27,7 @@ namespace Xtrim_ERP.object1
         public String logo { get; set; }
         public String tax_id { get; set; }
         public String vat { get; set; }
-        public String spec1 { get; set; }
-        public String date_create { get; set; }
-        public String date_modi { get; set; }
-        public String date_cancel { get; set; }
-        public String user_create { get; set; }
-        public String user_modi { get; set; }
-        public String user_cancel { get; set; }
+        public String spec1 { get; set; }        
         public String qu_line1 { get; set; }
         public String qu_line2 { get; set; }
         public String qu_line3 { get; set; }
@@ -48,5 +42,14 @@ namespace Xtrim_ERP.object1
         public String inv_line6 { get; set; }
         public String po_line1 { get; set; }
         public String po_due_period { get; set; }
+        public String taddr1 { get; set; }
+        public String taddr2 { get; set; }
+        public String taddr3 { get; set; }
+        public String taddr4 { get; set; }
+        public String eaddr1 { get; set; }
+        public String eaddr2 { get; set; }
+        public String eaddr3 { get; set; }
+        public String eaddr4 { get; set; }
+        
     }
 }

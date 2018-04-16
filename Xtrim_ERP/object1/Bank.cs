@@ -12,7 +12,6 @@ namespace Xtrim_ERP.object1
         public String bank_code { get; set; }
         public String bank_name_t { get; set; }
         public String bank_name_e { get; set; }
-        public String active { get; set; }
-        public String remark { get; set; }
+        
     }
 }

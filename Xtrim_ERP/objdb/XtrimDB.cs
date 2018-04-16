@@ -11,6 +11,8 @@ namespace Xtrim_ERP.objdb
         ConnectDB conn;
 
         public StaffDB sfDB;
+        public BankDB banDB;
+        public CompanyDB copDB;
 
         public XtrimDB(ConnectDB c)
         {
@@ -20,6 +22,8 @@ namespace Xtrim_ERP.objdb
         private void initConfig()
         {
             sfDB = new StaffDB(conn);
+            banDB = new BankDB(conn);
+            copDB = new CompanyDB(conn);
         }
     }
 }

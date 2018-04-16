@@ -14,7 +14,12 @@ namespace Xtrim_ERP.control
         public InitConfig iniC;
         private IniFile iniF;
         public ConnectDB conn;
-        
+        public int grdViewFontSize=0;
+
+        public XtrimDB xtDB;
+
+        public String copID = "";
+
         public XtrimControl()
         {
             initConfig();
@@ -33,9 +38,12 @@ namespace Xtrim_ERP.control
                 appName = Environment.CurrentDirectory + "\\" + Application.ProductName + ".ini";
             }
             iniF = new IniFile(appName);
-            iniC = new InitConfig();
+            iniC = new InitConfig();            
+
             GetConfig();
             conn = new ConnectDB(iniC);
+
+            xtDB = new XtrimDB(conn);
         }
         public void GetConfig()
         {
@@ -54,6 +62,12 @@ namespace Xtrim_ERP.control
             iniC.userDB = iniF.Read("userDB");
             iniC.userDBEx = iniF.Read("userDBEx");
             iniC.userDBIm = iniF.Read("userDBIm");
+
+            iniC.grdViewFontSize = iniF.Read("grdViewFontSize");
+            iniC.grdViewFontName = iniF.Read("grdViewFontName");
+
+            iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
+            int.TryParse(iniC.grdViewFontSize, out grdViewFontSize);
         }
     }
 }

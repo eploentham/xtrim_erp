@@ -1,0 +1,9 @@
+ALTER TABLE `xtrim_erp`.`b_bank` 
+ADD COLUMN  `date_create` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+ADD COLUMN  `date_modi` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+ADD COLUMN  `date_cancel` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+ADD COLUMN  `user_create` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+ADD COLUMN  `user_modi` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+ADD COLUMN  `user_cancel` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+ADD COLUMN  `active` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+ADD COLUMN  `remark` varchar(255) CHARACTER SET utf8 DEFAULT NULL;
