@@ -50,5 +50,10 @@ namespace Xtrim_ERP.object1
         public String eaddr2 { get; set; }
         public String eaddr3 { get; set; }
         public String eaddr4 { get; set; }
+
+        public String remark3 { get; set; }
+        public String payerprofile { get; set; }
+        public String payerorg { get; set; }
+        public String payeruser { get; set; }
     }
 }

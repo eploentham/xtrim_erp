@@ -71,6 +71,10 @@ namespace Xtrim_ERP.objdb
             imp.eaddr3 = "eaddr3";
 
             imp.eaddr4 = "eaddr4";
+            imp.remark3 = "remark3";
+            imp.payerorg = "payerorg";
+            imp.payerprofile = "payerprofile";
+            imp.payeruser = "payeruser";
 
             imp.table = "b_importer";
             imp.pkField = "imp_id";
@@ -110,6 +114,10 @@ namespace Xtrim_ERP.objdb
             p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
             p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
             p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
+            p.remark3 = p.remark3 == null ? "" : p.remark3;
+            p.payerorg = p.payerorg == null ? "" : p.payerorg;
+            p.payerprofile = p.payerprofile == null ? "" : p.payerprofile;
+            p.payeruser = p.payeruser == null ? "" : p.payeruser;
             p.cust_id = int.TryParse(p.cust_id, out chk) ? chk.ToString() : "0";
 
             sql = "Insert Into " + imp.table + "(" + imp.imp_code + "," + imp.imp_name_t + "," + imp.imp_name_e + "," +
@@ -125,7 +133,8 @@ namespace Xtrim_ERP.objdb
                 imp.remark2 + "," + imp.po_due_period + ", " + imp.taddr1 + ", " +
                 imp.taddr2 + "," + imp.taddr3 + ", " + imp.taddr4 + ", " +
                 imp.eaddr1 + "," + imp.eaddr2 + ", " + imp.eaddr3 + ", " +
-                imp.eaddr4 + ", " + imp.cust_id + " "+
+                imp.eaddr4 + ", " + imp.cust_id + ", "+ imp.remark3 + ", " +
+                imp.payerorg + ", " + imp.payerprofile + ", " + imp.payeruser + " " +
                 ") " +
                 "Values ('" + p.imp_code + "','" + p.imp_name_t.Replace("'", "''") + "','" + p.imp_name_e.Replace("'", "''") + "'," +
                 "'" + p.active + "','" + p.address_t.Replace("'", "''") + "','" + p.address_e.Replace("'", "''") + "'," +
@@ -140,7 +149,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.remark2.Replace("'", "''") + "','" + p.po_due_period + "','" + p.taddr1 + "', " +
                 "'" + p.taddr2.Replace("'", "''") + "','" + p.taddr3.Replace("'", "''") + "','" + p.taddr4.Replace("'", "''") + "', " +
                 "'" + p.eaddr1.Replace("'", "''") + "','" + p.eaddr2.Replace("'", "''") + "','" + p.eaddr3.Replace("'", "''") + "', " +
-                "'" + p.eaddr4.Replace("'", "''") + "','" + p.cust_id + "' " +
+                "'" + p.eaddr4.Replace("'", "''") + "','" + p.cust_id + "','" + p.remark3.Replace("'", "''") + "', " +
+                "'" + p.payerorg.Replace("'", "''") + "','" + p.payerprofile.Replace("'", "''") + "','" + p.payeruser.Replace("'", "''") + "' " +
                 ")";
 
             try
@@ -185,8 +195,10 @@ namespace Xtrim_ERP.objdb
             p.zipcode = p.zipcode == null ? "" : p.zipcode;
             p.status_company = p.status_company == null ? "" : p.status_company;
             p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
-            //p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
-            //p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
+            p.remark3 = p.remark3 == null ? "" : p.remark3;
+            p.payerorg = p.payerorg == null ? "" : p.payerorg;
+            p.payerprofile = p.payerprofile == null ? "" : p.payerprofile;
+            p.payeruser = p.payeruser == null ? "" : p.payeruser;
             p.cust_id = int.TryParse(p.cust_id, out chk) ? chk.ToString() : "0";
 
             sql = "Update " + imp.table + " Set " +
@@ -226,6 +238,10 @@ namespace Xtrim_ERP.objdb
                 "," + imp.eaddr3 + " = '" + p.eaddr3 + "' " +
                 "," + imp.eaddr4 + " = '" + p.eaddr4 + "' " +
                 "," + imp.cust_id + " = '" + p.cust_id + "' " +
+                "," + imp.remark3 + " = '" + p.remark3 + "' " +
+                "," + imp.payerorg + " = '" + p.payerorg + "' " +
+                "," + imp.payerprofile + " = '" + p.payerprofile + "' " +
+                "," + imp.payeruser + " = '" + p.payeruser + "' " +
                 "Where " + imp.pkField + "='" + p.cust_id + "'"
                 ;
 
@@ -343,6 +359,10 @@ namespace Xtrim_ERP.objdb
                 imp1.eaddr3 = dt.Rows[0][imp.eaddr3].ToString();
 
                 imp1.eaddr4 = dt.Rows[0][imp.eaddr4].ToString();
+                imp1.remark3 = dt.Rows[0][imp.remark3].ToString();
+                imp1.payerorg = dt.Rows[0][imp.payerorg].ToString();
+                imp1.payerprofile = dt.Rows[0][imp.payerprofile].ToString();
+                imp1.payeruser = dt.Rows[0][imp.payeruser].ToString();
             }
 
             return imp1;

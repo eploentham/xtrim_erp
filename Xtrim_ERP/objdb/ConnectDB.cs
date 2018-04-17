@@ -14,7 +14,8 @@ namespace Xtrim_ERP.objdb
     public class ConnectDB
     {
         public MySqlConnection connIm, connEx, conn;
-        public OleDbConnection conA = new OleDbConnection();
+        public MySqlConnection connNoClose;
+        public OleDbConnection connA = new OleDbConnection();
 
         MySqlCommand comNoClose = new MySqlCommand();
         
@@ -26,22 +27,25 @@ namespace Xtrim_ERP.objdb
             conn = new MySqlConnection();
             connIm = new MySqlConnection();
             connEx = new MySqlConnection();
+            connNoClose = new MySqlConnection();
+            
             conn.ConnectionString = "Server=" + initc.hostDB + ";Database=" + initc.nameDB + ";Uid=" + initc.userDB + ";Pwd=" + initc.passDB + ";port = "+ initc.portDB+ "; Connection Timeout = 300;default command timeout=0; CharSet=utf8;";
+            connNoClose.ConnectionString = "Server=" + initc.hostDB + ";Database=" + initc.nameDB + ";Uid=" + initc.userDB + ";Pwd=" + initc.passDB + ";port = " + initc.portDB + "; Connection Timeout = 300;default command timeout=0; CharSet=utf8;";
             connIm.ConnectionString = "Server=" + initc.hostDBIm + ";Database=" + initc.nameDBIm + ";Uid=" + initc.userDBIm + ";Pwd=" + initc.passDBIm + ";port = " + initc.portDBIm + "; Connection Timeout = 300;default command timeout=0; CharSet=utf8;";
             connEx.ConnectionString = "Server=" + initc.hostDBEx + ";Database=" + initc.nameDBEx + ";Uid=" + initc.userDBEx + ";Pwd=" + initc.passDBEx + ";port = " + initc.portDBEx + "; Connection Timeout = 300;default command timeout=0; CharSet=utf8;";
         }
         public ConnectDB(String pathSSO)
         {
             String flag = CheckOfficeVersionAccess();
-            conA = new OleDbConnection();
+            connA = new OleDbConnection();
             //_mainConnection.ConnectionString = GetConfig("Main.ConnectionString");
             if (flag.Equals("32"))
             {
-                conA.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + pathSSO + ";Persist Security Info=False";
+                connA.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + pathSSO + ";Persist Security Info=False";
             }
             else if (flag.Equals("64"))
             {
-                conA.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" + pathSSO + ";Persist Security Info=False";
+                connA.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" + pathSSO + ";Persist Security Info=False";
             }
 
             //_mainConnection.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=D:\\source\reportBangna\\reportBangna\\DataBase\\reportBangna.mdb;Persist Security Info=False";
@@ -74,13 +78,40 @@ namespace Xtrim_ERP.objdb
             }
             return toReturn;
         }
-        public DataTable selectDataNoClose(MySqlConnection con, String sql)
+        public DataTable selectDataA(OleDbConnection con, String sql)
+        {
+            DataTable toReturn = new DataTable();
+
+            OleDbCommand comMainhis = new OleDbCommand();
+            comMainhis.CommandText = sql;
+            comMainhis.CommandType = CommandType.Text;
+            comMainhis.Connection = con;
+            OleDbDataAdapter adapMainhis = new OleDbDataAdapter(comMainhis);
+            try
+            {
+                con.Open();
+                adapMainhis.Fill(toReturn);
+                //return toReturn;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+            finally
+            {
+                con.Close();
+                comMainhis.Dispose();
+                adapMainhis.Dispose();
+            }
+            return toReturn;
+        }
+        public DataTable selectDataNoClose(String sql)
         {
             DataTable toReturn = new DataTable();
             
             comNoClose.CommandText = sql;
             comNoClose.CommandType = CommandType.Text;
-            comNoClose.Connection = con;
+            comNoClose.Connection = connNoClose;
             MySqlDataAdapter adapMainhis = new MySqlDataAdapter(comNoClose);
             try
             {
@@ -129,18 +160,40 @@ namespace Xtrim_ERP.objdb
 
             return toReturn;
         }
-        public String ExecuteNonQueryNoClose(MySqlConnection con, String sql)
+        public String ExecuteNonQueryNoClose(String sql)
         {
             String toReturn = "";
-            comNoClose.CommandText = sql + "; SELECT SCOPE_IDENTITY();";
+            comNoClose.CommandText = sql;
             comNoClose.CommandType = CommandType.Text;
-            comNoClose.Connection = con;
+            comNoClose.Connection = connNoClose;
             try
             {
                 //connMainHIS.Open();
                 //_rowsAffected = comMainhisNoClose.ExecuteNonQuery();
-                var aaa = comNoClose.ExecuteScalar();
-                toReturn = aaa.ToString();
+                var aaa = comNoClose.ExecuteNonQuery();
+                //toReturn = aaa.ToString();
+                toReturn = sql.Substring(0, 1).ToLower() == "i" ? comNoClose.LastInsertedId.ToString() : _rowsAffected.ToString();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("ExecuteNonQuery::Error occured.", ex);
+                toReturn = ex.Message;
+            }
+            finally
+            {
+                //_mainConnection.Close();
+                //comMainhis.Dispose();
+            }
+            return toReturn;
+        }
+        public String OpenConnectionNoClose()
+        {
+            String toReturn = "";
+            try
+            {
+                connNoClose.Open();
+                //_rowsAffected = comMainhis.ExecuteNonQuery();
+                //toReturn = _rowsAffected.ToString();
             }
             catch (Exception ex)
             {
@@ -179,6 +232,10 @@ namespace Xtrim_ERP.objdb
         public void CloseConnection()
         {
             conn.Close();
+        }
+        public void CloseConnectionNoClose()
+        {
+            connNoClose.Close();
         }
         public String OpenConnectionEx()
         {
@@ -228,16 +285,131 @@ namespace Xtrim_ERP.objdb
 
             return toReturn;
         }
+        public String TestOpenConnectionA(String pathA, String flag)
+        {
+            String toReturn = "";
+            try
+            {
+                toReturn = OpenConnectionA(pathA, flag);
+                OleDbConnection con = new OleDbConnection(toReturn);
+                con.Open();
+                toReturn = "ok";
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                toReturn = ex.Message;
+                //throw new Exception("ExecuteNonQuery::Error occured.", ex);                
+            }
+            finally
+            {
+                //_mainConnection.Close();
+                //comMainhis.Dispose();
+            }
+
+            return toReturn;
+        }
+        public String OpenConnectionA(String pathA)
+        {
+            String toReturn = "";
+            String flag = CheckOfficeVersionAccess();
+            connA = new OleDbConnection();
+            //_mainConnection.ConnectionString = GetConfig("Main.ConnectionString");
+            if (flag.IndexOf("32")>=0)
+            {
+                connA.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + pathA + ";Persist Security Info=False";
+            }
+            else if (flag.IndexOf("64")>=0)
+            {
+                String[] aa = flag.Split('|');
+                if (aa.Length > 0)
+                {
+                    connA.ConnectionString = "Provider=Microsoft.ACE.OLEDB."+aa[1]+"; Data Source=" + pathA + ";Persist Security Info=False";
+                    connA.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" + pathA + ";Persist Security Info=False";
+                }
+                else
+                {
+                    connA.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" + pathA + ";Persist Security Info=False";
+                }
+                
+            }
+            try
+            {
+                //connA.Open();
+                //_rowsAffected = comMainhis.ExecuteNonQuery();
+                //toReturn = _rowsAffected.ToString();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("ExecuteNonQuery::Error occured.", ex);
+                toReturn = ex.Message;
+            }
+            finally
+            {
+                //_mainConnection.Close();
+                //comMainhis.Dispose();
+            }
+
+            return toReturn;
+        }
+        public String OpenConnectionA(String pathA, String flag)
+        {
+            String toReturn = "";
+            
+            connA = new OleDbConnection();
+            //_mainConnection.ConnectionString = GetConfig("Main.ConnectionString");
+            if (flag.IndexOf("32") >= 0)
+            {
+                toReturn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + pathA + ";Persist Security Info=False";
+            }
+            else if (flag.IndexOf("64") >= 0)
+            {
+                String flag1 = CheckOfficeVersionAccess();
+                String[] aa = flag1.Split('|');
+                if (aa.Length > 0)
+                {
+                    toReturn = "Provider=Microsoft.ACE.OLEDB." + aa[1] + "; Data Source=" + pathA + ";Persist Security Info=False";
+                    toReturn = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" + pathA + ";Persist Security Info=False";
+                }
+                else
+                {
+                    connA.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" + pathA + ";Persist Security Info=False";
+                }
+
+            }
+            try
+            {
+                //connA.Open();
+                //_rowsAffected = comMainhis.ExecuteNonQuery();
+                //toReturn = _rowsAffected.ToString();
+            }
+            catch (Exception ex)
+            {
+                toReturn = ex.Message;
+                throw new Exception("ExecuteNonQuery::Error occured.", ex);
+            }
+            finally
+            {
+                //_mainConnection.Close();
+                //comMainhis.Dispose();
+            }
+
+            return toReturn;
+        }
         public void CloseConnectionIm()
         {
             connIm.Close();
+        }
+        public void CloseConnectionA()
+        {
+            connA.Close();
         }
         private static string CheckOfficeVersionAccess()
         {
             string ret = "";
 
             string keyName = "";
-            string value = "";
+            string value = "", ver="";
             List<string> versions = new List<string>();
             versions.Add("12.0");//Office 2007
             versions.Add("14.0");//Office 2010
@@ -248,14 +420,14 @@ namespace Xtrim_ERP.objdb
             {
                 keyName = @"HKEY_LOCAL_MACHINE\Software\Microsoft\Office\" + version + @"\Outlook";
                 value = (string)Registry.GetValue(keyName, "Bitness", "Does not exist");
-
+                ver = version;
                 if (value != "Does not exist" && value != null)
                     break;
             }
 
             if (value != "Does not exist" && value != null)
             {
-                ret = value;
+                ret = value +"|"+ ver;
             }
 
             return ret;
