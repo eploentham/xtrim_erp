@@ -87,9 +87,29 @@ namespace Xtrim_ERP.objdb
             p.user_create = p.user_create == null ? "" : p.user_create;
             p.user_modi = p.user_modi == null ? "" : p.user_modi;
             p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
-            //p.prefix_id = int.TryParse(p.prefix_id, out chk) ? chk.ToString() : "0";
-
-
+            p.eaddr4 = p.eaddr4 == null ? "" : p.eaddr4;
+            p.eaddr3 = p.eaddr3 == null ? "" : p.eaddr3;
+            p.eaddr2 = p.eaddr2 == null ? "" : p.eaddr2;
+            p.eaddr1 = p.eaddr1 == null ? "" : p.eaddr1;
+            p.taddr1 = p.taddr1 == null ? "" : p.taddr1;
+            p.taddr2 = p.taddr2 == null ? "" : p.taddr2;
+            p.taddr3 = p.taddr3 == null ? "" : p.taddr3;
+            p.taddr4 = p.taddr4 == null ? "" : p.taddr4;
+            p.po_due_period = p.po_due_period == null ? "" : p.po_due_period;
+            p.amphur_id = p.amphur_id == null ? "" : p.amphur_id;
+            p.district_id = p.district_id == null ? "" : p.district_id;
+            p.province_id = p.province_id == null ? "" : p.province_id;
+            p.addr = p.addr == null ? "" : p.addr;
+            p.address_t = p.address_t == null ? "" : p.address_t;
+            p.address_e = p.address_e == null ? "" : p.address_e;
+            p.sale_id = p.sale_id == null ? "" : p.sale_id;
+            p.sale_name_t = p.sale_name_t == null ? "" : p.sale_name_t;
+            p.zipcode = p.zipcode == null ? "" : p.zipcode;
+            p.status_company = p.status_company == null ? "" : p.status_company;
+            p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
+            p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
+            p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
+            
             sql = "Insert Into " + cus.table + "(" + cus.cust_code + "," + cus.cust_name_t + "," + cus.cust_name_e + "," +
                 cus.active + "," + cus.address_t + "," + cus.address_e + "," +
                 cus.addr + "," + cus.amphur_id + "," + cus.district_id + "," +
@@ -135,6 +155,34 @@ namespace Xtrim_ERP.objdb
         {
             String re = "";
             String sql = "";
+
+            p.date_modi = p.date_modi == null ? "" : p.date_modi;
+            p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
+            p.user_create = p.user_create == null ? "" : p.user_create;
+            p.user_modi = p.user_modi == null ? "" : p.user_modi;
+            p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
+            p.eaddr4 = p.eaddr4 == null ? "" : p.eaddr4;
+            p.eaddr3 = p.eaddr3 == null ? "" : p.eaddr3;
+            p.eaddr2 = p.eaddr2 == null ? "" : p.eaddr2;
+            p.eaddr1 = p.eaddr1 == null ? "" : p.eaddr1;
+            p.taddr1 = p.taddr1 == null ? "" : p.taddr1;
+            p.taddr2 = p.taddr2 == null ? "" : p.taddr2;
+            p.taddr3 = p.taddr3 == null ? "" : p.taddr3;
+            p.taddr4 = p.taddr4 == null ? "" : p.taddr4;
+            p.po_due_period = p.po_due_period == null ? "" : p.po_due_period;
+            p.amphur_id = p.amphur_id == null ? "" : p.amphur_id;
+            p.district_id = p.district_id == null ? "" : p.district_id;
+            p.province_id = p.province_id == null ? "" : p.province_id;
+            p.addr = p.addr == null ? "" : p.addr;
+            p.address_t = p.address_t == null ? "" : p.address_t;
+            p.address_e = p.address_e == null ? "" : p.address_e;
+            p.sale_id = p.sale_id == null ? "" : p.sale_id;
+            p.sale_name_t = p.sale_name_t == null ? "" : p.sale_name_t;
+            p.zipcode = p.zipcode == null ? "" : p.zipcode;
+            p.status_company = p.status_company == null ? "" : p.status_company;
+            p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
+            //p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
+            //p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
 
             sql = "Update " + cus.table + " Set " +
                 " " + cus.cust_code + " = '" + p.cust_code + "'" +
@@ -237,62 +285,62 @@ namespace Xtrim_ERP.objdb
         }
         private Customer setCustomer(DataTable dt)
         {
-            Customer stf1 = new Customer();
+            Customer cus1 = new Customer();
             if (dt.Rows.Count > 0)
             {
                 //stf1.staff_id = dt.Rows[0][cus.staff_id].ToString();
-                cus.cust_id = dt.Rows[0][cus.cust_id].ToString();
-                cus.cust_code = dt.Rows[0][cus.cust_code].ToString();
-                cus.cust_name_t = dt.Rows[0][cus.cust_name_t].ToString();
-                cus.cust_name_e = dt.Rows[0][cus.cust_name_e].ToString();
-                cus.active = dt.Rows[0][cus.active].ToString();
+                cus1.cust_id = dt.Rows[0][cus.cust_id].ToString();
+                cus1.cust_code = dt.Rows[0][cus.cust_code].ToString();
+                cus1.cust_name_t = dt.Rows[0][cus.cust_name_t].ToString();
+                cus1.cust_name_e = dt.Rows[0][cus.cust_name_e].ToString();
+                cus1.active = dt.Rows[0][cus.active].ToString();
 
-                cus.address_t = dt.Rows[0][cus.address_t].ToString();
-                cus.address_e = dt.Rows[0][cus.address_e].ToString();
-                cus.addr = dt.Rows[0][cus.addr].ToString();
-                cus.amphur_id = dt.Rows[0][cus.amphur_id].ToString();
-                cus.district_id = dt.Rows[0][cus.district_id].ToString();
+                cus1.address_t = dt.Rows[0][cus.address_t].ToString();
+                cus1.address_e = dt.Rows[0][cus.address_e].ToString();
+                cus1.addr = dt.Rows[0][cus.addr].ToString();
+                cus1.amphur_id = dt.Rows[0][cus.amphur_id].ToString();
+                cus1.district_id = dt.Rows[0][cus.district_id].ToString();
 
-                cus.province_id = dt.Rows[0][cus.province_id].ToString();
-                cus.zipcode = dt.Rows[0][cus.zipcode].ToString();
-                cus.sale_id = dt.Rows[0][cus.sale_id].ToString();
-                cus.sale_name_t = dt.Rows[0][cus.sale_name_t].ToString();
-                cus.fax = dt.Rows[0][cus.fax].ToString();
+                cus1.province_id = dt.Rows[0][cus.province_id].ToString();
+                cus1.zipcode = dt.Rows[0][cus.zipcode].ToString();
+                cus1.sale_id = dt.Rows[0][cus.sale_id].ToString();
+                cus1.sale_name_t = dt.Rows[0][cus.sale_name_t].ToString();
+                cus1.fax = dt.Rows[0][cus.fax].ToString();
 
-                cus.tele = dt.Rows[0][cus.tele].ToString();
-                cus.email = dt.Rows[0][cus.email].ToString();
-                cus.tax_id = dt.Rows[0][cus.tax_id].ToString();
-                cus.remark = dt.Rows[0][cus.remark].ToString();
-                cus.contact_name1 = dt.Rows[0][cus.contact_name1].ToString();
+                cus1.tele = dt.Rows[0][cus.tele].ToString();
+                cus1.email = dt.Rows[0][cus.email].ToString();
+                cus1.tax_id = dt.Rows[0][cus.tax_id].ToString();
+                cus1.remark = dt.Rows[0][cus.remark].ToString();
+                cus1.contact_name1 = dt.Rows[0][cus.contact_name1].ToString();
 
-                cus.contact_name2 = dt.Rows[0][cus.contact_name2].ToString();
-                cus.contact_name1_tel = dt.Rows[0][cus.contact_name1_tel].ToString();
-                cus.contact_name2_tel = dt.Rows[0][cus.contact_name2_tel].ToString();
-                cus.status_company = dt.Rows[0][cus.status_company].ToString();
-                cus.status_vendor = dt.Rows[0][cus.status_vendor].ToString();
+                cus1.contact_name2 = dt.Rows[0][cus.contact_name2].ToString();
+                cus1.contact_name1_tel = dt.Rows[0][cus.contact_name1_tel].ToString();
+                cus1.contact_name2_tel = dt.Rows[0][cus.contact_name2_tel].ToString();
+                cus1.status_company = dt.Rows[0][cus.status_company].ToString();
+                cus1.status_vendor = dt.Rows[0][cus.status_vendor].ToString();
 
-                cus.date_create = dt.Rows[0][cus.date_create].ToString();
-                cus.date_modi = dt.Rows[0][cus.date_modi].ToString();
-                cus.date_cancel = dt.Rows[0][cus.date_cancel].ToString();
-                cus.user_create = dt.Rows[0][cus.user_create].ToString();
-                cus.user_modi = dt.Rows[0][cus.user_modi].ToString();
+                cus1.date_create = dt.Rows[0][cus.date_create].ToString();
+                cus1.date_modi = dt.Rows[0][cus.date_modi].ToString();
+                cus1.date_cancel = dt.Rows[0][cus.date_cancel].ToString();
+                cus1.user_create = dt.Rows[0][cus.user_create].ToString();
+                cus1.user_modi = dt.Rows[0][cus.user_modi].ToString();
 
-                cus.user_cancel = dt.Rows[0][cus.user_cancel].ToString();
-                cus.remark2 = dt.Rows[0][cus.remark2].ToString();
-                cus.po_due_period = dt.Rows[0][cus.po_due_period].ToString();
-                cus.taddr1 = dt.Rows[0][cus.taddr1].ToString();
-                cus.taddr2 = dt.Rows[0][cus.taddr2].ToString();
+                cus1.user_cancel = dt.Rows[0][cus.user_cancel].ToString();
+                cus1.remark2 = dt.Rows[0][cus.remark2].ToString();
+                cus1.po_due_period = dt.Rows[0][cus.po_due_period].ToString();
+                cus1.taddr1 = dt.Rows[0][cus.taddr1].ToString();
+                cus1.taddr2 = dt.Rows[0][cus.taddr2].ToString();
 
-                cus.taddr3 = dt.Rows[0][cus.taddr3].ToString();
-                cus.taddr4 = dt.Rows[0][cus.taddr4].ToString();
-                cus.eaddr1 = dt.Rows[0][cus.eaddr1].ToString();
-                cus.eaddr2 = dt.Rows[0][cus.eaddr2].ToString();
-                cus.eaddr3 = dt.Rows[0][cus.eaddr3].ToString();
+                cus1.taddr3 = dt.Rows[0][cus.taddr3].ToString();
+                cus1.taddr4 = dt.Rows[0][cus.taddr4].ToString();
+                cus1.eaddr1 = dt.Rows[0][cus.eaddr1].ToString();
+                cus1.eaddr2 = dt.Rows[0][cus.eaddr2].ToString();
+                cus1.eaddr3 = dt.Rows[0][cus.eaddr3].ToString();
 
-                cus.eaddr4 = dt.Rows[0][cus.eaddr4].ToString();
+                cus1.eaddr4 = dt.Rows[0][cus.eaddr4].ToString();
             }
 
-            return stf1;
+            return cus1;
         }
     }
 }

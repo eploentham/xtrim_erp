@@ -124,6 +124,13 @@ namespace Xtrim_ERP.gui
                 TabPage tab = new TabPage(e.Link.Text);
                 AddNewTab(frm, e.Link.Text);
             }
+            else if (e.Link.Text.ToLower().Equals("importer"))
+            {
+                FrmImporter frm = new FrmImporter(xC);
+                frm.FormBorderStyle = FormBorderStyle.None;
+                TabPage tab = new TabPage(e.Link.Text);
+                AddNewTab(frm, e.Link.Text);
+            }
         }
 
         private void tC1_DrawItem(object sender, DrawItemEventArgs e)

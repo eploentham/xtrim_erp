@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            FarPoint.Win.Spread.EnhancedFocusIndicatorRenderer enhancedFocusIndicatorRenderer2 = new FarPoint.Win.Spread.EnhancedFocusIndicatorRenderer();
+            FarPoint.Win.Spread.EnhancedScrollBarRenderer enhancedScrollBarRenderer3 = new FarPoint.Win.Spread.EnhancedScrollBarRenderer();
+            FarPoint.Win.Spread.EnhancedScrollBarRenderer enhancedScrollBarRenderer4 = new FarPoint.Win.Spread.EnhancedScrollBarRenderer();
             this.grdView = new FarPoint.Win.Spread.FpSpread();
             this.grdView_Sheet1 = new FarPoint.Win.Spread.SheetView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -120,18 +123,72 @@
             // 
             this.grdView.AccessibleDescription = "";
             this.grdView.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grdView.FocusRenderer = enhancedFocusIndicatorRenderer2;
+            this.grdView.HorizontalScrollBar.Buttons = new FarPoint.Win.Spread.FpScrollBarButtonCollection("BackwardLineButton,ThumbTrack,ForwardLineButton");
+            this.grdView.HorizontalScrollBar.Name = "";
+            enhancedScrollBarRenderer3.ArrowColor = System.Drawing.Color.SaddleBrown;
+            enhancedScrollBarRenderer3.ArrowHoveredColor = System.Drawing.Color.SaddleBrown;
+            enhancedScrollBarRenderer3.ArrowSelectedColor = System.Drawing.Color.SaddleBrown;
+            enhancedScrollBarRenderer3.ButtonBackgroundColor = System.Drawing.Color.NavajoWhite;
+            enhancedScrollBarRenderer3.ButtonBorderColor = System.Drawing.Color.Tan;
+            enhancedScrollBarRenderer3.ButtonHoveredBackgroundColor = System.Drawing.Color.BurlyWood;
+            enhancedScrollBarRenderer3.ButtonHoveredBorderColor = System.Drawing.Color.Tan;
+            enhancedScrollBarRenderer3.ButtonSelectedBackgroundColor = System.Drawing.Color.Goldenrod;
+            enhancedScrollBarRenderer3.ButtonSelectedBorderColor = System.Drawing.Color.Tan;
+            enhancedScrollBarRenderer3.TrackBarBackgroundColor = System.Drawing.Color.BurlyWood;
+            enhancedScrollBarRenderer3.TrackBarSelectedBackgroundColor = System.Drawing.Color.SandyBrown;
+            this.grdView.HorizontalScrollBar.Renderer = enhancedScrollBarRenderer3;
             this.grdView.Location = new System.Drawing.Point(0, 448);
             this.grdView.Name = "grdView";
             this.grdView.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
             this.grdView_Sheet1});
             this.grdView.Size = new System.Drawing.Size(917, 268);
+            this.grdView.Skin = FarPoint.Win.Spread.DefaultSpreadSkins.Sandstorm;
             this.grdView.TabIndex = 1;
+            this.grdView.VerticalScrollBar.Buttons = new FarPoint.Win.Spread.FpScrollBarButtonCollection("BackwardLineButton,ThumbTrack,ForwardLineButton");
+            this.grdView.VerticalScrollBar.Name = "";
+            enhancedScrollBarRenderer4.ArrowColor = System.Drawing.Color.SaddleBrown;
+            enhancedScrollBarRenderer4.ArrowHoveredColor = System.Drawing.Color.SaddleBrown;
+            enhancedScrollBarRenderer4.ArrowSelectedColor = System.Drawing.Color.SaddleBrown;
+            enhancedScrollBarRenderer4.ButtonBackgroundColor = System.Drawing.Color.NavajoWhite;
+            enhancedScrollBarRenderer4.ButtonBorderColor = System.Drawing.Color.Tan;
+            enhancedScrollBarRenderer4.ButtonHoveredBackgroundColor = System.Drawing.Color.BurlyWood;
+            enhancedScrollBarRenderer4.ButtonHoveredBorderColor = System.Drawing.Color.Tan;
+            enhancedScrollBarRenderer4.ButtonSelectedBackgroundColor = System.Drawing.Color.Goldenrod;
+            enhancedScrollBarRenderer4.ButtonSelectedBorderColor = System.Drawing.Color.Tan;
+            enhancedScrollBarRenderer4.TrackBarBackgroundColor = System.Drawing.Color.BurlyWood;
+            enhancedScrollBarRenderer4.TrackBarSelectedBackgroundColor = System.Drawing.Color.SandyBrown;
+            this.grdView.VerticalScrollBar.Renderer = enhancedScrollBarRenderer4;
             this.grdView.CellDoubleClick += new FarPoint.Win.Spread.CellClickEventHandler(this.grdView_CellDoubleClick);
             // 
             // grdView_Sheet1
             // 
             this.grdView_Sheet1.Reset();
             this.grdView_Sheet1.SheetName = "Sheet1";
+            // Formulas and custom names must be loaded with R1C1 reference style
+            this.grdView_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.R1C1;
+            this.grdView_Sheet1.ColumnFooter.DefaultStyle.BackColor = System.Drawing.Color.Empty;
+            this.grdView_Sheet1.ColumnFooter.DefaultStyle.ForeColor = System.Drawing.Color.Empty;
+            this.grdView_Sheet1.ColumnFooter.DefaultStyle.Parent = "ColumnHeaderSandstorm";
+            this.grdView_Sheet1.ColumnFooterSheetCornerStyle.BackColor = System.Drawing.Color.Empty;
+            this.grdView_Sheet1.ColumnFooterSheetCornerStyle.ForeColor = System.Drawing.Color.Empty;
+            this.grdView_Sheet1.ColumnFooterSheetCornerStyle.Parent = "CornerSandstorm";
+            this.grdView_Sheet1.ColumnHeader.DefaultStyle.BackColor = System.Drawing.Color.Empty;
+            this.grdView_Sheet1.ColumnHeader.DefaultStyle.ForeColor = System.Drawing.Color.Empty;
+            this.grdView_Sheet1.ColumnHeader.DefaultStyle.Parent = "ColumnHeaderSandstorm";
+            this.grdView_Sheet1.FilterBar.DefaultStyle.BackColor = System.Drawing.Color.Empty;
+            this.grdView_Sheet1.FilterBar.DefaultStyle.ForeColor = System.Drawing.Color.Empty;
+            this.grdView_Sheet1.FilterBar.DefaultStyle.Parent = "FilterBarSandstorm";
+            this.grdView_Sheet1.FilterBarHeaderStyle.BackColor = System.Drawing.Color.Empty;
+            this.grdView_Sheet1.FilterBarHeaderStyle.ForeColor = System.Drawing.Color.Empty;
+            this.grdView_Sheet1.FilterBarHeaderStyle.Parent = "RowHeaderSandstorm";
+            this.grdView_Sheet1.RowHeader.DefaultStyle.BackColor = System.Drawing.Color.Empty;
+            this.grdView_Sheet1.RowHeader.DefaultStyle.ForeColor = System.Drawing.Color.Empty;
+            this.grdView_Sheet1.RowHeader.DefaultStyle.Parent = "RowHeaderSandstorm";
+            this.grdView_Sheet1.SheetCornerStyle.BackColor = System.Drawing.Color.Empty;
+            this.grdView_Sheet1.SheetCornerStyle.ForeColor = System.Drawing.Color.Empty;
+            this.grdView_Sheet1.SheetCornerStyle.Parent = "CornerSandstorm";
+            this.grdView_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.A1;
             // 
             // groupBox1
             // 
@@ -870,7 +927,6 @@
             this.txtCopCode.Tag = null;
             this.c1ThemeController1.SetTheme(this.txtCopCode, "BeigeOne");
             this.txtCopCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            
             // 
             // label1
             // 
@@ -900,6 +956,7 @@
             this.Name = "FrmCompany";
             this.Text = "FrmCompany";
             this.c1ThemeController1.SetTheme(this, "BeigeOne");
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmCompany_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdView_Sheet1)).EndInit();

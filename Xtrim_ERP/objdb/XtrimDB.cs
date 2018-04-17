@@ -15,6 +15,7 @@ namespace Xtrim_ERP.objdb
         public CompanyDB copDB;
         public StaffDB stfDB;
         public CustomerDB cusDB;
+        public ImporterDB impDB;
 
         public XtrimDB(ConnectDB c)
         {
@@ -28,6 +29,7 @@ namespace Xtrim_ERP.objdb
             copDB = new CompanyDB(conn);
             stfDB = new StaffDB(conn);
             cusDB = new CustomerDB(conn);
+            impDB = new ImporterDB(conn);
         }
     }
 }
