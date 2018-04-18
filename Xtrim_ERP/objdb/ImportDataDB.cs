@@ -14,6 +14,7 @@ namespace Xtrim_ERP.objdb
         ConnectDB conn;
         ImporterDB impDB;
         CustomerDB cusDB;
+        ConsigneeDB consDB;
 
         public ImportDataDB(ConnectDB c)
         {
@@ -24,9 +25,11 @@ namespace Xtrim_ERP.objdb
         {
             impDB = new ImporterDB(conn);
             cusDB = new CustomerDB(conn);
+            consDB = new ConsigneeDB(conn);
         }
-        public void ImportMEIOSYSimport(ProgressBar pb1)
+        public void ImportMEIOSYSimport(String flagNew, ProgressBar pb1)
         {
+            pb1.Show();
             DataTable dt = new DataTable();
             String sql = "";
             sql = "Select * From importer ";
@@ -35,6 +38,10 @@ namespace Xtrim_ERP.objdb
             pb1.Maximum = dt.Rows.Count;
             pb1.Value = 0;
             conn.OpenConnectionNoClose();
+            if (flagNew.Equals("new"))
+            {
+                impDB.deleteAll();
+            }
             foreach(DataRow row in dt.Rows)
             {
                 pb1.Value++;
@@ -97,6 +104,7 @@ namespace Xtrim_ERP.objdb
                 impDB.insertImporter(imp);
             }
             conn.CloseConnectionNoClose();
+            pb1.Hide();
         }
         public String testConnection(String pathA, String flag)
         {
@@ -112,73 +120,304 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public void ImportOpenJOBcustomer(String pathA, ProgressBar pb1)
+        public void ImportOpenJOBcustomer(String pathA,String flagNew, String flag, ProgressBar pb1)
         {
+            pb1.Show();
             DataTable dt = new DataTable();
             String sql = "";
             sql = "Select * from Customers ";
-            conn.OpenConnectionA(pathA);
+            conn.OpenConnectionA(pathA, flag);
             dt = conn.selectDataA(conn.connA, sql);
             pb1.Minimum = 0;
             pb1.Maximum = dt.Rows.Count;
             pb1.Value = 0;
             conn.OpenConnectionNoClose();
+            if (flagNew.Equals("new"))
+            {
+                cusDB.deleteAll();
+            }
             foreach (DataRow row in dt.Rows)
             {
-                Customer cus = new Customer();
-                cus.cust_id = "";
-                cus.cust_code = row["CustomerID"].ToString();
-                cus.cust_name_t = row["CustomerName"].ToString();
-                cus.cust_name_e = row["CustomerName"].ToString();
-                cus.active = "1";
+                Customer cons = new Customer();
+                cons.cust_id = "";
+                cons.cust_code = row["CustomerID"].ToString();
+                cons.cust_name_t = row["CustomerName"].ToString();
+                cons.cust_name_e = row["CustomerName"].ToString();
+                cons.active = "1";
 
-                cus.address_t = row["CustomerAddress"].ToString();
-                cus.address_e = row["CustomerAddress"].ToString();
-                cus.addr = row["CustomerAddress"].ToString();
-                cus.amphur_id = "";
-                cus.district_id = "";
+                cons.address_t = row["CustomerAddress"].ToString();
+                cons.address_e = row["CustomerAddress"].ToString();
+                cons.addr = row["CustomerAddress"].ToString();
+                cons.amphur_id = "";
+                cons.district_id = "";
 
-                cus.province_id = "";
-                cus.zipcode = "zipcode";
-                cus.sale_id = "sale_id";
-                cus.sale_name_t = "sale_name_t";
-                cus.fax = row["CustomerFaxNumber"].ToString();
+                cons.province_id = "";
+                cons.zipcode = "";
+                cons.sale_id = "";
+                cons.sale_name_t = "";
+                cons.fax = row["CustomerFaxNumber"].ToString();
 
-                cus.tele = "tele";
-                cus.email = "email";
-                cus.tax_id = "tax_id";
-                cus.remark = row["CustomerExtension"].ToString();
-                cus.contact_name1 = "contact_name1";
+                cons.tele = "";
+                cons.email = "";
+                cons.tax_id = "";
+                cons.remark = row["CustomerExtension"].ToString();
+                cons.contact_name1 = "";
 
-                cus.contact_name2 = "contact_name2";
-                cus.contact_name1_tel = "contact_name1_tel";
-                cus.contact_name2_tel = "contact_name2_tel";
-                cus.status_company = "status_company";
-                cus.status_vendor = "status_vendor";
+                cons.contact_name2 = "";
+                cons.contact_name1_tel = "";
+                cons.contact_name2_tel = "";
+                cons.status_company = "";
+                cons.status_vendor = "";
 
-                cus.date_create = "date_create";
-                cus.date_modi = "date_modi";
-                cus.date_cancel = "date_cancel";
-                cus.user_create = "user_create";
-                cus.user_modi = "user_modi";
+                cons.date_create = "";
+                cons.date_modi = "";
+                cons.date_cancel = "";
+                cons.user_create = "";
+                cons.user_modi = "";
 
-                cus.user_cancel = "user_cancel";
-                cus.remark2 = row["CustomerPhoneNumber"].ToString();
-                cus.po_due_period = "po_due_period";
-                cus.taddr1 = row["CustomerAddress"].ToString();
-                cus.taddr2 = row["CustomerCity"].ToString();
+                cons.user_cancel = "";
+                cons.remark2 = row["CustomerPhoneNumber"].ToString();
+                cons.po_due_period = "";
+                cons.taddr1 = row["CustomerAddress"].ToString();
+                cons.taddr2 = row["CustomerCity"].ToString();
 
-                cus.taddr3 = row["CustomerStateOrProvince"].ToString();
-                cus.taddr4 = row["CustomerPostalCode"].ToString();
-                cus.eaddr1 = row["CustomerStateOrProvince"].ToString();
-                cus.eaddr2 = row["CustomerPostalCode"].ToString();
-                cus.eaddr3 = row["CustomerCountry/Region"].ToString();
+                cons.taddr3 = row["CustomerStateOrProvince"].ToString();
+                cons.taddr4 = row["CustomerPostalCode"].ToString();
+                cons.eaddr1 = row["CustomerStateOrProvince"].ToString();
+                cons.eaddr2 = row["CustomerPostalCode"].ToString();
+                cons.eaddr3 = row["CustomerCountry/Region"].ToString();
 
-                cus.eaddr4 = row["CustomerPhoneNumber"].ToString();
+                cons.eaddr4 = row["CustomerPhoneNumber"].ToString();
 
-                cusDB.insertCustomer(cus);
+                cusDB.insertCustomer(cons);
             }
             conn.CloseConnectionNoClose();
+            pb1.Hide();
+        }
+        public void ImportOpenJOBconsignee(String pathA, String flagNew, String flag, ProgressBar pb1)
+        {
+            pb1.Show();
+            DataTable dt = new DataTable();
+            String sql = "";
+            sql = "Select * from Consignee ";
+            conn.OpenConnectionA(pathA, flag);
+            dt = conn.selectDataA(conn.connA, sql);
+            pb1.Minimum = 0;
+            pb1.Maximum = dt.Rows.Count;
+            pb1.Value = 0;
+            conn.OpenConnectionNoClose();
+            if (flagNew.Equals("new"))
+            {
+                consDB.deleteAll();
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+                Consignee cons = new Consignee();
+                cons.cons_id = "";
+                cons.cons_code = row["ConsigneeID"].ToString();
+                cons.cons_name_t = row["ConsigneeName"].ToString();
+                cons.cons_name_e = row["ConsigneeName"].ToString();
+                cons.active = "1";
+
+                cons.address_t = "";
+                cons.address_e = "";
+                cons.addr = "";
+                cons.amphur_id = "";
+                cons.district_id = "";
+
+                cons.province_id = "";
+                cons.zipcode = "";
+                cons.sale_id = "";
+                cons.sale_name_t = "";
+                cons.fax = "";
+
+                cons.tele = "";
+                cons.email = "";
+                cons.tax_id = "";
+                cons.remark = row["ConsigneeAddress5"].ToString();
+                cons.contact_name1 = "";
+
+                cons.contact_name2 = "";
+                cons.contact_name1_tel = "";
+                cons.contact_name2_tel = "";
+                cons.status_company = "";
+                cons.status_vendor = "";
+
+                cons.date_create = "";
+                cons.date_modi = "";
+                cons.date_cancel = "";
+                cons.user_create = "";
+                cons.user_modi = "";
+
+                cons.user_cancel = "";
+                cons.remark2 = row["name_address"].ToString();
+                cons.po_due_period = "";
+                cons.taddr1 = row["ConsigneeAddress1"].ToString();
+                cons.taddr2 = row["ConsigneeAddress2"].ToString();
+
+                cons.taddr3 = row["ConsigneeAddress3"].ToString();
+                cons.taddr4 = row["ConsigneeAddress4"].ToString();
+                cons.eaddr1 = row["country"].ToString();
+                cons.eaddr2 = "";
+                cons.eaddr3 = "";
+
+                cons.eaddr4 = "";
+                cons.status_cons = "1";
+
+                consDB.insertConsignee(cons);
+            }
+            conn.CloseConnectionNoClose();
+            pb1.Hide();
+        }
+        public void ImportOpenJOBExpConsignee(String pathA, String flagNew, String flag, ProgressBar pb1)
+        {
+            pb1.Show();
+            DataTable dt = new DataTable();
+            String sql = "";
+            sql = "Select * from ExpConsignee ";
+            conn.OpenConnectionA(pathA, flag);
+            dt = conn.selectDataA(conn.connA, sql);
+            pb1.Minimum = 0;
+            pb1.Maximum = dt.Rows.Count;
+            pb1.Value = 0;
+            conn.OpenConnectionNoClose();
+            if (flagNew.Equals("new"))
+            {
+                consDB.deleteExpConsigneeAll();
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+                Consignee cons = new Consignee();
+                cons.cons_id = "";
+                cons.cons_code = row["ConsigneeID"].ToString();
+                cons.cons_name_t = row["ConsigneeName"].ToString();
+                cons.cons_name_e = row["ConsigneeName"].ToString();
+                cons.active = "1";
+
+                cons.address_t = "";
+                cons.address_e = "";
+                cons.addr = "";
+                cons.amphur_id = "";
+                cons.district_id = "";
+
+                cons.province_id = "";
+                cons.zipcode = "";
+                cons.sale_id = "";
+                cons.sale_name_t = "";
+                cons.fax = "";
+
+                cons.tele = "";
+                cons.email = "";
+                cons.tax_id = "";
+                cons.remark = "";
+                cons.contact_name1 = "";
+
+                cons.contact_name2 = "";
+                cons.contact_name1_tel = "";
+                cons.contact_name2_tel = "";
+                cons.status_company = "";
+                cons.status_vendor = "";
+
+                cons.date_create = "";
+                cons.date_modi = "";
+                cons.date_cancel = "";
+                cons.user_create = "";
+                cons.user_modi = "";
+
+                cons.user_cancel = "";
+                cons.remark2 = "";
+                cons.po_due_period = "";
+                cons.taddr1 = row["ConsigneeAddress"].ToString();
+                cons.taddr2 = row["ConsigneeCity"].ToString();
+
+                cons.taddr3 = row["ConsigneePostalCode"].ToString();
+                cons.taddr4 = row["ConsigneeStateOrProvince"].ToString();
+                cons.eaddr1 = row["ConsigneeCountry/Region"].ToString();
+                cons.eaddr2 = "";
+                cons.eaddr3 = "";
+
+                cons.eaddr4 = "";
+                cons.status_cons = "2";
+
+                consDB.insertConsignee(cons);
+            }
+            conn.CloseConnectionNoClose();
+            pb1.Hide();
+        }
+        public void ImportOpenJOBImpSupplier(String pathA, String flagNew, String flag, ProgressBar pb1)
+        {
+            pb1.Show();
+            DataTable dt = new DataTable();
+            String sql = "";
+            sql = "Select * from ImpSuppliers ";
+            conn.OpenConnectionA(pathA, flag);
+            dt = conn.selectDataA(conn.connA, sql);
+            pb1.Minimum = 0;
+            pb1.Maximum = dt.Rows.Count;
+            pb1.Value = 0;
+            conn.OpenConnectionNoClose();
+            if (flagNew.Equals("new"))
+            {
+                consDB.deleteExpConsigneeAll();
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+                Consignee cons = new Consignee();
+                cons.cons_id = "";
+                cons.cons_code = row["SupplierID"].ToString();
+                cons.cons_name_t = row["SupplierName"].ToString();
+                cons.cons_name_e = row["SupplierName"].ToString();
+                cons.active = "1";
+
+                cons.address_t = "";
+                cons.address_e = "";
+                cons.addr = "";
+                cons.amphur_id = "";
+                cons.district_id = "";
+
+                cons.province_id = "";
+                cons.zipcode = "";
+                cons.sale_id = "";
+                cons.sale_name_t = "";
+                cons.fax = "";
+
+                cons.tele = "";
+                cons.email = "";
+                cons.tax_id = "";
+                cons.remark = "";
+                cons.contact_name1 = "";
+
+                cons.contact_name2 = "";
+                cons.contact_name1_tel = "";
+                cons.contact_name2_tel = "";
+                cons.status_company = "";
+                cons.status_vendor = "";
+
+                cons.date_create = "";
+                cons.date_modi = "";
+                cons.date_cancel = "";
+                cons.user_create = "";
+                cons.user_modi = "";
+
+                cons.user_cancel = "";
+                cons.remark2 = "";
+                cons.po_due_period = "";
+                cons.taddr1 = row["SupplierAddress"].ToString();
+                cons.taddr2 = row["SupplierCity"].ToString();
+
+                cons.taddr3 = row["SupplierPostalCode"].ToString();
+                cons.taddr4 = row["SupplierStateOrProvince"].ToString();
+                cons.eaddr1 = row["SupplierCountry/Region"].ToString();
+                cons.eaddr2 = "";
+                cons.eaddr3 = "";
+
+                cons.eaddr4 = "";
+                cons.status_cons = "4";
+
+                consDB.insertConsignee(cons);
+            }
+            conn.CloseConnectionNoClose();
+            pb1.Hide();
         }
     }
 }

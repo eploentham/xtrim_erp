@@ -107,8 +107,8 @@ namespace Xtrim_ERP.objdb
             p.zipcode = p.zipcode == null ? "" : p.zipcode;
             p.status_company = p.status_company == null ? "" : p.status_company;
             p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
-            p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
-            p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
+            //p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
+            //p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
             
             sql = "Insert Into " + cus.table + "(" + cus.cust_code + "," + cus.cust_name_t + "," + cus.cust_name_e + "," +
                 cus.active + "," + cus.address_t + "," + cus.address_e + "," +
@@ -249,6 +249,14 @@ namespace Xtrim_ERP.objdb
             }
 
             return re;
+        }
+        public String deleteAll()
+        {
+            DataTable dt = new DataTable();
+            String sql = "Delete From  " + cus.table;
+            conn.ExecuteNonQuery(conn.conn, sql);
+
+            return "";
         }
         public DataTable selectAll()
         {

@@ -361,6 +361,7 @@ namespace Xtrim_ERP.objdb
             if (flag.IndexOf("32") >= 0)
             {
                 toReturn = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" + pathA + ";Persist Security Info=False";
+                connA.ConnectionString = toReturn;
             }
             else if (flag.IndexOf("64") >= 0)
             {
@@ -370,6 +371,7 @@ namespace Xtrim_ERP.objdb
                 {
                     toReturn = "Provider=Microsoft.ACE.OLEDB." + aa[1] + "; Data Source=" + pathA + ";Persist Security Info=False";
                     toReturn = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=" + pathA + ";Persist Security Info=False";
+                    connA.ConnectionString = toReturn;
                 }
                 else
                 {

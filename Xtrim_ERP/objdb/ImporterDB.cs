@@ -271,6 +271,14 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
+        public String deleteAll()
+        {
+            DataTable dt = new DataTable();
+            String sql = "Delete From  " + imp.table;                
+            conn.ExecuteNonQuery(conn.conn, sql);
+
+            return "";
+        }
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
