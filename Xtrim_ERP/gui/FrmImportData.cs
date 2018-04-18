@@ -30,9 +30,14 @@ namespace Xtrim_ERP.gui
             chkExpConsNew.Checked = true;
             chkImpSuppNew.Checked = true;
             chkConsNew.Checked = true;
+            chkInsrNew.Checked = true;
+            chkStfNew.Checked = true;
+            chkImp1New.Checked = true;
             pic1.Image = Resources.images;
             pic1.Hide();
             btnCus.Enabled = false;
+            btnInsr.Enabled = false;
+            btnImp1.Enabled = false;
             pB1.Hide();
         }
 
@@ -64,6 +69,9 @@ namespace Xtrim_ERP.gui
                     btnCons.Enabled = true;
                     btnExpCons.Enabled = true;
                     btnImpSupp.Enabled = true;
+                    btnInsr.Enabled = true;
+                    btnStf.Enabled = true;
+                    btnImp1.Enabled = true;
                 }
                 else
                 {
@@ -72,6 +80,9 @@ namespace Xtrim_ERP.gui
                     btnCons.Enabled = false;
                     btnExpCons.Enabled = false;
                     btnImpSupp.Enabled = false;
+                    btnInsr.Enabled = false;
+                    btnStf.Enabled = false;
+                    btnImp1.Enabled = false;
                 }
             }
             else
@@ -83,6 +94,9 @@ namespace Xtrim_ERP.gui
                     btnCons.Enabled = true;
                     btnExpCons.Enabled = true;
                     btnImpSupp.Enabled = true;
+                    btnInsr.Enabled = true;
+                    btnStf.Enabled = true;
+                    btnImp1.Enabled = true;
                 }
                 else
                 {
@@ -91,6 +105,9 @@ namespace Xtrim_ERP.gui
                     btnCons.Enabled = false;
                     btnExpCons.Enabled = false;
                     btnImpSupp.Enabled = false;
+                    btnInsr.Enabled = false;
+                    btnStf.Enabled = false;
+                    btnImp1.Enabled = false;
                 }
             }
         }
@@ -113,7 +130,7 @@ namespace Xtrim_ERP.gui
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            xC.xtDB.imdDB.ImportMEIOSYSimport(chkImpNew.Checked ? "new" : "append", pB1);
+            xC.xtDB.imdDB.ImportMEIOSYSimport(txtPathA.Value.ToString(), chkImpNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
         }
 
         private void btnCus_Click(object sender, EventArgs e)
@@ -134,6 +151,21 @@ namespace Xtrim_ERP.gui
         private void btnImpSupp_Click(object sender, EventArgs e)
         {
             xC.xtDB.imdDB.ImportOpenJOBImpSupplier(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
+        }
+
+        private void btnInsr_Click(object sender, EventArgs e)
+        {
+            xC.xtDB.imdDB.ImportOpenJOBInsurance(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
+        }
+
+        private void btnStf_Click(object sender, EventArgs e)
+        {
+            xC.xtDB.imdDB.ImportOpenJOBStaff(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
+        }
+
+        private void btnImp1_Click(object sender, EventArgs e)
+        {
+            xC.xtDB.imdDB.ImportOpenJOBJobImport(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
         }
     }
 }

@@ -13,6 +13,8 @@ namespace Xtrim_ERP.objdb
         public Importer imp;
         ConnectDB conn;
 
+        public List<Importer> lImp;
+
         public ImporterDB(ConnectDB c)
         {
             conn = c;
@@ -78,6 +80,60 @@ namespace Xtrim_ERP.objdb
 
             imp.table = "b_importer";
             imp.pkField = "imp_id";
+
+            lImp = new List<Importer>();
+        }
+        public void getlImp()
+        {
+            //lDept = new List<Department>();
+
+            lImp.Clear();
+            DataTable dt = new DataTable();
+            dt = selectAll();
+            foreach (DataRow row in dt.Rows)
+            {
+                Importer imp1 = new Importer();
+                imp1.imp_id = row[imp.imp_id].ToString();
+                imp1.imp_code = row[imp.imp_code].ToString();
+                imp1.imp_name_t = row[imp.imp_name_t].ToString();
+                imp1.imp_name_e = row[imp.imp_name_e].ToString();
+                //cus1.c = row[dept.dept_parent_id].ToString();
+                //cus1.remark = row[dept.remark].ToString();
+                //cus1.date_create = row[dept.date_create].ToString();
+                //cus1.date_modi = row[dept.date_modi].ToString();
+                //cus1.date_cancel = row[dept.date_cancel].ToString();
+                //cus1.user_create = row[dept.user_create].ToString();
+                //cus1.user_modi = row[dept.user_modi].ToString();
+                //cus1.user_cancel = row[dept.user_cancel].ToString();
+                //cus1.active = row[dept.active].ToString();
+                lImp.Add(imp1);
+            }
+        }
+        public String getIdByCode(String code)
+        {
+            String id = "";
+            foreach (Importer imp1 in lImp)
+            {
+                if (code.Trim().Equals(imp1.imp_code))
+                {
+                    id = imp1.imp_id;
+                    break;
+                }
+            }
+            return id;
+        }
+        public String getIdByName(String name)
+        {
+            String id = "";
+            foreach (Importer imp1 in lImp)
+            {
+                if (name.Trim().Equals(imp1.imp_name_t))
+                {
+                    id = imp1.imp_id;
+                    break;
+                }
+            }
+            return id;
         }
         public String insert(Importer p)
         {

@@ -13,6 +13,8 @@ namespace Xtrim_ERP.objdb
         public Customer cus;
         ConnectDB conn;
 
+        public List<Customer> lCus;
+
         public CustomerDB(ConnectDB c)
         {
             conn = c;
@@ -73,6 +75,60 @@ namespace Xtrim_ERP.objdb
 
             cus.table = "b_customer";
             cus.pkField = "cust_id";
+
+            lCus = new List<Customer>();
+        }
+        public void getlCus()
+        {
+            //lDept = new List<Department>();
+
+            lCus.Clear();
+            DataTable dt = new DataTable();
+            dt = selectAll();
+            foreach (DataRow row in dt.Rows)
+            {
+                Customer cus1 = new Customer();
+                cus1.cust_id = row[cus.cust_id].ToString();
+                cus1.cust_code = row[cus.cust_code].ToString();
+                cus1.cust_name_t = row[cus.cust_name_t].ToString();
+                cus1.cust_name_e = row[cus.cust_name_e].ToString();
+                //cus1.c = row[dept.dept_parent_id].ToString();
+                //cus1.remark = row[dept.remark].ToString();
+                //cus1.date_create = row[dept.date_create].ToString();
+                //cus1.date_modi = row[dept.date_modi].ToString();
+                //cus1.date_cancel = row[dept.date_cancel].ToString();
+                //cus1.user_create = row[dept.user_create].ToString();
+                //cus1.user_modi = row[dept.user_modi].ToString();
+                //cus1.user_cancel = row[dept.user_cancel].ToString();
+                //cus1.active = row[dept.active].ToString();
+                lCus.Add(cus1);
+            }
+        }
+        public String getIdByCode(String code)
+        {
+            String id = "";
+            foreach (Customer cus1 in lCus)
+            {
+                if (code.Trim().Equals(cus1.cust_code.Trim()))
+                {
+                    id = cus1.cust_id;
+                    break;
+                }
+            }
+            return id;
+        }
+        public String getIdByName(String name)
+        {
+            String id = "";
+            foreach (Customer cus1 in lCus)
+            {
+                if (name.Trim().Equals(cus1.cust_name_t.Trim()))
+                {
+                    id = cus1.cust_id;
+                    break;
+                }
+            }
+            return id;
         }
         public String insert(Customer p)
         {

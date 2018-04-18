@@ -15,6 +15,7 @@ namespace Xtrim_ERP.control
         private IniFile iniF;
         public ConnectDB conn;
         public int grdViewFontSize=0;
+        public List<Department> lDept;
 
         public XtrimDB xtDB;
 

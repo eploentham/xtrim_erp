@@ -26,5 +26,7 @@ namespace Xtrim_ERP.object1
         public String posi_name { get; set; }
         public String pid { get; set; }
         public String logo { get; set; }
+        public String dept_id { get; set; }
+        public String dept_name_t { get; set; }
     }
 }

@@ -74,7 +74,7 @@
     <Reference Include="GrapeCity.Spreadsheet.Win, Version=11.40.20177.0, Culture=neutral, PublicKeyToken=327c3516b1b18457" />
     <Reference Include="GrapeCity.Win.PluginInputMan, Version=11.40.20177.0, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Command.4, Version=4.0.20173.282, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.10.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -158,8 +158,11 @@
     <Compile Include="objdb\CompanyDB.cs" />
     <Compile Include="objdb\ConnectDB.cs" />
     <Compile Include="objdb\CustomerDB.cs" />
+    <Compile Include="objdb\DepartmentDB.cs" />
     <Compile Include="objdb\ImportDataDB.cs" />
     <Compile Include="objdb\ImporterDB.cs" />
+    <Compile Include="objdb\InsuranceDB.cs" />
+    <Compile Include="objdb\JobImportDB.cs" />
     <Compile Include="objdb\StaffDB.cs" />
     <Compile Include="objdb\XtrimDB.cs" />
     <Compile Include="object1\Bank.cs" />
@@ -167,7 +170,10 @@
     <Compile Include="object1\Contact.cs" />
     <Compile Include="object1\Company.cs" />
     <Compile Include="object1\Customer.cs" />
+    <Compile Include="object1\Department.cs" />
     <Compile Include="object1\Importer.cs" />
+    <Compile Include="object1\Insurance.cs" />
+    <Compile Include="object1\JobImport.cs" />
     <Compile Include="object1\Staff.cs" />
     <Compile Include="object1\ComboBoxItem.cs" />
     <Compile Include="object1\ExAirLine.cs" />
@@ -241,6 +247,66 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Male-User-Warning48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Male-User-Help48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit-Male-User48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Accept-Male-User48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop-red48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer-orange48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer-blue48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer-green48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forklift_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lorry_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transport_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Accept-database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Accept-database48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

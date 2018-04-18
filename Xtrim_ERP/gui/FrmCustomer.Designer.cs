@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            FarPoint.Win.Spread.EnhancedFocusIndicatorRenderer enhancedFocusIndicatorRenderer2 = new FarPoint.Win.Spread.EnhancedFocusIndicatorRenderer();
-            FarPoint.Win.Spread.EnhancedScrollBarRenderer enhancedScrollBarRenderer3 = new FarPoint.Win.Spread.EnhancedScrollBarRenderer();
-            FarPoint.Win.Spread.EnhancedScrollBarRenderer enhancedScrollBarRenderer4 = new FarPoint.Win.Spread.EnhancedScrollBarRenderer();
+            FarPoint.Win.Spread.EnhancedFocusIndicatorRenderer enhancedFocusIndicatorRenderer1 = new FarPoint.Win.Spread.EnhancedFocusIndicatorRenderer();
+            FarPoint.Win.Spread.EnhancedScrollBarRenderer enhancedScrollBarRenderer1 = new FarPoint.Win.Spread.EnhancedScrollBarRenderer();
+            FarPoint.Win.Spread.EnhancedScrollBarRenderer enhancedScrollBarRenderer2 = new FarPoint.Win.Spread.EnhancedScrollBarRenderer();
             this.grdView = new FarPoint.Win.Spread.FpSpread();
             this.grdView_Sheet1 = new FarPoint.Win.Spread.SheetView();
             this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
@@ -70,8 +70,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.grdView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdView_Sheet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
@@ -103,21 +103,21 @@
             // 
             this.grdView.AccessibleDescription = "";
             this.grdView.Dock = System.Windows.Forms.DockStyle.Left;
-            this.grdView.FocusRenderer = enhancedFocusIndicatorRenderer2;
+            this.grdView.FocusRenderer = enhancedFocusIndicatorRenderer1;
             this.grdView.HorizontalScrollBar.Buttons = new FarPoint.Win.Spread.FpScrollBarButtonCollection("BackwardLineButton,ThumbTrack,ForwardLineButton");
             this.grdView.HorizontalScrollBar.Name = "";
-            enhancedScrollBarRenderer3.ArrowColor = System.Drawing.Color.DarkRed;
-            enhancedScrollBarRenderer3.ArrowHoveredColor = System.Drawing.Color.DarkRed;
-            enhancedScrollBarRenderer3.ArrowSelectedColor = System.Drawing.Color.DarkRed;
-            enhancedScrollBarRenderer3.ButtonBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(193)))), ((int)(((byte)(96)))));
-            enhancedScrollBarRenderer3.ButtonBorderColor = System.Drawing.Color.Orange;
-            enhancedScrollBarRenderer3.ButtonHoveredBackgroundColor = System.Drawing.Color.Orange;
-            enhancedScrollBarRenderer3.ButtonHoveredBorderColor = System.Drawing.Color.DarkOrange;
-            enhancedScrollBarRenderer3.ButtonSelectedBackgroundColor = System.Drawing.Color.DarkOrange;
-            enhancedScrollBarRenderer3.ButtonSelectedBorderColor = System.Drawing.Color.Orange;
-            enhancedScrollBarRenderer3.TrackBarBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(193)))), ((int)(((byte)(96)))));
-            enhancedScrollBarRenderer3.TrackBarSelectedBackgroundColor = System.Drawing.Color.Orange;
-            this.grdView.HorizontalScrollBar.Renderer = enhancedScrollBarRenderer3;
+            enhancedScrollBarRenderer1.ArrowColor = System.Drawing.Color.DarkRed;
+            enhancedScrollBarRenderer1.ArrowHoveredColor = System.Drawing.Color.DarkRed;
+            enhancedScrollBarRenderer1.ArrowSelectedColor = System.Drawing.Color.DarkRed;
+            enhancedScrollBarRenderer1.ButtonBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(193)))), ((int)(((byte)(96)))));
+            enhancedScrollBarRenderer1.ButtonBorderColor = System.Drawing.Color.Orange;
+            enhancedScrollBarRenderer1.ButtonHoveredBackgroundColor = System.Drawing.Color.Orange;
+            enhancedScrollBarRenderer1.ButtonHoveredBorderColor = System.Drawing.Color.DarkOrange;
+            enhancedScrollBarRenderer1.ButtonSelectedBackgroundColor = System.Drawing.Color.DarkOrange;
+            enhancedScrollBarRenderer1.ButtonSelectedBorderColor = System.Drawing.Color.Orange;
+            enhancedScrollBarRenderer1.TrackBarBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(193)))), ((int)(((byte)(96)))));
+            enhancedScrollBarRenderer1.TrackBarSelectedBackgroundColor = System.Drawing.Color.Orange;
+            this.grdView.HorizontalScrollBar.Renderer = enhancedScrollBarRenderer1;
             this.grdView.Location = new System.Drawing.Point(0, 0);
             this.grdView.Name = "grdView";
             this.grdView.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
@@ -127,18 +127,18 @@
             this.grdView.TabIndex = 3;
             this.grdView.VerticalScrollBar.Buttons = new FarPoint.Win.Spread.FpScrollBarButtonCollection("BackwardLineButton,ThumbTrack,ForwardLineButton");
             this.grdView.VerticalScrollBar.Name = "";
-            enhancedScrollBarRenderer4.ArrowColor = System.Drawing.Color.DarkRed;
-            enhancedScrollBarRenderer4.ArrowHoveredColor = System.Drawing.Color.DarkRed;
-            enhancedScrollBarRenderer4.ArrowSelectedColor = System.Drawing.Color.DarkRed;
-            enhancedScrollBarRenderer4.ButtonBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(193)))), ((int)(((byte)(96)))));
-            enhancedScrollBarRenderer4.ButtonBorderColor = System.Drawing.Color.Orange;
-            enhancedScrollBarRenderer4.ButtonHoveredBackgroundColor = System.Drawing.Color.Orange;
-            enhancedScrollBarRenderer4.ButtonHoveredBorderColor = System.Drawing.Color.DarkOrange;
-            enhancedScrollBarRenderer4.ButtonSelectedBackgroundColor = System.Drawing.Color.DarkOrange;
-            enhancedScrollBarRenderer4.ButtonSelectedBorderColor = System.Drawing.Color.Orange;
-            enhancedScrollBarRenderer4.TrackBarBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(193)))), ((int)(((byte)(96)))));
-            enhancedScrollBarRenderer4.TrackBarSelectedBackgroundColor = System.Drawing.Color.Orange;
-            this.grdView.VerticalScrollBar.Renderer = enhancedScrollBarRenderer4;
+            enhancedScrollBarRenderer2.ArrowColor = System.Drawing.Color.DarkRed;
+            enhancedScrollBarRenderer2.ArrowHoveredColor = System.Drawing.Color.DarkRed;
+            enhancedScrollBarRenderer2.ArrowSelectedColor = System.Drawing.Color.DarkRed;
+            enhancedScrollBarRenderer2.ButtonBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(193)))), ((int)(((byte)(96)))));
+            enhancedScrollBarRenderer2.ButtonBorderColor = System.Drawing.Color.Orange;
+            enhancedScrollBarRenderer2.ButtonHoveredBackgroundColor = System.Drawing.Color.Orange;
+            enhancedScrollBarRenderer2.ButtonHoveredBorderColor = System.Drawing.Color.DarkOrange;
+            enhancedScrollBarRenderer2.ButtonSelectedBackgroundColor = System.Drawing.Color.DarkOrange;
+            enhancedScrollBarRenderer2.ButtonSelectedBorderColor = System.Drawing.Color.Orange;
+            enhancedScrollBarRenderer2.TrackBarBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(193)))), ((int)(((byte)(96)))));
+            enhancedScrollBarRenderer2.TrackBarSelectedBackgroundColor = System.Drawing.Color.Orange;
+            this.grdView.VerticalScrollBar.Renderer = enhancedScrollBarRenderer2;
             this.grdView.CellDoubleClick += new FarPoint.Win.Spread.CellClickEventHandler(this.grdView_CellDoubleClick);
             // 
             // grdView_Sheet1
@@ -588,11 +588,14 @@
             // 
             // btnEdit
             // 
+            this.btnEdit.Image = global::Xtrim_ERP.Properties.Resources.lock48;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit.Location = new System.Drawing.Point(417, 19);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(118, 37);
+            this.btnEdit.Size = new System.Drawing.Size(118, 60);
             this.btnEdit.TabIndex = 59;
             this.btnEdit.Text = "แก้ไขช้อมูล";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.c1ThemeController1.SetTheme(this.btnEdit, "(default)");
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -600,11 +603,14 @@
             // 
             // btnOk
             // 
+            this.btnOk.Image = global::Xtrim_ERP.Properties.Resources.database48;
+            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOk.Location = new System.Drawing.Point(423, 381);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(118, 37);
+            this.btnOk.Size = new System.Drawing.Size(118, 60);
             this.btnOk.TabIndex = 58;
             this.btnOk.Text = "บันทึกช้อมูล";
+            this.btnOk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.c1ThemeController1.SetTheme(this.btnOk, "(default)");
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -677,17 +683,6 @@
             this.tabPage2.Text = "tabPage2";
             this.c1ThemeController1.SetTheme(this.tabPage2, "(default)");
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tabControl1.Location = new System.Drawing.Point(501, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(591, 738);
-            this.tabControl1.TabIndex = 115;
-            // 
             // groupBox2
             // 
             this.groupBox2.AutoSize = true;
@@ -702,6 +697,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             this.c1ThemeController1.SetTheme(this.groupBox2, "(default)");
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tabControl1.Location = new System.Drawing.Point(501, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(591, 738);
+            this.tabControl1.TabIndex = 115;
             // 
             // FrmCustomer
             // 

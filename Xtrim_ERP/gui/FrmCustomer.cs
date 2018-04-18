@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Xtrim_ERP.control;
 using Xtrim_ERP.object1;
+using Xtrim_ERP.Properties;
 
 namespace Xtrim_ERP.gui
 {
@@ -24,6 +25,8 @@ namespace Xtrim_ERP.gui
 
         int colID = 0, colE = 1, colS = 2, colCode = 3, colNameT = 4, colNameE = 5, colRemark = 6, coledit = 7;
         int colCnt = 8;
+
+        Boolean flagEdit = false;
 
         public FrmCustomer(XtrimControl x)
         {
@@ -330,7 +333,8 @@ namespace Xtrim_ERP.gui
             txtRemark2.Value = cus.remark2;
             txtContactName1.Value = cus.contact_name1;
             txtContactName2.Value = cus.contact_name2;
-            
+            btnOk.Image = Resources.database48;
+
         }
         private void setCustomer()
         {
@@ -373,6 +377,17 @@ namespace Xtrim_ERP.gui
             txtRemark2.Enabled = flag;
             txtContactName1.Enabled = flag;
             txtContactName2.Enabled = flag;
+
+            if (flag)
+            {
+                btnEdit.Image = Resources.open48;
+            }
+            else
+            {
+                btnEdit.Image = Resources.lock48;
+            }
+            //flag == true ? btnEdit.Image = Resources.open48 : btnEdit.Image = Resources.open48;
+            //btnEdit.Image = Resources.open48;
             
         }
         private void ContextMenu_void(object sender, System.EventArgs e)
@@ -395,14 +410,24 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setCustomer();
-                xC.xtDB.cusDB.insertCustomer(cus);
+                String re = xC.xtDB.cusDB.insertCustomer(cus);
+                int chk = 0;
+                if(int.TryParse(re, out chk))
+                {
+                    btnOk.Image = Resources.Accept_database48;
+                }
+                else
+                {
+                    btnOk.Image = Resources.Accept_database48;
+                }
                 setGrdView();
             }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            setEnable(true);
+            flagEdit = flagEdit ? false : true;
+            setEnable(flagEdit);
         }
 
         private void grdView_CellDoubleClick(object sender, FarPoint.Win.Spread.CellClickEventArgs e)

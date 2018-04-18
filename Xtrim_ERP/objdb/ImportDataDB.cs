@@ -15,6 +15,12 @@ namespace Xtrim_ERP.objdb
         ImporterDB impDB;
         CustomerDB cusDB;
         ConsigneeDB consDB;
+        InsuranceDB insrDB;
+        DepartmentDB deptDB;
+        StaffDB stfDB;
+        JobImportDB jimDB;
+
+        List<Department> lDept;
 
         public ImportDataDB(ConnectDB c)
         {
@@ -26,8 +32,12 @@ namespace Xtrim_ERP.objdb
             impDB = new ImporterDB(conn);
             cusDB = new CustomerDB(conn);
             consDB = new ConsigneeDB(conn);
+            insrDB = new InsuranceDB(conn);
+            deptDB = new DepartmentDB(conn);
+            stfDB = new StaffDB(conn);
+            jimDB = new JobImportDB(conn);
         }
-        public void ImportMEIOSYSimport(String flagNew, ProgressBar pb1)
+        public void ImportMEIOSYSimport(String pathA, String flagNew, String flag, ProgressBar pb1)
         {
             pb1.Show();
             DataTable dt = new DataTable();
@@ -74,7 +84,7 @@ namespace Xtrim_ERP.objdb
                 imp.contact_name1_tel = "";
                 imp.contact_name2_tel = "";
                 imp.status_company = "";
-                imp.status_vendor = "";
+                imp.status_vendor = "meiosys";
 
                 imp.date_create = "";
                 imp.date_modi = "";
@@ -103,6 +113,73 @@ namespace Xtrim_ERP.objdb
 
                 impDB.insertImporter(imp);
             }
+
+            sql = "Select * From importer ";
+            conn.OpenConnectionA(pathA, flag);
+            dt.Clear();
+            dt = conn.selectDataA(conn.connA, sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                //pb1.Value++;
+                Importer imp = new Importer();
+                imp.cust_id = "";
+                imp.imp_code = row["ImporterID"].ToString();
+                imp.imp_name_t = row["ImporterName"].ToString();
+                imp.imp_name_e = row["ImporterName"].ToString();
+                imp.active = "1";
+
+                imp.address_t = "";
+                imp.address_e = "";
+                imp.addr = "";
+                imp.amphur_id = "";
+                imp.district_id = "";
+
+                imp.province_id = "";
+                imp.zipcode = "";
+                imp.sale_id = "";
+                imp.sale_name_t = "";
+                imp.fax = row["ImporterFaxNumber"].ToString();
+
+                imp.tele = "";
+                imp.email = "";
+                imp.tax_id = "";
+                imp.remark = row["ImporterFacName"].ToString();
+                imp.contact_name1 = "";
+
+                imp.contact_name2 = "";
+                imp.contact_name1_tel = "";
+                imp.contact_name2_tel = "";
+                imp.status_company = "";
+                imp.status_vendor = "xtrim";
+
+                imp.date_create = "";
+                imp.date_modi = "";
+                imp.date_cancel = "";
+                imp.user_create = "";
+                imp.user_modi = "";
+
+                imp.user_cancel = "";
+                imp.remark2 = row["ImporterFacContact"].ToString();
+                imp.po_due_period = "";
+
+                imp.taddr1 = row["ImporterAddress"].ToString();
+                imp.taddr2 = row["ImporterAddress1"].ToString();
+                imp.taddr3 = row["ImporterAddress2"].ToString();
+                imp.taddr4 = row["ImporterPostalCode"].ToString();
+
+                imp.eaddr1 = row["ImporterCountry/Region"].ToString();
+                imp.eaddr2 = row["ImporterPhoneNumber"].ToString();
+                imp.eaddr3 = row["ImporterExtension"].ToString();
+                imp.eaddr4 = "";
+
+                imp.remark3 = "";
+                imp.payerorg = "";
+                imp.payerprofile = "";
+                imp.payeruser = "";
+
+                impDB.insertImporter(imp);
+            }
+
             conn.CloseConnectionNoClose();
             pb1.Hide();
         }
@@ -415,6 +492,317 @@ namespace Xtrim_ERP.objdb
                 cons.status_cons = "4";
 
                 consDB.insertConsignee(cons);
+            }
+            conn.CloseConnectionNoClose();
+            pb1.Hide();
+        }
+        public void ImportOpenJOBInsurance(String pathA, String flagNew, String flag, ProgressBar pb1)
+        {
+            pb1.Show();
+            DataTable dt = new DataTable();
+            String sql = "";
+            sql = "Select * from BrokerInsurance ";
+            conn.OpenConnectionA(pathA, flag);
+            dt = conn.selectDataA(conn.connA, sql);
+            pb1.Minimum = 0;
+            pb1.Maximum = dt.Rows.Count;
+            pb1.Value = 0;
+            conn.OpenConnectionNoClose();
+            if (flagNew.Equals("new"))
+            {
+                insrDB.deleteInsuranceAll();
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+                Insurance insr = new Insurance();
+                insr.insu_id = "";
+                insr.insu_code = row["BrokerID"].ToString();
+                insr.insu_name_t = row["BrokerName"].ToString();
+                insr.insu_name_e = row["BrokerName"].ToString();
+                insr.active = "1";
+
+                insr.address_t = "";
+                insr.address_e = "";
+                insr.addr = "";
+                insr.amphur_id = "";
+                insr.district_id = "";
+
+                insr.province_id = "";
+                insr.zipcode = "";
+                insr.sale_id = "";
+                insr.sale_name_t = "";
+                insr.fax = row["BrokerFaxNumber"].ToString();
+
+                insr.tele = row["BrokerPhoneNumber"].ToString();
+                insr.email = "";
+                insr.tax_id = "";
+                insr.remark = row["BrokerExtension"].ToString();
+                insr.contact_name1 = row["BrokerContacts"].ToString();
+
+                insr.contact_name2 = "";
+                insr.contact_name1_tel = "";
+                insr.contact_name2_tel = "";
+                insr.status_company = "";
+                insr.status_vendor = "";
+
+                insr.date_create = "";
+                insr.date_modi = "";
+                insr.date_cancel = "";
+                insr.user_create = "";
+                insr.user_modi = "";
+
+                insr.user_cancel = "";
+                insr.remark2 = "";
+                insr.po_due_period = "";
+                insr.taddr1 = row["BrokerAddress"].ToString();
+                insr.taddr2 = row["BrokerCity"].ToString();
+
+                insr.taddr3 = row["BrokerStateOrProvince"].ToString();
+                insr.taddr4 = row["BrokerPostalCode"].ToString();
+                insr.eaddr1 = row["BrokerCountry/Region"].ToString();
+                insr.eaddr2 = row["BrokerPhoneNumber"].ToString();
+                insr.eaddr3 = row["BrokerExtension"].ToString();
+
+                insr.eaddr4 = "";
+                //cons.status_cons = "4";
+
+                insrDB.insertCustomer(insr);
+            }
+            conn.CloseConnectionNoClose();
+            pb1.Hide();
+        }
+        public void ImportOpenJOBDepartment(String pathA, String flagNew, String flag, ProgressBar pb1)
+        {
+            pb1.Show();
+            DataTable dt = new DataTable();
+            String sql = "";
+            sql = "Select DepartmentName from Employees Group By DepartmentName";
+            conn.OpenConnectionA(pathA, flag);
+            dt = conn.selectDataA(conn.connA, sql);
+            pb1.Minimum = 0;
+            pb1.Maximum = dt.Rows.Count;
+            pb1.Value = 0;
+            conn.OpenConnectionNoClose();
+            if (flagNew.Equals("new"))
+            {
+                deptDB.deleteAll();
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+                Department dept = new Department();
+                dept.dept_id = "";
+                dept.depart_name_t = row["DepartmentName"].ToString();
+                dept.dept_parent_id = "";
+                dept.active = "1";
+                dept.comp_id = "";
+
+                dept.date_cancel = "";
+                dept.date_create = "";
+                dept.date_modi = "";
+                dept.depart_code = row["DepartmentName"].ToString();
+                dept.remark = "";
+
+                dept.user_cancel = "";
+                dept.user_create = "";
+                dept.user_modi = "";
+
+                deptDB.insertDepartment(dept);
+            }
+            conn.CloseConnectionNoClose();
+            pb1.Hide();
+        }
+        public void ImportOpenJOBStaff(String pathA, String flagNew, String flag, ProgressBar pb1)
+        {
+            pb1.Show();
+            DataTable dt = new DataTable();
+            String sql = "";
+
+            ImportOpenJOBDepartment(pathA, flagNew, flag, pb1);
+            deptDB.getlDept();
+
+            sql = "Select * from Employees ";
+            conn.OpenConnectionA(pathA, flag);
+            dt = conn.selectDataA(conn.connA, sql);
+            pb1.Minimum = 0;
+            pb1.Maximum = dt.Rows.Count;
+            pb1.Value = 0;
+            conn.OpenConnectionNoClose();
+            if (flagNew.Equals("new"))
+            {
+                stfDB.deleteAll();
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+                Staff stf = new Staff();
+                stf.staff_id = "";
+                stf.staff_code = "";
+                stf.username = "";
+                stf.prefix_id = "";
+                stf.staff_fname_t = row["FirstName"].ToString();
+                stf.staff_fname_e = "";
+                stf.staff_lname_t = row["LastName"].ToString();
+                stf.staff_lname_e = "";
+                stf.password1 = "";
+                stf.active = "1";
+                stf.remark = "Employees";
+                stf.priority = "";
+                stf.tele = "";
+                stf.mobile = "";
+                stf.fax = "";
+                stf.email = "";
+                stf.posi_id = "";
+                stf.posi_name = "";
+                stf.date_create = "";
+                stf.date_modi = "";
+                stf.date_cancel = "";
+                stf.user_create = "";
+                stf.user_modi = "";
+                stf.user_cancel = "";
+                stf.pid = "";
+                stf.logo = "";
+                stf.dept_id = deptDB.getIdByName(row["DepartmentName"].ToString());
+                stf.dept_name_t = row["DepartmentName"].ToString();
+
+                stfDB.insertStaff(stf);
+            }
+
+            sql = "Select * from CS ";
+            dt.Clear();
+            dt = conn.selectDataA(conn.connA, sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                Staff stf = new Staff();
+                stf.staff_id = "";
+                stf.staff_code = row["CsID"].ToString();
+                stf.username = "";
+                stf.prefix_id = "";
+                stf.staff_fname_t = row["CsName"].ToString();
+                stf.staff_fname_e = "";
+                stf.staff_lname_t = "";
+                stf.staff_lname_e = "";
+                stf.password1 = "";
+                stf.active = "1";
+                stf.remark = "CS";
+                stf.priority = "";
+                stf.tele = "";
+                stf.mobile = "";
+                stf.fax = "";
+                stf.email = "";
+                stf.posi_id = "";
+                stf.posi_name = "";
+                stf.date_create = "";
+                stf.date_modi = "";
+                stf.date_cancel = "";
+                stf.user_create = "";
+                stf.user_modi = "";
+                stf.user_cancel = "";
+                stf.pid = "";
+                stf.logo = "";
+                stf.dept_id = "";
+                stf.dept_name_t = "";
+
+                stfDB.insertStaff(stf);
+            }
+
+            conn.CloseConnectionNoClose();
+            pb1.Hide();
+        }
+        public void ImportOpenJOBJobImport(String pathA, String flagNew, String flag, ProgressBar pb1, Form frm)
+        {
+            pb1.Show();
+            DataTable dt = new DataTable();
+            String sql = "";
+
+            cusDB.getlCus();
+
+            ImportOpenJOBDepartment(pathA, flagNew, flag, pb1);
+            deptDB.getlDept();
+            impDB.getlImp();
+            stfDB.getlStf();
+
+            sql = "Select * from ImpJob ";
+            conn.OpenConnectionA(pathA, flag);
+            dt = conn.selectDataA(conn.connA, sql);
+            pb1.Minimum = 0;
+            pb1.Maximum = dt.Rows.Count;
+            pb1.Value = 0;
+            conn.OpenConnectionNoClose();
+            if (flagNew.Equals("new"))
+            {
+                jimDB.deleteAll();
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+                DateTime dt1 = new DateTime();
+                JobImport jim = new JobImport();
+                jim.job_import_id = "";
+                jim.job_import_code = "IMP "+row["ImpJobID"].ToString();
+
+                if (row["ImpJobID"].ToString().Equals("2463"))
+                {
+                    sql = "";
+                }
+
+                //DateTime.TryParse(row["ImpJobDate"].ToString(), out dt1);
+                jim.job_import_date = DateTime.TryParse(row["ImpJobDate"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd hh:MM:ss") : "";
+
+                jim.cust_id = cusDB.getIdByCode(row["CustomerID"].ToString().Trim());
+                jim.imp_id = impDB.getIdByCode(row["ImporterID"].ToString().Trim());
+                jim.transport_mode = row["TransportMode"].ToString();
+                jim.staff_id = stfDB.getIdByCode(row["CsID"].ToString().Trim());
+                jim.entry_type = row["EntryType"].ToString();
+                jim.privi_id = row["Pivilege"].ToString();
+                jim.ref_1 = row["CustomerRef"].ToString();
+                jim.ref_2 = "";
+                jim.ref_3 = "";
+                jim.ref_4 = "";
+                jim.ref_5 = "";
+                jim.ref_edi = row["EdiRef"].ToString();
+                jim.imp_entry = row["ImpEntry"].ToString();
+                jim.edi_response = row["EdiResponse"].ToString();
+                jim.tax_method_id = row["วีธีชำระภาษี"].ToString();
+                jim.check_exam_id = row["การตรวจปล่อย"].ToString();
+
+                
+                if (DateTime.TryParse(row["วันจ้งยอด"].ToString(), out dt1))
+                {
+                    if (dt1.Year > 2100)
+                    {
+                        dt1.AddYears(-543);
+                        jim.inv_date = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                }
+                else
+                {
+                    jim.inv_date = "";
+                }
+                
+                jim.tax_amt = row["ยอดภาษีที่แจ้ง"].ToString();
+                jim.insr_date = DateTime.TryParse(row["วันจ้งยอด"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd hh:MM:ss") : "";
+                jim.insr_id = row["BrokerID"].ToString();
+                jim.policy_no = row["PolicyNo"].ToString();
+                jim.premium = row["Premium"].ToString();
+                jim.policy_date = DateTime.TryParse(row["PolicyDate"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd hh:MM:ss") : "";
+                jim.policy_clause = row["PolicyClause"].ToString().Trim();
+                jim.job_year = DateTime.TryParse(row["ImpJobDate"].ToString(), out dt1) ? dt1.ToString("yyyy") : "";
+                jim.date_create = "";
+                jim.date_modi = "";
+                jim.date_cancel = "";
+                jim.user_create = "";
+                jim.user_modi = "";
+                jim.user_cancel = "";
+                jim.active = "1";
+                //jim.remark = DateTime.TryParse(row["ImpJobRemark"].ToString(), out dt1) ? dt1.ToString("yyyy") : "";
+                jim.remark = row["ImpJobRemark"].ToString().Trim();
+                jim.remark1 = "";
+                jim.remark2 = "";
+                jimDB.insertJobImport(jim);
+
+                pb1.Value++;
+                if ((pb1.Value % 100) == 0)
+                {
+                    frm.Refresh();
+                }
             }
             conn.CloseConnectionNoClose();
             pb1.Hide();
