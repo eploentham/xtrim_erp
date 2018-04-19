@@ -13,6 +13,9 @@ namespace Xtrim_ERP.objdb
         public JobImport jim;
         ConnectDB conn;
 
+        public List<JobImport> lJim;
+        public List<JobImport> lJim1;
+
         public JobImportDB(ConnectDB c)
         {
             conn = c;
@@ -28,7 +31,7 @@ namespace Xtrim_ERP.objdb
             jim.imp_id = "imp_id";
             jim.transport_mode = "transport_mode";
             jim.staff_id = "staff_id";
-            jim.entry_type = "entry_type";
+            jim.entry_type = "entry_type_id";
             jim.privi_id = "privi_id";
             jim.ref_1 = "ref_1";
             jim.ref_2 = "ref_2";
@@ -62,6 +65,57 @@ namespace Xtrim_ERP.objdb
 
             jim.table = "t_job_import";
             jim.pkField = "job_import_id";
+
+            lJim = new List<JobImport>();
+            lJim1 = new List<JobImport>();
+        }
+        public void getlJim()
+        {
+            //lDept = new List<Department>();
+
+            lJim.Clear();
+            DataTable dt = new DataTable();
+            dt = selectAll();
+            foreach (DataRow row in dt.Rows)
+            {
+                JobImport jim1 = new JobImport();
+                jim1.job_import_id = row[jim.job_import_id].ToString();
+                jim1.job_import_code = row[jim.job_import_code].ToString();
+                //jim1.entry_type_name_e = row[jim.entry_type_name_e].ToString();
+                //jim1.entry_type_name_t = row[jim.entry_type_name_t].ToString();
+                JobImport jim2 = new JobImport();
+                jim2.job_import_id = row[jim.job_import_id].ToString();
+                jim2.job_import_code = row[jim.job_import_code].ToString().Replace("IMP ","");
+
+                lJim.Add(jim1);
+                lJim1.Add(jim2);
+            }
+        }
+        public String getIdByCode(String code)
+        {
+            String id = "";
+            foreach (JobImport jim1 in lJim)
+            {
+                if (code.Trim().Equals(jim1.job_import_code))
+                {
+                    id = jim1.job_import_id;
+                    break;
+                }
+            }
+            return id;
+        }
+        public String getIdByCode1(String code)
+        {
+            String id = "";
+            foreach (JobImport jim1 in lJim1)
+            {
+                if (code.Trim().Equals(jim1.job_import_code))
+                {
+                    id = jim1.job_import_id;
+                    break;
+                }
+            }
+            return id;
         }
         private void chkNull(JobImport p)
         {
@@ -105,6 +159,7 @@ namespace Xtrim_ERP.objdb
 
             p.tax_amt = Decimal.TryParse(p.tax_amt, out chk1) ? chk1.ToString() : "0";
             p.premium = Decimal.TryParse(p.premium, out chk1) ? chk1.ToString() : "0";
+            p.entry_type = Decimal.TryParse(p.entry_type, out chk1) ? chk1.ToString() : "0";
         }
         public String insert(JobImport p)
         {

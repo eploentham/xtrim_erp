@@ -13,6 +13,9 @@ namespace Xtrim_ERP.objdb
         public Consignee cons;
         ConnectDB conn;
 
+        public List<Consignee> lCons;
+        public List<Consignee> lSupp;
+
         public ConsigneeDB(ConnectDB c)
         {
             conn = c;
@@ -66,6 +69,26 @@ namespace Xtrim_ERP.objdb
 
             cons.table = "b_consignee";
             cons.pkField = "cons_id";
+            lCons = new List<Consignee>();
+            lSupp = new List<Consignee>();
+        }
+        public void getlCons()
+        {
+            //lDept = new List<Department>();
+
+            lCons.Clear();
+            DataTable dt = new DataTable();
+            dt = selectAll();
+            foreach (DataRow row in dt.Rows)
+            {
+                JobImport jim1 = new JobImport();
+                cons.cons_id = row[cons.cons_id].ToString();
+                cons.cons_code = row[cons.cons_code].ToString();
+                
+
+                lCons.Add(cons);
+                
+            }
         }
         public String insert(Consignee p)
         {
@@ -282,6 +305,39 @@ namespace Xtrim_ERP.objdb
                 "From " + cons.table + " cons " +
                 " " +
                 "Where cons." + cons.active + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectConsigneeAll()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cons.*  " +
+                "From " + cons.table + " cons " +
+                " " +
+                "Where cons." + cons.active + " ='1' and cons."+cons.status_cons+"='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectSupplierAll()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cons.*  " +
+                "From " + cons.table + " cons " +
+                " " +
+                "Where cons." + cons.active + " ='1' and cons." + cons.status_cons + "='4' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectExConsigneeAll()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cons.*  " +
+                "From " + cons.table + " cons " +
+                " " +
+                "Where cons." + cons.active + " ='1' and cons." + cons.status_cons + "='2' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;

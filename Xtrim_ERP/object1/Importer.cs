@@ -13,7 +13,7 @@ namespace Xtrim_ERP.object1
         public String imp_code { get; set; }
         public String imp_name_t { get; set; }
         public String imp_name_e { get; set; }
-        public String active { get; set; }
+        
         public String address_t { get; set; }
         public String address_e { get; set; }
         public String addr { get; set; }
@@ -27,19 +27,14 @@ namespace Xtrim_ERP.object1
         public String tele { get; set; }
         public String email { get; set; }
         public String tax_id { get; set; }
-        public String remark { get; set; }
+        
         public String contact_name1 { get; set; }
         public String contact_name2 { get; set; }
         public String contact_name1_tel { get; set; }
         public String contact_name2_tel { get; set; }
         public String status_company { get; set; }
         public String status_vendor { get; set; }
-        public String date_create { get; set; }
-        public String date_modi { get; set; }
-        public String date_cancel { get; set; }
-        public String user_create { get; set; }
-        public String user_modi { get; set; }
-        public String user_cancel { get; set; }
+        
         public String remark2 { get; set; }
         public String po_due_period { get; set; }
         public String taddr1 { get; set; }

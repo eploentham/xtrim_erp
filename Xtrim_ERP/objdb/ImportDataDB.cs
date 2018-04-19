@@ -19,6 +19,14 @@ namespace Xtrim_ERP.objdb
         DepartmentDB deptDB;
         StaffDB stfDB;
         JobImportDB jimDB;
+        TerminalDB tmnDB;
+        PortImportDB ptiDB;
+        PortOfLoadingDB polDB;
+        ForwarderDB fwdDB;
+        JobImportBlDB jblDB;
+        CurrencyDB currDB;
+        JobImportInvDB jinDB;
+        EntryTypeDB ettDB;
 
         List<Department> lDept;
 
@@ -36,6 +44,14 @@ namespace Xtrim_ERP.objdb
             deptDB = new DepartmentDB(conn);
             stfDB = new StaffDB(conn);
             jimDB = new JobImportDB(conn);
+            ptiDB = new PortImportDB(conn);
+            polDB = new PortOfLoadingDB(conn);
+            tmnDB = new TerminalDB(conn);
+            fwdDB = new ForwarderDB(conn);
+            jblDB = new JobImportBlDB(conn);
+            currDB = new CurrencyDB(conn);
+            jinDB = new JobImportInvDB(conn);
+            ettDB = new EntryTypeDB(conn);
         }
         public void ImportMEIOSYSimport(String pathA, String flagNew, String flag, ProgressBar pb1)
         {
@@ -83,7 +99,7 @@ namespace Xtrim_ERP.objdb
                 imp.contact_name2 = "";
                 imp.contact_name1_tel = "";
                 imp.contact_name2_tel = "";
-                imp.status_company = "";
+                imp.status_company = "importer";
                 imp.status_vendor = "meiosys";
 
                 imp.date_create = "";
@@ -149,7 +165,7 @@ namespace Xtrim_ERP.objdb
                 imp.contact_name2 = "";
                 imp.contact_name1_tel = "";
                 imp.contact_name2_tel = "";
-                imp.status_company = "";
+                imp.status_company = "importer";
                 imp.status_vendor = "xtrim";
 
                 imp.date_create = "";
@@ -719,6 +735,7 @@ namespace Xtrim_ERP.objdb
             deptDB.getlDept();
             impDB.getlImp();
             stfDB.getlStf();
+            ettDB.getlEtt();
 
             sql = "Select * from ImpJob ";
             conn.OpenConnectionA(pathA, flag);
@@ -738,7 +755,7 @@ namespace Xtrim_ERP.objdb
                 jim.job_import_id = "";
                 jim.job_import_code = "IMP "+row["ImpJobID"].ToString();
 
-                if (row["ImpJobID"].ToString().Equals("2463"))
+                if (row["ImpJobID"].ToString().Equals("29206"))
                 {
                     sql = "";
                 }
@@ -750,7 +767,7 @@ namespace Xtrim_ERP.objdb
                 jim.imp_id = impDB.getIdByCode(row["ImporterID"].ToString().Trim());
                 jim.transport_mode = row["TransportMode"].ToString();
                 jim.staff_id = stfDB.getIdByCode(row["CsID"].ToString().Trim());
-                jim.entry_type = row["EntryType"].ToString();
+                jim.entry_type = ettDB.getIdByCode(row["EntryType"].ToString());
                 jim.privi_id = row["Pivilege"].ToString();
                 jim.ref_1 = row["CustomerRef"].ToString();
                 jim.ref_2 = "";
@@ -768,7 +785,11 @@ namespace Xtrim_ERP.objdb
                 {
                     if (dt1.Year > 2100)
                     {
-                        dt1.AddYears(-543);
+                        dt1 =dt1.AddYears(-543);
+                        jim.inv_date = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                    else
+                    {
                         jim.inv_date = dt1.ToString("yyyy-MM-dd hh:MM:ss");
                     }
                 }
@@ -803,6 +824,395 @@ namespace Xtrim_ERP.objdb
                 {
                     frm.Refresh();
                 }
+            }
+            conn.CloseConnectionNoClose();
+            pb1.Hide();
+        }
+        public void ImportOpenJOBTermail(String pathA, String flagNew, String flag, ProgressBar pb1, Form frm)
+        {
+            pb1.Show();
+            DataTable dt = new DataTable();
+            String sql = "";
+            sql = "Select * from terminal ";
+            conn.OpenConnectionA(pathA, flag);
+            dt = conn.selectDataA(conn.connA, sql);
+            pb1.Minimum = 0;
+            pb1.Maximum = dt.Rows.Count;
+            pb1.Value = 0;
+            conn.OpenConnectionNoClose();
+            if (flagNew.Equals("new"))
+            {
+                tmnDB.deleteAll();
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+                Terminal tmn = new Terminal();
+                tmn = new Terminal();
+                tmn.terminal_id = "";
+                tmn.terminal_code = row["TerminalID"].ToString().Trim();
+                tmn.terminal_name_e = row["TerminalName"].ToString().Trim();
+                tmn.terminal_name_t = row["TerminalName"].ToString().Trim();
+                //tmn.status_app = "status_app";
+                tmn.sort1 = "";
+
+                tmn.active = "1";
+                tmn.date_create = "";
+                tmn.date_modi = "";
+                tmn.date_cancel = "";
+                tmn.user_create = "";
+                tmn.user_modi = "";
+                tmn.user_cancel = "";
+                //tmn.status_app = "status_app";
+                tmn.remark = "";
+
+                tmnDB.insertPortImprt(tmn);
+            }
+            conn.CloseConnectionNoClose();
+            pb1.Hide();
+        }
+        public void ImportOpenJOBForwarder(String pathA, String flagNew, String flag, ProgressBar pb1, Form frm)
+        {
+            pb1.Show();
+            DataTable dt = new DataTable();
+            String sql = "";
+            sql = "Select * From impforwarder ";
+            conn.OpenConnectionA(pathA, flag);
+            if (flagNew.Equals("new"))
+            {
+                fwdDB.deleteAll();
+            }
+            dt.Clear();
+            dt = conn.selectDataA(conn.connA, sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                //pb1.Value++;
+                Forwarder fwd = new Forwarder();
+                fwd.forwarder_id = "";
+                fwd.forwarder_code = row["ImpForwarderID"].ToString();
+                fwd.forwarder_name_t = row["ImpForwarderName"].ToString();
+                fwd.forwarder_name_e = row["ImpForwarderName"].ToString();
+                fwd.active = "1";
+
+                fwd.address_t = "";
+                fwd.address_e = "";
+                fwd.addr = "";
+                fwd.amphur_id = "";
+                fwd.district_id = "";
+
+                fwd.province_id = "";
+                fwd.zipcode = "";
+                fwd.sale_id = "";
+                fwd.sale_name_t = "";
+                fwd.fax = row["ImpForwarderFax"].ToString();
+
+                fwd.tele = row["ImpForwarderTel"].ToString();
+                fwd.email = "";
+                fwd.tax_id = "";
+                fwd.remark = "";
+                fwd.contact_name1 = row["ImpForwarderContact1"].ToString();
+
+                fwd.contact_name2 = row["ImpForwarderContact2"].ToString();
+                fwd.contact_name3 = row["ImpForwarderContact3"].ToString();
+                fwd.contact_name4 = row["ImpForwarderContact1Airport"].ToString();
+                fwd.contact_name5 = row["ImpForwarderContact2Airport"].ToString();
+                fwd.contact_name6 = row["ImpForwarderContact3Airport"].ToString();
+                fwd.contact_name1_tel = "";
+                fwd.contact_name2_tel = "";
+                fwd.status_company = "forwarder";
+                fwd.status_vendor = "xtrim";
+
+                fwd.date_create = "";
+                fwd.date_modi = "";
+                fwd.date_cancel = "";
+                fwd.user_create = "";
+                fwd.user_modi = "";
+
+                fwd.user_cancel = "";
+                fwd.remark2 = "";
+                fwd.po_due_period = "";
+
+                fwd.taddr1 = row["ImpForwarderAddress"].ToString();
+                fwd.taddr2 = row["ImpForwarderCity"].ToString();
+                fwd.taddr3 = row["ImpForwarderTel"].ToString();
+                fwd.taddr4 = row["ImpForwarderFax"].ToString();
+
+                fwd.eaddr1 = row["ImpForwarderAddressAirport"].ToString();
+                fwd.eaddr2 = row["ImpForwarderCityAirport"].ToString();
+                fwd.eaddr3 = row["ImpForwarderTelAirport"].ToString();
+                fwd.eaddr4 = row["ImpForwarderFaxAirport"].ToString();
+
+                fwd.remark3 = "";
+                fwd.payerorg = "";
+                fwd.payerprofile = "";
+                fwd.payeruser = "";
+
+                fwdDB.insertForwarder(fwd);
+            }
+            conn.CloseConnectionNoClose();
+            pb1.Hide();
+        }
+        public void ImportOpenJOBJobImportBl(String pathA, String flagNew, String flag, ProgressBar pb1, Form frm)
+        {
+            pb1.Show();
+            DataTable dt = new DataTable();
+            String sql = "";
+
+            jimDB.getlJim();
+
+            sql = "Select * From impbldetail ";
+            conn.OpenConnectionA(pathA, flag);
+            if (flagNew.Equals("new"))
+            {
+                jblDB.deleteAll();
+            }
+            dt.Clear();
+            dt = conn.selectDataA(conn.connA, sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                DateTime dt1 = new DateTime();
+                //pb1.Value++;
+                JobImportBl jbl = new JobImportBl();
+                jbl.job_import_bl_id = "";
+                jbl.job_import_id = jimDB.getIdByCode1(row["ImpJobID"].ToString());
+                jbl.forwarder_id = row["ImpForwarderID"].ToString();
+                jbl.mbl_mawb = row["MBL/MAWB"].ToString();
+                jbl.hbl_hawb = row["HBL/HAWB"].ToString();
+                jbl.m_vessel = row["MVessel"].ToString();
+                jbl.f_vessel = row["FVessel"].ToString();
+                if (DateTime.TryParse(row["ETD"].ToString(), out dt1))
+                {
+                    if (dt1.Year > 2100)
+                    {
+                        dt1 = dt1.AddYears(-543);
+                        jbl.etd = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                    else if (dt1.Year < 1500)
+                    {
+                        dt1 = dt1.AddYears(543);
+                        jbl.etd = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                    else
+                    {
+                        jbl.etd = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                }
+                else
+                {
+                    jbl.etd = "";
+                }
+                //jbl.etd = DateTime.TryParse(row["ETD"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd hh:MM:ss") : "";
+                if (DateTime.TryParse(row["ETA"].ToString(), out dt1))
+                {
+                    if (dt1.Year > 2100)
+                    {
+                        dt1 = dt1.AddYears(-543);
+                        jbl.eta = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                    else if (dt1.Year < 1500)
+                    {
+                        dt1 = dt1.AddYears(543);
+                        jbl.eta = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                    else
+                    {
+                        jbl.eta = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                }
+                else
+                {
+                    jbl.eta = "";
+                }
+                //jbl.eta = DateTime.TryParse(row["ETA"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd hh:MM:ss") : "";
+                jbl.port_id = row["รหัสท่านำเข้า"].ToString();
+
+                jbl.terminal_id = row["TerminalID"].ToString();
+                jbl.marsk = row["Marsk"].ToString();
+                jbl.description = row["Description"].ToString();
+                jbl.gw = row["GW"].ToString();
+                jbl.gw_unit_id = row["GWUnitID"].ToString();
+                jbl.total_packages = row["TotalPackages"].ToString();
+                jbl.package_unit_id = row["PackagesUnitID"].ToString();
+                jbl.total_con20 = row["TotalCon20'"].ToString();
+                jbl.total_con40 = row["TotalCon40'"].ToString();
+                jbl.volume1 = row["Volume"].ToString();
+
+                jbl.port_of_loding_id = row["PortOfLodingID"].ToString();
+                if (DateTime.TryParse(row["วันตรวจปล่อย"].ToString(), out dt1))
+                {
+                    if (dt1.Year > 2100)
+                    {
+                        dt1 = dt1.AddYears(-543);
+                        jbl.date_check_exam = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                    else if (dt1.Year < 1500)
+                    {
+                        dt1 = dt1.AddYears(543);
+                        jbl.date_check_exam = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                    else
+                    {
+                        jbl.date_check_exam = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                }
+                else
+                {
+                    jbl.date_check_exam = "";
+                }
+                //jbl.date_check_exam = DateTime.TryParse(row["วันตรวจปล่อย"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd hh:MM:ss") : "";
+                if (DateTime.TryParse(row["DeliveryDate"].ToString(), out dt1))
+                {
+                    if (dt1.Year > 2100)
+                    {
+                        dt1 = dt1.AddYears(-543);
+                        jbl.date_delivery = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                    else if (dt1.Year < 1500)
+                    {
+                        dt1 = dt1.AddYears(543);
+                        jbl.date_delivery = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                    else
+                    {
+                        jbl.date_delivery = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                }
+                else
+                {
+                    jbl.date_delivery = "";
+                }
+                //jbl.date_delivery = DateTime.TryParse(row["DeliveryDate"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd hh:MM:ss") : "";
+                if (DateTime.TryParse(row["ToFacDate"].ToString(), out dt1))
+                {
+                    if (dt1.Year > 2100)
+                    {
+                        dt1 = dt1.AddYears(-543);
+                        jbl.date_tofac = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                    else if (dt1.Year < 1500)
+                    {
+                        dt1 = dt1.AddYears(543);
+                        jbl.date_tofac = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                    else
+                    {
+                        jbl.date_tofac = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                }
+                else
+                {
+                    jbl.date_tofac = "";
+                }
+                //jbl.date_tofac = DateTime.TryParse(row["ToFacDate"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd hh:MM:ss") : "";
+                jbl.truck_id = row["TruckID"].ToString();
+                jbl.car_number = row["จำนวนรถ"].ToString();
+                jbl.tranfer_with_job_id = row["ส่งสินค้าไปพร้อมกับ JOB NO"].ToString();
+                jbl.truck_cop_id = row["TruckCompanyID"].ToString();
+                jbl.status_doc_forrow = row["มีเอกสารต้องตามต่อ"].ToString().Equals("false") ? "0" : "1";
+                jbl.doc_forrow = row["ชนิดเอกสาร"].ToString();
+
+                if (DateTime.TryParse(row["วันส่งเอกสารให้ลูกค้า"].ToString(), out dt1))
+                {
+                    if (dt1.Year > 2100)
+                    {
+                        dt1 = dt1.AddYears(-543);
+                        jbl.date_doc_forrow = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                    else if (dt1.Year < 1500)
+                    {
+                        dt1 = dt1.AddYears(543);
+                        jbl.date_doc_forrow = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                    else
+                    {
+                        jbl.date_doc_forrow = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                }
+                else
+                {
+                    jbl.date_doc_forrow = "";
+                }
+                //jbl.date_doc_forrow = DateTime.TryParse(row["วันส่งเอกสารให้ลูกค้า"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd hh:MM:ss") : "";
+                jbl.status_job_forrow = row["มีงานต้องตามต่อ"].ToString().Equals("false") ? "0" : "1";
+                jbl.job_forrow_description = row["ชนิดงานตาม"].ToString();
+                if (DateTime.TryParse(row["วันเสร็จงานตาม"].ToString(), out dt1))
+                {
+                    if (dt1.Year > 2100)
+                    {
+                        dt1 = dt1.AddYears(-543);
+                        jbl.date_finish_job_forrow = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                    else if (dt1.Year < 1500)
+                    {
+                        dt1 = dt1.AddYears(543);
+                        jbl.date_finish_job_forrow = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                    else
+                    {
+                        jbl.date_finish_job_forrow = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                }
+                else
+                {
+                    jbl.date_finish_job_forrow = "";
+                }
+                //jbl.date_finish_job_forrow = DateTime.TryParse(row["วันเสร็จงานตาม"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd hh:MM:ss") : "";
+                jbl.status_oth_job = row["เปิด OTH JOB เพื่อตามงานต่อ"].ToString().Equals("false") ? "0" : "1";
+                jbl.delivery_remark = row["DeliveryRemarks"].ToString();
+                jbl.container_yard = row["ContainerYard"].ToString();
+                jbl.oth_job_no = row["oth job no"].ToString();
+                jbl.date_create = "";
+                jbl.date_modi = "";
+                jbl.date_cancel = "";
+
+                jbl.user_create = "";
+                jbl.user_modi = "";
+                jbl.user_cancel = "";
+                jbl.active = "1";
+                jbl.remark = "";
+
+                jblDB.insertJobImportBl(jbl);
+            }
+            conn.CloseConnectionNoClose();
+            pb1.Hide();
+        }
+        public void ImportOpenJOBJobImportInv(String pathA, String flagNew, String flag, ProgressBar pb1, Form frm)
+        {
+            pb1.Show();
+            DataTable dt = new DataTable();
+            String sql = "";
+            jimDB.getlJim();
+            sql = "Select * From impinv ";
+            conn.OpenConnectionA(pathA, flag);
+            if (flagNew.Equals("new"))
+            {
+                jblDB.deleteAll();
+            }
+            dt.Clear();
+            dt = conn.selectDataA(conn.connA, sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                DateTime dt1 = new DateTime();
+                //pb1.Value++;
+                JobImportInv jin = new JobImportInv();
+                jin.job_import_inv_id = "";
+                jin.job_import_id = jimDB.getIdByCode(row["ImpJobID"].ToString());
+                jin.invoice_date = row["ImpInvDate"].ToString();
+                jin.inv_no = row["ImpInvNo"].ToString();
+                jin.cons_id = row["SupplierID"].ToString();
+                jin.inco_teams_id = row["IncoTermsID"].ToString();
+                jin.term_pay_id = row["TermPaymentID"].ToString();
+                jin.amount = row["TotalAmt"].ToString();
+                jin.curr_id = row["CurrencyID"].ToString();
+                jin.date_create = "";
+                jin.date_modi = "";
+                jin.date_cancel = "";
+                jin.user_create = "";
+                jin.user_modi = "";
+                jin.user_cancel = "";
+                jin.remark = "";
+                jin.active = "1";
+
+                jinDB.insertJobImportInv(jin);
             }
             conn.CloseConnectionNoClose();
             pb1.Hide();

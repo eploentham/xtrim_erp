@@ -298,7 +298,7 @@ namespace Xtrim_ERP.objdb
                 "," + imp.payerorg + " = '" + p.payerorg + "' " +
                 "," + imp.payerprofile + " = '" + p.payerprofile + "' " +
                 "," + imp.payeruser + " = '" + p.payeruser + "' " +
-                "Where " + imp.pkField + "='" + p.cust_id + "'"
+                "Where " + imp.pkField + "='" + p.imp_id + "'"
                 ;
 
             try
@@ -316,7 +316,7 @@ namespace Xtrim_ERP.objdb
         {
             String re = "";
 
-            if (p.cust_id.Equals(""))
+            if (p.imp_id.Equals(""))
             {
                 re = insert(p);
             }
@@ -373,7 +373,7 @@ namespace Xtrim_ERP.objdb
             Importer imp1 = new Importer();
             if (dt.Rows.Count > 0)
             {
-                imp1.cust_id = dt.Rows[0][imp.cust_id].ToString();
+                imp1.imp_id = dt.Rows[0][imp.imp_id].ToString();
                 imp1.cust_id = dt.Rows[0][imp.cust_id].ToString();
                 imp1.imp_code = dt.Rows[0][imp.imp_code].ToString();
                 imp1.imp_name_t = dt.Rows[0][imp.imp_name_t].ToString();
