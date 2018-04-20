@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Xtrim_ERP.object1;
 
 namespace Xtrim_ERP.objdb
@@ -77,6 +78,7 @@ namespace Xtrim_ERP.objdb
             cus.pkField = "cust_id";
 
             lCus = new List<Customer>();
+            getlCus();
         }
         public void getlCus()
         {
@@ -104,6 +106,22 @@ namespace Xtrim_ERP.objdb
                 lCus.Add(cus1);
             }
         }
+        public void setCboCus(ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            //DataTable dt = selectWard();
+            foreach (Customer cus1 in lCus)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.cust_id;
+                item.Text = cus1.cust_name_t;
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    c.SelectedItem = item;
+                }
+            }
+        }
         public String getIdByCode(String code)
         {
             String id = "";
@@ -129,6 +147,19 @@ namespace Xtrim_ERP.objdb
                 }
             }
             return id;
+        }
+        public String getNameTById(String id)
+        {
+            String ret = "";
+            foreach (Customer cus1 in lCus)
+            {
+                if (id.Trim().Equals(cus1.cust_id.Trim()))
+                {
+                    ret = cus1.cust_name_t;
+                    break;
+                }
+            }
+            return ret;
         }
         public String insert(Customer p)
         {

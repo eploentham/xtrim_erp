@@ -30,7 +30,7 @@ namespace Xtrim_ERP.objdb
             jbl.f_vessel = "f_vessel";
             jbl.etd = "etd";
             jbl.eta = "eta";
-            jbl.port_id = "port_id";
+            jbl.port_imp_id = "port_import_id";
 
             jbl.terminal_id = "terminal_id";
             jbl.marsk = "marsk";
@@ -38,7 +38,7 @@ namespace Xtrim_ERP.objdb
             jbl.gw = "gw";
             jbl.gw_unit_id = "gw_unit_id";
             jbl.total_packages = "total_packages";
-            jbl.package_unit_id = "package_unit_id";
+            jbl.unit_package_id = "unit_package_id";
             jbl.total_con20 = "total_con20";
             jbl.total_con40 = "total_con40";
             jbl.volume1 = "volume1";
@@ -120,11 +120,11 @@ namespace Xtrim_ERP.objdb
             p.tranfer_with_job_id = int.TryParse(p.tranfer_with_job_id, out chk) ? chk.ToString() : "0";
             p.truck_id = int.TryParse(p.truck_id, out chk) ? chk.ToString() : "0";
             p.port_of_loding_id = int.TryParse(p.port_of_loding_id, out chk) ? chk.ToString() : "0";
-            p.package_unit_id = int.TryParse(p.package_unit_id, out chk) ? chk.ToString() : "0";
+            p.unit_package_id = int.TryParse(p.unit_package_id, out chk) ? chk.ToString() : "0";
             p.gw_unit_id = int.TryParse(p.gw_unit_id, out chk) ? chk.ToString() : "0";
             p.terminal_id = int.TryParse(p.terminal_id, out chk) ? chk.ToString() : "0";
 
-            p.port_id = Decimal.TryParse(p.port_id, out chk1) ? chk1.ToString() : "0";
+            p.port_imp_id = Decimal.TryParse(p.port_imp_id, out chk1) ? chk1.ToString() : "0";
             p.forwarder_id = Decimal.TryParse(p.forwarder_id, out chk1) ? chk1.ToString() : "0";
             p.job_import_id = Decimal.TryParse(p.job_import_id, out chk1) ? chk1.ToString() : "0";
             //p.premium = Decimal.TryParse(p.premium, out chk1) ? chk1.ToString() : "0";
@@ -144,10 +144,10 @@ namespace Xtrim_ERP.objdb
 
             sql = "Insert Into " + jbl.table + "(" + jbl.job_import_id + "," + jbl.forwarder_id + "," + jbl.mbl_mawb + "," +
                 jbl.hbl_hawb + "," + jbl.m_vessel + "," + jbl.f_vessel + "," +
-                jbl.etd + "," + jbl.eta + "," + jbl.port_id + "," +
+                jbl.etd + "," + jbl.eta + "," + jbl.port_imp_id + "," +
                 jbl.terminal_id + "," + jbl.marsk + "," + jbl.description + "," +
                 jbl.gw + "," + jbl.gw_unit_id + "," + jbl.total_packages + "," +
-                jbl.package_unit_id + "," + jbl.total_con20 + "," + jbl.total_con40 + "," +
+                jbl.unit_package_id + "," + jbl.total_con20 + "," + jbl.total_con40 + "," +
                 jbl.volume1 + "," + jbl.port_of_loding_id + "," + jbl.date_check_exam + "," +
                 jbl.date_delivery + "," + jbl.date_tofac + ", " + jbl.truck_id + ", " +
                 jbl.car_number + "," + jbl.tranfer_with_job_id + ", " + jbl.truck_cop_id + ", " +
@@ -160,10 +160,10 @@ namespace Xtrim_ERP.objdb
                 ") " +
                 "Values ('" + p.job_import_id + "','" + p.forwarder_id + "','" + p.mbl_mawb + "'," +
                 "'" + p.hbl_hawb.Replace("'", "''") + "','" + p.m_vessel.Replace("'", "''") + "','" + p.f_vessel.Replace("'", "''") + "'," +
-                "'" + p.etd.Replace("'", "''") + "','" + p.eta.Replace("'", "''") + "','" + p.port_id + "'," +
+                "'" + p.etd.Replace("'", "''") + "','" + p.eta.Replace("'", "''") + "','" + p.port_imp_id + "'," +
                 "'" + p.terminal_id + "','" + p.marsk.Replace("'", "''") + "','" + p.description.Replace("'", "''") + "'," +
                 "'" + p.gw.Replace("'", "''") + "','" + p.gw_unit_id + "','" + p.total_packages.Replace("'", "''") + "'," +
-                "'" + p.package_unit_id + "','" + p.total_con20.Replace("'", "''") + "','" + p.total_con40.Replace("'", "''") + "'," +
+                "'" + p.unit_package_id + "','" + p.total_con20.Replace("'", "''") + "','" + p.total_con40.Replace("'", "''") + "'," +
                 "'" + p.volume1.Replace("'", "''") + "','" + p.port_of_loding_id + "','" + p.date_check_exam + "', " +
                 "'" + p.date_delivery + "','" + p.date_tofac + "','" + p.truck_id + "', " +
                 "'" + p.car_number.Replace("'", "''") + "','" + p.tranfer_with_job_id + "','" + p.truck_cop_id + "', " +
@@ -201,14 +201,14 @@ namespace Xtrim_ERP.objdb
                 "," + jbl.f_vessel + " = '" + p.f_vessel.Replace("'", "''") + "'" +
                 "," + jbl.etd + " = '" + p.etd.Replace("'", "''") + "'" +
                 "," + jbl.eta + " = '" + p.eta.Replace("'", "''") + "'" +
-                "," + jbl.port_id + " = '" + p.port_id + "'" +
+                "," + jbl.port_imp_id + " = '" + p.port_imp_id + "'" +
                 "," + jbl.terminal_id + " = '" + p.terminal_id.Replace("'", "''") + "'" +
                 "," + jbl.marsk + " = '" + p.marsk.Replace("'", "''") + "'" +
                 "," + jbl.description + " = '" + p.description.Replace("'", "''") + "'" +
                 "," + jbl.gw + " = '" + p.gw.Replace("'", "''") + "'" +
                 "," + jbl.gw_unit_id + " = '" + p.gw_unit_id + "'" +
                 "," + jbl.total_packages + " = '" + p.total_packages + "'" +
-                "," + jbl.package_unit_id + " = '" + p.package_unit_id + "'" +
+                "," + jbl.unit_package_id + " = '" + p.unit_package_id + "'" +
                 "," + jbl.total_con20 + " = '" + p.total_con20.Replace("'", "''") + "'" +
                 "," + jbl.total_con40 + " = '" + p.total_con40.Replace("'", "''") + "'" +
                 "," + jbl.volume1 + " = '" + p.volume1.Replace("'", "''") + "'" +
@@ -307,60 +307,72 @@ namespace Xtrim_ERP.objdb
             cop1 = setJobImportBl(dt);
             return cop1;
         }
+        public JobImportBl selectByJobId(String copId)
+        {
+            JobImportBl cop1 = new JobImportBl();
+            DataTable dt = new DataTable();
+            String sql = "select jbl.* " +
+                "From " + jbl.table + " jbl " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where jbl." + jbl.job_import_id + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            cop1 = setJobImportBl(dt);
+            return cop1;
+        }
         private JobImportBl setJobImportBl(DataTable dt)
         {
-            JobImportBl jbl = new JobImportBl();
+            JobImportBl jbl1 = new JobImportBl();
             if (dt.Rows.Count > 0)
             {
-                jbl.job_import_bl_id = dt.Rows[0][jbl.job_import_bl_id].ToString();
-                jbl.job_import_id = dt.Rows[0][jbl.job_import_id].ToString();
-                jbl.forwarder_id = dt.Rows[0][jbl.forwarder_id].ToString();
-                jbl.mbl_mawb = dt.Rows[0][jbl.mbl_mawb].ToString();
-                jbl.hbl_hawb = dt.Rows[0][jbl.hbl_hawb].ToString();
-                jbl.m_vessel = dt.Rows[0][jbl.m_vessel].ToString();
-                jbl.f_vessel = dt.Rows[0][jbl.f_vessel].ToString();
-                jbl.etd = dt.Rows[0][jbl.etd].ToString();
-                jbl.eta = dt.Rows[0][jbl.eta].ToString();
-                jbl.port_id = dt.Rows[0][jbl.port_id].ToString();
-                jbl.terminal_id = dt.Rows[0][jbl.terminal_id].ToString();
-                jbl.marsk = dt.Rows[0][jbl.marsk].ToString();
-                jbl.description = dt.Rows[0][jbl.description].ToString();
-                jbl.gw = dt.Rows[0][jbl.gw].ToString();
-                jbl.gw_unit_id = dt.Rows[0][jbl.gw_unit_id].ToString();
-                jbl.total_packages = dt.Rows[0][jbl.total_packages].ToString();
-                jbl.package_unit_id = dt.Rows[0][jbl.package_unit_id].ToString();
-                jbl.total_con20 = dt.Rows[0][jbl.total_con20].ToString();
-                jbl.total_con40 = dt.Rows[0][jbl.total_con40].ToString();
-                jbl.volume1 = dt.Rows[0][jbl.volume1].ToString();
-                jbl.port_of_loding_id = dt.Rows[0][jbl.port_of_loding_id].ToString();
-                jbl.date_check_exam = dt.Rows[0][jbl.date_check_exam].ToString();
-                jbl.date_delivery = dt.Rows[0][jbl.date_delivery].ToString();
-                jbl.date_tofac = dt.Rows[0][jbl.date_tofac].ToString();
-                jbl.truck_id = dt.Rows[0][jbl.truck_id].ToString();
-                jbl.car_number = dt.Rows[0][jbl.car_number].ToString();
-                jbl.tranfer_with_job_id = dt.Rows[0][jbl.tranfer_with_job_id].ToString();
-                jbl.truck_cop_id = dt.Rows[0][jbl.truck_cop_id].ToString();
-                jbl.date_create = dt.Rows[0][jbl.date_create].ToString();
-                jbl.date_modi = dt.Rows[0][jbl.date_modi].ToString();
-                jbl.date_cancel = dt.Rows[0][jbl.date_cancel].ToString();
-                jbl.user_create = dt.Rows[0][jbl.user_create].ToString();
-                jbl.user_modi = dt.Rows[0][jbl.user_modi].ToString();
-                jbl.user_cancel = dt.Rows[0][jbl.user_cancel].ToString();
-                jbl.active = dt.Rows[0][jbl.active].ToString();
-                jbl.remark = dt.Rows[0][jbl.remark].ToString();
-                jbl.doc_forrow = dt.Rows[0][jbl.doc_forrow].ToString();
-                jbl.status_doc_forrow = dt.Rows[0][jbl.status_doc_forrow].ToString();
-                jbl.date_doc_forrow = dt.Rows[0][jbl.date_doc_forrow].ToString();
-                jbl.status_job_forrow = dt.Rows[0][jbl.status_job_forrow].ToString();
-                jbl.job_forrow_description = dt.Rows[0][jbl.job_forrow_description].ToString();
-                jbl.date_finish_job_forrow = dt.Rows[0][jbl.date_finish_job_forrow].ToString();
-                jbl.status_oth_job = dt.Rows[0][jbl.status_oth_job].ToString();
-                jbl.delivery_remark = dt.Rows[0][jbl.delivery_remark].ToString();
-                jbl.container_yard = dt.Rows[0][jbl.container_yard].ToString();
+                jbl1.job_import_bl_id = dt.Rows[0][jbl.job_import_bl_id].ToString();
+                jbl1.job_import_id = dt.Rows[0][jbl.job_import_id].ToString();
+                jbl1.forwarder_id = dt.Rows[0][jbl.forwarder_id].ToString();
+                jbl1.mbl_mawb = dt.Rows[0][jbl.mbl_mawb].ToString();
+                jbl1.hbl_hawb = dt.Rows[0][jbl.hbl_hawb].ToString();
+                jbl1.m_vessel = dt.Rows[0][jbl.m_vessel].ToString();
+                jbl1.f_vessel = dt.Rows[0][jbl.f_vessel].ToString();
+                jbl1.etd = dt.Rows[0][jbl.etd].ToString();
+                jbl1.eta = dt.Rows[0][jbl.eta].ToString();
+                jbl1.port_imp_id = dt.Rows[0][jbl.port_imp_id].ToString();
+                jbl1.terminal_id = dt.Rows[0][jbl.terminal_id].ToString();
+                jbl1.marsk = dt.Rows[0][jbl.marsk].ToString();
+                jbl1.description = dt.Rows[0][jbl.description].ToString();
+                jbl1.gw = dt.Rows[0][jbl.gw].ToString();
+                jbl1.gw_unit_id = dt.Rows[0][jbl.gw_unit_id].ToString();
+                jbl1.total_packages = dt.Rows[0][jbl.total_packages].ToString();
+                jbl1.unit_package_id = dt.Rows[0][jbl.unit_package_id].ToString();
+                jbl1.total_con20 = dt.Rows[0][jbl.total_con20].ToString();
+                jbl1.total_con40 = dt.Rows[0][jbl.total_con40].ToString();
+                jbl1.volume1 = dt.Rows[0][jbl.volume1].ToString();
+                jbl1.port_of_loding_id = dt.Rows[0][jbl.port_of_loding_id].ToString();
+                jbl1.date_check_exam = dt.Rows[0][jbl.date_check_exam].ToString();
+                jbl1.date_delivery = dt.Rows[0][jbl.date_delivery].ToString();
+                jbl1.date_tofac = dt.Rows[0][jbl.date_tofac].ToString();
+                jbl1.truck_id = dt.Rows[0][jbl.truck_id].ToString();
+                jbl1.car_number = dt.Rows[0][jbl.car_number].ToString();
+                jbl1.tranfer_with_job_id = dt.Rows[0][jbl.tranfer_with_job_id].ToString();
+                jbl1.truck_cop_id = dt.Rows[0][jbl.truck_cop_id].ToString();
+                jbl1.date_create = dt.Rows[0][jbl.date_create].ToString();
+                jbl1.date_modi = dt.Rows[0][jbl.date_modi].ToString();
+                jbl1.date_cancel = dt.Rows[0][jbl.date_cancel].ToString();
+                jbl1.user_create = dt.Rows[0][jbl.user_create].ToString();
+                jbl1.user_modi = dt.Rows[0][jbl.user_modi].ToString();
+                jbl1.user_cancel = dt.Rows[0][jbl.user_cancel].ToString();
+                jbl1.active = dt.Rows[0][jbl.active].ToString();
+                jbl1.remark = dt.Rows[0][jbl.remark].ToString();
+                jbl1.doc_forrow = dt.Rows[0][jbl.doc_forrow].ToString();
+                jbl1.status_doc_forrow = dt.Rows[0][jbl.status_doc_forrow].ToString();
+                jbl1.date_doc_forrow = dt.Rows[0][jbl.date_doc_forrow].ToString();
+                jbl1.status_job_forrow = dt.Rows[0][jbl.status_job_forrow].ToString();
+                jbl1.job_forrow_description = dt.Rows[0][jbl.job_forrow_description].ToString();
+                jbl1.date_finish_job_forrow = dt.Rows[0][jbl.date_finish_job_forrow].ToString();
+                jbl1.status_oth_job = dt.Rows[0][jbl.status_oth_job].ToString();
+                jbl1.delivery_remark = dt.Rows[0][jbl.delivery_remark].ToString();
+                jbl1.container_yard = dt.Rows[0][jbl.container_yard].ToString();
                 //jbl.status_doc_forrow = dt.Rows[0][jbl.remark2].ToString();
             }
 
-            return jbl;
+            return jbl1;
         }
     }
 }

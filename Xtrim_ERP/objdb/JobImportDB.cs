@@ -63,11 +63,16 @@ namespace Xtrim_ERP.objdb
             jim.remark1 = "remark1";
             jim.remark2 = "remark2";
 
+            jim.cusAddr = "";
+            jim.impAddr = "";
+
             jim.table = "t_job_import";
             jim.pkField = "job_import_id";
 
             lJim = new List<JobImport>();
             lJim1 = new List<JobImport>();
+
+            getlJim();
         }
         public void getlJim()
         {
@@ -310,64 +315,72 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
-        public JobImport selectByPk1(String copId)
+        public JobImport selectByPk1(String jobId)
         {
             JobImport cop1 = new JobImport();
             DataTable dt = new DataTable();
-            String sql = "select jim.* " +
+            String sql = "select jim.*" +
+                ", IFNULL(cus.taddr1, '') as taddr1, IFNULL(cus.taddr2, '') as taddr2, " +
+                "IFNULL(cus.taddr3, '') as taddr3, IFNULL(cus.taddr4, '') as taddr4 " +
+                ", IFNULL(imp.taddr1, '') as imptaddr1, IFNULL(imp.taddr2, '') as imptaddr2, " +
+                "IFNULL(imp.taddr3, '') as imptaddr3, IFNULL(imp.taddr4, '') as imptaddr4 " +
                 "From " + jim.table + " jim " +
-                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where jim." + jim.pkField + " ='" + copId + "' ";
+                "Left Join b_customer cus On jim.cust_id = cus.cust_id " +
+                "Left Join b_importer imp On jim.imp_id = imp.imp_id " +
+                "Where jim." + jim.pkField + " ='" + jobId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setJobImport(dt);
             return cop1;
         }
         private JobImport setJobImport(DataTable dt)
         {
-            JobImport jim = new JobImport();
+            JobImport jim1 = new JobImport();
             if (dt.Rows.Count > 0)
             {
-                jim.job_import_id = dt.Rows[0][jim.job_import_id].ToString();
-                jim.job_import_code = dt.Rows[0][jim.job_import_code].ToString();
-                jim.job_import_date = dt.Rows[0][jim.job_import_date].ToString();
-                jim.cust_id = dt.Rows[0][jim.cust_id].ToString();
-                jim.imp_id = dt.Rows[0][jim.imp_id].ToString();
-                jim.transport_mode = dt.Rows[0][jim.transport_mode].ToString();
-                jim.staff_id = dt.Rows[0][jim.staff_id].ToString();
-                jim.entry_type = dt.Rows[0][jim.entry_type].ToString();
-                jim.privi_id = dt.Rows[0][jim.privi_id].ToString();
-                jim.ref_1 = dt.Rows[0][jim.ref_1].ToString();
-                jim.ref_2 = dt.Rows[0][jim.ref_2].ToString();
-                jim.ref_3 = dt.Rows[0][jim.ref_3].ToString();
-                jim.ref_4 = dt.Rows[0][jim.ref_4].ToString();
-                jim.ref_5 = dt.Rows[0][jim.ref_5].ToString();
-                jim.ref_edi = dt.Rows[0][jim.ref_edi].ToString();
-                jim.imp_entry = dt.Rows[0][jim.imp_entry].ToString();
-                jim.edi_response = dt.Rows[0][jim.edi_response].ToString();
-                jim.tax_method_id = dt.Rows[0][jim.tax_method_id].ToString();
-                jim.check_exam_id = dt.Rows[0][jim.check_exam_id].ToString();
-                jim.inv_date = dt.Rows[0][jim.inv_date].ToString();
-                jim.tax_amt = dt.Rows[0][jim.tax_amt].ToString();
-                jim.insr_date = dt.Rows[0][jim.insr_date].ToString();
-                jim.insr_id = dt.Rows[0][jim.insr_id].ToString();
-                jim.policy_no = dt.Rows[0][jim.policy_no].ToString();
-                jim.premium = dt.Rows[0][jim.premium].ToString();
-                jim.policy_date = dt.Rows[0][jim.policy_date].ToString();
-                jim.policy_clause = dt.Rows[0][jim.policy_clause].ToString();
-                jim.job_year = dt.Rows[0][jim.job_year].ToString();
-                jim.date_create = dt.Rows[0][jim.date_create].ToString();
-                jim.date_modi = dt.Rows[0][jim.date_modi].ToString();
-                jim.date_cancel = dt.Rows[0][jim.date_cancel].ToString();
-                jim.user_create = dt.Rows[0][jim.user_create].ToString();
-                jim.user_modi = dt.Rows[0][jim.user_modi].ToString();
-                jim.user_cancel = dt.Rows[0][jim.user_cancel].ToString();
-                jim.active = dt.Rows[0][jim.active].ToString();
-                jim.remark = dt.Rows[0][jim.remark].ToString();
-                jim.remark1 = dt.Rows[0][jim.remark1].ToString();
-                jim.remark2 = dt.Rows[0][jim.remark2].ToString();
+                jim1.job_import_id = dt.Rows[0][jim.job_import_id].ToString();
+                jim1.job_import_code = dt.Rows[0][jim.job_import_code].ToString();
+                jim1.job_import_date = dt.Rows[0][jim.job_import_date].ToString();
+                jim1.cust_id = dt.Rows[0][jim.cust_id].ToString();
+                jim1.imp_id = dt.Rows[0][jim.imp_id].ToString();
+                jim1.transport_mode = dt.Rows[0][jim.transport_mode].ToString();
+                jim1.staff_id = dt.Rows[0][jim.staff_id].ToString();
+                jim1.entry_type = dt.Rows[0][jim.entry_type].ToString();
+                jim1.privi_id = dt.Rows[0][jim.privi_id].ToString();
+                jim1.ref_1 = dt.Rows[0][jim.ref_1].ToString();
+                jim1.ref_2 = dt.Rows[0][jim.ref_2].ToString();
+                jim1.ref_3 = dt.Rows[0][jim.ref_3].ToString();
+                jim1.ref_4 = dt.Rows[0][jim.ref_4].ToString();
+                jim1.ref_5 = dt.Rows[0][jim.ref_5].ToString();
+                jim1.ref_edi = dt.Rows[0][jim.ref_edi].ToString();
+                jim1.imp_entry = dt.Rows[0][jim.imp_entry].ToString();
+                jim1.edi_response = dt.Rows[0][jim.edi_response].ToString();
+                jim1.tax_method_id = dt.Rows[0][jim.tax_method_id].ToString();
+                jim1.check_exam_id = dt.Rows[0][jim.check_exam_id].ToString();
+                jim1.inv_date = dt.Rows[0][jim.inv_date].ToString();
+                jim1.tax_amt = dt.Rows[0][jim.tax_amt].ToString();
+                jim1.insr_date = dt.Rows[0][jim.insr_date].ToString();
+                jim1.insr_id = dt.Rows[0][jim.insr_id].ToString();
+                jim1.policy_no = dt.Rows[0][jim.policy_no].ToString();
+                jim1.premium = dt.Rows[0][jim.premium].ToString();
+                jim1.policy_date = dt.Rows[0][jim.policy_date].ToString();
+                jim1.policy_clause = dt.Rows[0][jim.policy_clause].ToString();
+                jim1.job_year = dt.Rows[0][jim.job_year].ToString();
+                jim1.date_create = dt.Rows[0][jim.date_create].ToString();
+                jim1.date_modi = dt.Rows[0][jim.date_modi].ToString();
+                jim1.date_cancel = dt.Rows[0][jim.date_cancel].ToString();
+                jim1.user_create = dt.Rows[0][jim.user_create].ToString();
+                jim1.user_modi = dt.Rows[0][jim.user_modi].ToString();
+                jim1.user_cancel = dt.Rows[0][jim.user_cancel].ToString();
+                jim1.active = dt.Rows[0][jim.active].ToString();
+                jim1.remark = dt.Rows[0][jim.remark].ToString();
+                jim1.remark1 = dt.Rows[0][jim.remark1].ToString();
+                jim1.remark2 = dt.Rows[0][jim.remark2].ToString();
+
+                jim1.cusAddr = dt.Rows[0]["taddr1"].ToString()+"\n"+dt.Rows[0]["taddr2"].ToString() + "\n" + dt.Rows[0]["taddr3"].ToString() + "\n" + dt.Rows[0]["taddr4"].ToString();
+                jim1.impAddr = dt.Rows[0]["imptaddr1"].ToString() + "\n" + dt.Rows[0]["imptaddr2"].ToString() + "\n" + dt.Rows[0]["imptaddr3"].ToString() + "\n" + dt.Rows[0]["imptaddr4"].ToString();
             }
 
-            return jim;
+            return jim1;
         }
     }
 }

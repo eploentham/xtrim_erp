@@ -37,8 +37,22 @@ namespace Xtrim_ERP.gui
             }
             c1DockingTabPage2.Text = "";
         }
-        private void AddNewTab(Form frm, String label)
+        public void AddNewTab(Form frm, String label)
         {
+            foreach(Control y in tC1.Controls)
+            {
+                if (y is TabPage)
+                {
+                    if (y.Text.Equals("Import JOB"))
+                    {
+                        if (label.Equals("Import JOB"))
+                        {
+                            tC1.SelectedTab = (TabPage)y;
+                            return;
+                        }
+                    }
+                }
+            }
             TabPage tab = new TabPage(label);
             tab.SuspendLayout();
             frm.TopLevel = false;
@@ -81,9 +95,11 @@ namespace Xtrim_ERP.gui
             if (e.Link.Text.Equals("Import JOB"))
             {
                 //MessageBox.Show("Import JOB", "aaaaaaaaaaa");
-                ImJView frm = new ImJView();
+                //ImJView frm = new ImJView();
+                FrmJobImpView frm = new FrmJobImpView(xC, this);
+                frm.FormBorderStyle = FormBorderStyle.None;
                 TabPage tab = new TabPage("dddddd");
-                AddNewTab(frm, "");
+                AddNewTab(frm, "Import JOB");
                 //c1DockingTabPage2.p
             }
             else if (e.Link.Text.Equals("Export JOB"))

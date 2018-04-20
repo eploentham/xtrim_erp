@@ -17,14 +17,14 @@ namespace Xtrim_ERP.object1
         public String f_vessel { get; set; }
         public String etd { get; set; }
         public String eta { get; set; }
-        public String port_id { get; set; }
+        public String port_imp_id { get; set; }
         public String terminal_id { get; set; }
         public String marsk { get; set; }
         public String description { get; set; }
         public String gw { get; set; }
         public String gw_unit_id { get; set; }
         public String total_packages { get; set; }
-        public String package_unit_id { get; set; }
+        public String unit_package_id { get; set; }
         public String total_con20 { get; set; }
         public String total_con40 { get; set; }
         public String volume1 { get; set; }

@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Xtrim_ERP.object1;
 
 namespace Xtrim_ERP.objdb
@@ -12,6 +13,8 @@ namespace Xtrim_ERP.objdb
     {
         public Insurance insr;
         ConnectDB conn;
+
+        public List<Insurance> lInsr;
 
         public InsuranceDB(ConnectDB c)
         {
@@ -65,6 +68,66 @@ namespace Xtrim_ERP.objdb
 
             insr.table = "b_insurance";
             insr.pkField = "insu_id";
+
+            lInsr = new List<Insurance>();
+            getlInsr();
+        }
+        //public DataTable selectAll()
+        //{
+        //    DataTable dt = new DataTable();
+        //    String sql = "select insr.*  " +
+        //        "From " + insr.table + " insr " +
+        //        " " +
+        //        "Where insr." + insr.active + " ='1' ";
+        //    dt = conn.selectData(conn.conn, sql);
+
+        //    return dt;
+        //}
+        public String getIdByCode(String code)
+        {
+            String id = "";
+            foreach (Insurance insr1 in lInsr)
+            {
+                if (code.Trim().Equals(insr1.insu_code))
+                {
+                    id = insr1.insu_id;
+                    break;
+                }
+            }
+            return id;
+        }
+        public void getlInsr()
+        {
+            //lDept = new List<Department>();
+
+            lInsr.Clear();
+            DataTable dt = new DataTable();
+            dt = selectAll();
+            foreach (DataRow row in dt.Rows)
+            {
+                Insurance insr1 = new Insurance();
+                insr1.insu_id = row[insr.insu_id].ToString();
+                insr1.insu_code = row[insr.insu_code].ToString();
+
+                lInsr.Add(insr1);
+
+            }
+        }
+        public void setCboInsr(ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            //DataTable dt = selectWard();
+            foreach (Insurance cus1 in lInsr)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.insu_id;
+                item.Text = cus1.insu_name_t;
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    c.SelectedItem = item;
+                }
+            }
         }
         public String insert(Insurance p)
         {

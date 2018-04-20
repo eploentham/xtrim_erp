@@ -27,6 +27,9 @@ namespace Xtrim_ERP.objdb
         CurrencyDB currDB;
         JobImportInvDB jinDB;
         EntryTypeDB ettDB;
+        IncoTermsDB ictDB;
+        TermPaymentDB tpmDB;
+        PrivilegeDB pvlDB;
 
         List<Department> lDept;
 
@@ -52,6 +55,9 @@ namespace Xtrim_ERP.objdb
             currDB = new CurrencyDB(conn);
             jinDB = new JobImportInvDB(conn);
             ettDB = new EntryTypeDB(conn);
+            ictDB = new IncoTermsDB(conn);
+            tpmDB = new TermPaymentDB(conn);
+            pvlDB = new PrivilegeDB(conn);
         }
         public void ImportMEIOSYSimport(String pathA, String flagNew, String flag, ProgressBar pb1)
         {
@@ -68,7 +74,7 @@ namespace Xtrim_ERP.objdb
             {
                 impDB.deleteAll();
             }
-            foreach(DataRow row in dt.Rows)
+            foreach (DataRow row in dt.Rows)
             {
                 pb1.Value++;
                 Importer imp = new Importer();
@@ -213,7 +219,7 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public void ImportOpenJOBcustomer(String pathA,String flagNew, String flag, ProgressBar pb1)
+        public void ImportOpenJOBcustomer(String pathA, String flagNew, String flag, ProgressBar pb1)
         {
             pb1.Show();
             DataTable dt = new DataTable();
@@ -753,7 +759,7 @@ namespace Xtrim_ERP.objdb
                 DateTime dt1 = new DateTime();
                 JobImport jim = new JobImport();
                 jim.job_import_id = "";
-                jim.job_import_code = "IMP "+row["ImpJobID"].ToString();
+                jim.job_import_code = "IMP " + row["ImpJobID"].ToString();
 
                 if (row["ImpJobID"].ToString().Equals("29206"))
                 {
@@ -768,7 +774,7 @@ namespace Xtrim_ERP.objdb
                 jim.transport_mode = row["TransportMode"].ToString();
                 jim.staff_id = stfDB.getIdByCode(row["CsID"].ToString().Trim());
                 jim.entry_type = ettDB.getIdByCode(row["EntryType"].ToString());
-                jim.privi_id = row["Pivilege"].ToString();
+                jim.privi_id = pvlDB.getIdByDesc(row["Pivilege"].ToString());
                 jim.ref_1 = row["CustomerRef"].ToString();
                 jim.ref_2 = "";
                 jim.ref_3 = "";
@@ -780,12 +786,12 @@ namespace Xtrim_ERP.objdb
                 jim.tax_method_id = row["วีธีชำระภาษี"].ToString();
                 jim.check_exam_id = row["การตรวจปล่อย"].ToString();
 
-                
+
                 if (DateTime.TryParse(row["วันจ้งยอด"].ToString(), out dt1))
                 {
                     if (dt1.Year > 2100)
                     {
-                        dt1 =dt1.AddYears(-543);
+                        dt1 = dt1.AddYears(-543);
                         jim.inv_date = dt1.ToString("yyyy-MM-dd hh:MM:ss");
                     }
                     else
@@ -797,9 +803,9 @@ namespace Xtrim_ERP.objdb
                 {
                     jim.inv_date = "";
                 }
-                
+
                 jim.tax_amt = row["ยอดภาษีที่แจ้ง"].ToString();
-                jim.insr_date = DateTime.TryParse(row["วันจ้งยอด"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd hh:MM:ss") : "";
+                jim.insr_date = DateTime.TryParse(row["InsuranceDate"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd hh:MM:ss") : "";
                 jim.insr_id = row["BrokerID"].ToString();
                 jim.policy_no = row["PolicyNo"].ToString();
                 jim.premium = row["Premium"].ToString();
@@ -958,6 +964,7 @@ namespace Xtrim_ERP.objdb
             String sql = "";
 
             jimDB.getlJim();
+            fwdDB.getlFwd();
 
             sql = "Select * From impbldetail ";
             conn.OpenConnectionA(pathA, flag);
@@ -974,7 +981,7 @@ namespace Xtrim_ERP.objdb
                 JobImportBl jbl = new JobImportBl();
                 jbl.job_import_bl_id = "";
                 jbl.job_import_id = jimDB.getIdByCode1(row["ImpJobID"].ToString());
-                jbl.forwarder_id = row["ImpForwarderID"].ToString();
+                jbl.forwarder_id = fwdDB.getIdByCode(row["ImpForwarderID"].ToString().Trim());
                 jbl.mbl_mawb = row["MBL/MAWB"].ToString();
                 jbl.hbl_hawb = row["HBL/HAWB"].ToString();
                 jbl.m_vessel = row["MVessel"].ToString();
@@ -1023,15 +1030,15 @@ namespace Xtrim_ERP.objdb
                     jbl.eta = "";
                 }
                 //jbl.eta = DateTime.TryParse(row["ETA"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd hh:MM:ss") : "";
-                jbl.port_id = row["รหัสท่านำเข้า"].ToString();
+                jbl.port_imp_id = ptiDB.getIdByCode(row["รหัสท่านำเข้า"].ToString());
 
-                jbl.terminal_id = row["TerminalID"].ToString();
+                jbl.terminal_id = tmnDB.getIdByCode(row["TerminalID"].ToString());
                 jbl.marsk = row["Marsk"].ToString();
                 jbl.description = row["Description"].ToString();
                 jbl.gw = row["GW"].ToString();
                 jbl.gw_unit_id = row["GWUnitID"].ToString();
                 jbl.total_packages = row["TotalPackages"].ToString();
-                jbl.package_unit_id = row["PackagesUnitID"].ToString();
+                jbl.unit_package_id = row["PackagesUnitID"].ToString();
                 jbl.total_con20 = row["TotalCon20'"].ToString();
                 jbl.total_con40 = row["TotalCon40'"].ToString();
                 jbl.volume1 = row["Volume"].ToString();
@@ -1181,6 +1188,10 @@ namespace Xtrim_ERP.objdb
             DataTable dt = new DataTable();
             String sql = "";
             jimDB.getlJim();
+            consDB.getlSupp();
+            currDB.getlCurr();
+            ictDB.getlIct();
+            tpmDB.getlTpm();
             sql = "Select * From impinv ";
             conn.OpenConnectionA(pathA, flag);
             if (flagNew.Equals("new"))
@@ -1195,14 +1206,35 @@ namespace Xtrim_ERP.objdb
                 //pb1.Value++;
                 JobImportInv jin = new JobImportInv();
                 jin.job_import_inv_id = "";
-                jin.job_import_id = jimDB.getIdByCode(row["ImpJobID"].ToString());
-                jin.invoice_date = row["ImpInvDate"].ToString();
+                jin.job_import_id = jimDB.getIdByCode1(row["ImpJobID"].ToString());
+                if (DateTime.TryParse(row["ImpInvDate"].ToString(), out dt1))
+                {
+                    if (dt1.Year > 2100)
+                    {
+                        dt1 = dt1.AddYears(-543);
+                        jin.invoice_date = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                    else if (dt1.Year < 1500)
+                    {
+                        dt1 = dt1.AddYears(543);
+                        jin.invoice_date = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                    else
+                    {
+                        jin.invoice_date = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                    }
+                }
+                else
+                {
+                    jin.invoice_date = "";
+                }
+                //jin.invoice_date = row["ImpInvDate"].ToString();
                 jin.inv_no = row["ImpInvNo"].ToString();
-                jin.cons_id = row["SupplierID"].ToString();
-                jin.inco_teams_id = row["IncoTermsID"].ToString();
-                jin.term_pay_id = row["TermPaymentID"].ToString();
+                jin.cons_id = consDB.getSuppIdByCode(row["SupplierID"].ToString());
+                jin.inco_teams_id = ictDB.getIdByCode(row["IncoTermsID"].ToString());
+                jin.term_pay_id = tpmDB.getIdByCode(row["TermPaymentID"].ToString());
                 jin.amount = row["TotalAmt"].ToString();
-                jin.curr_id = row["CurrencyID"].ToString();
+                jin.curr_id = currDB.getIdByCode(row["CurrencyID"].ToString());
                 jin.date_create = "";
                 jin.date_modi = "";
                 jin.date_cancel = "";

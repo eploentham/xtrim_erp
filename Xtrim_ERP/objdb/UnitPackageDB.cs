@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Xtrim_ERP.object1;
 
 namespace Xtrim_ERP.objdb
@@ -61,6 +62,22 @@ namespace Xtrim_ERP.objdb
                 utp1.unit_package_name_t = row[utp.unit_package_name_t].ToString();
 
                 lUtp.Add(utp1);
+            }
+        }
+        public void setCboUtp(ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            //DataTable dt = selectWard();
+            foreach (UnitPackage cus1 in lUtp)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.unit_package_id;
+                item.Text = cus1.unit_package_name_t;
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    c.SelectedItem = item;
+                }
             }
         }
         public String getIdByCode(String code)

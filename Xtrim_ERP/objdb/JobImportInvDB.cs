@@ -50,14 +50,19 @@ namespace Xtrim_ERP.objdb
             p.active = "1";
             //p.ssdata_id = "";
             int chk = 0;
+            Decimal chk1 = 0;
 
             p.date_modi = p.date_modi == null ? "" : p.date_modi;
             p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
             p.user_create = p.user_create == null ? "" : p.user_create;
             p.user_modi = p.user_modi == null ? "" : p.user_modi;
             p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
-            //p.prefix_id = int.TryParse(p.prefix_id, out chk) ? chk.ToString() : "0";
-            //p.dept_id = int.TryParse(p.dept_id, out chk) ? chk.ToString() : "0";
+            p.term_pay_id = int.TryParse(p.term_pay_id, out chk) ? chk.ToString() : "0";
+            p.inco_teams_id = int.TryParse(p.inco_teams_id, out chk) ? chk.ToString() : "0";
+            p.curr_id = int.TryParse(p.curr_id, out chk) ? chk.ToString() : "0";
+            p.cons_id = int.TryParse(p.cons_id, out chk) ? chk.ToString() : "0";
+            p.job_import_id = int.TryParse(p.job_import_id, out chk) ? chk.ToString() : "0";
+            p.amount = Decimal.TryParse(p.amount, out chk1) ? chk1.ToString() : "0";
 
             sql = "Insert Into " + jin.table + "(" + jin.job_import_id + "," + jin.invoice_date + "," + jin.cons_id + "," +
                 jin.date_create + "," + jin.date_modi + "," + jin.date_cancel + "," +
@@ -67,7 +72,7 @@ namespace Xtrim_ERP.objdb
                 jin.inv_no + " " +
                 ") " +
                 "Values ('" + p.job_import_id + "','" + p.invoice_date + "','" + p.cons_id + "'," +
-                "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
+                "now(),'" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.curr_id + "'," +
                 "'" + p.amount + "','" + p.term_pay_id + "','" + p.inco_teams_id + "', " + 

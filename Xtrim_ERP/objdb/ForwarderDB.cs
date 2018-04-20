@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Xtrim_ERP.object1;
 
 namespace Xtrim_ERP.objdb
@@ -91,8 +92,26 @@ namespace Xtrim_ERP.objdb
             fwd.pkField = "forwarder_id";
 
             lFwd = new List<Forwarder>();
+
+            getlFwd();
         }
-        public void getlImp()
+        public void setCboFwd(ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            //DataTable dt = selectWard();
+            foreach (Forwarder cus1 in lFwd)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.forwarder_id;
+                item.Text = cus1.forwarder_name_t;
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    c.SelectedItem = item;
+                }
+            }
+        }
+        public void getlFwd()
         {
             //lDept = new List<Department>();
 
@@ -123,7 +142,7 @@ namespace Xtrim_ERP.objdb
             String id = "";
             foreach (Forwarder fwd in lFwd)
             {
-                if (code.Trim().Equals(fwd.forwarder_code))
+                if (code.Equals(fwd.forwarder_code))
                 {
                     id = fwd.forwarder_id;
                     break;
@@ -136,7 +155,7 @@ namespace Xtrim_ERP.objdb
             String id = "";
             foreach (Forwarder fwd1 in lFwd)
             {
-                if (name.Trim().Equals(fwd1.forwarder_name_t))
+                if (name.Equals(fwd1.forwarder_name_t))
                 {
                     id = fwd1.forwarder_id;
                     break;

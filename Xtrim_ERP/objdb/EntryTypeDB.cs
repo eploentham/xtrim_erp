@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Xtrim_ERP.object1;
 
 namespace Xtrim_ERP.objdb
@@ -44,6 +45,24 @@ namespace Xtrim_ERP.objdb
             ett.pkField = "entry_type_id";
 
             lEtt = new List<EntryType>();
+
+            getlEtt();
+        }
+        public void setCboEtt(ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            //DataTable dt = selectWard();
+            foreach (EntryType cus1 in lEtt)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.entry_type_id;
+                item.Text = cus1.entry_type_name_t;
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    c.SelectedItem = item;
+                }
+            }
         }
         public void getlEtt()
         {
@@ -54,13 +73,13 @@ namespace Xtrim_ERP.objdb
             dt = selectAll();
             foreach (DataRow row in dt.Rows)
             {
-                EntryType pti1 = new EntryType();
-                pti1.entry_type_id = row[ett.entry_type_id].ToString();
-                pti1.entry_type_code = row[ett.entry_type_code].ToString();
-                pti1.entry_type_name_e = row[ett.entry_type_name_e].ToString();
-                pti1.entry_type_name_t = row[ett.entry_type_name_t].ToString();
+                EntryType ett1 = new EntryType();
+                ett1.entry_type_id = row[ett.entry_type_id].ToString();
+                ett1.entry_type_code = row[ett.entry_type_code].ToString();
+                ett1.entry_type_name_e = row[ett.entry_type_name_e].ToString();
+                ett1.entry_type_name_t = row[ett.entry_type_name_t].ToString();
 
-                lEtt.Add(pti1);
+                lEtt.Add(ett1);
             }
         }
         public String getIdByCode(String code)
@@ -161,7 +180,7 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String insertPortImprt(EntryType p)
+        public String insertEntryType(EntryType p)
         {
             String re = "";
 
@@ -214,10 +233,10 @@ namespace Xtrim_ERP.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where ett." + ett.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setPortImport(dt);
+            cop1 = setEntryType(dt);
             return cop1;
         }
-        private EntryType setPortImport(DataTable dt)
+        private EntryType setEntryType(DataTable dt)
         {
             EntryType ett1 = new EntryType();
             if (dt.Rows.Count > 0)

@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Xtrim_ERP.object1;
 
 namespace Xtrim_ERP.objdb
@@ -44,6 +45,8 @@ namespace Xtrim_ERP.objdb
             tmn.pkField = "terminal_id";
 
             lTmn = new List<Terminal>();
+
+            getlPol();
         }
         public void getlPol()
         {
@@ -61,6 +64,22 @@ namespace Xtrim_ERP.objdb
                 pti1.terminal_name_t = row[tmn.terminal_name_t].ToString();
 
                 lTmn.Add(pti1);
+            }
+        }
+        public void setCboTmn(ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            //DataTable dt = selectWard();
+            foreach (Terminal cus1 in lTmn)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.terminal_id;
+                item.Text = cus1.terminal_name_t;
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    c.SelectedItem = item;
+                }
             }
         }
         public String getIdByCode(String code)

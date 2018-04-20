@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Xtrim_ERP.object1;
 
 namespace Xtrim_ERP.objdb
@@ -82,6 +83,23 @@ namespace Xtrim_ERP.objdb
             imp.pkField = "imp_id";
 
             lImp = new List<Importer>();
+            getlImp();
+        }
+        public void setCboImp(ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            //DataTable dt = selectWard();
+            foreach (Importer cus1 in lImp)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.imp_id;
+                item.Text = cus1.imp_name_t;
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    c.SelectedItem = item;
+                }
+            }
         }
         public void getlImp()
         {
@@ -134,6 +152,19 @@ namespace Xtrim_ERP.objdb
                 }
             }
             return id;
+        }
+        public String getNameTById(String id)
+        {
+            String ret = "";
+            foreach (Importer imp1 in lImp)
+            {
+                if (id.Trim().Equals(imp1.imp_name_t.Trim()))
+                {
+                    ret = imp1.imp_id;
+                    break;
+                }
+            }
+            return ret;
         }
         public String insert(Importer p)
         {

@@ -15,10 +15,12 @@ namespace Xtrim_ERP.gui
     public partial class FrmImportData : Form
     {
         XtrimControl xC;
+        //Form fRm;
         public FrmImportData(XtrimControl x)
         {
             InitializeComponent();
             xC = x;
+            //fRm = frm;
             initConfig();
         }
         private void initConfig()
@@ -36,6 +38,7 @@ namespace Xtrim_ERP.gui
             chkTmnNew.Checked = true;
             chkFwdNew.Checked = true;
             chkJimBlNew.Checked = true;
+            chkImpInvNew.Checked = true;
             pic1.Image = Resources.images;
             pic1.Hide();
             btnCus.Enabled = false;
@@ -44,6 +47,7 @@ namespace Xtrim_ERP.gui
             btnTmn.Enabled = false;
             btnFwd.Enabled = false;
             btnjimBl.Enabled = false;
+            btnImpInv.Enabled = false;
             pB1.Hide();
         }
 
@@ -81,6 +85,7 @@ namespace Xtrim_ERP.gui
                     btnTmn.Enabled = true;
                     btnFwd.Enabled = true;
                     btnjimBl.Enabled = true;
+                    btnImpInv.Enabled = true;
                 }
                 else
                 {
@@ -95,6 +100,7 @@ namespace Xtrim_ERP.gui
                     btnTmn.Enabled = false;
                     btnFwd.Enabled = false;
                     btnjimBl.Enabled = false;
+                    btnImpInv.Enabled = false;
                 }
             }
             else
@@ -112,6 +118,7 @@ namespace Xtrim_ERP.gui
                     btnTmn.Enabled = true;
                     btnFwd.Enabled = true;
                     btnjimBl.Enabled = true;
+                    btnImpInv.Enabled = true;
                 }
                 else
                 {
@@ -126,6 +133,7 @@ namespace Xtrim_ERP.gui
                     btnTmn.Enabled = false;
                     btnFwd.Enabled = false;
                     btnjimBl.Enabled = false;
+                    btnImpInv.Enabled = false;
                 }
             }
         }

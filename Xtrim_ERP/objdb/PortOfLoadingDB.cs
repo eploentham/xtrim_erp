@@ -44,6 +44,8 @@ namespace Xtrim_ERP.objdb
             pol.pkField = "port_of_loading_id";
 
             lPol = new List<PortOfLoading>();
+
+            getlPol();
         }
         public void getlPol()
         {

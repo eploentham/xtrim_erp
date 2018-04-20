@@ -18,6 +18,27 @@ namespace Xtrim_ERP.objdb
         public ImporterDB impDB;
         public ImportDataDB imdDB;
 
+        //ImporterDB impDB;
+        //CustomerDB cusDB;
+        public ConsigneeDB consDB;
+        public InsuranceDB insrDB;
+        public DepartmentDB deptDB;
+        //StaffDB stfDB;
+        public JobImportDB jimDB;
+        public TerminalDB tmnDB;
+        public PortImportDB ptiDB;
+        public PortOfLoadingDB polDB;
+        public ForwarderDB fwdDB;
+        public JobImportBlDB jblDB;
+        public CurrencyDB currDB;
+        public JobImportInvDB jinDB;
+        public EntryTypeDB ettDB;
+        public IncoTermsDB ictDB;
+        public TermPaymentDB tpmDB;
+        public PrivilegeDB pvlDB;
+        public UnitGwDB ugwDB;
+        public UnitPackageDB utpDB;
+
         public XtrimDB(ConnectDB c)
         {
             conn = c;
@@ -32,6 +53,27 @@ namespace Xtrim_ERP.objdb
             cusDB = new CustomerDB(conn);
             impDB = new ImporterDB(conn);
             imdDB = new ImportDataDB(conn);
+
+            //impDB = new ImporterDB(conn);
+            //cusDB = new CustomerDB(conn);
+            consDB = new ConsigneeDB(conn);
+            insrDB = new InsuranceDB(conn);
+            deptDB = new DepartmentDB(conn);
+            //stfDB = new StaffDB(conn);
+            jimDB = new JobImportDB(conn);
+            ptiDB = new PortImportDB(conn);
+            polDB = new PortOfLoadingDB(conn);
+            tmnDB = new TerminalDB(conn);
+            fwdDB = new ForwarderDB(conn);
+            jblDB = new JobImportBlDB(conn);
+            currDB = new CurrencyDB(conn);
+            jinDB = new JobImportInvDB(conn);
+            ettDB = new EntryTypeDB(conn);
+            ictDB = new IncoTermsDB(conn);
+            tpmDB = new TermPaymentDB(conn);
+            pvlDB = new PrivilegeDB(conn);
+            ugwDB = new UnitGwDB(conn);
+            utpDB = new UnitPackageDB(conn);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Xtrim_ERP.object1;
 
 namespace Xtrim_ERP.objdb
@@ -42,6 +43,8 @@ namespace Xtrim_ERP.objdb
             pti.pkField = "port_import_id";
 
             lPti = new List<PortImport>();
+
+            getlPti();
         }
         public void getlPti()
         {
@@ -59,6 +62,22 @@ namespace Xtrim_ERP.objdb
                 pti1.port_import_name_e = row[pti.port_import_name_e].ToString();
 
                 lPti.Add(pti1);
+            }
+        }
+        public void setCboPti(ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            //DataTable dt = selectWard();
+            foreach (PortImport cus1 in lPti)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.port_import_id;
+                item.Text = cus1.port_import_name_t;
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    c.SelectedItem = item;
+                }
             }
         }
         public String getIdByCode(String code)

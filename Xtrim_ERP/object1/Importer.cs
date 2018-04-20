@@ -50,5 +50,7 @@ namespace Xtrim_ERP.object1
         public String payerprofile { get; set; }
         public String payerorg { get; set; }
         public String payeruser { get; set; }
+
+        
     }
 }

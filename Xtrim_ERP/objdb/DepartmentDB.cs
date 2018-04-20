@@ -41,6 +41,7 @@ namespace Xtrim_ERP.objdb
             dept.pkField = "depart_id";
 
             lDept = new List<Department>();
+            getlDept();
         }
         public String insert(Department p)
         {
@@ -155,13 +156,13 @@ namespace Xtrim_ERP.objdb
                 dept1.depart_name_t = row[dept.depart_name_t].ToString();
                 dept1.comp_id = row[dept.comp_id].ToString();
                 dept1.dept_parent_id = row[dept.dept_parent_id].ToString();
-                dept1.remark = row[dept.remark].ToString();
-                dept1.date_create = row[dept.date_create].ToString();
-                dept1.date_modi = row[dept.date_modi].ToString();
-                dept1.date_cancel = row[dept.date_cancel].ToString();
-                dept1.user_create = row[dept.user_create].ToString();
-                dept1.user_modi = row[dept.user_modi].ToString();
-                dept1.user_cancel = row[dept.user_cancel].ToString();
+                //dept1.remark = row[dept.remark].ToString();
+                //dept1.date_create = row[dept.date_create].ToString();
+                //dept1.date_modi = row[dept.date_modi].ToString();
+                //dept1.date_cancel = row[dept.date_cancel].ToString();
+                //dept1.user_create = row[dept.user_create].ToString();
+                //dept1.user_modi = row[dept.user_modi].ToString();
+                //dept1.user_cancel = row[dept.user_cancel].ToString();
                 dept1.active = row[dept.active].ToString();
                 lDept.Add(dept1);
             }

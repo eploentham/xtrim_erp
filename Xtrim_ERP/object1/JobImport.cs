@@ -46,5 +46,8 @@ namespace Xtrim_ERP.object1
         public String remark { get; set; }
         public String remark1 { get; set; }
         public String remark2 { get; set; }
+
+        public String cusAddr { get; set; }
+        public String impAddr { get; set; }
     }
 }

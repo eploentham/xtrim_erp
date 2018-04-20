@@ -40,10 +40,12 @@ namespace Xtrim_ERP.objdb
             //tmn.status_app = "status_app";
             curr.remark = "remark";
 
-            curr.table = "b_unit_package";
+            curr.table = "b_currency";
             curr.pkField = "curr_id";
 
             lCurr = new List<Currency>();
+
+            getlCurr();
         }
         public void getlCurr()
         {

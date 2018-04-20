@@ -122,6 +122,18 @@
     <Compile Include="gui\FrmImporter.Designer.cs">
       <DependentUpon>FrmImporter.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmJobImpNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmJobImpNew.Designer.cs">
+      <DependentUpon>FrmJobImpNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmJobImpView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmJobImpView.Designer.cs">
+      <DependentUpon>FrmJobImpView.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +165,8 @@
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="objdb\BankDB.cs" />
+    <Compile Include="objdb\PrivilegeDB.cs" />
+    <Compile Include="objdb\TermPaymentDB.cs" />
     <Compile Include="objdb\ConsigneeDB.cs" />
     <Compile Include="objdb\ContactDB.cs" />
     <Compile Include="objdb\CompanyDB.cs" />
@@ -164,6 +178,7 @@
     <Compile Include="objdb\ForwarderDB.cs" />
     <Compile Include="objdb\ImportDataDB.cs" />
     <Compile Include="objdb\ImporterDB.cs" />
+    <Compile Include="objdb\IncoTermsDB.cs" />
     <Compile Include="objdb\InsuranceDB.cs" />
     <Compile Include="objdb\JobImportBlDB.cs" />
     <Compile Include="objdb\JobImportDB.cs" />
@@ -176,6 +191,8 @@
     <Compile Include="objdb\UnitPackageDB.cs" />
     <Compile Include="objdb\XtrimDB.cs" />
     <Compile Include="object1\Bank.cs" />
+    <Compile Include="object1\Privilege.cs" />
+    <Compile Include="object1\TermPayment.cs" />
     <Compile Include="object1\Consignee.cs" />
     <Compile Include="object1\Contact.cs" />
     <Compile Include="object1\Company.cs" />
@@ -185,6 +202,7 @@
     <Compile Include="object1\EntryType.cs" />
     <Compile Include="object1\Forwarder.cs" />
     <Compile Include="object1\Importer.cs" />
+    <Compile Include="object1\IncoTerms.cs" />
     <Compile Include="object1\Insurance.cs" />
     <Compile Include="object1\JobImport.cs" />
     <Compile Include="object1\JobImportBl.cs" />
@@ -219,6 +237,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmImporter.resx">
       <DependentUpon>FrmImporter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmJobImpNew.resx">
+      <DependentUpon>FrmJobImpNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmJobImpView.resx">
+      <DependentUpon>FrmJobImpView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

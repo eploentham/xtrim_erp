@@ -71,6 +71,21 @@ namespace Xtrim_ERP.objdb
             cons.pkField = "cons_id";
             lCons = new List<Consignee>();
             lSupp = new List<Consignee>();
+            getlCons();
+            getlSupp();
+        }
+        public String getSuppIdByCode(String code)
+        {
+            String id = "";
+            foreach (Consignee cons1 in lSupp)
+            {
+                if (code.Trim().Equals(cons1.cons_code))
+                {
+                    id = cons1.cons_id;
+                    break;
+                }
+            }
+            return id;
         }
         public void getlCons()
         {
@@ -78,16 +93,32 @@ namespace Xtrim_ERP.objdb
 
             lCons.Clear();
             DataTable dt = new DataTable();
-            dt = selectAll();
+            dt = selectConsigneeAll();
             foreach (DataRow row in dt.Rows)
             {
-                JobImport jim1 = new JobImport();
-                cons.cons_id = row[cons.cons_id].ToString();
-                cons.cons_code = row[cons.cons_code].ToString();
-                
+                Consignee jim1 = new Consignee();
+                jim1.cons_id = row[cons.cons_id].ToString();
+                jim1.cons_code = row[cons.cons_code].ToString();
 
-                lCons.Add(cons);
-                
+                lCons.Add(jim1);
+
+            }
+        }
+        public void getlSupp()
+        {
+            //lDept = new List<Department>();
+
+            lSupp.Clear();
+            DataTable dt = new DataTable();
+            dt = selectSupplierAll();
+            foreach (DataRow row in dt.Rows)
+            {
+                Consignee jim1 = new Consignee();
+                jim1.cons_id = row[cons.cons_id].ToString();
+                jim1.cons_code = row[cons.cons_code].ToString();
+
+                lSupp.Add(jim1);
+
             }
         }
         public String insert(Consignee p)
@@ -277,7 +308,7 @@ namespace Xtrim_ERP.objdb
         public String deleteConsigneeAll()
         {
             DataTable dt = new DataTable();
-            String sql = "Delete From  " + cons.table+" Where "+cons.status_cons + "='1'";
+            String sql = "Delete From  " + cons.table + " Where " + cons.status_cons + "='1'";
             conn.ExecuteNonQuery(conn.conn, sql);
 
             return "";
@@ -315,7 +346,7 @@ namespace Xtrim_ERP.objdb
             String sql = "select cons.*  " +
                 "From " + cons.table + " cons " +
                 " " +
-                "Where cons." + cons.active + " ='1' and cons."+cons.status_cons+"='1' ";
+                "Where cons." + cons.active + " ='1' and cons." + cons.status_cons + "='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
