@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Xtrim_ERP.object1;
 
 namespace Xtrim_ERP.objdb
@@ -63,6 +64,22 @@ namespace Xtrim_ERP.objdb
                 pti1.port_of_loading_e = row[pol.port_of_loading_e].ToString();
 
                 lPol.Add(pti1);
+            }
+        }
+        public void setCboPol(ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            //DataTable dt = selectWard();
+            foreach (PortOfLoading cus1 in lPol)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.port_of_loading_id;
+                item.Text = cus1.port_of_loading_t;
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    c.SelectedItem = item;
+                }
             }
         }
         public String getIdByCode(String code)

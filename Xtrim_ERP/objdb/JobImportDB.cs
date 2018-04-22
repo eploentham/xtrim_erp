@@ -15,6 +15,7 @@ namespace Xtrim_ERP.objdb
 
         public List<JobImport> lJim;
         public List<JobImport> lJim1;
+        public List<String> lYear;
 
         public JobImportDB(ConnectDB c)
         {
@@ -71,6 +72,7 @@ namespace Xtrim_ERP.objdb
 
             lJim = new List<JobImport>();
             lJim1 = new List<JobImport>();
+            lYear = new List<String>();
 
             getlJim();
         }
@@ -114,7 +116,7 @@ namespace Xtrim_ERP.objdb
             String id = "";
             foreach (JobImport jim1 in lJim1)
             {
-                if (code.Trim().Equals(jim1.job_import_code))
+                if (code.Equals(jim1.job_import_code))
                 {
                     id = jim1.job_import_id;
                     break;
@@ -174,7 +176,6 @@ namespace Xtrim_ERP.objdb
             //p.ssdata_id = "";
             int chk = 0;
             Decimal chk1 = 0;
-
 
             chkNull(p);
 
@@ -286,6 +287,52 @@ namespace Xtrim_ERP.objdb
             }
             return re;
         }
+        public Dictionary<string, string> getlJobYear()
+        {
+            //lDept = new List<Department>();
+            Dictionary<string, string> comboSource = new Dictionary<string, string>();
+            //comboSource.Add("1", "Sunday");
+            //comboSource.Add("2", "Monday");
+
+            //string key = ((KeyValuePair<string, string>)comboBox1.SelectedItem).Key;
+            //string value = ((KeyValuePair<string, string>)comboBox1.SelectedItem).Value;
+
+            //lYear.Clear();
+            DataTable dt = new DataTable();
+            dt = selectJobYear();
+            foreach (DataRow row in dt.Rows)
+            {
+                comboSource.Add(row[jim.job_year].ToString(), row[jim.job_year].ToString()+" ("+ row["cnt"].ToString()+")");
+
+                //String jim1 = "";
+                //jim1 = row[jim.job_year].ToString();
+                //lYear.Add(jim1);
+            }
+            return comboSource;
+        }
+        public String getYearCurr()
+        {
+            String re = "";
+
+            DataTable dt = new DataTable();
+            String sql = "select year(now()) as year ";
+            dt = conn.selectData(conn.conn, sql);
+            
+            re = (dt.Rows.Count > 0) ? dt.Rows[0][0].ToString() : "";
+            return re;
+        }
+        public DataTable selectJobYear()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select jim."+jim.job_year+ ", count(1) as cnt  " +
+                "From " + jim.table + " jim " +
+                " " +
+                "Where jim." + jim.active + " ='1' " +
+                "Group By "+jim.job_year;
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
         public String deleteAll()
         {
             DataTable dt = new DataTable();
@@ -301,6 +348,18 @@ namespace Xtrim_ERP.objdb
                 "From " + jim.table + " jim " +
                 " " +
                 "Where jim." + jim.active + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectByJobYear(String year)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select jim.*  " +
+                "From " + jim.table + " jim " +
+                " " +
+                "Where jim." + jim.active + " ='1' and "+jim.job_year+"='"+year+"' " +
+                "Order By "+jim.job_import_code+" desc";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;

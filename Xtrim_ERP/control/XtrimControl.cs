@@ -73,6 +73,7 @@ namespace Xtrim_ERP.control
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
             int.TryParse(iniC.grdViewFontSize, out grdViewFontSize);
         }
+        
         public String getValueCboItem(ComboBox c)
         {
             ComboBoxItem iSale;

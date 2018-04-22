@@ -30,6 +30,8 @@ namespace Xtrim_ERP.objdb
         IncoTermsDB ictDB;
         TermPaymentDB tpmDB;
         PrivilegeDB pvlDB;
+        UnitPackageDB utpDB;
+        UnitGwDB ugwDB;
 
         List<Department> lDept;
 
@@ -58,6 +60,8 @@ namespace Xtrim_ERP.objdb
             ictDB = new IncoTermsDB(conn);
             tpmDB = new TermPaymentDB(conn);
             pvlDB = new PrivilegeDB(conn);
+            utpDB = new UnitPackageDB(conn);
+            ugwDB = new UnitGwDB(conn);
         }
         public void ImportMEIOSYSimport(String pathA, String flagNew, String flag, ProgressBar pb1)
         {
@@ -876,6 +880,49 @@ namespace Xtrim_ERP.objdb
             conn.CloseConnectionNoClose();
             pb1.Hide();
         }
+        public void ImportOpenJOBPortOfLoading(String pathA, String flagNew, String flag, ProgressBar pb1, Form frm)
+        {
+            pb1.Show();
+            DataTable dt = new DataTable();
+            String sql = "";
+            sql = "Select * from Port_of_Loading ";
+            conn.OpenConnectionA(pathA, flag);
+            dt = conn.selectDataA(conn.connA, sql);
+            pb1.Minimum = 0;
+            pb1.Maximum = dt.Rows.Count;
+            pb1.Value = 0;
+            conn.OpenConnectionNoClose();
+            if (flagNew.Equals("new"))
+            {
+                polDB.deleteAll();
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+                PortOfLoading pol = new PortOfLoading();
+                //pol = new new();
+                pol.port_of_loading_id = "";
+                pol.port_of_loading_code = row["PortOfLodingID"].ToString().Trim();
+                pol.port_of_loading_e = row["PortOfLodingID"].ToString().Trim();
+                pol.port_of_loading_t = row["PortOfLodingID"].ToString().Trim();
+                pol.remark = row["PortCountry"].ToString().Trim();
+                //tmn.status_app = "status_app";
+                pol.sort1 = "";
+
+                pol.active = "1";
+                pol.date_create = "";
+                pol.date_modi = "";
+                pol.date_cancel = "";
+                pol.user_create = "";
+                pol.user_modi = "";
+                pol.user_cancel = "";
+                //tmn.status_app = "status_app";
+                pol.remark = "";
+
+                polDB.insertPortImprt(pol);
+            }
+            conn.CloseConnectionNoClose();
+            pb1.Hide();
+        }
         public void ImportOpenJOBForwarder(String pathA, String flagNew, String flag, ProgressBar pb1, Form frm)
         {
             pb1.Show();
@@ -965,6 +1012,10 @@ namespace Xtrim_ERP.objdb
 
             jimDB.getlJim();
             fwdDB.getlFwd();
+            ugwDB.getlUgw();
+            ptiDB.getlPti();
+            tmnDB.getlPol();
+            utpDB.getlPol();
 
             sql = "Select * From impbldetail ";
             conn.OpenConnectionA(pathA, flag);
@@ -980,7 +1031,7 @@ namespace Xtrim_ERP.objdb
                 //pb1.Value++;
                 JobImportBl jbl = new JobImportBl();
                 jbl.job_import_bl_id = "";
-                jbl.job_import_id = jimDB.getIdByCode1(row["ImpJobID"].ToString());
+                jbl.job_import_id = jimDB.getIdByCode1(row["ImpJobID"].ToString().Trim());
                 jbl.forwarder_id = fwdDB.getIdByCode(row["ImpForwarderID"].ToString().Trim());
                 jbl.mbl_mawb = row["MBL/MAWB"].ToString();
                 jbl.hbl_hawb = row["HBL/HAWB"].ToString();
@@ -1030,20 +1081,20 @@ namespace Xtrim_ERP.objdb
                     jbl.eta = "";
                 }
                 //jbl.eta = DateTime.TryParse(row["ETA"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd hh:MM:ss") : "";
-                jbl.port_imp_id = ptiDB.getIdByCode(row["รหัสท่านำเข้า"].ToString());
+                jbl.port_imp_id = ptiDB.getIdByCode(row["รหัสท่านำเข้า"].ToString().Trim());
 
-                jbl.terminal_id = tmnDB.getIdByCode(row["TerminalID"].ToString());
+                jbl.terminal_id = tmnDB.getIdByCode(row["TerminalID"].ToString().Trim());
                 jbl.marsk = row["Marsk"].ToString();
                 jbl.description = row["Description"].ToString();
                 jbl.gw = row["GW"].ToString();
-                jbl.gw_unit_id = row["GWUnitID"].ToString();
+                jbl.gw_unit_id = ugwDB.getIdByCode(row["GWUnitID"].ToString().Trim());
                 jbl.total_packages = row["TotalPackages"].ToString();
-                jbl.unit_package_id = row["PackagesUnitID"].ToString();
+                jbl.unit_package_id = utpDB.getIdByName(row["PackagesUnitID"].ToString().Trim());
                 jbl.total_con20 = row["TotalCon20'"].ToString();
                 jbl.total_con40 = row["TotalCon40'"].ToString();
                 jbl.volume1 = row["Volume"].ToString();
 
-                jbl.port_of_loding_id = row["PortOfLodingID"].ToString();
+                jbl.port_of_loding_id = polDB.getIdByName(row["PortOfLodingID"].ToString().Trim());
                 if (DateTime.TryParse(row["วันตรวจปล่อย"].ToString(), out dt1))
                 {
                     if (dt1.Year > 2100)

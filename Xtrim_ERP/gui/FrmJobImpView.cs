@@ -43,7 +43,7 @@ namespace Xtrim_ERP.gui
             //custommenu.MenuItems.Add("&ยกเลิก";
             grdView.ContextMenu = custommenu;
 
-            setGrdView();
+            
         }
         private void ContextMenu_void(object sender, System.EventArgs e)
         {
@@ -93,8 +93,8 @@ namespace Xtrim_ERP.gui
             grdView.Sheets[0].ColumnHeader.Cells[0, colE].Text = "edit";
             grdView.Sheets[0].ColumnHeader.Cells[0, colS].Text = "save";
             grdView.Sheets[0].ColumnHeader.Cells[0, colCode].Text = "code";
-            grdView.Sheets[0].ColumnHeader.Cells[0, colCusT].Text = "ชื่อภาษาไทย";
-            grdView.Sheets[0].ColumnHeader.Cells[0, colImpT].Text = "ชื่อภาษาอังกฤษ";
+            grdView.Sheets[0].ColumnHeader.Cells[0, colCusT].Text = "Customer";
+            grdView.Sheets[0].ColumnHeader.Cells[0, colImpT].Text = "Importer";
             grdView.Sheets[0].ColumnHeader.Cells[0, colRemark].Text = "หมายเหตุ";
 
             grdView.Sheets[0].Columns[colE].Width = 50;
@@ -106,17 +106,22 @@ namespace Xtrim_ERP.gui
 
             grdView.Sheets[0].Columns[colID].Visible = false;
             grdView.Sheets[0].Columns[coledit].Visible = false;
+            grdView.Sheets[0].Columns[colE].Visible = false;
+            grdView.Sheets[0].Columns[colS].Visible = false;
 
             grdView.AllowColumnMove = true;
         }
-        private void setGrdView()
+        private void setGrdView(String year)
         {
             DataTable dt = new DataTable();
             int i = 0;
             FarPoint.Win.Spread.Column columnobj;
             columnobj = grdView.ActiveSheet.Columns[colCode, colRemark];
 
-            dt = xC.xtDB.jimDB.selectAll();
+            //dt = xC.xtDB.jimDB.selectAll();
+            
+            dt = xC.xtDB.jimDB.selectByJobYear(year);
+
             grdView.Sheets[0].Rows.Clear();
             setGrdViewH();
             grdView.Sheets[0].RowCount = dt.Rows.Count + 1;
@@ -147,7 +152,15 @@ namespace Xtrim_ERP.gui
 
         private void FrmJobImpView_Load(object sender, EventArgs e)
         {
-            grdView.Top = grdView.Top - 30;
+            //grdView.Top = grdView.Top - 30;
+            cboYear.DataSource = new BindingSource(xC.xtDB.jimDB.getlJobYear(), null);
+            cboYear.DisplayMember = "Value";
+            cboYear.ValueMember = "Key";
+
+            String year = "";
+            year = xC.xtDB.jimDB.getYearCurr();
+            cboYear.Text = year;
+            setGrdView(year);
         }
         private void grdView_CellDoubleClick(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
         {
@@ -162,7 +175,9 @@ namespace Xtrim_ERP.gui
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-
+            string value = ((KeyValuePair<string, string>)cboYear.SelectedItem).Value;
+            string key = ((KeyValuePair<string, string>)cboYear.SelectedItem).Key;
+            setGrdView(key);
         }
     }
 }

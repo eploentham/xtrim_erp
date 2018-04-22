@@ -41,10 +41,11 @@ namespace Xtrim_ERP.objdb
             //tmn.status_app = "status_app";
             ugw.remark = "remark";
 
-            ugw.table = "b_unit_package";
+            ugw.table = "b_unit_gw";
             ugw.pkField = "unit_gw_id";
 
             lUgw = new List<UnitGw>();
+            getlUgw();
         }
         public void getlUgw()
         {
