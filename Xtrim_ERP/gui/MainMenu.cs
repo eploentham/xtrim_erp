@@ -24,6 +24,7 @@ namespace Xtrim_ERP.gui
         public MainMenu(XtrimControl x)
         {
             InitializeComponent();
+            //MessageBox.Show("1111", "1111");
             xC = x;
             Login login = new Login();
             login.ShowDialog(this);
@@ -39,7 +40,7 @@ namespace Xtrim_ERP.gui
         }
         public void AddNewTab(Form frm, String label)
         {
-            foreach(Control y in tC1.Controls)
+            foreach (Control y in tC1.Controls)
             {
                 if (y is TabPage)
                 {
@@ -62,13 +63,13 @@ namespace Xtrim_ERP.gui
             frm.Dock = DockStyle.Fill;
             frm.Width = tab.Width;
             frm.Height = tab.Height;
-            foreach (Control x in frm.Controls)
-            {
-                if (x is DataGridView)
-                {
-                    //x.Dock = DockStyle.Fill;
-                }
-            }
+            //foreach (Control x in frm.Controls)
+            //{
+            //    if (x is DataGridView)
+            //    {
+            //        //x.Dock = DockStyle.Fill;
+            //    }
+            //}
             //tab.BackColor = System.Drawing.ColorTranslator.FromHtml("#1E1E1E");
             frm.Visible = true;
 

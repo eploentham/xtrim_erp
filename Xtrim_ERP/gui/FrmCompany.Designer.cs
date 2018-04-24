@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            FarPoint.Win.Spread.EnhancedFocusIndicatorRenderer enhancedFocusIndicatorRenderer2 = new FarPoint.Win.Spread.EnhancedFocusIndicatorRenderer();
-            FarPoint.Win.Spread.EnhancedScrollBarRenderer enhancedScrollBarRenderer3 = new FarPoint.Win.Spread.EnhancedScrollBarRenderer();
-            FarPoint.Win.Spread.EnhancedScrollBarRenderer enhancedScrollBarRenderer4 = new FarPoint.Win.Spread.EnhancedScrollBarRenderer();
+            FarPoint.Win.Spread.EnhancedFocusIndicatorRenderer enhancedFocusIndicatorRenderer1 = new FarPoint.Win.Spread.EnhancedFocusIndicatorRenderer();
+            FarPoint.Win.Spread.EnhancedScrollBarRenderer enhancedScrollBarRenderer1 = new FarPoint.Win.Spread.EnhancedScrollBarRenderer();
+            FarPoint.Win.Spread.EnhancedScrollBarRenderer enhancedScrollBarRenderer2 = new FarPoint.Win.Spread.EnhancedScrollBarRenderer();
             this.grdView = new FarPoint.Win.Spread.FpSpread();
             this.grdView_Sheet1 = new FarPoint.Win.Spread.SheetView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -123,21 +123,21 @@
             // 
             this.grdView.AccessibleDescription = "";
             this.grdView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grdView.FocusRenderer = enhancedFocusIndicatorRenderer2;
+            this.grdView.FocusRenderer = enhancedFocusIndicatorRenderer1;
             this.grdView.HorizontalScrollBar.Buttons = new FarPoint.Win.Spread.FpScrollBarButtonCollection("BackwardLineButton,ThumbTrack,ForwardLineButton");
             this.grdView.HorizontalScrollBar.Name = "";
-            enhancedScrollBarRenderer3.ArrowColor = System.Drawing.Color.SaddleBrown;
-            enhancedScrollBarRenderer3.ArrowHoveredColor = System.Drawing.Color.SaddleBrown;
-            enhancedScrollBarRenderer3.ArrowSelectedColor = System.Drawing.Color.SaddleBrown;
-            enhancedScrollBarRenderer3.ButtonBackgroundColor = System.Drawing.Color.NavajoWhite;
-            enhancedScrollBarRenderer3.ButtonBorderColor = System.Drawing.Color.Tan;
-            enhancedScrollBarRenderer3.ButtonHoveredBackgroundColor = System.Drawing.Color.BurlyWood;
-            enhancedScrollBarRenderer3.ButtonHoveredBorderColor = System.Drawing.Color.Tan;
-            enhancedScrollBarRenderer3.ButtonSelectedBackgroundColor = System.Drawing.Color.Goldenrod;
-            enhancedScrollBarRenderer3.ButtonSelectedBorderColor = System.Drawing.Color.Tan;
-            enhancedScrollBarRenderer3.TrackBarBackgroundColor = System.Drawing.Color.BurlyWood;
-            enhancedScrollBarRenderer3.TrackBarSelectedBackgroundColor = System.Drawing.Color.SandyBrown;
-            this.grdView.HorizontalScrollBar.Renderer = enhancedScrollBarRenderer3;
+            enhancedScrollBarRenderer1.ArrowColor = System.Drawing.Color.SaddleBrown;
+            enhancedScrollBarRenderer1.ArrowHoveredColor = System.Drawing.Color.SaddleBrown;
+            enhancedScrollBarRenderer1.ArrowSelectedColor = System.Drawing.Color.SaddleBrown;
+            enhancedScrollBarRenderer1.ButtonBackgroundColor = System.Drawing.Color.NavajoWhite;
+            enhancedScrollBarRenderer1.ButtonBorderColor = System.Drawing.Color.Tan;
+            enhancedScrollBarRenderer1.ButtonHoveredBackgroundColor = System.Drawing.Color.BurlyWood;
+            enhancedScrollBarRenderer1.ButtonHoveredBorderColor = System.Drawing.Color.Tan;
+            enhancedScrollBarRenderer1.ButtonSelectedBackgroundColor = System.Drawing.Color.Goldenrod;
+            enhancedScrollBarRenderer1.ButtonSelectedBorderColor = System.Drawing.Color.Tan;
+            enhancedScrollBarRenderer1.TrackBarBackgroundColor = System.Drawing.Color.BurlyWood;
+            enhancedScrollBarRenderer1.TrackBarSelectedBackgroundColor = System.Drawing.Color.SandyBrown;
+            this.grdView.HorizontalScrollBar.Renderer = enhancedScrollBarRenderer1;
             this.grdView.Location = new System.Drawing.Point(0, 448);
             this.grdView.Name = "grdView";
             this.grdView.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
@@ -147,18 +147,18 @@
             this.grdView.TabIndex = 1;
             this.grdView.VerticalScrollBar.Buttons = new FarPoint.Win.Spread.FpScrollBarButtonCollection("BackwardLineButton,ThumbTrack,ForwardLineButton");
             this.grdView.VerticalScrollBar.Name = "";
-            enhancedScrollBarRenderer4.ArrowColor = System.Drawing.Color.SaddleBrown;
-            enhancedScrollBarRenderer4.ArrowHoveredColor = System.Drawing.Color.SaddleBrown;
-            enhancedScrollBarRenderer4.ArrowSelectedColor = System.Drawing.Color.SaddleBrown;
-            enhancedScrollBarRenderer4.ButtonBackgroundColor = System.Drawing.Color.NavajoWhite;
-            enhancedScrollBarRenderer4.ButtonBorderColor = System.Drawing.Color.Tan;
-            enhancedScrollBarRenderer4.ButtonHoveredBackgroundColor = System.Drawing.Color.BurlyWood;
-            enhancedScrollBarRenderer4.ButtonHoveredBorderColor = System.Drawing.Color.Tan;
-            enhancedScrollBarRenderer4.ButtonSelectedBackgroundColor = System.Drawing.Color.Goldenrod;
-            enhancedScrollBarRenderer4.ButtonSelectedBorderColor = System.Drawing.Color.Tan;
-            enhancedScrollBarRenderer4.TrackBarBackgroundColor = System.Drawing.Color.BurlyWood;
-            enhancedScrollBarRenderer4.TrackBarSelectedBackgroundColor = System.Drawing.Color.SandyBrown;
-            this.grdView.VerticalScrollBar.Renderer = enhancedScrollBarRenderer4;
+            enhancedScrollBarRenderer2.ArrowColor = System.Drawing.Color.SaddleBrown;
+            enhancedScrollBarRenderer2.ArrowHoveredColor = System.Drawing.Color.SaddleBrown;
+            enhancedScrollBarRenderer2.ArrowSelectedColor = System.Drawing.Color.SaddleBrown;
+            enhancedScrollBarRenderer2.ButtonBackgroundColor = System.Drawing.Color.NavajoWhite;
+            enhancedScrollBarRenderer2.ButtonBorderColor = System.Drawing.Color.Tan;
+            enhancedScrollBarRenderer2.ButtonHoveredBackgroundColor = System.Drawing.Color.BurlyWood;
+            enhancedScrollBarRenderer2.ButtonHoveredBorderColor = System.Drawing.Color.Tan;
+            enhancedScrollBarRenderer2.ButtonSelectedBackgroundColor = System.Drawing.Color.Goldenrod;
+            enhancedScrollBarRenderer2.ButtonSelectedBorderColor = System.Drawing.Color.Tan;
+            enhancedScrollBarRenderer2.TrackBarBackgroundColor = System.Drawing.Color.BurlyWood;
+            enhancedScrollBarRenderer2.TrackBarSelectedBackgroundColor = System.Drawing.Color.SandyBrown;
+            this.grdView.VerticalScrollBar.Renderer = enhancedScrollBarRenderer2;
             this.grdView.CellDoubleClick += new FarPoint.Win.Spread.CellClickEventHandler(this.grdView_CellDoubleClick);
             // 
             // grdView_Sheet1
@@ -956,7 +956,6 @@
             this.Name = "FrmCompany";
             this.Text = "FrmCompany";
             this.c1ThemeController1.SetTheme(this, "BeigeOne");
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmCompany_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdView_Sheet1)).EndInit();

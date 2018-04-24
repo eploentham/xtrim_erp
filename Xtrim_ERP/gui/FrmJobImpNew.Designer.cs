@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbCusNameT = new C1.Win.C1Input.C1Label();
+            this.txtCusCode = new C1.Win.C1Input.C1TextBox();
+            this.c1Button1 = new C1.Win.C1Input.C1Button();
+            this.btnOk = new C1.Win.C1Input.C1Button();
+            this.btnEdit = new C1.Win.C1Input.C1Button();
             this.c1Label11 = new C1.Win.C1Input.C1Label();
             this.txtRef5 = new C1.Win.C1Input.C1TextBox();
             this.c1Label10 = new C1.Win.C1Input.C1Label();
@@ -41,9 +46,7 @@
             this.txtRef1 = new C1.Win.C1Input.C1TextBox();
             this.lbCusAddr = new C1.Win.C1Input.C1Label();
             this.lbImpAddr = new C1.Win.C1Input.C1Label();
-            this.cboImp = new System.Windows.Forms.ComboBox();
             this.c1Label4 = new C1.Win.C1Input.C1Label();
-            this.cboCus = new System.Windows.Forms.ComboBox();
             this.c1Label3 = new C1.Win.C1Input.C1Label();
             this.c1Label2 = new C1.Win.C1Input.C1Label();
             this.c1Label1 = new C1.Win.C1Input.C1Label();
@@ -148,10 +151,16 @@
             this.c1Label44 = new C1.Win.C1Input.C1Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
-            this.btnEdit = new C1.Win.C1Input.C1Button();
-            this.btnOk = new C1.Win.C1Input.C1Button();
-            this.c1Button1 = new C1.Win.C1Input.C1Button();
+            this.txtImpCode = new C1.Win.C1Input.C1TextBox();
+            this.lbImpNameT = new C1.Win.C1Input.C1Label();
+            this.lbStart = new C1.Win.C1Input.C1Label();
+            this.lbEnd = new C1.Win.C1Input.C1Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lbCusNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCusCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRef5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label10)).BeginInit();
@@ -252,14 +261,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalP1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label44)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtImpCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lbImpNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lbStart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lbEnd)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.lbEnd);
+            this.groupBox1.Controls.Add(this.lbStart);
+            this.groupBox1.Controls.Add(this.lbImpNameT);
+            this.groupBox1.Controls.Add(this.txtImpCode);
+            this.groupBox1.Controls.Add(this.lbCusNameT);
+            this.groupBox1.Controls.Add(this.txtCusCode);
             this.groupBox1.Controls.Add(this.c1Button1);
             this.groupBox1.Controls.Add(this.btnOk);
             this.groupBox1.Controls.Add(this.btnEdit);
@@ -275,9 +291,7 @@
             this.groupBox1.Controls.Add(this.txtRef1);
             this.groupBox1.Controls.Add(this.lbCusAddr);
             this.groupBox1.Controls.Add(this.lbImpAddr);
-            this.groupBox1.Controls.Add(this.cboImp);
             this.groupBox1.Controls.Add(this.c1Label4);
-            this.groupBox1.Controls.Add(this.cboCus);
             this.groupBox1.Controls.Add(this.c1Label3);
             this.groupBox1.Controls.Add(this.c1Label2);
             this.groupBox1.Controls.Add(this.c1Label1);
@@ -294,6 +308,76 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             this.c1ThemeController1.SetTheme(this.groupBox1, "(default)");
+            // 
+            // lbCusNameT
+            // 
+            this.lbCusNameT.AutoSize = true;
+            this.lbCusNameT.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbCusNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbCusNameT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.lbCusNameT.Location = new System.Drawing.Point(526, 29);
+            this.lbCusNameT.Name = "lbCusNameT";
+            this.lbCusNameT.Size = new System.Drawing.Size(63, 16);
+            this.lbCusNameT.TabIndex = 98;
+            this.lbCusNameT.Tag = null;
+            this.c1ThemeController1.SetTheme(this.lbCusNameT, "(default)");
+            this.lbCusNameT.Value = "JOB Date :";
+            // 
+            // txtCusCode
+            // 
+            this.txtCusCode.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.txtCusCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCusCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtCusCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtCusCode.Location = new System.Drawing.Point(411, 27);
+            this.txtCusCode.Name = "txtCusCode";
+            this.txtCusCode.Size = new System.Drawing.Size(109, 20);
+            this.txtCusCode.TabIndex = 97;
+            this.txtCusCode.Tag = null;
+            this.c1ThemeController1.SetTheme(this.txtCusCode, "(default)");
+            this.txtCusCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button1
+            // 
+            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.printer_blue48;
+            this.c1Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.c1Button1.Location = new System.Drawing.Point(334, 165);
+            this.c1Button1.Name = "c1Button1";
+            this.c1Button1.Size = new System.Drawing.Size(118, 60);
+            this.c1Button1.TabIndex = 96;
+            this.c1Button1.Text = "Print";
+            this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.c1Button1, "(default)");
+            this.c1Button1.UseVisualStyleBackColor = true;
+            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnOk
+            // 
+            this.btnOk.Image = global::Xtrim_ERP.Properties.Resources.database48;
+            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOk.Location = new System.Drawing.Point(995, 165);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(118, 60);
+            this.btnOk.TabIndex = 95;
+            this.btnOk.Text = "บันทึกช้อมูล";
+            this.btnOk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.c1ThemeController1.SetTheme(this.btnOk, "(default)");
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Image = global::Xtrim_ERP.Properties.Resources.lock48;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(766, 165);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(118, 60);
+            this.btnEdit.TabIndex = 94;
+            this.btnEdit.Text = "แก้ไขช้อมูล";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnEdit, "(default)");
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // c1Label11
             // 
@@ -463,18 +547,6 @@
             this.c1ThemeController1.SetTheme(this.lbImpAddr, "(default)");
             this.lbImpAddr.Value = "JOB Date :";
             // 
-            // cboImp
-            // 
-            this.cboImp.BackColor = System.Drawing.Color.White;
-            this.cboImp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboImp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.cboImp.FormattingEnabled = true;
-            this.cboImp.Location = new System.Drawing.Point(814, 26);
-            this.cboImp.Name = "cboImp";
-            this.cboImp.Size = new System.Drawing.Size(299, 24);
-            this.cboImp.TabIndex = 82;
-            this.c1ThemeController1.SetTheme(this.cboImp, "(default)");
-            // 
             // c1Label4
             // 
             this.c1Label4.AutoSize = true;
@@ -488,18 +560,6 @@
             this.c1Label4.Tag = null;
             this.c1ThemeController1.SetTheme(this.c1Label4, "(default)");
             this.c1Label4.Value = "Importer :";
-            // 
-            // cboCus
-            // 
-            this.cboCus.BackColor = System.Drawing.Color.White;
-            this.cboCus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboCus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.cboCus.FormattingEnabled = true;
-            this.cboCus.Location = new System.Drawing.Point(411, 26);
-            this.cboCus.Name = "cboCus";
-            this.cboCus.Size = new System.Drawing.Size(299, 24);
-            this.cboCus.TabIndex = 80;
-            this.c1ThemeController1.SetTheme(this.cboCus, "(default)");
             // 
             // c1Label3
             // 
@@ -2097,47 +2157,62 @@
             this.tabPage3.Text = "FORWARDER";
             this.c1ThemeController1.SetTheme(this.tabPage3, "(default)");
             // 
-            // btnEdit
+            // txtImpCode
             // 
-            this.btnEdit.Image = global::Xtrim_ERP.Properties.Resources.lock48;
-            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(766, 165);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(118, 60);
-            this.btnEdit.TabIndex = 94;
-            this.btnEdit.Text = "แก้ไขช้อมูล";
-            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnEdit, "(default)");
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtImpCode.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.txtImpCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtImpCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtImpCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtImpCode.Location = new System.Drawing.Point(814, 28);
+            this.txtImpCode.Name = "txtImpCode";
+            this.txtImpCode.Size = new System.Drawing.Size(109, 20);
+            this.txtImpCode.TabIndex = 99;
+            this.txtImpCode.Tag = null;
+            this.c1ThemeController1.SetTheme(this.txtImpCode, "(default)");
+            this.txtImpCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtImpCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtImpCode_KeyDown);
             // 
-            // btnOk
+            // lbImpNameT
             // 
-            this.btnOk.Image = global::Xtrim_ERP.Properties.Resources.database48;
-            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOk.Location = new System.Drawing.Point(995, 165);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(118, 60);
-            this.btnOk.TabIndex = 95;
-            this.btnOk.Text = "บันทึกช้อมูล";
-            this.btnOk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1ThemeController1.SetTheme(this.btnOk, "(default)");
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.lbImpNameT.AutoSize = true;
+            this.lbImpNameT.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbImpNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbImpNameT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.lbImpNameT.Location = new System.Drawing.Point(929, 30);
+            this.lbImpNameT.Name = "lbImpNameT";
+            this.lbImpNameT.Size = new System.Drawing.Size(63, 16);
+            this.lbImpNameT.TabIndex = 100;
+            this.lbImpNameT.Tag = null;
+            this.c1ThemeController1.SetTheme(this.lbImpNameT, "(default)");
+            this.lbImpNameT.Value = "JOB Date :";
             // 
-            // c1Button1
+            // lbStart
             // 
-            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.printer_blue48;
-            this.c1Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1Button1.Location = new System.Drawing.Point(334, 165);
-            this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(118, 60);
-            this.c1Button1.TabIndex = 96;
-            this.c1Button1.Text = "Print";
-            this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.c1Button1, "(default)");
-            this.c1Button1.UseVisualStyleBackColor = true;
-            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.lbStart.AutoSize = true;
+            this.lbStart.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.lbStart.Location = new System.Drawing.Point(458, 165);
+            this.lbStart.Name = "lbStart";
+            this.lbStart.Size = new System.Drawing.Size(63, 16);
+            this.lbStart.TabIndex = 101;
+            this.lbStart.Tag = null;
+            this.c1ThemeController1.SetTheme(this.lbStart, "(default)");
+            this.lbStart.Value = "JOB Date :";
+            // 
+            // lbEnd
+            // 
+            this.lbEnd.AutoSize = true;
+            this.lbEnd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.lbEnd.Location = new System.Drawing.Point(458, 209);
+            this.lbEnd.Name = "lbEnd";
+            this.lbEnd.Size = new System.Drawing.Size(63, 16);
+            this.lbEnd.TabIndex = 102;
+            this.lbEnd.Tag = null;
+            this.c1ThemeController1.SetTheme(this.lbEnd, "(default)");
+            this.lbEnd.Value = "JOB Date :";
             // 
             // FrmJobImpNew
             // 
@@ -2153,6 +2228,11 @@
             this.Load += new System.EventHandler(this.FrmJobImpNew_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lbCusNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCusCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnOk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRef5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label10)).EndInit();
@@ -2255,9 +2335,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTotalP1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label44)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnOk)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtImpCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lbImpNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lbStart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lbEnd)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2274,8 +2355,6 @@
         private C1.Win.C1Input.C1Label c1Label1;
         private C1.Win.C1Input.C1Label c1Label3;
         private C1.Win.C1Input.C1Label c1Label2;
-        private System.Windows.Forms.ComboBox cboCus;
-        private System.Windows.Forms.ComboBox cboImp;
         private C1.Win.C1Input.C1Label c1Label4;
         private C1.Win.C1Input.C1Label lbCusAddr;
         private C1.Win.C1Input.C1Label lbImpAddr;
@@ -2387,5 +2466,11 @@
         private C1.Win.C1Input.C1Button btnEdit;
         private C1.Win.C1Input.C1Button btnOk;
         private C1.Win.C1Input.C1Button c1Button1;
+        private C1.Win.C1Input.C1TextBox txtCusCode;
+        private C1.Win.C1Input.C1Label lbCusNameT;
+        private C1.Win.C1Input.C1Label lbImpNameT;
+        private C1.Win.C1Input.C1TextBox txtImpCode;
+        private C1.Win.C1Input.C1Label lbEnd;
+        private C1.Win.C1Input.C1Label lbStart;
     }
 }

@@ -15,6 +15,7 @@ namespace Xtrim_ERP.objdb
         ConnectDB conn;
 
         public List<Customer> lCus;
+        public DataTable dtCus;
 
         public CustomerDB(ConnectDB c)
         {
@@ -73,6 +74,7 @@ namespace Xtrim_ERP.objdb
             cus.eaddr3= "eaddr3";
 
             cus.eaddr4= "eaddr4";
+                        
 
             cus.table = "b_customer";
             cus.pkField = "cust_id";
@@ -87,6 +89,7 @@ namespace Xtrim_ERP.objdb
             lCus.Clear();
             DataTable dt = new DataTable();
             dt = selectAll();
+            dtCus = dt;
             foreach (DataRow row in dt.Rows)
             {
                 Customer cus1 = new Customer();
@@ -121,6 +124,19 @@ namespace Xtrim_ERP.objdb
                     c.SelectedItem = item;
                 }
             }
+        }
+        public String getCodeById(String code)
+        {
+            String id = "";
+            foreach (Customer cus1 in lCus)
+            {
+                if (code.Trim().Equals(cus1.cust_code.Trim()))
+                {
+                    id = cus1.cust_id;
+                    break;
+                }
+            }
+            return id;
         }
         public String getIdByCode(String code)
         {

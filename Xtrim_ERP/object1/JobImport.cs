@@ -49,5 +49,12 @@ namespace Xtrim_ERP.object1
 
         public String cusAddr { get; set; }
         public String impAddr { get; set; }
+        public String cusNameT { get; set; }
+        public String impNameT { get; set; }
+        public String cusCode { get; set; }
+        public String impCode { get; set; }
+
+        public String fwdCode { get; set; }
+        public String fwdNameT { get; set; }
     }
 }

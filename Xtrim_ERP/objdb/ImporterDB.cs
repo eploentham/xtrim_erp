@@ -15,6 +15,7 @@ namespace Xtrim_ERP.objdb
         ConnectDB conn;
 
         public List<Importer> lImp;
+        public DataTable dtImp;
 
         public ImporterDB(ConnectDB c)
         {
@@ -79,6 +80,8 @@ namespace Xtrim_ERP.objdb
             imp.payerprofile = "payerprofile";
             imp.payeruser = "payeruser";
 
+
+
             imp.table = "b_importer";
             imp.pkField = "imp_id";
 
@@ -108,6 +111,7 @@ namespace Xtrim_ERP.objdb
             lImp.Clear();
             DataTable dt = new DataTable();
             dt = selectAll();
+            dtImp = dt;
             foreach (DataRow row in dt.Rows)
             {
                 Importer imp1 = new Importer();

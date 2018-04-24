@@ -66,6 +66,13 @@ namespace Xtrim_ERP.objdb
 
             jim.cusAddr = "";
             jim.impAddr = "";
+            jim.cusNameT = "";
+            jim.impNameT = "";
+            jim.cusCode = "";
+            jim.impCode = "";
+
+            jim.fwdCode = "";
+            jim.fwdNameT = "";
 
             jim.table = "t_job_import";
             jim.pkField = "job_import_id";
@@ -382,10 +389,14 @@ namespace Xtrim_ERP.objdb
                 ", IFNULL(cus.taddr1, '') as taddr1, IFNULL(cus.taddr2, '') as taddr2, " +
                 "IFNULL(cus.taddr3, '') as taddr3, IFNULL(cus.taddr4, '') as taddr4 " +
                 ", IFNULL(imp.taddr1, '') as imptaddr1, IFNULL(imp.taddr2, '') as imptaddr2, " +
-                "IFNULL(imp.taddr3, '') as imptaddr3, IFNULL(imp.taddr4, '') as imptaddr4 " +
+                "IFNULL(imp.taddr3, '') as imptaddr3, IFNULL(imp.taddr4, '') as imptaddr4,  " +
+                "IFNULL(cus.cust_name_t, '') as cust_name_t, IFNULL(imp.imp_name_t, '') as imp_name_t," +
+                "IFNULL(cus.cust_code, '') as cust_code,IFNULL(imp.imp_code, '') as imp_code " +
+                //"IFNULL(fwd.forwarder_code, '') as forwarder_code,IFNULL(fwd.forwarder_code, '') as forwarder_code " +
                 "From " + jim.table + " jim " +
                 "Left Join b_customer cus On jim.cust_id = cus.cust_id " +
                 "Left Join b_importer imp On jim.imp_id = imp.imp_id " +
+                //"Left Join b_forwarder fwd On jim.forwarder_id = fwd.forwarder_id " +
                 "Where jim." + jim.pkField + " ='" + jobId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setJobImport(dt);
@@ -437,6 +448,13 @@ namespace Xtrim_ERP.objdb
 
                 jim1.cusAddr = dt.Rows[0]["taddr1"].ToString()+"\n"+dt.Rows[0]["taddr2"].ToString() + "\n" + dt.Rows[0]["taddr3"].ToString() + "\n" + dt.Rows[0]["taddr4"].ToString();
                 jim1.impAddr = dt.Rows[0]["imptaddr1"].ToString() + "\n" + dt.Rows[0]["imptaddr2"].ToString() + "\n" + dt.Rows[0]["imptaddr3"].ToString() + "\n" + dt.Rows[0]["imptaddr4"].ToString();
+
+                jim1.cusNameT = dt.Rows[0]["cust_name_t"].ToString();
+                jim1.impNameT = dt.Rows[0]["imp_name_t"].ToString();
+                jim1.cusCode = dt.Rows[0]["cust_code"].ToString();
+                jim1.impCode = dt.Rows[0]["imp_code"].ToString();
+                //jim1.fwdCode = dt.Rows[0]["forwarder_code"].ToString();
+                //jim1.fwdNameT = dt.Rows[0]["forwarder_name_t"].ToString();
             }
 
             return jim1;

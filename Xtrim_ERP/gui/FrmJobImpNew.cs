@@ -24,8 +24,10 @@ namespace Xtrim_ERP.gui
         public FrmJobImpNew(XtrimControl x)
         {
             InitializeComponent();
+            lbStart.Value = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             xC = x;
             initConfig();
+            lbEnd.Value = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
         }
         private void initConfig()
         {
@@ -57,6 +59,9 @@ namespace Xtrim_ERP.gui
             cboTransMode.Items.Add(a2);
             cboTransMode.Items.Add(a3);
             setControl();
+
+            //txtCusCode += even
+            this.txtCusCode.KeyDown += new KeyEventHandler(txtCusCode_KeyDown);
         }
         private void setControl()
         {
@@ -67,8 +72,12 @@ namespace Xtrim_ERP.gui
             txtID.Value = jim.imp_id;
             txtJobCode.Value = jim.job_import_code;
             txtJobDate.Value = jim.job_import_date;
-            xC.xtDB.cusDB.setCboCus(cboCus, jim.cust_id);
-            xC.xtDB.impDB.setCboImp(cboImp, jim.imp_id);
+            //xC.xtDB.cusDB.setCboCus(cboCus, jim.cust_id);
+            txtCusCode.Value = jim.cusCode;
+            txtImpCode.Value = jim.impCode;
+            lbCusNameT.Value = jim.cusNameT;
+            lbImpNameT.Value = jim.impNameT;
+            //xC.xtDB.impDB.setCboImp(cboImp, jim.imp_id);
             //cboCus.SelectedValue = jim.cust_id;
             txtRef1.Value = jim.ref_1;
             txtRef2.Value = jim.ref_2;
@@ -80,7 +89,7 @@ namespace Xtrim_ERP.gui
             txtJobDate.Value = jim.job_import_date;
             xC.xtDB.ettDB.setCboEtt(cboEtt, jim.entry_type);
             xC.xtDB.pvlDB.setCboPvl(cboPvl, jim.privi_id);
-            xC.xtDB.fwdDB.setCboFwd(cboFwd, jbl.forwarder_id);
+            //xC.xtDB.fwdDB.setCboFwd(cboFwd, jbl.forwarder_id);
             xC.xtDB.ptiDB.setCboPti(cboPti, jbl.port_imp_id);
             xC.xtDB.tmnDB.setCboTmn(cboTmn, jbl.terminal_id);
             xC.xtDB.ugwDB.setCboUgw(cboUgw, jbl.gw_unit_id);
@@ -88,7 +97,7 @@ namespace Xtrim_ERP.gui
             xC.xtDB.ugwDB.setCboUgw(cboUgw1, jbl.gw_unit_id);
             xC.xtDB.utpDB.setCboUtp(cboUtp1, jbl.unit_package_id);
             xC.xtDB.polDB.setCboPol(cboPol, jbl.port_of_loding_id);
-            //xC.xtDB.utpDB.setCboUtp(cboUtp, jbl.u);
+            //xC.xtDB.utpDB.setCboUtp(cboUtp, jbl.unit_package_id);
             //cboUtp1 = cboUtp;
             //cboUgw1 = cboUgw;
             //cboUtp1.SelectedItem = cboUtp.SelectedItem;
@@ -124,7 +133,18 @@ namespace Xtrim_ERP.gui
 
             txtDesc.Value = jbl.description;
         }
-
+        private void txtCusCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                FrmSearch frm = new FrmSearch(xC,FrmSearch.Search.Customer);
+                frm.ShowDialog(this);
+                lbCusAddr.Value = xC.sCus.taddr1 + "\n" + xC.sCus.taddr2 + "\n" + xC.sCus.taddr3 + "\n" + xC.sCus.taddr4;
+                txtCusCode.Value = xC.sCus.cust_code;
+                lbCusNameT.Value = xC.sCus.cust_name_t;
+                    //dt.Rows[0]["taddr1"].ToString() + "\n" + dt.Rows[0]["taddr2"].ToString() + "\n" + dt.Rows[0]["taddr3"].ToString() + "\n" + dt.Rows[0]["taddr4"].ToString();
+            }
+        }
         private void c1Label16_Click(object sender, EventArgs e)
         {
 
@@ -132,7 +152,29 @@ namespace Xtrim_ERP.gui
 
         private void FrmJobImpNew_Load(object sender, EventArgs e)
         {
+            //cboCus.DropDownWidth = GetDropDownWidth(cboCus);
+            //cboImp.DropDownWidth = GetDropDownWidth(cboImp);
 
+            //cboCus.DroppedDown = true;
+        }
+
+        private void txtImpCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Importer);
+                frm.ShowDialog(this);
+                lbImpAddr.Value = xC.sImp.taddr1 + "\n" + xC.sImp.taddr2 + "\n" + xC.sImp.taddr3 + "\n" + xC.sImp.taddr4;
+                txtImpCode.Value = xC.sImp.imp_code;
+                lbImpNameT.Value = xC.sImp.imp_name_t;
+            }
+        }
+
+        private int GetDropDownWidth(ComboBox combo)
+        {
+            object[] items = new object[combo.Items.Count];
+            combo.Items.CopyTo(items, 0);
+            return items.Select(obj => TextRenderer.MeasureText(combo.GetItemText(obj), combo.Font).Width).Max();
         }
     }
 }

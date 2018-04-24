@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            FarPoint.Win.Spread.FlatFocusIndicatorRenderer flatFocusIndicatorRenderer2 = new FarPoint.Win.Spread.FlatFocusIndicatorRenderer();
-            FarPoint.Win.Spread.FlatScrollBarRenderer flatScrollBarRenderer3 = new FarPoint.Win.Spread.FlatScrollBarRenderer();
-            FarPoint.Win.Spread.FlatScrollBarRenderer flatScrollBarRenderer4 = new FarPoint.Win.Spread.FlatScrollBarRenderer();
+            FarPoint.Win.Spread.FlatFocusIndicatorRenderer flatFocusIndicatorRenderer1 = new FarPoint.Win.Spread.FlatFocusIndicatorRenderer();
+            FarPoint.Win.Spread.FlatScrollBarRenderer flatScrollBarRenderer1 = new FarPoint.Win.Spread.FlatScrollBarRenderer();
+            FarPoint.Win.Spread.FlatScrollBarRenderer flatScrollBarRenderer2 = new FarPoint.Win.Spread.FlatScrollBarRenderer();
             this.grdView = new FarPoint.Win.Spread.FpSpread();
             this.grdView_Sheet1 = new FarPoint.Win.Spread.SheetView();
             this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
@@ -103,11 +103,11 @@
             // 
             this.grdView.AccessibleDescription = "";
             this.grdView.Dock = System.Windows.Forms.DockStyle.Left;
-            this.grdView.FocusRenderer = flatFocusIndicatorRenderer2;
+            this.grdView.FocusRenderer = flatFocusIndicatorRenderer1;
             this.grdView.HorizontalScrollBar.Buttons = new FarPoint.Win.Spread.FpScrollBarButtonCollection("BackwardLineButton,ThumbTrack,ForwardLineButton");
             this.grdView.HorizontalScrollBar.Name = "";
-            flatScrollBarRenderer3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.grdView.HorizontalScrollBar.Renderer = flatScrollBarRenderer3;
+            flatScrollBarRenderer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.grdView.HorizontalScrollBar.Renderer = flatScrollBarRenderer1;
             this.grdView.Location = new System.Drawing.Point(0, 0);
             this.grdView.Name = "grdView";
             this.grdView.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
@@ -117,8 +117,8 @@
             this.grdView.TabIndex = 4;
             this.grdView.VerticalScrollBar.Buttons = new FarPoint.Win.Spread.FpScrollBarButtonCollection("BackwardLineButton,ThumbTrack,ForwardLineButton");
             this.grdView.VerticalScrollBar.Name = "";
-            flatScrollBarRenderer4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.grdView.VerticalScrollBar.Renderer = flatScrollBarRenderer4;
+            flatScrollBarRenderer2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.grdView.VerticalScrollBar.Renderer = flatScrollBarRenderer2;
             this.grdView.CellDoubleClick += new FarPoint.Win.Spread.CellClickEventHandler(this.grdView_CellDoubleClick);
             // 
             // grdView_Sheet1
@@ -693,7 +693,6 @@
             this.Name = "FrmImporter";
             this.Text = "FrmImporter";
             this.c1ThemeController1.SetTheme(this, "(default)");
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmImporter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdView_Sheet1)).EndInit();

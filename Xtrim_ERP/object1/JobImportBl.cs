@@ -46,5 +46,8 @@ namespace Xtrim_ERP.object1
         public String delivery_remark { get; set; }
         public String container_yard { get; set; }
         public String oth_job_no { get; set; }
+
+        public String fwdCode { get; set; }
+        public String fwdNameT { get; set; }
     }
 }

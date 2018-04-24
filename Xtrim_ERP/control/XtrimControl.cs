@@ -24,6 +24,18 @@ namespace Xtrim_ERP.control
 
         public String copID = "", jobID="";
 
+        public Customer sCus;
+        public Importer sImp;
+
+        //public enum Search
+        //{
+        //    Customer,
+        //    Importer,
+        //    Regular,
+        //    Important,
+        //    Critical
+        //};
+
         public XtrimControl()
         {
             initConfig();
@@ -48,6 +60,8 @@ namespace Xtrim_ERP.control
             conn = new ConnectDB(iniC);
 
             xtDB = new XtrimDB(conn);
+            sCus = new Customer();
+            sImp = new Importer();
         }
         public void GetConfig()
         {

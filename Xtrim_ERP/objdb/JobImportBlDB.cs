@@ -71,6 +71,8 @@ namespace Xtrim_ERP.objdb
             jbl.active = "active";
             jbl.remark = "remark";
             jbl.oth_job_no = "oth_job_no";
+            jbl.fwdCode = "";
+            jbl.fwdCode = "";
 
             jbl.table = "t_job_import_bl";
             jbl.pkField = "job_import_bl_id";
@@ -311,9 +313,10 @@ namespace Xtrim_ERP.objdb
         {
             JobImportBl cop1 = new JobImportBl();
             DataTable dt = new DataTable();
-            String sql = "select jbl.* " +
+            String sql = "select jbl.*, " +
+                "IFNULL(fwd.forwarder_code, '') as forwarder_code,IFNULL(fwd.forwarder_name_t, '') as forwarder_name_t " +
                 "From " + jbl.table + " jbl " +
-                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Left Join b_forwarder fwd On jbl.forwarder_id = fwd.forwarder_id  " +
                 "Where jbl." + jbl.job_import_id + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setJobImportBl(dt);
@@ -370,6 +373,9 @@ namespace Xtrim_ERP.objdb
                 jbl1.delivery_remark = dt.Rows[0][jbl.delivery_remark].ToString();
                 jbl1.container_yard = dt.Rows[0][jbl.container_yard].ToString();
                 //jbl.status_doc_forrow = dt.Rows[0][jbl.remark2].ToString();
+
+                jbl1.fwdCode = dt.Rows[0]["forwarder_code"].ToString();
+                jbl1.fwdNameT = dt.Rows[0]["forwarder_name_t"].ToString();
             }
 
             return jbl1;

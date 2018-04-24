@@ -720,7 +720,6 @@
             this.Name = "FrmCustomer";
             this.Text = "FrmCustomer";
             this.c1ThemeController1.SetTheme(this, "(default)");
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdView_Sheet1)).EndInit();
