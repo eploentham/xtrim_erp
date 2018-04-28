@@ -151,88 +151,88 @@ namespace Xtrim_ERP.gui
         {
             if (e.KeyCode == Keys.Enter)
             {
-                C1TextBox a = (C1TextBox)sender;
-                if (a.Name.Equals("txtCusCode"))
+                //C1TextBox a = (C1TextBox)sender;
+                if (sender.Equals(txtImpCode))
                 {
                     txtImpNameT.Focus();
                     return;
                 }
-                if (a.Name.Equals("txtCusNameT"))
+                if (sender.Equals(txtImpNameT))
                 {
                     txtImpNameE.Focus();
                     return;
                 }
-                if (a.Name.Equals("txtCusNameE"))
+                if (sender.Equals(txtImpNameE))
                 {
                     txtEmail.Focus();
                     return;
                 }
-                if (a.Name.Equals("txtEmail"))
+                if (sender.Equals(txtEmail))
                 {
                     txtAddr1.Focus();
                     return;
                 }
-                if (a.Name.Equals("txtAddr1"))
+                if (sender.Equals(txtAddr1))
                 {
                     txtAddr2.Focus();
                     return;
                 }
-                if (a.Name.Equals("txtAddr2"))
+                if (sender.Equals(txtAddr2))
                 {
                     txtAddr3.Focus();
                     return;
                 }
-                if (a.Name.Equals("txtAddr3"))
+                if (sender.Equals(txtAddr3))
                 {
                     txtAddr4.Focus();
                     return;
                 }
-                if (a.Name.Equals("txtAddr4"))
+                if (sender.Equals(txtAddr4))
                 {
                     txtTele.Focus();
                     return;
                 }
-                if (a.Name.Equals("txtTele"))
+                if (sender.Equals(txtTele))
                 {
                     txtFax.Focus();
                     return;
                 }
-                if (a.Name.Equals("txtFax"))
+                if (sender.Equals(txtFax))
                 {
                     txtEmail.Focus();
                     return;
                 }
-                if (a.Name.Equals("txtEmail"))
+                if (sender.Equals(txtEmail))
                 {
                     txtFax.Focus();
                     return;
                 }
-                if (a.Name.Equals("txtFax"))
+                if (sender.Equals(txtFax))
                 {
                     txtTaxId.Focus();
                     return;
                 }
-                if (a.Name.Equals("txtTaxId"))
+                if (sender.Equals(txtTaxId))
                 {
                     txtRemark.Focus();
                     return;
                 }
-                if (a.Name.Equals("txtRemark"))
+                if (sender.Equals(txtRemark))
                 {
                     txtRemark2.Focus();
                     return;
                 }
-                if (a.Name.Equals("txtRemark2"))
+                if (sender.Equals(txtRemark2))
                 {
                     txtContactName1.Focus();
                     return;
                 }
-                if (a.Name.Equals("txtContactName1"))
+                if (sender.Equals(txtContactName1))
                 {
                     txtContactName2.Focus();
                     return;
                 }
-                if (a.Name.Equals("txtContactName2"))
+                if (sender.Equals(txtContactName2))
                 {
                     btnOk.Focus();
                     return;
@@ -313,7 +313,7 @@ namespace Xtrim_ERP.gui
         private void setControl()
         {
             //cop = xC.xtDB.copDB.selectByPk1(xC.copID);
-            txtID.Value = imp.cust_id;
+            txtID.Value = imp.imp_id;
             txtImpCode.Value = imp.imp_code;
             txtImpNameT.Value = imp.imp_name_t;
             txtImpNameE.Value = imp.imp_name_e;
@@ -334,7 +334,7 @@ namespace Xtrim_ERP.gui
         }
         private void setCustomer()
         {
-            imp.cust_id = txtID.Value.ToString();
+            imp.imp_id = txtID.Value.ToString();
             imp.imp_code = txtImpCode.Value.ToString();
             imp.imp_name_t = txtImpNameT.Value.ToString();
             imp.imp_name_e = txtImpNameE.Value.ToString();

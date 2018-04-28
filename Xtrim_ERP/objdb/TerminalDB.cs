@@ -15,6 +15,7 @@ namespace Xtrim_ERP.objdb
         ConnectDB conn;
 
         public List<Terminal> lTmn;
+        public DataTable dtTmn;
 
         public TerminalDB(ConnectDB c)
         {
@@ -55,6 +56,7 @@ namespace Xtrim_ERP.objdb
             lTmn.Clear();
             DataTable dt = new DataTable();
             dt = selectAll();
+            dtTmn = dt;
             foreach (DataRow row in dt.Rows)
             {
                 Terminal pti1 = new Terminal();

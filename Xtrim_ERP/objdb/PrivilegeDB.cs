@@ -15,6 +15,7 @@ namespace Xtrim_ERP.objdb
         ConnectDB conn;
 
         public List<Privilege> lPvl;
+        public DataTable dtPvl;
 
         public PrivilegeDB(ConnectDB c)
         {
@@ -70,6 +71,7 @@ namespace Xtrim_ERP.objdb
             lPvl.Clear();
             DataTable dt = new DataTable();
             dt = selectAll();
+            dtPvl = dt;
             foreach (DataRow row in dt.Rows)
             {
                 Privilege pvl1 = new Privilege();

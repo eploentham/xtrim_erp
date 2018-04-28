@@ -73,6 +73,7 @@ namespace Xtrim_ERP.objdb
 
             jim.fwdCode = "";
             jim.fwdNameT = "";
+            //jim.
 
             jim.table = "t_job_import";
             jim.pkField = "job_import_id";
@@ -371,6 +372,21 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+        public DataTable selectJimJblByJobYear(String year)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select jim.*, tmn.terminal_code, tmn.terminal_name_t, fwd.forwarder_name_t, jbl.description, 1 as cntinv " +
+                "From " + jim.table + " jim " +
+                "Left Join t_job_import_bl jbl on jim.job_import_id = jbl.job_import_id " +
+                "Left Join b_terminal tmn on jbl.terminal_id = tmn.terminal_id " +
+                "Left Join b_forwarder fwd on jbl.forwarder_id = fwd.forwarder_id " +
+                //"Left Join t_job_import_inv inv on jbl.job_import_id = inv.job_import_id " +
+                "Where jim." + jim.active + " ='1' and " + jim.job_year + "='" + year + "' " +
+                "Order By " + jim.job_import_code + " desc";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();
@@ -391,12 +407,14 @@ namespace Xtrim_ERP.objdb
                 ", IFNULL(imp.taddr1, '') as imptaddr1, IFNULL(imp.taddr2, '') as imptaddr2, " +
                 "IFNULL(imp.taddr3, '') as imptaddr3, IFNULL(imp.taddr4, '') as imptaddr4,  " +
                 "IFNULL(cus.cust_name_t, '') as cust_name_t, IFNULL(imp.imp_name_t, '') as imp_name_t," +
-                "IFNULL(cus.cust_code, '') as cust_code,IFNULL(imp.imp_code, '') as imp_code " +
-                //"IFNULL(fwd.forwarder_code, '') as forwarder_code,IFNULL(fwd.forwarder_code, '') as forwarder_code " +
+                "IFNULL(cus.cust_code, '') as cust_code, IFNULL(imp.imp_code, '') as imp_code, " +
+                "IFNULL(ett.entry_type_code, '') as entry_type_code, IFNULL(ett.entry_type_name_t, '') as entry_type_name_t, " +
+                "IFNULL(pvl.code, '') as priv_code, IFNULL(pvl.desc1, '') as priv_name_t " +
                 "From " + jim.table + " jim " +
                 "Left Join b_customer cus On jim.cust_id = cus.cust_id " +
                 "Left Join b_importer imp On jim.imp_id = imp.imp_id " +
-                //"Left Join b_forwarder fwd On jim.forwarder_id = fwd.forwarder_id " +
+                "Left Join b_entry_type ett On jim.entry_type_id = ett.entry_type_id " +
+                "Left Join b_privilege pvl On jim.privi_id = pvl.priv_id " +
                 "Where jim." + jim.pkField + " ='" + jobId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setJobImport(dt);
@@ -453,8 +471,12 @@ namespace Xtrim_ERP.objdb
                 jim1.impNameT = dt.Rows[0]["imp_name_t"].ToString();
                 jim1.cusCode = dt.Rows[0]["cust_code"].ToString();
                 jim1.impCode = dt.Rows[0]["imp_code"].ToString();
-                //jim1.fwdCode = dt.Rows[0]["forwarder_code"].ToString();
-                //jim1.fwdNameT = dt.Rows[0]["forwarder_name_t"].ToString();
+                jim1.ettCode = dt.Rows[0]["entry_type_code"].ToString();
+                jim1.ettNameT = dt.Rows[0]["entry_type_name_t"].ToString();
+                jim1.pvlCode = dt.Rows[0]["priv_code"].ToString();
+                jim1.pvlNameT = dt.Rows[0]["priv_name_t"].ToString();
+                //jim1.polCode = dt.Rows[0]["priv_code"].ToString();
+                //jim1.polNameT = dt.Rows[0]["priv_name_t"].ToString();
             }
 
             return jim1;

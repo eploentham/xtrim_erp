@@ -28,7 +28,7 @@ namespace Xtrim_ERP.object1
         public String total_con20 { get; set; }
         public String total_con40 { get; set; }
         public String volume1 { get; set; }
-        public String port_of_loding_id { get; set; }
+        public String port_of_loading_id { get; set; }
         public String date_check_exam { get; set; }
         public String date_delivery { get; set; }
         public String date_tofac { get; set; }
@@ -49,5 +49,22 @@ namespace Xtrim_ERP.object1
 
         public String fwdCode { get; set; }
         public String fwdNameT { get; set; }
+
+        public String ugwCode { get; set; }
+        public String ugwNameT { get; set; }
+
+        public String utpCode { get; set; }
+        public String utpNameT { get; set; }
+
+        public String polCode { get; set; }
+        public String polNameT { get; set; }
+
+        public String tmnCode { get; set; }
+        public String tmnNameT { get; set; }
+
+        public String ptiCode { get; set; }
+        public String ptiNameT { get; set; }
+        //public String ugwCode { get; set; }
+        //public String ugwNameT { get; set; }
     }
 }

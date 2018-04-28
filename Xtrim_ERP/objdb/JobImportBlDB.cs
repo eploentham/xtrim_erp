@@ -36,14 +36,14 @@ namespace Xtrim_ERP.objdb
             jbl.marsk = "marsk";
             jbl.description = "description";
             jbl.gw = "gw";
-            jbl.gw_unit_id = "gw_unit_id";
+            jbl.gw_unit_id = "unit_gw_id";
             jbl.total_packages = "total_packages";
             jbl.unit_package_id = "unit_package_id";
             jbl.total_con20 = "total_con20";
             jbl.total_con40 = "total_con40";
             jbl.volume1 = "volume1";
 
-            jbl.port_of_loding_id = "port_of_loding_id";
+            jbl.port_of_loading_id = "port_of_loading_id";
             jbl.date_check_exam = "date_check_exam";
             jbl.date_delivery = "date_delivery";
             jbl.date_tofac = "date_tofac";
@@ -73,6 +73,15 @@ namespace Xtrim_ERP.objdb
             jbl.oth_job_no = "oth_job_no";
             jbl.fwdCode = "";
             jbl.fwdCode = "";
+
+            jbl.ugwCode = "";
+            jbl.ugwNameT = "";
+            jbl.utpCode = "";
+            jbl.utpNameT = "";
+            jbl.polCode = "";
+            jbl.polNameT = "";
+            jbl.tmnCode = "";
+            jbl.tmnNameT = "";
 
             jbl.table = "t_job_import_bl";
             jbl.pkField = "job_import_bl_id";
@@ -121,7 +130,7 @@ namespace Xtrim_ERP.objdb
             p.truck_cop_id = int.TryParse(p.truck_cop_id, out chk) ? chk.ToString() : "0";
             p.tranfer_with_job_id = int.TryParse(p.tranfer_with_job_id, out chk) ? chk.ToString() : "0";
             p.truck_id = int.TryParse(p.truck_id, out chk) ? chk.ToString() : "0";
-            p.port_of_loding_id = int.TryParse(p.port_of_loding_id, out chk) ? chk.ToString() : "0";
+            p.port_of_loading_id = int.TryParse(p.port_of_loading_id, out chk) ? chk.ToString() : "0";
             p.unit_package_id = int.TryParse(p.unit_package_id, out chk) ? chk.ToString() : "0";
             p.gw_unit_id = int.TryParse(p.gw_unit_id, out chk) ? chk.ToString() : "0";
             p.terminal_id = int.TryParse(p.terminal_id, out chk) ? chk.ToString() : "0";
@@ -150,7 +159,7 @@ namespace Xtrim_ERP.objdb
                 jbl.terminal_id + "," + jbl.marsk + "," + jbl.description + "," +
                 jbl.gw + "," + jbl.gw_unit_id + "," + jbl.total_packages + "," +
                 jbl.unit_package_id + "," + jbl.total_con20 + "," + jbl.total_con40 + "," +
-                jbl.volume1 + "," + jbl.port_of_loding_id + "," + jbl.date_check_exam + "," +
+                jbl.volume1 + "," + jbl.port_of_loading_id + "," + jbl.date_check_exam + "," +
                 jbl.date_delivery + "," + jbl.date_tofac + ", " + jbl.truck_id + ", " +
                 jbl.car_number + "," + jbl.tranfer_with_job_id + ", " + jbl.truck_cop_id + ", " +
                 jbl.status_doc_forrow + "," + jbl.doc_forrow + ", " + jbl.date_doc_forrow + ", " +
@@ -166,7 +175,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.terminal_id + "','" + p.marsk.Replace("'", "''") + "','" + p.description.Replace("'", "''") + "'," +
                 "'" + p.gw.Replace("'", "''") + "','" + p.gw_unit_id + "','" + p.total_packages.Replace("'", "''") + "'," +
                 "'" + p.unit_package_id + "','" + p.total_con20.Replace("'", "''") + "','" + p.total_con40.Replace("'", "''") + "'," +
-                "'" + p.volume1.Replace("'", "''") + "','" + p.port_of_loding_id + "','" + p.date_check_exam + "', " +
+                "'" + p.volume1.Replace("'", "''") + "','" + p.port_of_loading_id + "','" + p.date_check_exam + "', " +
                 "'" + p.date_delivery + "','" + p.date_tofac + "','" + p.truck_id + "', " +
                 "'" + p.car_number.Replace("'", "''") + "','" + p.tranfer_with_job_id + "','" + p.truck_cop_id + "', " +
                 "'" + p.status_doc_forrow.Replace("'", "''") + "','" + p.doc_forrow.Replace("'", "''") + "','" + p.date_doc_forrow + "', " +
@@ -214,7 +223,7 @@ namespace Xtrim_ERP.objdb
                 "," + jbl.total_con20 + " = '" + p.total_con20.Replace("'", "''") + "'" +
                 "," + jbl.total_con40 + " = '" + p.total_con40.Replace("'", "''") + "'" +
                 "," + jbl.volume1 + " = '" + p.volume1.Replace("'", "''") + "'" +
-                "," + jbl.port_of_loding_id + " = '" + p.port_of_loding_id + "' " +
+                "," + jbl.port_of_loading_id + " = '" + p.port_of_loading_id + "' " +
                 "," + jbl.date_check_exam + " = '" + p.date_check_exam + "' " +
                 "," + jbl.date_delivery + " = '" + p.date_delivery + "' " +
                 "," + jbl.date_tofac + " = '" + p.date_tofac + "' " +
@@ -314,9 +323,17 @@ namespace Xtrim_ERP.objdb
             JobImportBl cop1 = new JobImportBl();
             DataTable dt = new DataTable();
             String sql = "select jbl.*, " +
-                "IFNULL(fwd.forwarder_code, '') as forwarder_code,IFNULL(fwd.forwarder_name_t, '') as forwarder_name_t " +
+                "IFNULL(fwd.forwarder_code, '') as forwarder_code, IFNULL(fwd.forwarder_name_t, '') as forwarder_name_t, " +
+                "IFNULL(pol.port_of_loading_code, '') as port_of_loading_code, IFNULL(pol.port_of_loading_name_t, '') as port_of_loading_name_t, " +
+                "IFNULL(tmn.terminal_code, '') as terminal_code, IFNULL(tmn.terminal_name_t, '') as terminal_name_t, " +
+                "IFNULL(pti.port_import_code, '') as port_import_code, IFNULL(pti.port_import_name_t, '') as port_import_name_t, " +
+                "IFNULL(ugw.unit_gw_code, '') as unit_gw_code, IFNULL(ugw.unit_gw_name_t, '') as unit_gw_name_t " +
                 "From " + jbl.table + " jbl " +
                 "Left Join b_forwarder fwd On jbl.forwarder_id = fwd.forwarder_id  " +
+                "Left Join b_port_of_loading pol On jbl.port_of_loading_id = pol.port_of_loading_id  " +
+                "Left Join b_terminal tmn On jbl.terminal_id = tmn.terminal_id  " +
+                "Left Join b_port_import pti On jbl.port_import_id = pti.port_import_id  " +
+                "Left Join b_unit_gw ugw On jbl.unit_gw_id = ugw.unit_gw_id  " +
                 "Where jbl." + jbl.job_import_id + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setJobImportBl(dt);
@@ -347,7 +364,7 @@ namespace Xtrim_ERP.objdb
                 jbl1.total_con20 = dt.Rows[0][jbl.total_con20].ToString();
                 jbl1.total_con40 = dt.Rows[0][jbl.total_con40].ToString();
                 jbl1.volume1 = dt.Rows[0][jbl.volume1].ToString();
-                jbl1.port_of_loding_id = dt.Rows[0][jbl.port_of_loding_id].ToString();
+                jbl1.port_of_loading_id = dt.Rows[0][jbl.port_of_loading_id].ToString();
                 jbl1.date_check_exam = dt.Rows[0][jbl.date_check_exam].ToString();
                 jbl1.date_delivery = dt.Rows[0][jbl.date_delivery].ToString();
                 jbl1.date_tofac = dt.Rows[0][jbl.date_tofac].ToString();
@@ -376,6 +393,15 @@ namespace Xtrim_ERP.objdb
 
                 jbl1.fwdCode = dt.Rows[0]["forwarder_code"].ToString();
                 jbl1.fwdNameT = dt.Rows[0]["forwarder_name_t"].ToString();
+                jbl1.polCode = dt.Rows[0]["port_of_loading_code"].ToString();
+                jbl1.polNameT = dt.Rows[0]["port_of_loading_name_t"].ToString();
+                jbl1.tmnCode = dt.Rows[0]["terminal_code"].ToString();
+                jbl1.tmnNameT = dt.Rows[0]["terminal_name_t"].ToString();
+
+                jbl1.ptiCode = dt.Rows[0]["port_import_code"].ToString();
+                jbl1.ptiNameT = dt.Rows[0]["port_import_name_t"].ToString();
+                jbl1.ugwCode = dt.Rows[0]["unit_gw_code"].ToString();
+                jbl1.ugwNameT = dt.Rows[0]["unit_gw_name_t"].ToString();
             }
 
             return jbl1;

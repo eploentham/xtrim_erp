@@ -777,8 +777,8 @@ namespace Xtrim_ERP.objdb
                 jim.imp_id = impDB.getIdByCode(row["ImporterID"].ToString().Trim());
                 jim.transport_mode = row["TransportMode"].ToString();
                 jim.staff_id = stfDB.getIdByCode(row["CsID"].ToString().Trim());
-                jim.entry_type = ettDB.getIdByCode(row["EntryType"].ToString());
-                jim.privi_id = pvlDB.getIdByDesc(row["Pivilege"].ToString());
+                jim.entry_type = ettDB.getIdByCode(row["EntryType"].ToString().Trim());
+                jim.privi_id = pvlDB.getIdByDesc(row["Pivilege"].ToString().Trim());
                 jim.ref_1 = row["CustomerRef"].ToString();
                 jim.ref_2 = "";
                 jim.ref_3 = "";
@@ -787,9 +787,16 @@ namespace Xtrim_ERP.objdb
                 jim.ref_edi = row["EdiRef"].ToString();
                 jim.imp_entry = row["ImpEntry"].ToString();
                 jim.edi_response = row["EdiResponse"].ToString();
-                jim.tax_method_id = row["วีธีชำระภาษี"].ToString();
-                jim.check_exam_id = row["การตรวจปล่อย"].ToString();
-
+                jim.tax_method_id = row["วีธีชำระภาษี"].ToString().Trim();
+                if (jim.tax_method_id.Length > 0)
+                {
+                    jim.tax_method_id = jim.tax_method_id.Substring(0, 1);
+                }
+                jim.check_exam_id = row["การตรวจปล่อย"].ToString().Trim();
+                if (jim.check_exam_id.Length > 0)
+                {
+                    jim.check_exam_id = jim.check_exam_id.Substring(0, 1);
+                }
 
                 if (DateTime.TryParse(row["วันจ้งยอด"].ToString(), out dt1))
                 {
@@ -1094,7 +1101,7 @@ namespace Xtrim_ERP.objdb
                 jbl.total_con40 = row["TotalCon40'"].ToString();
                 jbl.volume1 = row["Volume"].ToString();
 
-                jbl.port_of_loding_id = polDB.getIdByName(row["PortOfLodingID"].ToString().Trim());
+                jbl.port_of_loading_id = polDB.getIdByName(row["PortOfLodingID"].ToString().Trim());
                 if (DateTime.TryParse(row["วันตรวจปล่อย"].ToString(), out dt1))
                 {
                     if (dt1.Year > 2100)
@@ -1282,7 +1289,7 @@ namespace Xtrim_ERP.objdb
                 //jin.invoice_date = row["ImpInvDate"].ToString();
                 jin.inv_no = row["ImpInvNo"].ToString();
                 jin.cons_id = consDB.getSuppIdByCode(row["SupplierID"].ToString());
-                jin.inco_teams_id = ictDB.getIdByCode(row["IncoTermsID"].ToString());
+                jin.inco_terms_id = ictDB.getIdByCode(row["IncoTermsID"].ToString());
                 jin.term_pay_id = tpmDB.getIdByCode(row["TermPaymentID"].ToString());
                 jin.amount = row["TotalAmt"].ToString();
                 jin.curr_id = currDB.getIdByCode(row["CurrencyID"].ToString());

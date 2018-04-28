@@ -373,21 +373,31 @@ namespace Xtrim_ERP.objdb
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
-            String sql = "select cop.*  " +
-                "From " + imp.table + " cop " +
+            String sql = "select imp.*  " +
+                "From " + imp.table + " imp " +
                 " " +
-                "Where cop." + imp.active + " ='1' ";
+                "Where imp." + imp.active + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
 
+            return dt;
+        }
+        public DataTable selectByCodeLike(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select imp.* " +
+                "From " + imp.table + " imp " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where LOWER(imp." + imp.imp_code + ") like '" + copId + "%' ";
+            dt = conn.selectData(conn.conn, sql);
             return dt;
         }
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select cus.* " +
-                "From " + imp.table + " cus " +
+            String sql = "select imp.* " +
+                "From " + imp.table + " imp " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where cus." + imp.pkField + " ='" + copId + "' ";
+                "Where imp." + imp.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -395,10 +405,10 @@ namespace Xtrim_ERP.objdb
         {
             Importer cop1 = new Importer();
             DataTable dt = new DataTable();
-            String sql = "select cus.* " +
-                "From " + imp.table + " cus " +
+            String sql = "select imp.* " +
+                "From " + imp.table + " imp " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where cus." + imp.pkField + " ='" + copId + "' ";
+                "Where imp." + imp.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setImport(dt);
             return cop1;

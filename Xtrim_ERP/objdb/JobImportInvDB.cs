@@ -26,8 +26,8 @@ namespace Xtrim_ERP.objdb
             jin.invoice_date  = "invoice_date";
             //jin.t_job_import_invcol  = "t_job_import_invcol";
             jin.cons_id  = "cons_id";
-            jin.inco_teams_id  = "inco_teams_id";
-            jin.term_pay_id  = "term_pay_id";
+            jin.inco_terms_id  = "inco_terms_id";
+            jin.term_pay_id  = "term_payment_id";
             jin.amount  = "amount";
             jin.curr_id  = "curr_id";
             jin.date_create  = "date_create";
@@ -58,7 +58,7 @@ namespace Xtrim_ERP.objdb
             p.user_modi = p.user_modi == null ? "" : p.user_modi;
             p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
             p.term_pay_id = int.TryParse(p.term_pay_id, out chk) ? chk.ToString() : "0";
-            p.inco_teams_id = int.TryParse(p.inco_teams_id, out chk) ? chk.ToString() : "0";
+            p.inco_terms_id = int.TryParse(p.inco_terms_id, out chk) ? chk.ToString() : "0";
             p.curr_id = int.TryParse(p.curr_id, out chk) ? chk.ToString() : "0";
             p.cons_id = int.TryParse(p.cons_id, out chk) ? chk.ToString() : "0";
             p.job_import_id = int.TryParse(p.job_import_id, out chk) ? chk.ToString() : "0";
@@ -68,14 +68,14 @@ namespace Xtrim_ERP.objdb
                 jin.date_create + "," + jin.date_modi + "," + jin.date_cancel + "," +
                 jin.user_create + "," + jin.user_modi + "," + jin.user_cancel + "," +
                 jin.active + "," + jin.remark + ", " + jin.curr_id + ", " +
-                jin.amount + "," + jin.term_pay_id + ", " + jin.inco_teams_id + ", " +
+                jin.amount + "," + jin.term_pay_id + ", " + jin.inco_terms_id + ", " +
                 jin.inv_no + " " +
                 ") " +
                 "Values ('" + p.job_import_id + "','" + p.invoice_date + "','" + p.cons_id + "'," +
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.curr_id + "'," +
-                "'" + p.amount + "','" + p.term_pay_id + "','" + p.inco_teams_id + "', " + 
+                "'" + p.amount + "','" + p.term_pay_id + "','" + p.inco_terms_id + "', " + 
                 "'" + p.inv_no.Replace("'", "''") + "' " +
                 ")";
             try
@@ -111,7 +111,7 @@ namespace Xtrim_ERP.objdb
                 "," + jin.curr_id + " = '" + p.curr_id + "' " +
                 "," + jin.amount + " = '" + p.amount + "' " +
                 "," + jin.term_pay_id + " = '" + p.term_pay_id + "' " +
-                "," + jin.inco_teams_id + " = '" + p.inco_teams_id + "' " +
+                "," + jin.inco_terms_id + " = '" + p.inco_terms_id + "' " +
                 "," + jin.inv_no + " = '" + p.inv_no.Replace("'", "''") + "' " +
                 "Where " + jin.pkField + "='" + p.job_import_inv_id + "'"
                 ;
@@ -161,6 +161,23 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+        public DataTable selectByJobId(String jobid)
+        {
+            //JobImportInv cop1 = new JobImportInv();
+            DataTable dt = new DataTable();
+            String sql = "select jin.* " +
+                ", IFNULL(cons.cons_code, '') as cons_code, IFNULL(cons.cons_name_t, '') as cons_name_t " +
+                ", IFNULL(ict.inco_terms_code, '') as inco_terms_code, IFNULL(ict.inco_terms_name_t, '') as inco_terms_name_t " +
+                ", IFNULL(tpm.term_payment_code, '') as term_payment_code, IFNULL(tpm.term_payment_name_t, '') as term_payment_name_t " +
+                "From " + jin.table + " jin " +
+                "Left Join b_consignee cons On jin.cons_id = cons.cons_id " +
+                "Left Join b_inco_terms ict On jin.inco_terms_id = ict.inco_terms_id " +
+                "Left Join b_term_payment tpm On jin.term_payment_id = tpm.term_payment_id " +
+                "Where jin." + jin.job_import_id + " ='" + jobid + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            //cop1 = setJobImportInv(dt);
+            return dt;
+        }
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();
@@ -185,30 +202,33 @@ namespace Xtrim_ERP.objdb
         }
         private JobImportInv setJobImportInv(DataTable dt)
         {
-            JobImportInv pti1 = new JobImportInv();
+            JobImportInv jin1 = new JobImportInv();
             if (dt.Rows.Count > 0)
             {
-                pti1.job_import_inv_id = dt.Rows[0][jin.job_import_inv_id].ToString();
-                pti1.job_import_id = dt.Rows[0][jin.job_import_id].ToString();
-                pti1.invoice_date = dt.Rows[0][jin.invoice_date].ToString();
-                pti1.cons_id = dt.Rows[0][jin.cons_id].ToString();
-                pti1.inco_teams_id = dt.Rows[0][jin.inco_teams_id].ToString();
-                pti1.date_cancel = dt.Rows[0][jin.date_cancel].ToString();
-                pti1.date_create = dt.Rows[0][jin.date_create].ToString();
-                pti1.date_modi = dt.Rows[0][jin.date_modi].ToString();
-                pti1.user_cancel = dt.Rows[0][jin.user_cancel].ToString();
-                pti1.user_create = dt.Rows[0][jin.user_create].ToString();
-                pti1.user_modi = dt.Rows[0][jin.user_modi].ToString();
-                pti1.term_pay_id = dt.Rows[0][jin.term_pay_id].ToString();
-                pti1.amount = dt.Rows[0][jin.amount].ToString();
-                pti1.curr_id = dt.Rows[0][jin.curr_id].ToString();
-                pti1.remark = dt.Rows[0][jin.remark].ToString();
-                pti1.active = dt.Rows[0][jin.active].ToString();
-                //pti1.sort1 = dt.Rows[0][jin.sort1].ToString();
-                //pti1.sort1 = dt.Rows[0][jin.sort1].ToString();
+                jin1.job_import_inv_id = dt.Rows[0][jin.job_import_inv_id].ToString();
+                jin1.job_import_id = dt.Rows[0][jin.job_import_id].ToString();
+                jin1.invoice_date = dt.Rows[0][jin.invoice_date].ToString();
+                jin1.cons_id = dt.Rows[0][jin.cons_id].ToString();
+                jin1.inco_terms_id = dt.Rows[0][jin.inco_terms_id].ToString();
+                jin1.date_cancel = dt.Rows[0][jin.date_cancel].ToString();
+                jin1.date_create = dt.Rows[0][jin.date_create].ToString();
+                jin1.date_modi = dt.Rows[0][jin.date_modi].ToString();
+                jin1.user_cancel = dt.Rows[0][jin.user_cancel].ToString();
+                jin1.user_create = dt.Rows[0][jin.user_create].ToString();
+                jin1.user_modi = dt.Rows[0][jin.user_modi].ToString();
+                jin1.term_pay_id = dt.Rows[0][jin.term_pay_id].ToString();
+                jin1.amount = dt.Rows[0][jin.amount].ToString();
+                jin1.curr_id = dt.Rows[0][jin.curr_id].ToString();
+                jin1.remark = dt.Rows[0][jin.remark].ToString();
+                jin1.active = dt.Rows[0][jin.active].ToString();
+
+                jin1.suppCode = dt.Rows[0]["cons_code"].ToString();
+                jin1.SuppNameT = dt.Rows[0]["cons_name_t"].ToString();
+                jin1.ictCode = dt.Rows[0]["inco_terms_code"].ToString();
+                jin1.ictNameT = dt.Rows[0]["inco_terms_name_t"].ToString();
             }
 
-            return pti1;
+            return jin1;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using C1.Win.C1Input;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace Xtrim_ERP.objdb
         ConnectDB conn;
 
         public List<UnitGw> lUgw;
+        public DataTable dtUgw;
 
         public UnitGwDB(ConnectDB c)
         {
@@ -54,6 +56,7 @@ namespace Xtrim_ERP.objdb
             lUgw.Clear();
             DataTable dt = new DataTable();
             dt = selectAll();
+            dtUgw = dt;
             foreach (DataRow row in dt.Rows)
             {
                 UnitGw utp1 = new UnitGw();
@@ -63,6 +66,22 @@ namespace Xtrim_ERP.objdb
                 utp1.unit_gw_name_t = row[ugw.unit_gw_name_t].ToString();
 
                 lUgw.Add(utp1);
+            }
+        }
+        public void setC1CboUgw(C1ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            //DataTable dt = selectWard();
+            foreach (UnitGw cus1 in lUgw)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.unit_gw_id;
+                item.Text = cus1.unit_gw_name_t;
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    c.SelectedText = item.Text;
+                }
             }
         }
         public void setCboUgw(ComboBox c, String selected)

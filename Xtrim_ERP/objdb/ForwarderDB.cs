@@ -15,6 +15,7 @@ namespace Xtrim_ERP.objdb
         ConnectDB conn;
 
         public List<Forwarder> lFwd;
+        public DataTable dtFwd;
 
         public ForwarderDB(ConnectDB c)
         {
@@ -118,6 +119,7 @@ namespace Xtrim_ERP.objdb
             lFwd.Clear();
             DataTable dt = new DataTable();
             dt = selectAll();
+            dtFwd = dt;
             foreach (DataRow row in dt.Rows)
             {
                 Forwarder fwd = new Forwarder();
@@ -396,10 +398,10 @@ namespace Xtrim_ERP.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where cus." + fwd.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setImport(dt);
+            cop1 = setForwarder(dt);
             return cop1;
         }
-        private Forwarder setImport(DataTable dt)
+        private Forwarder setForwarder(DataTable dt)
         {
             Forwarder fwd1 = new Forwarder();
             if (dt.Rows.Count > 0)

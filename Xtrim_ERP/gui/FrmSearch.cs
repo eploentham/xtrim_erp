@@ -27,9 +27,10 @@ namespace Xtrim_ERP.object1
         {
             Customer,
             Importer,
-            Regular,
-            Important,
-            Critical
+            Forwarder,
+            EntryType,
+            PortOfLoading,
+            Privilege
         };
         Search flag;
         //private CellStyle _style;
@@ -40,6 +41,7 @@ namespace Xtrim_ERP.object1
         Font fEdit, fEditB;
         int colNo = 0, colID = 1, colNameT = 2, colNameE = 3, colRemark = 4, coledit = 5;
         int colCnt = 6;
+        String txtS = "";
 
 
         public FrmSearch(XtrimControl x, Search f)
@@ -47,6 +49,27 @@ namespace Xtrim_ERP.object1
             xC = x;
             flag = f;
             fEdit = new Font(xC.iniC.grdViewFontName, xC.grdViewFontSize, FontStyle.Regular);
+            initConfig();
+            //initConfigSpreadGrd();
+            initConfigFlexGrd();
+        }
+        public FrmSearch(XtrimControl x, Search f, String txt)
+        {
+            xC = x;
+            flag = f;
+            this.txtS = txt;
+            fEdit = new Font(xC.iniC.grdViewFontName, xC.grdViewFontSize, FontStyle.Regular);
+            initConfig();
+            //initConfigSpreadGrd();
+            initConfigFlexGrd();
+        }
+        public FrmSearch(XtrimControl x, Search f, int top, int left)
+        {
+            xC = x;
+            flag = f;
+            fEdit = new Font(xC.iniC.grdViewFontName, xC.grdViewFontSize, FontStyle.Regular);
+            //this.Top = top+10;
+            
             initConfig();
             //initConfigSpreadGrd();
             initConfigFlexGrd();
@@ -61,8 +84,22 @@ namespace Xtrim_ERP.object1
             this.Size = new System.Drawing.Size(800, 400);
             this.Text = "Run-time Controls";
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.StartPosition = FormStartPosition.CenterScreen;
+            this.StartPosition = FormStartPosition.CenterParent;
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // FrmSearch
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "FrmSearch";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.ResumeLayout(false);
+
+        }
+
         private void initConfigSpreadGrd()
         {
             grdView = new FpSpread();
@@ -102,11 +139,27 @@ namespace Xtrim_ERP.object1
             if (flag == Search.Customer)
             {
                 grdFlex.DataSource = xC.xtDB.cusDB.dtCus;
-            }else if(flag == Search.Importer)
+            }
+            else if(flag == Search.Importer)
             {
                 grdFlex.DataSource = xC.xtDB.impDB.dtImp;
             }
-            
+            else if (flag == Search.Forwarder)
+            {
+                grdFlex.DataSource = xC.xtDB.fwdDB.dtFwd;
+            }
+            else if (flag == Search.EntryType)
+            {
+                grdFlex.DataSource = xC.xtDB.ettDB.dtEtt;
+            }
+            else if (flag == Search.PortOfLoading)
+            {
+                grdFlex.DataSource = xC.xtDB.polDB.dtPol;
+            }
+            else if (flag == Search.Privilege)
+            {
+                grdFlex.DataSource = xC.xtDB.pvlDB.dtPvl;
+            }
             grdFlex.Cols[colID].Width = 60;
             grdFlex.Cols[colNameT].Width = 20;
             //grdFlex.ShowCursor = true;
@@ -133,6 +186,11 @@ namespace Xtrim_ERP.object1
             //cs.ForeColor = Color.Navy;
             //cs.Font = new Font(Font, FontStyle.Bold);
             //_flex[r, 1]
+
+            if (!txtS.Equals(""))
+            {
+                grdFlex[1, colNameT] = txtS;
+            }
 
             Controls.Add(grdFlex);
             Controls.Add(sB);
@@ -163,21 +221,41 @@ namespace Xtrim_ERP.object1
             }
             else if (keyData == (Keys.F12))
             {
-                
-                if(grdFlex.Row != grdFlex.Rows.Fixed)
+                //if(grdFlex.Row != grdFlex.Rows.Fixed)
+                //{
+                if (flag == Search.Customer)
                 {
-                    if (flag == Search.Customer)
-                    {
-                        xC.sCus = new Customer();
-                        xC.sCus = xC.xtDB.cusDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());                        
-                    }else if (flag == Search.Importer)
-                    {
-                        xC.sImp = new Importer();
-                        xC.sImp = xC.xtDB.impDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
-                    }
-                    Close();
-                    return true;
+                    xC.sCus = new Customer();
+                    xC.sCus = xC.xtDB.cusDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());                        
                 }
+                else if (flag == Search.Importer)
+                {
+                    xC.sImp = new Importer();
+                    xC.sImp = xC.xtDB.impDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
+                }
+                else if (flag == Search.Forwarder)
+                {
+                    xC.sFwd = new Forwarder();
+                    xC.sFwd = xC.xtDB.fwdDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
+                }
+                else if (flag == Search.EntryType)
+                {
+                    xC.sEtt = new EntryType();
+                    xC.sEtt = xC.xtDB.ettDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
+                }
+                else if (flag == Search.PortOfLoading)
+                {
+                    xC.sPol = new PortOfLoading();
+                    xC.sPol = xC.xtDB.polDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
+                }
+                else if (flag == Search.Privilege)
+                {
+                    xC.sPvl = new Privilege();
+                    xC.sPvl = xC.xtDB.pvlDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
+                }
+                Close();
+                return true;
+                //}
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }

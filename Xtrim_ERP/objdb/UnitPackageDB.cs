@@ -1,4 +1,5 @@
-﻿using System;
+﻿using C1.Win.C1Input;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace Xtrim_ERP.objdb
         ConnectDB conn;
 
         public List<UnitPackage> lUtp;
+        public DataTable dtUtp;
 
         public UnitPackageDB(ConnectDB c)
         {
@@ -54,6 +56,7 @@ namespace Xtrim_ERP.objdb
             lUtp.Clear();
             DataTable dt = new DataTable();
             dt = selectAll();
+            dtUtp = dt;
             foreach (DataRow row in dt.Rows)
             {
                 UnitPackage utp1 = new UnitPackage();
@@ -65,6 +68,7 @@ namespace Xtrim_ERP.objdb
                 lUtp.Add(utp1);
             }
         }
+        
         public void setCboUtp(ComboBox c, String selected)
         {
             ComboBoxItem item = new ComboBoxItem();
@@ -78,6 +82,23 @@ namespace Xtrim_ERP.objdb
                 if (item.Value.Equals(selected))
                 {
                     c.SelectedItem = item;
+                }
+            }
+        }
+        public void setC1CboUtp(C1ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            //DataTable dt = selectWard();
+            foreach (UnitPackage cus1 in lUtp)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.unit_package_id;
+                item.Text = cus1.unit_package_name_t;
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    //c.SelectedItem = item.Value;
+                    c.SelectedText = item.Text;
                 }
             }
         }

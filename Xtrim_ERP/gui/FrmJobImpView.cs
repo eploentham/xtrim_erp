@@ -18,12 +18,12 @@ namespace Xtrim_ERP.gui
         XtrimControl xC;
         Font fEdit, fEditB;
 
-        int colID = 0, colE = 1, colS = 2, colCode = 3, colCusT = 4, colImpT = 5, colRemark = 6, coledit = 7;
-        int colCnt = 8;
+        int colID = 0, colE = 1, colS = 2, colCode = 3, colCusT = 4, colImpT = 5, colRemark = 6, coledit = 7, colTmn=8, colFwd=9, colJblDesc=10, colCntInv=11;
+        int colCnt = 12;
 
-        MainMenu menu;
+        MainMenu3 menu;
 
-        public FrmJobImpView(XtrimControl x, MainMenu m)
+        public FrmJobImpView(XtrimControl x, MainMenu3 m)
         {
             InitializeComponent();
             //grdView.Top = grdView.Top-30;
@@ -89,6 +89,9 @@ namespace Xtrim_ERP.gui
             grdView.Sheets[0].Columns[colImpT].CellType = objTextCell;
             grdView.Sheets[0].Columns[colRemark].CellType = objTextCell;
             grdView.Sheets[0].Columns[coledit].CellType = objTextCell;
+            grdView.Sheets[0].Columns[colTmn].CellType = objTextCell;
+            grdView.Sheets[0].Columns[colJblDesc].CellType = objTextCell;
+            grdView.Sheets[0].Columns[colCntInv].CellType = objTextCell;
 
             grdView.Sheets[0].ColumnHeader.Cells[0, colE].Text = "edit";
             grdView.Sheets[0].ColumnHeader.Cells[0, colS].Text = "save";
@@ -96,6 +99,10 @@ namespace Xtrim_ERP.gui
             grdView.Sheets[0].ColumnHeader.Cells[0, colCusT].Text = "Customer";
             grdView.Sheets[0].ColumnHeader.Cells[0, colImpT].Text = "Importer";
             grdView.Sheets[0].ColumnHeader.Cells[0, colRemark].Text = "หมายเหตุ";
+            grdView.Sheets[0].ColumnHeader.Cells[0, colTmn].Text = "Terminal";
+            grdView.Sheets[0].ColumnHeader.Cells[0, colFwd].Text = "Forwarder";
+            grdView.Sheets[0].ColumnHeader.Cells[0, colJblDesc].Text = "Description";
+            grdView.Sheets[0].ColumnHeader.Cells[0, colCntInv].Text = "invoice ";
 
             grdView.Sheets[0].Columns[colE].Width = 50;
             grdView.Sheets[0].Columns[colS].Width = 50;
@@ -103,6 +110,10 @@ namespace Xtrim_ERP.gui
             grdView.Sheets[0].Columns[colCusT].Width = 200;
             grdView.Sheets[0].Columns[colImpT].Width = 200;
             grdView.Sheets[0].Columns[colRemark].Width = 200;
+            grdView.Sheets[0].Columns[colTmn].Width = 200;
+            grdView.Sheets[0].Columns[colFwd].Width = 200;
+            grdView.Sheets[0].Columns[colJblDesc].Width = 200;
+            grdView.Sheets[0].Columns[colCntInv].Width = 200;
 
             grdView.Sheets[0].Columns[colID].Visible = false;
             grdView.Sheets[0].Columns[coledit].Visible = false;
@@ -120,7 +131,7 @@ namespace Xtrim_ERP.gui
 
             //dt = xC.xtDB.jimDB.selectAll();
             
-            dt = xC.xtDB.jimDB.selectByJobYear(year);
+            dt = xC.xtDB.jimDB.selectJimJblByJobYear(year);
 
             grdView.Sheets[0].Rows.Clear();
             setGrdViewH();
@@ -132,6 +143,10 @@ namespace Xtrim_ERP.gui
                 grdView.Sheets[0].Cells[i, colCusT].Value = xC.xtDB.cusDB.getNameTById(row[xC.xtDB.jimDB.jim.cust_id].ToString());
                 grdView.Sheets[0].Cells[i, colImpT].Value = xC.xtDB.impDB.getNameTById(row[xC.xtDB.jimDB.jim.imp_id].ToString());
                 grdView.Sheets[0].Cells[i, colRemark].Value = row[xC.xtDB.jimDB.jim.remark].ToString();
+                grdView.Sheets[0].Cells[i, colTmn].Value = row[xC.xtDB.tmnDB.tmn.terminal_name_t].ToString();
+                grdView.Sheets[0].Cells[i, colFwd].Value = row[xC.xtDB.fwdDB.fwd.forwarder_name_t].ToString();
+                grdView.Sheets[0].Cells[i, colJblDesc].Value = row[xC.xtDB.jblDB.jbl.description].ToString();
+                grdView.Sheets[0].Cells[i, colCntInv].Value = row["cntinv"].ToString();
 
                 grdView.Sheets[0].Cells[i, coledit].Value = "0";
                 if (i % 2 != 0)
@@ -147,12 +162,17 @@ namespace Xtrim_ERP.gui
 
         private void cboProv_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string value = ((KeyValuePair<string, string>)cboYear.SelectedItem).Value;
+            string key = ((KeyValuePair<string, string>)cboYear.SelectedItem).Key;
+            setGrdView(key);
         }
 
         private void FrmJobImpView_Load(object sender, EventArgs e)
         {
             //grdView.Top = grdView.Top - 30;
+
+            grdView.Top = cboYear.Top+20;
+
             cboYear.DataSource = new BindingSource(xC.xtDB.jimDB.getlJobYear(), null);
             cboYear.DisplayMember = "Value";
             cboYear.ValueMember = "Key";
@@ -173,11 +193,5 @@ namespace Xtrim_ERP.gui
             }
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
-        {
-            string value = ((KeyValuePair<string, string>)cboYear.SelectedItem).Value;
-            string key = ((KeyValuePair<string, string>)cboYear.SelectedItem).Key;
-            setGrdView(key);
-        }
     }
 }

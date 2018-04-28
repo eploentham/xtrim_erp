@@ -47,7 +47,7 @@ namespace Xtrim_ERP.gui
             grdView.ContextMenu = custommenu;
             setFocusColor();
             setGrdView();
-            setFocusColor();
+            //setFocusColor();
             setFocus();
         }
         private void setGrdViewH()

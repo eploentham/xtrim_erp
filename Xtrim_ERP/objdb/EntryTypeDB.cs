@@ -15,6 +15,7 @@ namespace Xtrim_ERP.objdb
         ConnectDB conn;
 
         public List<EntryType> lEtt;
+        public DataTable dtEtt;
 
         public EntryTypeDB(ConnectDB c)
         {
@@ -71,6 +72,7 @@ namespace Xtrim_ERP.objdb
             lEtt.Clear();
             DataTable dt = new DataTable();
             dt = selectAll();
+            dtEtt = dt;
             foreach (DataRow row in dt.Rows)
             {
                 EntryType ett1 = new EntryType();

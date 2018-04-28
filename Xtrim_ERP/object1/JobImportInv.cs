@@ -13,7 +13,7 @@ namespace Xtrim_ERP.object1
         public String invoice_date { get; set; }
         //public String t_job_import_invcol { get; set; }
         public String cons_id { get; set; }
-        public String inco_teams_id { get; set; }
+        public String inco_terms_id { get; set; }
         public String term_pay_id { get; set; }
         public String amount { get; set; }
         public String curr_id { get; set; }
@@ -26,5 +26,10 @@ namespace Xtrim_ERP.object1
         public String remark { get; set; }
         public String active { get; set; }
         public String inv_no { get; set; }
+
+        public String suppCode { get; set; }
+        public String SuppNameT { get; set; }
+        public String ictCode { get; set; }
+        public String ictNameT { get; set; }
     }
 }

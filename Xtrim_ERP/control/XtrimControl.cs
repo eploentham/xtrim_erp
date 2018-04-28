@@ -1,4 +1,5 @@
-﻿using System;
+﻿using C1.Win.C1Input;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,6 +27,13 @@ namespace Xtrim_ERP.control
 
         public Customer sCus;
         public Importer sImp;
+        public Forwarder sFwd;
+        public EntryType sEtt;
+        public PortOfLoading sPol;
+        public Privilege sPvl;
+        public UnitGw sUgw;
+        public UnitPackage sUtp;
+        public Terminal sTmn;
 
         //public enum Search
         //{
@@ -62,6 +70,13 @@ namespace Xtrim_ERP.control
             xtDB = new XtrimDB(conn);
             sCus = new Customer();
             sImp = new Importer();
+            sFwd = new Forwarder();
+            sEtt = new EntryType();
+            sPol = new PortOfLoading();
+            sPvl = new Privilege();
+            sUgw = new UnitGw();
+            sUtp = new UnitPackage();
+            sTmn = new Terminal();
         }
         public void GetConfig()
         {
@@ -274,6 +289,28 @@ namespace Xtrim_ERP.control
                 chk = o.ToString();
             }
             return chk;
+        }
+        public string GetInfoMessageSEP(string text, string subtext)
+        {
+            return "<table><tr><td><parm><img src='res://Info1.png'></parm></td>" +
+            "<td><b><parm>Information</parm></b></td></tr></table>" +
+            "<parm><hr noshade size=1 style='margin:2' color=darker></parm>" +
+            "<div style='margin:1 12'><parm>" + text +
+            "</parm></div><parm><hr noshade size=1 style='margin:2' color=darker></parm>" +
+            "<table><tr><td><parm></parm></td><td><b><parm>" + subtext +
+            "</parm></b></td></tr></table>";
+        }
+        public void setCboC1(C1ComboBox c, String selected)
+        {
+            foreach(object o in c.Items)
+            {
+                ComboBoxItem a4 = (ComboBoxItem)o;
+                if (a4.Value.Equals(selected))
+                {
+                    c.SelectedText = a4.Text;
+                    break;
+                }
+            }
         }
     }
 }

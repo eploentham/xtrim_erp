@@ -56,5 +56,17 @@ namespace Xtrim_ERP.object1
 
         public String fwdCode { get; set; }
         public String fwdNameT { get; set; }
+
+        public String ettCode { get; set; }
+        public String ettNameT { get; set; }
+
+        public String pvlCode { get; set; }
+        public String pvlNameT { get; set; }
+
+        //public String polCode { get; set; }
+        //public String polNameT { get; set; }
+
+        //public String pvlCode { get; set; }
+        //public String pvlNameT { get; set; }
     }
 }

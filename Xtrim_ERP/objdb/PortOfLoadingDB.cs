@@ -15,6 +15,7 @@ namespace Xtrim_ERP.objdb
         ConnectDB conn;
 
         public List<PortOfLoading> lPol;
+        public DataTable dtPol;
 
         public PortOfLoadingDB(ConnectDB c)
         {
@@ -26,8 +27,8 @@ namespace Xtrim_ERP.objdb
             pol = new PortOfLoading();
             pol.port_of_loading_id = "port_of_loading_id";
             pol.port_of_loading_code = "port_of_loading_code";
-            pol.port_of_loading_t = "port_of_loading_t";
-            pol.port_of_loading_e = "port_of_loading_e";
+            pol.port_of_loading_t = "port_of_loading_name_t";
+            pol.port_of_loading_e = "port_of_loading_name_e";
             pol.status_app = "status_app";
             pol.sort1 = "sort1";
 
@@ -55,6 +56,7 @@ namespace Xtrim_ERP.objdb
             lPol.Clear();
             DataTable dt = new DataTable();
             dt = selectAll();
+            dtPol = dt;
             foreach (DataRow row in dt.Rows)
             {
                 PortOfLoading pti1 = new PortOfLoading();

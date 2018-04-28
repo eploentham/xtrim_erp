@@ -95,13 +95,13 @@ namespace Xtrim_ERP.gui
         {
             if (e.Link.Text.Equals("Import JOB"))
             {
-                //MessageBox.Show("Import JOB", "aaaaaaaaaaa");
-                //ImJView frm = new ImJView();
-                FrmJobImpView frm = new FrmJobImpView(xC, this);
-                frm.FormBorderStyle = FormBorderStyle.None;
-                TabPage tab = new TabPage("dddddd");
-                AddNewTab(frm, "Import JOB");
-                //c1DockingTabPage2.p
+                ////MessageBox.Show("Import JOB", "aaaaaaaaaaa");
+                ////ImJView frm = new ImJView();
+                //FrmJobImpView frm = new FrmJobImpView(xC, this);
+                //frm.FormBorderStyle = FormBorderStyle.None;
+                //TabPage tab = new TabPage("dddddd");
+                //AddNewTab(frm, "Import JOB");
+                ////c1DockingTabPage2.p
             }
             else if (e.Link.Text.Equals("Export JOB"))
             {

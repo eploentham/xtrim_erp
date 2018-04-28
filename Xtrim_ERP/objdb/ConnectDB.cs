@@ -7,6 +7,7 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Xtrim_ERP.object1;
 
 namespace Xtrim_ERP.objdb
@@ -29,10 +30,14 @@ namespace Xtrim_ERP.objdb
             connEx = new MySqlConnection();
             connNoClose = new MySqlConnection();
             
-            conn.ConnectionString = "Server=" + initc.hostDB + ";Database=" + initc.nameDB + ";Uid=" + initc.userDB + ";Pwd=" + initc.passDB + ";port = "+ initc.portDB+ "; Connection Timeout = 300;default command timeout=0; CharSet=utf8;";
-            connNoClose.ConnectionString = "Server=" + initc.hostDB + ";Database=" + initc.nameDB + ";Uid=" + initc.userDB + ";Pwd=" + initc.passDB + ";port = " + initc.portDB + "; Connection Timeout = 300;default command timeout=0; CharSet=utf8;";
-            connIm.ConnectionString = "Server=" + initc.hostDBIm + ";Database=" + initc.nameDBIm + ";Uid=" + initc.userDBIm + ";Pwd=" + initc.passDBIm + ";port = " + initc.portDBIm + "; Connection Timeout = 300;default command timeout=0; CharSet=utf8;";
-            connEx.ConnectionString = "Server=" + initc.hostDBEx + ";Database=" + initc.nameDBEx + ";Uid=" + initc.userDBEx + ";Pwd=" + initc.passDBEx + ";port = " + initc.portDBEx + "; Connection Timeout = 300;default command timeout=0; CharSet=utf8;";
+            conn.ConnectionString = "Server=" + initc.hostDB + ";Database=" + initc.nameDB + ";Uid=" + initc.userDB + ";Pwd=" + initc.passDB + 
+                ";port = "+ initc.portDB+ "; Connection Timeout = 300;default command timeout=0; CharSet=utf8;SslMode=none;";
+            connNoClose.ConnectionString = "Server=" + initc.hostDB + ";Database=" + initc.nameDB + ";Uid=" + initc.userDB + ";Pwd=" + initc.passDB + 
+                ";port = " + initc.portDB + "; Connection Timeout = 300;default command timeout=0; CharSet=utf8;SslMode=none;";
+            connIm.ConnectionString = "Server=" + initc.hostDBIm + ";Database=" + initc.nameDBIm + ";Uid=" + initc.userDBIm + ";Pwd=" + initc.passDBIm + 
+                ";port = " + initc.portDBIm + "; Connection Timeout = 300;default command timeout=0; CharSet=utf8;SslMode=none;";
+            connEx.ConnectionString = "Server=" + initc.hostDBEx + ";Database=" + initc.nameDBEx + ";Uid=" + initc.userDBEx + ";Pwd=" + initc.passDBEx + 
+                ";port = " + initc.portDBEx + "; Connection Timeout = 300;default command timeout=0; CharSet=utf8;SslMode=none;";
         }
         public ConnectDB(String pathSSO)
         {
@@ -68,6 +73,7 @@ namespace Xtrim_ERP.objdb
             }
             catch (Exception ex)
             {
+                MessageBox.Show("HResult " + ex.HResult+"\n"+ "Message" + ex.Message+"\n"+sql, "Error");
                 throw new Exception(ex.Message, ex);
             }
             finally
