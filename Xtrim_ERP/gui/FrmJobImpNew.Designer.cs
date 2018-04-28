@@ -97,7 +97,7 @@
             this.txtInvDate = new C1.Win.C1Input.C1DateEdit();
             this.c1Label35 = new C1.Win.C1Input.C1Label();
             this.txtDeliRemark = new C1.Win.C1Input.C1TextBox();
-            this.c1TextBox15 = new C1.Win.C1Input.C1TextBox();
+            this.txtDesc = new C1.Win.C1Input.C1TextBox();
             this.comboBox12 = new System.Windows.Forms.ComboBox();
             this.c1Label34 = new C1.Win.C1Input.C1Label();
             this.c1Label33 = new C1.Win.C1Input.C1Label();
@@ -151,7 +151,7 @@
             this.c1Label51 = new C1.Win.C1Input.C1Label();
             this.txtInsurDate = new C1.Win.C1Input.C1DateEdit();
             this.c1Label50 = new C1.Win.C1Input.C1Label();
-            this.txtDesc = new C1.Win.C1Input.C1TextBox();
+            this.txtDesc1 = new C1.Win.C1Input.C1TextBox();
             this.c1Label49 = new C1.Win.C1Input.C1Label();
             this.txtEtd1 = new C1.Win.C1Input.C1TextBox();
             this.c1Label48 = new C1.Win.C1Input.C1Label();
@@ -170,8 +170,28 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.c1TextBox10 = new C1.Win.C1Input.C1TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.c1TextBox11 = new C1.Win.C1Input.C1TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.c1TextBox12 = new C1.Win.C1Input.C1TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.c1TextBox13 = new C1.Win.C1Input.C1TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.c1TextBox14 = new C1.Win.C1Input.C1TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.c1TextBox16 = new C1.Win.C1Input.C1TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.c1TextBox17 = new C1.Win.C1Input.C1TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.c1TextBox18 = new C1.Win.C1Input.C1TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.c1TextBox19 = new C1.Win.C1Input.C1TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.c1TextBox9 = new C1.Win.C1Input.C1TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.c1TextBox8 = new C1.Win.C1Input.C1TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -216,30 +236,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nameBox1 = new FarPoint.Win.Spread.NameBox();
             this.formulaTextBox1 = new FarPoint.Win.Spread.FormulaTextBox();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
             this.sttCusNameT = new C1.Win.C1SuperTooltip.C1SuperTooltip(this.components);
             this.sepCusNameT = new C1.Win.C1SuperTooltip.C1SuperErrorProvider(this.components);
-            this.label19 = new System.Windows.Forms.Label();
-            this.c1TextBox9 = new C1.Win.C1Input.C1TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.c1TextBox10 = new C1.Win.C1Input.C1TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.c1TextBox11 = new C1.Win.C1Input.C1TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.c1TextBox12 = new C1.Win.C1Input.C1TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.c1TextBox13 = new C1.Win.C1Input.C1TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.c1TextBox14 = new C1.Win.C1Input.C1TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.c1TextBox16 = new C1.Win.C1Input.C1TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.c1TextBox17 = new C1.Win.C1Input.C1TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.c1TextBox18 = new C1.Win.C1Input.C1TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.c1TextBox19 = new C1.Win.C1Input.C1TextBox();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.lvDesc = new C1.Win.C1Input.C1Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnImpSF4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).BeginInit();
@@ -305,7 +306,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtInvDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label35)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDeliRemark)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDesc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label34)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label33)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label32)).BeginInit();
@@ -353,7 +354,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1Label51)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInsurDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label50)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDesc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDesc1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label49)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEtd1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label48)).BeginInit();
@@ -370,8 +371,18 @@
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox19)).BeginInit();
             this.panel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox4)).BeginInit();
@@ -399,16 +410,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtInvNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sepCusNameT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lvDesc)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -918,6 +920,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.lvDesc);
             this.tabPage1.Controls.Add(this.c1ComboBox1);
             this.tabPage1.Controls.Add(this.cboEdiResp);
             this.tabPage1.Controls.Add(this.cboUgw);
@@ -952,7 +955,7 @@
             this.tabPage1.Controls.Add(this.txtInvDate);
             this.tabPage1.Controls.Add(this.c1Label35);
             this.tabPage1.Controls.Add(this.txtDeliRemark);
-            this.tabPage1.Controls.Add(this.c1TextBox15);
+            this.tabPage1.Controls.Add(this.txtDesc);
             this.tabPage1.Controls.Add(this.comboBox12);
             this.tabPage1.Controls.Add(this.c1Label34);
             this.tabPage1.Controls.Add(this.c1Label33);
@@ -1532,13 +1535,13 @@
             this.c1Label35.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.c1Label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.c1Label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.c1Label35.Location = new System.Drawing.Point(402, 347);
+            this.c1Label35.Location = new System.Drawing.Point(402, 383);
             this.c1Label35.Name = "c1Label35";
             this.c1Label35.Size = new System.Drawing.Size(70, 16);
             this.c1Label35.TabIndex = 130;
             this.c1Label35.Tag = null;
             this.c1ThemeController1.SetTheme(this.c1Label35, "(default)");
-            this.c1Label35.Value = "Description :";
+            this.c1Label35.Value = "Deliv Remark :";
             this.c1Label35.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Custom;
             // 
             // txtDeliRemark
@@ -1547,28 +1550,29 @@
             this.txtDeliRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDeliRemark.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtDeliRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtDeliRemark.Location = new System.Drawing.Point(526, 345);
+            this.txtDeliRemark.Location = new System.Drawing.Point(522, 381);
             this.txtDeliRemark.Multiline = true;
             this.txtDeliRemark.Name = "txtDeliRemark";
-            this.txtDeliRemark.Size = new System.Drawing.Size(583, 71);
+            this.txtDeliRemark.Size = new System.Drawing.Size(587, 46);
             this.txtDeliRemark.TabIndex = 129;
             this.txtDeliRemark.Tag = null;
             this.c1ThemeController1.SetTheme(this.txtDeliRemark, "(default)");
             this.txtDeliRemark.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1TextBox15
+            // txtDesc
             // 
-            this.c1TextBox15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.c1TextBox15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox15.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox15.Location = new System.Drawing.Point(526, 306);
-            this.c1TextBox15.Name = "c1TextBox15";
-            this.c1TextBox15.Size = new System.Drawing.Size(239, 20);
-            this.c1TextBox15.TabIndex = 128;
-            this.c1TextBox15.Tag = null;
-            this.c1ThemeController1.SetTheme(this.c1TextBox15, "(default)");
-            this.c1TextBox15.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtDesc.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.txtDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDesc.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtDesc.Location = new System.Drawing.Point(522, 325);
+            this.txtDesc.Multiline = true;
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(587, 46);
+            this.txtDesc.TabIndex = 128;
+            this.txtDesc.Tag = null;
+            this.c1ThemeController1.SetTheme(this.txtDesc, "(default)");
+            this.txtDesc.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // comboBox12
             // 
@@ -2163,7 +2167,7 @@
             this.tabPage2.Controls.Add(this.c1Label51);
             this.tabPage2.Controls.Add(this.txtInsurDate);
             this.tabPage2.Controls.Add(this.c1Label50);
-            this.tabPage2.Controls.Add(this.txtDesc);
+            this.tabPage2.Controls.Add(this.txtDesc1);
             this.tabPage2.Controls.Add(this.c1Label49);
             this.tabPage2.Controls.Add(this.txtEtd1);
             this.tabPage2.Controls.Add(this.c1Label48);
@@ -2408,20 +2412,20 @@
             this.c1Label50.Value = "Description :";
             this.c1Label50.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Custom;
             // 
-            // txtDesc
+            // txtDesc1
             // 
-            this.txtDesc.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.txtDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDesc.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtDesc.Location = new System.Drawing.Point(132, 179);
-            this.txtDesc.Multiline = true;
-            this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(583, 71);
-            this.txtDesc.TabIndex = 131;
-            this.txtDesc.Tag = null;
-            this.c1ThemeController1.SetTheme(this.txtDesc, "(default)");
-            this.txtDesc.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtDesc1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.txtDesc1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDesc1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtDesc1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtDesc1.Location = new System.Drawing.Point(132, 179);
+            this.txtDesc1.Multiline = true;
+            this.txtDesc1.Name = "txtDesc1";
+            this.txtDesc1.Size = new System.Drawing.Size(583, 71);
+            this.txtDesc1.TabIndex = 131;
+            this.txtDesc1.Tag = null;
+            this.c1ThemeController1.SetTheme(this.txtDesc1, "(default)");
+            this.txtDesc1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // c1Label49
             // 
@@ -2691,6 +2695,258 @@
             this.groupBox3.Text = "AIR PORT OFFICE";
             this.c1ThemeController1.SetTheme(this.groupBox3, "(default)");
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.White;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.label20.Location = new System.Drawing.Point(25, 237);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(62, 16);
+            this.label20.TabIndex = 143;
+            this.label20.Text = "Remark :";
+            this.c1ThemeController1.SetTheme(this.label20, "(default)");
+            // 
+            // c1TextBox10
+            // 
+            this.c1TextBox10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.c1TextBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1TextBox10.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.c1TextBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1TextBox10.Location = new System.Drawing.Point(133, 235);
+            this.c1TextBox10.Name = "c1TextBox10";
+            this.c1TextBox10.Size = new System.Drawing.Size(346, 20);
+            this.c1TextBox10.TabIndex = 142;
+            this.c1TextBox10.Tag = null;
+            this.c1ThemeController1.SetTheme(this.c1TextBox10, "(default)");
+            this.sttCusNameT.SetToolTip(this.c1TextBox10, resources.GetString("c1TextBox10.ToolTip"));
+            this.c1TextBox10.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.White;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.label21.Location = new System.Drawing.Point(25, 132);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(48, 16);
+            this.label21.TabIndex = 141;
+            this.label21.Text = "Email :";
+            this.c1ThemeController1.SetTheme(this.label21, "(default)");
+            // 
+            // c1TextBox11
+            // 
+            this.c1TextBox11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.c1TextBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1TextBox11.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.c1TextBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1TextBox11.Location = new System.Drawing.Point(133, 130);
+            this.c1TextBox11.Name = "c1TextBox11";
+            this.c1TextBox11.Size = new System.Drawing.Size(346, 20);
+            this.c1TextBox11.TabIndex = 140;
+            this.c1TextBox11.Tag = null;
+            this.c1ThemeController1.SetTheme(this.c1TextBox11, "(default)");
+            this.sttCusNameT.SetToolTip(this.c1TextBox11, resources.GetString("c1TextBox11.ToolTip"));
+            this.c1TextBox11.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.White;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.label22.Location = new System.Drawing.Point(25, 211);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(66, 16);
+            this.label22.TabIndex = 139;
+            this.label22.Text = "Contact3 :";
+            this.c1ThemeController1.SetTheme(this.label22, "(default)");
+            // 
+            // c1TextBox12
+            // 
+            this.c1TextBox12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.c1TextBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1TextBox12.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.c1TextBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1TextBox12.Location = new System.Drawing.Point(133, 209);
+            this.c1TextBox12.Name = "c1TextBox12";
+            this.c1TextBox12.Size = new System.Drawing.Size(346, 20);
+            this.c1TextBox12.TabIndex = 138;
+            this.c1TextBox12.Tag = null;
+            this.c1ThemeController1.SetTheme(this.c1TextBox12, "(default)");
+            this.sttCusNameT.SetToolTip(this.c1TextBox12, resources.GetString("c1TextBox12.ToolTip"));
+            this.c1TextBox12.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.White;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.label23.Location = new System.Drawing.Point(25, 185);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(66, 16);
+            this.label23.TabIndex = 137;
+            this.label23.Text = "Contact2 :";
+            this.c1ThemeController1.SetTheme(this.label23, "(default)");
+            // 
+            // c1TextBox13
+            // 
+            this.c1TextBox13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.c1TextBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1TextBox13.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.c1TextBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1TextBox13.Location = new System.Drawing.Point(133, 183);
+            this.c1TextBox13.Name = "c1TextBox13";
+            this.c1TextBox13.Size = new System.Drawing.Size(346, 20);
+            this.c1TextBox13.TabIndex = 136;
+            this.c1TextBox13.Tag = null;
+            this.c1ThemeController1.SetTheme(this.c1TextBox13, "(default)");
+            this.sttCusNameT.SetToolTip(this.c1TextBox13, resources.GetString("c1TextBox13.ToolTip"));
+            this.c1TextBox13.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.BackColor = System.Drawing.Color.White;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.label24.Location = new System.Drawing.Point(25, 159);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(66, 16);
+            this.label24.TabIndex = 135;
+            this.label24.Text = "Contact1 :";
+            this.c1ThemeController1.SetTheme(this.label24, "(default)");
+            // 
+            // c1TextBox14
+            // 
+            this.c1TextBox14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.c1TextBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1TextBox14.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.c1TextBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1TextBox14.Location = new System.Drawing.Point(133, 157);
+            this.c1TextBox14.Name = "c1TextBox14";
+            this.c1TextBox14.Size = new System.Drawing.Size(346, 20);
+            this.c1TextBox14.TabIndex = 134;
+            this.c1TextBox14.Tag = null;
+            this.c1ThemeController1.SetTheme(this.c1TextBox14, "(default)");
+            this.sttCusNameT.SetToolTip(this.c1TextBox14, resources.GetString("c1TextBox14.ToolTip"));
+            this.c1TextBox14.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.BackColor = System.Drawing.Color.White;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.label25.Location = new System.Drawing.Point(25, 106);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(36, 16);
+            this.label25.TabIndex = 133;
+            this.label25.Text = "Fax :";
+            this.c1ThemeController1.SetTheme(this.label25, "(default)");
+            // 
+            // c1TextBox16
+            // 
+            this.c1TextBox16.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.c1TextBox16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1TextBox16.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.c1TextBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1TextBox16.Location = new System.Drawing.Point(133, 104);
+            this.c1TextBox16.Name = "c1TextBox16";
+            this.c1TextBox16.Size = new System.Drawing.Size(346, 20);
+            this.c1TextBox16.TabIndex = 132;
+            this.c1TextBox16.Tag = null;
+            this.c1ThemeController1.SetTheme(this.c1TextBox16, "(default)");
+            this.sttCusNameT.SetToolTip(this.c1TextBox16, resources.GetString("c1TextBox16.ToolTip"));
+            this.c1TextBox16.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.Color.White;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.label26.Location = new System.Drawing.Point(25, 80);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(34, 16);
+            this.label26.TabIndex = 131;
+            this.label26.Text = "Tel :";
+            this.c1ThemeController1.SetTheme(this.label26, "(default)");
+            // 
+            // c1TextBox17
+            // 
+            this.c1TextBox17.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.c1TextBox17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1TextBox17.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.c1TextBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1TextBox17.Location = new System.Drawing.Point(133, 78);
+            this.c1TextBox17.Name = "c1TextBox17";
+            this.c1TextBox17.Size = new System.Drawing.Size(346, 20);
+            this.c1TextBox17.TabIndex = 130;
+            this.c1TextBox17.Tag = null;
+            this.c1ThemeController1.SetTheme(this.c1TextBox17, "(default)");
+            this.sttCusNameT.SetToolTip(this.c1TextBox17, resources.GetString("c1TextBox17.ToolTip"));
+            this.c1TextBox17.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.BackColor = System.Drawing.Color.White;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.label27.Location = new System.Drawing.Point(25, 54);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(36, 16);
+            this.label27.TabIndex = 129;
+            this.label27.Text = "City :";
+            this.c1ThemeController1.SetTheme(this.label27, "(default)");
+            // 
+            // c1TextBox18
+            // 
+            this.c1TextBox18.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.c1TextBox18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1TextBox18.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.c1TextBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1TextBox18.Location = new System.Drawing.Point(133, 52);
+            this.c1TextBox18.Name = "c1TextBox18";
+            this.c1TextBox18.Size = new System.Drawing.Size(346, 20);
+            this.c1TextBox18.TabIndex = 128;
+            this.c1TextBox18.Tag = null;
+            this.c1ThemeController1.SetTheme(this.c1TextBox18, "(default)");
+            this.sttCusNameT.SetToolTip(this.c1TextBox18, resources.GetString("c1TextBox18.ToolTip"));
+            this.c1TextBox18.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.BackColor = System.Drawing.Color.White;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.label28.Location = new System.Drawing.Point(25, 28);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(65, 16);
+            this.label28.TabIndex = 127;
+            this.label28.Text = "Address :";
+            this.c1ThemeController1.SetTheme(this.label28, "(default)");
+            // 
+            // c1TextBox19
+            // 
+            this.c1TextBox19.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.c1TextBox19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1TextBox19.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.c1TextBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1TextBox19.Location = new System.Drawing.Point(133, 26);
+            this.c1TextBox19.Name = "c1TextBox19";
+            this.c1TextBox19.Size = new System.Drawing.Size(346, 20);
+            this.c1TextBox19.TabIndex = 126;
+            this.c1TextBox19.Tag = null;
+            this.c1ThemeController1.SetTheme(this.c1TextBox19, "(default)");
+            this.sttCusNameT.SetToolTip(this.c1TextBox19, resources.GetString("c1TextBox19.ToolTip"));
+            this.c1TextBox19.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
@@ -2733,6 +2989,34 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "IN TOWN OFFICE";
             this.c1ThemeController1.SetTheme(this.groupBox2, "(default)");
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.White;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.label19.Location = new System.Drawing.Point(22, 239);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(62, 16);
+            this.label19.TabIndex = 125;
+            this.label19.Text = "Remark :";
+            this.c1ThemeController1.SetTheme(this.label19, "(default)");
+            // 
+            // c1TextBox9
+            // 
+            this.c1TextBox9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.c1TextBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1TextBox9.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.c1TextBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1TextBox9.Location = new System.Drawing.Point(130, 237);
+            this.c1TextBox9.Name = "c1TextBox9";
+            this.c1TextBox9.Size = new System.Drawing.Size(346, 20);
+            this.c1TextBox9.TabIndex = 124;
+            this.c1TextBox9.Tag = null;
+            this.c1ThemeController1.SetTheme(this.c1TextBox9, "(default)");
+            this.sttCusNameT.SetToolTip(this.c1TextBox9, resources.GetString("c1TextBox9.ToolTip"));
+            this.c1TextBox9.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label18
             // 
@@ -3357,6 +3641,18 @@
             this.formulaTextBox1.Size = new System.Drawing.Size(100, 23);
             this.formulaTextBox1.TabIndex = 3;
             // 
+            // tabPage5
+            // 
+            this.tabPage5.BackColor = System.Drawing.Color.White;
+            this.tabPage5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1131, 485);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "tabPage5";
+            this.c1ThemeController1.SetTheme(this.tabPage5, "(default)");
+            // 
             // sttCusNameT
             // 
             this.sttCusNameT.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.None;
@@ -3371,298 +3667,20 @@
             this.c1ThemeController1.SetTheme(this.sepCusNameT, "(default)");
             this.sepCusNameT.ToolTip = this.sttCusNameT;
             // 
-            // label19
+            // lvDesc
             // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.White;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.label19.Location = new System.Drawing.Point(22, 239);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(62, 16);
-            this.label19.TabIndex = 125;
-            this.label19.Text = "Remark :";
-            this.c1ThemeController1.SetTheme(this.label19, "(default)");
-            // 
-            // c1TextBox9
-            // 
-            this.c1TextBox9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.c1TextBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox9.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox9.Location = new System.Drawing.Point(130, 237);
-            this.c1TextBox9.Name = "c1TextBox9";
-            this.c1TextBox9.Size = new System.Drawing.Size(346, 20);
-            this.c1TextBox9.TabIndex = 124;
-            this.c1TextBox9.Tag = null;
-            this.c1ThemeController1.SetTheme(this.c1TextBox9, "(default)");
-            this.sttCusNameT.SetToolTip(this.c1TextBox9, resources.GetString("c1TextBox9.ToolTip"));
-            this.c1TextBox9.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.White;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.label20.Location = new System.Drawing.Point(25, 237);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(62, 16);
-            this.label20.TabIndex = 143;
-            this.label20.Text = "Remark :";
-            this.c1ThemeController1.SetTheme(this.label20, "(default)");
-            // 
-            // c1TextBox10
-            // 
-            this.c1TextBox10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.c1TextBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox10.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox10.Location = new System.Drawing.Point(133, 235);
-            this.c1TextBox10.Name = "c1TextBox10";
-            this.c1TextBox10.Size = new System.Drawing.Size(346, 20);
-            this.c1TextBox10.TabIndex = 142;
-            this.c1TextBox10.Tag = null;
-            this.c1ThemeController1.SetTheme(this.c1TextBox10, "(default)");
-            this.sttCusNameT.SetToolTip(this.c1TextBox10, resources.GetString("c1TextBox10.ToolTip"));
-            this.c1TextBox10.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.White;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.label21.Location = new System.Drawing.Point(25, 132);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(48, 16);
-            this.label21.TabIndex = 141;
-            this.label21.Text = "Email :";
-            this.c1ThemeController1.SetTheme(this.label21, "(default)");
-            // 
-            // c1TextBox11
-            // 
-            this.c1TextBox11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.c1TextBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox11.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox11.Location = new System.Drawing.Point(133, 130);
-            this.c1TextBox11.Name = "c1TextBox11";
-            this.c1TextBox11.Size = new System.Drawing.Size(346, 20);
-            this.c1TextBox11.TabIndex = 140;
-            this.c1TextBox11.Tag = null;
-            this.c1ThemeController1.SetTheme(this.c1TextBox11, "(default)");
-            this.sttCusNameT.SetToolTip(this.c1TextBox11, resources.GetString("c1TextBox11.ToolTip"));
-            this.c1TextBox11.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.White;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.label22.Location = new System.Drawing.Point(25, 211);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(66, 16);
-            this.label22.TabIndex = 139;
-            this.label22.Text = "Contact3 :";
-            this.c1ThemeController1.SetTheme(this.label22, "(default)");
-            // 
-            // c1TextBox12
-            // 
-            this.c1TextBox12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.c1TextBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox12.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox12.Location = new System.Drawing.Point(133, 209);
-            this.c1TextBox12.Name = "c1TextBox12";
-            this.c1TextBox12.Size = new System.Drawing.Size(346, 20);
-            this.c1TextBox12.TabIndex = 138;
-            this.c1TextBox12.Tag = null;
-            this.c1ThemeController1.SetTheme(this.c1TextBox12, "(default)");
-            this.sttCusNameT.SetToolTip(this.c1TextBox12, resources.GetString("c1TextBox12.ToolTip"));
-            this.c1TextBox12.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.White;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.label23.Location = new System.Drawing.Point(25, 185);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(66, 16);
-            this.label23.TabIndex = 137;
-            this.label23.Text = "Contact2 :";
-            this.c1ThemeController1.SetTheme(this.label23, "(default)");
-            // 
-            // c1TextBox13
-            // 
-            this.c1TextBox13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.c1TextBox13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox13.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox13.Location = new System.Drawing.Point(133, 183);
-            this.c1TextBox13.Name = "c1TextBox13";
-            this.c1TextBox13.Size = new System.Drawing.Size(346, 20);
-            this.c1TextBox13.TabIndex = 136;
-            this.c1TextBox13.Tag = null;
-            this.c1ThemeController1.SetTheme(this.c1TextBox13, "(default)");
-            this.sttCusNameT.SetToolTip(this.c1TextBox13, resources.GetString("c1TextBox13.ToolTip"));
-            this.c1TextBox13.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.BackColor = System.Drawing.Color.White;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.label24.Location = new System.Drawing.Point(25, 159);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(66, 16);
-            this.label24.TabIndex = 135;
-            this.label24.Text = "Contact1 :";
-            this.c1ThemeController1.SetTheme(this.label24, "(default)");
-            // 
-            // c1TextBox14
-            // 
-            this.c1TextBox14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.c1TextBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox14.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox14.Location = new System.Drawing.Point(133, 157);
-            this.c1TextBox14.Name = "c1TextBox14";
-            this.c1TextBox14.Size = new System.Drawing.Size(346, 20);
-            this.c1TextBox14.TabIndex = 134;
-            this.c1TextBox14.Tag = null;
-            this.c1ThemeController1.SetTheme(this.c1TextBox14, "(default)");
-            this.sttCusNameT.SetToolTip(this.c1TextBox14, resources.GetString("c1TextBox14.ToolTip"));
-            this.c1TextBox14.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.BackColor = System.Drawing.Color.White;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.label25.Location = new System.Drawing.Point(25, 106);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(36, 16);
-            this.label25.TabIndex = 133;
-            this.label25.Text = "Fax :";
-            this.c1ThemeController1.SetTheme(this.label25, "(default)");
-            // 
-            // c1TextBox16
-            // 
-            this.c1TextBox16.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.c1TextBox16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox16.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox16.Location = new System.Drawing.Point(133, 104);
-            this.c1TextBox16.Name = "c1TextBox16";
-            this.c1TextBox16.Size = new System.Drawing.Size(346, 20);
-            this.c1TextBox16.TabIndex = 132;
-            this.c1TextBox16.Tag = null;
-            this.c1ThemeController1.SetTheme(this.c1TextBox16, "(default)");
-            this.sttCusNameT.SetToolTip(this.c1TextBox16, resources.GetString("c1TextBox16.ToolTip"));
-            this.c1TextBox16.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.White;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.label26.Location = new System.Drawing.Point(25, 80);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(34, 16);
-            this.label26.TabIndex = 131;
-            this.label26.Text = "Tel :";
-            this.c1ThemeController1.SetTheme(this.label26, "(default)");
-            // 
-            // c1TextBox17
-            // 
-            this.c1TextBox17.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.c1TextBox17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox17.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox17.Location = new System.Drawing.Point(133, 78);
-            this.c1TextBox17.Name = "c1TextBox17";
-            this.c1TextBox17.Size = new System.Drawing.Size(346, 20);
-            this.c1TextBox17.TabIndex = 130;
-            this.c1TextBox17.Tag = null;
-            this.c1ThemeController1.SetTheme(this.c1TextBox17, "(default)");
-            this.sttCusNameT.SetToolTip(this.c1TextBox17, resources.GetString("c1TextBox17.ToolTip"));
-            this.c1TextBox17.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.BackColor = System.Drawing.Color.White;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.label27.Location = new System.Drawing.Point(25, 54);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(36, 16);
-            this.label27.TabIndex = 129;
-            this.label27.Text = "City :";
-            this.c1ThemeController1.SetTheme(this.label27, "(default)");
-            // 
-            // c1TextBox18
-            // 
-            this.c1TextBox18.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.c1TextBox18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox18.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox18.Location = new System.Drawing.Point(133, 52);
-            this.c1TextBox18.Name = "c1TextBox18";
-            this.c1TextBox18.Size = new System.Drawing.Size(346, 20);
-            this.c1TextBox18.TabIndex = 128;
-            this.c1TextBox18.Tag = null;
-            this.c1ThemeController1.SetTheme(this.c1TextBox18, "(default)");
-            this.sttCusNameT.SetToolTip(this.c1TextBox18, resources.GetString("c1TextBox18.ToolTip"));
-            this.c1TextBox18.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.BackColor = System.Drawing.Color.White;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.label28.Location = new System.Drawing.Point(25, 28);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(65, 16);
-            this.label28.TabIndex = 127;
-            this.label28.Text = "Address :";
-            this.c1ThemeController1.SetTheme(this.label28, "(default)");
-            // 
-            // c1TextBox19
-            // 
-            this.c1TextBox19.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
-            this.c1TextBox19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox19.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox19.Location = new System.Drawing.Point(133, 26);
-            this.c1TextBox19.Name = "c1TextBox19";
-            this.c1TextBox19.Size = new System.Drawing.Size(346, 20);
-            this.c1TextBox19.TabIndex = 126;
-            this.c1TextBox19.Tag = null;
-            this.c1ThemeController1.SetTheme(this.c1TextBox19, "(default)");
-            this.sttCusNameT.SetToolTip(this.c1TextBox19, resources.GetString("c1TextBox19.ToolTip"));
-            this.c1TextBox19.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.BackColor = System.Drawing.Color.White;
-            this.tabPage5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1131, 485);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "tabPage5";
-            this.c1ThemeController1.SetTheme(this.tabPage5, "(default)");
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.lvDesc.AutoSize = true;
+            this.lvDesc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lvDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lvDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.lvDesc.Location = new System.Drawing.Point(398, 327);
+            this.lvDesc.Name = "lvDesc";
+            this.lvDesc.Size = new System.Drawing.Size(63, 16);
+            this.lvDesc.TabIndex = 169;
+            this.lvDesc.Tag = null;
+            this.c1ThemeController1.SetTheme(this.lvDesc, "(default)");
+            this.lvDesc.Value = "ลานคืนคู้เปล่า :";
+            this.lvDesc.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Custom;
             // 
             // FrmJobImpNew
             // 
@@ -3743,7 +3761,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtInvDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label35)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDeliRemark)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDesc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label34)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label33)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label32)).EndInit();
@@ -3792,7 +3810,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1Label51)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInsurDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label50)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDesc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDesc1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label49)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEtd1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label48)).EndInit();
@@ -3810,9 +3828,19 @@
             this.panel5.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox19)).EndInit();
             this.panel4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox4)).EndInit();
@@ -3842,16 +3870,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtInvNo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sepCusNameT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lvDesc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3918,7 +3937,7 @@
         private C1.Win.C1Input.C1Label c1Label33;
         private System.Windows.Forms.ComboBox comboBox12;
         private C1.Win.C1Input.C1Label c1Label34;
-        private C1.Win.C1Input.C1TextBox c1TextBox15;
+        private C1.Win.C1Input.C1TextBox txtDesc;
         private C1.Win.C1Input.C1Label c1Label35;
         private C1.Win.C1Input.C1TextBox txtDeliRemark;
         private C1.Win.C1Input.C1Label c1Label36;
@@ -3951,7 +3970,7 @@
         private C1.Win.C1Input.C1Label c1Label49;
         private C1.Win.C1Input.C1TextBox txtEtd1;
         private C1.Win.C1Input.C1Label c1Label50;
-        private C1.Win.C1Input.C1TextBox txtDesc;
+        private C1.Win.C1Input.C1TextBox txtDesc1;
         private C1.Win.C1Input.C1Label c1Label51;
         private C1.Win.C1Input.C1DateEdit txtInsurDate;
         private System.Windows.Forms.ComboBox cboInsr;
@@ -4068,5 +4087,6 @@
         private System.Windows.Forms.Label label19;
         private C1.Win.C1Input.C1TextBox c1TextBox9;
         private System.Windows.Forms.TabPage tabPage5;
+        private C1.Win.C1Input.C1Label lvDesc;
     }
 }

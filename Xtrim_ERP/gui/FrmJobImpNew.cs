@@ -168,8 +168,8 @@ namespace Xtrim_ERP.gui
             grdInv.Font = fEdit;
 
             grdInv.Sheets[0].Columns[colInvId].CellType = objTextCell;
-            grdInv.Sheets[0].Columns[colInvNo].CellType = buttoncell;
-            grdInv.Sheets[0].Columns[colInvDate].CellType = buttoncell;
+            grdInv.Sheets[0].Columns[colInvNo].CellType = objTextCell;
+            grdInv.Sheets[0].Columns[colInvDate].CellType = objTextCell;
             grdInv.Sheets[0].Columns[colInvAmt].CellType = objTextCell;
             grdInv.Sheets[0].Columns[colInvSuppNameT].CellType = objTextCell;
             grdInv.Sheets[0].Columns[colInvRemark].CellType = objTextCell;
@@ -202,12 +202,12 @@ namespace Xtrim_ERP.gui
             grdInv.Sheets[0].RowCount = dtInv.Rows.Count + 1;
             foreach (DataRow row in dtInv.Rows)
             {
-                grdInv.Sheets[0].Cells[i, colInvId].Value = row[xC.xtDB.jimDB.jim.job_import_id] == null ? "" : row[xC.xtDB.jimDB.jim.job_import_id].ToString();
-                grdInv.Sheets[0].Cells[i, colInvNo].Value = row[xC.xtDB.jimDB.jim.job_import_code].ToString();
-                grdInv.Sheets[0].Cells[i, colInvDate].Value = xC.xtDB.cusDB.getNameTById(row[xC.xtDB.jimDB.jim.cust_id].ToString());
-                grdInv.Sheets[0].Cells[i, colInvAmt].Value = xC.xtDB.impDB.getNameTById(row[xC.xtDB.jimDB.jim.imp_id].ToString());
-                grdInv.Sheets[0].Cells[i, colInvSuppNameT].Value = row[xC.xtDB.jimDB.jim.remark].ToString();
-                grdInv.Sheets[0].Cells[i, colInvRemark].Value = row[xC.xtDB.tmnDB.tmn.terminal_name_t].ToString();
+                grdInv.Sheets[0].Cells[i, colInvId].Value = row[xC.xtDB.jinDB.jin.job_import_id] == null ? "" : row[xC.xtDB.jinDB.jin.job_import_id].ToString();
+                grdInv.Sheets[0].Cells[i, colInvNo].Value = row[xC.xtDB.jinDB.jin.inv_no].ToString();
+                grdInv.Sheets[0].Cells[i, colInvDate].Value = row[xC.xtDB.jinDB.jin.invoice_date].ToString();
+                grdInv.Sheets[0].Cells[i, colInvAmt].Value = row[xC.xtDB.jinDB.jin.amount].ToString();
+                grdInv.Sheets[0].Cells[i, colInvSuppNameT].Value = row[xC.xtDB.jinDB.jin.cons_id].ToString();
+                grdInv.Sheets[0].Cells[i, colInvRemark].Value = row[xC.xtDB.jinDB.jin.remark].ToString();
                 //grdInv.Sheets[0].Cells[i, colFwd].Value = row[xC.xtDB.fwdDB.fwd.forwarder_name_t].ToString();
                 //grdInv.Sheets[0].Cells[i, colJblDesc].Value = row[xC.xtDB.jblDB.jbl.description].ToString();
 
@@ -318,6 +318,7 @@ namespace Xtrim_ERP.gui
             txtPremium.Value = jim.premium;
 
             txtDesc.Value = jbl.description;
+            txtDesc1.Value = jbl.description;
         }
         private void setFocusColor()
         {
@@ -511,7 +512,7 @@ namespace Xtrim_ERP.gui
         {
             //cboCus.DropDownWidth = GetDropDownWidth(cboCus);
             //cboImp.DropDownWidth = GetDropDownWidth(cboImp);
-
+            //setControl();
             //cboCus.DroppedDown = true;
             lbStart.Value = dateStart;
             lbEnd.Value = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");

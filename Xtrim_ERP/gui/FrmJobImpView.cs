@@ -131,7 +131,7 @@ namespace Xtrim_ERP.gui
 
             //dt = xC.xtDB.jimDB.selectAll();
             
-            dt = xC.xtDB.jimDB.selectJimJblByJobYear(year);
+            dt = xC.xtDB.jimDB.selectJimJblByJobYear1(year);
 
             grdView.Sheets[0].Rows.Clear();
             setGrdViewH();
@@ -140,8 +140,10 @@ namespace Xtrim_ERP.gui
             {
                 grdView.Sheets[0].Cells[i, colID].Value = row[xC.xtDB.jimDB.jim.job_import_id] == null ? "" : row[xC.xtDB.jimDB.jim.job_import_id].ToString();
                 grdView.Sheets[0].Cells[i, colCode].Value = row[xC.xtDB.jimDB.jim.job_import_code].ToString();
-                grdView.Sheets[0].Cells[i, colCusT].Value = xC.xtDB.cusDB.getNameTById(row[xC.xtDB.jimDB.jim.cust_id].ToString());
-                grdView.Sheets[0].Cells[i, colImpT].Value = xC.xtDB.impDB.getNameTById(row[xC.xtDB.jimDB.jim.imp_id].ToString());
+                //grdView.Sheets[0].Cells[i, colCusT].Value = xC.xtDB.cusDB.getNameTById(row[xC.xtDB.jimDB.jim.cust_id].ToString());
+                //grdView.Sheets[0].Cells[i, colImpT].Value = xC.xtDB.impDB.getNameTById(row[xC.xtDB.jimDB.jim.imp_id].ToString());
+                grdView.Sheets[0].Cells[i, colCusT].Value = row[xC.xtDB.cusDB.cus.cust_name_t].ToString();
+                grdView.Sheets[0].Cells[i, colImpT].Value = row[xC.xtDB.impDB.imp.imp_name_t].ToString();
                 grdView.Sheets[0].Cells[i, colRemark].Value = row[xC.xtDB.jimDB.jim.remark].ToString();
                 grdView.Sheets[0].Cells[i, colTmn].Value = row[xC.xtDB.tmnDB.tmn.terminal_name_t].ToString();
                 grdView.Sheets[0].Cells[i, colFwd].Value = row[xC.xtDB.fwdDB.fwd.forwarder_name_t].ToString();

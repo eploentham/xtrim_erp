@@ -387,6 +387,24 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+        public DataTable selectJimJblByJobYear1(String year)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select jim.job_import_id, jim.job_import_code, jim.remark, cus.cust_name_t, imp.imp_name_t, tmn.terminal_code, tmn.terminal_name_t, fwd.forwarder_name_t, jbl.description, count(jin.job_import_inv_id) as cntinv " +
+                "From " + jim.table + " jim " +
+                "Left Join b_customer cus on jim.cust_id = cus.cust_id " +
+                "Left Join b_importer imp on jim.imp_id = imp.imp_id " +
+                "Left Join t_job_import_bl jbl on jim.job_import_id = jbl.job_import_id " +
+                "Left Join b_terminal tmn on jbl.terminal_id = tmn.terminal_id " +
+                "Left Join b_forwarder fwd on jbl.forwarder_id = fwd.forwarder_id " +
+                "Left Join t_job_import_inv jin on jim.job_import_id = jin.job_import_id " +
+                "Where jim." + jim.active + " ='1' and " + jim.job_year + "='" + year + "' " +
+                "Group By jim.job_import_id, jim.job_import_code, jim.remark, cus.cust_name_t, imp.imp_name_t, tmn.terminal_code, tmn.terminal_name_t, fwd.forwarder_name_t, jbl.description " +
+                "Order By " + jim.job_import_code + " desc";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();

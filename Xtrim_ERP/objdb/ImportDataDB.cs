@@ -1254,7 +1254,7 @@ namespace Xtrim_ERP.objdb
             conn.OpenConnectionA(pathA, flag);
             if (flagNew.Equals("new"))
             {
-                jblDB.deleteAll();
+                jinDB.deleteAll();
             }
             dt.Clear();
             dt = conn.selectDataA(conn.connA, sql);
