@@ -40,6 +40,15 @@ namespace Xtrim_ERP.objdb
             jin.active = "active";
             jin.inv_no = "inv_no";
 
+            jin.suppCode = "supp_code";
+            jin.SuppNameT = "supp_name_t";
+            jin.ictCode = "";
+            jin.ictNameT = "";
+            jin.currCode = "curr_code";
+            jin.currNameT = "curr_name_t";
+            jin.tpmCode = "";
+            jin.tpmNameT = "";
+
             jin.table = "t_job_import_inv";
             jin.pkField = "job_import_inv_id";
         }
@@ -166,36 +175,45 @@ namespace Xtrim_ERP.objdb
             //JobImportInv cop1 = new JobImportInv();
             DataTable dt = new DataTable();
             String sql = "select jin.* " +
-                ", IFNULL(cons.cons_code, '') as cons_code, IFNULL(cons.cons_name_t, '') as cons_name_t " +
+                ", IFNULL(cons.cons_code, '') as supp_code, IFNULL(cons.cons_name_t, '') as supp_name_t " +
                 ", IFNULL(ict.inco_terms_code, '') as inco_terms_code, IFNULL(ict.inco_terms_name_t, '') as inco_terms_name_t " +
                 ", IFNULL(tpm.term_payment_code, '') as term_payment_code, IFNULL(tpm.term_payment_name_t, '') as term_payment_name_t " +
+                ", IFNULL(curr.curr_code, '') as curr_code, IFNULL(curr.curr_name_t, '') as curr_name_t " +
                 "From " + jin.table + " jin " +
                 "Left Join b_consignee cons On jin.cons_id = cons.cons_id " +
                 "Left Join b_inco_terms ict On jin.inco_terms_id = ict.inco_terms_id " +
                 "Left Join b_term_payment tpm On jin.term_payment_id = tpm.term_payment_id " +
+                "Left Join b_currency curr On jin.curr_id = curr.curr_id " +
                 "Where jin." + jin.job_import_id + " ='" + jobid + "' ";
             dt = conn.selectData(conn.conn, sql);
             //cop1 = setJobImportInv(dt);
             return dt;
         }
-        public DataTable selectByPk(String copId)
+        public DataTable selectByPk(String invId)
         {
             DataTable dt = new DataTable();
             String sql = "select jin.* " +
                 "From " + jin.table + " jin " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where jin." + jin.pkField + " ='" + copId + "' ";
+                "Where jin." + jin.pkField + " ='" + invId + "' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
-        public JobImportInv selectByPk1(String copId)
+        public JobImportInv selectByPk1(String invId)
         {
             JobImportInv cop1 = new JobImportInv();
             DataTable dt = new DataTable();
             String sql = "select jin.* " +
+                ", IFNULL(cons.cons_code, '') as supp_code, IFNULL(cons.cons_name_t, '') as supp_name_t " +
+                ", IFNULL(ict.inco_terms_code, '') as inco_terms_code, IFNULL(ict.inco_terms_name_t, '') as inco_terms_name_t " +
+                ", IFNULL(tpm.term_payment_code, '') as term_payment_code, IFNULL(tpm.term_payment_name_t, '') as term_payment_name_t " +
+                ", IFNULL(curr.curr_code, '') as curr_code, IFNULL(curr.curr_name_t, '') as curr_name_t " +
                 "From " + jin.table + " jin " +
-                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where jin." + jin.pkField + " ='" + copId + "' ";
+                "Left Join b_consignee cons On jin.cons_id = cons.cons_id " +
+                "Left Join b_inco_terms ict On jin.inco_terms_id = ict.inco_terms_id " +
+                "Left Join b_term_payment tpm On jin.term_payment_id = tpm.term_payment_id " +
+                "Left Join b_currency curr On jin.curr_id = curr.curr_id " +
+                "Where jin." + jin.pkField + " ='" + invId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setJobImportInv(dt);
             return cop1;
@@ -221,11 +239,14 @@ namespace Xtrim_ERP.objdb
                 jin1.curr_id = dt.Rows[0][jin.curr_id].ToString();
                 jin1.remark = dt.Rows[0][jin.remark].ToString();
                 jin1.active = dt.Rows[0][jin.active].ToString();
+                jin1.inv_no = dt.Rows[0][jin.inv_no].ToString();
 
-                jin1.suppCode = dt.Rows[0]["cons_code"].ToString();
-                jin1.SuppNameT = dt.Rows[0]["cons_name_t"].ToString();
+                jin1.suppCode = dt.Rows[0]["supp_code"].ToString();
+                jin1.SuppNameT = dt.Rows[0]["supp_name_t"].ToString();
                 jin1.ictCode = dt.Rows[0]["inco_terms_code"].ToString();
                 jin1.ictNameT = dt.Rows[0]["inco_terms_name_t"].ToString();
+                jin1.currCode = dt.Rows[0]["curr_code"].ToString();
+                jin1.currNameT = dt.Rows[0]["curr_name_t"].ToString();
             }
 
             return jin1;

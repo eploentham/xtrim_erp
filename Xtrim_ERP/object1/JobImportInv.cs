@@ -31,5 +31,9 @@ namespace Xtrim_ERP.object1
         public String SuppNameT { get; set; }
         public String ictCode { get; set; }
         public String ictNameT { get; set; }
+        public String currCode { get; set; }
+        public String currNameT { get; set; }
+        public String tpmCode { get; set; }
+        public String tpmNameT { get; set; }
     }
 }

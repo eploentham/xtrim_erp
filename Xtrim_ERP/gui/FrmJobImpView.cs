@@ -18,8 +18,8 @@ namespace Xtrim_ERP.gui
         XtrimControl xC;
         Font fEdit, fEditB;
 
-        int colID = 0, colE = 1, colS = 2, colCode = 3, colCusT = 4, colImpT = 5, colRemark = 6, coledit = 7, colTmn=8, colFwd=9, colJblDesc=10, colCntInv=11;
-        int colCnt = 12;
+        int colID = 0, colE = 1, colS = 2, colCode = 3, colCusT = 4, colImpT = 5, colRemark = 6, coledit = 7, colTmn=8, colFwd=9, colJblDesc=10, colCntInv=11, colCntExpn=12;
+        int colCnt = 13;
 
         MainMenu3 menu;
 
@@ -92,6 +92,7 @@ namespace Xtrim_ERP.gui
             grdView.Sheets[0].Columns[colTmn].CellType = objTextCell;
             grdView.Sheets[0].Columns[colJblDesc].CellType = objTextCell;
             grdView.Sheets[0].Columns[colCntInv].CellType = objTextCell;
+            grdView.Sheets[0].Columns[colCntExpn].CellType = objTextCell;
 
             grdView.Sheets[0].ColumnHeader.Cells[0, colE].Text = "edit";
             grdView.Sheets[0].ColumnHeader.Cells[0, colS].Text = "save";
@@ -103,6 +104,7 @@ namespace Xtrim_ERP.gui
             grdView.Sheets[0].ColumnHeader.Cells[0, colFwd].Text = "Forwarder";
             grdView.Sheets[0].ColumnHeader.Cells[0, colJblDesc].Text = "Description";
             grdView.Sheets[0].ColumnHeader.Cells[0, colCntInv].Text = "invoice ";
+            grdView.Sheets[0].ColumnHeader.Cells[0, colCntExpn].Text = "Expenses ";
 
             grdView.Sheets[0].Columns[colE].Width = 50;
             grdView.Sheets[0].Columns[colS].Width = 50;
@@ -113,7 +115,8 @@ namespace Xtrim_ERP.gui
             grdView.Sheets[0].Columns[colTmn].Width = 200;
             grdView.Sheets[0].Columns[colFwd].Width = 200;
             grdView.Sheets[0].Columns[colJblDesc].Width = 200;
-            grdView.Sheets[0].Columns[colCntInv].Width = 200;
+            grdView.Sheets[0].Columns[colCntInv].Width = 50;
+            grdView.Sheets[0].Columns[colCntExpn].Width = 50;
 
             grdView.Sheets[0].Columns[colID].Visible = false;
             grdView.Sheets[0].Columns[coledit].Visible = false;
@@ -149,6 +152,7 @@ namespace Xtrim_ERP.gui
                 grdView.Sheets[0].Cells[i, colFwd].Value = row[xC.xtDB.fwdDB.fwd.forwarder_name_t].ToString();
                 grdView.Sheets[0].Cells[i, colJblDesc].Value = row[xC.xtDB.jblDB.jbl.description].ToString();
                 grdView.Sheets[0].Cells[i, colCntInv].Value = row["cntinv"].ToString();
+                //grdView.Sheets[0].Cells[i, colCntExpn].Value = row["cntexpn"].ToString();
 
                 grdView.Sheets[0].Cells[i, coledit].Value = "0";
                 if (i % 2 != 0)

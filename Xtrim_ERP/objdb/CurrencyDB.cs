@@ -216,31 +216,31 @@ namespace Xtrim_ERP.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where ugw." + curr.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setUnitGw(dt);
+            cop1 = setCurr(dt);
             return cop1;
         }
-        private Currency setUnitGw(DataTable dt)
+        private Currency setCurr(DataTable dt)
         {
-            Currency pti1 = new Currency();
+            Currency curr1 = new Currency();
             if (dt.Rows.Count > 0)
             {
-                pti1.curr_id = dt.Rows[0][curr.curr_id].ToString();
-                pti1.curr_code = dt.Rows[0][curr.curr_code].ToString();
-                pti1.curr_name_e = dt.Rows[0][curr.curr_name_e].ToString();
-                pti1.curr_name_t = dt.Rows[0][curr.curr_name_t].ToString();
-                pti1.active = dt.Rows[0][curr.active].ToString();
-                pti1.date_cancel = dt.Rows[0][curr.date_cancel].ToString();
-                pti1.date_create = dt.Rows[0][curr.date_create].ToString();
-                pti1.date_modi = dt.Rows[0][curr.date_modi].ToString();
-                pti1.user_cancel = dt.Rows[0][curr.user_cancel].ToString();
-                pti1.user_create = dt.Rows[0][curr.user_create].ToString();
-                pti1.user_modi = dt.Rows[0][curr.user_modi].ToString();
+                curr1.curr_id = dt.Rows[0][curr.curr_id].ToString();
+                curr1.curr_code = dt.Rows[0][curr.curr_code].ToString();
+                curr1.curr_name_e = dt.Rows[0][curr.curr_name_e].ToString();
+                curr1.curr_name_t = dt.Rows[0][curr.curr_name_t].ToString();
+                curr1.active = dt.Rows[0][curr.active].ToString();
+                curr1.date_cancel = dt.Rows[0][curr.date_cancel].ToString();
+                curr1.date_create = dt.Rows[0][curr.date_create].ToString();
+                curr1.date_modi = dt.Rows[0][curr.date_modi].ToString();
+                curr1.user_cancel = dt.Rows[0][curr.user_cancel].ToString();
+                curr1.user_create = dt.Rows[0][curr.user_create].ToString();
+                curr1.user_modi = dt.Rows[0][curr.user_modi].ToString();
                 //pti1.status_app = dt.Rows[0][tmn.status_app].ToString();
-                pti1.remark = dt.Rows[0][curr.remark].ToString();
-                pti1.sort1 = dt.Rows[0][curr.sort1].ToString();
+                curr1.remark = dt.Rows[0][curr.remark].ToString();
+                curr1.sort1 = dt.Rows[0][curr.sort1].ToString();
             }
 
-            return pti1;
+            return curr1;
         }
     }
 }

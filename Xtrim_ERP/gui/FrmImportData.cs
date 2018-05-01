@@ -218,5 +218,10 @@ namespace Xtrim_ERP.gui
         {
             xC.xtDB.imdDB.ImportOpenJOBPortOfLoading(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
         }
+
+        private void binJie_Click(object sender, EventArgs e)
+        {
+            xC.xtDB.imdDB.ImportOpenJOBJobImportExpn(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
+        }
     }
 }

@@ -222,6 +222,9 @@
       <DependentUpon>MainMenu3.cs</DependentUpon>
     </Compile>
     <Compile Include="objdb\BankDB.cs" />
+    <Compile Include="objdb\ExpensesDB.cs" />
+    <Compile Include="objdb\JobImportExpnDB.cs" />
+    <Compile Include="objdb\MethodPaymentDB.cs" />
     <Compile Include="objdb\PrivilegeDB.cs" />
     <Compile Include="objdb\TermPaymentDB.cs" />
     <Compile Include="objdb\ConsigneeDB.cs" />
@@ -248,10 +251,13 @@
     <Compile Include="objdb\UnitPackageDB.cs" />
     <Compile Include="objdb\XtrimDB.cs" />
     <Compile Include="object1\Bank.cs" />
+    <Compile Include="object1\Expenses.cs" />
     <Compile Include="object1\FilterRow.cs" />
     <Compile Include="gui\FrmSearch.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="object1\JobImportExpn.cs" />
+    <Compile Include="object1\MethodPayment.cs" />
     <Compile Include="object1\Privilege.cs" />
     <Compile Include="object1\TermPayment.cs" />
     <Compile Include="object1\Consignee.cs" />

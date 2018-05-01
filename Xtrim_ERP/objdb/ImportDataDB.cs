@@ -32,6 +32,10 @@ namespace Xtrim_ERP.objdb
         PrivilegeDB pvlDB;
         UnitPackageDB utpDB;
         UnitGwDB ugwDB;
+        JobImportExpnDB jieDB;
+        ExpensesDB expnDB;
+        MethodPaymentDB mtpDB;
+
 
         List<Department> lDept;
 
@@ -62,6 +66,9 @@ namespace Xtrim_ERP.objdb
             pvlDB = new PrivilegeDB(conn);
             utpDB = new UnitPackageDB(conn);
             ugwDB = new UnitGwDB(conn);
+            jieDB = new JobImportExpnDB(conn);
+            expnDB = new ExpensesDB(conn);
+            mtpDB = new MethodPaymentDB(conn);
         }
         public void ImportMEIOSYSimport(String pathA, String flagNew, String flag, ProgressBar pb1)
         {
@@ -771,7 +778,7 @@ namespace Xtrim_ERP.objdb
                 }
 
                 //DateTime.TryParse(row["ImpJobDate"].ToString(), out dt1);
-                jim.job_import_date = DateTime.TryParse(row["ImpJobDate"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd hh:MM:ss") : "";
+                jim.job_import_date = DateTime.TryParse(row["ImpJobDate"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd") + " 00:00:00" : "";
 
                 jim.cust_id = cusDB.getIdByCode(row["CustomerID"].ToString().Trim());
                 jim.imp_id = impDB.getIdByCode(row["ImporterID"].ToString().Trim());
@@ -803,11 +810,11 @@ namespace Xtrim_ERP.objdb
                     if (dt1.Year > 2100)
                     {
                         dt1 = dt1.AddYears(-543);
-                        jim.inv_date = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jim.inv_date = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                     else
                     {
-                        jim.inv_date = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jim.inv_date = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                 }
                 else
@@ -816,11 +823,11 @@ namespace Xtrim_ERP.objdb
                 }
 
                 jim.tax_amt = row["ยอดภาษีที่แจ้ง"].ToString();
-                jim.insr_date = DateTime.TryParse(row["InsuranceDate"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd hh:MM:ss") : "";
+                jim.insr_date = DateTime.TryParse(row["InsuranceDate"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd") + " 00:00:00" : "";
                 jim.insr_id = row["BrokerID"].ToString();
                 jim.policy_no = row["PolicyNo"].ToString();
                 jim.premium = row["Premium"].ToString();
-                jim.policy_date = DateTime.TryParse(row["PolicyDate"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd hh:MM:ss") : "";
+                jim.policy_date = DateTime.TryParse(row["PolicyDate"].ToString(), out dt1) ? dt1.ToString("yyyy-MM-dd") + " 00:00:00" : "";
                 jim.policy_clause = row["PolicyClause"].ToString().Trim();
                 jim.job_year = DateTime.TryParse(row["ImpJobDate"].ToString(), out dt1) ? dt1.ToString("yyyy") : "";
                 jim.date_create = "";
@@ -1049,16 +1056,16 @@ namespace Xtrim_ERP.objdb
                     if (dt1.Year > 2100)
                     {
                         dt1 = dt1.AddYears(-543);
-                        jbl.etd = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.etd = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                     else if (dt1.Year < 1500)
                     {
                         dt1 = dt1.AddYears(543);
-                        jbl.etd = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.etd = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                     else
                     {
-                        jbl.etd = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.etd = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                 }
                 else
@@ -1071,16 +1078,16 @@ namespace Xtrim_ERP.objdb
                     if (dt1.Year > 2100)
                     {
                         dt1 = dt1.AddYears(-543);
-                        jbl.eta = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.eta = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                     else if (dt1.Year < 1500)
                     {
                         dt1 = dt1.AddYears(543);
-                        jbl.eta = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.eta = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                     else
                     {
-                        jbl.eta = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.eta = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                 }
                 else
@@ -1107,16 +1114,16 @@ namespace Xtrim_ERP.objdb
                     if (dt1.Year > 2100)
                     {
                         dt1 = dt1.AddYears(-543);
-                        jbl.date_check_exam = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.date_check_exam = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                     else if (dt1.Year < 1500)
                     {
                         dt1 = dt1.AddYears(543);
-                        jbl.date_check_exam = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.date_check_exam = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                     else
                     {
-                        jbl.date_check_exam = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.date_check_exam = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                 }
                 else
@@ -1129,16 +1136,16 @@ namespace Xtrim_ERP.objdb
                     if (dt1.Year > 2100)
                     {
                         dt1 = dt1.AddYears(-543);
-                        jbl.date_delivery = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.date_delivery = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                     else if (dt1.Year < 1500)
                     {
                         dt1 = dt1.AddYears(543);
-                        jbl.date_delivery = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.date_delivery = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                     else
                     {
-                        jbl.date_delivery = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.date_delivery = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                 }
                 else
@@ -1151,16 +1158,16 @@ namespace Xtrim_ERP.objdb
                     if (dt1.Year > 2100)
                     {
                         dt1 = dt1.AddYears(-543);
-                        jbl.date_tofac = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.date_tofac = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                     else if (dt1.Year < 1500)
                     {
                         dt1 = dt1.AddYears(543);
-                        jbl.date_tofac = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.date_tofac = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                     else
                     {
-                        jbl.date_tofac = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.date_tofac = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                 }
                 else
@@ -1180,16 +1187,16 @@ namespace Xtrim_ERP.objdb
                     if (dt1.Year > 2100)
                     {
                         dt1 = dt1.AddYears(-543);
-                        jbl.date_doc_forrow = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.date_doc_forrow = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                     else if (dt1.Year < 1500)
                     {
                         dt1 = dt1.AddYears(543);
-                        jbl.date_doc_forrow = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.date_doc_forrow = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                     else
                     {
-                        jbl.date_doc_forrow = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.date_doc_forrow = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                 }
                 else
@@ -1204,16 +1211,16 @@ namespace Xtrim_ERP.objdb
                     if (dt1.Year > 2100)
                     {
                         dt1 = dt1.AddYears(-543);
-                        jbl.date_finish_job_forrow = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.date_finish_job_forrow = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                     else if (dt1.Year < 1500)
                     {
                         dt1 = dt1.AddYears(543);
-                        jbl.date_finish_job_forrow = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.date_finish_job_forrow = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                     else
                     {
-                        jbl.date_finish_job_forrow = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jbl.date_finish_job_forrow = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                 }
                 else
@@ -1270,16 +1277,16 @@ namespace Xtrim_ERP.objdb
                     if (dt1.Year > 2100)
                     {
                         dt1 = dt1.AddYears(-543);
-                        jin.invoice_date = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jin.invoice_date = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                     else if (dt1.Year < 1500)
                     {
                         dt1 = dt1.AddYears(543);
-                        jin.invoice_date = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jin.invoice_date = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                     else
                     {
-                        jin.invoice_date = dt1.ToString("yyyy-MM-dd hh:MM:ss");
+                        jin.invoice_date = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
                     }
                 }
                 else
@@ -1303,6 +1310,112 @@ namespace Xtrim_ERP.objdb
                 jin.active = "1";
 
                 jinDB.insertJobImportInv(jin);
+            }
+            conn.CloseConnectionNoClose();
+            pb1.Hide();
+        }
+        public void ImportOpenJOBJobImportExpn(String pathA, String flagNew, String flag, ProgressBar pb1, Form frm)
+        {
+            pb1.Show();
+            DataTable dt = new DataTable();
+            String sql = "";
+            jimDB.getlJim();
+            consDB.getlSupp();
+            currDB.getlCurr();
+            ictDB.getlIct();
+            tpmDB.getlTpm();
+            sql = "Select * From ค่าใช้จ่ายImpJob ";
+            conn.OpenConnectionA(pathA, flag);
+            if (flagNew.Equals("new"))
+            {
+                jieDB.deleteAll();
+            }
+            dt.Clear();
+            dt = conn.selectDataA(conn.connA, sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                DateTime dt1 = new DateTime();
+                //pb1.Value++;
+                JobImportExpn jie = new JobImportExpn();
+                jie.job_import_expenses_id = "";
+                jie.job_import_id = jimDB.getIdByCode1(row["ImpJobID"].ToString().Trim());
+                if (DateTime.TryParse(row["วันที่"].ToString(), out dt1))
+                {
+                    if (dt1.Year > 2100)
+                    {
+                        dt1 = dt1.AddYears(-543);
+                        jie.expenses_date = dt1.ToString("yyyy-MM-dd")+" 00:00:00";
+                    }
+                    else if (dt1.Year < 1500)
+                    {
+                        dt1 = dt1.AddYears(543);
+                        jie.expenses_date = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
+                    }
+                    else
+                    {
+                        jie.expenses_date = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
+                    }
+                }
+                else
+                {
+                    jie.expenses_date = "";
+                }
+                jie.row_no = row["ลำดับที่"].ToString();
+                jie.expenses_id = expnDB.getIdByName(row["รหัสค่าใช้จ่าย"].ToString().Trim());
+                jie.method_payment_id = mtpDB.getIdByName(row["วิธีชำระเงิน"].ToString().Trim());
+                if (DateTime.TryParse(row["วันที่หักภาษี"].ToString(), out dt1))
+                {
+                    if (dt1.Year > 2100)
+                    {
+                        dt1 = dt1.AddYears(-543);
+                        jie.tax_date = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
+                    }
+                    else if (dt1.Year < 1500)
+                    {
+                        dt1 = dt1.AddYears(543);
+                        jie.tax_date = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
+                    }
+                    else
+                    {
+                        jie.tax_date = dt1.ToString("yyyy-MM-dd") + " 00:00:00";
+                    }
+                }
+                else
+                {
+                    jie.tax_date = "";
+                }
+                jie.tax_amount = ictDB.getIdByCode(row["ยอดเงินภาษี ณ ที่จ่าย"].ToString());
+                jie.amount = tpmDB.getIdByCode(row["ยอดเงินที่ชำระ"].ToString());
+                jie.cost_amount = row["Cost Xtrim"].ToString();
+                jie.status_deposit = currDB.getIdByCode(row["เงินมัดจำ"].ToString());
+
+                jie.remark = currDB.getIdByCode(row["หมายเหตุ"].ToString());
+                jie.receipt_no = currDB.getIdByCode(row["ใบเสร็จเลขที่"].ToString());
+                jie.receipt_date = currDB.getIdByCode(row["วันที่ใบเสร็จ"].ToString());
+                jie.status_receipt = currDB.getIdByCode(row["รอใบเสร็จ"].ToString());
+                jie.cheque_no = currDB.getIdByCode(row["เช็คลูกค้าเลขที่"].ToString());
+                jie.cheque_amount = currDB.getIdByCode(row["ยอดเงินตามเช็ค"].ToString());
+                jie.xtrim_is_no = currDB.getIdByCode(row["Xtrim IS No"].ToString());
+                jie.tax_card = currDB.getIdByCode(row["บัตรภาษี"].ToString());
+                jie.enter_inv_no = currDB.getIdByCode(row["EnterInvNo"].ToString());
+                jie.tax_gkn_id = currDB.getIdByCode(row["TaxGKN_ID"].ToString());
+                jie.amount_pay = currDB.getIdByCode(row["ยอดเงินจ่าย"].ToString());
+                jie.cheque_pay_amount = currDB.getIdByCode(row["ยอดเช็คจ่าย"].ToString());
+                jie.cheque_pay_no = currDB.getIdByCode(row["ChequeNo"].ToString());
+                jie.cheque_date = currDB.getIdByCode(row["ChequeDate"].ToString());
+                //jie.status_deposit = currDB.getIdByCode(row["เงินมัดจำ"].ToString());
+
+
+                jie.date_create = "";
+                jie.date_modi = "";
+                jie.date_cancel = "";
+                jie.user_create = "";
+                jie.user_modi = "";
+                jie.user_cancel = "";
+                jie.remark = "";
+                jie.active = "1";
+
+                jieDB.insertJobImportExpn(jie);
             }
             conn.CloseConnectionNoClose();
             pb1.Hide();

@@ -38,6 +38,9 @@ namespace Xtrim_ERP.objdb
         public PrivilegeDB pvlDB;
         public UnitGwDB ugwDB;
         public UnitPackageDB utpDB;
+        public JobImportExpnDB jieDB;
+        public ExpensesDB expnDB;
+        public MethodPaymentDB mtpDB;
 
         public XtrimDB(ConnectDB c)
         {
@@ -74,6 +77,10 @@ namespace Xtrim_ERP.objdb
             pvlDB = new PrivilegeDB(conn);
             ugwDB = new UnitGwDB(conn);
             utpDB = new UnitPackageDB(conn);
+
+            jieDB = new JobImportExpnDB(conn);
+            expnDB = new ExpensesDB(conn);
+            mtpDB = new MethodPaymentDB(conn);
         }
     }
 }
