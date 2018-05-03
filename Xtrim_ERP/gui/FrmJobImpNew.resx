@@ -121,13 +121,7 @@
     <value>17, 17</value>
   </metadata>
   <metadata name="c1ThemeController1.ApplicationTheme" xml:space="preserve">
-    <value>Windows8Gray</value>
-  </metadata>
-  <metadata name="c1ThemeController1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="c1ThemeController1.ApplicationTheme" xml:space="preserve">
-    <value>Windows8Gray</value>
+    <value>ExpressionDark</value>
   </metadata>
   <metadata name="sttCusNameT.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>179, 17</value>
@@ -439,9 +433,6 @@ gradient backgrounds!
   <metadata name="grdInv_Sheet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>449, 17</value>
   </metadata>
-  <metadata name="grdInv_Sheet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>449, 17</value>
-  </metadata>
   <data name="txtInvNo.ToolTip" xml:space="preserve">
     <value>&lt;table&gt;&lt;tr&gt;
   &lt;td&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/td&gt;
@@ -474,9 +465,6 @@ gradient backgrounds!
   &lt;td&gt;&lt;b&gt;&lt;parm&gt;&lt;/parm&gt;&lt;/b&gt;&lt;/td&gt;
 &lt;/tr&gt;&lt;/table&gt;</value>
   </data>
-  <metadata name="grdExpn_Sheet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>563, 17</value>
-  </metadata>
   <metadata name="grdExpn_Sheet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>563, 17</value>
   </metadata>

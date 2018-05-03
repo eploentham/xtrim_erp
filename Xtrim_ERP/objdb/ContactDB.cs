@@ -45,6 +45,7 @@ namespace Xtrim_ERP.objdb
             cont.user_modi = "user_modi";
             cont.user_cancel = "user_cancel";
             cont.remark = "remark";
+            cont.email2 = "email2";
 
             cont.table = "b_contact";
             cont.pkField = "cont_id";
@@ -61,7 +62,8 @@ namespace Xtrim_ERP.objdb
                 cont.mobile + "," + cont.fax + "," + cont.email + "," +
                 cont.posi_id + "," + cont.posi_name + "," + cont.date_create + "," +
                 cont.date_modi + "," + cont.date_cancel + "," + cont.user_create + "," +
-                cont.user_modi + "," + cont.user_cancel + ", " + cont.remark + " " +
+                cont.user_modi + "," + cont.user_cancel + ", " + cont.remark + ", " +
+                cont.email2 + " " +
                 ") " +
                 "Values ('" + p.cust_id + "','" + p.cont_code + "','" + p.username.Replace("'", "''") + "'," +
                 "'" + p.password1 + "','" + p.prefix_id + "','" + p.cont_fname_t.Replace("'", "''") + "'," +
@@ -69,8 +71,9 @@ namespace Xtrim_ERP.objdb
                 "'" + p.active + "','" + p.priority + "','" + p.tele + "'," +
                 "'" + p.mobile + "','" + p.fax + "','" + p.email + "'," +
                 "'" + p.posi_id + "','" + p.posi_name.Replace("'", "''") + "',now()," +
-                "'" + p.date_modi + "','" + p.date_cancel + "','" + p.user_create + "','" +
-                "'" + p.user_modi + "','" + p.user_cancel + "','" + p.remark.Replace("'","''") + "'"+
+                "'" + p.date_modi + "','" + p.date_cancel + "','" + p.user_create + "'," +
+                "'" + p.user_modi + "','" + p.user_cancel + "','" + p.remark.Replace("'","''") + "',"+
+                "'" + p.email2 + "' " + 
                 ")";
             try
             {
@@ -104,7 +107,7 @@ namespace Xtrim_ERP.objdb
                 "," + cont.email + "='" + p.email + "' " +
                 "," + cont.posi_id + "='" + p.posi_id + "' " +
                 "," + cont.posi_name + "='" + p.posi_name + "' " +
-                //"," + cont.date_create + "='" + p.date_create + "' " +
+                "," + cont.email2 + "='" + p.email2 + "' " +
                 "," + cont.date_modi + "=now() " +                
                 "," + cont.remark + "='" + p.remark.Replace("'", "''") + "' " +
                 "," + cont.user_modi + "= '" + p.user_modi + "' " +
@@ -200,7 +203,7 @@ namespace Xtrim_ERP.objdb
                 cont1.user_modi = dt.Rows[0][cont.user_modi].ToString();
                 cont1.user_cancel = dt.Rows[0][cont.user_cancel].ToString();
                 cont1.remark = dt.Rows[0][cont.remark].ToString();
-                //cont1.logo = dt.Rows[0][cont.logo].ToString();
+                cont1.email2 = dt.Rows[0][cont.email2].ToString();
             }
 
             return cont1;

@@ -98,6 +98,7 @@ namespace Xtrim_ERP.control
 
             iniC.grdViewFontSize = iniF.Read("grdViewFontSize");
             iniC.grdViewFontName = iniF.Read("grdViewFontName");
+            iniC.themeApplication = iniF.Read("themeApplication");
 
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
             int.TryParse(iniC.grdViewFontSize, out grdViewFontSize);

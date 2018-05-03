@@ -74,7 +74,11 @@ namespace Xtrim_ERP.objdb
             cus.eaddr3= "eaddr3";
 
             cus.eaddr4= "eaddr4";
-                        
+            cus.sort1 = "sort1";
+            cus.status_cust = "status_cust";
+            cus.status_exp = "status_exp";
+            cus.status_fwd = "status_fwd";
+            cus.status_imp = "status_imp";
 
             cus.table = "b_customer";
             cus.pkField = "cust_id";
@@ -177,13 +181,10 @@ namespace Xtrim_ERP.objdb
             }
             return ret;
         }
-        public String insert(Customer p)
+        private void chkNull(Customer p)
         {
-            String re = "";
-            String sql = "";
-            p.active = "1";
-            //p.ssdata_id = "";
             int chk = 0;
+            Decimal chk1 = 0;
 
             p.date_modi = p.date_modi == null ? "" : p.date_modi;
             p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
@@ -210,9 +211,22 @@ namespace Xtrim_ERP.objdb
             p.zipcode = p.zipcode == null ? "" : p.zipcode;
             p.status_company = p.status_company == null ? "" : p.status_company;
             p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
-            //p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
-            //p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
+
+            p.status_cust = p.status_cust == null ? "" : p.status_cust;
+            p.status_exp = p.status_exp == null ? "" : p.status_exp;
+            p.status_fwd = p.status_fwd == null ? "" : p.status_fwd;
+            p.status_imp = p.status_imp == null ? "" : p.status_imp;
+            p.sort1 = p.sort1 == null ? "" : p.sort1;
+        }
+        public String insert(Customer p)
+        {
+            String re = "";
+            String sql = "";
+            p.active = "1";
+            //p.ssdata_id = "";
+            int chk = 0;
             
+            chkNull(p);
             sql = "Insert Into " + cus.table + "(" + cus.cust_code + "," + cus.cust_name_t + "," + cus.cust_name_e + "," +
                 cus.active + "," + cus.address_t + "," + cus.address_e + "," +
                 cus.addr + "," + cus.amphur_id + "," + cus.district_id + "," +
@@ -226,9 +240,10 @@ namespace Xtrim_ERP.objdb
                 cus.remark2 + "," + cus.po_due_period + ", " + cus.taddr1 + ", " +
                 cus.taddr2 + "," + cus.taddr3 + ", " + cus.taddr4 + ", " +
                 cus.eaddr1 + "," + cus.eaddr2 + ", " + cus.eaddr3 + ", " +
-                cus.eaddr4  + " " +
+                cus.eaddr4  + ", " + cus.status_cust + ", " + cus.status_exp + ", " +
+                cus.status_fwd + ", " + cus.status_imp + ", " + cus.sort1 + " " +
                 ") " +
-                "Values ('" + p.cust_code + "','" + p.cust_name_t.Replace("'", "''") + "','" + p.cust_name_e.Replace("'", "''") + "'," +
+                "Values ('" + p.cust_code.Replace("'", "''") + "','" + p.cust_name_t.Replace("'", "''") + "','" + p.cust_name_e.Replace("'", "''") + "'," +
                 "'" + p.active + "','" + p.address_t.Replace("'", "''") + "','" + p.address_e.Replace("'", "''") + "'," +
                 "'" + p.addr.Replace("'", "''") + "','" + p.amphur_id + "','" + p.district_id + "'," +
                 "'" + p.province_id + "','" + p.zipcode + "','" + p.sale_id + "'," +
@@ -241,8 +256,9 @@ namespace Xtrim_ERP.objdb
                 "'" + p.remark2.Replace("'", "''") + "','" + p.po_due_period + "','" + p.taddr1 + "', " +
                 "'" + p.taddr2.Replace("'", "''") + "','" + p.taddr3.Replace("'", "''") + "','" + p.taddr4.Replace("'", "''") + "', " +
                 "'" + p.eaddr1.Replace("'", "''") + "','" + p.eaddr2.Replace("'", "''") + "','" + p.eaddr3.Replace("'", "''") + "', " +
-                "'" + p.eaddr4.Replace("'", "''") + "' " +
-                ")";
+                "'" + p.eaddr4.Replace("'", "''") + "','" + p.status_cust.Replace("'", "''") + "','" + p.status_exp.Replace("'", "''") + "', " +
+                "'" + p.status_fwd.Replace("'", "''") + "','" + p.status_imp.Replace("'", "''") + "','"+ p.sort1.Replace("'", "''") + "' " +
+               ")";
             try
             {
                 re = conn.ExecuteNonQuery(conn.conn, sql);
@@ -259,34 +275,7 @@ namespace Xtrim_ERP.objdb
             String re = "";
             String sql = "";
 
-            p.date_modi = p.date_modi == null ? "" : p.date_modi;
-            p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
-            p.user_create = p.user_create == null ? "" : p.user_create;
-            p.user_modi = p.user_modi == null ? "" : p.user_modi;
-            p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
-            p.eaddr4 = p.eaddr4 == null ? "" : p.eaddr4;
-            p.eaddr3 = p.eaddr3 == null ? "" : p.eaddr3;
-            p.eaddr2 = p.eaddr2 == null ? "" : p.eaddr2;
-            p.eaddr1 = p.eaddr1 == null ? "" : p.eaddr1;
-            p.taddr1 = p.taddr1 == null ? "" : p.taddr1;
-            p.taddr2 = p.taddr2 == null ? "" : p.taddr2;
-            p.taddr3 = p.taddr3 == null ? "" : p.taddr3;
-            p.taddr4 = p.taddr4 == null ? "" : p.taddr4;
-            p.po_due_period = p.po_due_period == null ? "" : p.po_due_period;
-            p.amphur_id = p.amphur_id == null ? "" : p.amphur_id;
-            p.district_id = p.district_id == null ? "" : p.district_id;
-            p.province_id = p.province_id == null ? "" : p.province_id;
-            p.addr = p.addr == null ? "" : p.addr;
-            p.address_t = p.address_t == null ? "" : p.address_t;
-            p.address_e = p.address_e == null ? "" : p.address_e;
-            p.sale_id = p.sale_id == null ? "" : p.sale_id;
-            p.sale_name_t = p.sale_name_t == null ? "" : p.sale_name_t;
-            p.zipcode = p.zipcode == null ? "" : p.zipcode;
-            p.status_company = p.status_company == null ? "" : p.status_company;
-            p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
-            //p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
-            //p.status_vendor = p.status_vendor == null ? "" : p.status_vendor;
-
+            chkNull(p);
             sql = "Update " + cus.table + " Set " +
                 " " + cus.cust_code + " = '" + p.cust_code + "'" +
                 "," + cus.cust_name_t + " = '" + p.cust_name_t.Replace("'", "''") + "'" +
@@ -323,6 +312,11 @@ namespace Xtrim_ERP.objdb
                 "," + cus.eaddr2 + " = '" + p.eaddr2 + "' " +
                 "," + cus.eaddr3 + " = '" + p.eaddr3 + "' " +
                 "," + cus.eaddr4 + " = '" + p.eaddr4 + "' " +
+                "," + cus.status_cust + " = '" + p.status_cust + "' " +
+                "," + cus.status_exp + " = '" + p.status_exp + "' " +
+                "," + cus.status_fwd + " = '" + p.status_fwd + "' " +
+                "," + cus.status_imp + " = '" + p.status_imp + "' " +
+                "," + cus.sort1 + " = '" + p.sort1 + "' " +
                 //"," + cus.user_modi + " = '" + p.user_modi + "' " +
                 "Where " + cus.pkField + "='" + p.cust_id + "'"
                 ;
@@ -365,6 +359,17 @@ namespace Xtrim_ERP.objdb
         {
             DataTable dt = new DataTable();
             String sql = "select cop.*  " +
+                "From " + cus.table + " cop " +
+                " " +
+                "Where cop." + cus.active + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectAll1()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cop.cust_id, cop.cust_code, cop.cust_name_t, cop.cust_name_e, cop.tele, cop.email, cop.remark " +
                 "From " + cus.table + " cop " +
                 " " +
                 "Where cop." + cus.active + " ='1' ";
@@ -459,6 +464,11 @@ namespace Xtrim_ERP.objdb
                 cus1.eaddr3 = dt.Rows[0][cus.eaddr3].ToString();
 
                 cus1.eaddr4 = dt.Rows[0][cus.eaddr4].ToString();
+                cus1.status_cust = dt.Rows[0][cus.status_cust].ToString();
+                cus1.status_exp = dt.Rows[0][cus.status_exp].ToString();
+                cus1.status_fwd = dt.Rows[0][cus.status_fwd].ToString();
+                cus1.status_imp = dt.Rows[0][cus.status_imp].ToString();
+                cus1.sort1 = dt.Rows[0][cus.sort1].ToString();
             }
 
             return cus1;

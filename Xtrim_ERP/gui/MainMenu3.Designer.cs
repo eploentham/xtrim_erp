@@ -37,25 +37,26 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tC1 = new System.Windows.Forms.TabControl();
-            this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCop = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuCust = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.ขอมลForwarderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ขอมลบรษทประกนToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ขอมลConsigneeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ขอมลEntryTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ขอมลPortImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ขอมลTerminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ขอมลPortOfLoadingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ขอมลPrivilegesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ขอมลTerminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuConvertData = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tC1 = new System.Windows.Forms.TabControl();
+            this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
+            this.menuFormTest = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
@@ -98,21 +99,21 @@
             // menuImpJobView
             // 
             this.menuImpJobView.Name = "menuImpJobView";
-            this.menuImpJobView.Size = new System.Drawing.Size(180, 22);
+            this.menuImpJobView.Size = new System.Drawing.Size(163, 22);
             this.menuImpJobView.Text = "Open Job Import";
             this.menuImpJobView.Click += new System.EventHandler(this.menuImpJobView_Click);
             // 
             // menuImpJobAdd
             // 
             this.menuImpJobAdd.Name = "menuImpJobAdd";
-            this.menuImpJobAdd.Size = new System.Drawing.Size(180, 22);
+            this.menuImpJobAdd.Size = new System.Drawing.Size(163, 22);
             this.menuImpJobAdd.Text = "New Job Import";
             this.menuImpJobAdd.Click += new System.EventHandler(this.menuImpJobAdd_Click);
             // 
             // menuTest
             // 
             this.menuTest.Name = "menuTest";
-            this.menuTest.Size = new System.Drawing.Size(180, 22);
+            this.menuTest.Size = new System.Drawing.Size(163, 22);
             this.menuTest.Text = "TestMenu";
             this.menuTest.Click += new System.EventHandler(this.menuTest_Click);
             // 
@@ -128,14 +129,126 @@
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(160, 22);
             this.toolStripMenuItem5.Text = "Open Export Job";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(160, 22);
             this.toolStripMenuItem6.Text = "New Export Job";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuCop,
+            this.toolStripSeparator2,
+            this.menuCust,
+            this.toolStripMenuItem8,
+            this.ขอมลForwarderToolStripMenuItem,
+            this.ขอมลบรษทประกนToolStripMenuItem,
+            this.ขอมลConsigneeToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.ขอมลEntryTypeToolStripMenuItem,
+            this.ขอมลPortImportToolStripMenuItem,
+            this.ขอมลTerminalToolStripMenuItem,
+            this.ขอมลPortOfLoadingToolStripMenuItem,
+            this.ขอมลPrivilegesToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.menuConvertData,
+            this.menuFormTest});
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(64, 20);
+            this.toolStripMenuItem2.Text = "กำหนดค่า";
+            // 
+            // menuCop
+            // 
+            this.menuCop.Name = "menuCop";
+            this.menuCop.Size = new System.Drawing.Size(185, 22);
+            this.menuCop.Text = "ข้อมูลบริษัท";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(182, 6);
+            // 
+            // menuCust
+            // 
+            this.menuCust.Name = "menuCust";
+            this.menuCust.Size = new System.Drawing.Size(185, 22);
+            this.menuCust.Text = "ข้อมูลลูกค้า";
+            this.menuCust.Click += new System.EventHandler(this.menuCust_Click);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(185, 22);
+            this.toolStripMenuItem8.Text = "ข้อมูล Importer";
+            // 
+            // ขอมลForwarderToolStripMenuItem
+            // 
+            this.ขอมลForwarderToolStripMenuItem.Name = "ขอมลForwarderToolStripMenuItem";
+            this.ขอมลForwarderToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.ขอมลForwarderToolStripMenuItem.Text = "ข้อมูล Forwarder";
+            // 
+            // ขอมลบรษทประกนToolStripMenuItem
+            // 
+            this.ขอมลบรษทประกนToolStripMenuItem.Name = "ขอมลบรษทประกนToolStripMenuItem";
+            this.ขอมลบรษทประกนToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.ขอมลบรษทประกนToolStripMenuItem.Text = "ข้อมูล บริษัทประกัน";
+            // 
+            // ขอมลConsigneeToolStripMenuItem
+            // 
+            this.ขอมลConsigneeToolStripMenuItem.Name = "ขอมลConsigneeToolStripMenuItem";
+            this.ขอมลConsigneeToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.ขอมลConsigneeToolStripMenuItem.Text = "ข้อมูล Consignee";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(182, 6);
+            // 
+            // ขอมลEntryTypeToolStripMenuItem
+            // 
+            this.ขอมลEntryTypeToolStripMenuItem.Name = "ขอมลEntryTypeToolStripMenuItem";
+            this.ขอมลEntryTypeToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.ขอมลEntryTypeToolStripMenuItem.Text = "ข้อมูล Entry Type";
+            // 
+            // ขอมลPortImportToolStripMenuItem
+            // 
+            this.ขอมลPortImportToolStripMenuItem.Name = "ขอมลPortImportToolStripMenuItem";
+            this.ขอมลPortImportToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.ขอมลPortImportToolStripMenuItem.Text = "ข้อมูล Port Import";
+            // 
+            // ขอมลTerminalToolStripMenuItem
+            // 
+            this.ขอมลTerminalToolStripMenuItem.Name = "ขอมลTerminalToolStripMenuItem";
+            this.ขอมลTerminalToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.ขอมลTerminalToolStripMenuItem.Text = "ข้อมูล Terminal";
+            // 
+            // ขอมลPortOfLoadingToolStripMenuItem
+            // 
+            this.ขอมลPortOfLoadingToolStripMenuItem.Name = "ขอมลPortOfLoadingToolStripMenuItem";
+            this.ขอมลPortOfLoadingToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.ขอมลPortOfLoadingToolStripMenuItem.Text = "ข้อมูล Port of Loading";
+            // 
+            // ขอมลPrivilegesToolStripMenuItem
+            // 
+            this.ขอมลPrivilegesToolStripMenuItem.Name = "ขอมลPrivilegesToolStripMenuItem";
+            this.ขอมลPrivilegesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.ขอมลPrivilegesToolStripMenuItem.Text = "ข้อมูล Privileges";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(182, 6);
+            // 
+            // menuConvertData
+            // 
+            this.menuConvertData.Name = "menuConvertData";
+            this.menuConvertData.Size = new System.Drawing.Size(185, 22);
+            this.menuConvertData.Text = "Convert Data";
+            this.menuConvertData.Click += new System.EventHandler(this.menuConvertData_Click);
             // 
             // panel1
             // 
@@ -163,115 +276,12 @@
             // 
             this.c1ThemeController1.Theme = "BeigeOne";
             // 
-            // toolStripMenuItem2
+            // menuFormTest
             // 
-            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3,
-            this.toolStripSeparator2,
-            this.toolStripMenuItem7,
-            this.toolStripMenuItem8,
-            this.ขอมลForwarderToolStripMenuItem,
-            this.ขอมลบรษทประกนToolStripMenuItem,
-            this.ขอมลConsigneeToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.ขอมลEntryTypeToolStripMenuItem,
-            this.ขอมลPortImportToolStripMenuItem,
-            this.ขอมลTerminalToolStripMenuItem,
-            this.ขอมลPortOfLoadingToolStripMenuItem,
-            this.ขอมลPrivilegesToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.menuConvertData});
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(64, 20);
-            this.toolStripMenuItem2.Text = "กำหนดค่า";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(185, 22);
-            this.toolStripMenuItem3.Text = "ข้อมูลบริษัท";
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(185, 22);
-            this.toolStripMenuItem7.Text = "ข้อมูลลูกค้า";
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(185, 22);
-            this.toolStripMenuItem8.Text = "ข้อมูล Importer";
-            // 
-            // ขอมลForwarderToolStripMenuItem
-            // 
-            this.ขอมลForwarderToolStripMenuItem.Name = "ขอมลForwarderToolStripMenuItem";
-            this.ขอมลForwarderToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.ขอมลForwarderToolStripMenuItem.Text = "ข้อมูล Forwarder";
-            // 
-            // ขอมลบรษทประกนToolStripMenuItem
-            // 
-            this.ขอมลบรษทประกนToolStripMenuItem.Name = "ขอมลบรษทประกนToolStripMenuItem";
-            this.ขอมลบรษทประกนToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.ขอมลบรษทประกนToolStripMenuItem.Text = "ข้อมูล บริษัทประกัน";
-            // 
-            // ขอมลConsigneeToolStripMenuItem
-            // 
-            this.ขอมลConsigneeToolStripMenuItem.Name = "ขอมลConsigneeToolStripMenuItem";
-            this.ขอมลConsigneeToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.ขอมลConsigneeToolStripMenuItem.Text = "ข้อมูล Consignee";
-            // 
-            // ขอมลEntryTypeToolStripMenuItem
-            // 
-            this.ขอมลEntryTypeToolStripMenuItem.Name = "ขอมลEntryTypeToolStripMenuItem";
-            this.ขอมลEntryTypeToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.ขอมลEntryTypeToolStripMenuItem.Text = "ข้อมูล Entry Type";
-            // 
-            // ขอมลPortImportToolStripMenuItem
-            // 
-            this.ขอมลPortImportToolStripMenuItem.Name = "ขอมลPortImportToolStripMenuItem";
-            this.ขอมลPortImportToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.ขอมลPortImportToolStripMenuItem.Text = "ข้อมูล Port Import";
-            // 
-            // ขอมลPortOfLoadingToolStripMenuItem
-            // 
-            this.ขอมลPortOfLoadingToolStripMenuItem.Name = "ขอมลPortOfLoadingToolStripMenuItem";
-            this.ขอมลPortOfLoadingToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.ขอมลPortOfLoadingToolStripMenuItem.Text = "ข้อมูล Port of Loading";
-            // 
-            // ขอมลPrivilegesToolStripMenuItem
-            // 
-            this.ขอมลPrivilegesToolStripMenuItem.Name = "ขอมลPrivilegesToolStripMenuItem";
-            this.ขอมลPrivilegesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.ขอมลPrivilegesToolStripMenuItem.Text = "ข้อมูล Privileges";
-            // 
-            // ขอมลTerminalToolStripMenuItem
-            // 
-            this.ขอมลTerminalToolStripMenuItem.Name = "ขอมลTerminalToolStripMenuItem";
-            this.ขอมลTerminalToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.ขอมลTerminalToolStripMenuItem.Text = "ข้อมูล Terminal";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(182, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(182, 6);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(182, 6);
-            // 
-            // menuConvertData
-            // 
-            this.menuConvertData.Name = "menuConvertData";
-            this.menuConvertData.Size = new System.Drawing.Size(185, 22);
-            this.menuConvertData.Text = "Convert Data";
-            this.menuConvertData.Click += new System.EventHandler(this.menuConvertData_Click);
+            this.menuFormTest.Name = "menuFormTest";
+            this.menuFormTest.Size = new System.Drawing.Size(185, 22);
+            this.menuFormTest.Text = "Form Test";
+            this.menuFormTest.Click += new System.EventHandler(this.menuFormTest_Click);
             // 
             // MainMenu3
             // 
@@ -311,9 +321,9 @@
         private C1.Win.C1Themes.C1ThemeController c1ThemeController1;
         private System.Windows.Forms.ToolStripMenuItem menuTest;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem menuCop;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem menuCust;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem ขอมลForwarderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ขอมลบรษทประกนToolStripMenuItem;
@@ -326,5 +336,6 @@
         private System.Windows.Forms.ToolStripMenuItem ขอมลPrivilegesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem menuConvertData;
+        private System.Windows.Forms.ToolStripMenuItem menuFormTest;
     }
 }

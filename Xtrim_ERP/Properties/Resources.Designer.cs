@@ -83,6 +83,16 @@ namespace Xtrim_ERP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap accept_database24 {
+            get {
+                object obj = ResourceManager.GetObject("accept_database24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Accept_database48 {
             get {
                 object obj = ResourceManager.GetObject("Accept_database48", resourceCulture);
@@ -196,6 +206,26 @@ namespace Xtrim_ERP.Properties {
         internal static System.Drawing.Bitmap lorry_48x48 {
             get {
                 object obj = ResourceManager.GetObject("lorry_48x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Mac_Header {
+            get {
+                object obj = ResourceManager.GetObject("Mac_Header", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Mac_HeaderSelected {
+            get {
+                object obj = ResourceManager.GetObject("Mac_HeaderSelected", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

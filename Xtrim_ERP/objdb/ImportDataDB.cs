@@ -35,7 +35,8 @@ namespace Xtrim_ERP.objdb
         JobImportExpnDB jieDB;
         ExpensesDB expnDB;
         MethodPaymentDB mtpDB;
-
+        JobImportContDB jctDB;
+        AddressDB addrDB;
 
         List<Department> lDept;
 
@@ -69,6 +70,8 @@ namespace Xtrim_ERP.objdb
             jieDB = new JobImportExpnDB(conn);
             expnDB = new ExpensesDB(conn);
             mtpDB = new MethodPaymentDB(conn);
+            jctDB = new JobImportContDB(conn);
+            addrDB = new AddressDB(conn);
         }
         public void ImportMEIOSYSimport(String pathA, String flagNew, String flag, ProgressBar pb1)
         {
@@ -248,58 +251,77 @@ namespace Xtrim_ERP.objdb
             }
             foreach (DataRow row in dt.Rows)
             {
-                Customer cons = new Customer();
-                cons.cust_id = "";
-                cons.cust_code = row["CustomerID"].ToString();
-                cons.cust_name_t = row["CustomerName"].ToString();
-                cons.cust_name_e = row["CustomerName"].ToString();
-                cons.active = "1";
+                Customer cus = new Customer();
+                cus.cust_id = "";
+                cus.cust_code = row["CustomerID"].ToString();
+                cus.cust_name_t = row["CustomerName"].ToString();
+                cus.cust_name_e = row["CustomerName"].ToString();
+                cus.active = "1";
 
-                cons.address_t = row["CustomerAddress"].ToString();
-                cons.address_e = row["CustomerAddress"].ToString();
-                cons.addr = row["CustomerAddress"].ToString();
-                cons.amphur_id = "";
-                cons.district_id = "";
+                cus.address_t = row["CustomerAddress"].ToString();
+                cus.address_e = row["CustomerAddress"].ToString();
+                cus.addr = row["CustomerAddress"].ToString();
+                cus.amphur_id = "";
+                cus.district_id = "";
 
-                cons.province_id = "";
-                cons.zipcode = "";
-                cons.sale_id = "";
-                cons.sale_name_t = "";
-                cons.fax = row["CustomerFaxNumber"].ToString();
+                cus.province_id = "";
+                cus.zipcode = "";
+                cus.sale_id = "";
+                cus.sale_name_t = "";
+                cus.fax = row["CustomerFaxNumber"].ToString();
 
-                cons.tele = "";
-                cons.email = "";
-                cons.tax_id = "";
-                cons.remark = row["CustomerExtension"].ToString();
-                cons.contact_name1 = "";
+                cus.tele = "";
+                cus.email = "";
+                cus.tax_id = "";
+                cus.remark = row["CustomerExtension"].ToString();
+                cus.contact_name1 = "";
 
-                cons.contact_name2 = "";
-                cons.contact_name1_tel = "";
-                cons.contact_name2_tel = "";
-                cons.status_company = "";
-                cons.status_vendor = "";
+                cus.contact_name2 = "";
+                cus.contact_name1_tel = "";
+                cus.contact_name2_tel = "";
+                cus.status_company = "";
+                cus.status_vendor = "";
 
-                cons.date_create = "";
-                cons.date_modi = "";
-                cons.date_cancel = "";
-                cons.user_create = "";
-                cons.user_modi = "";
+                cus.date_create = "";
+                cus.date_modi = "";
+                cus.date_cancel = "";
+                cus.user_create = "";
+                cus.user_modi = "";
 
-                cons.user_cancel = "";
-                cons.remark2 = row["CustomerPhoneNumber"].ToString();
-                cons.po_due_period = "";
-                cons.taddr1 = row["CustomerAddress"].ToString();
-                cons.taddr2 = row["CustomerCity"].ToString();
+                cus.user_cancel = "";
+                cus.remark2 = row["CustomerPhoneNumber"].ToString();
+                cus.po_due_period = "";
+                cus.taddr1 = row["CustomerAddress"].ToString();
+                cus.taddr2 = row["CustomerCity"].ToString();
 
-                cons.taddr3 = row["CustomerStateOrProvince"].ToString();
-                cons.taddr4 = row["CustomerPostalCode"].ToString();
-                cons.eaddr1 = row["CustomerStateOrProvince"].ToString();
-                cons.eaddr2 = row["CustomerPostalCode"].ToString();
-                cons.eaddr3 = row["CustomerCountry/Region"].ToString();
+                cus.taddr3 = row["CustomerStateOrProvince"].ToString();
+                cus.taddr4 = row["CustomerPostalCode"].ToString();
+                cus.eaddr1 = row["CustomerStateOrProvince"].ToString();
+                cus.eaddr2 = row["CustomerPostalCode"].ToString();
+                cus.eaddr3 = row["CustomerCountry/Region"].ToString();
 
-                cons.eaddr4 = row["CustomerPhoneNumber"].ToString();
+                cus.eaddr4 = row["CustomerPhoneNumber"].ToString();
+                cus.status_cust = "1";
+                cus.status_exp = "0";
+                cus.status_fwd = "0";
+                cus.status_imp = "0";                
 
-                cusDB.insertCustomer(cons);
+                String cusId = cusDB.insertCustomer(cus);
+                Address addr = new Address();
+                addr.address_id = "";
+                addr.active = "1";
+                addr.address_code = "";
+                addr.address_name = "convert";
+                addr.line_t1 = row["CustomerAddress"].ToString();
+                addr.line_t2 = row["CustomerCity"].ToString();
+                addr.line_t3 = row["CustomerStateOrProvince"].ToString();
+                addr.line_t4 = row["CustomerPostalCode"].ToString();
+                addr.tele = row["CustomerPhoneNumber"].ToString();
+                addr.remark = row["CustomerExtension"].ToString();
+                addr.fax = row["CustomerFaxNumber"].ToString();
+                addr.mobile = row["CustomerCountry/Region"].ToString();
+                addr.table_id = cusId;
+                addrDB.insertAddress(addr);
             }
             conn.CloseConnectionNoClose();
             pb1.Hide();
@@ -1416,6 +1438,59 @@ namespace Xtrim_ERP.objdb
                 jie.active = "1";
 
                 jieDB.insertJobImportExpn(jie);
+            }
+            conn.CloseConnectionNoClose();
+            pb1.Hide();
+        }
+        public void ImportOpenJOBJobImportCont(String pathA, String flagNew, String flag, ProgressBar pb1, Form frm)
+        {
+            pb1.Show();
+            DataTable dt = new DataTable();
+            String sql = "";
+            jimDB.getlJim();
+            consDB.getlSupp();
+            currDB.getlCurr();
+            ictDB.getlIct();
+            tpmDB.getlTpm();
+            sql = "Select * From ImpConDetail ";
+            conn.OpenConnectionA(pathA, flag);
+            if (flagNew.Equals("new"))
+            {
+                jieDB.deleteAll();
+            }
+            dt.Clear();
+            dt = conn.selectDataA(conn.connA, sql);
+            foreach (DataRow row in dt.Rows)
+            {
+                DateTime dt1 = new DateTime();
+                //pb1.Value++;
+                JobImportCont jct = new JobImportCont();
+                jct.job_import_cont_id = "";
+                jct.job_import_id = jimDB.getIdByCode1(row["ImpJobID"].ToString().Trim());
+                
+                jct.row_no = row["ContainerRuningNo"].ToString();
+                jct.container_no = row["ContainerNo"].ToString().Trim();
+                jct.container_seal = row["ContainerSeal"].ToString().Trim();
+                
+                jct.container_type = row["ContainerType"].ToString().Trim();
+                jct.packages_per_con = row["PackagesPerCon"].ToString().Trim();
+                jct.unit_package_id = utpDB.getIdByCode(row["PackagesUnitID"].ToString());
+                jct.gw_per_con = row["GWPerCon"].ToString();
+
+                jct.unit_gw_id = ugwDB.getIdByCode(row["GWUnitID"].ToString());
+                jct.truck_id = row["Container"].ToString().Trim();
+                jct.qty_container = currDB.getIdByCode(row["QTY_Container"].ToString());
+                
+                jct.date_create = "";
+                jct.date_modi = "";
+                jct.date_cancel = "";
+                jct.user_create = "";
+                jct.user_modi = "";
+                jct.user_cancel = "";
+                jct.remark = "";
+                jct.active = "1";
+
+                jctDB.insertJobImportJct(jct);
             }
             conn.CloseConnectionNoClose();
             pb1.Hide();

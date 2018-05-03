@@ -33,16 +33,16 @@
             this.c1CommandLink1 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink2 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink3 = new C1.Win.C1Command.C1CommandLink();
-            this.c1CommandHolder1 = new C1.Win.C1Command.C1CommandHolder();
             this.c1CommandMenu1 = new C1.Win.C1Command.C1CommandMenu();
+            this.c1CommandLink7 = new C1.Win.C1Command.C1CommandLink();
+            this.c1Command1 = new C1.Win.C1Command.C1Command();
             this.c1CommandLink4 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandLink5 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandMenu2 = new C1.Win.C1Command.C1CommandMenu();
-            this.c1CommandLink6 = new C1.Win.C1Command.C1CommandLink();
-            this.c1CommandLink7 = new C1.Win.C1Command.C1CommandLink();
-            this.c1Command1 = new C1.Win.C1Command.C1Command();
             this.c1CommandLink8 = new C1.Win.C1Command.C1CommandLink();
             this.c1Command2 = new C1.Win.C1Command.C1Command();
+            this.c1CommandLink6 = new C1.Win.C1Command.C1CommandLink();
+            this.c1CommandHolder1 = new C1.Win.C1Command.C1CommandHolder();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).BeginInit();
             this.SuspendLayout();
@@ -55,17 +55,20 @@
             this.c1FlexGrid1.Rows.DefaultSize = 19;
             this.c1FlexGrid1.Size = new System.Drawing.Size(240, 150);
             this.c1FlexGrid1.TabIndex = 0;
+            this.c1FlexGrid1.GridChanged += new C1.Win.C1FlexGrid.GridChangedEventHandler(this.c1FlexGrid1_GridChanged);
             this.c1FlexGrid1.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.c1FlexGrid1_AfterRowColChange);
             this.c1FlexGrid1.RowColChange += new System.EventHandler(this.c1FlexGrid1_RowColChange);
             this.c1FlexGrid1.LeaveCell += new System.EventHandler(this.c1FlexGrid1_LeaveCell);
             this.c1FlexGrid1.EnterCell += new System.EventHandler(this.c1FlexGrid1_EnterCell);
             this.c1FlexGrid1.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.c1FlexGrid1_CellChanged);
             this.c1FlexGrid1.CursorChanged += new System.EventHandler(this.c1FlexGrid1_CursorChanged);
+            this.c1FlexGrid1.LocationChanged += new System.EventHandler(this.c1FlexGrid1_LocationChanged);
             this.c1FlexGrid1.Click += new System.EventHandler(this.c1FlexGrid1_Click);
             // 
             // c1MainMenu1
             // 
             this.c1MainMenu1.AccessibleName = "Menu Bar";
+            this.c1MainMenu1.CommandHolder = null;
             this.c1MainMenu1.CommandLinks.AddRange(new C1.Win.C1Command.C1CommandLink[] {
             this.c1CommandLink1,
             this.c1CommandLink2,
@@ -90,14 +93,6 @@
             this.c1CommandLink3.SortOrder = 2;
             this.c1CommandLink3.Text = "Import";
             // 
-            // c1CommandHolder1
-            // 
-            this.c1CommandHolder1.Commands.Add(this.c1CommandMenu1);
-            this.c1CommandHolder1.Commands.Add(this.c1CommandMenu2);
-            this.c1CommandHolder1.Commands.Add(this.c1Command1);
-            this.c1CommandHolder1.Commands.Add(this.c1Command2);
-            this.c1CommandHolder1.Owner = this;
-            // 
             // c1CommandMenu1
             // 
             this.c1CommandMenu1.CommandLinks.AddRange(new C1.Win.C1Command.C1CommandLink[] {
@@ -107,6 +102,16 @@
             this.c1CommandMenu1.Name = "c1CommandMenu1";
             this.c1CommandMenu1.ShortcutText = "";
             this.c1CommandMenu1.Text = "New Command";
+            // 
+            // c1CommandLink7
+            // 
+            this.c1CommandLink7.Command = this.c1Command1;
+            // 
+            // c1Command1
+            // 
+            this.c1Command1.Name = "c1Command1";
+            this.c1Command1.ShortcutText = "";
+            this.c1Command1.Text = "New Command";
             // 
             // c1CommandLink4
             // 
@@ -129,21 +134,6 @@
             this.c1CommandMenu2.ShortcutText = "";
             this.c1CommandMenu2.Text = "New Command";
             // 
-            // c1CommandLink6
-            // 
-            this.c1CommandLink6.SortOrder = 1;
-            this.c1CommandLink6.Text = "New Command";
-            // 
-            // c1CommandLink7
-            // 
-            this.c1CommandLink7.Command = this.c1Command1;
-            // 
-            // c1Command1
-            // 
-            this.c1Command1.Name = "c1Command1";
-            this.c1Command1.ShortcutText = "";
-            this.c1Command1.Text = "New Command";
-            // 
             // c1CommandLink8
             // 
             this.c1CommandLink8.Command = this.c1Command2;
@@ -153,6 +143,19 @@
             this.c1Command2.Name = "c1Command2";
             this.c1Command2.ShortcutText = "";
             this.c1Command2.Text = "New Command";
+            // 
+            // c1CommandLink6
+            // 
+            this.c1CommandLink6.SortOrder = 1;
+            this.c1CommandLink6.Text = "New Command";
+            // 
+            // c1CommandHolder1
+            // 
+            this.c1CommandHolder1.Commands.Add(this.c1CommandMenu1);
+            this.c1CommandHolder1.Commands.Add(this.c1CommandMenu2);
+            this.c1CommandHolder1.Commands.Add(this.c1Command1);
+            this.c1CommandHolder1.Commands.Add(this.c1Command2);
+            this.c1CommandHolder1.Owner = this;
             // 
             // Form1
             // 

@@ -263,6 +263,21 @@ namespace Xtrim_ERP.objdb
             //cop1 = setJobImportInv(dt);
             return dt;
         }
+        public JobImportExpn selectByPk1(String jobid)
+        {
+            JobImportExpn cop1 = new JobImportExpn();
+            DataTable dt = new DataTable();
+            String sql = "select jie.* " +
+                ", IFNULL(expn.expenses_code, '') as expenses_code, IFNULL(expn.expenses_name_t, '') as expenses_name_t " +
+                ", IFNULL(mtp.method_payment_code, '') as method_payment_code, IFNULL(mtp.method_payment_name_t, '') as method_payment_name_t " +
+                "From " + jie.table + " jie " +
+                "Left Join b_expenses expn On jie.expenses_id = expn.expenses_id " +
+                "Left Join b_method_payment mtp On jie.method_payment_id = mtp.method_payment_id " +
+                "Where jie." + jie.job_import_id + " ='" + jobid + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            cop1 = setJobImportExpn(dt);
+            return cop1;
+        }
         private JobImportExpn setJobImportExpn(DataTable dt)
         {
             JobImportExpn jie1 = new JobImportExpn();

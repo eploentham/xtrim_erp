@@ -621,9 +621,9 @@ namespace Xtrim_ERP.gui
             }
             else if (sender.Equals(btnFwdAdd))
             {
-                FrmForwarder frm = new FrmForwarder(xC);
-                frm.StartPosition = FormStartPosition.CenterParent;
-                frm.ShowDialog(this);
+                //FrmForwarder frm = new FrmForwarder(xC);
+                //frm.StartPosition = FormStartPosition.CenterParent;
+                //frm.ShowDialog(this);
             }
         }
 
@@ -654,16 +654,16 @@ namespace Xtrim_ERP.gui
         {
             if (grdExpn.Sheets[0].Cells[e.Row, colInvId].Value == null) return;
             String expnId = grdExpn.Sheets[0].Cells[e.Row, colInvId].Value != null ? grdExpn.Sheets[0].Cells[e.Row, colInvId].Value.ToString() : "";
-            JobImportInv inv = new JobImportInv();
+            JobImportExpn inv = new JobImportExpn();
             inv = xC.xtDB.jieDB.selectByPk1(expnId);
-            txtInvNo.Value = inv.inv_no;
-            txtInvDate1.Value = inv.invoice_date;
-            txtInvSuppNameT.Value = inv.SuppNameT;
-            txtJobIncoNameT.Value = inv.ictNameT;
-            txtInvAmt.Value = inv.amount;
-            InvTPayNameT.Value = inv.tpmNameT;
-            txtInvCurrNameT.Value = inv.currNameT;
-            txtInvRemark.Value = inv.remark;
+            //txtInvNo.Value = inv.inv_no;
+            //txtInvDate1.Value = inv.invoice_date;
+            //txtInvSuppNameT.Value = inv.SuppNameT;
+            //txtJobIncoNameT.Value = inv.ictNameT;
+            //txtInvAmt.Value = inv.amount;
+            //InvTPayNameT.Value = inv.tpmNameT;
+            //txtInvCurrNameT.Value = inv.currNameT;
+            //txtInvRemark.Value = inv.remark;
         }
         private void grdInv_CellClick(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
         {

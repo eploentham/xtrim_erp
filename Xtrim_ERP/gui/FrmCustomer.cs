@@ -49,6 +49,8 @@ namespace Xtrim_ERP.gui
             setGrdView();
             //setFocusColor();
             setFocus();
+            tabPage1.Text = "รายละเอียด";
+            tabPage2.Text = "ที่อยู่ address";
         }
         private void setGrdViewH()
         {

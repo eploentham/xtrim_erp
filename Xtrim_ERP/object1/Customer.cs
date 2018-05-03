@@ -49,5 +49,11 @@ namespace Xtrim_ERP.object1
         public String eaddr2 { get; set; }
         public String eaddr3 { get; set; }
         public String eaddr4 { get; set; }
+
+        public String sort1 { get; set; }
+        public String status_cust { get; set; }
+        public String status_imp { get; set; }
+        public String status_exp { get; set; }
+        public String status_fwd { get; set; }
     }
 }

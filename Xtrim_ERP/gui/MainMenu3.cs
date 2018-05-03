@@ -187,5 +187,21 @@ namespace Xtrim_ERP.gui
             TabPage tab = new TabPage("dddddd");
             AddNewTab(frm, "Convert Data");
         }
+
+        private void menuCust_Click(object sender, EventArgs e)
+        {
+            FrmCustomer1 frm = new FrmCustomer1(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            TabPage tab = new TabPage("dddddd");
+            AddNewTab(frm, "Customer");
+        }
+
+        private void menuFormTest_Click(object sender, EventArgs e)
+        {
+            Form1 frm = new Form1();
+            frm.FormBorderStyle = FormBorderStyle.None;
+            TabPage tab = new TabPage("dddddd");
+            AddNewTab(frm, "Test");
+        }
     }
 }
