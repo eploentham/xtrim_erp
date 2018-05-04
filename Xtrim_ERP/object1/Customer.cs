@@ -55,5 +55,7 @@ namespace Xtrim_ERP.object1
         public String status_imp { get; set; }
         public String status_exp { get; set; }
         public String status_fwd { get; set; }
+        public String status_cons_imp { get; set; }
+        public String status_cons_exp { get; set; }
     }
 }

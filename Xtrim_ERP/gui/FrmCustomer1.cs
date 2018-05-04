@@ -29,9 +29,13 @@ namespace Xtrim_ERP.gui
 
         Color bg, fc;
         Font ff, ffB;
-
-        int colID = 1, colE = 1, colS = 2, colCode = 3, colNameT = 4, colNameE = 5, colRemark = 6, coledit = 7;
+        
+        int colno=0, colID = 1, colCode = 2, colNameT = 3, colAddr = 4, coltele=5, colemail=6, colRemark = 7, colRemark2 = 8, colcontact1=9, colcontact2=10;
         int colCnt = 8;
+        int colAddrno = 0, colAddrID = 1, colAddrName = 2, colAddrLine1=3, colAddrLine2=4, colAddrLine3=5, colAddrline4=6, colAddrEmail=7, colAddrEmail2=8;
+        int colAddrTele = 9, colAddrMobile = 10, colAddrRemark = 11, colAddrRemark2 = 12;
+
+        Boolean flagNew = false;
 
         public FrmCustomer1(XtrimControl x)
         {
@@ -70,6 +74,8 @@ namespace Xtrim_ERP.gui
             theme1.SetTheme(txtCusCode, theme1.Theme);
             bg = txtCusCode.BackColor;
             fc = txtCusCode.ForeColor;
+            theme1.SetTheme(sB, "BeigeOne");
+            //theme1.SetTheme(sB1, "BeigeOne");
         }
         private void textBox_Enter(object sender, EventArgs e)
         {
@@ -208,8 +214,20 @@ namespace Xtrim_ERP.gui
 
             //this.txtContactName2.Leave += new System.EventHandler(this.textBox_Leave);
             //this.txtContactName2.Enter += new System.EventHandler(this.textBox_Enter);
-
-
+            
+        }
+        private void setControlAddrEdit(Boolean flag)
+        {
+            if (flag)
+            {
+                setControlAddrEnable(true);
+                btnEdit.Image = Resources.open24;
+            }
+            else
+            {
+                setControlAddrEnable(false);
+                btnEdit.Image = Resources.lock24;
+            }
         }
         private void setControlEdit(Boolean flag)
         {
@@ -243,13 +261,8 @@ namespace Xtrim_ERP.gui
             chkVoid.Checked = false;
             txtID.Value = "";
         }
-
-        private void btnNew_Click(object sender, EventArgs e)
+        private void setCusNew()
         {
-            setControlEdit(true);
-            chkVoid.Hide();
-            btnNew.Show();
-            //btnEdit.Hide();
             txtID.Value = "";
             txtCusCode.Value = "";
             txtCusNameT.Value = "";
@@ -270,12 +283,22 @@ namespace Xtrim_ERP.gui
             txtContactName1.Value = "";
             txtContactName2.Value = "";
             txtContactTel1.Value = "";
-            txtContactTel2.Value = "";            
+            txtContactTel2.Value = "";
 
             chkCus.Checked = false;
             chkImp.Checked = false;
             chkFwd.Checked = false;
             chkExp.Checked = false;
+        }
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            flagNew = true;
+            tabPage2.Hide();
+            setCusNew();
+            setControlEdit(true);
+            chkVoid.Hide();
+            //btnNew.Show();
+            //btnEdit.Hide();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -291,12 +314,28 @@ namespace Xtrim_ERP.gui
             DataTable dt = xC.xtDB.cusDB.selectAll1();
             grfCus.DataSource = dt;
             grfCus.Cols[colID].Width = 60;
-            grfCus.Cols[colNameT].Width = 20;
-            //grdFlex.ShowCursor = true;
-            //grdFlex.Cols[colID].Caption = "no";
+            grfCus.Cols[colCode].Width = 80;
+            grfCus.Cols[colNameT].Width = 100;
+            grfCus.Cols[colAddr].Width = 100;
+            grfCus.Cols[colRemark].Width = 100;
+            grfCus.Cols[colRemark2].Width = 100;
+            grfCus.Cols[coltele].Width = 100;
+            grfCus.Cols[colemail].Width = 100;
+            grfCus.Cols[colcontact1].Width = 100;
+            grfCus.Cols[colcontact2].Width = 100;
+            grfCus.ShowCursor = true;
+            grfCus.Cols[colAddr].Caption = "ที่อยู่";
             grfCus.Cols[colID].Caption = "no";
-            grfCus.Cols[colNameT].Caption = "name t";
-            
+            grfCus.Cols[colCode].Caption = "รหัส";
+            grfCus.Cols[colNameT].Caption = "ชื่อบริษัท";
+            grfCus.Cols[colRemark].Caption = "หมายเหตุ";
+            grfCus.Cols[colRemark2].Caption = "หมายเหตุ2";
+            grfCus.Cols[coltele].Caption = "tele";
+            grfCus.Cols[colemail].Caption = "email";
+            grfCus.Cols[colcontact1].Caption = "ชื่อผู้ติดต่อ";
+            grfCus.Cols[colcontact2].Caption = "ชื่อผู้ติดต่อ2";
+            grfCus.Cols[colID].Visible = false;
+            //grfCus.Col = colCnt;
         }
 
         private void chkVoid_Click(object sender, EventArgs e)
@@ -356,30 +395,71 @@ namespace Xtrim_ERP.gui
         private void setGrfAddrH()
         {
             //grfAddr.DataSource = xC.xtDB.cusDB.dtCus;
-            grfAddr.Cols[colID].Width = 60;
-            grfAddr.Cols[colNameT].Width = 20;
+            grfAddr.Cols[colAddrName].Width = 100;
+            grfAddr.Cols[colAddrLine1].Width = 100;
             //grdFlex.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
-            grfAddr.Cols[colID].Caption = "no";
-            grfAddr.Cols[colNameT].Caption = "name t";
+            grfAddr.Cols[colAddrName].Caption = "ชื่อที่อยู่";
+            grfAddr.Cols[colAddrLine1].Caption = "ที่อยู่ 1";
         }
         private void setGrfAddrH(String custId)
         {
-            grfAddr.DataSource = xC.xtDB.addrDB.selectByTableId(custId);
-            grfAddr.Cols[colID].Width = 60;
-            grfAddr.Cols[colNameT].Width = 20;
-            //grdFlex.ShowCursor = true;
+            grfAddr.DataSource = xC.xtDB.addrDB.selectByTableId1(custId);
+            grfAddr.Cols[colAddrID].Width = 60;
+            grfAddr.Cols[colAddrName].Width = 100;
+            grfAddr.Cols[colAddrLine1].Width = 100;
+            grfAddr.Cols[colAddrLine2].Width = 100;
+            grfAddr.Cols[colAddrLine3].Width = 100;
+            grfAddr.Cols[colAddrline4].Width = 100;
+            grfAddr.Cols[colAddrEmail].Width = 100;
+            grfAddr.Cols[colAddrEmail2].Width = 100;
+            grfAddr.Cols[colAddrTele].Width = 100;
+            grfAddr.Cols[colAddrMobile].Width = 100;
+            grfAddr.Cols[colAddrRemark].Width = 100;
+            grfAddr.Cols[colAddrRemark2].Width = 100;
+            grfAddr.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
-            grfAddr.Cols[colID].Caption = "no";
-            grfAddr.Cols[colNameT].Caption = "name t";
+            grfAddr.Cols[colAddrName].Caption = "ชื่อที่อยู่";
+            grfAddr.Cols[colAddrLine1].Caption = "ที่อยู่ 1";
+            grfAddr.Cols[colAddrLine2].Caption = "ที่อยู่ 2";
+            grfAddr.Cols[colAddrLine3].Caption = "ที่อยู่ 3";
+            grfAddr.Cols[colAddrline4].Caption = "ที่อยู่ 4";
+            grfAddr.Cols[colAddrEmail].Caption = "email";
+            grfAddr.Cols[colAddrEmail2].Caption = "email2";
+            grfAddr.Cols[colAddrTele].Caption = "tele";
+            grfAddr.Cols[colAddrMobile].Caption = "mobile";
+            grfAddr.Cols[colAddrRemark].Caption = "หมายเหตุ";
+            grfAddr.Cols[colAddrRemark2].Caption = "หมายเหตุ2";
 
-            grfAddr1.DataSource = xC.xtDB.addrDB.selectByTableId(custId);
-            grfAddr1.Cols[colID].Width = 60;
-            grfAddr1.Cols[colNameT].Width = 20;
-            //grdFlex.ShowCursor = true;
+            grfAddr1.DataSource = grfAddr.DataSource;
+            grfAddr1.Cols[colAddrID].Width = 60;
+            grfAddr1.Cols[colAddrName].Width = 100;
+            grfAddr1.Cols[colAddrLine1].Width = 100;
+            grfAddr1.Cols[colAddrLine2].Width = 100;
+            grfAddr1.Cols[colAddrLine3].Width = 100;
+            grfAddr1.Cols[colAddrline4].Width = 100;
+            grfAddr1.Cols[colAddrEmail].Width = 100;
+            grfAddr1.Cols[colAddrEmail2].Width = 100;
+            grfAddr1.Cols[colAddrTele].Width = 100;
+            grfAddr1.Cols[colAddrMobile].Width = 100;
+            grfAddr1.Cols[colAddrRemark].Width = 100;
+            grfAddr1.Cols[colAddrRemark2].Width = 100;
+            grfAddr1.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
-            grfAddr1.Cols[colID].Caption = "no";
-            grfAddr1.Cols[colNameT].Caption = "name t";
+            grfAddr1.Cols[colAddrName].Caption = "ชื่อที่อยู่";
+            grfAddr1.Cols[colAddrLine1].Caption = "ที่อยู่ 1";
+            grfAddr1.Cols[colAddrLine2].Caption = "ที่อยู่ 2";
+            grfAddr1.Cols[colAddrLine3].Caption = "ที่อยู่ 3";
+            grfAddr1.Cols[colAddrline4].Caption = "ที่อยู่ 4";
+            grfAddr1.Cols[colAddrEmail].Caption = "email";
+            grfAddr1.Cols[colAddrEmail2].Caption = "email2";
+            grfAddr1.Cols[colAddrTele].Caption = "tele";
+            grfAddr1.Cols[colAddrMobile].Caption = "mobile";
+            grfAddr1.Cols[colAddrRemark].Caption = "หมายเหตุ";
+            grfAddr1.Cols[colAddrRemark2].Caption = "หมายเหตุ2";
+
+            grfAddr.Cols[colAddrID].Visible = false;
+            grfAddr1.Cols[colAddrID].Visible = false;
         }
         private void initGrfCusH()
         {
@@ -507,10 +587,10 @@ namespace Xtrim_ERP.gui
 
         private void btnAddrEdit_Click(object sender, EventArgs e)
         {
-            setControlAddrEnable(true);
+            //setControlAddrEnable(true);
+            setControlAddrEdit(true);
         }
-
-        private void btnAddrNew_Click(object sender, EventArgs e)
+        private void setAddreNew()
         {
             txtAddrId.Value = "";
             txtAddrName.Value = "";
@@ -537,6 +617,11 @@ namespace Xtrim_ERP.gui
             txtAddrWeb2.Value = "";
             txtAddrGoogleMap.Value = "";
             chkAddrDefaultCus.Checked = false;
+        }
+        private void btnAddrNew_Click(object sender, EventArgs e)
+        {
+            setAddreNew();
+            setControlAddrEnable(true);
         }
         private void saveAddr()
         {
@@ -620,7 +705,7 @@ namespace Xtrim_ERP.gui
             cus.remark = txtRemark.Text;
             cus.contact_name1 = txtContactName1.Value.ToString().Trim();
 
-            cus.contact_name2 = txtContactName1.Value.ToString().Trim();
+            cus.contact_name2 = txtContactName2.Value.ToString().Trim();
             cus.contact_name1_tel = txtContactTel1.Text.Trim();
             cus.contact_name2_tel = txtContactTel2.Text.Trim();
             cus.status_company = "1";
@@ -656,6 +741,53 @@ namespace Xtrim_ERP.gui
             int chk = 0;
             if (int.TryParse(re, out chk))
             {
+                if (flagNew)
+                {
+                    Address addr = new Address();
+                    addr.address_id = "";
+                    addr.address_code = "";
+                    addr.line_t1 = txtAddrT1.Value.ToString().Trim();
+                    addr.line_t2 = txtAddrT2.Value.ToString().Trim();
+                    addr.line_t3 = txtAddrT3.Value.ToString().Trim();
+                    addr.line_t4 = txtAddrT4.Value.ToString().Trim();
+                    addr.line_e1 = txtAddrE1.Value.ToString().Trim();
+                    addr.line_e2 = txtAddrE2.Value.ToString().Trim();
+                    addr.line_e3 = txtAddrE3.Value.ToString().Trim();
+                    addr.line_e4 = txtAddrE4.Value.ToString().Trim();
+                    addr.prov_id = "";
+                    addr.amphur_id = "";
+                    addr.district_id = "";
+                    addr.zipcode = "";
+                    addr.email = txtEmail.Value.ToString().Trim();
+                    addr.email2 = "";
+                    addr.tele = txtTele.Value.ToString().Trim();
+                    addr.mobile = txtAddrMobile.Value.ToString().Trim();
+                    addr.fax = txtAddrFax.Value.ToString().Trim();
+                    addr.remark = txtAddrRemark.Value.ToString().Trim();
+                    addr.address_type_id = "";
+                    addr.table_id = re;
+                    addr.date_create = "";
+                    addr.date_modi = "";
+                    addr.date_cancel = "";
+                    addr.user_create = "";
+                    addr.user_modi = "";
+                    addr.user_cancel = "";
+                    addr.active = "";
+                    addr.address_name = txtAddrName.Value.ToString().Trim();
+                    addr.contact_id = "";
+                    addr.contact_name1 = txtContactName1.Text;
+                    addr.contact_name2 = txtContactName2.Text;
+                    addr.contact_name_tel1 = txtContactTel1.Text;
+                    addr.contact_name_tel2 = txtContactTel2.Text;
+
+                    addr.web_site1 = "";
+                    addr.web_site2 = "";
+                    addr.google_map = "";
+                    addr.status_defalut_customer = "1";
+                    String re1 = xC.xtDB.addrDB.insertAddress(addr);
+
+                }
+
                 btnSave.Image = Resources.accept_database24;
                 sB1.Text = "บันทึกข้อมูล " + cus.cust_code + " เรียบร้อย ";
             }
@@ -663,6 +795,7 @@ namespace Xtrim_ERP.gui
         private void btnSave_Click(object sender, EventArgs e)
         {
             saveCustomer();
+            tabPage2.Show();
         }
 
         private void setControlAddrEnable(Boolean flag)

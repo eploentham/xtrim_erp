@@ -35,6 +35,10 @@
             this.chkImpNew = new System.Windows.Forms.RadioButton();
             this.pB1 = new System.Windows.Forms.ProgressBar();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.chkJctApp = new System.Windows.Forms.RadioButton();
+            this.chkJctNew = new System.Windows.Forms.RadioButton();
+            this.btnJct = new C1.Win.C1Input.C1Button();
             this.panel16 = new System.Windows.Forms.Panel();
             this.chkJieApp = new System.Windows.Forms.RadioButton();
             this.chkJieNew = new System.Windows.Forms.RadioButton();
@@ -101,14 +105,12 @@
             this.c1Button3 = new C1.Win.C1Input.C1Button();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.chkJctApp = new System.Windows.Forms.RadioButton();
-            this.chkJctNew = new System.Windows.Forms.RadioButton();
-            this.btnJct = new C1.Win.C1Input.C1Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.panel17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnJct)).BeginInit();
             this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.binJie)).BeginInit();
             this.panel15.SuspendLayout();
@@ -145,15 +147,13 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).BeginInit();
-            this.panel17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnJct)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(635, 68);
@@ -164,11 +164,11 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.panel1.Controls.Add(this.btnOk);
             this.panel1.Controls.Add(this.chkImpApp);
             this.panel1.Controls.Add(this.chkImpNew);
-            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel1.Location = new System.Drawing.Point(6, 19);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(620, 43);
@@ -181,7 +181,7 @@
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(118, 37);
             this.btnOk.TabIndex = 60;
-            this.btnOk.Text = "นำเข้าช้อมูล";
+            this.btnOk.Text = "นำเข้าช้อมูล importer";
             this.c1ThemeController1.SetTheme(this.btnOk, "(default)");
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -191,7 +191,7 @@
             // 
             this.chkImpApp.AutoSize = true;
             this.chkImpApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkImpApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkImpApp.ForeColor = System.Drawing.Color.Black;
             this.chkImpApp.Location = new System.Drawing.Point(219, 3);
             this.chkImpApp.Name = "chkImpApp";
             this.chkImpApp.Size = new System.Drawing.Size(117, 17);
@@ -205,7 +205,7 @@
             // 
             this.chkImpNew.AutoSize = true;
             this.chkImpNew.BackColor = System.Drawing.Color.Transparent;
-            this.chkImpNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkImpNew.ForeColor = System.Drawing.Color.Black;
             this.chkImpNew.Location = new System.Drawing.Point(3, 3);
             this.chkImpNew.Name = "chkImpNew";
             this.chkImpNew.Size = new System.Drawing.Size(192, 17);
@@ -225,7 +225,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.White;
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.groupBox2.Controls.Add(this.panel17);
             this.groupBox2.Controls.Add(this.panel16);
             this.groupBox2.Controls.Add(this.panel15);
@@ -240,7 +240,7 @@
             this.groupBox2.Controls.Add(this.panel6);
             this.groupBox2.Controls.Add(this.panel5);
             this.groupBox2.Controls.Add(this.panel2);
-            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.groupBox2.Location = new System.Drawing.Point(12, 86);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1187, 663);
@@ -249,13 +249,66 @@
             this.groupBox2.Text = "รายชื่อ ลูกค้า openjob";
             this.c1ThemeController1.SetTheme(this.groupBox2, "(default)");
             // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
+            this.panel17.Controls.Add(this.chkJctApp);
+            this.panel17.Controls.Add(this.chkJctNew);
+            this.panel17.Controls.Add(this.btnJct);
+            this.panel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panel17.Location = new System.Drawing.Point(654, 150);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(512, 44);
+            this.panel17.TabIndex = 77;
+            this.c1ThemeController1.SetTheme(this.panel17, "(default)");
+            // 
+            // chkJctApp
+            // 
+            this.chkJctApp.AutoSize = true;
+            this.chkJctApp.BackColor = System.Drawing.Color.Transparent;
+            this.chkJctApp.ForeColor = System.Drawing.Color.Black;
+            this.chkJctApp.Location = new System.Drawing.Point(216, 13);
+            this.chkJctApp.Name = "chkJctApp";
+            this.chkJctApp.Size = new System.Drawing.Size(117, 17);
+            this.chkJctApp.TabIndex = 66;
+            this.chkJctApp.TabStop = true;
+            this.chkJctApp.Text = "นำเข้า แต่ข้อมูลใหม่";
+            this.c1ThemeController1.SetTheme(this.chkJctApp, "(default)");
+            this.chkJctApp.UseVisualStyleBackColor = false;
+            // 
+            // chkJctNew
+            // 
+            this.chkJctNew.AutoSize = true;
+            this.chkJctNew.BackColor = System.Drawing.Color.Transparent;
+            this.chkJctNew.ForeColor = System.Drawing.Color.Black;
+            this.chkJctNew.Location = new System.Drawing.Point(4, 13);
+            this.chkJctNew.Name = "chkJctNew";
+            this.chkJctNew.Size = new System.Drawing.Size(192, 17);
+            this.chkJctNew.TabIndex = 65;
+            this.chkJctNew.TabStop = true;
+            this.chkJctNew.Text = "นำเข้าข้อมูลใหม่ทั้งหมด ลบข้อมูลเดิม";
+            this.c1ThemeController1.SetTheme(this.chkJctNew, "(default)");
+            this.chkJctNew.UseVisualStyleBackColor = false;
+            // 
+            // btnJct
+            // 
+            this.btnJct.Location = new System.Drawing.Point(382, 3);
+            this.btnJct.Name = "btnJct";
+            this.btnJct.Size = new System.Drawing.Size(118, 37);
+            this.btnJct.TabIndex = 62;
+            this.btnJct.Text = "นำเข้าช้อมูล ใบส่งของ";
+            this.c1ThemeController1.SetTheme(this.btnJct, "(default)");
+            this.btnJct.UseVisualStyleBackColor = true;
+            this.btnJct.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnJct.Click += new System.EventHandler(this.btnJct_Click);
+            // 
             // panel16
             // 
-            this.panel16.BackColor = System.Drawing.Color.White;
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.panel16.Controls.Add(this.chkJieApp);
             this.panel16.Controls.Add(this.chkJieNew);
             this.panel16.Controls.Add(this.binJie);
-            this.panel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.panel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel16.Location = new System.Drawing.Point(654, 100);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(512, 44);
@@ -266,7 +319,7 @@
             // 
             this.chkJieApp.AutoSize = true;
             this.chkJieApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkJieApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkJieApp.ForeColor = System.Drawing.Color.Black;
             this.chkJieApp.Location = new System.Drawing.Point(216, 13);
             this.chkJieApp.Name = "chkJieApp";
             this.chkJieApp.Size = new System.Drawing.Size(117, 17);
@@ -280,7 +333,7 @@
             // 
             this.chkJieNew.AutoSize = true;
             this.chkJieNew.BackColor = System.Drawing.Color.Transparent;
-            this.chkJieNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkJieNew.ForeColor = System.Drawing.Color.Black;
             this.chkJieNew.Location = new System.Drawing.Point(4, 13);
             this.chkJieNew.Name = "chkJieNew";
             this.chkJieNew.Size = new System.Drawing.Size(192, 17);
@@ -304,11 +357,11 @@
             // 
             // panel15
             // 
-            this.panel15.BackColor = System.Drawing.Color.White;
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.panel15.Controls.Add(this.chkPolApp);
             this.panel15.Controls.Add(this.chkPolNew);
             this.panel15.Controls.Add(this.btnPol);
-            this.panel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.panel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel15.Location = new System.Drawing.Point(9, 600);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(620, 44);
@@ -319,7 +372,7 @@
             // 
             this.chkPolApp.AutoSize = true;
             this.chkPolApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkPolApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkPolApp.ForeColor = System.Drawing.Color.Black;
             this.chkPolApp.Location = new System.Drawing.Point(216, 13);
             this.chkPolApp.Name = "chkPolApp";
             this.chkPolApp.Size = new System.Drawing.Size(117, 17);
@@ -333,7 +386,7 @@
             // 
             this.chkPolNew.AutoSize = true;
             this.chkPolNew.BackColor = System.Drawing.Color.Transparent;
-            this.chkPolNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkPolNew.ForeColor = System.Drawing.Color.Black;
             this.chkPolNew.Location = new System.Drawing.Point(4, 13);
             this.chkPolNew.Name = "chkPolNew";
             this.chkPolNew.Size = new System.Drawing.Size(192, 17);
@@ -357,11 +410,11 @@
             // 
             // panel14
             // 
-            this.panel14.BackColor = System.Drawing.Color.White;
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.panel14.Controls.Add(this.chkImpInvApp);
             this.panel14.Controls.Add(this.chkImpInvNew);
             this.panel14.Controls.Add(this.btnImpInv);
-            this.panel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.panel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel14.Location = new System.Drawing.Point(9, 550);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(620, 44);
@@ -372,7 +425,7 @@
             // 
             this.chkImpInvApp.AutoSize = true;
             this.chkImpInvApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkImpInvApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkImpInvApp.ForeColor = System.Drawing.Color.Black;
             this.chkImpInvApp.Location = new System.Drawing.Point(216, 13);
             this.chkImpInvApp.Name = "chkImpInvApp";
             this.chkImpInvApp.Size = new System.Drawing.Size(117, 17);
@@ -386,7 +439,7 @@
             // 
             this.chkImpInvNew.AutoSize = true;
             this.chkImpInvNew.BackColor = System.Drawing.Color.Transparent;
-            this.chkImpInvNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkImpInvNew.ForeColor = System.Drawing.Color.Black;
             this.chkImpInvNew.Location = new System.Drawing.Point(4, 13);
             this.chkImpInvNew.Name = "chkImpInvNew";
             this.chkImpInvNew.Size = new System.Drawing.Size(192, 17);
@@ -410,11 +463,11 @@
             // 
             // panel13
             // 
-            this.panel13.BackColor = System.Drawing.Color.White;
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.panel13.Controls.Add(this.chkJimBlApp);
             this.panel13.Controls.Add(this.chkJimBlNew);
             this.panel13.Controls.Add(this.btnjimBl);
-            this.panel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.panel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel13.Location = new System.Drawing.Point(9, 500);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(620, 44);
@@ -425,7 +478,7 @@
             // 
             this.chkJimBlApp.AutoSize = true;
             this.chkJimBlApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkJimBlApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkJimBlApp.ForeColor = System.Drawing.Color.Black;
             this.chkJimBlApp.Location = new System.Drawing.Point(216, 13);
             this.chkJimBlApp.Name = "chkJimBlApp";
             this.chkJimBlApp.Size = new System.Drawing.Size(117, 17);
@@ -439,7 +492,7 @@
             // 
             this.chkJimBlNew.AutoSize = true;
             this.chkJimBlNew.BackColor = System.Drawing.Color.Transparent;
-            this.chkJimBlNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkJimBlNew.ForeColor = System.Drawing.Color.Black;
             this.chkJimBlNew.Location = new System.Drawing.Point(4, 13);
             this.chkJimBlNew.Name = "chkJimBlNew";
             this.chkJimBlNew.Size = new System.Drawing.Size(192, 17);
@@ -463,11 +516,11 @@
             // 
             // panel12
             // 
-            this.panel12.BackColor = System.Drawing.Color.White;
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.panel12.Controls.Add(this.chkFwdApp);
             this.panel12.Controls.Add(this.chkFwdNew);
             this.panel12.Controls.Add(this.btnFwd);
-            this.panel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.panel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel12.Location = new System.Drawing.Point(9, 450);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(620, 44);
@@ -478,7 +531,7 @@
             // 
             this.chkFwdApp.AutoSize = true;
             this.chkFwdApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkFwdApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkFwdApp.ForeColor = System.Drawing.Color.Black;
             this.chkFwdApp.Location = new System.Drawing.Point(216, 13);
             this.chkFwdApp.Name = "chkFwdApp";
             this.chkFwdApp.Size = new System.Drawing.Size(117, 17);
@@ -492,7 +545,7 @@
             // 
             this.chkFwdNew.AutoSize = true;
             this.chkFwdNew.BackColor = System.Drawing.Color.Transparent;
-            this.chkFwdNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkFwdNew.ForeColor = System.Drawing.Color.Black;
             this.chkFwdNew.Location = new System.Drawing.Point(4, 13);
             this.chkFwdNew.Name = "chkFwdNew";
             this.chkFwdNew.Size = new System.Drawing.Size(192, 17);
@@ -516,11 +569,11 @@
             // 
             // panel11
             // 
-            this.panel11.BackColor = System.Drawing.Color.White;
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.panel11.Controls.Add(this.chkTmnApp);
             this.panel11.Controls.Add(this.chkTmnNew);
             this.panel11.Controls.Add(this.btnTmn);
-            this.panel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.panel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel11.Location = new System.Drawing.Point(9, 400);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(620, 44);
@@ -531,7 +584,7 @@
             // 
             this.chkTmnApp.AutoSize = true;
             this.chkTmnApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkTmnApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkTmnApp.ForeColor = System.Drawing.Color.Black;
             this.chkTmnApp.Location = new System.Drawing.Point(216, 13);
             this.chkTmnApp.Name = "chkTmnApp";
             this.chkTmnApp.Size = new System.Drawing.Size(117, 17);
@@ -545,7 +598,7 @@
             // 
             this.chkTmnNew.AutoSize = true;
             this.chkTmnNew.BackColor = System.Drawing.Color.Transparent;
-            this.chkTmnNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkTmnNew.ForeColor = System.Drawing.Color.Black;
             this.chkTmnNew.Location = new System.Drawing.Point(4, 13);
             this.chkTmnNew.Name = "chkTmnNew";
             this.chkTmnNew.Size = new System.Drawing.Size(192, 17);
@@ -569,11 +622,11 @@
             // 
             // panel10
             // 
-            this.panel10.BackColor = System.Drawing.Color.White;
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.panel10.Controls.Add(this.chkImp1App);
             this.panel10.Controls.Add(this.chkImp1New);
             this.panel10.Controls.Add(this.btnImp1);
-            this.panel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.panel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel10.Location = new System.Drawing.Point(9, 350);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(620, 44);
@@ -584,7 +637,7 @@
             // 
             this.chkImp1App.AutoSize = true;
             this.chkImp1App.BackColor = System.Drawing.Color.Transparent;
-            this.chkImp1App.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkImp1App.ForeColor = System.Drawing.Color.Black;
             this.chkImp1App.Location = new System.Drawing.Point(216, 13);
             this.chkImp1App.Name = "chkImp1App";
             this.chkImp1App.Size = new System.Drawing.Size(117, 17);
@@ -598,7 +651,7 @@
             // 
             this.chkImp1New.AutoSize = true;
             this.chkImp1New.BackColor = System.Drawing.Color.Transparent;
-            this.chkImp1New.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkImp1New.ForeColor = System.Drawing.Color.Black;
             this.chkImp1New.Location = new System.Drawing.Point(4, 13);
             this.chkImp1New.Name = "chkImp1New";
             this.chkImp1New.Size = new System.Drawing.Size(192, 17);
@@ -622,11 +675,11 @@
             // 
             // panel9
             // 
-            this.panel9.BackColor = System.Drawing.Color.White;
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.panel9.Controls.Add(this.chkStfApp);
             this.panel9.Controls.Add(this.chkStfNew);
             this.panel9.Controls.Add(this.btnStf);
-            this.panel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.panel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel9.Location = new System.Drawing.Point(9, 300);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(620, 44);
@@ -637,7 +690,7 @@
             // 
             this.chkStfApp.AutoSize = true;
             this.chkStfApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkStfApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkStfApp.ForeColor = System.Drawing.Color.Black;
             this.chkStfApp.Location = new System.Drawing.Point(216, 13);
             this.chkStfApp.Name = "chkStfApp";
             this.chkStfApp.Size = new System.Drawing.Size(117, 17);
@@ -651,7 +704,7 @@
             // 
             this.chkStfNew.AutoSize = true;
             this.chkStfNew.BackColor = System.Drawing.Color.Transparent;
-            this.chkStfNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkStfNew.ForeColor = System.Drawing.Color.Black;
             this.chkStfNew.Location = new System.Drawing.Point(4, 13);
             this.chkStfNew.Name = "chkStfNew";
             this.chkStfNew.Size = new System.Drawing.Size(192, 17);
@@ -675,11 +728,11 @@
             // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.Color.White;
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.panel8.Controls.Add(this.chkInsrApp);
             this.panel8.Controls.Add(this.chkInsrNew);
             this.panel8.Controls.Add(this.btnInsr);
-            this.panel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.panel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel8.Location = new System.Drawing.Point(9, 250);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(620, 44);
@@ -690,7 +743,7 @@
             // 
             this.chkInsrApp.AutoSize = true;
             this.chkInsrApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkInsrApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkInsrApp.ForeColor = System.Drawing.Color.Black;
             this.chkInsrApp.Location = new System.Drawing.Point(216, 13);
             this.chkInsrApp.Name = "chkInsrApp";
             this.chkInsrApp.Size = new System.Drawing.Size(117, 17);
@@ -704,7 +757,7 @@
             // 
             this.chkInsrNew.AutoSize = true;
             this.chkInsrNew.BackColor = System.Drawing.Color.Transparent;
-            this.chkInsrNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkInsrNew.ForeColor = System.Drawing.Color.Black;
             this.chkInsrNew.Location = new System.Drawing.Point(4, 13);
             this.chkInsrNew.Name = "chkInsrNew";
             this.chkInsrNew.Size = new System.Drawing.Size(192, 17);
@@ -728,11 +781,11 @@
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.panel7.Controls.Add(this.chkImpSuppApp);
             this.panel7.Controls.Add(this.chkImpSuppNew);
             this.panel7.Controls.Add(this.btnImpSupp);
-            this.panel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.panel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel7.Location = new System.Drawing.Point(9, 200);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(620, 44);
@@ -743,7 +796,7 @@
             // 
             this.chkImpSuppApp.AutoSize = true;
             this.chkImpSuppApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkImpSuppApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkImpSuppApp.ForeColor = System.Drawing.Color.Black;
             this.chkImpSuppApp.Location = new System.Drawing.Point(216, 13);
             this.chkImpSuppApp.Name = "chkImpSuppApp";
             this.chkImpSuppApp.Size = new System.Drawing.Size(117, 17);
@@ -757,7 +810,7 @@
             // 
             this.chkImpSuppNew.AutoSize = true;
             this.chkImpSuppNew.BackColor = System.Drawing.Color.Transparent;
-            this.chkImpSuppNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkImpSuppNew.ForeColor = System.Drawing.Color.Black;
             this.chkImpSuppNew.Location = new System.Drawing.Point(4, 13);
             this.chkImpSuppNew.Name = "chkImpSuppNew";
             this.chkImpSuppNew.Size = new System.Drawing.Size(192, 17);
@@ -781,11 +834,11 @@
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.panel6.Controls.Add(this.chkExpConsApp);
             this.panel6.Controls.Add(this.chkExpConsNew);
             this.panel6.Controls.Add(this.btnExpCons);
-            this.panel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.panel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel6.Location = new System.Drawing.Point(9, 150);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(620, 44);
@@ -796,7 +849,7 @@
             // 
             this.chkExpConsApp.AutoSize = true;
             this.chkExpConsApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkExpConsApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkExpConsApp.ForeColor = System.Drawing.Color.Black;
             this.chkExpConsApp.Location = new System.Drawing.Point(216, 13);
             this.chkExpConsApp.Name = "chkExpConsApp";
             this.chkExpConsApp.Size = new System.Drawing.Size(117, 17);
@@ -810,7 +863,7 @@
             // 
             this.chkExpConsNew.AutoSize = true;
             this.chkExpConsNew.BackColor = System.Drawing.Color.Transparent;
-            this.chkExpConsNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkExpConsNew.ForeColor = System.Drawing.Color.Black;
             this.chkExpConsNew.Location = new System.Drawing.Point(4, 13);
             this.chkExpConsNew.Name = "chkExpConsNew";
             this.chkExpConsNew.Size = new System.Drawing.Size(192, 17);
@@ -834,11 +887,11 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.panel5.Controls.Add(this.chkConsApp);
             this.panel5.Controls.Add(this.chkConsNew);
             this.panel5.Controls.Add(this.btnCons);
-            this.panel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.panel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel5.Location = new System.Drawing.Point(9, 100);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(620, 43);
@@ -849,7 +902,7 @@
             // 
             this.chkConsApp.AutoSize = true;
             this.chkConsApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkConsApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkConsApp.ForeColor = System.Drawing.Color.Black;
             this.chkConsApp.Location = new System.Drawing.Point(216, 11);
             this.chkConsApp.Name = "chkConsApp";
             this.chkConsApp.Size = new System.Drawing.Size(117, 17);
@@ -863,7 +916,7 @@
             // 
             this.chkConsNew.AutoSize = true;
             this.chkConsNew.BackColor = System.Drawing.Color.Transparent;
-            this.chkConsNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkConsNew.ForeColor = System.Drawing.Color.Black;
             this.chkConsNew.Location = new System.Drawing.Point(4, 11);
             this.chkConsNew.Name = "chkConsNew";
             this.chkConsNew.Size = new System.Drawing.Size(192, 17);
@@ -887,7 +940,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.panel2.Controls.Add(this.pic1);
             this.panel2.Controls.Add(this.btnTest);
             this.panel2.Controls.Add(this.panel3);
@@ -897,7 +950,7 @@
             this.panel2.Controls.Add(this.btnCus);
             this.panel2.Controls.Add(this.chkCusApp);
             this.panel2.Controls.Add(this.chkCusNew);
-            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel2.Location = new System.Drawing.Point(6, 19);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(623, 75);
@@ -931,10 +984,10 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.panel3.Controls.Add(this.chk64);
             this.panel3.Controls.Add(this.chk32);
-            this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel3.Location = new System.Drawing.Point(372, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(111, 30);
@@ -945,7 +998,7 @@
             // 
             this.chk64.AutoSize = true;
             this.chk64.BackColor = System.Drawing.Color.Transparent;
-            this.chk64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chk64.ForeColor = System.Drawing.Color.Black;
             this.chk64.Location = new System.Drawing.Point(66, 10);
             this.chk64.Name = "chk64";
             this.chk64.Size = new System.Drawing.Size(37, 17);
@@ -960,7 +1013,7 @@
             // 
             this.chk32.AutoSize = true;
             this.chk32.BackColor = System.Drawing.Color.Transparent;
-            this.chk32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chk32.ForeColor = System.Drawing.Color.Black;
             this.chk32.Location = new System.Drawing.Point(3, 10);
             this.chk32.Name = "chk32";
             this.chk32.Size = new System.Drawing.Size(37, 17);
@@ -973,9 +1026,8 @@
             // 
             // txtPathA
             // 
-            this.txtPathA.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
             this.txtPathA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPathA.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPathA.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.txtPathA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtPathA.Location = new System.Drawing.Point(201, 46);
             this.txtPathA.Name = "txtPathA";
@@ -1000,10 +1052,10 @@
             // c1CheckBox2
             // 
             this.c1CheckBox2.BackColor = System.Drawing.Color.Transparent;
-            this.c1CheckBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.c1CheckBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(51)))), ((int)(((byte)(0)))));
             this.c1CheckBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.c1CheckBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.c1CheckBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.c1CheckBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.c1CheckBox2.Location = new System.Drawing.Point(82, 46);
             this.c1CheckBox2.Name = "c1CheckBox2";
             this.c1CheckBox2.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
@@ -1031,7 +1083,7 @@
             // 
             this.chkCusApp.AutoSize = true;
             this.chkCusApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkCusApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkCusApp.ForeColor = System.Drawing.Color.Black;
             this.chkCusApp.Location = new System.Drawing.Point(3, 26);
             this.chkCusApp.Name = "chkCusApp";
             this.chkCusApp.Size = new System.Drawing.Size(117, 17);
@@ -1045,7 +1097,7 @@
             // 
             this.chkCusNew.AutoSize = true;
             this.chkCusNew.BackColor = System.Drawing.Color.Transparent;
-            this.chkCusNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.chkCusNew.ForeColor = System.Drawing.Color.Black;
             this.chkCusNew.Location = new System.Drawing.Point(3, 3);
             this.chkCusNew.Name = "chkCusNew";
             this.chkCusNew.Size = new System.Drawing.Size(192, 17);
@@ -1057,12 +1109,12 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.panel4.Controls.Add(this.c1CheckBox1);
             this.panel4.Controls.Add(this.c1Button3);
             this.panel4.Controls.Add(this.radioButton3);
             this.panel4.Controls.Add(this.radioButton4);
-            this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel4.Location = new System.Drawing.Point(6, 19);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(623, 75);
@@ -1072,10 +1124,10 @@
             // c1CheckBox1
             // 
             this.c1CheckBox1.BackColor = System.Drawing.Color.Transparent;
-            this.c1CheckBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+            this.c1CheckBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(51)))), ((int)(((byte)(0)))));
             this.c1CheckBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.c1CheckBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.c1CheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.c1CheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.c1CheckBox1.Location = new System.Drawing.Point(82, 46);
             this.c1CheckBox1.Name = "c1CheckBox1";
             this.c1CheckBox1.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
@@ -1102,7 +1154,7 @@
             // 
             this.radioButton3.AutoSize = true;
             this.radioButton3.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.radioButton3.ForeColor = System.Drawing.Color.Black;
             this.radioButton3.Location = new System.Drawing.Point(3, 26);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(117, 17);
@@ -1116,7 +1168,7 @@
             // 
             this.radioButton4.AutoSize = true;
             this.radioButton4.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
+            this.radioButton4.ForeColor = System.Drawing.Color.Black;
             this.radioButton4.Location = new System.Drawing.Point(3, 3);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(192, 17);
@@ -1126,59 +1178,6 @@
             this.c1ThemeController1.SetTheme(this.radioButton4, "(default)");
             this.radioButton4.UseVisualStyleBackColor = false;
             // 
-            // panel17
-            // 
-            this.panel17.BackColor = System.Drawing.Color.White;
-            this.panel17.Controls.Add(this.chkJctApp);
-            this.panel17.Controls.Add(this.chkJctNew);
-            this.panel17.Controls.Add(this.btnJct);
-            this.panel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.panel17.Location = new System.Drawing.Point(654, 150);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(512, 44);
-            this.panel17.TabIndex = 77;
-            this.c1ThemeController1.SetTheme(this.panel17, "(default)");
-            // 
-            // chkJctApp
-            // 
-            this.chkJctApp.AutoSize = true;
-            this.chkJctApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkJctApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.chkJctApp.Location = new System.Drawing.Point(216, 13);
-            this.chkJctApp.Name = "chkJctApp";
-            this.chkJctApp.Size = new System.Drawing.Size(117, 17);
-            this.chkJctApp.TabIndex = 66;
-            this.chkJctApp.TabStop = true;
-            this.chkJctApp.Text = "นำเข้า แต่ข้อมูลใหม่";
-            this.c1ThemeController1.SetTheme(this.chkJctApp, "(default)");
-            this.chkJctApp.UseVisualStyleBackColor = false;
-            // 
-            // chkJctNew
-            // 
-            this.chkJctNew.AutoSize = true;
-            this.chkJctNew.BackColor = System.Drawing.Color.Transparent;
-            this.chkJctNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.chkJctNew.Location = new System.Drawing.Point(4, 13);
-            this.chkJctNew.Name = "chkJctNew";
-            this.chkJctNew.Size = new System.Drawing.Size(192, 17);
-            this.chkJctNew.TabIndex = 65;
-            this.chkJctNew.TabStop = true;
-            this.chkJctNew.Text = "นำเข้าข้อมูลใหม่ทั้งหมด ลบข้อมูลเดิม";
-            this.c1ThemeController1.SetTheme(this.chkJctNew, "(default)");
-            this.chkJctNew.UseVisualStyleBackColor = false;
-            // 
-            // btnJct
-            // 
-            this.btnJct.Location = new System.Drawing.Point(382, 3);
-            this.btnJct.Name = "btnJct";
-            this.btnJct.Size = new System.Drawing.Size(118, 37);
-            this.btnJct.TabIndex = 62;
-            this.btnJct.Text = "นำเข้าช้อมูล ใบส่งของ";
-            this.c1ThemeController1.SetTheme(this.btnJct, "(default)");
-            this.btnJct.UseVisualStyleBackColor = true;
-            this.btnJct.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.btnJct.Click += new System.EventHandler(this.btnJct_Click);
-            // 
             // FrmImportData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1187,7 +1186,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.pB1);
             this.Controls.Add(this.groupBox1);
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.Name = "FrmImportData";
             this.Text = "FrmImportData";
             this.c1ThemeController1.SetTheme(this, "(default)");
@@ -1198,6 +1197,9 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnJct)).EndInit();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.binJie)).EndInit();
@@ -1249,9 +1251,6 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).EndInit();
-            this.panel17.ResumeLayout(false);
-            this.panel17.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnJct)).EndInit();
             this.ResumeLayout(false);
 
         }

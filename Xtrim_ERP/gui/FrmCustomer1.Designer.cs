@@ -50,6 +50,8 @@ namespace Xtrim_ERP.gui
             this.label41 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ChkInsr = new C1.Win.C1Input.C1CheckBox();
+            this.chkCons = new C1.Win.C1Input.C1CheckBox();
             this.chkExp = new C1.Win.C1Input.C1CheckBox();
             this.chkFwd = new C1.Win.C1Input.C1CheckBox();
             this.chkImp = new C1.Win.C1Input.C1CheckBox();
@@ -93,6 +95,7 @@ namespace Xtrim_ERP.gui
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.txtAddrTableId = new C1.Win.C1Input.C1TextBox();
             this.chkAddrDefaultCus = new C1.Win.C1Input.C1CheckBox();
             this.txtAddrWeb2 = new C1.Win.C1Input.C1TextBox();
             this.label37 = new System.Windows.Forms.Label();
@@ -146,7 +149,6 @@ namespace Xtrim_ERP.gui
             this.label18 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtAddrTableId = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -162,6 +164,8 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrE2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrE1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ChkInsr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkCons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkExp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkFwd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkImp)).BeginInit();
@@ -192,6 +196,7 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddrTableId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkAddrDefaultCus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrWeb2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrWeb1)).BeginInit();
@@ -222,7 +227,6 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrLineT1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrName)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddrTableId)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -357,7 +361,7 @@ namespace Xtrim_ERP.gui
             this.label42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label42.Location = new System.Drawing.Point(428, 484);
+            this.label42.Location = new System.Drawing.Point(428, 511);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(63, 16);
             this.label42.TabIndex = 182;
@@ -369,7 +373,7 @@ namespace Xtrim_ERP.gui
             this.txtContactTel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtContactTel2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtContactTel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtContactTel2.Location = new System.Drawing.Point(525, 482);
+            this.txtContactTel2.Location = new System.Drawing.Point(525, 509);
             this.txtContactTel2.Name = "txtContactTel2";
             this.txtContactTel2.Size = new System.Drawing.Size(207, 20);
             this.txtContactTel2.TabIndex = 181;
@@ -383,7 +387,7 @@ namespace Xtrim_ERP.gui
             this.label43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label43.Location = new System.Drawing.Point(428, 458);
+            this.label43.Location = new System.Drawing.Point(428, 485);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(63, 16);
             this.label43.TabIndex = 180;
@@ -395,7 +399,7 @@ namespace Xtrim_ERP.gui
             this.txtContactTel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtContactTel1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtContactTel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtContactTel1.Location = new System.Drawing.Point(525, 456);
+            this.txtContactTel1.Location = new System.Drawing.Point(525, 483);
             this.txtContactTel1.Name = "txtContactTel1";
             this.txtContactTel1.Size = new System.Drawing.Size(207, 20);
             this.txtContactTel1.TabIndex = 179;
@@ -521,19 +525,57 @@ namespace Xtrim_ERP.gui
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.groupBox1.Controls.Add(this.ChkInsr);
+            this.groupBox1.Controls.Add(this.chkCons);
             this.groupBox1.Controls.Add(this.chkExp);
             this.groupBox1.Controls.Add(this.chkFwd);
             this.groupBox1.Controls.Add(this.chkImp);
             this.groupBox1.Controls.Add(this.chkCus);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.groupBox1.Location = new System.Drawing.Point(618, 287);
+            this.groupBox1.Location = new System.Drawing.Point(618, 274);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(141, 173);
+            this.groupBox1.Size = new System.Drawing.Size(141, 203);
             this.groupBox1.TabIndex = 151;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "สถานะ";
             this.theme1.SetTheme(this.groupBox1, "(default)");
+            // 
+            // ChkInsr
+            // 
+            this.ChkInsr.BackColor = System.Drawing.Color.Transparent;
+            this.ChkInsr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.ChkInsr.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ChkInsr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ChkInsr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.ChkInsr.Location = new System.Drawing.Point(6, 173);
+            this.ChkInsr.Name = "ChkInsr";
+            this.ChkInsr.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.ChkInsr.Size = new System.Drawing.Size(118, 24);
+            this.ChkInsr.TabIndex = 156;
+            this.ChkInsr.Text = "Insurance";
+            this.theme1.SetTheme(this.ChkInsr, "(default)");
+            this.ChkInsr.UseVisualStyleBackColor = true;
+            this.ChkInsr.Value = null;
+            this.ChkInsr.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // chkCons
+            // 
+            this.chkCons.BackColor = System.Drawing.Color.Transparent;
+            this.chkCons.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkCons.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkCons.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkCons.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkCons.Location = new System.Drawing.Point(6, 143);
+            this.chkCons.Name = "chkCons";
+            this.chkCons.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkCons.Size = new System.Drawing.Size(118, 24);
+            this.chkCons.TabIndex = 155;
+            this.chkCons.Text = "Consignee";
+            this.theme1.SetTheme(this.chkCons, "(default)");
+            this.chkCons.UseVisualStyleBackColor = true;
+            this.chkCons.Value = null;
+            this.chkCons.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // chkExp
             // 
@@ -545,7 +587,7 @@ namespace Xtrim_ERP.gui
             this.chkExp.Location = new System.Drawing.Point(8, 116);
             this.chkExp.Name = "chkExp";
             this.chkExp.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkExp.Size = new System.Drawing.Size(155, 24);
+            this.chkExp.Size = new System.Drawing.Size(127, 24);
             this.chkExp.TabIndex = 154;
             this.chkExp.Text = "Exporter";
             this.theme1.SetTheme(this.chkExp, "(default)");
@@ -563,7 +605,7 @@ namespace Xtrim_ERP.gui
             this.chkFwd.Location = new System.Drawing.Point(8, 86);
             this.chkFwd.Name = "chkFwd";
             this.chkFwd.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkFwd.Size = new System.Drawing.Size(155, 24);
+            this.chkFwd.Size = new System.Drawing.Size(127, 24);
             this.chkFwd.TabIndex = 153;
             this.chkFwd.Text = "Forwarder";
             this.theme1.SetTheme(this.chkFwd, "(default)");
@@ -581,7 +623,7 @@ namespace Xtrim_ERP.gui
             this.chkImp.Location = new System.Drawing.Point(8, 56);
             this.chkImp.Name = "chkImp";
             this.chkImp.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkImp.Size = new System.Drawing.Size(155, 24);
+            this.chkImp.Size = new System.Drawing.Size(127, 24);
             this.chkImp.TabIndex = 152;
             this.chkImp.Text = "Importer";
             this.theme1.SetTheme(this.chkImp, "(default)");
@@ -599,7 +641,7 @@ namespace Xtrim_ERP.gui
             this.chkCus.Location = new System.Drawing.Point(8, 26);
             this.chkCus.Name = "chkCus";
             this.chkCus.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkCus.Size = new System.Drawing.Size(155, 24);
+            this.chkCus.Size = new System.Drawing.Size(127, 24);
             this.chkCus.TabIndex = 151;
             this.chkCus.Text = "Customer";
             this.theme1.SetTheme(this.chkCus, "(default)");
@@ -717,7 +759,7 @@ namespace Xtrim_ERP.gui
             this.txtContactName2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtContactName2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtContactName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtContactName2.Location = new System.Drawing.Point(108, 482);
+            this.txtContactName2.Location = new System.Drawing.Point(108, 509);
             this.txtContactName2.Name = "txtContactName2";
             this.txtContactName2.Size = new System.Drawing.Size(301, 20);
             this.txtContactName2.TabIndex = 143;
@@ -913,7 +955,7 @@ namespace Xtrim_ERP.gui
             this.label17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label17.Location = new System.Drawing.Point(11, 458);
+            this.label17.Location = new System.Drawing.Point(11, 485);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(58, 16);
             this.label17.TabIndex = 128;
@@ -951,7 +993,7 @@ namespace Xtrim_ERP.gui
             this.txtContactName1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtContactName1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtContactName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtContactName1.Location = new System.Drawing.Point(108, 456);
+            this.txtContactName1.Location = new System.Drawing.Point(108, 483);
             this.txtContactName1.Name = "txtContactName1";
             this.txtContactName1.Size = new System.Drawing.Size(301, 20);
             this.txtContactName1.TabIndex = 125;
@@ -965,7 +1007,7 @@ namespace Xtrim_ERP.gui
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label7.Location = new System.Drawing.Point(11, 484);
+            this.label7.Location = new System.Drawing.Point(11, 511);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 16);
             this.label7.TabIndex = 124;
@@ -1188,9 +1230,23 @@ namespace Xtrim_ERP.gui
             this.splitContainer2.Panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.theme1.SetTheme(this.splitContainer2.Panel2, "(default)");
             this.splitContainer2.Size = new System.Drawing.Size(764, 711);
-            this.splitContainer2.SplitterDistance = 498;
+            this.splitContainer2.SplitterDistance = 458;
             this.splitContainer2.TabIndex = 0;
             this.theme1.SetTheme(this.splitContainer2, "(default)");
+            // 
+            // txtAddrTableId
+            // 
+            this.txtAddrTableId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAddrTableId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtAddrTableId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtAddrTableId.Location = new System.Drawing.Point(78, 46);
+            this.txtAddrTableId.Name = "txtAddrTableId";
+            this.txtAddrTableId.Size = new System.Drawing.Size(33, 20);
+            this.txtAddrTableId.TabIndex = 196;
+            this.txtAddrTableId.Tag = null;
+            this.theme1.SetTheme(this.txtAddrTableId, "(default)");
+            this.txtAddrTableId.Visible = false;
+            this.txtAddrTableId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // chkAddrDefaultCus
             // 
@@ -1215,7 +1271,7 @@ namespace Xtrim_ERP.gui
             this.txtAddrWeb2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAddrWeb2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtAddrWeb2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtAddrWeb2.Location = new System.Drawing.Point(118, 412);
+            this.txtAddrWeb2.Location = new System.Drawing.Point(435, 386);
             this.txtAddrWeb2.Name = "txtAddrWeb2";
             this.txtAddrWeb2.Size = new System.Drawing.Size(207, 20);
             this.txtAddrWeb2.TabIndex = 194;
@@ -1229,7 +1285,7 @@ namespace Xtrim_ERP.gui
             this.label37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label37.Location = new System.Drawing.Point(21, 414);
+            this.label37.Location = new System.Drawing.Point(338, 388);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(69, 16);
             this.label37.TabIndex = 193;
@@ -1396,7 +1452,7 @@ namespace Xtrim_ERP.gui
             // 
             this.btnAddrVoid.Image = global::Xtrim_ERP.Properties.Resources.trash24;
             this.btnAddrVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddrVoid.Location = new System.Drawing.Point(398, 443);
+            this.btnAddrVoid.Location = new System.Drawing.Point(410, 412);
             this.btnAddrVoid.Name = "btnAddrVoid";
             this.btnAddrVoid.Size = new System.Drawing.Size(83, 39);
             this.btnAddrVoid.TabIndex = 180;
@@ -1413,7 +1469,7 @@ namespace Xtrim_ERP.gui
             this.chkAddrVoid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkAddrVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkAddrVoid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkAddrVoid.Location = new System.Drawing.Point(118, 442);
+            this.chkAddrVoid.Location = new System.Drawing.Point(117, 427);
             this.chkAddrVoid.Name = "chkAddrVoid";
             this.chkAddrVoid.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkAddrVoid.Size = new System.Drawing.Size(155, 24);
@@ -1481,7 +1537,7 @@ namespace Xtrim_ERP.gui
             // 
             this.btnAddrNew.Image = global::Xtrim_ERP.Properties.Resources.lock24;
             this.btnAddrNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddrNew.Location = new System.Drawing.Point(397, 157);
+            this.btnAddrNew.Location = new System.Drawing.Point(410, 157);
             this.btnAddrNew.Name = "btnAddrNew";
             this.btnAddrNew.Size = new System.Drawing.Size(83, 39);
             this.btnAddrNew.TabIndex = 174;
@@ -1510,7 +1566,7 @@ namespace Xtrim_ERP.gui
             // 
             this.btnAddrEdit.Image = global::Xtrim_ERP.Properties.Resources.lock24;
             this.btnAddrEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddrEdit.Location = new System.Drawing.Point(397, 207);
+            this.btnAddrEdit.Location = new System.Drawing.Point(410, 207);
             this.btnAddrEdit.Name = "btnAddrEdit";
             this.btnAddrEdit.Size = new System.Drawing.Size(83, 39);
             this.btnAddrEdit.TabIndex = 172;
@@ -1525,7 +1581,7 @@ namespace Xtrim_ERP.gui
             // 
             this.btnAddrSave.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
             this.btnAddrSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddrSave.Location = new System.Drawing.Point(397, 256);
+            this.btnAddrSave.Location = new System.Drawing.Point(410, 256);
             this.btnAddrSave.Name = "btnAddrSave";
             this.btnAddrSave.Size = new System.Drawing.Size(83, 39);
             this.btnAddrSave.TabIndex = 171;
@@ -1892,20 +1948,6 @@ namespace Xtrim_ERP.gui
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // txtAddrTableId
-            // 
-            this.txtAddrTableId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAddrTableId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtAddrTableId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtAddrTableId.Location = new System.Drawing.Point(78, 46);
-            this.txtAddrTableId.Name = "txtAddrTableId";
-            this.txtAddrTableId.Size = new System.Drawing.Size(33, 20);
-            this.txtAddrTableId.TabIndex = 196;
-            this.txtAddrTableId.Tag = null;
-            this.theme1.SetTheme(this.txtAddrTableId, "(default)");
-            this.txtAddrTableId.Visible = false;
-            this.txtAddrTableId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmCustomer1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1934,6 +1976,8 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrE2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrE1)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ChkInsr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkCons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkExp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkFwd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkImp)).EndInit();
@@ -1965,6 +2009,7 @@ namespace Xtrim_ERP.gui
             this.splitContainer2.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddrTableId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkAddrDefaultCus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrWeb2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrWeb1)).EndInit();
@@ -1996,7 +2041,6 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrName)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddrTableId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2121,5 +2165,7 @@ namespace Xtrim_ERP.gui
         private System.Windows.Forms.Label label43;
         private C1TextBox txtContactTel1;
         private C1TextBox txtAddrTableId;
+        private C1CheckBox chkCons;
+        private C1CheckBox ChkInsr;
     }
 }

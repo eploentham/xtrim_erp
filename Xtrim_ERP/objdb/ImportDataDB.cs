@@ -93,6 +93,7 @@ namespace Xtrim_ERP.objdb
                 pb1.Value++;
                 Importer imp = new Importer();
                 imp.cust_id = "";
+                imp.imp_id = "";
                 imp.imp_code = row["code"].ToString();
                 imp.imp_name_t = row["tname"].ToString();
                 imp.imp_name_e = row["ename"].ToString();
@@ -148,6 +149,79 @@ namespace Xtrim_ERP.objdb
                 imp.payeruser = row["payeruser"].ToString();
 
                 impDB.insertImporter(imp);
+
+                Customer cus = new Customer();
+                cus.cust_id = "";
+                cus.cust_code = row["code"].ToString();
+                cus.cust_name_t = row["tname"].ToString();
+                cus.cust_name_e = row["ename"].ToString();
+                cus.active = "1";
+
+                cus.address_t = "";
+                cus.address_e = "";
+                cus.addr = "";
+                cus.amphur_id = "";
+                cus.district_id = "";
+
+                cus.province_id = row["provcode"].ToString();
+                cus.zipcode = row["zipcode"].ToString();
+                cus.sale_id = "";
+                cus.sale_name_t = "";
+                cus.fax = "";
+
+                cus.tele = row["tel"].ToString();
+                cus.email = row["email"].ToString();
+                cus.tax_id = row["taxid"].ToString();
+                cus.remark = row["imremark1"].ToString();
+                cus.contact_name1 = row["contach"].ToString();
+
+                cus.contact_name2 = "";
+                cus.contact_name1_tel = "";
+                cus.contact_name2_tel = "";
+                cus.status_company = "";
+                cus.status_vendor = "meiosys";
+
+                cus.date_create = "";
+                cus.date_modi = "";
+                cus.date_cancel = "";
+                cus.user_create = "";
+                cus.user_modi = "";
+
+                cus.user_cancel = "";
+                cus.remark2 = row["imremark2"].ToString();
+                cus.po_due_period = "";
+                cus.taddr1 = row["taddr1"].ToString();
+                cus.taddr2 = row["taddr2"].ToString();
+
+                cus.taddr3 = row["taddr3"].ToString();
+                cus.taddr4 = row["taddr4"].ToString();
+                cus.eaddr1 = row["eaddr1"].ToString();
+                cus.eaddr2 = row["eaddr2"].ToString();
+                cus.eaddr3 = row["eaddr3"].ToString();
+
+                cus.eaddr4 = row["eaddr4"].ToString();
+                cus.status_cust = "0";
+                cus.status_exp = "0";
+                cus.status_fwd = "0";
+                cus.status_imp = "1";
+
+                String cusId = cusDB.insertCustomer(cus);
+                Address addr = new Address();
+                addr.address_id = "";
+                addr.active = "1";
+                addr.address_code = "";
+                addr.address_name = "convert";
+                addr.line_t1 = row["taddr1"].ToString();
+                addr.line_t2 = row["taddr2"].ToString();
+                addr.line_t3 = row["taddr3"].ToString();
+                addr.line_t4 = row["taddr4"].ToString();
+                addr.tele = row["tel"].ToString();
+                addr.remark = row["imremark1"].ToString();
+                addr.fax = "";
+                addr.mobile = "";
+                addr.table_id = cusId;
+                addrDB.insertAddress(addr);
+                
             }
 
             sql = "Select * From importer ";
@@ -159,6 +233,7 @@ namespace Xtrim_ERP.objdb
                 //pb1.Value++;
                 Importer imp = new Importer();
                 imp.cust_id = "";
+                imp.imp_id = "";
                 imp.imp_code = row["ImporterID"].ToString();
                 imp.imp_name_t = row["ImporterName"].ToString();
                 imp.imp_name_e = row["ImporterName"].ToString();
@@ -214,6 +289,78 @@ namespace Xtrim_ERP.objdb
                 imp.payeruser = "";
 
                 impDB.insertImporter(imp);
+
+                Customer cus = new Customer();
+                cus.cust_id = "";
+                cus.cust_code = row["ImporterID"].ToString();
+                cus.cust_name_t = row["ImporterName"].ToString();
+                cus.cust_name_e = row["ImporterName"].ToString();
+                cus.active = "1";
+
+                cus.address_t = "";
+                cus.address_e = "";
+                cus.addr = "";
+                cus.amphur_id = "";
+                cus.district_id = "";
+
+                cus.province_id = "";
+                cus.zipcode = "";
+                cus.sale_id = "";
+                cus.sale_name_t = "";
+                cus.fax = row["ImporterFaxNumber"].ToString();
+
+                cus.tele = "";
+                cus.email = "";
+                cus.tax_id = "";
+                cus.remark = row["ImporterFacName"].ToString();
+                cus.contact_name1 = "";
+
+                cus.contact_name2 = "";
+                cus.contact_name1_tel = "";
+                cus.contact_name2_tel = "";
+                cus.status_company = "";
+                cus.status_vendor = "xtrim";
+
+                cus.date_create = "";
+                cus.date_modi = "";
+                cus.date_cancel = "";
+                cus.user_create = "";
+                cus.user_modi = "";
+
+                cus.user_cancel = "";
+                cus.remark2 = "";
+                cus.po_due_period = "";
+                cus.taddr1 = row["ImporterAddress"].ToString();
+                cus.taddr2 = row["ImporterAddress1"].ToString();
+
+                cus.taddr3 = row["ImporterAddress2"].ToString();
+                cus.taddr4 = row["ImporterPostalCode"].ToString();
+                cus.eaddr1 = row["ImporterCountry/Region"].ToString();
+                cus.eaddr2 = row["ImporterPhoneNumber"].ToString();
+                cus.eaddr3 = row["ImporterExtension"].ToString();
+
+                cus.eaddr4 = "";
+                cus.status_cust = "0";
+                cus.status_exp = "0";
+                cus.status_fwd = "0";
+                cus.status_imp = "1";
+
+                String cusId = cusDB.insertCustomer(cus);
+                Address addr = new Address();
+                addr.address_id = "";
+                addr.active = "1";
+                addr.address_code = "";
+                addr.address_name = "convert";
+                addr.line_t1 = row["ImporterAddress"].ToString();
+                addr.line_t2 = row["ImporterAddress1"].ToString();
+                addr.line_t3 = row["ImporterAddress2"].ToString();
+                addr.line_t4 = row["ImporterPostalCode"].ToString();
+                addr.tele = "";
+                addr.remark = row["ImporterFacName"].ToString();
+                addr.fax = "";
+                addr.mobile = "";
+                addr.table_id = cusId;
+                addrDB.insertAddress(addr);
             }
 
             conn.CloseConnectionNoClose();
@@ -304,7 +451,8 @@ namespace Xtrim_ERP.objdb
                 cus.status_cust = "1";
                 cus.status_exp = "0";
                 cus.status_fwd = "0";
-                cus.status_imp = "0";                
+                cus.status_imp = "0";
+                cus.status_vendor = "xtrim";
 
                 String cusId = cusDB.insertCustomer(cus);
                 Address addr = new Address();
@@ -382,14 +530,14 @@ namespace Xtrim_ERP.objdb
                 cons.user_modi = "";
 
                 cons.user_cancel = "";
-                cons.remark2 = row["name_address"].ToString();
+                cons.remark2 = "";
                 cons.po_due_period = "";
                 cons.taddr1 = row["ConsigneeAddress1"].ToString();
                 cons.taddr2 = row["ConsigneeAddress2"].ToString();
 
                 cons.taddr3 = row["ConsigneeAddress3"].ToString();
                 cons.taddr4 = row["ConsigneeAddress4"].ToString();
-                cons.eaddr1 = row["country"].ToString();
+                cons.eaddr1 = "";
                 cons.eaddr2 = "";
                 cons.eaddr3 = "";
 
@@ -397,6 +545,81 @@ namespace Xtrim_ERP.objdb
                 cons.status_cons = "1";
 
                 consDB.insertConsignee(cons);
+
+                Customer cus = new Customer();
+                cus.cust_id = "";
+                cus.cust_code = row["ConsigneeID"].ToString();
+                cus.cust_name_t = row["ConsigneeName"].ToString();
+                cus.cust_name_e = row["ConsigneeName"].ToString();
+                cus.active = "1";
+
+                cus.address_t = "";
+                cus.address_e = "";
+                cus.addr = "";
+                cus.amphur_id = "";
+                cus.district_id = "";
+
+                cus.province_id = "";
+                cus.zipcode = "";
+                cus.sale_id = "";
+                cus.sale_name_t = "";
+                cus.fax = "";
+
+                cus.tele = "";
+                cus.email = "";
+                cus.tax_id = "";
+                cus.remark = row["ConsigneeAddress5"].ToString();
+                cus.contact_name1 = "";
+
+                cus.contact_name2 = "";
+                cus.contact_name1_tel = "";
+                cus.contact_name2_tel = "";
+                cus.status_company = "";
+                cus.status_vendor = "xtrim";
+
+                cus.date_create = "";
+                cus.date_modi = "";
+                cus.date_cancel = "";
+                cus.user_create = "";
+                cus.user_modi = "";
+
+                cus.user_cancel = "";
+                cus.remark2 = "";
+                cus.po_due_period = "";
+                cus.taddr1 = row["ConsigneeAddress1"].ToString();
+                cus.taddr2 = row["ConsigneeAddress2"].ToString();
+
+                cus.taddr3 = row["ConsigneeAddress3"].ToString();
+                cus.taddr4 = row["ConsigneeAddress4"].ToString();
+                cus.eaddr1 = "";
+                cus.eaddr2 = "";
+                cus.eaddr3 = "";
+
+                cus.eaddr4 = "";
+                cus.status_cust = "0";
+                cus.status_exp = "0";
+                cus.status_fwd = "0";
+                cus.status_imp = "0";
+                cus.status_cons_imp = "1";
+                cus.status_cons_exp = "0";
+
+                String cusId = cusDB.insertCustomer(cus);
+                Address addr = new Address();
+                addr.address_id = "";
+                addr.active = "1";
+                addr.address_code = "";
+                addr.address_name = "convert";
+                addr.line_t1 = row["ConsigneeAddress1"].ToString();
+                addr.line_t2 = row["ConsigneeAddress2"].ToString();
+                addr.line_t3 = row["ConsigneeAddress3"].ToString();
+                addr.line_t4 = row["ConsigneeAddress4"].ToString();
+                addr.tele = "";
+                addr.remark = row["ConsigneeAddress5"].ToString();
+                addr.remark2 = "";
+                addr.fax = "";
+                addr.mobile = "";
+                addr.table_id = cusId;
+                addrDB.insertAddress(addr);
             }
             conn.CloseConnectionNoClose();
             pb1.Hide();
@@ -472,6 +695,81 @@ namespace Xtrim_ERP.objdb
                 cons.status_cons = "2";
 
                 consDB.insertConsignee(cons);
+
+                Customer cus = new Customer();
+                cus.cust_id = "";
+                cus.cust_code = row["ConsigneeID"].ToString();
+                cus.cust_name_t = row["ConsigneeName"].ToString();
+                cus.cust_name_e = row["ConsigneeName"].ToString();
+                cus.active = "1";
+
+                cus.address_t = "";
+                cus.address_e = "";
+                cus.addr = "";
+                cus.amphur_id = "";
+                cus.district_id = "";
+
+                cus.province_id = "";
+                cus.zipcode = "";
+                cus.sale_id = "";
+                cus.sale_name_t = "";
+                cus.fax = "";
+
+                cus.tele = "";
+                cus.email = "";
+                cus.tax_id = "";
+                cus.remark = "";
+                cus.contact_name1 = "";
+
+                cus.contact_name2 = "";
+                cus.contact_name1_tel = "";
+                cus.contact_name2_tel = "";
+                cus.status_company = "";
+                cus.status_vendor = "xtrim";
+
+                cus.date_create = "";
+                cus.date_modi = "";
+                cus.date_cancel = "";
+                cus.user_create = "";
+                cus.user_modi = "";
+
+                cus.user_cancel = "";
+                cus.remark2 = "";
+                cus.po_due_period = "";
+                cus.taddr1 = row["ConsigneeAddress"].ToString();
+                cus.taddr2 = row["ConsigneeCity"].ToString();
+
+                cus.taddr3 = row["ConsigneePostalCode"].ToString();
+                cus.taddr4 = row["ConsigneeStateOrProvince"].ToString();
+                cus.eaddr1 = row["ConsigneeCountry/Region"].ToString();
+                cus.eaddr2 = "";
+                cus.eaddr3 = "";
+
+                cus.eaddr4 = "";
+                cus.status_cust = "0";
+                cus.status_exp = "0";
+                cus.status_fwd = "0";
+                cus.status_imp = "0";
+                cus.status_cons_imp = "0";
+                cus.status_cons_exp = "1";
+
+                String cusId = cusDB.insertCustomer(cus);
+                Address addr = new Address();
+                addr.address_id = "";
+                addr.active = "1";
+                addr.address_code = "";
+                addr.address_name = "convert";
+                addr.line_t1 = row["ConsigneeAddress"].ToString();
+                addr.line_t2 = row["ConsigneeCity"].ToString();
+                addr.line_t3 = row["ConsigneePostalCode"].ToString();
+                addr.line_t4 = row["ConsigneeStateOrProvince"].ToString();
+                addr.tele = "";
+                addr.remark = row["ConsigneeCountry/Region"].ToString();
+                addr.remark2 = "";
+                addr.fax = "";
+                addr.mobile = "";
+                addr.table_id = cusId;
+                addrDB.insertAddress(addr);
             }
             conn.CloseConnectionNoClose();
             pb1.Hide();
@@ -547,6 +845,81 @@ namespace Xtrim_ERP.objdb
                 cons.status_cons = "4";
 
                 consDB.insertConsignee(cons);
+
+                Customer cus = new Customer();
+                cus.cust_id = "";
+                cus.cust_code = row["ConsigneeID"].ToString();
+                cus.cust_name_t = row["ConsigneeName"].ToString();
+                cus.cust_name_e = row["ConsigneeName"].ToString();
+                cus.active = "1";
+
+                cus.address_t = "";
+                cus.address_e = "";
+                cus.addr = "";
+                cus.amphur_id = "";
+                cus.district_id = "";
+
+                cus.province_id = "";
+                cus.zipcode = "";
+                cus.sale_id = "";
+                cus.sale_name_t = "";
+                cus.fax = "";
+
+                cus.tele = "";
+                cus.email = "";
+                cus.tax_id = "";
+                cus.remark = "";
+                cus.contact_name1 = "";
+
+                cus.contact_name2 = "";
+                cus.contact_name1_tel = "";
+                cus.contact_name2_tel = "";
+                cus.status_company = "";
+                cus.status_vendor = "xtrim";
+
+                cus.date_create = "";
+                cus.date_modi = "";
+                cus.date_cancel = "";
+                cus.user_create = "";
+                cus.user_modi = "";
+
+                cus.user_cancel = "";
+                cus.remark2 = "";
+                cus.po_due_period = "";
+                cus.taddr1 = row["ConsigneeAddress"].ToString();
+                cus.taddr2 = row["ConsigneeCity"].ToString();
+
+                cus.taddr3 = row["ConsigneePostalCode"].ToString();
+                cus.taddr4 = row["ConsigneeStateOrProvince"].ToString();
+                cus.eaddr1 = row["ConsigneeCountry/Region"].ToString();
+                cus.eaddr2 = "";
+                cus.eaddr3 = "";
+
+                cus.eaddr4 = "";
+                cus.status_cust = "0";
+                cus.status_exp = "0";
+                cus.status_fwd = "0";
+                cus.status_imp = "0";
+                cus.status_cons_imp = "0";
+                cus.status_cons_exp = "1";
+
+                String cusId = cusDB.insertCustomer(cus);
+                Address addr = new Address();
+                addr.address_id = "";
+                addr.active = "1";
+                addr.address_code = "";
+                addr.address_name = "convert";
+                addr.line_t1 = row["ConsigneeAddress"].ToString();
+                addr.line_t2 = row["ConsigneeCity"].ToString();
+                addr.line_t3 = row["ConsigneePostalCode"].ToString();
+                addr.line_t4 = row["ConsigneeStateOrProvince"].ToString();
+                addr.tele = "";
+                addr.remark = row["ConsigneeCountry/Region"].ToString();
+                addr.remark2 = "";
+                addr.fax = "";
+                addr.mobile = "";
+                addr.table_id = cusId;
+                addrDB.insertAddress(addr);
             }
             conn.CloseConnectionNoClose();
             pb1.Hide();

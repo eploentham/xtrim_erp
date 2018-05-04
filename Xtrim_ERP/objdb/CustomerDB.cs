@@ -79,6 +79,8 @@ namespace Xtrim_ERP.objdb
             cus.status_exp = "status_exp";
             cus.status_fwd = "status_fwd";
             cus.status_imp = "status_imp";
+            cus.status_cons_imp = "status_cons_imp";
+            cus.status_cons_exp = "status_cons_exp";
 
             cus.table = "b_customer";
             cus.pkField = "cust_id";
@@ -216,6 +218,8 @@ namespace Xtrim_ERP.objdb
             p.status_exp = p.status_exp == null ? "" : p.status_exp;
             p.status_fwd = p.status_fwd == null ? "" : p.status_fwd;
             p.status_imp = p.status_imp == null ? "" : p.status_imp;
+            p.status_cons_imp = p.status_cons_imp == null ? "" : p.status_cons_imp;
+            p.status_cons_exp = p.status_cons_exp == null ? "" : p.status_cons_exp;
             p.sort1 = p.sort1 == null ? "" : p.sort1;
         }
         public String insert(Customer p)
@@ -241,7 +245,8 @@ namespace Xtrim_ERP.objdb
                 cus.taddr2 + "," + cus.taddr3 + ", " + cus.taddr4 + ", " +
                 cus.eaddr1 + "," + cus.eaddr2 + ", " + cus.eaddr3 + ", " +
                 cus.eaddr4  + ", " + cus.status_cust + ", " + cus.status_exp + ", " +
-                cus.status_fwd + ", " + cus.status_imp + ", " + cus.sort1 + " " +
+                cus.status_fwd + ", " + cus.status_imp + ", " + cus.sort1 + ", " +
+                cus.status_cons_imp + ", " + cus.status_cons_exp + " " +
                 ") " +
                 "Values ('" + p.cust_code.Replace("'", "''") + "','" + p.cust_name_t.Replace("'", "''") + "','" + p.cust_name_e.Replace("'", "''") + "'," +
                 "'" + p.active + "','" + p.address_t.Replace("'", "''") + "','" + p.address_e.Replace("'", "''") + "'," +
@@ -253,11 +258,12 @@ namespace Xtrim_ERP.objdb
                 "'" + p.contact_name2_tel + "','" + p.status_company + "','" + p.status_vendor + "', " +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "', " +
-                "'" + p.remark2.Replace("'", "''") + "','" + p.po_due_period + "','" + p.taddr1 + "', " +
+                "'" + p.remark2.Replace("'", "''") + "','" + p.po_due_period + "','" + p.taddr1.Replace("'", "''") + "', " +
                 "'" + p.taddr2.Replace("'", "''") + "','" + p.taddr3.Replace("'", "''") + "','" + p.taddr4.Replace("'", "''") + "', " +
                 "'" + p.eaddr1.Replace("'", "''") + "','" + p.eaddr2.Replace("'", "''") + "','" + p.eaddr3.Replace("'", "''") + "', " +
                 "'" + p.eaddr4.Replace("'", "''") + "','" + p.status_cust.Replace("'", "''") + "','" + p.status_exp.Replace("'", "''") + "', " +
-                "'" + p.status_fwd.Replace("'", "''") + "','" + p.status_imp.Replace("'", "''") + "','"+ p.sort1.Replace("'", "''") + "' " +
+                "'" + p.status_fwd.Replace("'", "''") + "','" + p.status_imp.Replace("'", "''") + "','"+ p.sort1.Replace("'", "''") + "', " +
+                "'" + p.status_cons_imp.Replace("'", "''") + "','" + p.status_cons_exp.Replace("'", "''") + "'"+
                ")";
             try
             {
@@ -288,26 +294,26 @@ namespace Xtrim_ERP.objdb
                 "," + cus.province_id + " = '" + p.province_id.Replace("'", "''") + "'" +
                 "," + cus.zipcode + " = '" + p.zipcode + "'" +
                 "," + cus.sale_id + " = '" + p.sale_id + "'" +
-                "," + cus.sale_name_t + " = '" + p.sale_name_t + "'" +
+                "," + cus.sale_name_t + " = '" + p.sale_name_t.Replace("'", "''") + "'" +
                 "," + cus.fax + " = '" + p.fax + "'" +
                 "," + cus.tele + " = '" + p.tele + "'" +
                 "," + cus.email + " = '" + p.email + "'" +
                 "," + cus.tax_id + " = '" + p.tax_id.Replace("'", "''") + "'" +
                 "," + cus.date_modi + " = now()" +
-                "," + cus.remark + " = '" + p.remark + "'" +
-                "," + cus.contact_name1 + " = '" + p.contact_name1 + "' " +
-                "," + cus.contact_name2 + " = '" + p.contact_name2 + "' " +
+                "," + cus.remark + " = '" + p.remark.Replace("'", "''") + "'" +
+                "," + cus.contact_name1 + " = '" + p.contact_name1.Replace("'", "''") + "' " +
+                "," + cus.contact_name2 + " = '" + p.contact_name2.Replace("'", "''") + "' " +
                 "," + cus.contact_name1_tel + " = '" + p.contact_name1_tel + "' " +
                 "," + cus.contact_name2_tel + " = '" + p.contact_name2_tel + "' " +
                 "," + cus.status_company + " = '" + p.status_company + "' " +
                 "," + cus.status_vendor + " = '" + p.status_vendor + "' " +
                 "," + cus.user_modi + " = '" + p.user_modi + "' " +
-                "," + cus.remark2 + " = '" + p.remark2 + "' " +
+                "," + cus.remark2 + " = '" + p.remark2.Replace("'", "''") + "' " +
                 "," + cus.po_due_period + " = '" + p.po_due_period + "' " +
-                "," + cus.taddr1 + " = '" + p.taddr1 + "' " +
-                "," + cus.taddr2 + " = '" + p.taddr2 + "' " +
-                "," + cus.taddr3 + " = '" + p.taddr3 + "' " +
-                "," + cus.taddr4 + " = '" + p.taddr4 + "' " +
+                "," + cus.taddr1 + " = '" + p.taddr1.Replace("'", "''") + "' " +
+                "," + cus.taddr2 + " = '" + p.taddr2.Replace("'", "''") + "' " +
+                "," + cus.taddr3 + " = '" + p.taddr3.Replace("'", "''") + "' " +
+                "," + cus.taddr4 + " = '" + p.taddr4.Replace("'", "''") + "' " +
                 "," + cus.eaddr1 + " = '" + p.eaddr1 + "' " +
                 "," + cus.eaddr2 + " = '" + p.eaddr2 + "' " +
                 "," + cus.eaddr3 + " = '" + p.eaddr3 + "' " +
@@ -317,6 +323,8 @@ namespace Xtrim_ERP.objdb
                 "," + cus.status_fwd + " = '" + p.status_fwd + "' " +
                 "," + cus.status_imp + " = '" + p.status_imp + "' " +
                 "," + cus.sort1 + " = '" + p.sort1 + "' " +
+                "," + cus.status_cons_exp + " = '" + p.status_cons_exp + "' " +
+                "," + cus.status_cons_imp + " = '" + p.status_cons_imp + "' " +
                 //"," + cus.user_modi + " = '" + p.user_modi + "' " +
                 "Where " + cus.pkField + "='" + p.cust_id + "'";
 
@@ -379,7 +387,7 @@ namespace Xtrim_ERP.objdb
         public DataTable selectAll1()
         {
             DataTable dt = new DataTable();
-            String sql = "select cop.cust_id, cop.cust_code, cop.cust_name_t, cop.cust_name_e, cop.tele, cop.email, cop.remark " +
+            String sql = "select cop.cust_id, cop.cust_code, cop.cust_name_t, cop.taddr1, cop.tele, cop.email, cop.remark, cop.remark2, cop.contact_name1, cop.contact_name2 " +
                 "From " + cus.table + " cop " +
                 " " +
                 "Where cop." + cus.active + " ='1' ";
@@ -479,6 +487,9 @@ namespace Xtrim_ERP.objdb
                 cus1.status_fwd = dt.Rows[0][cus.status_fwd].ToString();
                 cus1.status_imp = dt.Rows[0][cus.status_imp].ToString();
                 cus1.sort1 = dt.Rows[0][cus.sort1].ToString();
+
+                cus1.status_cons_exp = dt.Rows[0][cus.status_cons_exp].ToString();
+                cus1.status_cons_imp = dt.Rows[0][cus.status_cons_imp].ToString();
             }
 
             return cus1;

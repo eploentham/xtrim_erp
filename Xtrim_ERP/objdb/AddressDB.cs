@@ -26,6 +26,7 @@ namespace Xtrim_ERP.objdb
         {
             addr = new Address();
             addr.address_id = "address_id";
+            addr.address_name = "address_name";
             addr.address_code = "address_code";
             addr.line_t1 = "line_t1";
             addr.line_t2 = "line_t2";
@@ -54,7 +55,7 @@ namespace Xtrim_ERP.objdb
             addr.user_modi = "user_modi";
             addr.user_cancel = "user_cancel";
             addr.active = "active";
-            addr.address_name = "address_name";
+            
             addr.contact_id = "contact_id";
             addr.contact_name1 = "contact_name1";
             addr.contact_name2 = "contact_name2";
@@ -65,6 +66,7 @@ namespace Xtrim_ERP.objdb
             addr.web_site2 = "web_site2";
             addr.google_map = "google_map";
             addr.status_defalut_customer = "status_default_customer";
+            addr.remark2 = "remark2";
 
             addr.table = "b_address";
             addr.pkField = "address_id";
@@ -202,6 +204,7 @@ namespace Xtrim_ERP.objdb
             p.web_site1 = p.web_site1 == null ? "" : p.web_site1;
             p.web_site2 = p.web_site2 == null ? "" : p.web_site2;
             p.status_defalut_customer = p.status_defalut_customer == null ? "" : p.status_defalut_customer;
+            p.remark2 = p.remark2 == null ? "" : p.remark2;
 
             p.amphur_id = int.TryParse(p.amphur_id, out chk) ? chk.ToString() : "0";
             p.district_id = int.TryParse(p.district_id, out chk) ? chk.ToString() : "0";
@@ -231,7 +234,7 @@ namespace Xtrim_ERP.objdb
                 addr.active + ", " + addr.address_name + ", " + addr.contact_id + ", " +
                 addr.contact_name1 + ", " + addr.contact_name2 + ", " + addr.contact_name_tel1 + ", " +
                 addr.contact_name_tel2 + "," + addr.web_site1 + "," + addr.web_site2 + "," +
-                addr.google_map + "," + addr.status_defalut_customer + " " + 
+                addr.google_map + "," + addr.status_defalut_customer + ", " + addr.remark2 + " " +
                 ") " +
                 "Values ('" + p.address_code + "','" + p.line_t1.Replace("'", "''") + "','" + p.line_t2.Replace("'", "''") + "'," +
                 "'" + p.line_t3 + "','" + p.line_t4.Replace("'", "''") + "','" + p.line_e1.Replace("'", "''") + "'," +
@@ -245,7 +248,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.active + "','" + p.address_name.Replace("'", "''") + "', '" + p.contact_id.Replace("'", "''") + "', " +
                 "'" + p.contact_name1 + "','" + p.contact_name2.Replace("'", "''") + "', '" + p.contact_name_tel1.Replace("'", "''") + "', " +
                 "'" + p.contact_name_tel2 + "','" + p.web_site1.Replace("'", "''") + "','" + p.web_site2.Replace("'", "''") + "'," +
-                "'" + p.google_map + "','" + p.status_defalut_customer + "' " +
+                "'" + p.google_map + "','" + p.status_defalut_customer + "','" + p.remark2 + "' " +
                 ")";
             try
             {
@@ -298,6 +301,7 @@ namespace Xtrim_ERP.objdb
                 "," + addr.web_site2 + " = '" + p.web_site2.Replace("'", "''") + "' " +
                 "," + addr.google_map + " = '" + p.google_map.Replace("'", "''") + "' " +
                 "," + addr.status_defalut_customer + " = '" + p.status_defalut_customer.Replace("'", "''") + "' " +
+                "," + addr.remark2 + " = '" + p.remark2.Replace("'", "''") + "' " +
 
                 "Where " + addr.pkField + "='" + p.address_id + "'"
                 ;
@@ -377,6 +381,16 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
+        public DataTable selectByTableId1(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select addr.address_id, addr.address_name, addr.line_t1, addr.line_t2, addr.line_t3, addr.line_t4, addr.email, addr.email2, addr.tele, addr.mobile, addr.remark, addr.remark2 " +
+                "From " + addr.table + " addr " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where addr." + addr.table_id + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
         public Address selectByPk1(String copId)
         {
             Address cop1 = new Address();
@@ -443,6 +457,7 @@ namespace Xtrim_ERP.objdb
                 addr1.web_site2 = dt.Rows[0][addr.web_site2].ToString();
                 addr1.google_map = dt.Rows[0][addr.google_map].ToString();
                 addr1.status_defalut_customer = dt.Rows[0][addr.status_defalut_customer].ToString();
+                addr1.remark2 = dt.Rows[0][addr.remark2].ToString();
             }
 
             return addr1;

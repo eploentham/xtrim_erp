@@ -41,5 +41,6 @@ namespace Xtrim_ERP.object1
         public String web_site2 { get; set; }
         public String google_map { get; set; }
         public String status_defalut_customer { get; set; }
+        public String remark2 { get; set; }
     }
 }
