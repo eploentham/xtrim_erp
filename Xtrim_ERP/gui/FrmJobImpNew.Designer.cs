@@ -32,12 +32,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmJobImpNew));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtJblId = new C1.Win.C1Input.C1TextBox();
+            this.btnImpSF4 = new C1.Win.C1Input.C1Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lbCus = new System.Windows.Forms.Label();
+            this.btnCusSF2 = new C1.Win.C1Input.C1Button();
+            this.btnImpSF2 = new C1.Win.C1Input.C1Button();
+            this.btnCusSF4 = new C1.Win.C1Input.C1Button();
             this.lbEnd = new C1.Win.C1Input.C1Label();
             this.lbStart = new C1.Win.C1Input.C1Label();
             this.txtImpNameT = new C1.Win.C1Input.C1TextBox();
             this.txtCusNameT = new C1.Win.C1Input.C1TextBox();
+            this.c1Button1 = new C1.Win.C1Input.C1Button();
+            this.btnOk = new C1.Win.C1Input.C1Button();
+            this.btnEdit = new C1.Win.C1Input.C1Button();
             this.lbRef5 = new C1.Win.C1Input.C1Label();
             this.txtRef5 = new C1.Win.C1Input.C1TextBox();
             this.lbRef4 = new C1.Win.C1Input.C1Label();
@@ -63,11 +70,17 @@
             this.cboUgw = new C1.Win.C1Input.C1ComboBox();
             this.cboUtp = new C1.Win.C1Input.C1ComboBox();
             this.cboChkExam = new C1.Win.C1Input.C1ComboBox();
+            this.btnTmnAdd = new C1.Win.C1Input.C1Button();
             this.txtTmnNameT = new C1.Win.C1Input.C1TextBox();
+            this.btnPtiAdd = new C1.Win.C1Input.C1Button();
             this.txtPtiNameT = new C1.Win.C1Input.C1TextBox();
+            this.btnPolAdd = new C1.Win.C1Input.C1Button();
             this.txtPolNameT = new C1.Win.C1Input.C1TextBox();
+            this.btnEttAdd = new C1.Win.C1Input.C1Button();
             this.txtEttNameT = new C1.Win.C1Input.C1TextBox();
+            this.btnPvlAdd = new C1.Win.C1Input.C1Button();
             this.txtPvlNameT = new C1.Win.C1Input.C1TextBox();
+            this.btnFwdAdd = new C1.Win.C1Input.C1Button();
             this.txtFwdNameT = new C1.Win.C1Input.C1TextBox();
             this.cboTaxMethod = new C1.Win.C1Input.C1ComboBox();
             this.c1Label43 = new C1.Win.C1Input.C1Label();
@@ -201,19 +214,25 @@
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.grdInv = new FarPoint.Win.Spread.FpSpread();
+            this.grdInv_Sheet1 = new FarPoint.Win.Spread.SheetView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtInvId = new C1.Win.C1Input.C1TextBox();
+            this.c1Button6 = new C1.Win.C1Input.C1Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtInvRemark = new C1.Win.C1Input.C1TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.c1Button5 = new C1.Win.C1Input.C1Button();
             this.txtInvCurrNameT = new C1.Win.C1Input.C1TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.c1Button4 = new C1.Win.C1Input.C1Button();
             this.InvTPayNameT = new C1.Win.C1Input.C1TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtInvAmt = new C1.Win.C1Input.C1NumericEdit();
             this.label5 = new System.Windows.Forms.Label();
+            this.c1Button3 = new C1.Win.C1Input.C1Button();
             this.txtJobIncoNameT = new C1.Win.C1Input.C1TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.c1Button2 = new C1.Win.C1Input.C1Button();
             this.txtInvSuppNameT = new C1.Win.C1Input.C1TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtInvDate1 = new C1.Win.C1Input.C1DateEdit();
@@ -245,8 +264,10 @@
             this.label33 = new System.Windows.Forms.Label();
             this.txtTaxDate = new C1.Win.C1Input.C1DateEdit();
             this.label32 = new System.Windows.Forms.Label();
+            this.c1Button8 = new C1.Win.C1Input.C1Button();
             this.txtMtpNameT = new C1.Win.C1Input.C1TextBox();
             this.label31 = new System.Windows.Forms.Label();
+            this.c1Button7 = new C1.Win.C1Input.C1Button();
             this.txtExpnNameT = new C1.Win.C1Input.C1TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.c1DateEdit1 = new C1.Win.C1Input.C1DateEdit();
@@ -255,37 +276,23 @@
             this.label29 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.grdExpn = new FarPoint.Win.Spread.FpSpread();
+            this.grdExpn_Sheet1 = new FarPoint.Win.Spread.SheetView();
             this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
             this.sttCusNameT = new C1.Win.C1SuperTooltip.C1SuperTooltip(this.components);
             this.sepCusNameT = new C1.Win.C1SuperTooltip.C1SuperErrorProvider(this.components);
-            this.btnTmnAdd = new C1.Win.C1Input.C1Button();
-            this.btnPtiAdd = new C1.Win.C1Input.C1Button();
-            this.btnPolAdd = new C1.Win.C1Input.C1Button();
-            this.btnEttAdd = new C1.Win.C1Input.C1Button();
-            this.btnPvlAdd = new C1.Win.C1Input.C1Button();
-            this.btnFwdAdd = new C1.Win.C1Input.C1Button();
-            this.grdInv_Sheet1 = new FarPoint.Win.Spread.SheetView();
-            this.c1Button6 = new C1.Win.C1Input.C1Button();
-            this.c1Button5 = new C1.Win.C1Input.C1Button();
-            this.c1Button4 = new C1.Win.C1Input.C1Button();
-            this.c1Button3 = new C1.Win.C1Input.C1Button();
-            this.c1Button2 = new C1.Win.C1Input.C1Button();
-            this.c1Button8 = new C1.Win.C1Input.C1Button();
-            this.c1Button7 = new C1.Win.C1Input.C1Button();
-            this.grdExpn_Sheet1 = new FarPoint.Win.Spread.SheetView();
-            this.btnImpSF4 = new C1.Win.C1Input.C1Button();
-            this.btnCusSF2 = new C1.Win.C1Input.C1Button();
-            this.btnImpSF2 = new C1.Win.C1Input.C1Button();
-            this.btnCusSF4 = new C1.Win.C1Input.C1Button();
-            this.c1Button1 = new C1.Win.C1Input.C1Button();
-            this.btnOk = new C1.Win.C1Input.C1Button();
-            this.btnEdit = new C1.Win.C1Input.C1Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtJblId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImpSF4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImpSF2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbEnd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtImpNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbRef5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRef5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbRef4)).BeginInit();
@@ -311,11 +318,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboUgw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUtp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboChkExam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnTmnAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTmnNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPtiAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPtiNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPolAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPolNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEttAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPvlAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPvlNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFwdAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFwdNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTaxMethod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label43)).BeginInit();
@@ -422,13 +435,19 @@
             this.panel3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdInv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdInv_Sheet1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvRemark)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvCurrNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InvTPayNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvAmt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobIncoNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvSuppNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvDate1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvNo)).BeginInit();
@@ -444,37 +463,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtExpnAmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtExpnTaxAmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTaxDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMtpNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtExpnNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJeiId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRowNo)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdExpn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdExpn_Sheet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sepCusNameT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnTmnAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPtiAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPolAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEttAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPvlAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFwdAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdInv_Sheet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdExpn_Sheet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnImpSF4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnImpSF2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -516,7 +516,7 @@
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 15, 3, 3);
-            this.groupBox1.Size = new System.Drawing.Size(1139, 231);
+            this.groupBox1.Size = new System.Drawing.Size(1139, 336);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -537,6 +537,19 @@
             this.c1ThemeController1.SetTheme(this.txtJblId, "(default)");
             this.txtJblId.Visible = false;
             this.txtJblId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnImpSF4
+            // 
+            this.btnImpSF4.Image = global::Xtrim_ERP.Properties.Resources.Process_accept16;
+            this.btnImpSF4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImpSF4.Location = new System.Drawing.Point(769, 116);
+            this.btnImpSF4.Name = "btnImpSF4";
+            this.btnImpSF4.Size = new System.Drawing.Size(18, 18);
+            this.btnImpSF4.TabIndex = 109;
+            this.btnImpSF4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnImpSF4, "(default)");
+            this.btnImpSF4.UseVisualStyleBackColor = true;
+            this.btnImpSF4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label1
             // 
@@ -563,6 +576,45 @@
             this.lbCus.TabIndex = 107;
             this.lbCus.Text = "*Customer :";
             this.c1ThemeController1.SetTheme(this.lbCus, "(default)");
+            // 
+            // btnCusSF2
+            // 
+            this.btnCusSF2.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnCusSF2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCusSF2.Location = new System.Drawing.Point(747, 27);
+            this.btnCusSF2.Name = "btnCusSF2";
+            this.btnCusSF2.Size = new System.Drawing.Size(18, 18);
+            this.btnCusSF2.TabIndex = 105;
+            this.btnCusSF2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnCusSF2, "(default)");
+            this.btnCusSF2.UseVisualStyleBackColor = true;
+            this.btnCusSF2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnImpSF2
+            // 
+            this.btnImpSF2.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnImpSF2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImpSF2.Location = new System.Drawing.Point(747, 116);
+            this.btnImpSF2.Name = "btnImpSF2";
+            this.btnImpSF2.Size = new System.Drawing.Size(18, 18);
+            this.btnImpSF2.TabIndex = 104;
+            this.btnImpSF2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnImpSF2, "(default)");
+            this.btnImpSF2.UseVisualStyleBackColor = true;
+            this.btnImpSF2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnCusSF4
+            // 
+            this.btnCusSF4.Image = global::Xtrim_ERP.Properties.Resources.Process_accept16;
+            this.btnCusSF4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCusSF4.Location = new System.Drawing.Point(769, 27);
+            this.btnCusSF4.Name = "btnCusSF4";
+            this.btnCusSF4.Size = new System.Drawing.Size(18, 18);
+            this.btnCusSF4.TabIndex = 103;
+            this.btnCusSF4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnCusSF4, "(default)");
+            this.btnCusSF4.UseVisualStyleBackColor = true;
+            this.btnCusSF4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // lbEnd
             // 
@@ -622,6 +674,48 @@
             this.c1ThemeController1.SetTheme(this.txtCusNameT, "(default)");
             this.sttCusNameT.SetToolTip(this.txtCusNameT, resources.GetString("txtCusNameT.ToolTip"));
             this.txtCusNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button1
+            // 
+            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.printer_blue24;
+            this.c1Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.c1Button1.Location = new System.Drawing.Point(482, 182);
+            this.c1Button1.Name = "c1Button1";
+            this.c1Button1.Size = new System.Drawing.Size(83, 39);
+            this.c1Button1.TabIndex = 96;
+            this.c1Button1.Text = "Print";
+            this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.c1Button1, "(default)");
+            this.c1Button1.UseVisualStyleBackColor = true;
+            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnOk
+            // 
+            this.btnOk.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
+            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOk.Location = new System.Drawing.Point(956, 182);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(83, 39);
+            this.btnOk.TabIndex = 95;
+            this.btnOk.Text = "บันทึกช้อมูล";
+            this.btnOk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.c1ThemeController1.SetTheme(this.btnOk, "(default)");
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Image = global::Xtrim_ERP.Properties.Resources.lock24;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(589, 182);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(83, 39);
+            this.btnEdit.TabIndex = 94;
+            this.btnEdit.Text = "แก้ไขช้อมูล";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnEdit, "(default)");
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // lbRef5
             // 
@@ -898,10 +992,10 @@
             this.tC1.Controls.Add(this.tabPage6);
             this.tC1.Controls.Add(this.tabPage5);
             this.tC1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tC1.Location = new System.Drawing.Point(0, 231);
+            this.tC1.Location = new System.Drawing.Point(0, 336);
             this.tC1.Name = "tC1";
             this.tC1.SelectedIndex = 0;
-            this.tC1.Size = new System.Drawing.Size(1139, 511);
+            this.tC1.Size = new System.Drawing.Size(1139, 406);
             this.tC1.TabIndex = 1;
             // 
             // tabPage1
@@ -986,7 +1080,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1131, 485);
+            this.tabPage1.Size = new System.Drawing.Size(1131, 380);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "IMPORT JOB DETAIL";
             this.c1ThemeController1.SetTheme(this.tabPage1, "(default)");
@@ -1123,6 +1217,19 @@
             this.c1ThemeController1.SetTheme(this.cboChkExam, "(default)");
             this.cboChkExam.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
+            // btnTmnAdd
+            // 
+            this.btnTmnAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnTmnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTmnAdd.Location = new System.Drawing.Point(771, 113);
+            this.btnTmnAdd.Name = "btnTmnAdd";
+            this.btnTmnAdd.Size = new System.Drawing.Size(18, 18);
+            this.btnTmnAdd.TabIndex = 162;
+            this.btnTmnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnTmnAdd, "(default)");
+            this.btnTmnAdd.UseVisualStyleBackColor = true;
+            this.btnTmnAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // txtTmnNameT
             // 
             this.txtTmnNameT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
@@ -1136,6 +1243,19 @@
             this.txtTmnNameT.Tag = null;
             this.c1ThemeController1.SetTheme(this.txtTmnNameT, "(default)");
             this.txtTmnNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnPtiAdd
+            // 
+            this.btnPtiAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnPtiAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPtiAdd.Location = new System.Drawing.Point(771, 74);
+            this.btnPtiAdd.Name = "btnPtiAdd";
+            this.btnPtiAdd.Size = new System.Drawing.Size(18, 18);
+            this.btnPtiAdd.TabIndex = 159;
+            this.btnPtiAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnPtiAdd, "(default)");
+            this.btnPtiAdd.UseVisualStyleBackColor = true;
+            this.btnPtiAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtPtiNameT
             // 
@@ -1151,6 +1271,19 @@
             this.c1ThemeController1.SetTheme(this.txtPtiNameT, "(default)");
             this.txtPtiNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
+            // btnPolAdd
+            // 
+            this.btnPolAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnPolAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPolAdd.Location = new System.Drawing.Point(349, 309);
+            this.btnPolAdd.Name = "btnPolAdd";
+            this.btnPolAdd.Size = new System.Drawing.Size(18, 18);
+            this.btnPolAdd.TabIndex = 156;
+            this.btnPolAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnPolAdd, "(default)");
+            this.btnPolAdd.UseVisualStyleBackColor = true;
+            this.btnPolAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // txtPolNameT
             // 
             this.txtPolNameT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
@@ -1164,6 +1297,19 @@
             this.txtPolNameT.Tag = null;
             this.c1ThemeController1.SetTheme(this.txtPolNameT, "(default)");
             this.txtPolNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnEttAdd
+            // 
+            this.btnEttAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnEttAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEttAdd.Location = new System.Drawing.Point(349, 14);
+            this.btnEttAdd.Name = "btnEttAdd";
+            this.btnEttAdd.Size = new System.Drawing.Size(18, 18);
+            this.btnEttAdd.TabIndex = 153;
+            this.btnEttAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnEttAdd, "(default)");
+            this.btnEttAdd.UseVisualStyleBackColor = true;
+            this.btnEttAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtEttNameT
             // 
@@ -1179,6 +1325,19 @@
             this.c1ThemeController1.SetTheme(this.txtEttNameT, "(default)");
             this.txtEttNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
+            // btnPvlAdd
+            // 
+            this.btnPvlAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnPvlAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPvlAdd.Location = new System.Drawing.Point(349, 44);
+            this.btnPvlAdd.Name = "btnPvlAdd";
+            this.btnPvlAdd.Size = new System.Drawing.Size(18, 18);
+            this.btnPvlAdd.TabIndex = 150;
+            this.btnPvlAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnPvlAdd, "(default)");
+            this.btnPvlAdd.UseVisualStyleBackColor = true;
+            this.btnPvlAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // txtPvlNameT
             // 
             this.txtPvlNameT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
@@ -1192,6 +1351,19 @@
             this.txtPvlNameT.Tag = null;
             this.c1ThemeController1.SetTheme(this.txtPvlNameT, "(default)");
             this.txtPvlNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnFwdAdd
+            // 
+            this.btnFwdAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnFwdAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFwdAdd.Location = new System.Drawing.Point(349, 74);
+            this.btnFwdAdd.Name = "btnFwdAdd";
+            this.btnFwdAdd.Size = new System.Drawing.Size(18, 18);
+            this.btnFwdAdd.TabIndex = 105;
+            this.btnFwdAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnFwdAdd, "(default)");
+            this.btnFwdAdd.UseVisualStyleBackColor = true;
+            this.btnFwdAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtFwdNameT
             // 
@@ -2110,7 +2282,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1131, 485);
+            this.tabPage2.Size = new System.Drawing.Size(1131, 380);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "INSURANCE";
             this.c1ThemeController1.SetTheme(this.tabPage2, "(default)");
@@ -2557,7 +2729,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1131, 485);
+            this.tabPage3.Size = new System.Drawing.Size(1131, 380);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "FORWARDER";
             this.c1ThemeController1.SetTheme(this.tabPage3, "(default)");
@@ -2572,7 +2744,7 @@
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1125, 479);
+            this.panel2.Size = new System.Drawing.Size(1125, 374);
             this.panel2.TabIndex = 0;
             this.c1ThemeController1.SetTheme(this.panel2, "(default)");
             // 
@@ -2584,7 +2756,7 @@
             this.panel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.panel5.Location = new System.Drawing.Point(564, 50);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(561, 429);
+            this.panel5.Size = new System.Drawing.Size(561, 324);
             this.panel5.TabIndex = 3;
             this.c1ThemeController1.SetTheme(this.panel5, "(default)");
             // 
@@ -2613,7 +2785,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(561, 429);
+            this.groupBox3.Size = new System.Drawing.Size(561, 324);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "AIR PORT OFFICE";
@@ -2879,7 +3051,7 @@
             this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.panel4.Location = new System.Drawing.Point(0, 50);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(558, 429);
+            this.panel4.Size = new System.Drawing.Size(558, 324);
             this.panel4.TabIndex = 0;
             this.c1ThemeController1.SetTheme(this.panel4, "(default)");
             // 
@@ -2908,7 +3080,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(558, 429);
+            this.groupBox2.Size = new System.Drawing.Size(558, 324);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "IN TOWN OFFICE";
@@ -3200,7 +3372,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1131, 485);
+            this.tabPage4.Size = new System.Drawing.Size(1131, 380);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Invoice";
             this.c1ThemeController1.SetTheme(this.tabPage4, "(default)");
@@ -3209,12 +3381,17 @@
             // 
             this.grdInv.AccessibleDescription = "";
             this.grdInv.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grdInv.Location = new System.Drawing.Point(3, 288);
+            this.grdInv.Location = new System.Drawing.Point(3, 183);
             this.grdInv.Name = "grdInv";
             this.grdInv.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
             this.grdInv_Sheet1});
             this.grdInv.Size = new System.Drawing.Size(1125, 194);
             this.grdInv.TabIndex = 1;
+            // 
+            // grdInv_Sheet1
+            // 
+            this.grdInv_Sheet1.Reset();
+            this.grdInv_Sheet1.SheetName = "Sheet1";
             // 
             // panel1
             // 
@@ -3245,7 +3422,7 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1125, 479);
+            this.panel1.Size = new System.Drawing.Size(1125, 374);
             this.panel1.TabIndex = 0;
             this.c1ThemeController1.SetTheme(this.panel1, "(default)");
             // 
@@ -3263,6 +3440,20 @@
             this.c1ThemeController1.SetTheme(this.txtInvId, "(default)");
             this.txtInvId.Visible = false;
             this.txtInvId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button6
+            // 
+            this.c1Button6.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
+            this.c1Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1Button6.Location = new System.Drawing.Point(475, 159);
+            this.c1Button6.Name = "c1Button6";
+            this.c1Button6.Size = new System.Drawing.Size(105, 39);
+            this.c1Button6.TabIndex = 128;
+            this.c1Button6.Text = "บันทึกinvoice";
+            this.c1Button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.c1ThemeController1.SetTheme(this.c1Button6, "(default)");
+            this.c1Button6.UseVisualStyleBackColor = true;
+            this.c1Button6.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label9
             // 
@@ -3304,6 +3495,19 @@
             this.label8.Text = "* Currency :";
             this.c1ThemeController1.SetTheme(this.label8, "(default)");
             // 
+            // c1Button5
+            // 
+            this.c1Button5.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.c1Button5.Location = new System.Drawing.Point(401, 184);
+            this.c1Button5.Name = "c1Button5";
+            this.c1Button5.Size = new System.Drawing.Size(18, 18);
+            this.c1Button5.TabIndex = 124;
+            this.c1Button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.c1Button5, "(default)");
+            this.c1Button5.UseVisualStyleBackColor = true;
+            this.c1Button5.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // txtInvCurrNameT
             // 
             this.txtInvCurrNameT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
@@ -3330,6 +3534,19 @@
             this.label7.TabIndex = 122;
             this.label7.Text = "* Term Payment :";
             this.c1ThemeController1.SetTheme(this.label7, "(default)");
+            // 
+            // c1Button4
+            // 
+            this.c1Button4.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.c1Button4.Location = new System.Drawing.Point(401, 158);
+            this.c1Button4.Name = "c1Button4";
+            this.c1Button4.Size = new System.Drawing.Size(18, 18);
+            this.c1Button4.TabIndex = 121;
+            this.c1Button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.c1Button4, "(default)");
+            this.c1Button4.UseVisualStyleBackColor = true;
+            this.c1Button4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // InvTPayNameT
             // 
@@ -3390,6 +3607,19 @@
             this.label5.Text = "* Inco Terms :";
             this.c1ThemeController1.SetTheme(this.label5, "(default)");
             // 
+            // c1Button3
+            // 
+            this.c1Button3.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.c1Button3.Location = new System.Drawing.Point(401, 90);
+            this.c1Button3.Name = "c1Button3";
+            this.c1Button3.Size = new System.Drawing.Size(18, 18);
+            this.c1Button3.TabIndex = 116;
+            this.c1Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.c1Button3, "(default)");
+            this.c1Button3.UseVisualStyleBackColor = true;
+            this.c1Button3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // txtJobIncoNameT
             // 
             this.txtJobIncoNameT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
@@ -3416,6 +3646,19 @@
             this.label4.TabIndex = 114;
             this.label4.Text = "* Supplier :";
             this.c1ThemeController1.SetTheme(this.label4, "(default)");
+            // 
+            // c1Button2
+            // 
+            this.c1Button2.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.c1Button2.Location = new System.Drawing.Point(401, 64);
+            this.c1Button2.Name = "c1Button2";
+            this.c1Button2.Size = new System.Drawing.Size(18, 18);
+            this.c1Button2.TabIndex = 113;
+            this.c1Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.c1Button2, "(default)");
+            this.c1Button2.UseVisualStyleBackColor = true;
+            this.c1Button2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtInvSuppNameT
             // 
@@ -3512,7 +3755,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1131, 485);
+            this.tabPage6.Size = new System.Drawing.Size(1131, 380);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "ใบส่งของ";
             this.c1ThemeController1.SetTheme(this.tabPage6, "(default)");
@@ -3524,7 +3767,7 @@
             this.panel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.panel10.Location = new System.Drawing.Point(3, 3);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1125, 479);
+            this.panel10.Size = new System.Drawing.Size(1125, 374);
             this.panel10.TabIndex = 2;
             this.c1ThemeController1.SetTheme(this.panel10, "(default)");
             // 
@@ -3537,7 +3780,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1131, 485);
+            this.tabPage5.Size = new System.Drawing.Size(1131, 380);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "ค่าใช้จ่าย";
             this.c1ThemeController1.SetTheme(this.tabPage5, "(default)");
@@ -3550,7 +3793,7 @@
             this.panel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.panel7.Location = new System.Drawing.Point(514, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(438, 479);
+            this.panel7.Size = new System.Drawing.Size(438, 374);
             this.panel7.TabIndex = 0;
             this.c1ThemeController1.SetTheme(this.panel7, "(default)");
             // 
@@ -3588,7 +3831,7 @@
             this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(438, 479);
+            this.groupBox4.Size = new System.Drawing.Size(438, 374);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "groupBox4";
@@ -3926,6 +4169,19 @@
             this.label32.Text = "*วิธีชำระเงิน  :";
             this.c1ThemeController1.SetTheme(this.label32, "(default)");
             // 
+            // c1Button8
+            // 
+            this.c1Button8.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.c1Button8.Location = new System.Drawing.Point(409, 98);
+            this.c1Button8.Name = "c1Button8";
+            this.c1Button8.Size = new System.Drawing.Size(18, 18);
+            this.c1Button8.TabIndex = 139;
+            this.c1Button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.c1Button8, "(default)");
+            this.c1Button8.UseVisualStyleBackColor = true;
+            this.c1Button8.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // txtMtpNameT
             // 
             this.txtMtpNameT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
@@ -3952,6 +4208,19 @@
             this.label31.TabIndex = 137;
             this.label31.Text = "*ค่าใช้จ่าย :";
             this.c1ThemeController1.SetTheme(this.label31, "(default)");
+            // 
+            // c1Button7
+            // 
+            this.c1Button7.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.c1Button7.Location = new System.Drawing.Point(409, 72);
+            this.c1Button7.Name = "c1Button7";
+            this.c1Button7.Size = new System.Drawing.Size(18, 18);
+            this.c1Button7.TabIndex = 136;
+            this.c1Button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.c1Button7, "(default)");
+            this.c1Button7.UseVisualStyleBackColor = true;
+            this.c1Button7.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtExpnNameT
             // 
@@ -4063,7 +4332,7 @@
             this.panel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(511, 479);
+            this.panel6.Size = new System.Drawing.Size(511, 374);
             this.panel6.TabIndex = 0;
             this.c1ThemeController1.SetTheme(this.panel6, "(default)");
             // 
@@ -4075,8 +4344,13 @@
             this.grdExpn.Name = "grdExpn";
             this.grdExpn.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
             this.grdExpn_Sheet1});
-            this.grdExpn.Size = new System.Drawing.Size(511, 479);
+            this.grdExpn.Size = new System.Drawing.Size(511, 374);
             this.grdExpn.TabIndex = 2;
+            // 
+            // grdExpn_Sheet1
+            // 
+            this.grdExpn_Sheet1.Reset();
+            this.grdExpn_Sheet1.SheetName = "Sheet1";
             // 
             // sttCusNameT
             // 
@@ -4090,280 +4364,6 @@
             this.sepCusNameT.ContainerControl = this;
             this.c1ThemeController1.SetTheme(this.sepCusNameT, "(default)");
             this.sepCusNameT.ToolTip = this.sttCusNameT;
-            // 
-            // btnTmnAdd
-            // 
-            this.btnTmnAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnTmnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTmnAdd.Location = new System.Drawing.Point(771, 113);
-            this.btnTmnAdd.Name = "btnTmnAdd";
-            this.btnTmnAdd.Size = new System.Drawing.Size(18, 18);
-            this.btnTmnAdd.TabIndex = 162;
-            this.btnTmnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnTmnAdd, "(default)");
-            this.btnTmnAdd.UseVisualStyleBackColor = true;
-            this.btnTmnAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnPtiAdd
-            // 
-            this.btnPtiAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnPtiAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPtiAdd.Location = new System.Drawing.Point(771, 74);
-            this.btnPtiAdd.Name = "btnPtiAdd";
-            this.btnPtiAdd.Size = new System.Drawing.Size(18, 18);
-            this.btnPtiAdd.TabIndex = 159;
-            this.btnPtiAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnPtiAdd, "(default)");
-            this.btnPtiAdd.UseVisualStyleBackColor = true;
-            this.btnPtiAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnPolAdd
-            // 
-            this.btnPolAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnPolAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPolAdd.Location = new System.Drawing.Point(349, 309);
-            this.btnPolAdd.Name = "btnPolAdd";
-            this.btnPolAdd.Size = new System.Drawing.Size(18, 18);
-            this.btnPolAdd.TabIndex = 156;
-            this.btnPolAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnPolAdd, "(default)");
-            this.btnPolAdd.UseVisualStyleBackColor = true;
-            this.btnPolAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnEttAdd
-            // 
-            this.btnEttAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnEttAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEttAdd.Location = new System.Drawing.Point(349, 14);
-            this.btnEttAdd.Name = "btnEttAdd";
-            this.btnEttAdd.Size = new System.Drawing.Size(18, 18);
-            this.btnEttAdd.TabIndex = 153;
-            this.btnEttAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnEttAdd, "(default)");
-            this.btnEttAdd.UseVisualStyleBackColor = true;
-            this.btnEttAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnPvlAdd
-            // 
-            this.btnPvlAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnPvlAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPvlAdd.Location = new System.Drawing.Point(349, 44);
-            this.btnPvlAdd.Name = "btnPvlAdd";
-            this.btnPvlAdd.Size = new System.Drawing.Size(18, 18);
-            this.btnPvlAdd.TabIndex = 150;
-            this.btnPvlAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnPvlAdd, "(default)");
-            this.btnPvlAdd.UseVisualStyleBackColor = true;
-            this.btnPvlAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnFwdAdd
-            // 
-            this.btnFwdAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnFwdAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFwdAdd.Location = new System.Drawing.Point(349, 74);
-            this.btnFwdAdd.Name = "btnFwdAdd";
-            this.btnFwdAdd.Size = new System.Drawing.Size(18, 18);
-            this.btnFwdAdd.TabIndex = 105;
-            this.btnFwdAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnFwdAdd, "(default)");
-            this.btnFwdAdd.UseVisualStyleBackColor = true;
-            this.btnFwdAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // grdInv_Sheet1
-            // 
-            this.grdInv_Sheet1.Reset();
-            this.grdInv_Sheet1.SheetName = "Sheet1";
-            // 
-            // c1Button6
-            // 
-            this.c1Button6.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
-            this.c1Button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1Button6.Location = new System.Drawing.Point(475, 159);
-            this.c1Button6.Name = "c1Button6";
-            this.c1Button6.Size = new System.Drawing.Size(105, 39);
-            this.c1Button6.TabIndex = 128;
-            this.c1Button6.Text = "บันทึกinvoice";
-            this.c1Button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1ThemeController1.SetTheme(this.c1Button6, "(default)");
-            this.c1Button6.UseVisualStyleBackColor = true;
-            this.c1Button6.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button5
-            // 
-            this.c1Button5.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1Button5.Location = new System.Drawing.Point(401, 184);
-            this.c1Button5.Name = "c1Button5";
-            this.c1Button5.Size = new System.Drawing.Size(18, 18);
-            this.c1Button5.TabIndex = 124;
-            this.c1Button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.c1Button5, "(default)");
-            this.c1Button5.UseVisualStyleBackColor = true;
-            this.c1Button5.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button4
-            // 
-            this.c1Button4.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1Button4.Location = new System.Drawing.Point(401, 158);
-            this.c1Button4.Name = "c1Button4";
-            this.c1Button4.Size = new System.Drawing.Size(18, 18);
-            this.c1Button4.TabIndex = 121;
-            this.c1Button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.c1Button4, "(default)");
-            this.c1Button4.UseVisualStyleBackColor = true;
-            this.c1Button4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button3
-            // 
-            this.c1Button3.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1Button3.Location = new System.Drawing.Point(401, 90);
-            this.c1Button3.Name = "c1Button3";
-            this.c1Button3.Size = new System.Drawing.Size(18, 18);
-            this.c1Button3.TabIndex = 116;
-            this.c1Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.c1Button3, "(default)");
-            this.c1Button3.UseVisualStyleBackColor = true;
-            this.c1Button3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button2
-            // 
-            this.c1Button2.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1Button2.Location = new System.Drawing.Point(401, 64);
-            this.c1Button2.Name = "c1Button2";
-            this.c1Button2.Size = new System.Drawing.Size(18, 18);
-            this.c1Button2.TabIndex = 113;
-            this.c1Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.c1Button2, "(default)");
-            this.c1Button2.UseVisualStyleBackColor = true;
-            this.c1Button2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button8
-            // 
-            this.c1Button8.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1Button8.Location = new System.Drawing.Point(409, 98);
-            this.c1Button8.Name = "c1Button8";
-            this.c1Button8.Size = new System.Drawing.Size(18, 18);
-            this.c1Button8.TabIndex = 139;
-            this.c1Button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.c1Button8, "(default)");
-            this.c1Button8.UseVisualStyleBackColor = true;
-            this.c1Button8.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button7
-            // 
-            this.c1Button7.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1Button7.Location = new System.Drawing.Point(409, 72);
-            this.c1Button7.Name = "c1Button7";
-            this.c1Button7.Size = new System.Drawing.Size(18, 18);
-            this.c1Button7.TabIndex = 136;
-            this.c1Button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.c1Button7, "(default)");
-            this.c1Button7.UseVisualStyleBackColor = true;
-            this.c1Button7.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // grdExpn_Sheet1
-            // 
-            this.grdExpn_Sheet1.Reset();
-            this.grdExpn_Sheet1.SheetName = "Sheet1";
-            // 
-            // btnImpSF4
-            // 
-            this.btnImpSF4.Image = global::Xtrim_ERP.Properties.Resources.Process_accept16;
-            this.btnImpSF4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImpSF4.Location = new System.Drawing.Point(769, 116);
-            this.btnImpSF4.Name = "btnImpSF4";
-            this.btnImpSF4.Size = new System.Drawing.Size(18, 18);
-            this.btnImpSF4.TabIndex = 109;
-            this.btnImpSF4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnImpSF4, "(default)");
-            this.btnImpSF4.UseVisualStyleBackColor = true;
-            this.btnImpSF4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnCusSF2
-            // 
-            this.btnCusSF2.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnCusSF2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCusSF2.Location = new System.Drawing.Point(747, 27);
-            this.btnCusSF2.Name = "btnCusSF2";
-            this.btnCusSF2.Size = new System.Drawing.Size(18, 18);
-            this.btnCusSF2.TabIndex = 105;
-            this.btnCusSF2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnCusSF2, "(default)");
-            this.btnCusSF2.UseVisualStyleBackColor = true;
-            this.btnCusSF2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnImpSF2
-            // 
-            this.btnImpSF2.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnImpSF2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImpSF2.Location = new System.Drawing.Point(747, 116);
-            this.btnImpSF2.Name = "btnImpSF2";
-            this.btnImpSF2.Size = new System.Drawing.Size(18, 18);
-            this.btnImpSF2.TabIndex = 104;
-            this.btnImpSF2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnImpSF2, "(default)");
-            this.btnImpSF2.UseVisualStyleBackColor = true;
-            this.btnImpSF2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnCusSF4
-            // 
-            this.btnCusSF4.Image = global::Xtrim_ERP.Properties.Resources.Process_accept16;
-            this.btnCusSF4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCusSF4.Location = new System.Drawing.Point(769, 27);
-            this.btnCusSF4.Name = "btnCusSF4";
-            this.btnCusSF4.Size = new System.Drawing.Size(18, 18);
-            this.btnCusSF4.TabIndex = 103;
-            this.btnCusSF4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnCusSF4, "(default)");
-            this.btnCusSF4.UseVisualStyleBackColor = true;
-            this.btnCusSF4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button1
-            // 
-            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.printer_blue24;
-            this.c1Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1Button1.Location = new System.Drawing.Point(482, 182);
-            this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(83, 39);
-            this.c1Button1.TabIndex = 96;
-            this.c1Button1.Text = "Print";
-            this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.c1Button1, "(default)");
-            this.c1Button1.UseVisualStyleBackColor = true;
-            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnOk
-            // 
-            this.btnOk.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
-            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOk.Location = new System.Drawing.Point(956, 182);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(83, 39);
-            this.btnOk.TabIndex = 95;
-            this.btnOk.Text = "บันทึกช้อมูล";
-            this.btnOk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1ThemeController1.SetTheme(this.btnOk, "(default)");
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Image = global::Xtrim_ERP.Properties.Resources.lock24;
-            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(589, 182);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(83, 39);
-            this.btnEdit.TabIndex = 94;
-            this.btnEdit.Text = "แก้ไขช้อมูล";
-            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnEdit, "(default)");
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmJobImpNew
             // 
@@ -4380,10 +4380,17 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtJblId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImpSF4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImpSF2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbEnd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtImpNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnOk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbRef5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRef5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbRef4)).EndInit();
@@ -4410,11 +4417,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboUgw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUtp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboChkExam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnTmnAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTmnNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPtiAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPtiNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPolAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPolNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEttAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPvlAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPvlNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFwdAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFwdNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTaxMethod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label43)).EndInit();
@@ -4525,14 +4538,20 @@
             this.panel3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdInv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdInv_Sheet1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvRemark)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvCurrNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InvTPayNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvAmt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobIncoNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvSuppNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvDate1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvNo)).EndInit();
@@ -4551,37 +4570,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtExpnAmt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtExpnTaxAmt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTaxDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMtpNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtExpnNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJeiId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRowNo)).EndInit();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdExpn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdExpn_Sheet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sepCusNameT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnTmnAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPtiAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPolAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEttAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPvlAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFwdAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdInv_Sheet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdExpn_Sheet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnImpSF4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnImpSF2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnOk)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
             this.ResumeLayout(false);
 
         }

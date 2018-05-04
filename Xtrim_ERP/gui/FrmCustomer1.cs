@@ -270,8 +270,7 @@ namespace Xtrim_ERP.gui
             txtContactName1.Value = "";
             txtContactName2.Value = "";
             txtContactTel1.Value = "";
-            txtContactTel2.Value = "";
-            
+            txtContactTel2.Value = "";            
 
             chkCus.Checked = false;
             chkImp.Checked = false;
@@ -316,7 +315,15 @@ namespace Xtrim_ERP.gui
         {
             if (MessageBox.Show("ต้องการยกเลิก รายการ", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-
+                String re = xC.xtDB.cusDB.voidCustomer(txtID.Value.ToString());
+                int chk = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    MessageBox.Show("ยกเลิก ข้อมูล เรียบร้อย", "");
+                    setGrfCusH();
+                    setGrfAddrH();
+                    chkVoid.Checked = false;
+                }
             }
         }
         private void Mac(CellStyleCollection s)
@@ -531,8 +538,7 @@ namespace Xtrim_ERP.gui
             txtAddrGoogleMap.Value = "";
             chkAddrDefaultCus.Checked = false;
         }
-
-        private void btnAddrSave_Click(object sender, EventArgs e)
+        private void saveAddr()
         {
             Address addr = new Address();
             addr.address_id = txtAddrId.Value.ToString().Trim();
@@ -583,8 +589,11 @@ namespace Xtrim_ERP.gui
                 sB1.Text = "บันทึกข้อมูล " + cus.cust_code + " " + addr.line_t1 + " เรียบร้อย ";
             }
         }
-
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnAddrSave_Click(object sender, EventArgs e)
+        {
+            saveAddr();
+        }
+        private void saveCustomer()
         {
             Customer cus = new Customer();
             cus.cust_id = txtID.Value.ToString().Trim();
@@ -645,11 +654,15 @@ namespace Xtrim_ERP.gui
 
             String re = xC.xtDB.cusDB.insertCustomer(cus);
             int chk = 0;
-            if(int.TryParse(re, out chk))
+            if (int.TryParse(re, out chk))
             {
                 btnSave.Image = Resources.accept_database24;
-                sB1.Text = "บันทึกข้อมูล "+ cus.cust_code + " เรียบร้อย ";
+                sB1.Text = "บันทึกข้อมูล " + cus.cust_code + " เรียบร้อย ";
             }
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            saveCustomer();
         }
 
         private void setControlAddrEnable(Boolean flag)

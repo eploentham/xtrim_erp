@@ -51,6 +51,7 @@
             this.Name = "FrmReport";
             this.Text = "FrmReport";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmReport_Load);
             this.ResumeLayout(false);
 
         }

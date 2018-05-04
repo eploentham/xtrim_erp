@@ -318,8 +318,7 @@ namespace Xtrim_ERP.objdb
                 "," + cus.status_imp + " = '" + p.status_imp + "' " +
                 "," + cus.sort1 + " = '" + p.sort1 + "' " +
                 //"," + cus.user_modi + " = '" + p.user_modi + "' " +
-                "Where " + cus.pkField + "='" + p.cust_id + "'"
-                ;
+                "Where " + cus.pkField + "='" + p.cust_id + "'";
 
             try
             {
@@ -354,6 +353,17 @@ namespace Xtrim_ERP.objdb
             conn.ExecuteNonQuery(conn.conn, sql);
 
             return "";
+        }
+        public String voidCustomer(String cusId)
+        {
+            String re = "";
+            DataTable dt = new DataTable();
+            String sql = "Update " + cus.table + " " +
+                "Set "+cus.active + "='3' " +
+                "Where "+cus.pkField+"='"+cusId+"'";
+            re =  conn.ExecuteNonQuery(conn.conn, sql);
+
+            return re;
         }
         public DataTable selectAll()
         {
