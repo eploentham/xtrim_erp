@@ -81,6 +81,8 @@ namespace Xtrim_ERP.objdb
             cus.status_imp = "status_imp";
             cus.status_cons_imp = "status_cons_imp";
             cus.status_cons_exp = "status_cons_exp";
+            cus.status_insr = "status_insr";
+            cus.status_supp = "status_supp";
 
             cus.table = "b_customer";
             cus.pkField = "cust_id";
@@ -220,6 +222,9 @@ namespace Xtrim_ERP.objdb
             p.status_imp = p.status_imp == null ? "" : p.status_imp;
             p.status_cons_imp = p.status_cons_imp == null ? "" : p.status_cons_imp;
             p.status_cons_exp = p.status_cons_exp == null ? "" : p.status_cons_exp;
+            p.status_supp = p.status_supp == null ? "" : p.status_supp;
+            p.status_insr = p.status_insr == null ? "" : p.status_insr;
+
             p.sort1 = p.sort1 == null ? "" : p.sort1;
         }
         public String insert(Customer p)
@@ -246,7 +251,8 @@ namespace Xtrim_ERP.objdb
                 cus.eaddr1 + "," + cus.eaddr2 + ", " + cus.eaddr3 + ", " +
                 cus.eaddr4  + ", " + cus.status_cust + ", " + cus.status_exp + ", " +
                 cus.status_fwd + ", " + cus.status_imp + ", " + cus.sort1 + ", " +
-                cus.status_cons_imp + ", " + cus.status_cons_exp + " " +
+                cus.status_cons_imp + ", " + cus.status_cons_exp + ", " + cus.status_insr + ", " +
+                cus.status_supp + " " +
                 ") " +
                 "Values ('" + p.cust_code.Replace("'", "''") + "','" + p.cust_name_t.Replace("'", "''") + "','" + p.cust_name_e.Replace("'", "''") + "'," +
                 "'" + p.active + "','" + p.address_t.Replace("'", "''") + "','" + p.address_e.Replace("'", "''") + "'," +
@@ -263,7 +269,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.eaddr1.Replace("'", "''") + "','" + p.eaddr2.Replace("'", "''") + "','" + p.eaddr3.Replace("'", "''") + "', " +
                 "'" + p.eaddr4.Replace("'", "''") + "','" + p.status_cust.Replace("'", "''") + "','" + p.status_exp.Replace("'", "''") + "', " +
                 "'" + p.status_fwd.Replace("'", "''") + "','" + p.status_imp.Replace("'", "''") + "','"+ p.sort1.Replace("'", "''") + "', " +
-                "'" + p.status_cons_imp.Replace("'", "''") + "','" + p.status_cons_exp.Replace("'", "''") + "'"+
+                "'" + p.status_cons_imp.Replace("'", "''") + "','" + p.status_cons_exp.Replace("'", "''") + "','"+ p.status_insr.Replace("'", "''") + "', " +
+                "'" + p.status_supp.Replace("'", "''") + "' " +
                ")";
             try
             {
@@ -314,10 +321,10 @@ namespace Xtrim_ERP.objdb
                 "," + cus.taddr2 + " = '" + p.taddr2.Replace("'", "''") + "' " +
                 "," + cus.taddr3 + " = '" + p.taddr3.Replace("'", "''") + "' " +
                 "," + cus.taddr4 + " = '" + p.taddr4.Replace("'", "''") + "' " +
-                "," + cus.eaddr1 + " = '" + p.eaddr1 + "' " +
-                "," + cus.eaddr2 + " = '" + p.eaddr2 + "' " +
-                "," + cus.eaddr3 + " = '" + p.eaddr3 + "' " +
-                "," + cus.eaddr4 + " = '" + p.eaddr4 + "' " +
+                "," + cus.eaddr1 + " = '" + p.eaddr1.Replace("'", "''") + "' " +
+                "," + cus.eaddr2 + " = '" + p.eaddr2.Replace("'", "''") + "' " +
+                "," + cus.eaddr3 + " = '" + p.eaddr3.Replace("'", "''") + "' " +
+                "," + cus.eaddr4 + " = '" + p.eaddr4.Replace("'", "''") + "' " +
                 "," + cus.status_cust + " = '" + p.status_cust + "' " +
                 "," + cus.status_exp + " = '" + p.status_exp + "' " +
                 "," + cus.status_fwd + " = '" + p.status_fwd + "' " +
@@ -325,6 +332,8 @@ namespace Xtrim_ERP.objdb
                 "," + cus.sort1 + " = '" + p.sort1 + "' " +
                 "," + cus.status_cons_exp + " = '" + p.status_cons_exp + "' " +
                 "," + cus.status_cons_imp + " = '" + p.status_cons_imp + "' " +
+                "," + cus.status_insr + " = '" + p.status_insr + "' " +
+                "," + cus.status_supp + " = '" + p.status_supp + "' " +
                 //"," + cus.user_modi + " = '" + p.user_modi + "' " +
                 "Where " + cus.pkField + "='" + p.cust_id + "'";
 
@@ -391,6 +400,48 @@ namespace Xtrim_ERP.objdb
                 "From " + cus.table + " cop " +
                 " " +
                 "Where cop." + cus.active + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectAll2(String flagCus, String flagImp, String flagExp, String flagConsImp, String flagConsExp, String flagInsr, String flagFwd, String flagSupp)
+        {
+            DataTable dt = new DataTable();
+            String where = "", sql = "", whereCus = "", whereImp = "", whereExp = "", whereConsImp = "", whereConsExp="", whereInsr="", whereFwd="", whereSupp="";
+            whereCus = flagCus.Equals("1") ? "  (cop." + cus.active + " ='1'  and cop." + cus.status_cust+"='1') " : "  ";
+            whereImp = flagImp.Equals("1") ? " or (cop." + cus.active + " ='1'  and cop." + cus.status_imp + "='1') " : "  ";
+            whereExp = flagExp.Equals("1") ? " or (cop." + cus.active + " ='1'  and cop." + cus.status_exp + "='1') " : "  ";
+            whereConsImp = flagConsImp.Equals("1") ? " or (cop." + cus.active + " ='1'  and cop." + cus.status_cons_imp + "='1') " : "  ";
+            whereConsExp = flagConsExp.Equals("1") ? " or (cop." + cus.active + " ='1'  and cop." + cus.status_cons_exp + "='1') " : "  ";
+            whereInsr = flagInsr.Equals("1") ? " or (cop." + cus.active + " ='1'  and cop." + cus.status_insr + "='1') " : "  ";
+            whereFwd = flagFwd.Equals("1") ? " or (cop." + cus.active + " ='1'  and cop." + cus.status_fwd + "='1') " : "  ";
+            whereSupp = flagSupp.Equals("1") ? " or (cop." + cus.active + " ='1'  and cop." + cus.status_supp + "='1') " : "  ";
+            where = "";
+            if (flagCus.Equals("1") && flagImp.Equals("1") && flagExp.Equals("1") && flagConsImp.Equals("1") &&
+                flagConsExp.Equals("1") && flagInsr.Equals("1") && flagFwd.Equals("1") && flagSupp.Equals("1"))
+            {
+                where = " cop." + cus.active + " ='1' ";     //ให้ดึงมาให้หมด
+            }
+            else if(whereCus.Trim().Equals("") && whereImp.Trim().Equals("") && whereExp.Trim().Equals("") && whereConsImp.Trim().Equals("") &&
+                whereConsExp.Trim().Equals("") && whereInsr.Trim().Equals("") && whereFwd.Trim().Equals("") && whereSupp.Trim().Equals("") )
+            {
+                where = " cop." + cus.active + " ='1'  and cop." + cus.cust_code+"='*********'";       //ต้องการให้ เป็นค่าว่าง 
+            }
+            else
+            {
+                where = whereCus + whereImp + whereExp + whereConsImp + whereConsExp + whereInsr + whereFwd + whereSupp;
+            }
+            if (where.Trim().IndexOf("or") >= 0)
+            {
+                int index = 0;
+                index = where.IndexOf("or");
+                where = where.Remove(index, 2);
+            }
+            //where = where.Trim().IndexOf("or") >= 0 ? where = where.re("or", "") : where;
+            sql = "select cop.cust_id, cop.cust_code, cop.cust_name_t, cop.taddr1, cop.tele, cop.email, cop.remark, cop.remark2, cop.contact_name1, cop.contact_name2 " +
+                "From " + cus.table + " cop " +
+                " " +
+                "Where "+ where;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -490,6 +541,8 @@ namespace Xtrim_ERP.objdb
 
                 cus1.status_cons_exp = dt.Rows[0][cus.status_cons_exp].ToString();
                 cus1.status_cons_imp = dt.Rows[0][cus.status_cons_imp].ToString();
+                cus1.status_insr = dt.Rows[0][cus.status_insr].ToString();
+                cus1.status_supp = dt.Rows[0][cus.status_supp].ToString();
             }
 
             return cus1;
