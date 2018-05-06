@@ -271,6 +271,7 @@
     <Compile Include="object1\JobImportExpn.cs" />
     <Compile Include="object1\MethodPayment.cs" />
     <Compile Include="object1\Privilege.cs" />
+    <Compile Include="object1\CusRemark.cs" />
     <Compile Include="object1\TermPayment.cs" />
     <Compile Include="object1\Consignee.cs" />
     <Compile Include="object1\Contact.cs" />

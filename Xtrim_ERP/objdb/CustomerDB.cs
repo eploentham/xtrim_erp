@@ -431,7 +431,8 @@ namespace Xtrim_ERP.objdb
             {
                 where = whereCus + whereImp + whereExp + whereConsImp + whereConsExp + whereInsr + whereFwd + whereSupp;
             }
-            if (where.Trim().IndexOf("or") >= 0)
+            
+            if (where.Trim().IndexOf("or") == 0)
             {
                 int index = 0;
                 index = where.IndexOf("or");
