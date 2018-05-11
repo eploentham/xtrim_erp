@@ -166,6 +166,18 @@
     <Compile Include="gui\FrmImporter.Designer.cs">
       <DependentUpon>FrmImporter.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmJobImpExpn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmJobImpExpn.Designer.cs">
+      <DependentUpon>FrmJobImpExpn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmJobImpInv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmJobImpInv.Designer.cs">
+      <DependentUpon>FrmJobImpInv.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmJobImpNew.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,6 +336,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmImporter.resx">
       <DependentUpon>FrmImporter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmJobImpExpn.resx">
+      <DependentUpon>FrmJobImpExpn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmJobImpInv.resx">
+      <DependentUpon>FrmJobImpInv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmJobImpNew.resx">
       <DependentUpon>FrmJobImpNew.cs</DependentUpon>

@@ -1,4 +1,6 @@
-﻿using C1.Win.C1Input;
+﻿using C1.Win.C1FlexGrid;
+using C1.Win.C1Input;
+using C1.Win.C1Themes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +27,8 @@ namespace Xtrim_ERP.gui
         int colID = 0, colE = 1, colS = 2, colCode = 3, colNameT = 4, colNameE = 5, colRemark = 6, coledit = 7;
         int colCnt = 8;
 
+        C1FlexGrid grfCus;
+
         public FrmCompany(XtrimControl x)
         {
             InitializeComponent();
@@ -40,21 +44,52 @@ namespace Xtrim_ERP.gui
             ff = txtCopCode.Font;
 
             ContextMenu custommenu = new ContextMenu();
-            custommenu.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_void));
+            //custommenu.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_void));
             //custommenu.MenuItems.Add("&ยกเลิก";
-            grdView.ContextMenu = custommenu;
+            //grdView.ContextMenu = custommenu;
             setFocusColor();
-            setGrdView();
+            //setGrdView();
             setFocusColor();
             setFocus();
         }
-
-        private void grdView_CellDoubleClick(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
+        private void initGrfInvH()
         {
-            cop = xC.xtDB.copDB.selectByPk1(grdView.Sheets[0].Cells[e.Row, colID].Value == null ? "" : grdView.Sheets[0].Cells[e.Row, colID].Value.ToString());
-            setControl();
-            setEnable(false);
+            grfCus = new C1FlexGrid();
+            grfCus.Font = fEdit;
+            grfCus.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfCus.Location = new System.Drawing.Point(0, 0);
+
+            FilterRow fr = new FilterRow(grfCus);
+
+            grfCus.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfCus_AfterRowColChange);
+            grfCus.DoubleClick += new System.EventHandler(this.grfCus_DoubleClick);
+
+            panel1.Controls.Add(this.grfCus);
+
+            C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
+            C1ThemeController.ApplyThemeToObject(grfCus, theme);
         }
+        private void grfCus_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
+        {
+            if (e.NewRange.r1 < 0) return;
+            if (e.NewRange.Data == null) return;
+
+            String addrId = "";
+            addrId = grfCus[e.NewRange.r1, colID] != null ? grfCus[e.NewRange.r1, colID].ToString() : "";
+            //setControlAddr(addrId);
+            //setControlAddrEnable(false);
+        }
+        private void grfCus_DoubleClick(object sender, EventArgs e)
+        {
+            String addrId = "";
+            addrId = grfCus[grfCus.Row, colID].ToString();
+        }
+        //private void grdView_CellDoubleClick(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
+        //{
+        //    cop = xC.xtDB.copDB.selectByPk1(grdView.Sheets[0].Cells[e.Row, colID].Value == null ? "" : grdView.Sheets[0].Cells[e.Row, colID].Value.ToString());
+        //    setControl();
+        //    setEnable(false);
+        //}
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
@@ -67,104 +102,104 @@ namespace Xtrim_ERP.gui
             {
                 setCompany();
                 xC.xtDB.copDB.insertCompany(cop);
-                setGrdView();
+                //setGrdView();
             }
         }
 
-        private void ContextMenu_void(object sender, System.EventArgs e)
-        {
-            FarPoint.Win.Spread.Row row = grdView.ActiveSheet.ActiveRow;
-            FarPoint.Win.Spread.Column c;
-            c = grdView.ActiveSheet.ActiveColumn;
-            String aa = grdView.Sheets[0].Cells[grdView.ActiveSheet.ActiveRow.Index, colCode].Value == null ? "" : grdView.Sheets[0].Cells[grdView.ActiveSheet.ActiveRow.Index, colCode].Value.ToString();
-            if (MessageBox.Show("ต้องการ ยกเลิก \nรายการ" + aa, "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
-            {
-                String re = xC.xtDB.banDB.voidBank(grdView.Sheets[0].Cells[grdView.ActiveSheet.ActiveRow.Index, colID].Value == null ? "" : grdView.Sheets[0].Cells[grdView.ActiveSheet.ActiveRow.Index, colID].Value.ToString());
-                if (re.Equals("1"))
-                {
-                    grdView.Sheets[grdView.ActiveSheet.SheetName].Cells[grdView.ActiveSheet.ActiveRow.Index, 0, grdView.ActiveSheet.ActiveRow.Index, colCnt - 1].BackColor = Color.Gray;
-                }
-            }
-        }
-        private void setGrdViewH()
-        {
-            FarPoint.Win.Spread.EnhancedInterfaceRenderer outlinelook = new FarPoint.Win.Spread.EnhancedInterfaceRenderer();
-            outlinelook.RangeGroupBackgroundColor = Color.LightGreen;
-            outlinelook.RangeGroupButtonBorderColor = Color.Red;
-            outlinelook.RangeGroupLineColor = Color.Blue;
-            grdView.InterfaceRenderer = outlinelook;
-            grdView.Sheets[0].OperationMode = FarPoint.Win.Spread.OperationMode.RowMode;
+        //private void ContextMenu_void(object sender, System.EventArgs e)
+        //{
+        //    FarPoint.Win.Spread.Row row = grdView.ActiveSheet.ActiveRow;
+        //    FarPoint.Win.Spread.Column c;
+        //    c = grdView.ActiveSheet.ActiveColumn;
+        //    String aa = grdView.Sheets[0].Cells[grdView.ActiveSheet.ActiveRow.Index, colCode].Value == null ? "" : grdView.Sheets[0].Cells[grdView.ActiveSheet.ActiveRow.Index, colCode].Value.ToString();
+        //    if (MessageBox.Show("ต้องการ ยกเลิก \nรายการ" + aa, "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+        //    {
+        //        String re = xC.xtDB.banDB.voidBank(grdView.Sheets[0].Cells[grdView.ActiveSheet.ActiveRow.Index, colID].Value == null ? "" : grdView.Sheets[0].Cells[grdView.ActiveSheet.ActiveRow.Index, colID].Value.ToString());
+        //        if (re.Equals("1"))
+        //        {
+        //            grdView.Sheets[grdView.ActiveSheet.SheetName].Cells[grdView.ActiveSheet.ActiveRow.Index, 0, grdView.ActiveSheet.ActiveRow.Index, colCnt - 1].BackColor = Color.Gray;
+        //        }
+        //    }
+        //}
+        //private void setGrdViewH()
+        //{
+        //    FarPoint.Win.Spread.EnhancedInterfaceRenderer outlinelook = new FarPoint.Win.Spread.EnhancedInterfaceRenderer();
+        //    outlinelook.RangeGroupBackgroundColor = Color.LightGreen;
+        //    outlinelook.RangeGroupButtonBorderColor = Color.Red;
+        //    outlinelook.RangeGroupLineColor = Color.Blue;
+        //    grdView.InterfaceRenderer = outlinelook;
+        //    grdView.Sheets[0].OperationMode = FarPoint.Win.Spread.OperationMode.RowMode;
 
-            grdView.BorderStyle = BorderStyle.None;
-            grdView.Sheets[0].Columns[colCode, colRemark].AllowAutoFilter = true;
-            grdView.Sheets[0].Columns[colCode, colRemark].AllowAutoSort = true;
-            grdView.Sheets[0].AutoFilterMode = FarPoint.Win.Spread.AutoFilterMode.EnhancedContextMenu;
+        //    grdView.BorderStyle = BorderStyle.None;
+        //    grdView.Sheets[0].Columns[colCode, colRemark].AllowAutoFilter = true;
+        //    grdView.Sheets[0].Columns[colCode, colRemark].AllowAutoSort = true;
+        //    grdView.Sheets[0].AutoFilterMode = FarPoint.Win.Spread.AutoFilterMode.EnhancedContextMenu;
 
-            FarPoint.Win.Spread.CellType.TextCellType objTextCell = new FarPoint.Win.Spread.CellType.TextCellType();
-            FarPoint.Win.Spread.CellType.ButtonCellType buttoncell = new FarPoint.Win.Spread.CellType.ButtonCellType();
+        //    FarPoint.Win.Spread.CellType.TextCellType objTextCell = new FarPoint.Win.Spread.CellType.TextCellType();
+        //    FarPoint.Win.Spread.CellType.ButtonCellType buttoncell = new FarPoint.Win.Spread.CellType.ButtonCellType();
 
-            grdView.Sheets[0].ColumnCount = colCnt;
-            grdView.Sheets[0].RowCount = 1;
-            grdView.Font = fEdit;
+        //    grdView.Sheets[0].ColumnCount = colCnt;
+        //    grdView.Sheets[0].RowCount = 1;
+        //    grdView.Font = fEdit;
 
-            grdView.Sheets[0].Columns[colID].CellType = objTextCell;
-            grdView.Sheets[0].Columns[colE].CellType = buttoncell;
-            grdView.Sheets[0].Columns[colS].CellType = buttoncell;
-            grdView.Sheets[0].Columns[colCode].CellType = objTextCell;
-            grdView.Sheets[0].Columns[colNameT].CellType = objTextCell;
-            grdView.Sheets[0].Columns[colNameE].CellType = objTextCell;
-            grdView.Sheets[0].Columns[colRemark].CellType = objTextCell;
-            grdView.Sheets[0].Columns[coledit].CellType = objTextCell;
+        //    grdView.Sheets[0].Columns[colID].CellType = objTextCell;
+        //    grdView.Sheets[0].Columns[colE].CellType = buttoncell;
+        //    grdView.Sheets[0].Columns[colS].CellType = buttoncell;
+        //    grdView.Sheets[0].Columns[colCode].CellType = objTextCell;
+        //    grdView.Sheets[0].Columns[colNameT].CellType = objTextCell;
+        //    grdView.Sheets[0].Columns[colNameE].CellType = objTextCell;
+        //    grdView.Sheets[0].Columns[colRemark].CellType = objTextCell;
+        //    grdView.Sheets[0].Columns[coledit].CellType = objTextCell;
 
-            grdView.Sheets[0].ColumnHeader.Cells[0, colE].Text = "edit";
-            grdView.Sheets[0].ColumnHeader.Cells[0, colS].Text = "save";
-            grdView.Sheets[0].ColumnHeader.Cells[0, colCode].Text = "code";
-            grdView.Sheets[0].ColumnHeader.Cells[0, colNameT].Text = "ชื่อภาษาไทย";
-            grdView.Sheets[0].ColumnHeader.Cells[0, colNameE].Text = "ชื่อภาษาอังกฤษ";
-            grdView.Sheets[0].ColumnHeader.Cells[0, colRemark].Text = "หมายเหตุ";
+        //    grdView.Sheets[0].ColumnHeader.Cells[0, colE].Text = "edit";
+        //    grdView.Sheets[0].ColumnHeader.Cells[0, colS].Text = "save";
+        //    grdView.Sheets[0].ColumnHeader.Cells[0, colCode].Text = "code";
+        //    grdView.Sheets[0].ColumnHeader.Cells[0, colNameT].Text = "ชื่อภาษาไทย";
+        //    grdView.Sheets[0].ColumnHeader.Cells[0, colNameE].Text = "ชื่อภาษาอังกฤษ";
+        //    grdView.Sheets[0].ColumnHeader.Cells[0, colRemark].Text = "หมายเหตุ";
 
-            grdView.Sheets[0].Columns[colE].Width = 50;
-            grdView.Sheets[0].Columns[colS].Width = 50;
-            grdView.Sheets[0].Columns[colCode].Width = 80;
-            grdView.Sheets[0].Columns[colNameT].Width = 200;
-            grdView.Sheets[0].Columns[colNameE].Width = 200;
-            grdView.Sheets[0].Columns[colRemark].Width = 200;
+        //    grdView.Sheets[0].Columns[colE].Width = 50;
+        //    grdView.Sheets[0].Columns[colS].Width = 50;
+        //    grdView.Sheets[0].Columns[colCode].Width = 80;
+        //    grdView.Sheets[0].Columns[colNameT].Width = 200;
+        //    grdView.Sheets[0].Columns[colNameE].Width = 200;
+        //    grdView.Sheets[0].Columns[colRemark].Width = 200;
 
-            grdView.Sheets[0].Columns[colID].Visible = false;
-            grdView.Sheets[0].Columns[coledit].Visible = false;
+        //    grdView.Sheets[0].Columns[colID].Visible = false;
+        //    grdView.Sheets[0].Columns[coledit].Visible = false;
 
-            grdView.AllowColumnMove = true;
-        }
-        private void setGrdView()
-        {
-            DataTable dt = new DataTable();
-            int i = 0;
-            FarPoint.Win.Spread.Column columnobj;
-            columnobj = grdView.ActiveSheet.Columns[colCode, colRemark];
+        //    grdView.AllowColumnMove = true;
+        //}
+        //private void setGrdView()
+        //{
+        //    DataTable dt = new DataTable();
+        //    int i = 0;
+        //    FarPoint.Win.Spread.Column columnobj;
+        //    columnobj = grdView.ActiveSheet.Columns[colCode, colRemark];
 
-            dt = xC.xtDB.copDB.selectAll();
-            grdView.Sheets[0].Rows.Clear();
-            setGrdViewH();
-            grdView.Sheets[0].RowCount = dt.Rows.Count + 1;
-            foreach (DataRow row in dt.Rows)
-            {
-                grdView.Sheets[0].Cells[i, colID].Value = row[xC.xtDB.copDB.cop.comp_id] == null ? "" : row[xC.xtDB.copDB.cop.comp_id].ToString();
-                grdView.Sheets[0].Cells[i, colCode].Value = row[xC.xtDB.copDB.cop.comp_code].ToString();
-                grdView.Sheets[0].Cells[i, colNameT].Value = row[xC.xtDB.copDB.cop.comp_name_t].ToString();
-                grdView.Sheets[0].Cells[i, colNameE].Value = row[xC.xtDB.copDB.cop.comp_name_e].ToString();
-                grdView.Sheets[0].Cells[i, colRemark].Value = row[xC.xtDB.copDB.cop.remark].ToString();
+        //    dt = xC.xtDB.copDB.selectAll();
+        //    grdView.Sheets[0].Rows.Clear();
+        //    setGrdViewH();
+        //    grdView.Sheets[0].RowCount = dt.Rows.Count + 1;
+        //    foreach (DataRow row in dt.Rows)
+        //    {
+        //        grdView.Sheets[0].Cells[i, colID].Value = row[xC.xtDB.copDB.cop.comp_id] == null ? "" : row[xC.xtDB.copDB.cop.comp_id].ToString();
+        //        grdView.Sheets[0].Cells[i, colCode].Value = row[xC.xtDB.copDB.cop.comp_code].ToString();
+        //        grdView.Sheets[0].Cells[i, colNameT].Value = row[xC.xtDB.copDB.cop.comp_name_t].ToString();
+        //        grdView.Sheets[0].Cells[i, colNameE].Value = row[xC.xtDB.copDB.cop.comp_name_e].ToString();
+        //        grdView.Sheets[0].Cells[i, colRemark].Value = row[xC.xtDB.copDB.cop.remark].ToString();
 
-                grdView.Sheets[0].Cells[i, coledit].Value = "0";
-                if (i % 2 != 0)
-                {
-                    grdView.Sheets[0].Cells[i, 0, i, colCnt - 1].BackColor = System.Drawing.Color.FromArgb(235, 241, 222);
-                }
+        //        grdView.Sheets[0].Cells[i, coledit].Value = "0";
+        //        if (i % 2 != 0)
+        //        {
+        //            grdView.Sheets[0].Cells[i, 0, i, colCnt - 1].BackColor = System.Drawing.Color.FromArgb(235, 241, 222);
+        //        }
 
-                columnobj.Locked = true;
+        //        columnobj.Locked = true;
 
-                i++;
-            }
-        }
+        //        i++;
+        //    }
+        //}
         private void setFocus()
         {
             this.txtCopCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);

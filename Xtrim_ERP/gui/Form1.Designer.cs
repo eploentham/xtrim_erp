@@ -64,6 +64,7 @@
             this.c1FlexGrid1.CursorChanged += new System.EventHandler(this.c1FlexGrid1_CursorChanged);
             this.c1FlexGrid1.LocationChanged += new System.EventHandler(this.c1FlexGrid1_LocationChanged);
             this.c1FlexGrid1.Click += new System.EventHandler(this.c1FlexGrid1_Click);
+            this.c1FlexGrid1.DoubleClick += new System.EventHandler(this.c1FlexGrid1_DoubleClick);
             // 
             // c1MainMenu1
             // 
@@ -77,7 +78,7 @@
             this.c1MainMenu1.Dock = System.Windows.Forms.DockStyle.Top;
             this.c1MainMenu1.Location = new System.Drawing.Point(0, 0);
             this.c1MainMenu1.Name = "c1MainMenu1";
-            this.c1MainMenu1.Size = new System.Drawing.Size(800, 27);
+            this.c1MainMenu1.Size = new System.Drawing.Size(1273, 27);
             // 
             // c1CommandLink1
             // 
@@ -161,7 +162,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1273, 736);
             this.Controls.Add(this.c1FlexGrid1);
             this.Controls.Add(this.c1MainMenu1);
             this.Name = "Form1";

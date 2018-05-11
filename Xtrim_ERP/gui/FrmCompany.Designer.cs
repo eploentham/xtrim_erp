@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            FarPoint.Win.Spread.EnhancedFocusIndicatorRenderer enhancedFocusIndicatorRenderer1 = new FarPoint.Win.Spread.EnhancedFocusIndicatorRenderer();
-            FarPoint.Win.Spread.EnhancedScrollBarRenderer enhancedScrollBarRenderer1 = new FarPoint.Win.Spread.EnhancedScrollBarRenderer();
-            FarPoint.Win.Spread.EnhancedScrollBarRenderer enhancedScrollBarRenderer2 = new FarPoint.Win.Spread.EnhancedScrollBarRenderer();
-            this.grdView = new FarPoint.Win.Spread.FpSpread();
-            this.grdView_Sheet1 = new FarPoint.Win.Spread.SheetView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtEAddr4 = new C1.Win.C1Input.C1TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -88,8 +83,7 @@
             this.txtCopCode = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
-            ((System.ComponentModel.ISupportInitialize)(this.grdView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdView_Sheet1)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtEAddr4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEAddr3)).BeginInit();
@@ -118,77 +112,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCopCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // grdView
-            // 
-            this.grdView.AccessibleDescription = "";
-            this.grdView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grdView.FocusRenderer = enhancedFocusIndicatorRenderer1;
-            this.grdView.HorizontalScrollBar.Buttons = new FarPoint.Win.Spread.FpScrollBarButtonCollection("BackwardLineButton,ThumbTrack,ForwardLineButton");
-            this.grdView.HorizontalScrollBar.Name = "";
-            enhancedScrollBarRenderer1.ArrowColor = System.Drawing.Color.SaddleBrown;
-            enhancedScrollBarRenderer1.ArrowHoveredColor = System.Drawing.Color.SaddleBrown;
-            enhancedScrollBarRenderer1.ArrowSelectedColor = System.Drawing.Color.SaddleBrown;
-            enhancedScrollBarRenderer1.ButtonBackgroundColor = System.Drawing.Color.NavajoWhite;
-            enhancedScrollBarRenderer1.ButtonBorderColor = System.Drawing.Color.Tan;
-            enhancedScrollBarRenderer1.ButtonHoveredBackgroundColor = System.Drawing.Color.BurlyWood;
-            enhancedScrollBarRenderer1.ButtonHoveredBorderColor = System.Drawing.Color.Tan;
-            enhancedScrollBarRenderer1.ButtonSelectedBackgroundColor = System.Drawing.Color.Goldenrod;
-            enhancedScrollBarRenderer1.ButtonSelectedBorderColor = System.Drawing.Color.Tan;
-            enhancedScrollBarRenderer1.TrackBarBackgroundColor = System.Drawing.Color.BurlyWood;
-            enhancedScrollBarRenderer1.TrackBarSelectedBackgroundColor = System.Drawing.Color.SandyBrown;
-            this.grdView.HorizontalScrollBar.Renderer = enhancedScrollBarRenderer1;
-            this.grdView.Location = new System.Drawing.Point(0, 448);
-            this.grdView.Name = "grdView";
-            this.grdView.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
-            this.grdView_Sheet1});
-            this.grdView.Size = new System.Drawing.Size(917, 268);
-            this.grdView.Skin = FarPoint.Win.Spread.DefaultSpreadSkins.Sandstorm;
-            this.grdView.TabIndex = 1;
-            this.grdView.VerticalScrollBar.Buttons = new FarPoint.Win.Spread.FpScrollBarButtonCollection("BackwardLineButton,ThumbTrack,ForwardLineButton");
-            this.grdView.VerticalScrollBar.Name = "";
-            enhancedScrollBarRenderer2.ArrowColor = System.Drawing.Color.SaddleBrown;
-            enhancedScrollBarRenderer2.ArrowHoveredColor = System.Drawing.Color.SaddleBrown;
-            enhancedScrollBarRenderer2.ArrowSelectedColor = System.Drawing.Color.SaddleBrown;
-            enhancedScrollBarRenderer2.ButtonBackgroundColor = System.Drawing.Color.NavajoWhite;
-            enhancedScrollBarRenderer2.ButtonBorderColor = System.Drawing.Color.Tan;
-            enhancedScrollBarRenderer2.ButtonHoveredBackgroundColor = System.Drawing.Color.BurlyWood;
-            enhancedScrollBarRenderer2.ButtonHoveredBorderColor = System.Drawing.Color.Tan;
-            enhancedScrollBarRenderer2.ButtonSelectedBackgroundColor = System.Drawing.Color.Goldenrod;
-            enhancedScrollBarRenderer2.ButtonSelectedBorderColor = System.Drawing.Color.Tan;
-            enhancedScrollBarRenderer2.TrackBarBackgroundColor = System.Drawing.Color.BurlyWood;
-            enhancedScrollBarRenderer2.TrackBarSelectedBackgroundColor = System.Drawing.Color.SandyBrown;
-            this.grdView.VerticalScrollBar.Renderer = enhancedScrollBarRenderer2;
-            this.grdView.CellDoubleClick += new FarPoint.Win.Spread.CellClickEventHandler(this.grdView_CellDoubleClick);
-            // 
-            // grdView_Sheet1
-            // 
-            this.grdView_Sheet1.Reset();
-            this.grdView_Sheet1.SheetName = "Sheet1";
-            // Formulas and custom names must be loaded with R1C1 reference style
-            this.grdView_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.R1C1;
-            this.grdView_Sheet1.ColumnFooter.DefaultStyle.BackColor = System.Drawing.Color.Empty;
-            this.grdView_Sheet1.ColumnFooter.DefaultStyle.ForeColor = System.Drawing.Color.Empty;
-            this.grdView_Sheet1.ColumnFooter.DefaultStyle.Parent = "ColumnHeaderSandstorm";
-            this.grdView_Sheet1.ColumnFooterSheetCornerStyle.BackColor = System.Drawing.Color.Empty;
-            this.grdView_Sheet1.ColumnFooterSheetCornerStyle.ForeColor = System.Drawing.Color.Empty;
-            this.grdView_Sheet1.ColumnFooterSheetCornerStyle.Parent = "CornerSandstorm";
-            this.grdView_Sheet1.ColumnHeader.DefaultStyle.BackColor = System.Drawing.Color.Empty;
-            this.grdView_Sheet1.ColumnHeader.DefaultStyle.ForeColor = System.Drawing.Color.Empty;
-            this.grdView_Sheet1.ColumnHeader.DefaultStyle.Parent = "ColumnHeaderSandstorm";
-            this.grdView_Sheet1.FilterBar.DefaultStyle.BackColor = System.Drawing.Color.Empty;
-            this.grdView_Sheet1.FilterBar.DefaultStyle.ForeColor = System.Drawing.Color.Empty;
-            this.grdView_Sheet1.FilterBar.DefaultStyle.Parent = "FilterBarSandstorm";
-            this.grdView_Sheet1.FilterBarHeaderStyle.BackColor = System.Drawing.Color.Empty;
-            this.grdView_Sheet1.FilterBarHeaderStyle.ForeColor = System.Drawing.Color.Empty;
-            this.grdView_Sheet1.FilterBarHeaderStyle.Parent = "RowHeaderSandstorm";
-            this.grdView_Sheet1.RowHeader.DefaultStyle.BackColor = System.Drawing.Color.Empty;
-            this.grdView_Sheet1.RowHeader.DefaultStyle.ForeColor = System.Drawing.Color.Empty;
-            this.grdView_Sheet1.RowHeader.DefaultStyle.Parent = "RowHeaderSandstorm";
-            this.grdView_Sheet1.SheetCornerStyle.BackColor = System.Drawing.Color.Empty;
-            this.grdView_Sheet1.SheetCornerStyle.ForeColor = System.Drawing.Color.Empty;
-            this.grdView_Sheet1.SheetCornerStyle.Parent = "CornerSandstorm";
-            this.grdView_Sheet1.ReferenceStyle = FarPoint.Win.Spread.Model.ReferenceStyle.A1;
             // 
             // groupBox1
             // 
@@ -945,20 +868,29 @@
             // 
             this.c1ThemeController1.Theme = "BeigeOne";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panel1.Location = new System.Drawing.Point(0, 448);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(917, 268);
+            this.panel1.TabIndex = 108;
+            this.c1ThemeController1.SetTheme(this.panel1, "(default)");
+            // 
             // FrmCompany
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(917, 716);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.grdView);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.Name = "FrmCompany";
             this.Text = "FrmCompany";
             this.c1ThemeController1.SetTheme(this, "BeigeOne");
             this.Load += new System.EventHandler(this.FrmCompany_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.grdView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdView_Sheet1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtEAddr4)).EndInit();
@@ -992,9 +924,6 @@
         }
 
         #endregion
-
-        private FarPoint.Win.Spread.FpSpread grdView;
-        private FarPoint.Win.Spread.SheetView grdView_Sheet1;
         private System.Windows.Forms.GroupBox groupBox1;
         private C1.Win.C1Themes.C1ThemeController c1ThemeController1;
         private C1.Win.C1Input.C1TextBox txtID;
@@ -1050,5 +979,6 @@
         private System.Windows.Forms.Label label24;
         private C1.Win.C1Input.C1TextBox txtEAddr3;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Panel panel1;
     }
 }

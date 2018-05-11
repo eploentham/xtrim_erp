@@ -70,5 +70,10 @@ namespace Xtrim_ERP.gui
         {
             String aaa = e.c1.ToString();
         }
+
+        private void c1FlexGrid1_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using C1.Win.C1Input;
+﻿using C1.Win.C1FlexGrid;
+using C1.Win.C1Input;
+using C1.Win.C1Themes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +30,8 @@ namespace Xtrim_ERP.gui
         int colInvCnt = 7;
         int colExpnId = 0, colExpnRowNo = 1, colExpnDate = 2, colExpnNameT = 3, colExpnMtpNameT = 4;
         int colExpnCnt = 5;
+
+        C1FlexGrid grfInv, grfExpn;
 
         public FrmJobImpNew(XtrimControl x)
         {
@@ -126,8 +130,12 @@ namespace Xtrim_ERP.gui
 
             setControl();
             setFocusColor();
-            setGrdViewInv();
-            setGrdViewExpn();
+            //setGrdViewInv();
+            //setGrdViewExpn();
+            initGrfInvH();
+            setGrfInvH();
+            initGrfExpnH();
+            setGrfExpnH();
 
             //txtCusCode += even
             this.txtCusNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
@@ -145,170 +153,264 @@ namespace Xtrim_ERP.gui
             this.btnPolAdd.Click += new System.EventHandler(this.btnCusAdd_Click);
 
             lbCus.Click += new System.EventHandler(this.lbCus_Click);
-            grdInv.CellClick += new FarPoint.Win.Spread.CellClickEventHandler(this.grdInv_CellClick);
-            grdExpn.CellClick += new FarPoint.Win.Spread.CellClickEventHandler(this.grdExpn_CellClick);
+            //grdInv.CellClick += new FarPoint.Win.Spread.CellClickEventHandler(this.grdInv_CellClick);
+            //grdExpn.CellClick += new FarPoint.Win.Spread.CellClickEventHandler(this.grdExpn_CellClick);
 
             sepCusNameT.SetError(txtCusNameT, xC.GetInfoMessageSEP("This is a required field", "Must be at least 4 characters"));
             //sttCusNameT.SetToolTip(txtCusNameT, "here it is");
             sttCusNameT.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
             //sttCusNameT.Show(txtCusNameT,sttCusNameT.h);
         }
-        private void setGrdViewHExpn()
+        //private void setGrdViewHExpn()
+        //{
+        //    FarPoint.Win.Spread.EnhancedInterfaceRenderer outlinelook = new FarPoint.Win.Spread.EnhancedInterfaceRenderer();
+        //    outlinelook.RangeGroupBackgroundColor = Color.LightGreen;
+        //    outlinelook.RangeGroupButtonBorderColor = Color.Red;
+        //    outlinelook.RangeGroupLineColor = Color.Blue;
+        //    grdExpn.InterfaceRenderer = outlinelook;
+        //    grdExpn.Sheets[0].OperationMode = FarPoint.Win.Spread.OperationMode.RowMode;
+
+        //    grdExpn.BorderStyle = BorderStyle.None;
+        //    grdExpn.Sheets[0].Columns[colInvNo, colInvRemark].AllowAutoFilter = true;
+        //    grdExpn.Sheets[0].Columns[colInvNo, colInvRemark].AllowAutoSort = true;
+        //    grdExpn.Sheets[0].AutoFilterMode = FarPoint.Win.Spread.AutoFilterMode.EnhancedContextMenu;
+
+        //    FarPoint.Win.Spread.CellType.TextCellType objTextCell = new FarPoint.Win.Spread.CellType.TextCellType();
+        //    FarPoint.Win.Spread.CellType.ButtonCellType buttoncell = new FarPoint.Win.Spread.CellType.ButtonCellType();
+
+        //    grdExpn.Sheets[0].ColumnCount = colExpnCnt;
+        //    grdExpn.Sheets[0].RowCount = 1;
+        //    grdExpn.Font = fEdit;
+
+        //    grdExpn.Sheets[0].Columns[colExpnId].CellType = objTextCell;
+        //    grdExpn.Sheets[0].Columns[colExpnRowNo].CellType = objTextCell;
+        //    grdExpn.Sheets[0].Columns[colExpnDate].CellType = objTextCell;
+        //    grdExpn.Sheets[0].Columns[colExpnNameT].CellType = objTextCell;
+        //    grdExpn.Sheets[0].Columns[colExpnMtpNameT].CellType = objTextCell;
+        //    //grdInv.Sheets[0].Columns[colInvRemark].CellType = objTextCell;
+        //    //grdInv.Sheets[0].Columns[colCurrNameT].CellType = objTextCell;
+
+        //    grdExpn.Sheets[0].ColumnHeader.Cells[0, colExpnId].Text = "id";
+        //    grdExpn.Sheets[0].ColumnHeader.Cells[0, colExpnRowNo].Text = "no";
+        //    grdExpn.Sheets[0].ColumnHeader.Cells[0, colExpnDate].Text = "date";
+        //    grdExpn.Sheets[0].ColumnHeader.Cells[0, colExpnNameT].Text = "expenses name";
+        //    grdExpn.Sheets[0].ColumnHeader.Cells[0, colExpnMtpNameT].Text = "method payment";
+        //    //grdInv.Sheets[0].ColumnHeader.Cells[0, colInvRemark].Text = "remark";
+        //    //grdInv.Sheets[0].ColumnHeader.Cells[0, colCurrNameT].Text = "currency";
+
+        //    grdExpn.Sheets[0].Columns[colExpnRowNo].Width = 50;
+        //    grdExpn.Sheets[0].Columns[colExpnDate].Width = 80;
+        //    grdExpn.Sheets[0].Columns[colExpnNameT].Width = 200;
+        //    grdExpn.Sheets[0].Columns[colExpnMtpNameT].Width = 200;
+        //    //grdInv.Sheets[0].Columns[colInvRemark].Width = 200;
+        //    //grdInv.Sheets[0].Columns[colCurrNameT].Width = 120;
+
+        //    grdExpn.Sheets[0].Columns[colExpnId].Visible = false;
+        //}
+        //private void setGrdViewExpn()
+        //{
+        //    //DataTable dt = new DataTable();
+        //    int i = 0;
+        //    FarPoint.Win.Spread.Column columnobj;
+        //    columnobj = grdExpn.ActiveSheet.Columns[colExpnId, colExpnMtpNameT];
+        //    DataTable dtExpn = xC.xtDB.jieDB.selectByJobId(xC.jobID);
+        //    grdExpn.Sheets[0].Rows.Clear();
+        //    setGrdViewHExpn();
+        //    grdExpn.Sheets[0].RowCount = dtExpn.Rows.Count + 1;
+        //    foreach (DataRow row in dtExpn.Rows)
+        //    {
+        //        grdExpn.Sheets[0].Cells[i, colExpnId].Value = row[xC.xtDB.jieDB.jie.job_import_expenses_id] == null ? "" : row[xC.xtDB.jieDB.jie.job_import_expenses_id].ToString();
+        //        grdExpn.Sheets[0].Cells[i, colExpnRowNo].Value = row[xC.xtDB.jieDB.jie.row_no].ToString();
+        //        grdExpn.Sheets[0].Cells[i, colExpnDate].Value = row[xC.xtDB.jieDB.jie.expenses_date].ToString();
+        //        grdExpn.Sheets[0].Cells[i, colExpnNameT].Value = row[xC.xtDB.expnDB.expn.expenses_name_t].ToString();
+        //        grdExpn.Sheets[0].Cells[i, colExpnMtpNameT].Value = row[xC.xtDB.mtpDB.mtp.method_payment_name_t].ToString();
+        //        //grdInv.Sheets[0].Cells[i, colInvRemark].Value = row[xC.xtDB.jinDB.jin.remark].ToString();
+        //        //grdInv.Sheets[0].Cells[i, colCurrNameT].Value = row[xC.xtDB.jinDB.jin.currNameT].ToString();
+        //        //grdInv.Sheets[0].Cells[i, colJblDesc].Value = row[xC.xtDB.jblDB.jbl.description].ToString();
+
+        //        //grdInv.Sheets[0].Cells[i, coledit].Value = "0";
+        //        if (i % 2 != 0)
+        //        {
+        //            grdExpn.Sheets[0].Cells[i, 0, i, colExpnMtpNameT - 1].BackColor = System.Drawing.Color.FromArgb(235, 241, 222);
+        //        }
+
+        //        columnobj.Locked = true;
+
+        //        i++;
+        //    }
+        //}
+        private void initGrfInvH()
         {
-            FarPoint.Win.Spread.EnhancedInterfaceRenderer outlinelook = new FarPoint.Win.Spread.EnhancedInterfaceRenderer();
-            outlinelook.RangeGroupBackgroundColor = Color.LightGreen;
-            outlinelook.RangeGroupButtonBorderColor = Color.Red;
-            outlinelook.RangeGroupLineColor = Color.Blue;
-            grdExpn.InterfaceRenderer = outlinelook;
-            grdExpn.Sheets[0].OperationMode = FarPoint.Win.Spread.OperationMode.RowMode;
+            grfInv = new C1FlexGrid();
+            grfInv.Font = fEdit;
+            grfInv.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfInv.Location = new System.Drawing.Point(0, 0);
 
-            grdExpn.BorderStyle = BorderStyle.None;
-            grdExpn.Sheets[0].Columns[colInvNo, colInvRemark].AllowAutoFilter = true;
-            grdExpn.Sheets[0].Columns[colInvNo, colInvRemark].AllowAutoSort = true;
-            grdExpn.Sheets[0].AutoFilterMode = FarPoint.Win.Spread.AutoFilterMode.EnhancedContextMenu;
-
-            FarPoint.Win.Spread.CellType.TextCellType objTextCell = new FarPoint.Win.Spread.CellType.TextCellType();
-            FarPoint.Win.Spread.CellType.ButtonCellType buttoncell = new FarPoint.Win.Spread.CellType.ButtonCellType();
-
-            grdExpn.Sheets[0].ColumnCount = colExpnCnt;
-            grdExpn.Sheets[0].RowCount = 1;
-            grdExpn.Font = fEdit;
-
-            grdExpn.Sheets[0].Columns[colExpnId].CellType = objTextCell;
-            grdExpn.Sheets[0].Columns[colExpnRowNo].CellType = objTextCell;
-            grdExpn.Sheets[0].Columns[colExpnDate].CellType = objTextCell;
-            grdExpn.Sheets[0].Columns[colExpnNameT].CellType = objTextCell;
-            grdExpn.Sheets[0].Columns[colExpnMtpNameT].CellType = objTextCell;
-            //grdInv.Sheets[0].Columns[colInvRemark].CellType = objTextCell;
-            //grdInv.Sheets[0].Columns[colCurrNameT].CellType = objTextCell;
-
-            grdExpn.Sheets[0].ColumnHeader.Cells[0, colExpnId].Text = "id";
-            grdExpn.Sheets[0].ColumnHeader.Cells[0, colExpnRowNo].Text = "no";
-            grdExpn.Sheets[0].ColumnHeader.Cells[0, colExpnDate].Text = "date";
-            grdExpn.Sheets[0].ColumnHeader.Cells[0, colExpnNameT].Text = "expenses name";
-            grdExpn.Sheets[0].ColumnHeader.Cells[0, colExpnMtpNameT].Text = "method payment";
-            //grdInv.Sheets[0].ColumnHeader.Cells[0, colInvRemark].Text = "remark";
-            //grdInv.Sheets[0].ColumnHeader.Cells[0, colCurrNameT].Text = "currency";
-
-            grdExpn.Sheets[0].Columns[colExpnRowNo].Width = 50;
-            grdExpn.Sheets[0].Columns[colExpnDate].Width = 80;
-            grdExpn.Sheets[0].Columns[colExpnNameT].Width = 200;
-            grdExpn.Sheets[0].Columns[colExpnMtpNameT].Width = 200;
-            //grdInv.Sheets[0].Columns[colInvRemark].Width = 200;
-            //grdInv.Sheets[0].Columns[colCurrNameT].Width = 120;
-
-            grdExpn.Sheets[0].Columns[colExpnId].Visible = false;
+            FilterRow fr = new FilterRow(grfInv);
+                        
+            grfInv.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfInv_AfterRowColChange);
+            grfInv.DoubleClick += new System.EventHandler(this.grfInv_DoubleClick);
+            
+            panelInv.Controls.Add(this.grfInv);
+            
+            C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
+            C1ThemeController.ApplyThemeToObject(grfInv, theme);
         }
-        private void setGrdViewExpn()
+        private void initGrfExpnH()
         {
-            //DataTable dt = new DataTable();
-            int i = 0;
-            FarPoint.Win.Spread.Column columnobj;
-            columnobj = grdInv.ActiveSheet.Columns[colExpnId, colExpnMtpNameT];
-            DataTable dtExpn = xC.xtDB.jieDB.selectByJobId(xC.jobID);
-            grdExpn.Sheets[0].Rows.Clear();
-            setGrdViewHExpn();
-            grdExpn.Sheets[0].RowCount = dtExpn.Rows.Count + 1;
-            foreach (DataRow row in dtExpn.Rows)
-            {
-                grdExpn.Sheets[0].Cells[i, colExpnId].Value = row[xC.xtDB.jieDB.jie.job_import_expenses_id] == null ? "" : row[xC.xtDB.jieDB.jie.job_import_expenses_id].ToString();
-                grdExpn.Sheets[0].Cells[i, colExpnRowNo].Value = row[xC.xtDB.jieDB.jie.row_no].ToString();
-                grdExpn.Sheets[0].Cells[i, colExpnDate].Value = row[xC.xtDB.jieDB.jie.expenses_date].ToString();
-                grdExpn.Sheets[0].Cells[i, colExpnNameT].Value = row[xC.xtDB.expnDB.expn.expenses_name_t].ToString();
-                grdExpn.Sheets[0].Cells[i, colExpnMtpNameT].Value = row[xC.xtDB.mtpDB.mtp.method_payment_name_t].ToString();
-                //grdInv.Sheets[0].Cells[i, colInvRemark].Value = row[xC.xtDB.jinDB.jin.remark].ToString();
-                //grdInv.Sheets[0].Cells[i, colCurrNameT].Value = row[xC.xtDB.jinDB.jin.currNameT].ToString();
-                //grdInv.Sheets[0].Cells[i, colJblDesc].Value = row[xC.xtDB.jblDB.jbl.description].ToString();
+            grfExpn = new C1FlexGrid();
+            grfExpn.Font = fEdit;
+            grfExpn.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfExpn.Location = new System.Drawing.Point(0, 0);
 
-                //grdInv.Sheets[0].Cells[i, coledit].Value = "0";
-                if (i % 2 != 0)
-                {
-                    grdExpn.Sheets[0].Cells[i, 0, i, colExpnMtpNameT - 1].BackColor = System.Drawing.Color.FromArgb(235, 241, 222);
-                }
+            FilterRow fr = new FilterRow(grfExpn);
 
-                columnobj.Locked = true;
+            grfExpn.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfExpn_AfterRowColChange);
+            grfExpn.DoubleClick += new System.EventHandler(this.grfInv_DoubleClick);
 
-                i++;
-            }
+            panelExpn.Controls.Add(this.grfExpn);
+
+            C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
+            C1ThemeController.ApplyThemeToObject(grfInv, theme);
         }
-        private void setGrdViewHInv()
+        private void setGrfInvH()
         {
-            FarPoint.Win.Spread.EnhancedInterfaceRenderer outlinelook = new FarPoint.Win.Spread.EnhancedInterfaceRenderer();
-            outlinelook.RangeGroupBackgroundColor = Color.LightGreen;
-            outlinelook.RangeGroupButtonBorderColor = Color.Red;
-            outlinelook.RangeGroupLineColor = Color.Blue;
-            grdInv.InterfaceRenderer = outlinelook;
-            grdInv.Sheets[0].OperationMode = FarPoint.Win.Spread.OperationMode.RowMode;
+            //grfInv.DataSource = xC.xtDB.addrDB.selectByTableId1(custId);
 
-            grdInv.BorderStyle = BorderStyle.None;
-            grdInv.Sheets[0].Columns[colInvNo, colInvRemark].AllowAutoFilter = true;
-            grdInv.Sheets[0].Columns[colInvNo, colInvRemark].AllowAutoSort = true;
-            grdInv.Sheets[0].AutoFilterMode = FarPoint.Win.Spread.AutoFilterMode.EnhancedContextMenu;
-
-            FarPoint.Win.Spread.CellType.TextCellType objTextCell = new FarPoint.Win.Spread.CellType.TextCellType();
-            FarPoint.Win.Spread.CellType.ButtonCellType buttoncell = new FarPoint.Win.Spread.CellType.ButtonCellType();
-
-            grdInv.Sheets[0].ColumnCount = colInvCnt;
-            grdInv.Sheets[0].RowCount = 1;
-            grdInv.Font = fEdit;
-
-            grdInv.Sheets[0].Columns[colInvId].CellType = objTextCell;
-            grdInv.Sheets[0].Columns[colInvNo].CellType = objTextCell;
-            grdInv.Sheets[0].Columns[colInvDate].CellType = objTextCell;
-            grdInv.Sheets[0].Columns[colInvAmt].CellType = objTextCell;
-            grdInv.Sheets[0].Columns[colInvSuppNameT].CellType = objTextCell;
-            grdInv.Sheets[0].Columns[colInvRemark].CellType = objTextCell;
-            grdInv.Sheets[0].Columns[colCurrNameT].CellType = objTextCell;
-
-            grdInv.Sheets[0].ColumnHeader.Cells[0, colInvId].Text = "id";
-            grdInv.Sheets[0].ColumnHeader.Cells[0, colInvNo].Text = "inv no";
-            grdInv.Sheets[0].ColumnHeader.Cells[0, colInvDate].Text = "inv date";
-            grdInv.Sheets[0].ColumnHeader.Cells[0, colInvAmt].Text = "amount";
-            grdInv.Sheets[0].ColumnHeader.Cells[0, colInvSuppNameT].Text = "supplier";
-            grdInv.Sheets[0].ColumnHeader.Cells[0, colInvRemark].Text = "remark";
-            grdInv.Sheets[0].ColumnHeader.Cells[0, colCurrNameT].Text = "currency";
-
-            grdInv.Sheets[0].Columns[colInvNo].Width = 120;
-            grdInv.Sheets[0].Columns[colInvDate].Width = 120;
-            grdInv.Sheets[0].Columns[colInvAmt].Width = 100;
-            grdInv.Sheets[0].Columns[colInvSuppNameT].Width =200;
-            grdInv.Sheets[0].Columns[colInvRemark].Width = 200;
-            grdInv.Sheets[0].Columns[colCurrNameT].Width = 120;
-
-            grdInv.Sheets[0].Columns[colInvId].Visible = false;
+            grfInv.Cols[colInvId].Width = 60;
+            grfInv.Cols[colInvNo].Width = 100;
+            grfInv.Cols[colInvDate].Width = 100;
+            grfInv.Cols[colInvAmt].Width = 100;
+            grfInv.Cols[colInvSuppNameT].Width = 100;
+            grfInv.Cols[colCurrNameT].Width = 100;
+            grfInv.Cols[colInvRemark].Width = 100;
+            //grfAddr.Cols[colAddrEmail2].Width = 100;
+            //grfAddr.Cols[colAddrTele].Width = 100;
+            //grfAddr.Cols[colAddrMobile].Width = 100;
+            //grfAddr.Cols[colAddrRemark].Width = 100;
+            //grfAddr.Cols[colAddrRemark2].Width = 100;
+            grfInv.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            grfInv.Cols[colInvId].Caption = "ชื่อที่อยู่";
+            grfInv.Cols[colInvNo].Caption = "ที่อยู่ 1";
+            grfInv.Cols[colInvDate].Caption = "ที่อยู่ 2";
+            grfInv.Cols[colInvAmt].Caption = "ที่อยู่ 3";
+            grfInv.Cols[colInvSuppNameT].Caption = "ที่อยู่ 4";
+            grfInv.Cols[colCurrNameT].Caption = "email";
+            grfInv.Cols[colInvRemark].Caption = "email2";
+            //grfAddr.Cols[colAddrTele].Caption = "tele";
+            //grfAddr.Cols[colAddrMobile].Caption = "mobile";
+            //grfAddr.Cols[colAddrRemark].Caption = "หมายเหตุ";
+            //grfAddr.Cols[colAddrRemark2].Caption = "หมายเหตุ2";
         }
-        private void setGrdViewInv()
+        private void setGrfExpnH()
         {
-            //DataTable dt = new DataTable();
-            int i = 0;
-            FarPoint.Win.Spread.Column columnobj;
-            columnobj = grdInv.ActiveSheet.Columns[colInvId, colInvRemark];
-            DataTable dtInv = xC.xtDB.jinDB.selectByJobId(xC.jobID);
-            grdInv.Sheets[0].Rows.Clear();
-            setGrdViewHInv();
-            grdInv.Sheets[0].RowCount = dtInv.Rows.Count + 1;
-            foreach (DataRow row in dtInv.Rows)
-            {
-                grdInv.Sheets[0].Cells[i, colInvId].Value = row[xC.xtDB.jinDB.jin.job_import_inv_id] == null ? "" : row[xC.xtDB.jinDB.jin.job_import_inv_id].ToString();
-                grdInv.Sheets[0].Cells[i, colInvNo].Value = row[xC.xtDB.jinDB.jin.inv_no].ToString();
-                grdInv.Sheets[0].Cells[i, colInvDate].Value = row[xC.xtDB.jinDB.jin.invoice_date].ToString();
-                grdInv.Sheets[0].Cells[i, colInvAmt].Value = row[xC.xtDB.jinDB.jin.amount].ToString();
-                grdInv.Sheets[0].Cells[i, colInvSuppNameT].Value = row[xC.xtDB.jinDB.jin.SuppNameT].ToString();
-                grdInv.Sheets[0].Cells[i, colInvRemark].Value = row[xC.xtDB.jinDB.jin.remark].ToString();
-                grdInv.Sheets[0].Cells[i, colCurrNameT].Value = row[xC.xtDB.jinDB.jin.currNameT].ToString();
-                //grdInv.Sheets[0].Cells[i, colJblDesc].Value = row[xC.xtDB.jblDB.jbl.description].ToString();
+            //grfInv.DataSource = xC.xtDB.addrDB.selectByTableId1(custId);
 
-                //grdInv.Sheets[0].Cells[i, coledit].Value = "0";
-                if (i % 2 != 0)
-                {
-                    grdInv.Sheets[0].Cells[i, 0, i, colInvCnt - 1].BackColor = System.Drawing.Color.FromArgb(235, 241, 222);
-                }
-
-                columnobj.Locked = true;
-
-                i++;
-            }
+            grfExpn.Cols[colInvId].Width = 60;
+            grfExpn.Cols[colInvNo].Width = 100;
+            grfExpn.Cols[colInvDate].Width = 100;
+            grfExpn.Cols[colInvAmt].Width = 100;
+            grfExpn.Cols[colInvSuppNameT].Width = 100;
+            grfExpn.Cols[colCurrNameT].Width = 100;
+            grfExpn.Cols[colInvRemark].Width = 100;
+            //grfAddr.Cols[colAddrEmail2].Width = 100;
+            //grfAddr.Cols[colAddrTele].Width = 100;
+            //grfAddr.Cols[colAddrMobile].Width = 100;
+            //grfAddr.Cols[colAddrRemark].Width = 100;
+            //grfAddr.Cols[colAddrRemark2].Width = 100;
+            grfExpn.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            grfExpn.Cols[colInvId].Caption = "ชื่อที่อยู่";
+            grfExpn.Cols[colInvNo].Caption = "ที่อยู่ 1";
+            grfExpn.Cols[colInvDate].Caption = "ที่อยู่ 2";
+            grfExpn.Cols[colInvAmt].Caption = "ที่อยู่ 3";
+            grfExpn.Cols[colInvSuppNameT].Caption = "ที่อยู่ 4";
+            grfExpn.Cols[colCurrNameT].Caption = "email";
+            grfExpn.Cols[colInvRemark].Caption = "email2";
+            //grfAddr.Cols[colAddrTele].Caption = "tele";
+            //grfAddr.Cols[colAddrMobile].Caption = "mobile";
+            //grfAddr.Cols[colAddrRemark].Caption = "หมายเหตุ";
+            //grfAddr.Cols[colAddrRemark2].Caption = "หมายเหตุ2";
         }
+        //private void setGrdViewHInv()
+        //{
+        //    FarPoint.Win.Spread.EnhancedInterfaceRenderer outlinelook = new FarPoint.Win.Spread.EnhancedInterfaceRenderer();
+        //    outlinelook.RangeGroupBackgroundColor = Color.LightGreen;
+        //    outlinelook.RangeGroupButtonBorderColor = Color.Red;
+        //    outlinelook.RangeGroupLineColor = Color.Blue;
+        //    grdInv.InterfaceRenderer = outlinelook;
+        //    grdInv.Sheets[0].OperationMode = FarPoint.Win.Spread.OperationMode.RowMode;
+
+        //    grdInv.BorderStyle = BorderStyle.None;
+        //    grdInv.Sheets[0].Columns[colInvNo, colInvRemark].AllowAutoFilter = true;
+        //    grdInv.Sheets[0].Columns[colInvNo, colInvRemark].AllowAutoSort = true;
+        //    grdInv.Sheets[0].AutoFilterMode = FarPoint.Win.Spread.AutoFilterMode.EnhancedContextMenu;
+
+        //    FarPoint.Win.Spread.CellType.TextCellType objTextCell = new FarPoint.Win.Spread.CellType.TextCellType();
+        //    FarPoint.Win.Spread.CellType.ButtonCellType buttoncell = new FarPoint.Win.Spread.CellType.ButtonCellType();
+
+        //    grdInv.Sheets[0].ColumnCount = colInvCnt;
+        //    grdInv.Sheets[0].RowCount = 1;
+        //    grdInv.Font = fEdit;
+
+        //    grdInv.Sheets[0].Columns[colInvId].CellType = objTextCell;
+        //    grdInv.Sheets[0].Columns[colInvNo].CellType = objTextCell;
+        //    grdInv.Sheets[0].Columns[colInvDate].CellType = objTextCell;
+        //    grdInv.Sheets[0].Columns[colInvAmt].CellType = objTextCell;
+        //    grdInv.Sheets[0].Columns[colInvSuppNameT].CellType = objTextCell;
+        //    grdInv.Sheets[0].Columns[colInvRemark].CellType = objTextCell;
+        //    grdInv.Sheets[0].Columns[colCurrNameT].CellType = objTextCell;
+
+        //    grdInv.Sheets[0].ColumnHeader.Cells[0, colInvId].Text = "id";
+        //    grdInv.Sheets[0].ColumnHeader.Cells[0, colInvNo].Text = "inv no";
+        //    grdInv.Sheets[0].ColumnHeader.Cells[0, colInvDate].Text = "inv date";
+        //    grdInv.Sheets[0].ColumnHeader.Cells[0, colInvAmt].Text = "amount";
+        //    grdInv.Sheets[0].ColumnHeader.Cells[0, colInvSuppNameT].Text = "supplier";
+        //    grdInv.Sheets[0].ColumnHeader.Cells[0, colInvRemark].Text = "remark";
+        //    grdInv.Sheets[0].ColumnHeader.Cells[0, colCurrNameT].Text = "currency";
+
+        //    grdInv.Sheets[0].Columns[colInvNo].Width = 120;
+        //    grdInv.Sheets[0].Columns[colInvDate].Width = 120;
+        //    grdInv.Sheets[0].Columns[colInvAmt].Width = 100;
+        //    grdInv.Sheets[0].Columns[colInvSuppNameT].Width =200;
+        //    grdInv.Sheets[0].Columns[colInvRemark].Width = 200;
+        //    grdInv.Sheets[0].Columns[colCurrNameT].Width = 120;
+
+        //    grdInv.Sheets[0].Columns[colInvId].Visible = false;
+        //}
+        //private void setGrdViewInv()
+        //{
+        //    //DataTable dt = new DataTable();
+        //    int i = 0;
+        //    FarPoint.Win.Spread.Column columnobj;
+        //    columnobj = grdInv.ActiveSheet.Columns[colInvId, colInvRemark];
+        //    DataTable dtInv = xC.xtDB.jinDB.selectByJobId(xC.jobID);
+        //    grdInv.Sheets[0].Rows.Clear();
+        //    setGrdViewHInv();
+        //    grdInv.Sheets[0].RowCount = dtInv.Rows.Count + 1;
+        //    foreach (DataRow row in dtInv.Rows)
+        //    {
+        //        grdInv.Sheets[0].Cells[i, colInvId].Value = row[xC.xtDB.jinDB.jin.job_import_inv_id] == null ? "" : row[xC.xtDB.jinDB.jin.job_import_inv_id].ToString();
+        //        grdInv.Sheets[0].Cells[i, colInvNo].Value = row[xC.xtDB.jinDB.jin.inv_no].ToString();
+        //        grdInv.Sheets[0].Cells[i, colInvDate].Value = row[xC.xtDB.jinDB.jin.invoice_date].ToString();
+        //        grdInv.Sheets[0].Cells[i, colInvAmt].Value = row[xC.xtDB.jinDB.jin.amount].ToString();
+        //        grdInv.Sheets[0].Cells[i, colInvSuppNameT].Value = row[xC.xtDB.jinDB.jin.SuppNameT].ToString();
+        //        grdInv.Sheets[0].Cells[i, colInvRemark].Value = row[xC.xtDB.jinDB.jin.remark].ToString();
+        //        grdInv.Sheets[0].Cells[i, colCurrNameT].Value = row[xC.xtDB.jinDB.jin.currNameT].ToString();
+        //        //grdInv.Sheets[0].Cells[i, colJblDesc].Value = row[xC.xtDB.jblDB.jbl.description].ToString();
+
+        //        //grdInv.Sheets[0].Cells[i, coledit].Value = "0";
+        //        if (i % 2 != 0)
+        //        {
+        //            grdInv.Sheets[0].Cells[i, 0, i, colInvCnt - 1].BackColor = System.Drawing.Color.FromArgb(235, 241, 222);
+        //        }
+
+        //        columnobj.Locked = true;
+
+        //        i++;
+        //    }
+        //}
         private void setControl()
         {
             if (xC.jobID.Equals("")) return;
@@ -329,11 +431,11 @@ namespace Xtrim_ERP.gui
             txtTmnNameT.Value = jbl.tmnNameT;
             txtPtiNameT.Value = jbl.ptiNameT;
 
-            txtInvNo.Value = jin.inv_no;
-            txtInvDate1.Value = jin.invoice_date;
-            txtInvSuppNameT.Value = jin.SuppNameT;
-            txtJobIncoNameT.Value = jin.ictNameT;
-            txtInvAmt.Value = jin.amount;
+            //txtInvNo.Value = jin.inv_no;
+            //txtInvDate1.Value = jin.invoice_date;
+            //txtInvSuppNameT.Value = jin.SuppNameT;
+            //txtJobIncoNameT.Value = jin.ictNameT;
+            //txtInvAmt.Value = jin.amount;
             //InvTPayNameT.Value = 
 
 
@@ -646,41 +748,51 @@ namespace Xtrim_ERP.gui
         {
 
         }
+        private void grfInv_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
+        {
+            if (e.NewRange.r1 < 0) return;
+            if (e.NewRange.Data == null) return;
+
+            String addrId = "";
+            addrId = grfInv[e.NewRange.r1, colInvId] != null ? grfInv[e.NewRange.r1, colInvId].ToString() : "";
+            //setControlAddr(addrId);
+            //setControlAddrEnable(false);
+        }
+        private void grfExpn_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
+        {
+            if (e.NewRange.r1 < 0) return;
+            if (e.NewRange.Data == null) return;
+
+            String addrId = "";
+            addrId = grfInv[e.NewRange.r1, colInvId] != null ? grfInv[e.NewRange.r1, colInvId].ToString() : "";
+            //setControlAddr(addrId);
+            //setControlAddrEnable(false);
+        }
+        private void grfInv_DoubleClick(object sender, EventArgs e)
+        {
+            String addrId = "";
+            addrId = grfInv[grfInv.Row, colInvId].ToString();
+        }
         private void setControlInv()
         {
 
         }
-        private void grdExpn_CellClick(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
-        {
-            if (grdExpn.Sheets[0].Cells[e.Row, colInvId].Value == null) return;
-            String expnId = grdExpn.Sheets[0].Cells[e.Row, colInvId].Value != null ? grdExpn.Sheets[0].Cells[e.Row, colInvId].Value.ToString() : "";
-            JobImportExpn inv = new JobImportExpn();
-            inv = xC.xtDB.jieDB.selectByPk1(expnId);
-            //txtInvNo.Value = inv.inv_no;
-            //txtInvDate1.Value = inv.invoice_date;
-            //txtInvSuppNameT.Value = inv.SuppNameT;
-            //txtJobIncoNameT.Value = inv.ictNameT;
-            //txtInvAmt.Value = inv.amount;
-            //InvTPayNameT.Value = inv.tpmNameT;
-            //txtInvCurrNameT.Value = inv.currNameT;
-            //txtInvRemark.Value = inv.remark;
-        }
-        private void grdInv_CellClick(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
-        {
-            if (grdInv.Sheets[0].Cells[e.Row, colInvId].Value == null) return;
-            String invId = grdInv.Sheets[0].Cells[e.Row, colInvId].Value != null ? grdInv.Sheets[0].Cells[e.Row, colInvId].Value.ToString(): "" ;
-            JobImportInv inv = new JobImportInv();
-            inv = xC.xtDB.jinDB.selectByPk1(invId);
-            txtInvNo.Value = inv.inv_no;
-            txtInvDate1.Value = inv.invoice_date;
-            txtInvSuppNameT.Value = inv.SuppNameT;
-            txtJobIncoNameT.Value = inv.ictNameT;
-            txtInvAmt.Value = inv.amount;
-            InvTPayNameT.Value = inv.tpmNameT;
-            txtInvCurrNameT.Value = inv.currNameT;
-            txtInvRemark.Value = inv.remark;
-        }
-
+        //private void grdExpn_CellClick(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
+        //{
+        //    if (grdExpn.Sheets[0].Cells[e.Row, colInvId].Value == null) return;
+        //    String expnId = grdExpn.Sheets[0].Cells[e.Row, colInvId].Value != null ? grdExpn.Sheets[0].Cells[e.Row, colInvId].Value.ToString() : "";
+        //    JobImportExpn inv = new JobImportExpn();
+        //    inv = xC.xtDB.jieDB.selectByPk1(expnId);
+        //    //txtInvNo.Value = inv.inv_no;
+        //    //txtInvDate1.Value = inv.invoice_date;
+        //    //txtInvSuppNameT.Value = inv.SuppNameT;
+        //    //txtJobIncoNameT.Value = inv.ictNameT;
+        //    //txtInvAmt.Value = inv.amount;
+        //    //InvTPayNameT.Value = inv.tpmNameT;
+        //    //txtInvCurrNameT.Value = inv.currNameT;
+        //    //txtInvRemark.Value = inv.remark;
+        //}
+        
         private int GetDropDownWidth(ComboBox combo)
         {
             object[] items = new object[combo.Items.Count];
