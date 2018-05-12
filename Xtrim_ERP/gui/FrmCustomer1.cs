@@ -319,6 +319,8 @@ namespace Xtrim_ERP.gui
             dt = xC.xtDB.cusDB.selectAll2(chkSCus.Checked==true ? "1" : "0", chkSImp.Checked == true ? "1" : "0", chkSExp.Checked == true ? "1" : "0", 
                 chkSConsImp.Checked == true ? "1" : "0", chkSConsExp.Checked == true ? "1" : "0", chkSInsr.Checked == true ? "1" : "0", chkSFwd.Checked == true ? "1" : "0", 
                 chkSSupp.Checked == true ? "1" : "0");
+            //grfCus.Cols.Count = 2;
+            //grfCus.Rows.Count = 7;
             grfCus.DataSource = dt;
             grfCus.Cols[colID].Width = 60;
             grfCus.Cols[colCode].Width = 80;

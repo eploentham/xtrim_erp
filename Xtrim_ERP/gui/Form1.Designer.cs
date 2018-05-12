@@ -60,6 +60,7 @@
             this.c1FlexGrid1.RowColChange += new System.EventHandler(this.c1FlexGrid1_RowColChange);
             this.c1FlexGrid1.LeaveCell += new System.EventHandler(this.c1FlexGrid1_LeaveCell);
             this.c1FlexGrid1.EnterCell += new System.EventHandler(this.c1FlexGrid1_EnterCell);
+            this.c1FlexGrid1.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.c1FlexGrid1_CellButtonClick);
             this.c1FlexGrid1.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.c1FlexGrid1_CellChanged);
             this.c1FlexGrid1.CursorChanged += new System.EventHandler(this.c1FlexGrid1_CursorChanged);
             this.c1FlexGrid1.LocationChanged += new System.EventHandler(this.c1FlexGrid1_LocationChanged);

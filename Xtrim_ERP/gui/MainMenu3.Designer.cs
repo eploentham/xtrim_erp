@@ -53,10 +53,11 @@
             this.ขอมลPrivilegesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuConvertData = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuFormTest = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tC1 = new System.Windows.Forms.TabControl();
             this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
-            this.menuFormTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBank = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
@@ -142,6 +143,7 @@
             // 
             this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuCop,
+            this.menuBank,
             this.toolStripSeparator2,
             this.menuCust,
             this.toolStripMenuItem8,
@@ -250,6 +252,13 @@
             this.menuConvertData.Text = "Convert Data";
             this.menuConvertData.Click += new System.EventHandler(this.menuConvertData_Click);
             // 
+            // menuFormTest
+            // 
+            this.menuFormTest.Name = "menuFormTest";
+            this.menuFormTest.Size = new System.Drawing.Size(185, 22);
+            this.menuFormTest.Text = "Form Test";
+            this.menuFormTest.Click += new System.EventHandler(this.menuFormTest_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
@@ -276,12 +285,12 @@
             // 
             this.c1ThemeController1.Theme = "BeigeOne";
             // 
-            // menuFormTest
+            // menuBank
             // 
-            this.menuFormTest.Name = "menuFormTest";
-            this.menuFormTest.Size = new System.Drawing.Size(185, 22);
-            this.menuFormTest.Text = "Form Test";
-            this.menuFormTest.Click += new System.EventHandler(this.menuFormTest_Click);
+            this.menuBank.Name = "menuBank";
+            this.menuBank.Size = new System.Drawing.Size(185, 22);
+            this.menuBank.Text = "ข้อมูลธนาคาร Bank";
+            this.menuBank.Click += new System.EventHandler(this.menuBank_Click);
             // 
             // MainMenu3
             // 
@@ -337,5 +346,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem menuConvertData;
         private System.Windows.Forms.ToolStripMenuItem menuFormTest;
+        private System.Windows.Forms.ToolStripMenuItem menuBank;
     }
 }

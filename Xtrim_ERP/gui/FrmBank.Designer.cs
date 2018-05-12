@@ -28,41 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grdView = new FarPoint.Win.Spread.FpSpread();
-            this.grdView_Sheet1 = new FarPoint.Win.Spread.SheetView();
-            ((System.ComponentModel.ISupportInitialize)(this.grdView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdView_Sheet1)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // grdView
+            // panel1
             // 
-            this.grdView.AccessibleDescription = "";
-            this.grdView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdView.Location = new System.Drawing.Point(0, 0);
-            this.grdView.Name = "grdView";
-            this.grdView.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
-            this.grdView_Sheet1});
-            this.grdView.Size = new System.Drawing.Size(730, 660);
-            this.grdView.TabIndex = 0;
-            this.grdView.ButtonClicked += new FarPoint.Win.Spread.EditorNotifyEventHandler(this.grdView_ButtonClicked);
-            this.grdView.EditChange += new FarPoint.Win.Spread.EditorNotifyEventHandler(this.grdView_EditChange);
-            // 
-            // grdView_Sheet1
-            // 
-            this.grdView_Sheet1.Reset();
-            this.grdView_Sheet1.SheetName = "Sheet1";
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(730, 660);
+            this.panel1.TabIndex = 0;
             // 
             // FrmBank
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 660);
-            this.Controls.Add(this.grdView);
+            this.Controls.Add(this.panel1);
             this.Name = "FrmBank";
             this.Text = "FrmBank";
             this.Load += new System.EventHandler(this.FrmBank_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.grdView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdView_Sheet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -71,5 +56,6 @@
 
         private FarPoint.Win.Spread.FpSpread grdView;
         private FarPoint.Win.Spread.SheetView grdView_Sheet1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

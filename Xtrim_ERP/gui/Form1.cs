@@ -75,5 +75,10 @@ namespace Xtrim_ERP.gui
         {
 
         }
+
+        private void c1FlexGrid1_CellButtonClick(object sender, C1.Win.C1FlexGrid.RowColEventArgs e)
+        {
+
+        }
     }
 }
