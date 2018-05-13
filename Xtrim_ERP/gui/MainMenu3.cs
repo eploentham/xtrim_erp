@@ -211,5 +211,13 @@ namespace Xtrim_ERP.gui
             TabPage tab = new TabPage("dddddd");
             AddNewTab(frm, "Bank");
         }
+
+        private void menuCop_Click(object sender, EventArgs e)
+        {
+            FrmCompany frm = new FrmCompany(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            TabPage tab = new TabPage("dddddd");
+            AddNewTab(frm, "Company");
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace Xtrim_ERP.gui
         int colID = 0, colE = 1, colS = 2, colCode = 3, colNameT = 4, colNameE = 5, colRemark = 6, coledit = 7;
         int colCnt = 8;
 
-        C1FlexGrid grfCus;
+        C1FlexGrid grfCop;
 
         public FrmCompany(XtrimControl x)
         {
@@ -47,27 +47,37 @@ namespace Xtrim_ERP.gui
             //custommenu.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_void));
             //custommenu.MenuItems.Add("&ยกเลิก";
             //grdView.ContextMenu = custommenu;
-            setFocusColor();
+            //setFocusColor();
+            initGrfInvH();
             //setGrdView();
-            setFocusColor();
+            //setFocusColor();
             setFocus();
+            theme1.SetTheme(sB, "BeigeOne");
+            sB1.Text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbb";
+            
         }
         private void initGrfInvH()
         {
-            grfCus = new C1FlexGrid();
-            grfCus.Font = fEdit;
-            grfCus.Dock = System.Windows.Forms.DockStyle.Fill;
-            grfCus.Location = new System.Drawing.Point(0, 0);
+            grfCop = new C1FlexGrid();
+            grfCop.Font = fEdit;
+            grfCop.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfCop.Location = new System.Drawing.Point(0, 0);
 
-            FilterRow fr = new FilterRow(grfCus);
+            FilterRow fr = new FilterRow(grfCop);
 
-            grfCus.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfCus_AfterRowColChange);
-            grfCus.DoubleClick += new System.EventHandler(this.grfCus_DoubleClick);
+            grfCop.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfCus_AfterRowColChange);
+            grfCop.DoubleClick += new System.EventHandler(this.grfCus_DoubleClick);
 
-            panel1.Controls.Add(this.grfCus);
+            panel1.Controls.Add(this.grfCop);
+            //theme1.SetTheme(sB, "BeigeOne");
+            //C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
+            //C1ThemeController.ApplyThemeToObject(grfCop, theme);
+            //foreach(Control c in groupBox1.Controls)
+            //{
+            //    //C1ThemeController.ApplyThemeToObject(c, theme);
+            //    theme1.SetTheme(c, theme.Name);
+            //}
 
-            C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
-            C1ThemeController.ApplyThemeToObject(grfCus, theme);
         }
         private void grfCus_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
         {
@@ -75,14 +85,14 @@ namespace Xtrim_ERP.gui
             if (e.NewRange.Data == null) return;
 
             String addrId = "";
-            addrId = grfCus[e.NewRange.r1, colID] != null ? grfCus[e.NewRange.r1, colID].ToString() : "";
+            addrId = grfCop[e.NewRange.r1, colID] != null ? grfCop[e.NewRange.r1, colID].ToString() : "";
             //setControlAddr(addrId);
             //setControlAddrEnable(false);
         }
         private void grfCus_DoubleClick(object sender, EventArgs e)
         {
             String addrId = "";
-            addrId = grfCus[grfCus.Row, colID].ToString();
+            addrId = grfCop[grfCop.Row, colID].ToString();
         }
         //private void grdView_CellDoubleClick(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
         //{
