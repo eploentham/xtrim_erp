@@ -31,13 +31,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.c1Button1 = new C1.Win.C1Input.C1Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.fpSpread1 = new FarPoint.Win.Spread.FpSpread();
-            this.fpSpread1_Sheet1 = new FarPoint.Win.Spread.SheetView();
+            
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).BeginInit();
+            
             this.SuspendLayout();
             // 
             // panel1
@@ -62,28 +60,13 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.fpSpread1);
+            //this.panel2.Controls.Add(this.fpSpread1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 100);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 350);
             this.panel2.TabIndex = 1;
-            // 
-            // fpSpread1
-            // 
-            this.fpSpread1.AccessibleDescription = "";
-            this.fpSpread1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fpSpread1.Location = new System.Drawing.Point(0, 0);
-            this.fpSpread1.Name = "fpSpread1";
-            this.fpSpread1.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
-            this.fpSpread1_Sheet1});
-            this.fpSpread1.Size = new System.Drawing.Size(798, 348);
-            this.fpSpread1.TabIndex = 0;
-            // 
-            // fpSpread1_Sheet1
-            // 
-            this.fpSpread1_Sheet1.Reset();
-            this.fpSpread1_Sheet1.SheetName = "Sheet1";
+            
             // 
             // FrmJobImpView1
             // 
@@ -99,8 +82,7 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fpSpread1_Sheet1)).EndInit();
+            
             this.ResumeLayout(false);
 
         }
@@ -110,7 +92,6 @@
         private System.Windows.Forms.Panel panel1;
         private C1.Win.C1Input.C1Button c1Button1;
         private System.Windows.Forms.Panel panel2;
-        private FarPoint.Win.Spread.FpSpread fpSpread1;
-        private FarPoint.Win.Spread.SheetView fpSpread1_Sheet1;
+        
     }
 }

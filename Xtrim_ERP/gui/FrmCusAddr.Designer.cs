@@ -30,6 +30,9 @@
         {
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.c1CheckBox4 = new C1.Win.C1Input.C1CheckBox();
+            this.c1CheckBox3 = new C1.Win.C1Input.C1CheckBox();
+            this.c1CheckBox2 = new C1.Win.C1Input.C1CheckBox();
             this.c1CheckBox1 = new C1.Win.C1Input.C1CheckBox();
             this.chkAddrDefaultCus = new C1.Win.C1Input.C1CheckBox();
             this.chkVoid = new C1.Win.C1Input.C1CheckBox();
@@ -74,11 +77,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.c1CheckBox2 = new C1.Win.C1Input.C1CheckBox();
-            this.c1CheckBox3 = new C1.Win.C1Input.C1CheckBox();
-            this.c1CheckBox4 = new C1.Win.C1Input.C1CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkAddrDefaultCus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).BeginInit();
@@ -105,9 +108,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtContactName1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTele)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -169,6 +169,60 @@
             this.panel1.Size = new System.Drawing.Size(908, 369);
             this.panel1.TabIndex = 3;
             this.theme1.SetTheme(this.panel1, "(default)");
+            // 
+            // c1CheckBox4
+            // 
+            this.c1CheckBox4.BackColor = System.Drawing.Color.Transparent;
+            this.c1CheckBox4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.c1CheckBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.c1CheckBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.c1CheckBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.c1CheckBox4.Location = new System.Drawing.Point(473, 342);
+            this.c1CheckBox4.Name = "c1CheckBox4";
+            this.c1CheckBox4.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.c1CheckBox4.Size = new System.Drawing.Size(155, 24);
+            this.c1CheckBox4.TabIndex = 229;
+            this.c1CheckBox4.Text = "ให้แสดงใน ...";
+            this.theme1.SetTheme(this.c1CheckBox4, "(default)");
+            this.c1CheckBox4.UseVisualStyleBackColor = true;
+            this.c1CheckBox4.Value = null;
+            this.c1CheckBox4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1CheckBox3
+            // 
+            this.c1CheckBox3.BackColor = System.Drawing.Color.Transparent;
+            this.c1CheckBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.c1CheckBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.c1CheckBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.c1CheckBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.c1CheckBox3.Location = new System.Drawing.Point(291, 343);
+            this.c1CheckBox3.Name = "c1CheckBox3";
+            this.c1CheckBox3.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.c1CheckBox3.Size = new System.Drawing.Size(155, 24);
+            this.c1CheckBox3.TabIndex = 228;
+            this.c1CheckBox3.Text = "ให้แสดงใน ...";
+            this.theme1.SetTheme(this.c1CheckBox3, "(default)");
+            this.c1CheckBox3.UseVisualStyleBackColor = true;
+            this.c1CheckBox3.Value = null;
+            this.c1CheckBox3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1CheckBox2
+            // 
+            this.c1CheckBox2.BackColor = System.Drawing.Color.Transparent;
+            this.c1CheckBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.c1CheckBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.c1CheckBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.c1CheckBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.c1CheckBox2.Location = new System.Drawing.Point(105, 342);
+            this.c1CheckBox2.Name = "c1CheckBox2";
+            this.c1CheckBox2.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.c1CheckBox2.Size = new System.Drawing.Size(155, 24);
+            this.c1CheckBox2.TabIndex = 227;
+            this.c1CheckBox2.Text = "ให้แสดงใน ...";
+            this.theme1.SetTheme(this.c1CheckBox2, "(default)");
+            this.c1CheckBox2.UseVisualStyleBackColor = true;
+            this.c1CheckBox2.Value = null;
+            this.c1CheckBox2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // c1CheckBox1
             // 
@@ -750,60 +804,6 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // c1CheckBox2
-            // 
-            this.c1CheckBox2.BackColor = System.Drawing.Color.Transparent;
-            this.c1CheckBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.c1CheckBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.c1CheckBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.c1CheckBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1CheckBox2.Location = new System.Drawing.Point(105, 342);
-            this.c1CheckBox2.Name = "c1CheckBox2";
-            this.c1CheckBox2.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.c1CheckBox2.Size = new System.Drawing.Size(155, 24);
-            this.c1CheckBox2.TabIndex = 227;
-            this.c1CheckBox2.Text = "ให้แสดงใน ...";
-            this.theme1.SetTheme(this.c1CheckBox2, "(default)");
-            this.c1CheckBox2.UseVisualStyleBackColor = true;
-            this.c1CheckBox2.Value = null;
-            this.c1CheckBox2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1CheckBox3
-            // 
-            this.c1CheckBox3.BackColor = System.Drawing.Color.Transparent;
-            this.c1CheckBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.c1CheckBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.c1CheckBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.c1CheckBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1CheckBox3.Location = new System.Drawing.Point(291, 343);
-            this.c1CheckBox3.Name = "c1CheckBox3";
-            this.c1CheckBox3.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.c1CheckBox3.Size = new System.Drawing.Size(155, 24);
-            this.c1CheckBox3.TabIndex = 228;
-            this.c1CheckBox3.Text = "ให้แสดงใน ...";
-            this.theme1.SetTheme(this.c1CheckBox3, "(default)");
-            this.c1CheckBox3.UseVisualStyleBackColor = true;
-            this.c1CheckBox3.Value = null;
-            this.c1CheckBox3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1CheckBox4
-            // 
-            this.c1CheckBox4.BackColor = System.Drawing.Color.Transparent;
-            this.c1CheckBox4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.c1CheckBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.c1CheckBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.c1CheckBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1CheckBox4.Location = new System.Drawing.Point(473, 342);
-            this.c1CheckBox4.Name = "c1CheckBox4";
-            this.c1CheckBox4.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.c1CheckBox4.Size = new System.Drawing.Size(155, 24);
-            this.c1CheckBox4.TabIndex = 229;
-            this.c1CheckBox4.Text = "ให้แสดงใน ...";
-            this.theme1.SetTheme(this.c1CheckBox4, "(default)");
-            this.c1CheckBox4.UseVisualStyleBackColor = true;
-            this.c1CheckBox4.Value = null;
-            this.c1CheckBox4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmCusAddr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -813,9 +813,13 @@
             this.Controls.Add(this.sB);
             this.Name = "FrmCusAddr";
             this.Text = "FrmCusAddr";
+            this.Load += new System.EventHandler(this.FrmCusAddr_Load);
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkAddrDefaultCus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).EndInit();
@@ -843,9 +847,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTele)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1,6 +1,6 @@
 ﻿using C1.Win.C1FlexGrid;
 using C1.Win.C1Ribbon;
-using FarPoint.Win.Spread;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +17,7 @@ namespace Xtrim_ERP.object1
     public class FrmSearch : Form
     {
         XtrimControl xC;
-        FpSpread grdView;
+        //FpSpread grdView;
         C1FlexGrid grdFlex;
         StatusBar sB;
 
@@ -100,33 +100,33 @@ namespace Xtrim_ERP.object1
 
         }
 
-        private void initConfigSpreadGrd()
-        {
-            grdView = new FpSpread();
-            grdView.Font = fEdit;
+        //private void initConfigSpreadGrd()
+        //{
+        //    grdView = new FpSpread();
+        //    grdView.Font = fEdit;
 
-            FarPoint.Win.Spread.EnhancedInterfaceRenderer outlinelook = new FarPoint.Win.Spread.EnhancedInterfaceRenderer();
-            outlinelook.RangeGroupBackgroundColor = Color.LightGreen;
-            outlinelook.RangeGroupButtonBorderColor = Color.Red;
-            outlinelook.RangeGroupLineColor = Color.Blue;
-            grdView.InterfaceRenderer = outlinelook;
-            grdView.AccessibleDescription = "";
-            grdView.Dock = System.Windows.Forms.DockStyle.Fill;
-            grdView.Location = new System.Drawing.Point(0, 0);
-            grdView.Sheets.Count = 1;
-            grdView.Sheets[0].OperationMode = FarPoint.Win.Spread.OperationMode.ReadOnly;
+        //    FarPoint.Win.Spread.EnhancedInterfaceRenderer outlinelook = new FarPoint.Win.Spread.EnhancedInterfaceRenderer();
+        //    outlinelook.RangeGroupBackgroundColor = Color.LightGreen;
+        //    outlinelook.RangeGroupButtonBorderColor = Color.Red;
+        //    outlinelook.RangeGroupLineColor = Color.Blue;
+        //    grdView.InterfaceRenderer = outlinelook;
+        //    grdView.AccessibleDescription = "";
+        //    grdView.Dock = System.Windows.Forms.DockStyle.Fill;
+        //    grdView.Location = new System.Drawing.Point(0, 0);
+        //    grdView.Sheets.Count = 1;
+        //    grdView.Sheets[0].OperationMode = FarPoint.Win.Spread.OperationMode.ReadOnly;
 
-            grdView.BorderStyle = BorderStyle.None;
-            grdView.Sheets[0].Columns[colID, colRemark].AllowAutoFilter = true;
-            grdView.Sheets[0].Columns[colID, colRemark].AllowAutoSort = true;
-            grdView.Sheets[0].AutoFilterMode = FarPoint.Win.Spread.AutoFilterMode.EnhancedContextMenu;
-            grdView.Sheets[0].ColumnCount = colCnt;
-            grdView.Sheets[0].RowCount = 1;
+        //    grdView.BorderStyle = BorderStyle.None;
+        //    grdView.Sheets[0].Columns[colID, colRemark].AllowAutoFilter = true;
+        //    grdView.Sheets[0].Columns[colID, colRemark].AllowAutoSort = true;
+        //    grdView.Sheets[0].AutoFilterMode = FarPoint.Win.Spread.AutoFilterMode.EnhancedContextMenu;
+        //    grdView.Sheets[0].ColumnCount = colCnt;
+        //    grdView.Sheets[0].RowCount = 1;
 
-            FarPoint.Win.Spread.CellType.TextCellType objTextCell = new FarPoint.Win.Spread.CellType.TextCellType();
+        //    FarPoint.Win.Spread.CellType.TextCellType objTextCell = new FarPoint.Win.Spread.CellType.TextCellType();
 
-            Controls.Add(grdView);
-        }
+        //    Controls.Add(grdView);
+        //}
         private void initConfigFlexGrd()
         {
             grdFlex = new C1FlexGrid();

@@ -1,6 +1,6 @@
 ﻿namespace Xtrim_ERP.gui
 {
-    partial class FrmBank
+    partial class FrmCusMap
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
-            // panel1
+            // webBrowser1
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(730, 660);
-            this.panel1.TabIndex = 0;
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(800, 450);
+            this.webBrowser1.TabIndex = 0;
             // 
-            // FrmBank
+            // FrmCusMap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 660);
-            this.Controls.Add(this.panel1);
-            this.Name = "FrmBank";
-            this.Text = "FrmBank";
-            this.Load += new System.EventHandler(this.FrmBank_Load);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.webBrowser1);
+            this.Name = "FrmCusMap";
+            this.Text = "FrmCusMap";
+            this.Load += new System.EventHandler(this.FrmCusMap_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        //private FarPoint.Win.Spread.FpSpread grdView;
-        //private FarPoint.Win.Spread.SheetView grdView_Sheet1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }

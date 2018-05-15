@@ -198,7 +198,8 @@ namespace Xtrim_ERP.gui
 
         private void menuFormTest_Click(object sender, EventArgs e)
         {
-            Form1 frm = new Form1();
+            //Form1 frm = new Form1();
+            FrmCusMap frm = new FrmCusMap(xC);
             frm.FormBorderStyle = FormBorderStyle.None;
             TabPage tab = new TabPage("dddddd");
             AddNewTab(frm, "Test");

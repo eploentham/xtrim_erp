@@ -35,13 +35,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.grdView = new FarPoint.Win.Spread.FpSpread();
-            this.grdView_Sheet1 = new FarPoint.Win.Spread.SheetView();
+            
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdView_Sheet1)).BeginInit();
+            
             this.SuspendLayout();
             // 
             // c1SuperTooltip1
@@ -94,7 +92,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.grdView);
+            
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
             this.panel2.Location = new System.Drawing.Point(0, 48);
@@ -102,24 +100,7 @@
             this.panel2.Size = new System.Drawing.Size(970, 644);
             this.panel2.TabIndex = 83;
             this.c1ThemeController1.SetTheme(this.panel2, "(default)");
-            // 
-            // grdView
-            // 
-            this.grdView.AccessibleDescription = "grdView, Sheet1, Row 0, Column 0, ";
-            this.grdView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.grdView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdView.Location = new System.Drawing.Point(0, 0);
-            this.grdView.Name = "grdView";
-            this.grdView.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
-            this.grdView_Sheet1});
-            this.grdView.Size = new System.Drawing.Size(970, 644);
-            this.grdView.TabIndex = 1;
-            this.grdView.CellDoubleClick += new FarPoint.Win.Spread.CellClickEventHandler(this.grdView_CellDoubleClick);
-            // 
-            // grdView_Sheet1
-            // 
-            this.grdView_Sheet1.Reset();
-            this.grdView_Sheet1.SheetName = "Sheet1";
+            
             // 
             // FrmJobImpView
             // 
@@ -138,8 +119,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grdView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdView_Sheet1)).EndInit();
+            
             this.ResumeLayout(false);
 
         }
@@ -151,7 +131,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private FarPoint.Win.Spread.FpSpread grdView;
-        private FarPoint.Win.Spread.SheetView grdView_Sheet1;
+        //private FarPoint.Win.Spread.FpSpread grdView;
+        //private FarPoint.Win.Spread.SheetView grdView_Sheet1;
     }
 }

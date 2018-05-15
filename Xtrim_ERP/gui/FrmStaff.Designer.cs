@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grdView = new FarPoint.Win.Spread.FpSpread();
-            this.grdView_Sheet1 = new FarPoint.Win.Spread.SheetView();
+            
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtRemark = new C1.Win.C1Input.C1TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -63,8 +62,7 @@
             this.txtStfCode = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
-            ((System.ComponentModel.ISupportInitialize)(this.grdView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdView_Sheet1)).BeginInit();
+            
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail)).BeginInit();
@@ -82,23 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtStfCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // grdView
-            // 
-            this.grdView.AccessibleDescription = "";
-            this.grdView.Dock = System.Windows.Forms.DockStyle.Left;
-            this.grdView.Location = new System.Drawing.Point(0, 0);
-            this.grdView.Name = "grdView";
-            this.grdView.Sheets.AddRange(new FarPoint.Win.Spread.SheetView[] {
-            this.grdView_Sheet1});
-            this.grdView.Size = new System.Drawing.Size(495, 724);
-            this.grdView.TabIndex = 2;
-            this.grdView.CellDoubleClick += new FarPoint.Win.Spread.CellClickEventHandler(this.grdView_CellDoubleClick);
-            // 
-            // grdView_Sheet1
-            // 
-            this.grdView_Sheet1.Reset();
-            this.grdView_Sheet1.SheetName = "Sheet1";
+            
             // 
             // groupBox1
             // 
@@ -565,14 +547,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1099, 724);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.grdView);
+            //this.Controls.Add(this.grdView);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.Name = "FrmStaff";
             this.Text = "FrmStaff";
             this.c1ThemeController1.SetTheme(this, "(default)");
             this.Load += new System.EventHandler(this.FrmStaff_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.grdView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdView_Sheet1)).EndInit();
+            
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).EndInit();
@@ -596,8 +577,7 @@
 
         #endregion
 
-        private FarPoint.Win.Spread.FpSpread grdView;
-        private FarPoint.Win.Spread.SheetView grdView_Sheet1;
+        
         private System.Windows.Forms.GroupBox groupBox1;
         private C1.Win.C1Themes.C1ThemeController c1ThemeController1;
         private C1.Win.C1Input.C1TextBox txtRemark;

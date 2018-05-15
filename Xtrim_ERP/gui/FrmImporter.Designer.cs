@@ -740,8 +740,7 @@
 
         #endregion
 
-        private FarPoint.Win.Spread.FpSpread grdView;
-        private FarPoint.Win.Spread.SheetView grdView_Sheet1;
+        
         private C1.Win.C1Themes.C1ThemeController c1ThemeController1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
