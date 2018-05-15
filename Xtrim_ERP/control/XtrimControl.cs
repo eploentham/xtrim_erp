@@ -1,6 +1,7 @@
 ﻿using C1.Win.C1Input;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
@@ -34,6 +35,8 @@ namespace Xtrim_ERP.control
         public UnitGw sUgw;
         public UnitPackage sUtp;
         public Terminal sTmn;
+
+        public Color cTxtFocus;
 
         //public enum Search
         //{
@@ -77,6 +80,8 @@ namespace Xtrim_ERP.control
             sUgw = new UnitGw();
             sUtp = new UnitPackage();
             sTmn = new Terminal();
+
+            cTxtFocus = ColorTranslator.FromHtml(iniC.txtFocus);
         }
         public void GetConfig()
         {
@@ -99,6 +104,7 @@ namespace Xtrim_ERP.control
             iniC.grdViewFontSize = iniF.Read("grdViewFontSize");
             iniC.grdViewFontName = iniF.Read("grdViewFontName");
             iniC.themeApplication = iniF.Read("themeApplication");
+            iniC.txtFocus = iniF.Read("txtFocus");
 
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
             int.TryParse(iniC.grdViewFontSize, out grdViewFontSize);

@@ -61,12 +61,13 @@ namespace Xtrim_ERP.gui
             //setFocus();
             tabPage1.Text = "รายละเอียด";
             tabPage2.Text = "ที่อยู่ address";
+            tabPage3.Text = "หมายเหตุ";
             initGrfCusH();
             initGrfAddrH();
             setGrfCusH();
             setGrfAddrH();
             btnVoid.Hide();
-            btnAddrVoid.Hide();
+            //btnAddrVoid.Hide();
             setControlNew();
             setFocusColor();
             C1ThemeController.ApplicationTheme = xC.iniC.themeApplication;
@@ -155,50 +156,50 @@ namespace Xtrim_ERP.gui
             this.txtContactName2.Leave += new System.EventHandler(this.textBox_Leave);
             this.txtContactName2.Enter += new System.EventHandler(this.textBox_Enter);
 
-            this.txtAddrName.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtAddrName.Enter += new System.EventHandler(this.textBox_Enter);
+            //this.txtAddrName.Leave += new System.EventHandler(this.textBox_Leave);
+            //this.txtAddrName.Enter += new System.EventHandler(this.textBox_Enter);
 
-            this.txtAddrLineT1.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtAddrLineT1.Enter += new System.EventHandler(this.textBox_Enter);
+            //this.txtAddrLineT1.Leave += new System.EventHandler(this.textBox_Leave);
+            //this.txtAddrLineT1.Enter += new System.EventHandler(this.textBox_Enter);
 
-            this.txtAddrLineT2.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtAddrLineT2.Enter += new System.EventHandler(this.textBox_Enter);
+            //this.txtAddrLineT2.Leave += new System.EventHandler(this.textBox_Leave);
+            //this.txtAddrLineT2.Enter += new System.EventHandler(this.textBox_Enter);
 
-            this.txtAddrLineT3.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtAddrLineT3.Enter += new System.EventHandler(this.textBox_Enter);
+            //this.txtAddrLineT3.Leave += new System.EventHandler(this.textBox_Leave);
+            //this.txtAddrLineT3.Enter += new System.EventHandler(this.textBox_Enter);
 
-            this.txtAddrLineT4.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtAddrLineT4.Enter += new System.EventHandler(this.textBox_Enter);
+            //this.txtAddrLineT4.Leave += new System.EventHandler(this.textBox_Leave);
+            //this.txtAddrLineT4.Enter += new System.EventHandler(this.textBox_Enter);
 
-            this.txtAddrLineE1.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtAddrLineE1.Enter += new System.EventHandler(this.textBox_Enter);
+            //this.txtAddrLineE1.Leave += new System.EventHandler(this.textBox_Leave);
+            //this.txtAddrLineE1.Enter += new System.EventHandler(this.textBox_Enter);
 
-            this.txtAddrLineE2.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtAddrLineE2.Enter += new System.EventHandler(this.textBox_Enter);
+            //this.txtAddrLineE2.Leave += new System.EventHandler(this.textBox_Leave);
+            //this.txtAddrLineE2.Enter += new System.EventHandler(this.textBox_Enter);
 
-            this.txtAddrLineE3.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtAddrLineE3.Enter += new System.EventHandler(this.textBox_Enter);
+            //this.txtAddrLineE3.Leave += new System.EventHandler(this.textBox_Leave);
+            //this.txtAddrLineE3.Enter += new System.EventHandler(this.textBox_Enter);
 
-            this.txtAddrLineE4.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtAddrLineE4.Enter += new System.EventHandler(this.textBox_Enter);
+            //this.txtAddrLineE4.Leave += new System.EventHandler(this.textBox_Leave);
+            //this.txtAddrLineE4.Enter += new System.EventHandler(this.textBox_Enter);
 
-            this.txtAddrTele.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtAddrTele.Enter += new System.EventHandler(this.textBox_Enter);
+            //this.txtAddrTele.Leave += new System.EventHandler(this.textBox_Leave);
+            //this.txtAddrTele.Enter += new System.EventHandler(this.textBox_Enter);
 
-            this.txtAddrFax.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtAddrFax.Enter += new System.EventHandler(this.textBox_Enter);
+            //this.txtAddrFax.Leave += new System.EventHandler(this.textBox_Leave);
+            //this.txtAddrFax.Enter += new System.EventHandler(this.textBox_Enter);
 
-            this.txtAddrEmail.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtAddrEmail.Enter += new System.EventHandler(this.textBox_Enter);
+            //this.txtAddrEmail.Leave += new System.EventHandler(this.textBox_Leave);
+            //this.txtAddrEmail.Enter += new System.EventHandler(this.textBox_Enter);
 
-            this.txtAddrMobile.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtAddrMobile.Enter += new System.EventHandler(this.textBox_Enter);
+            //this.txtAddrMobile.Leave += new System.EventHandler(this.textBox_Leave);
+            //this.txtAddrMobile.Enter += new System.EventHandler(this.textBox_Enter);
 
-            this.txtAddrRemark.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtAddrRemark.Enter += new System.EventHandler(this.textBox_Enter);
+            //this.txtAddrRemark.Leave += new System.EventHandler(this.textBox_Leave);
+            //this.txtAddrRemark.Enter += new System.EventHandler(this.textBox_Enter);
 
-            this.txtAddrRemark2.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtAddrRemark2.Enter += new System.EventHandler(this.textBox_Enter);
+            //this.txtAddrRemark2.Leave += new System.EventHandler(this.textBox_Leave);
+            //this.txtAddrRemark2.Enter += new System.EventHandler(this.textBox_Enter);
 
             this.txtAddrContactName1.Leave += new System.EventHandler(this.textBox_Leave);
             this.txtAddrContactName1.Enter += new System.EventHandler(this.textBox_Enter);
@@ -220,12 +221,12 @@ namespace Xtrim_ERP.gui
         {
             if (flag)
             {
-                setControlAddrEnable(true);
+                //setControlAddrEnable(true);
                 btnEdit.Image = Resources.open24;
             }
             else
             {
-                setControlAddrEnable(false);
+                //setControlAddrEnable(false);
                 btnEdit.Image = Resources.lock24;
             }
         }
@@ -486,35 +487,35 @@ namespace Xtrim_ERP.gui
             grfAddr.Cols[colAddrRemark].Caption = "หมายเหตุ";
             grfAddr.Cols[colAddrRemark2].Caption = "หมายเหตุ2";
 
-            grfAddr1.DataSource = grfAddr.DataSource;
-            grfAddr1.Cols[colAddrID].Width = 60;
-            grfAddr1.Cols[colAddrName].Width = 100;
-            grfAddr1.Cols[colAddrLine1].Width = 100;
-            grfAddr1.Cols[colAddrLine2].Width = 100;
-            grfAddr1.Cols[colAddrLine3].Width = 100;
-            grfAddr1.Cols[colAddrline4].Width = 100;
-            grfAddr1.Cols[colAddrEmail].Width = 100;
-            grfAddr1.Cols[colAddrEmail2].Width = 100;
-            grfAddr1.Cols[colAddrTele].Width = 100;
-            grfAddr1.Cols[colAddrMobile].Width = 100;
-            grfAddr1.Cols[colAddrRemark].Width = 100;
-            grfAddr1.Cols[colAddrRemark2].Width = 100;
-            grfAddr1.ShowCursor = true;
-            //grdFlex.Cols[colID].Caption = "no";
-            grfAddr1.Cols[colAddrName].Caption = "ชื่อที่อยู่";
-            grfAddr1.Cols[colAddrLine1].Caption = "ที่อยู่ 1";
-            grfAddr1.Cols[colAddrLine2].Caption = "ที่อยู่ 2";
-            grfAddr1.Cols[colAddrLine3].Caption = "ที่อยู่ 3";
-            grfAddr1.Cols[colAddrline4].Caption = "ที่อยู่ 4";
-            grfAddr1.Cols[colAddrEmail].Caption = "email";
-            grfAddr1.Cols[colAddrEmail2].Caption = "email2";
-            grfAddr1.Cols[colAddrTele].Caption = "tele";
-            grfAddr1.Cols[colAddrMobile].Caption = "mobile";
-            grfAddr1.Cols[colAddrRemark].Caption = "หมายเหตุ";
-            grfAddr1.Cols[colAddrRemark2].Caption = "หมายเหตุ2";
+            //grfAddr1.DataSource = grfAddr.DataSource;
+            //grfAddr1.Cols[colAddrID].Width = 60;
+            //grfAddr1.Cols[colAddrName].Width = 100;
+            //grfAddr1.Cols[colAddrLine1].Width = 100;
+            //grfAddr1.Cols[colAddrLine2].Width = 100;
+            //grfAddr1.Cols[colAddrLine3].Width = 100;
+            //grfAddr1.Cols[colAddrline4].Width = 100;
+            //grfAddr1.Cols[colAddrEmail].Width = 100;
+            //grfAddr1.Cols[colAddrEmail2].Width = 100;
+            //grfAddr1.Cols[colAddrTele].Width = 100;
+            //grfAddr1.Cols[colAddrMobile].Width = 100;
+            //grfAddr1.Cols[colAddrRemark].Width = 100;
+            //grfAddr1.Cols[colAddrRemark2].Width = 100;
+            //grfAddr1.ShowCursor = true;
+            ////grdFlex.Cols[colID].Caption = "no";
+            //grfAddr1.Cols[colAddrName].Caption = "ชื่อที่อยู่";
+            //grfAddr1.Cols[colAddrLine1].Caption = "ที่อยู่ 1";
+            //grfAddr1.Cols[colAddrLine2].Caption = "ที่อยู่ 2";
+            //grfAddr1.Cols[colAddrLine3].Caption = "ที่อยู่ 3";
+            //grfAddr1.Cols[colAddrline4].Caption = "ที่อยู่ 4";
+            //grfAddr1.Cols[colAddrEmail].Caption = "email";
+            //grfAddr1.Cols[colAddrEmail2].Caption = "email2";
+            //grfAddr1.Cols[colAddrTele].Caption = "tele";
+            //grfAddr1.Cols[colAddrMobile].Caption = "mobile";
+            //grfAddr1.Cols[colAddrRemark].Caption = "หมายเหตุ";
+            //grfAddr1.Cols[colAddrRemark2].Caption = "หมายเหตุ2";
 
             grfAddr.Cols[colAddrID].Visible = false;
-            grfAddr1.Cols[colAddrID].Visible = false;
+            //grfAddr1.Cols[colAddrID].Visible = false;
         }
         private void initGrfCusH()
         {
@@ -552,57 +553,57 @@ namespace Xtrim_ERP.gui
             //grfAddr.LeaveCell += new System.EventHandler(this.grdFlex_LeaveCell);
             grfAddr.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfAddr_AfterRowColChange);
 
-            splitContainer2.Panel2.Controls.Add(this.grfAddr);
+            panel3.Controls.Add(this.grfAddr);
             //Controls.Add(sB);
 
-            grfAddr1 = new C1FlexGrid();
-            grfAddr1.Font = fEdit;
-            grfAddr1.Dock = System.Windows.Forms.DockStyle.Fill;
-            grfAddr1.Location = new System.Drawing.Point(0, 0);
-            panel4.Controls.Add(this.grfAddr1);
+            //grfAddr1 = new C1FlexGrid();
+            //grfAddr1.Font = fEdit;
+            //grfAddr1.Dock = System.Windows.Forms.DockStyle.Fill;
+            //grfAddr1.Location = new System.Drawing.Point(0, 0);
+            //panel3.Controls.Add(this.grfAddr1);
         }
-        private void setControlAddr(String addrId)
-        {
-            if (addrId.Equals("")) return;
-            Address addr = new Address();
-            addr = xC.xtDB.addrDB.selectByPk1(addrId);
-            txtAddrId.Value = addr.address_id;
-            txtAddrName.Value = addr.address_name;
-            txtAddrLineT1.Value = addr.line_t1;
-            txtAddrLineT2.Value = addr.line_t2;
-            txtAddrLineT3.Value = addr.line_t3;
-            txtAddrLineT4.Value = addr.line_t4;
-            txtAddrLineE1.Value = addr.line_e1;
-            txtAddrLineE2.Value = addr.line_e2;
-            txtAddrLineE3.Value = addr.line_e3;
-            txtAddrLineE4.Value = addr.line_e4;
-            txtAddrTele.Value = addr.tele;
-            txtAddrFax.Value = addr.fax;
-            txtAddrEmail.Value = addr.email;
-            txtAddrMobile.Value = addr.mobile;
-            txtAddrRemark.Value = addr.remark;
-            txtAddrRemark2.Value = addr.remark;
-            txtAddrContactName1.Value = addr.contact_name1;
-            txtAddrContactName2.Value = addr.contact_name2;
-            txtAddrContactTel1.Value = addr.contact_name_tel1;
-            txtAddrContactTel2.Value = addr.contact_name_tel2;
+        //private void setControlAddr(String addrId)
+        //{
+        //    if (addrId.Equals("")) return;
+        //    Address addr = new Address();
+        //    addr = xC.xtDB.addrDB.selectByPk1(addrId);
+        //    txtAddrId.Value = addr.address_id;
+        //    txtAddrName.Value = addr.address_name;
+        //    txtAddrLineT1.Value = addr.line_t1;
+        //    txtAddrLineT2.Value = addr.line_t2;
+        //    txtAddrLineT3.Value = addr.line_t3;
+        //    txtAddrLineT4.Value = addr.line_t4;
+        //    txtAddrLineE1.Value = addr.line_e1;
+        //    txtAddrLineE2.Value = addr.line_e2;
+        //    txtAddrLineE3.Value = addr.line_e3;
+        //    txtAddrLineE4.Value = addr.line_e4;
+        //    txtAddrTele.Value = addr.tele;
+        //    txtAddrFax.Value = addr.fax;
+        //    txtAddrEmail.Value = addr.email;
+        //    txtAddrMobile.Value = addr.mobile;
+        //    txtAddrRemark.Value = addr.remark;
+        //    txtAddrRemark2.Value = addr.remark;
+        //    txtAddrContactName1.Value = addr.contact_name1;
+        //    txtAddrContactName2.Value = addr.contact_name2;
+        //    txtAddrContactTel1.Value = addr.contact_name_tel1;
+        //    txtAddrContactTel2.Value = addr.contact_name_tel2;
 
-            txtAddrWeb1.Value = addr.web_site1;
-            txtAddrWeb2.Value = addr.web_site2;
-            txtAddrGoogleMap.Value = addr.google_map;
-            chkAddrDefaultCus.Checked = addr.status_defalut_customer.Equals("1") ? true : false;
-            txtAddrTableId.Value = addr.table_id;
-        }
+        //    txtAddrWeb1.Value = addr.web_site1;
+        //    txtAddrWeb2.Value = addr.web_site2;
+        //    txtAddrGoogleMap.Value = addr.google_map;
+        //    chkAddrDefaultCus.Checked = addr.status_defalut_customer.Equals("1") ? true : false;
+        //    txtAddrTableId.Value = addr.table_id;
+        //}
 
         private void chkAddrVoid_Click(object sender, EventArgs e)
         {
             if (chkAddrVoid.Checked)
             {
-                btnAddrVoid.Show();
+                //btnAddrVoid.Show();
             }
             else
             {
-                btnAddrVoid.Hide();
+                //btnAddrVoid.Hide();
             }
         }
 
@@ -646,242 +647,242 @@ namespace Xtrim_ERP.gui
             //setControlAddrEnable(true);
             setControlAddrEdit(true);
         }
-        private void setAddreNew()
-        {
-            txtAddrId.Value = "";
-            txtAddrName.Value = "";
-            txtAddrLineT1.Value = "";
-            txtAddrLineT2.Value = "";
-            txtAddrLineT3.Value = "";
-            txtAddrLineT4.Value = "";
-            txtAddrLineE1.Value = "";
-            txtAddrLineE2.Value = "";
-            txtAddrLineE3.Value = "";
-            txtAddrLineE4.Value = "";
-            txtAddrTele.Value = "";
-            txtAddrFax.Value = "";
-            txtAddrEmail.Value = "";
-            txtAddrMobile.Value = "";
-            txtAddrRemark.Value = "";
-            txtAddrRemark2.Value = "";
-            txtAddrContactName1.Value = "";
-            txtAddrContactName2.Value = "";
-            txtAddrContactTel1.Value = "";
-            txtAddrContactTel2.Value = "";
+        //private void setAddreNew()
+        //{
+        //    txtAddrId.Value = "";
+        //    txtAddrName.Value = "";
+        //    txtAddrLineT1.Value = "";
+        //    txtAddrLineT2.Value = "";
+        //    txtAddrLineT3.Value = "";
+        //    txtAddrLineT4.Value = "";
+        //    txtAddrLineE1.Value = "";
+        //    txtAddrLineE2.Value = "";
+        //    txtAddrLineE3.Value = "";
+        //    txtAddrLineE4.Value = "";
+        //    txtAddrTele.Value = "";
+        //    txtAddrFax.Value = "";
+        //    txtAddrEmail.Value = "";
+        //    txtAddrMobile.Value = "";
+        //    txtAddrRemark.Value = "";
+        //    txtAddrRemark2.Value = "";
+        //    txtAddrContactName1.Value = "";
+        //    txtAddrContactName2.Value = "";
+        //    txtAddrContactTel1.Value = "";
+        //    txtAddrContactTel2.Value = "";
 
-            txtAddrWeb1.Value = "";
-            txtAddrWeb2.Value = "";
-            txtAddrGoogleMap.Value = "";
-            chkAddrDefaultCus.Checked = false;
-        }
+        //    txtAddrWeb1.Value = "";
+        //    txtAddrWeb2.Value = "";
+        //    txtAddrGoogleMap.Value = "";
+        //    chkAddrDefaultCus.Checked = false;
+        //}
         private void btnAddrNew_Click(object sender, EventArgs e)
         {
-            setAddreNew();
-            setControlAddrEnable(true);
+            //setAddreNew();
+            //setControlAddrEnable(true);
         }
-        private void saveAddr()
-        {
-            Address addr = new Address();
-            addr.address_id = txtAddrId.Value.ToString().Trim();
-            addr.address_code = "";
-            addr.line_t1 = txtAddrLineT1.Value.ToString().Trim();
-            addr.line_t2 = txtAddrLineT2.Value.ToString().Trim();
-            addr.line_t3 = txtAddrLineT3.Value.ToString().Trim();
-            addr.line_t4 = txtAddrLineT4.Value.ToString().Trim();
-            addr.line_e1 = txtAddrLineE1.Value.ToString().Trim();
-            addr.line_e2 = txtAddrLineE2.Value.ToString().Trim();
-            addr.line_e3 = txtAddrLineE3.Value.ToString().Trim();
-            addr.line_e4 = txtAddrLineE4.Value.ToString().Trim();
-            addr.prov_id = "";
-            addr.amphur_id = "";
-            addr.district_id = "";
-            addr.zipcode = "";
-            addr.email = txtAddrEmail.Value.ToString().Trim();
-            addr.email2 = "";
-            addr.tele = txtAddrTele.Value.ToString().Trim();
-            addr.mobile = txtAddrMobile.Value.ToString().Trim();
-            addr.fax = txtAddrFax.Value.ToString().Trim();
-            addr.remark = txtAddrRemark.Value.ToString().Trim();
-            addr.address_type_id = "";
-            addr.table_id = txtAddrTableId.Value.ToString().Trim();
-            addr.date_create = "";
-            addr.date_modi = "";
-            addr.date_cancel = "";
-            addr.user_create = "";
-            addr.user_modi = "";
-            addr.user_cancel = "";
-            addr.active = "";
-            addr.address_name = txtAddrName.Value.ToString().Trim();
-            addr.contact_id = "";
-            addr.contact_name1 = txtAddrContactName1.Text;
-            addr.contact_name2 = txtAddrContactName2.Text;
-            addr.contact_name_tel1 = txtAddrContactTel1.Text;
-            addr.contact_name_tel2 = txtAddrContactTel2.Text;
+        //private void saveAddr()
+        //{
+        //    Address addr = new Address();
+        //    addr.address_id = txtAddrId.Value.ToString().Trim();
+        //    addr.address_code = "";
+        //    addr.line_t1 = txtAddrLineT1.Value.ToString().Trim();
+        //    addr.line_t2 = txtAddrLineT2.Value.ToString().Trim();
+        //    addr.line_t3 = txtAddrLineT3.Value.ToString().Trim();
+        //    addr.line_t4 = txtAddrLineT4.Value.ToString().Trim();
+        //    addr.line_e1 = txtAddrLineE1.Value.ToString().Trim();
+        //    addr.line_e2 = txtAddrLineE2.Value.ToString().Trim();
+        //    addr.line_e3 = txtAddrLineE3.Value.ToString().Trim();
+        //    addr.line_e4 = txtAddrLineE4.Value.ToString().Trim();
+        //    addr.prov_id = "";
+        //    addr.amphur_id = "";
+        //    addr.district_id = "";
+        //    addr.zipcode = "";
+        //    addr.email = txtAddrEmail.Value.ToString().Trim();
+        //    addr.email2 = "";
+        //    addr.tele = txtAddrTele.Value.ToString().Trim();
+        //    addr.mobile = txtAddrMobile.Value.ToString().Trim();
+        //    addr.fax = txtAddrFax.Value.ToString().Trim();
+        //    addr.remark = txtAddrRemark.Value.ToString().Trim();
+        //    addr.address_type_id = "";
+        //    addr.table_id = txtAddrTableId.Value.ToString().Trim();
+        //    addr.date_create = "";
+        //    addr.date_modi = "";
+        //    addr.date_cancel = "";
+        //    addr.user_create = "";
+        //    addr.user_modi = "";
+        //    addr.user_cancel = "";
+        //    addr.active = "";
+        //    addr.address_name = txtAddrName.Value.ToString().Trim();
+        //    addr.contact_id = "";
+        //    addr.contact_name1 = txtAddrContactName1.Text;
+        //    addr.contact_name2 = txtAddrContactName2.Text;
+        //    addr.contact_name_tel1 = txtAddrContactTel1.Text;
+        //    addr.contact_name_tel2 = txtAddrContactTel2.Text;
 
-            addr.web_site1 = txtAddrWeb1.Text;
-            addr.web_site2 = txtAddrWeb2.Text;
-            addr.google_map = txtAddrGoogleMap.Text;
-            addr.status_defalut_customer = chkAddrDefaultCus.Checked ? "1" : "0";
-            String re = xC.xtDB.addrDB.insertAddress(addr);
-            int chk = 0;
-            if (int.TryParse(re, out chk))
-            {
-                btnAddrSave.Image = Resources.accept_database24;
-                sB1.Text = "บันทึกข้อมูล " + cus.cust_code + " " + addr.line_t1 + " เรียบร้อย ";
-            }
-        }
+        //    addr.web_site1 = txtAddrWeb1.Text;
+        //    addr.web_site2 = txtAddrWeb2.Text;
+        //    addr.google_map = txtAddrGoogleMap.Text;
+        //    addr.status_defalut_customer = chkAddrDefaultCus.Checked ? "1" : "0";
+        //    String re = xC.xtDB.addrDB.insertAddress(addr);
+        //    int chk = 0;
+        //    if (int.TryParse(re, out chk))
+        //    {
+        //        btnAddrSave.Image = Resources.accept_database24;
+        //        sB1.Text = "บันทึกข้อมูล " + cus.cust_code + " " + addr.line_t1 + " เรียบร้อย ";
+        //    }
+        //}
         private void btnAddrSave_Click(object sender, EventArgs e)
         {
-            saveAddr();
+            //saveAddr();
         }
-        private void saveCustomer()
-        {
-            Customer cus = new Customer();
-            cus.cust_id = txtID.Value.ToString().Trim();
-            cus.cust_code = txtCusCode.Value.ToString().Trim();
-            cus.cust_name_t = txtCusNameT.Value.ToString().Trim();
-            cus.cust_name_e = txtCusNameE.Value.ToString().Trim();
-            cus.tax_id = txtTaxId.Value.ToString().Trim();
+        //private void saveCustomer()
+        //{
+        //    Customer cus = new Customer();
+        //    cus.cust_id = txtID.Value.ToString().Trim();
+        //    cus.cust_code = txtCusCode.Value.ToString().Trim();
+        //    cus.cust_name_t = txtCusNameT.Value.ToString().Trim();
+        //    cus.cust_name_e = txtCusNameE.Value.ToString().Trim();
+        //    cus.tax_id = txtTaxId.Value.ToString().Trim();
 
-            cus.address_t = "";
-            cus.address_e = "";
-            cus.addr = "";
-            cus.amphur_id = "";
-            cus.district_id = "";
+        //    cus.address_t = "";
+        //    cus.address_e = "";
+        //    cus.addr = "";
+        //    cus.amphur_id = "";
+        //    cus.district_id = "";
 
-            cus.province_id = "";
-            cus.zipcode = "";
-            cus.sale_id = "";
-            cus.sale_name_t = "";
-            cus.fax = txtFax.Text;
+        //    cus.province_id = "";
+        //    cus.zipcode = "";
+        //    cus.sale_id = "";
+        //    cus.sale_name_t = "";
+        //    cus.fax = txtFax.Text;
 
-            cus.tele = txtTele.Text;
-            cus.email = txtEmail.Value.ToString().Trim();
-            cus.tax_id = txtTaxId.Value.ToString().Trim();
-            cus.remark = txtRemark.Text;
-            cus.contact_name1 = txtContactName1.Value.ToString().Trim();
+        //    cus.tele = txtTele.Text;
+        //    cus.email = txtEmail.Value.ToString().Trim();
+        //    cus.tax_id = txtTaxId.Value.ToString().Trim();
+        //    cus.remark = txtRemark.Text;
+        //    cus.contact_name1 = txtContactName1.Value.ToString().Trim();
 
-            cus.contact_name2 = txtContactName2.Value.ToString().Trim();
-            cus.contact_name1_tel = txtContactTel1.Text.Trim();
-            cus.contact_name2_tel = txtContactTel2.Text.Trim();
-            cus.status_company = "1";
-            cus.status_vendor = "";
+        //    cus.contact_name2 = txtContactName2.Value.ToString().Trim();
+        //    cus.contact_name1_tel = txtContactTel1.Text.Trim();
+        //    cus.contact_name2_tel = txtContactTel2.Text.Trim();
+        //    cus.status_company = "1";
+        //    cus.status_vendor = "";
 
-            cus.date_create = "";
-            cus.date_modi = "";
-            cus.date_cancel = "";
-            cus.user_create = "";
-            cus.user_modi = "";
+        //    cus.date_create = "";
+        //    cus.date_modi = "";
+        //    cus.date_cancel = "";
+        //    cus.user_create = "";
+        //    cus.user_modi = "";
 
-            cus.user_cancel = "";
-            cus.remark2 = txtAddrRemark2.Value.ToString().Trim();
-            cus.po_due_period = "";
-            cus.taddr1 = txtAddrT1.Value.ToString().Trim();
-            cus.taddr2 = txtAddrT2.Value.ToString().Trim();
+        //    cus.user_cancel = "";
+        //    cus.remark2 = txtAddrRemark2.Value.ToString().Trim();
+        //    cus.po_due_period = "";
+        //    cus.taddr1 = txtAddrT1.Value.ToString().Trim();
+        //    cus.taddr2 = txtAddrT2.Value.ToString().Trim();
 
-            cus.taddr3 = txtAddrT3.Value.ToString().Trim();
-            cus.taddr4 = txtAddrT4.Value.ToString().Trim();
-            cus.eaddr1 = txtAddrE1.Value.ToString().Trim();
-            cus.eaddr2 = txtAddrE2.Value.ToString().Trim();
-            cus.eaddr3 = txtAddrE3.Value.ToString().Trim();
+        //    cus.taddr3 = txtAddrT3.Value.ToString().Trim();
+        //    cus.taddr4 = txtAddrT4.Value.ToString().Trim();
+        //    cus.eaddr1 = txtAddrE1.Value.ToString().Trim();
+        //    cus.eaddr2 = txtAddrE2.Value.ToString().Trim();
+        //    cus.eaddr3 = txtAddrE3.Value.ToString().Trim();
 
-            cus.eaddr4 = txtAddrE4.Value.ToString().Trim();
-            cus.sort1 = "";
+        //    cus.eaddr4 = txtAddrE4.Value.ToString().Trim();
+        //    cus.sort1 = "";
 
-            cus.status_cust = chkCus.Checked ? "1" : "0";
-            cus.status_exp = chkExp.Checked ? "1" : "0";
-            cus.status_fwd = chkFwd.Checked ? "1" : "0";
-            cus.status_imp = chkImp.Checked ? "1" : "0";
+        //    cus.status_cust = chkCus.Checked ? "1" : "0";
+        //    cus.status_exp = chkExp.Checked ? "1" : "0";
+        //    cus.status_fwd = chkFwd.Checked ? "1" : "0";
+        //    cus.status_imp = chkImp.Checked ? "1" : "0";
 
-            String re = xC.xtDB.cusDB.insertCustomer(cus);
-            int chk = 0;
-            if (int.TryParse(re, out chk))
-            {
-                if (flagNew)
-                {
-                    Address addr = new Address();
-                    addr.address_id = "";
-                    addr.address_code = "";
-                    addr.line_t1 = txtAddrT1.Value.ToString().Trim();
-                    addr.line_t2 = txtAddrT2.Value.ToString().Trim();
-                    addr.line_t3 = txtAddrT3.Value.ToString().Trim();
-                    addr.line_t4 = txtAddrT4.Value.ToString().Trim();
-                    addr.line_e1 = txtAddrE1.Value.ToString().Trim();
-                    addr.line_e2 = txtAddrE2.Value.ToString().Trim();
-                    addr.line_e3 = txtAddrE3.Value.ToString().Trim();
-                    addr.line_e4 = txtAddrE4.Value.ToString().Trim();
-                    addr.prov_id = "";
-                    addr.amphur_id = "";
-                    addr.district_id = "";
-                    addr.zipcode = "";
-                    addr.email = txtEmail.Value.ToString().Trim();
-                    addr.email2 = "";
-                    addr.tele = txtTele.Value.ToString().Trim();
-                    addr.mobile = txtAddrMobile.Value.ToString().Trim();
-                    addr.fax = txtAddrFax.Value.ToString().Trim();
-                    addr.remark = txtAddrRemark.Value.ToString().Trim();
-                    addr.address_type_id = "";
-                    addr.table_id = re;
-                    addr.date_create = "";
-                    addr.date_modi = "";
-                    addr.date_cancel = "";
-                    addr.user_create = "";
-                    addr.user_modi = "";
-                    addr.user_cancel = "";
-                    addr.active = "";
-                    addr.address_name = txtAddrName.Value.ToString().Trim();
-                    addr.contact_id = "";
-                    addr.contact_name1 = txtContactName1.Text;
-                    addr.contact_name2 = txtContactName2.Text;
-                    addr.contact_name_tel1 = txtContactTel1.Text;
-                    addr.contact_name_tel2 = txtContactTel2.Text;
+        //    String re = xC.xtDB.cusDB.insertCustomer(cus);
+        //    int chk = 0;
+        //    if (int.TryParse(re, out chk))
+        //    {
+        //        if (flagNew)
+        //        {
+        //            Address addr = new Address();
+        //            addr.address_id = "";
+        //            addr.address_code = "";
+        //            addr.line_t1 = txtAddrT1.Value.ToString().Trim();
+        //            addr.line_t2 = txtAddrT2.Value.ToString().Trim();
+        //            addr.line_t3 = txtAddrT3.Value.ToString().Trim();
+        //            addr.line_t4 = txtAddrT4.Value.ToString().Trim();
+        //            addr.line_e1 = txtAddrE1.Value.ToString().Trim();
+        //            addr.line_e2 = txtAddrE2.Value.ToString().Trim();
+        //            addr.line_e3 = txtAddrE3.Value.ToString().Trim();
+        //            addr.line_e4 = txtAddrE4.Value.ToString().Trim();
+        //            addr.prov_id = "";
+        //            addr.amphur_id = "";
+        //            addr.district_id = "";
+        //            addr.zipcode = "";
+        //            addr.email = txtEmail.Value.ToString().Trim();
+        //            addr.email2 = "";
+        //            addr.tele = txtTele.Value.ToString().Trim();
+        //            addr.mobile = txtAddrMobile.Value.ToString().Trim();
+        //            addr.fax = txtAddrFax.Value.ToString().Trim();
+        //            addr.remark = txtAddrRemark.Value.ToString().Trim();
+        //            addr.address_type_id = "";
+        //            addr.table_id = re;
+        //            addr.date_create = "";
+        //            addr.date_modi = "";
+        //            addr.date_cancel = "";
+        //            addr.user_create = "";
+        //            addr.user_modi = "";
+        //            addr.user_cancel = "";
+        //            addr.active = "";
+        //            addr.address_name = txtAddrName.Value.ToString().Trim();
+        //            addr.contact_id = "";
+        //            addr.contact_name1 = txtContactName1.Text;
+        //            addr.contact_name2 = txtContactName2.Text;
+        //            addr.contact_name_tel1 = txtContactTel1.Text;
+        //            addr.contact_name_tel2 = txtContactTel2.Text;
 
-                    addr.web_site1 = "";
-                    addr.web_site2 = "";
-                    addr.google_map = "";
-                    addr.status_defalut_customer = "1";
-                    String re1 = xC.xtDB.addrDB.insertAddress(addr);
+        //            addr.web_site1 = "";
+        //            addr.web_site2 = "";
+        //            addr.google_map = "";
+        //            addr.status_defalut_customer = "1";
+        //            String re1 = xC.xtDB.addrDB.insertAddress(addr);
 
-                }
+        //        }
 
-                btnSave.Image = Resources.accept_database24;
-                sB1.Text = "บันทึกข้อมูล " + cus.cust_code + " เรียบร้อย ";
-            }
-        }
+        //        btnSave.Image = Resources.accept_database24;
+        //        sB1.Text = "บันทึกข้อมูล " + cus.cust_code + " เรียบร้อย ";
+        //    }
+        //}
         private void btnSave_Click(object sender, EventArgs e)
         {
-            saveCustomer();
+            //saveCustomer();
             tabPage2.Show();
         }
 
-        private void setControlAddrEnable(Boolean flag)
-        {
-            txtAddrId.Enabled = flag;
-            txtAddrName.Enabled = flag;
-            txtAddrLineT1.Enabled = flag;
-            txtAddrLineT2.Enabled = flag;
-            txtAddrLineT3.Enabled = flag;
-            txtAddrLineT4.Enabled = flag;
-            txtAddrLineE1.Enabled = flag;
-            txtAddrLineE2.Enabled = flag;
-            txtAddrLineE3.Enabled = flag;
-            txtAddrLineE4.Enabled = flag;
-            txtAddrTele.Enabled = flag;
-            txtAddrFax.Enabled = flag;
-            txtAddrEmail.Enabled = flag;
-            txtAddrMobile.Enabled = flag;
-            txtAddrRemark.Enabled = flag;
-            txtAddrRemark2.Enabled = flag;
-            txtAddrContactName1.Enabled = flag;
-            txtAddrContactName2.Enabled = flag;
-            txtAddrContactTel1.Enabled = flag;
-            txtAddrContactTel2.Enabled = flag;
+        //private void setControlAddrEnable(Boolean flag)
+        //{
+        //    txtAddrId.Enabled = flag;
+        //    txtAddrName.Enabled = flag;
+        //    txtAddrLineT1.Enabled = flag;
+        //    txtAddrLineT2.Enabled = flag;
+        //    txtAddrLineT3.Enabled = flag;
+        //    txtAddrLineT4.Enabled = flag;
+        //    txtAddrLineE1.Enabled = flag;
+        //    txtAddrLineE2.Enabled = flag;
+        //    txtAddrLineE3.Enabled = flag;
+        //    txtAddrLineE4.Enabled = flag;
+        //    txtAddrTele.Enabled = flag;
+        //    txtAddrFax.Enabled = flag;
+        //    txtAddrEmail.Enabled = flag;
+        //    txtAddrMobile.Enabled = flag;
+        //    txtAddrRemark.Enabled = flag;
+        //    txtAddrRemark2.Enabled = flag;
+        //    txtAddrContactName1.Enabled = flag;
+        //    txtAddrContactName2.Enabled = flag;
+        //    txtAddrContactTel1.Enabled = flag;
+        //    txtAddrContactTel2.Enabled = flag;
 
-            txtAddrWeb1.Enabled = flag;
-            txtAddrWeb2.Enabled = flag;
-            txtAddrGoogleMap.Enabled = flag;
-            chkAddrDefaultCus.Enabled = flag;
-        }
+        //    txtAddrWeb1.Enabled = flag;
+        //    txtAddrWeb2.Enabled = flag;
+        //    txtAddrGoogleMap.Enabled = flag;
+        //    chkAddrDefaultCus.Enabled = flag;
+        //}
         private void setControlEnable(Boolean flag)
         {
             txtCusCode.Enabled = flag;
@@ -921,8 +922,8 @@ namespace Xtrim_ERP.gui
 
             String addrId = "";
             addrId = grfAddr[e.NewRange.r1, colID] != null ? grfAddr[e.NewRange.r1, colID].ToString() : "";
-            setControlAddr(addrId);
-            setControlAddrEnable(false);
+            //setControlAddr(addrId);
+            //setControlAddrEnable(false);
         }
         private void grdFlex_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
         {

@@ -47,10 +47,10 @@ namespace Xtrim_ERP.gui
             //custommenu.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_void));
             //custommenu.MenuItems.Add("&ยกเลิก";
             //grdView.ContextMenu = custommenu;
-            //setFocusColor();
+            setFocusColor();
             initGrfInvH();
-            //setGrdView();
-            //setFocusColor();
+            setGrfCopH();
+            //setGrfCop();
             setFocus();
             theme1.SetTheme(sB, "BeigeOne");
             sB1.Text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbb";
@@ -115,7 +115,38 @@ namespace Xtrim_ERP.gui
                 //setGrdView();
             }
         }
+        private void setGrfCopH()
+        {
+            //grfCop.Cols.Count = colCnt;
+            //grfCop.Rows.Count = 1;
+            grfCop.DataSource = xC.xtDB.copDB.selectAll();
+            grfCop.Cols[colID].Width = 60;
+            grfCop.Cols[colE].Width = 60;
+            grfCop.Cols[colS].Width = 60;
+            grfCop.Cols[colCode].Width = 60;
+            grfCop.Cols[colNameT].Width = 60;
+            grfCop.Cols[colNameE].Width = 60;
+            grfCop.Cols[colRemark].Width = 60;
+            grfCop.Cols[coledit].Width = 60;
 
+            grfCop.ShowCursor = true;
+
+            grfCop.Cols[colE].Caption = "edit";
+            grfCop.Cols[colS].Caption = "save";
+            grfCop.Cols[colCode].Caption = "รหัส";
+            grfCop.Cols[colNameT].Caption = "ชื่อไทย";
+            grfCop.Cols[colNameE].Caption = "name eng";
+            grfCop.Cols[colRemark].Caption = "หมายเหตุ";
+            //grfCop.Cols[colCode].Caption = "รหัส";
+            //grfCop.Cols[colCode].Caption = "รหัส";
+
+            grfCop.Cols[colID].Visible = false;
+            grfCop.Cols[coledit].Visible = false;
+        }
+        private void setGrfCop()
+        {
+            grfCop.DataSource = xC.xtDB.copDB.selectAll();
+        }
         //private void ContextMenu_void(object sender, System.EventArgs e)
         //{
         //    FarPoint.Win.Spread.Row row = grdView.ActiveSheet.ActiveRow;
@@ -437,9 +468,8 @@ namespace Xtrim_ERP.gui
         private void textBox_Enter(object sender, EventArgs e)
         {
             C1TextBox a = (C1TextBox)sender;
-            a.BackColor = Color.DarkCyan;
-            a.Font = new Font(ff, FontStyle.Bold);
-            
+            a.BackColor = xC.cTxtFocus;
+            a.Font = new Font(ff, FontStyle.Bold);            
             //a.ForeColor = Color.Black;
         }
 

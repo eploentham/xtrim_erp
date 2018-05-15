@@ -142,6 +142,18 @@
     <Compile Include="gui\FrmCompany.Designer.cs">
       <DependentUpon>FrmCompany.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmContactAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmContactAdd.Designer.cs">
+      <DependentUpon>FrmContactAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmCusAddr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmCusAddr.Designer.cs">
+      <DependentUpon>FrmCusAddr.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -329,6 +341,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmCompany.resx">
       <DependentUpon>FrmCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmContactAdd.resx">
+      <DependentUpon>FrmContactAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmCusAddr.resx">
+      <DependentUpon>FrmCusAddr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmCustomer.resx">
       <DependentUpon>FrmCustomer.cs</DependentUpon>
