@@ -36,6 +36,7 @@ namespace Xtrim_ERP.control
         public UnitGw sUgw;
         public UnitPackage sUtp;
         public Terminal sTmn;
+        public LogFile lf;
 
         public Color cTxtFocus;
 

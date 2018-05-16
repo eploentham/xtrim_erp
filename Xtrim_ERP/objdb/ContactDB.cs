@@ -46,15 +46,56 @@ namespace Xtrim_ERP.objdb
             cont.user_cancel = "user_cancel";
             cont.remark = "remark";
             cont.email2 = "email2";
+            cont.nick_name = "nick_name";
+            cont.work_response = "work_response";
 
             cont.table = "b_contact";
             cont.pkField = "cont_id";
+        }
+        private void chkNull(Contact p)
+        {
+            int chk = 0;
+            Decimal chk1 = 0;
+
+            p.date_modi = p.date_modi == null ? "" : p.date_modi;
+            p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
+            p.user_create = p.user_create == null ? "" : p.user_create;
+            p.user_modi = p.user_modi == null ? "" : p.user_modi;
+            p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
+
+            p.cont_id = p.cont_id == null ? "" : p.cont_id;
+
+            p.cust_id = p.cust_id == null ? "" : p.cust_id;
+            p.cont_code = p.cont_code == null ? "" : p.cont_code;
+            p.active = p.active == null ? "" : p.active;
+            p.remark = p.remark == null ? "" : p.remark;
+            p.username = p.username == null ? "" : p.username;
+            p.password1 = p.password1 == null ? "" : p.password1;
+            p.cont_fname_t = p.cont_fname_t == null ? "" : p.cont_fname_t;
+            p.cont_fname_e = p.cont_fname_e == null ? "" : p.cont_fname_e;
+            p.cont_lname_t = p.cont_lname_t == null ? "" : p.cont_lname_t;
+            p.cont_lname_e = p.cont_lname_e == null ? "" : p.cont_lname_e;
+            p.priority = p.priority == null ? "" : p.priority;
+            p.tele = p.tele == null ? "" : p.tele;
+            p.mobile = p.mobile == null ? "" : p.mobile;
+            p.fax = p.fax == null ? "" : p.fax;
+            p.email = p.email == null ? "" : p.email;
+            p.posi_id = p.posi_id == null ? "" : p.posi_id;
+            p.posi_name = p.posi_name == null ? "" : p.posi_name;
+            p.email2 = p.email2 == null ? "" : p.email2;
+            p.nick_name = p.nick_name == null ? "" : p.nick_name;
+            p.work_response = p.work_response == null ? "" : p.work_response;
+
+            p.prefix_id = int.TryParse(p.prefix_id, out chk) ? chk.ToString() : "0";
+
         }
         public String insert(Contact p)
         {
             String re = "", sql = "";
             p.active = "1";
             //p.ssdata_id = "";
+
+            chkNull(p);
             sql = "Insert Into " + cont.table + "(" + cont.cust_id + "," + cont.cont_code + "," + cont.username + "," +
                 cont.password1 + "," + cont.prefix_id + "," + cont.cont_fname_t + "," +
                 cont.cont_fname_e + "," + cont.cont_lname_t + "," + cont.cont_lname_e + "," +
@@ -63,7 +104,7 @@ namespace Xtrim_ERP.objdb
                 cont.posi_id + "," + cont.posi_name + "," + cont.date_create + "," +
                 cont.date_modi + "," + cont.date_cancel + "," + cont.user_create + "," +
                 cont.user_modi + "," + cont.user_cancel + ", " + cont.remark + ", " +
-                cont.email2 + " " +
+                cont.email2 + ", " + cont.nick_name + ", " + cont.work_response + " " +
                 ") " +
                 "Values ('" + p.cust_id + "','" + p.cont_code + "','" + p.username.Replace("'", "''") + "'," +
                 "'" + p.password1 + "','" + p.prefix_id + "','" + p.cont_fname_t.Replace("'", "''") + "'," +
@@ -73,7 +114,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.posi_id + "','" + p.posi_name.Replace("'", "''") + "',now()," +
                 "'" + p.date_modi + "','" + p.date_cancel + "','" + p.user_create + "'," +
                 "'" + p.user_modi + "','" + p.user_cancel + "','" + p.remark.Replace("'","''") + "',"+
-                "'" + p.email2 + "' " + 
+                "'" + p.email2 + "','" + p.nick_name.Replace("'", "''") + "','" + p.work_response.Replace("'", "''") + "' " +
                 ")";
             try
             {
@@ -90,6 +131,7 @@ namespace Xtrim_ERP.objdb
         {
             String re = "", sql = "";
 
+            chkNull(p);
             sql = "Update " + cont.table + " Set " +
                 " " + cont.cust_id + "='" + p.cust_id + "' " +
                 "," + cont.cont_code + "='" + p.cont_code + "' " +
@@ -111,6 +153,8 @@ namespace Xtrim_ERP.objdb
                 "," + cont.date_modi + "=now() " +                
                 "," + cont.remark + "='" + p.remark.Replace("'", "''") + "' " +
                 "," + cont.user_modi + "= '" + p.user_modi + "' " +
+                "," + cont.nick_name + "= '" + p.nick_name + "' " +
+                "," + cont.work_response + "= '" + p.work_response + "' " +
                 "Where " + cont.pkField + "='" + p.cont_id + "'"
                 ;
             try
@@ -204,6 +248,8 @@ namespace Xtrim_ERP.objdb
                 cont1.user_cancel = dt.Rows[0][cont.user_cancel].ToString();
                 cont1.remark = dt.Rows[0][cont.remark].ToString();
                 cont1.email2 = dt.Rows[0][cont.email2].ToString();
+                cont1.nick_name = dt.Rows[0][cont.nick_name].ToString();
+                cont1.work_response = dt.Rows[0][cont.work_response].ToString();
             }
 
             return cont1;

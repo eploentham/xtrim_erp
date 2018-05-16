@@ -34,5 +34,7 @@ namespace Xtrim_ERP.object1
         public String user_cancel { get; set; }
         public String remark { get; set; }
         public String email2 { get; set; }
+        public String nick_name { get; set; }
+        public String work_response { get; set; }
     }
 }

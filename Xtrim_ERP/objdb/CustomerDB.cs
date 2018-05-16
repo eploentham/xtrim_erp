@@ -83,6 +83,9 @@ namespace Xtrim_ERP.objdb
             cus.status_cons_exp = "status_cons_exp";
             cus.status_insr = "status_insr";
             cus.status_supp = "status_supp";
+            cus.web_site1 = "web_site1";
+            cus.web_site2 = "web_site2";
+            cus.web_site3 = "web_site3";
 
             cus.table = "b_customer";
             cus.pkField = "cust_id";
@@ -224,6 +227,9 @@ namespace Xtrim_ERP.objdb
             p.status_cons_exp = p.status_cons_exp == null ? "" : p.status_cons_exp;
             p.status_supp = p.status_supp == null ? "" : p.status_supp;
             p.status_insr = p.status_insr == null ? "" : p.status_insr;
+            p.web_site1 = p.web_site1 == null ? "" : p.web_site1;
+            p.web_site2 = p.web_site2 == null ? "" : p.web_site2;
+            p.web_site3 = p.web_site3 == null ? "" : p.web_site3;
 
             p.sort1 = p.sort1 == null ? "" : p.sort1;
         }
@@ -252,7 +258,8 @@ namespace Xtrim_ERP.objdb
                 cus.eaddr4  + ", " + cus.status_cust + ", " + cus.status_exp + ", " +
                 cus.status_fwd + ", " + cus.status_imp + ", " + cus.sort1 + ", " +
                 cus.status_cons_imp + ", " + cus.status_cons_exp + ", " + cus.status_insr + ", " +
-                cus.status_supp + " " +
+                cus.status_supp + ", " + cus.web_site1 + ", " + cus.web_site2 + ", " +
+                cus.web_site3 + " " +
                 ") " +
                 "Values ('" + p.cust_code.Replace("'", "''") + "','" + p.cust_name_t.Replace("'", "''") + "','" + p.cust_name_e.Replace("'", "''") + "'," +
                 "'" + p.active + "','" + p.address_t.Replace("'", "''") + "','" + p.address_e.Replace("'", "''") + "'," +
@@ -270,6 +277,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.eaddr4.Replace("'", "''") + "','" + p.status_cust.Replace("'", "''") + "','" + p.status_exp.Replace("'", "''") + "', " +
                 "'" + p.status_fwd.Replace("'", "''") + "','" + p.status_imp.Replace("'", "''") + "','"+ p.sort1.Replace("'", "''") + "', " +
                 "'" + p.status_cons_imp.Replace("'", "''") + "','" + p.status_cons_exp.Replace("'", "''") + "','"+ p.status_insr.Replace("'", "''") + "', " +
+                "'" + p.status_supp.Replace("'", "''") + "','" + p.status_supp.Replace("'", "''") + "','" + p.status_supp.Replace("'", "''") + "', " +
                 "'" + p.status_supp.Replace("'", "''") + "' " +
                ")";
             try
@@ -334,6 +342,9 @@ namespace Xtrim_ERP.objdb
                 "," + cus.status_cons_imp + " = '" + p.status_cons_imp + "' " +
                 "," + cus.status_insr + " = '" + p.status_insr + "' " +
                 "," + cus.status_supp + " = '" + p.status_supp + "' " +
+                "," + cus.web_site1 + " = '" + p.web_site1 + "' " +
+                "," + cus.web_site2 + " = '" + p.web_site2 + "' " +
+                "," + cus.web_site3 + " = '" + p.web_site3 + "' " +
                 //"," + cus.user_modi + " = '" + p.user_modi + "' " +
                 "Where " + cus.pkField + "='" + p.cust_id + "'";
 
@@ -544,6 +555,9 @@ namespace Xtrim_ERP.objdb
                 cus1.status_cons_imp = dt.Rows[0][cus.status_cons_imp].ToString();
                 cus1.status_insr = dt.Rows[0][cus.status_insr].ToString();
                 cus1.status_supp = dt.Rows[0][cus.status_supp].ToString();
+                cus1.web_site1 = dt.Rows[0][cus.web_site1].ToString();
+                cus1.web_site2 = dt.Rows[0][cus.web_site2].ToString();
+                cus1.web_site3 = dt.Rows[0][cus.web_site3].ToString();
             }
 
             return cus1;

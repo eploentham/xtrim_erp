@@ -87,6 +87,7 @@
     <Reference Include="C1.Win.FlexChart.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=3aa2920c09e0aefd" />
     <Reference Include="C1.Win.FlexViewer.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.ImportServices.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
+    <Reference Include="C1.Win.Map.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
@@ -106,6 +107,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Services" />
@@ -270,7 +272,10 @@
       <DependentUpon>MainMenu3.cs</DependentUpon>
     </Compile>
     <Compile Include="objdb\AddressDB.cs" />
+    <Compile Include="objdb\AddressTypeDB.cs" />
     <Compile Include="objdb\BankDB.cs" />
+    <Compile Include="objdb\CustomerRemarkDB.cs" />
+    <Compile Include="objdb\CustomerTaxInvoiceDB.cs" />
     <Compile Include="objdb\ExpensesDB.cs" />
     <Compile Include="objdb\JobImportContDB.cs" />
     <Compile Include="objdb\JobImportExpnDB.cs" />
@@ -301,7 +306,10 @@
     <Compile Include="objdb\UnitPackageDB.cs" />
     <Compile Include="objdb\XtrimDB.cs" />
     <Compile Include="object1\Address.cs" />
+    <Compile Include="object1\AddressType1.cs" />
     <Compile Include="object1\Bank.cs" />
+    <Compile Include="object1\CustomerRemark.cs" />
+    <Compile Include="object1\CustomerTaxInvoice.cs" />
     <Compile Include="object1\Expenses.cs" />
     <Compile Include="object1\FilterRow.cs" />
     <Compile Include="gui\FrmSearch.cs">
@@ -309,6 +317,7 @@
     </Compile>
     <Compile Include="object1\JobImportCont.cs" />
     <Compile Include="object1\JobImportExpn.cs" />
+    <Compile Include="object1\LogFile.cs" />
     <Compile Include="object1\MethodPayment.cs" />
     <Compile Include="object1\Privilege.cs" />
     <Compile Include="object1\CusRemark.cs" />
@@ -512,7 +521,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Double-J-Design-Origami-Colored-Pencil-Green-star.ico" />
+    <None Include="Resources\webpage24.png" />
     <None Include="Resources\accept-database24.png" />
+    <None Include="Resources\ad24.png" />
+    <None Include="Resources\custom-reports24.png" />
     <Content Include="Resources\Glass_Alternate.png" />
     <Content Include="Resources\Glass_Header.png" />
     <Content Include="Resources\Glass_HeaderSelected.png" />
@@ -521,8 +533,10 @@
     <Content Include="Resources\Mac_HeaderSelected.png" />
     <Content Include="Resources\Opera_Header.png" />
     <Content Include="Resources\Opera_HeaderSelected.png" />
+    <None Include="Resources\phonebook24.png" />
     <Content Include="Resources\Steel_Header.png" />
     <Content Include="Resources\Steel_HeaderSelected.png" />
+    <None Include="Resources\users24.png" />
     <Content Include="Resources\Vista_Header.png" />
     <Content Include="Resources\Vista_Highlight.png" />
     <None Include="Resources\trash24.png" />

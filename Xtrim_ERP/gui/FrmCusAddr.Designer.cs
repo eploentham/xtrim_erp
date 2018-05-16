@@ -39,8 +39,8 @@
             this.btnEdit = new C1.Win.C1Input.C1Button();
             this.btnSave = new C1.Win.C1Input.C1Button();
             this.btnVoid = new C1.Win.C1Input.C1Button();
-            this.c1Button1 = new C1.Win.C1Input.C1Button();
-            this.btnCusSF2 = new C1.Win.C1Input.C1Button();
+            this.btnCont2 = new C1.Win.C1Input.C1Button();
+            this.btnCont1 = new C1.Win.C1Input.C1Button();
             this.label42 = new System.Windows.Forms.Label();
             this.txtContactTel2 = new C1.Win.C1Input.C1TextBox();
             this.label43 = new System.Windows.Forms.Label();
@@ -88,8 +88,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVoid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCont2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCont1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContactTel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContactTel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrE4)).BeginInit();
@@ -126,8 +126,8 @@
             this.panel1.Controls.Add(this.btnEdit);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.btnVoid);
-            this.panel1.Controls.Add(this.c1Button1);
-            this.panel1.Controls.Add(this.btnCusSF2);
+            this.panel1.Controls.Add(this.btnCont2);
+            this.panel1.Controls.Add(this.btnCont1);
             this.panel1.Controls.Add(this.label42);
             this.panel1.Controls.Add(this.txtContactTel2);
             this.panel1.Controls.Add(this.label43);
@@ -320,31 +320,32 @@
             this.btnVoid.UseVisualStyleBackColor = true;
             this.btnVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1Button1
+            // btnCont2
             // 
-            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1Button1.Location = new System.Drawing.Point(412, 272);
-            this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(18, 18);
-            this.c1Button1.TabIndex = 220;
-            this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button1, "(default)");
-            this.c1Button1.UseVisualStyleBackColor = true;
-            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnCont2.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnCont2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCont2.Location = new System.Drawing.Point(412, 272);
+            this.btnCont2.Name = "btnCont2";
+            this.btnCont2.Size = new System.Drawing.Size(18, 18);
+            this.btnCont2.TabIndex = 220;
+            this.btnCont2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnCont2, "(default)");
+            this.btnCont2.UseVisualStyleBackColor = true;
+            this.btnCont2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // btnCusSF2
+            // btnCont1
             // 
-            this.btnCusSF2.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnCusSF2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCusSF2.Location = new System.Drawing.Point(412, 248);
-            this.btnCusSF2.Name = "btnCusSF2";
-            this.btnCusSF2.Size = new System.Drawing.Size(18, 18);
-            this.btnCusSF2.TabIndex = 219;
-            this.btnCusSF2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnCusSF2, "(default)");
-            this.btnCusSF2.UseVisualStyleBackColor = true;
-            this.btnCusSF2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnCont1.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnCont1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCont1.Location = new System.Drawing.Point(412, 248);
+            this.btnCont1.Name = "btnCont1";
+            this.btnCont1.Size = new System.Drawing.Size(18, 18);
+            this.btnCont1.TabIndex = 219;
+            this.btnCont1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnCont1, "(default)");
+            this.btnCont1.UseVisualStyleBackColor = true;
+            this.btnCont1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnCont1.Click += new System.EventHandler(this.btnCont1_Click);
             // 
             // label42
             // 
@@ -812,6 +813,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sB);
             this.Name = "FrmCusAddr";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCusAddr";
             this.Load += new System.EventHandler(this.FrmCusAddr_Load);
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
@@ -826,8 +828,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVoid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCont2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCont1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContactTel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContactTel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrE4)).EndInit();
@@ -858,8 +860,8 @@
         private System.Windows.Forms.StatusStrip sB;
         private System.Windows.Forms.ToolStripStatusLabel sB1;
         private System.Windows.Forms.Panel panel1;
-        private C1.Win.C1Input.C1Button c1Button1;
-        private C1.Win.C1Input.C1Button btnCusSF2;
+        private C1.Win.C1Input.C1Button btnCont2;
+        private C1.Win.C1Input.C1Button btnCont1;
         private System.Windows.Forms.Label label42;
         private C1.Win.C1Input.C1TextBox txtContactTel2;
         private System.Windows.Forms.Label label43;

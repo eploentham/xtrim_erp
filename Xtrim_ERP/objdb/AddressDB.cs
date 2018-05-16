@@ -67,6 +67,8 @@ namespace Xtrim_ERP.objdb
             addr.google_map = "google_map";
             addr.status_defalut_customer = "status_default_customer";
             addr.remark2 = "remark2";
+            addr.time_open_close = "time_open_close";
+            addr.time_open_close_over_time = "time_open_close_over_time";
 
             addr.table = "b_address";
             addr.pkField = "address_id";
@@ -205,13 +207,15 @@ namespace Xtrim_ERP.objdb
             p.web_site2 = p.web_site2 == null ? "" : p.web_site2;
             p.status_defalut_customer = p.status_defalut_customer == null ? "" : p.status_defalut_customer;
             p.remark2 = p.remark2 == null ? "" : p.remark2;
+            p.time_open_close = p.time_open_close == null ? "" : p.time_open_close;
+            p.time_open_close_over_time = p.time_open_close_over_time == null ? "" : p.time_open_close_over_time;
 
             p.amphur_id = int.TryParse(p.amphur_id, out chk) ? chk.ToString() : "0";
             p.district_id = int.TryParse(p.district_id, out chk) ? chk.ToString() : "0";
             p.prov_id = int.TryParse(p.prov_id, out chk) ? chk.ToString() : "0";
             p.table_id = int.TryParse(p.table_id, out chk) ? chk.ToString() : "0";
             p.amphur_id = int.TryParse(p.amphur_id, out chk) ? chk.ToString() : "0";
-            p.amphur_id = int.TryParse(p.amphur_id, out chk) ? chk.ToString() : "0";
+            //p.amphur_id = int.TryParse(p.amphur_id, out chk) ? chk.ToString() : "0";
         }
         public String insert(Address p)
         {
@@ -234,7 +238,8 @@ namespace Xtrim_ERP.objdb
                 addr.active + ", " + addr.address_name + ", " + addr.contact_id + ", " +
                 addr.contact_name1 + ", " + addr.contact_name2 + ", " + addr.contact_name_tel1 + ", " +
                 addr.contact_name_tel2 + "," + addr.web_site1 + "," + addr.web_site2 + "," +
-                addr.google_map + "," + addr.status_defalut_customer + ", " + addr.remark2 + " " +
+                addr.google_map + "," + addr.status_defalut_customer + ", " + addr.remark2 + ", " +
+                addr.time_open_close + "," + addr.time_open_close_over_time + " " +
                 ") " +
                 "Values ('" + p.address_code + "','" + p.line_t1.Replace("'", "''") + "','" + p.line_t2.Replace("'", "''") + "'," +
                 "'" + p.line_t3 + "','" + p.line_t4.Replace("'", "''") + "','" + p.line_e1.Replace("'", "''") + "'," +
@@ -248,7 +253,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.active + "','" + p.address_name.Replace("'", "''") + "', '" + p.contact_id.Replace("'", "''") + "', " +
                 "'" + p.contact_name1 + "','" + p.contact_name2.Replace("'", "''") + "', '" + p.contact_name_tel1.Replace("'", "''") + "', " +
                 "'" + p.contact_name_tel2 + "','" + p.web_site1.Replace("'", "''") + "','" + p.web_site2.Replace("'", "''") + "'," +
-                "'" + p.google_map + "','" + p.status_defalut_customer + "','" + p.remark2 + "' " +
+                "'" + p.google_map + "','" + p.status_defalut_customer + "','" + p.remark2 + "', " +
+                "'" + p.time_open_close + "','" + p.time_open_close_over_time + "' " +
                 ")";
             try
             {
@@ -302,6 +308,8 @@ namespace Xtrim_ERP.objdb
                 "," + addr.google_map + " = '" + p.google_map.Replace("'", "''") + "' " +
                 "," + addr.status_defalut_customer + " = '" + p.status_defalut_customer.Replace("'", "''") + "' " +
                 "," + addr.remark2 + " = '" + p.remark2.Replace("'", "''") + "' " +
+                "," + addr.time_open_close + " = '" + p.time_open_close.Replace("'", "''") + "' " +
+                "," + addr.time_open_close_over_time + " = '" + p.time_open_close_over_time.Replace("'", "''") + "' " +
 
                 "Where " + addr.pkField + "='" + p.address_id + "'"
                 ;
@@ -458,6 +466,8 @@ namespace Xtrim_ERP.objdb
                 addr1.google_map = dt.Rows[0][addr.google_map].ToString();
                 addr1.status_defalut_customer = dt.Rows[0][addr.status_defalut_customer].ToString();
                 addr1.remark2 = dt.Rows[0][addr.remark2].ToString();
+                addr1.time_open_close = dt.Rows[0][addr.time_open_close].ToString();
+                addr1.time_open_close_over_time = dt.Rows[0][addr.time_open_close_over_time].ToString();
             }
 
             return addr1;

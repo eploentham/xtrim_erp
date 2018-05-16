@@ -42,5 +42,7 @@ namespace Xtrim_ERP.object1
         public String google_map { get; set; }
         public String status_defalut_customer { get; set; }
         public String remark2 { get; set; }
+        public String time_open_close { get; set; }
+        public String time_open_close_over_time { get; set; }
     }
 }

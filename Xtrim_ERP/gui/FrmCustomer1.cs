@@ -61,7 +61,9 @@ namespace Xtrim_ERP.gui
             //setFocus();
             tabPage1.Text = "รายละเอียด";
             tabPage2.Text = "ที่อยู่ address";
-            tabPage3.Text = "หมายเหตุ";
+            tabPage3.Text = "ชื่อผู้ติดต่อ";
+            tabPage4.Text = "หมายเหตุ";
+            tabPage5.Text = "ใบกำกับภาษี";
             initGrfCusH();
             initGrfAddrH();
             setGrfCusH();
@@ -394,6 +396,12 @@ namespace Xtrim_ERP.gui
         private void chkSConsImp_ClientSizeChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAddr_Click(object sender, EventArgs e)
+        {
+            FrmCusAddr frm = new FrmCusAddr(xC);
+            frm.ShowDialog(this);
         }
 
         private void chkSConsImp_Click(object sender, EventArgs e)

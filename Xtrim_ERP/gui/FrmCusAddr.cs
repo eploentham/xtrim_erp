@@ -7,16 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Xtrim_ERP.control;
+using Xtrim_ERP.object1;
 
 namespace Xtrim_ERP.gui
 {
     public partial class FrmCusAddr : Form
     {
-        public FrmCusAddr()
+        XtrimControl xC;
+        Address addr;
+
+        Font fEdit, fEditB;
+
+        Color bg, fc;
+        Font ff, ffB;
+        
+        public FrmCusAddr(XtrimControl x)
         {
             InitializeComponent();
+            xC = x;
         }
+        private void btnCont1_Click(object sender, EventArgs e)
+        {
 
+        }
         private void FrmCusAddr_Load(object sender, EventArgs e)
         {
 
