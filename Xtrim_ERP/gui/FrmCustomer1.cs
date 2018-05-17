@@ -78,7 +78,31 @@ namespace Xtrim_ERP.gui
             bg = txtCusCode.BackColor;
             fc = txtCusCode.ForeColor;
             theme1.SetTheme(sB, "BeigeOne");
+
+            ContextMenu menuAddr = new ContextMenu();
+            menuAddr.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Addr_new));
+            menuAddr.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Addr_Edit));
+            menuAddr.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Addr_Cancel));
+            grfAddr.ContextMenu = menuAddr;
             //theme1.SetTheme(sB1, "BeigeOne");
+        }
+        private void ContextMenu_Addr_new(object sender, System.EventArgs e)
+        {
+            xC.addrID = "";
+            xC.cusID = txtID.Text;
+            FrmCusAddr frm = new FrmCusAddr(xC);
+            frm.ShowDialog(this);
+        }
+        private void ContextMenu_Addr_Edit(object sender, System.EventArgs e)
+        {
+            xC.addrID = grfAddr[grfAddr.Row, colAddrID].ToString();
+            xC.cusID = txtID.Text;
+            FrmCusAddr frm = new FrmCusAddr(xC);
+            frm.ShowDialog(this);
+        }
+        private void ContextMenu_Addr_Cancel(object sender, System.EventArgs e)
+        {
+
         }
         private void textBox_Enter(object sender, EventArgs e)
         {
@@ -400,6 +424,8 @@ namespace Xtrim_ERP.gui
 
         private void btnAddr_Click(object sender, EventArgs e)
         {
+            xC.addrID = "";
+            xC.cusID = txtID.Text;
             FrmCusAddr frm = new FrmCusAddr(xC);
             frm.ShowDialog(this);
         }
@@ -554,11 +580,11 @@ namespace Xtrim_ERP.gui
             grfAddr = new C1FlexGrid();
             grfAddr.Font = fEdit;
             grfAddr.Dock = System.Windows.Forms.DockStyle.Fill;
-            grfAddr.Location = new System.Drawing.Point(0, 0);            
+            grfAddr.Location = new System.Drawing.Point(0, 0);
 
             //grfAddr.AfterDataRefresh += new System.ComponentModel.ListChangedEventHandler(this.StatusBar_AfterDataRefresh);
             //grfAddr.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grdFlex_CellChanged);
-            //grfAddr.LeaveCell += new System.EventHandler(this.grdFlex_LeaveCell);
+            grfAddr.DoubleClick += new System.EventHandler(this.grfAddr_DoubleClick);
             grfAddr.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfAddr_AfterRowColChange);
 
             panel3.Controls.Add(this.grfAddr);
@@ -569,6 +595,10 @@ namespace Xtrim_ERP.gui
             //grfAddr1.Dock = System.Windows.Forms.DockStyle.Fill;
             //grfAddr1.Location = new System.Drawing.Point(0, 0);
             //panel3.Controls.Add(this.grfAddr1);
+        }
+        private void grfAddr_DoubleClick(object sender, EventArgs e)
+        {
+
         }
         //private void setControlAddr(String addrId)
         //{

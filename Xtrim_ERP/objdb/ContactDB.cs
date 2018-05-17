@@ -20,16 +20,16 @@ namespace Xtrim_ERP.objdb
         private void initConfig()
         {
             cont = new Contact();
-            cont.cont_id = "cont_id";
+            cont.cont_id = "contact_id";
             cont.cust_id = "cust_id";
-            cont.cont_code = "cont_code";
+            cont.cont_code = "contact_code";
             cont.username = "username";
             cont.password1 = "password1";
             cont.prefix_id = "prefix_id";
-            cont.cont_fname_t = "cont_fname_t";
-            cont.cont_fname_e = "cont_fname_e";
-            cont.cont_lname_t = "cont_lname_t";
-            cont.cont_lname_e = "cont_lname_e";
+            cont.cont_fname_t = "contact_fname_t";
+            cont.cont_fname_e = "contact_fname_e";
+            cont.cont_lname_t = "contact_lname_t";
+            cont.cont_lname_e = "contact_lname_e";
             cont.active = "active";
             cont.priority = "priority";
             cont.tele = "tele";
@@ -48,9 +48,10 @@ namespace Xtrim_ERP.objdb
             cont.email2 = "email2";
             cont.nick_name = "nick_name";
             cont.work_response = "work_response";
+            cont.table_id = "table_id";
 
             cont.table = "b_contact";
-            cont.pkField = "cont_id";
+            cont.pkField = "contact_id";
         }
         private void chkNull(Contact p)
         {
@@ -87,6 +88,7 @@ namespace Xtrim_ERP.objdb
             p.work_response = p.work_response == null ? "" : p.work_response;
 
             p.prefix_id = int.TryParse(p.prefix_id, out chk) ? chk.ToString() : "0";
+            p.table_id = int.TryParse(p.table_id, out chk) ? chk.ToString() : "0";
 
         }
         public String insert(Contact p)
@@ -104,7 +106,8 @@ namespace Xtrim_ERP.objdb
                 cont.posi_id + "," + cont.posi_name + "," + cont.date_create + "," +
                 cont.date_modi + "," + cont.date_cancel + "," + cont.user_create + "," +
                 cont.user_modi + "," + cont.user_cancel + ", " + cont.remark + ", " +
-                cont.email2 + ", " + cont.nick_name + ", " + cont.work_response + " " +
+                cont.email2 + ", " + cont.nick_name + ", " + cont.work_response + ", " +
+                cont.table_id + " " +
                 ") " +
                 "Values ('" + p.cust_id + "','" + p.cont_code + "','" + p.username.Replace("'", "''") + "'," +
                 "'" + p.password1 + "','" + p.prefix_id + "','" + p.cont_fname_t.Replace("'", "''") + "'," +
@@ -114,7 +117,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.posi_id + "','" + p.posi_name.Replace("'", "''") + "',now()," +
                 "'" + p.date_modi + "','" + p.date_cancel + "','" + p.user_create + "'," +
                 "'" + p.user_modi + "','" + p.user_cancel + "','" + p.remark.Replace("'","''") + "',"+
-                "'" + p.email2 + "','" + p.nick_name.Replace("'", "''") + "','" + p.work_response.Replace("'", "''") + "' " +
+                "'" + p.email2 + "','" + p.nick_name.Replace("'", "''") + "','" + p.work_response.Replace("'", "''") + "', " +
+                "'" + p.table_id + "' " +
                 ")";
             try
             {
@@ -155,6 +159,7 @@ namespace Xtrim_ERP.objdb
                 "," + cont.user_modi + "= '" + p.user_modi + "' " +
                 "," + cont.nick_name + "= '" + p.nick_name + "' " +
                 "," + cont.work_response + "= '" + p.work_response + "' " +
+                "," + cont.table_id + "= '" + p.table_id + "' " +
                 "Where " + cont.pkField + "='" + p.cont_id + "'"
                 ;
             try
@@ -168,7 +173,7 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String insertStaff(Contact p)
+        public String insertContact(Contact p)
         {
             String re = "";
 
@@ -194,6 +199,17 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+        public DataTable selectAll1()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select contact_id, contact_fname_t, contact_lname_t, nick_name, mobile, email  " +
+                "From " + cont.table + " cont " +
+                " " +
+                "Where cont." + cont.active + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();
@@ -207,10 +223,10 @@ namespace Xtrim_ERP.objdb
         {
             Contact cont1 = new Contact();
             DataTable dt = new DataTable();
-            String sql = "select stf.* " +
-                "From " + cont.table + " stf " +
+            String sql = "select cont.* " +
+                "From " + cont.table + " cont " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where stf." + cont.pkField + " ='" + copId + "' ";
+                "Where cont." + cont.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cont1 = setContact(dt);
             return cont1;
@@ -250,6 +266,7 @@ namespace Xtrim_ERP.objdb
                 cont1.email2 = dt.Rows[0][cont.email2].ToString();
                 cont1.nick_name = dt.Rows[0][cont.nick_name].ToString();
                 cont1.work_response = dt.Rows[0][cont.work_response].ToString();
+                cont1.table_id = dt.Rows[0][cont.table_id].ToString();
             }
 
             return cont1;

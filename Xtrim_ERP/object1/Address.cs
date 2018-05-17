@@ -32,6 +32,7 @@ namespace Xtrim_ERP.object1
         public String table_id { get; set; }
         public String address_name { get; set; }
         public String contact_id { get; set; }
+        public String contact_id2 { get; set; }
         public String contact_name1 { get; set; }
         public String contact_name2 { get; set; }
         public String contact_name_tel1 { get; set; }

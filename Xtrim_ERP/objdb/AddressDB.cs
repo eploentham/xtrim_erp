@@ -69,6 +69,7 @@ namespace Xtrim_ERP.objdb
             addr.remark2 = "remark2";
             addr.time_open_close = "time_open_close";
             addr.time_open_close_over_time = "time_open_close_over_time";
+            addr.contact_id2 = "contact_id2";
 
             addr.table = "b_address";
             addr.pkField = "address_id";
@@ -215,7 +216,7 @@ namespace Xtrim_ERP.objdb
             p.prov_id = int.TryParse(p.prov_id, out chk) ? chk.ToString() : "0";
             p.table_id = int.TryParse(p.table_id, out chk) ? chk.ToString() : "0";
             p.amphur_id = int.TryParse(p.amphur_id, out chk) ? chk.ToString() : "0";
-            //p.amphur_id = int.TryParse(p.amphur_id, out chk) ? chk.ToString() : "0";
+            p.contact_id2 = int.TryParse(p.contact_id2, out chk) ? chk.ToString() : "0";
         }
         public String insert(Address p)
         {
@@ -239,7 +240,8 @@ namespace Xtrim_ERP.objdb
                 addr.contact_name1 + ", " + addr.contact_name2 + ", " + addr.contact_name_tel1 + ", " +
                 addr.contact_name_tel2 + "," + addr.web_site1 + "," + addr.web_site2 + "," +
                 addr.google_map + "," + addr.status_defalut_customer + ", " + addr.remark2 + ", " +
-                addr.time_open_close + "," + addr.time_open_close_over_time + " " +
+                addr.time_open_close + "," + addr.time_open_close_over_time + ", " +
+                addr.contact_id2 + " " +
                 ") " +
                 "Values ('" + p.address_code + "','" + p.line_t1.Replace("'", "''") + "','" + p.line_t2.Replace("'", "''") + "'," +
                 "'" + p.line_t3 + "','" + p.line_t4.Replace("'", "''") + "','" + p.line_e1.Replace("'", "''") + "'," +
@@ -254,7 +256,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.contact_name1 + "','" + p.contact_name2.Replace("'", "''") + "', '" + p.contact_name_tel1.Replace("'", "''") + "', " +
                 "'" + p.contact_name_tel2 + "','" + p.web_site1.Replace("'", "''") + "','" + p.web_site2.Replace("'", "''") + "'," +
                 "'" + p.google_map + "','" + p.status_defalut_customer + "','" + p.remark2 + "', " +
-                "'" + p.time_open_close + "','" + p.time_open_close_over_time + "' " +
+                "'" + p.time_open_close + "','" + p.time_open_close_over_time + "', " +
+                "'" + p.contact_id2 + "' " +
                 ")";
             try
             {
@@ -298,7 +301,7 @@ namespace Xtrim_ERP.objdb
                 "," + addr.address_type_id + " = '" + p.address_type_id + "' " +
                 "," + addr.table_id + " = '" + p.table_id + "' " +
                 "," + addr.address_name + " = '" + p.address_name.Replace("'", "''") + "' " +
-                "," + addr.contact_id + " = '" + p.contact_id.Replace("'", "''") + "' " +
+                "," + addr.contact_id + " = '" + p.contact_id + "' " +
                 "," + addr.contact_name1 + " = '" + p.contact_name1.Replace("'", "''") + "' " +
                 "," + addr.contact_name2 + " = '" + p.contact_name2.Replace("'", "''") + "' " +
                 "," + addr.contact_name_tel1 + " = '" + p.contact_name_tel1.Replace("'", "''") + "' " +
@@ -310,9 +313,9 @@ namespace Xtrim_ERP.objdb
                 "," + addr.remark2 + " = '" + p.remark2.Replace("'", "''") + "' " +
                 "," + addr.time_open_close + " = '" + p.time_open_close.Replace("'", "''") + "' " +
                 "," + addr.time_open_close_over_time + " = '" + p.time_open_close_over_time.Replace("'", "''") + "' " +
+                "," + addr.contact_id2 + " = '" + p.contact_id2 + "' " +
 
-                "Where " + addr.pkField + "='" + p.address_id + "'"
-                ;
+                "Where " + addr.pkField + "='" + p.address_id + "'" ;
 
             try
             {
@@ -336,6 +339,48 @@ namespace Xtrim_ERP.objdb
             else
             {
                 re = update(p);
+            }
+
+            return re;
+        }
+        public String updateContact1(String address_id, String contact_id, String contact_name, String contact_name_tel)
+        {
+            String re = "";
+            String sql = "";
+            sql = "Update " + addr.table + " Set " +
+                " " + addr.contact_id + " = '" + contact_id + "' " +
+                "," + addr.contact_name1 + " = '" + contact_name.Replace("'", "''") + "' " +
+                "," + addr.contact_name_tel1 + " = '" + contact_name_tel.Replace("'", "''") + "' " +
+
+                "Where " + addr.pkField + "='" + address_id + "'";
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
+
+            return re;
+        }
+        public String updateContact2(String address_id, String contact_id, String contact_name, String contact_name_tel)
+        {
+            String re = "";
+            String sql = "";
+            sql = "Update " + addr.table + " Set " +
+                " " + addr.contact_id2 + " = '" + contact_id + "' " +
+                "," + addr.contact_name2 + " = '" + contact_name.Replace("'", "''") + "' " +                
+                "," + addr.contact_name_tel2 + " = '" + contact_name_tel.Replace("'", "''") + "' " +
+
+                "Where " + addr.pkField + "='" + address_id + "'";
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
             }
 
             return re;
@@ -414,6 +459,7 @@ namespace Xtrim_ERP.objdb
         private Address setAddress(DataTable dt)
         {
             Address addr1 = new Address();
+            addr1.status_defalut_customer = "0";
             if (dt.Rows.Count > 0)
             {
                 //stf1.staff_id = dt.Rows[0][addr.staff_id].ToString();
@@ -468,6 +514,7 @@ namespace Xtrim_ERP.objdb
                 addr1.remark2 = dt.Rows[0][addr.remark2].ToString();
                 addr1.time_open_close = dt.Rows[0][addr.time_open_close].ToString();
                 addr1.time_open_close_over_time = dt.Rows[0][addr.time_open_close_over_time].ToString();
+                addr1.contact_id2 = dt.Rows[0][addr.contact_id2].ToString();
             }
 
             return addr1;

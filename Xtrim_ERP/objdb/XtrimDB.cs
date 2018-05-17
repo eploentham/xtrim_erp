@@ -43,6 +43,7 @@ namespace Xtrim_ERP.objdb
         public MethodPaymentDB mtpDB;
         public JobImportContDB jctDB;
         public AddressDB addrDB;
+        public ContactDB contDB;
 
         public XtrimDB(ConnectDB c)
         {
@@ -85,6 +86,7 @@ namespace Xtrim_ERP.objdb
             mtpDB = new MethodPaymentDB(conn);
             jctDB = new JobImportContDB(conn);
             addrDB = new AddressDB(conn);
+            contDB = new ContactDB(conn);
         }
     }
 }

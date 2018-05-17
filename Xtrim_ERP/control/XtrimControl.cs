@@ -25,7 +25,8 @@ namespace Xtrim_ERP.control
 
         public XtrimDB xtDB;
 
-        public String copID = "", jobID="";
+        public String copID = "", jobID="", cusID="",addrID="", contID="";
+        public String rContactName = "", rContacTel = "", rContID="";
 
         public Customer sCus;
         public Importer sImp;
