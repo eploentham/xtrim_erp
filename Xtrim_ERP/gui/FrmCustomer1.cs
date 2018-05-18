@@ -23,7 +23,7 @@ namespace Xtrim_ERP.gui
         Customer cus;
         XtrimControl xC;
         //FpSpread grdView;
-        C1FlexGrid grfCus, grfAddr, grfAddr1;
+        C1FlexGrid grfCus, grfAddr, grfCont, grfRmk, grfTax;
 
         Font fEdit, fEditB;
 
@@ -34,6 +34,9 @@ namespace Xtrim_ERP.gui
         int colCnt = 8;
         int colAddrno = 0, colAddrID = 1, colAddrName = 2, colAddrLine1=3, colAddrLine2=4, colAddrLine3=5, colAddrline4=6, colAddrEmail=7, colAddrEmail2=8;
         int colAddrTele = 9, colAddrMobile = 10, colAddrRemark = 11, colAddrRemark2 = 12;
+        int colContId = 1, colContFNameT = 2, colContLNameT = 3, colContNickName = 4, colContMobile = 5, colContEmail = 6, colContPosName = 7, colContRemark = 8, colContWork = 9;
+        int colRmkId = 1, colRmkRemark1 = 2, colRmkRemark2 = 3;
+        int colTaxId = 1, colTaxTaxId = 2, colTaxNameT = 3, colTaxNameE=4, colTaxRemark=5;
 
         Boolean flagNew = false;
 
@@ -66,6 +69,9 @@ namespace Xtrim_ERP.gui
             tabPage5.Text = "ใบกำกับภาษี";
             initGrfCusH();
             initGrfAddrH();
+            initGrfContH();
+            initGrfRmkH();
+            initGrfTaxH();
             setGrfCusH();
             setGrfAddrH();
             btnVoid.Hide();
@@ -84,6 +90,25 @@ namespace Xtrim_ERP.gui
             menuAddr.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Addr_Edit));
             menuAddr.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Addr_Cancel));
             grfAddr.ContextMenu = menuAddr;
+
+            ContextMenu menuCont = new ContextMenu();
+            menuCont.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Cont_new));
+            menuCont.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Cont_Edit));
+            menuCont.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Cont_Cancel));
+            grfCont.ContextMenu = menuCont;
+
+            ContextMenu menuRmk = new ContextMenu();
+            menuRmk.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Rmk_new));
+            menuRmk.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Rmk_Edit));
+            menuRmk.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Rmk_Cancel));
+            grfRmk.ContextMenu = menuRmk;
+
+            ContextMenu menuTax = new ContextMenu();
+            menuTax.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Tax_new));
+            menuTax.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Tax_Edit));
+            menuTax.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Tax_Cancel));
+            grfTax.ContextMenu = menuTax;
+
             //theme1.SetTheme(sB1, "BeigeOne");
         }
         private void ContextMenu_Addr_new(object sender, System.EventArgs e)
@@ -101,6 +126,63 @@ namespace Xtrim_ERP.gui
             frm.ShowDialog(this);
         }
         private void ContextMenu_Addr_Cancel(object sender, System.EventArgs e)
+        {
+
+        }
+        private void ContextMenu_Cont_new(object sender, System.EventArgs e)
+        {
+            xC.contID = "";
+            xC.cusID = txtID.Text;
+            FrmContactAdd frm = new FrmContactAdd(xC,"0");
+            frm.ShowDialog(this);
+        }
+        private void ContextMenu_Cont_Edit(object sender, System.EventArgs e)
+        {
+            if(grfCont[grfCont.Row, colContId] == null) return;
+            xC.contID = grfCont[grfCont.Row, colContId].ToString();
+            xC.cusID = txtID.Text;
+            FrmContactAdd frm = new FrmContactAdd(xC,"0");
+            frm.ShowDialog(this);
+        }
+        private void ContextMenu_Cont_Cancel(object sender, System.EventArgs e)
+        {
+
+        }
+        private void ContextMenu_Rmk_new(object sender, System.EventArgs e)
+        {
+            xC.cusrID = "";
+            xC.cusID = txtID.Text;
+            FrmCusRemark frm = new FrmCusRemark(xC);
+            frm.ShowDialog(this);
+        }
+        private void ContextMenu_Rmk_Edit(object sender, System.EventArgs e)
+        {
+            if (grfRmk[grfRmk.Row, colContId] == null) return;
+            xC.cusrID = grfRmk[grfRmk.Row, colContId].ToString();
+            xC.cusID = txtID.Text;
+            FrmCusRemark frm = new FrmCusRemark(xC);
+            frm.ShowDialog(this);
+        }
+        private void ContextMenu_Rmk_Cancel(object sender, System.EventArgs e)
+        {
+
+        }
+        private void ContextMenu_Tax_new(object sender, System.EventArgs e)
+        {
+            xC.custID = "";
+            xC.cusID = txtID.Text;
+            FrmCusTaxInvoice frm = new FrmCusTaxInvoice(xC);
+            frm.ShowDialog(this);
+        }
+        private void ContextMenu_Tax_Edit(object sender, System.EventArgs e)
+        {
+            if (grfTax[grfTax.Row, colContId] == null) return;
+            xC.custID = grfTax[grfTax.Row, colContId].ToString();
+            xC.cusID = txtID.Text;
+            FrmCusTaxInvoice frm = new FrmCusTaxInvoice(xC);
+            frm.ShowDialog(this);
+        }
+        private void ContextMenu_Tax_Cancel(object sender, System.EventArgs e)
         {
 
         }
@@ -521,35 +603,59 @@ namespace Xtrim_ERP.gui
             grfAddr.Cols[colAddrRemark].Caption = "หมายเหตุ";
             grfAddr.Cols[colAddrRemark2].Caption = "หมายเหตุ2";
 
-            //grfAddr1.DataSource = grfAddr.DataSource;
-            //grfAddr1.Cols[colAddrID].Width = 60;
-            //grfAddr1.Cols[colAddrName].Width = 100;
-            //grfAddr1.Cols[colAddrLine1].Width = 100;
-            //grfAddr1.Cols[colAddrLine2].Width = 100;
-            //grfAddr1.Cols[colAddrLine3].Width = 100;
-            //grfAddr1.Cols[colAddrline4].Width = 100;
-            //grfAddr1.Cols[colAddrEmail].Width = 100;
-            //grfAddr1.Cols[colAddrEmail2].Width = 100;
-            //grfAddr1.Cols[colAddrTele].Width = 100;
-            //grfAddr1.Cols[colAddrMobile].Width = 100;
-            //grfAddr1.Cols[colAddrRemark].Width = 100;
-            //grfAddr1.Cols[colAddrRemark2].Width = 100;
-            //grfAddr1.ShowCursor = true;
-            ////grdFlex.Cols[colID].Caption = "no";
-            //grfAddr1.Cols[colAddrName].Caption = "ชื่อที่อยู่";
-            //grfAddr1.Cols[colAddrLine1].Caption = "ที่อยู่ 1";
-            //grfAddr1.Cols[colAddrLine2].Caption = "ที่อยู่ 2";
-            //grfAddr1.Cols[colAddrLine3].Caption = "ที่อยู่ 3";
-            //grfAddr1.Cols[colAddrline4].Caption = "ที่อยู่ 4";
-            //grfAddr1.Cols[colAddrEmail].Caption = "email";
-            //grfAddr1.Cols[colAddrEmail2].Caption = "email2";
-            //grfAddr1.Cols[colAddrTele].Caption = "tele";
-            //grfAddr1.Cols[colAddrMobile].Caption = "mobile";
-            //grfAddr1.Cols[colAddrRemark].Caption = "หมายเหตุ";
-            //grfAddr1.Cols[colAddrRemark2].Caption = "หมายเหตุ2";
-
             grfAddr.Cols[colAddrID].Visible = false;
             //grfAddr1.Cols[colAddrID].Visible = false;
+        }
+        private void setGrfContH(String custId)
+        {
+            grfCont.DataSource = xC.xtDB.contDB.selectByCusId(custId);
+            grfCont.Cols[colContId].Width = 60;
+            grfCont.Cols[colContFNameT].Width = 60;
+            grfCont.Cols[colContLNameT].Width = 60;
+            grfCont.Cols[colContNickName].Width = 60;
+            grfCont.Cols[colContMobile].Width = 60;
+            grfCont.Cols[colContEmail].Width = 60;
+            grfCont.Cols[colContPosName].Width = 60;
+            grfCont.Cols[colContRemark].Width = 60;
+            grfCont.Cols[colContWork].Width = 60;
+
+            grfCont.Cols[colContFNameT].Caption = "ชื่อ";
+            grfCont.Cols[colContLNameT].Caption = "นามสกุล";
+            grfCont.Cols[colContNickName].Caption = "ชื่อเล่น";
+            grfCont.Cols[colContMobile].Caption = "มือถือ";
+            grfCont.Cols[colContEmail].Caption = "Email";
+            grfCont.Cols[colContPosName].Caption = "ตำแหน่ง";
+            grfCont.Cols[colContRemark].Caption = "หมายเหตุ";
+            grfCont.Cols[colContWork].Caption = "งานที่รับผิดชอบ";
+
+            grfCont.Cols[colContId].Visible = false;
+        }
+        private void setGrfRmkH(String custId)
+        {
+            grfRmk.DataSource = xC.xtDB.cusrDB.selectByCusId(custId);
+            grfRmk.Cols[colRmkId].Width = 60;
+            grfRmk.Cols[colRmkRemark1].Width = 60;
+            grfRmk.Cols[colRmkRemark2].Width = 60;            
+
+            grfRmk.Cols[colRmkRemark1].Caption = "หมายเหตุ";
+            grfRmk.Cols[colRmkRemark2].Caption = "หมายเหตุ2";
+            
+            grfRmk.Cols[colRmkId].Visible = false;
+        }
+        private void setGrfTaxH(String custId)
+        {
+            grfTax.DataSource = xC.xtDB.custDB.selectByCusId(custId);
+            grfTax.Cols[colTaxTaxId].Width = 60;
+            grfTax.Cols[colTaxNameT].Width = 60;
+            grfTax.Cols[colTaxNameE].Width = 60;
+            grfTax.Cols[colTaxRemark].Width = 60;
+
+            grfTax.Cols[colTaxTaxId].Caption = "tax id";
+            grfTax.Cols[colTaxNameT].Caption = "ชื่อผู้ออกใบกำกับภาษี ไทย";
+            grfTax.Cols[colTaxNameE].Caption = "ชื่อผู้ออกใบกำกับภาษี english";
+            grfTax.Cols[colTaxRemark].Caption = "หมายเหตุ";
+
+            grfTax.Cols[colTaxId].Visible = false;
         }
         private void initGrfCusH()
         {
@@ -561,10 +667,10 @@ namespace Xtrim_ERP.gui
             FilterRow fr = new FilterRow(grfCus);
 
             grfCus.AfterDataRefresh += new System.ComponentModel.ListChangedEventHandler(this.StatusBar_AfterDataRefresh);
-            grfCus.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grdFlex_CellChanged);
+            grfCus.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfCus_CellChanged);
             grfCus.LeaveCell += new System.EventHandler(this.grdFlex_LeaveCell);
-            grfCus.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grdFlex_AfterRowColChange);
-            //this.grfCus.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grdFlex_AfterRowColChange);
+            grfCus.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfCus_AfterRowColChange);
+            //this.grfCus.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfCus_AfterRowColChange);
             //new C1.Win.C1FlexGrid.RangeEventHandler(this.c1FlexGrid1_AfterRowColChange);
             //splitContainer1.Panel1.Controls.Add(this.grfCus);
             panel6.Controls.Add(this.grfCus);
@@ -596,7 +702,55 @@ namespace Xtrim_ERP.gui
             //grfAddr1.Location = new System.Drawing.Point(0, 0);
             //panel3.Controls.Add(this.grfAddr1);
         }
+        private void initGrfContH()
+        {
+            grfCont = new C1FlexGrid();
+            grfCont.Font = fEdit;
+            grfCont.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfCont.Location = new System.Drawing.Point(0, 0);
+            
+            grfCont.DoubleClick += new System.EventHandler(this.grfCont_DoubleClick);
+            grfCont.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfCont_AfterRowColChange);
+
+            panel4.Controls.Add(this.grfCont);            
+        }
+        private void initGrfRmkH()
+        {
+            grfRmk = new C1FlexGrid();
+            grfRmk.Font = fEdit;
+            grfRmk.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfRmk.Location = new System.Drawing.Point(0, 0);
+
+            grfRmk.DoubleClick += new System.EventHandler(this.grfRmk_DoubleClick);
+            grfRmk.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfRmk_AfterRowColChange);
+
+            panel9.Controls.Add(this.grfRmk);
+        }
+        private void initGrfTaxH()
+        {
+            grfTax = new C1FlexGrid();
+            grfTax.Font = fEdit;
+            grfTax.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfTax.Location = new System.Drawing.Point(0, 0);
+
+            grfTax.DoubleClick += new System.EventHandler(this.grfTax_DoubleClick);
+            grfTax.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfTax_AfterRowColChange);
+
+            panel10.Controls.Add(this.grfTax);
+        }
+        private void grfRmk_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+        private void grfCont_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
         private void grfAddr_DoubleClick(object sender, EventArgs e)
+        {
+
+        }
+        private void grfTax_DoubleClick(object sender, EventArgs e)
         {
 
         }
@@ -949,7 +1103,7 @@ namespace Xtrim_ERP.gui
         {
 
         }
-        private void grdFlex_CellChanged(object sender, C1.Win.C1FlexGrid.RowColEventArgs e)
+        private void grfCus_CellChanged(object sender, C1.Win.C1FlexGrid.RowColEventArgs e)
         {
             sB.Text = grfCus.Rows[e.Row].ToString();
         }
@@ -963,7 +1117,37 @@ namespace Xtrim_ERP.gui
             //setControlAddr(addrId);
             //setControlAddrEnable(false);
         }
-        private void grdFlex_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
+        private void grfCont_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
+        {
+            if (e.NewRange.r1 < 0) return;
+            if (e.NewRange.Data == null) return;
+
+            String addrId = "";
+            addrId = grfCont[e.NewRange.r1, colID] != null ? grfCont[e.NewRange.r1, colID].ToString() : "";
+            //setControlAddr(addrId);
+            //setControlAddrEnable(false);
+        }
+        private void grfRmk_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
+        {
+            if (e.NewRange.r1 < 0) return;
+            if (e.NewRange.Data == null) return;
+
+            String addrId = "";
+            addrId = grfRmk[e.NewRange.r1, colID] != null ? grfRmk[e.NewRange.r1, colID].ToString() : "";
+            //setControlAddr(addrId);
+            //setControlAddrEnable(false);
+        }
+        private void grfTax_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
+        {
+            if (e.NewRange.r1 < 0) return;
+            if (e.NewRange.Data == null) return;
+
+            String addrId = "";
+            addrId = grfTax[e.NewRange.r1, colID] != null ? grfTax[e.NewRange.r1, colID].ToString() : "";
+            //setControlAddr(addrId);
+            //setControlAddrEnable(false);
+        }
+        private void grfCus_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
         {
             if (e.NewRange.r1<0) return;
             String aaa = "";
@@ -974,6 +1158,9 @@ namespace Xtrim_ERP.gui
             cusId = grfCus[e.NewRange.r1, colID] != null ? grfCus[e.NewRange.r1, colID].ToString() : "";
             setControlCus(cusId);
             setGrfAddrH(cusId);
+            setGrfContH(cusId);
+            setGrfRmkH(cusId);
+            setGrfTaxH(cusId);
             setControlEdit(false);
             chkVoid.Show();
         }

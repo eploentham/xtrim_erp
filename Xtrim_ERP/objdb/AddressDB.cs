@@ -440,7 +440,7 @@ namespace Xtrim_ERP.objdb
             String sql = "select addr.address_id, addr.address_name, addr.line_t1, addr.line_t2, addr.line_t3, addr.line_t4, addr.email, addr.email2, addr.tele, addr.mobile, addr.remark, addr.remark2 " +
                 "From " + addr.table + " addr " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where addr." + addr.table_id + " ='" + copId + "' ";
+                "Where addr." + addr.table_id + " ='" + copId + "' and addr." + addr.active+"='1' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }

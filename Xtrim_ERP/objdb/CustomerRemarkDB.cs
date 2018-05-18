@@ -36,8 +36,10 @@ namespace Xtrim_ERP.objdb
             cusR.user_cancel = "user_cancel";
             cusR.active = "active";
             cusR.remark = "remark";
+            cusR.remark2 = "remark2";
+            cusR.sort1 = "sort1";
 
-            cusR.table = "b_address_type";
+            cusR.table = "b_customer_remark";
             cusR.pkField = "remark_id";
         }
         public void getlAddr()
@@ -122,8 +124,8 @@ namespace Xtrim_ERP.objdb
                 cusR.user_create + "," + cusR.user_modi + ", " + cusR.user_cancel + ", " +
                 cusR.active + ", " + cusR.sort1 + " " +
                 ") " +
-                "Values ('" + p.cust_id.Replace("'", "''") + "','" + p.remark2.Replace("'", "''") + "','" + p.remark.Replace("'", "''") + "','" +
-                "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "', " +
+                "Values ('" + p.cust_id.Replace("'", "''") + "','" + p.remark2.Replace("'", "''") + "','" + p.remark.Replace("'", "''") + "'," +
+                "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "', " +
                 "'" + p.active + "','" + p.sort1 + "' " +
                 ")";
@@ -166,7 +168,7 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String insertAddressType(CustomerRemark p)
+        public String insertCustomerRemark(CustomerRemark p)
         {
             String re = "";
 
@@ -200,6 +202,37 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+        public DataTable selectByPk(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cont.* " +
+                "From " + cusR.table + " cont " +
+                "Where cont." + cusR.pkField + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
+        public CustomerRemark selectByPk1(String copId)
+        {
+            CustomerRemark cont1 = new CustomerRemark();
+            DataTable dt = new DataTable();
+            String sql = "select cont.* " +
+                "From " + cusR.table + " cont " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where cont." + cusR.pkField + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            cont1 = setCustomerRemark(dt);
+            return cont1;
+        }
+        public DataTable selectByCusId(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select remark_id, remark, remark2 " +
+                "From " + cusR.table + " cont " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where cont." + cusR.cust_id + " ='" + copId + "' and cont." + cusR.active + "='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
         private CustomerRemark setCustomerRemark(DataTable dt)
         {
             CustomerRemark cusR1 = new CustomerRemark();
@@ -214,7 +247,7 @@ namespace Xtrim_ERP.objdb
                 cusR1.user_modi = dt.Rows[0][cusR.user_modi].ToString();
                 cusR1.remark = dt.Rows[0][cusR.remark].ToString();
                 cusR1.user_cancel = dt.Rows[0][cusR.user_cancel].ToString();
-
+                cusR1.remark2 = dt.Rows[0][cusR.remark2].ToString();
                 cusR1.active = dt.Rows[0][cusR.active].ToString();
                 cusR1.sort1 = dt.Rows[0][cusR.sort1].ToString();
             }

@@ -62,6 +62,8 @@
             this.txtCopCode = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
+            this.chkVoid = new C1.Win.C1Input.C1CheckBox();
+            this.btnVoid = new C1.Win.C1Input.C1Button();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtWorkResponse)).BeginInit();
@@ -80,6 +82,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCopCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVoid)).BeginInit();
             this.SuspendLayout();
             // 
             // sB
@@ -100,6 +104,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.chkVoid);
+            this.panel1.Controls.Add(this.btnVoid);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.txtWorkResponse);
             this.panel1.Controls.Add(this.label13);
@@ -527,6 +533,38 @@
             // 
             this.theme1.Theme = "Office2013Red";
             // 
+            // chkVoid
+            // 
+            this.chkVoid.BackColor = System.Drawing.Color.Transparent;
+            this.chkVoid.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkVoid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkVoid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkVoid.Location = new System.Drawing.Point(311, 216);
+            this.chkVoid.Name = "chkVoid";
+            this.chkVoid.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkVoid.Size = new System.Drawing.Size(155, 24);
+            this.chkVoid.TabIndex = 226;
+            this.chkVoid.Text = "ต้องการยกเลิกรายการ";
+            this.theme1.SetTheme(this.chkVoid, "(default)");
+            this.chkVoid.UseVisualStyleBackColor = true;
+            this.chkVoid.Value = null;
+            this.chkVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnVoid
+            // 
+            this.btnVoid.Image = global::Xtrim_ERP.Properties.Resources.trash24;
+            this.btnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVoid.Location = new System.Drawing.Point(628, 201);
+            this.btnVoid.Name = "btnVoid";
+            this.btnVoid.Size = new System.Drawing.Size(83, 39);
+            this.btnVoid.TabIndex = 225;
+            this.btnVoid.Text = "ยกเลิกช้อมูล";
+            this.btnVoid.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.theme1.SetTheme(this.btnVoid, "(default)");
+            this.btnVoid.UseVisualStyleBackColor = true;
+            this.btnVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // FrmContactAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -558,6 +596,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCopCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVoid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -599,5 +639,7 @@
         private C1.Win.C1Input.C1TextBox txtWorkResponse;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel2;
+        private C1.Win.C1Input.C1CheckBox chkVoid;
+        private C1.Win.C1Input.C1Button btnVoid;
     }
 }

@@ -44,6 +44,8 @@ namespace Xtrim_ERP.objdb
         public JobImportContDB jctDB;
         public AddressDB addrDB;
         public ContactDB contDB;
+        public CustomerRemarkDB cusrDB;
+        public CustomerTaxInvoiceDB custDB;
 
         public XtrimDB(ConnectDB c)
         {
@@ -87,6 +89,8 @@ namespace Xtrim_ERP.objdb
             jctDB = new JobImportContDB(conn);
             addrDB = new AddressDB(conn);
             contDB = new ContactDB(conn);
+            cusrDB = new CustomerRemarkDB(conn);
+            custDB = new CustomerTaxInvoiceDB(conn);
         }
     }
 }

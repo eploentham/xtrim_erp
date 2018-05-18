@@ -231,6 +231,17 @@ namespace Xtrim_ERP.objdb
             cont1 = setContact(dt);
             return cont1;
         }
+        public DataTable selectByCusId(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cont.contact_id, cont.contact_fname_t, cont.contact_lname_t, cont.nick_name, cont.mobile, cont.email, cont.posi_name" +
+                ", cont.remark, cont.work_response " +
+                "From " + cont.table + " cont " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where cont." + cont.cust_id + " ='" + copId + "' and cont." + cont.active + "='1'";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
         private Contact setContact(DataTable dt)
         {
             Contact cont1 = new Contact();

@@ -126,11 +126,11 @@ namespace Xtrim_ERP.objdb
             sql = "Insert Into " + cusT.table + "(" + cusT.cust_id + "," + cusT.tax_invoice_name_e + "," + cusT.tax_invoice_name_t + "," +
                 cusT.date_create + "," + cusT.date_modi + ", " + cusT.date_cancel + ", " +
                 cusT.user_create + "," + cusT.user_modi + ", " + cusT.user_cancel + ", " +
-                cusT.active + ", " + cusT.tax_id + ", " + cusT.sort1 + " " +
-                cusT.remark + ", " +
+                cusT.active + ", " + cusT.tax_id + ", " + cusT.sort1 + ", " +
+                cusT.remark + " " +
                 ") " +
-                "Values ('" + p.cust_id.Replace("'", "''") + "','" + p.tax_invoice_name_e.Replace("'", "''") + "','" + p.tax_invoice_name_t.Replace("'", "''") + "','" +
-                "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "', " +
+                "Values ('" + p.cust_id.Replace("'", "''") + "','" + p.tax_invoice_name_e.Replace("'", "''") + "','" + p.tax_invoice_name_t.Replace("'", "''") + "', " +
+                "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "', " +
                 "'" + p.active + "','" + p.tax_id + "','" + p.sort1 + "', " +
                  "'" + p.remark + "' " +
@@ -210,7 +210,38 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
-        private CustomerTaxInvoice setCustomerRemark(DataTable dt)
+        public DataTable selectByPk(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cont.* " +
+                "From " + cusT.table + " cont " +
+                "Where cont." + cusT.pkField + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
+        public CustomerTaxInvoice selectByPk1(String copId)
+        {
+            CustomerTaxInvoice cont1 = new CustomerTaxInvoice();
+            DataTable dt = new DataTable();
+            String sql = "select cont.* " +
+                "From " + cusT.table + " cont " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where cont." + cusT.pkField + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            cont1 = setCustomerTaxInvoice(dt);
+            return cont1;
+        }
+        public DataTable selectByCusId(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select tax_invoice_id,tax_id,  tax_invoice_name_t,  tax_invoice_name_e, remark " +
+                "From " + cusT.table + " cont " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where cont." + cusT.cust_id + " ='" + copId + "' and cont." + cusT.active + "='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
+        private CustomerTaxInvoice setCustomerTaxInvoice(DataTable dt)
         {
             CustomerTaxInvoice cusR1 = new CustomerTaxInvoice();
             if (dt.Rows.Count > 0)

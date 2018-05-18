@@ -37,6 +37,10 @@ namespace Xtrim_ERP.gui
             InitializeComponent();
             xC = x;
             flagContact = flagcontact;
+            initConfig();
+        }
+        private void initConfig()
+        {
             bg = txtContFNameT.BackColor;
             fc = txtContFNameT.ForeColor;
             ff = txtContFNameT.Font;
@@ -90,7 +94,8 @@ namespace Xtrim_ERP.gui
         private void setContact()
         {
             cont.cont_id = txtID.Text;
-            cont.cust_id = "";
+
+            cont.cust_id = flagContact.Equals("0") ? xC.cusID : "";
             cont.cont_code = "";
             cont.username = "";
             cont.password1 = "";
@@ -117,6 +122,7 @@ namespace Xtrim_ERP.gui
             cont.email2 = txtEmail2.Text;
             cont.nick_name = txtNickName.Text;
             cont.work_response = txtWorkResponse.Text;
+            cont.mobile = txtMobile.Text;
             cont.table_id = xC.addrID;
         }
         private void setGrfInvH()
@@ -226,7 +232,7 @@ namespace Xtrim_ERP.gui
                         xC.rContacTel = txtMobile.Text;
                         xC.rContID = re;
                     }
-                    else
+                    else if (flagContact.Equals("2"))
                     {
                         String re2 = xC.xtDB.addrDB.updateContact2(txtID.Text, re, txtContFNameT.Text + " " + txtContLNameT.Text, txtMobile.Text);
                         xC.rContactName = txtContFNameT.Text + " " + txtContLNameT.Text;
