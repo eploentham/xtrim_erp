@@ -43,8 +43,10 @@
             this.c1Command2 = new C1.Win.C1Command.C1Command();
             this.c1CommandLink6 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandHolder1 = new C1.Win.C1Command.C1CommandHolder();
+            this.txtContFNameT = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtContFNameT)).BeginInit();
             this.SuspendLayout();
             // 
             // c1FlexGrid1
@@ -159,11 +161,26 @@
             this.c1CommandHolder1.Commands.Add(this.c1Command2);
             this.c1CommandHolder1.Owner = this;
             // 
+            // txtContFNameT
+            // 
+            this.txtContFNameT.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtContFNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtContFNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtContFNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtContFNameT.Location = new System.Drawing.Point(32, 51);
+            this.txtContFNameT.Name = "txtContFNameT";
+            this.txtContFNameT.Size = new System.Drawing.Size(207, 20);
+            this.txtContFNameT.TabIndex = 65;
+            this.txtContFNameT.Tag = null;
+            this.txtContFNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtContFNameT.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtContFNameT_KeyUp);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1273, 736);
+            this.Controls.Add(this.txtContFNameT);
             this.Controls.Add(this.c1FlexGrid1);
             this.Controls.Add(this.c1MainMenu1);
             this.Name = "Form1";
@@ -171,6 +188,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtContFNameT)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -192,5 +210,6 @@
         private C1.Win.C1Command.C1Command c1Command2;
         private C1.Win.C1Command.C1CommandLink c1CommandLink6;
         private C1.Win.C1Command.C1CommandHolder c1CommandHolder1;
+        private C1.Win.C1Input.C1TextBox txtContFNameT;
     }
 }

@@ -238,6 +238,9 @@
     <Compile Include="gui\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmPasswordConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="gui\FrmReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -541,6 +544,7 @@
     <Content Include="Resources\Glass_Header.png" />
     <Content Include="Resources\Glass_HeaderSelected.png" />
     <Content Include="Resources\Glass_Normal.png" />
+    <None Include="Resources\loading-transparent.gif" />
     <Content Include="Resources\Mac_Header.png" />
     <Content Include="Resources\Mac_HeaderSelected.png" />
     <Content Include="Resources\Opera_Header.png" />

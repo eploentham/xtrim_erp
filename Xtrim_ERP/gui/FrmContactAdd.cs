@@ -32,6 +32,8 @@ namespace Xtrim_ERP.gui
         
         C1FlexGrid grfCont;
 
+        Boolean flagEdit = false;
+
         public FrmContactAdd(XtrimControl x, String flagcontact)
         {
             InitializeComponent();
@@ -60,6 +62,8 @@ namespace Xtrim_ERP.gui
             theme1.SetTheme(sB, "BeigeOne");
             sB1.Text = "";
             cont = new Contact();
+            setControlEnable(false);
+            btnVoid.Hide();
         }
         private void initGrfContH()
         {
@@ -78,6 +82,31 @@ namespace Xtrim_ERP.gui
             C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
             C1ThemeController.ApplyThemeToObject(grfCont, theme);
         }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            flagEdit = flagEdit ? false : true;
+            setControlEnable(flagEdit);
+        }
+
+        private void chkVoid_Click(object sender, EventArgs e)
+        {
+            if (btnVoid.Visible)
+            {
+                btnVoid.Hide();
+            }
+            else
+            {
+                btnVoid.Show();
+            }
+        }
+
+        private void btnVoid_Click(object sender, EventArgs e)
+        {
+            FrmPasswordConfirm frm = new FrmPasswordConfirm(xC);
+            frm.ShowDialog(this);
+        }
+
         private void setControl(String contId)
         {
             cont = xC.xtDB.contDB.selectByPk1(contId);
@@ -90,6 +119,32 @@ namespace Xtrim_ERP.gui
             txtPosiName.Value = cont.posi_name;
             txtRemark.Value = cont.remark;
             txtWorkResponse.Value = cont.work_response;
+            txtEmail.Value = cont.email;
+            txtEmail2.Value = cont.email2;
+            txtMobile.Value = cont.mobile;
+        }
+        private void setControlEnable(Boolean flag)
+        {
+            txtContFNameT.Enabled = flag;
+            txtContLNameT.Enabled = flag;
+            txtContFNameE.Enabled = flag;
+            txtContLNameE.Enabled = flag;
+            txtNickName.Enabled = flag;
+            txtPosiName.Enabled = flag;
+            txtRemark.Enabled = flag;
+            txtWorkResponse.Enabled = flag;
+            txtEmail.Enabled = flag;
+            txtEmail2.Enabled = flag;
+            txtMobile.Enabled = flag;
+            btnSave.Enabled = flag;
+            if (flag)
+            {
+                btnEdit.Image = Resources.open24;
+            }
+            else
+            {
+                btnEdit.Image = Resources.lock24;
+            }
         }
         private void setContact()
         {
@@ -213,7 +268,7 @@ namespace Xtrim_ERP.gui
         {
             String contId = "";
             contId = grfCont[grfCont.Row, colID].ToString();
-            setControl(contId);
+            if(flagEdit) setControl(contId);
 
         }
         private void btnSave_Click(object sender, EventArgs e)
@@ -225,6 +280,7 @@ namespace Xtrim_ERP.gui
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
+                    //ถ้ามาจาก หน้าจอ address จะมี flagContact
                     if (flagContact.Equals("1"))
                     {
                         String re1 = xC.xtDB.addrDB.updateContact1(txtID.Text, re, txtContFNameT.Text + " " + txtContLNameT.Text, txtMobile.Text);

@@ -569,6 +569,12 @@ namespace Xtrim_ERP.gui
             this.txtEta.Enter += new System.EventHandler(this.textBox_Enter);
 
         }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void textBox_Enter(object sender, EventArgs e)
         {
             C1TextBox a = (C1TextBox)sender;

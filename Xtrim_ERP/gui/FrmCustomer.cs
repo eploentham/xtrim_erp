@@ -379,6 +379,7 @@ namespace Xtrim_ERP.gui
             txtRemark2.Enabled = flag;
             txtContactName1.Enabled = flag;
             txtContactName2.Enabled = flag;
+            
 
             if (flag)
             {

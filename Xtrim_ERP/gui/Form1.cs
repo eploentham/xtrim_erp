@@ -80,5 +80,10 @@ namespace Xtrim_ERP.gui
         {
 
         }
+
+        private void txtContFNameT_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }

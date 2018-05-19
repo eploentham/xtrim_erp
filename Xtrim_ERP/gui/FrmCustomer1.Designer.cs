@@ -92,10 +92,6 @@ namespace Xtrim_ERP.gui
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.btnTaxInv = new C1.Win.C1Input.C1Button();
-            this.btnRemark = new C1.Win.C1Input.C1Button();
-            this.btnContact = new C1.Win.C1Input.C1Button();
-            this.btnAddr = new C1.Win.C1Input.C1Button();
             this.btnNew = new C1.Win.C1Input.C1Button();
             this.btnEdit = new C1.Win.C1Input.C1Button();
             this.txtTaxId = new C1.Win.C1Input.C1TextBox();
@@ -170,10 +166,6 @@ namespace Xtrim_ERP.gui
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnTaxInv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRemark)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnContact)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAddr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTaxId)).BeginInit();
@@ -1078,10 +1070,6 @@ namespace Xtrim_ERP.gui
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel7.Controls.Add(this.btnTaxInv);
-            this.panel7.Controls.Add(this.btnRemark);
-            this.panel7.Controls.Add(this.btnContact);
-            this.panel7.Controls.Add(this.btnAddr);
             this.panel7.Controls.Add(this.btnNew);
             this.panel7.Controls.Add(this.btnEdit);
             this.panel7.Controls.Add(this.txtTaxId);
@@ -1104,63 +1092,6 @@ namespace Xtrim_ERP.gui
             this.panel7.Size = new System.Drawing.Size(908, 294);
             this.panel7.TabIndex = 1;
             this.theme1.SetTheme(this.panel7, "(default)");
-            // 
-            // btnTaxInv
-            // 
-            this.btnTaxInv.Image = global::Xtrim_ERP.Properties.Resources.webpage24;
-            this.btnTaxInv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTaxInv.Location = new System.Drawing.Point(745, 167);
-            this.btnTaxInv.Name = "btnTaxInv";
-            this.btnTaxInv.Size = new System.Drawing.Size(124, 33);
-            this.btnTaxInv.TabIndex = 155;
-            this.btnTaxInv.Text = "เพิ่มใบกำกับภาษี";
-            this.btnTaxInv.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnTaxInv, "(default)");
-            this.btnTaxInv.UseVisualStyleBackColor = true;
-            this.btnTaxInv.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnRemark
-            // 
-            this.btnRemark.Image = global::Xtrim_ERP.Properties.Resources.ad24;
-            this.btnRemark.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemark.Location = new System.Drawing.Point(745, 128);
-            this.btnRemark.Name = "btnRemark";
-            this.btnRemark.Size = new System.Drawing.Size(124, 33);
-            this.btnRemark.TabIndex = 154;
-            this.btnRemark.Text = "เพิ่มหมายเหตุ";
-            this.btnRemark.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnRemark, "(default)");
-            this.btnRemark.UseVisualStyleBackColor = true;
-            this.btnRemark.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnContact
-            // 
-            this.btnContact.Image = global::Xtrim_ERP.Properties.Resources.users24;
-            this.btnContact.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContact.Location = new System.Drawing.Point(745, 82);
-            this.btnContact.Name = "btnContact";
-            this.btnContact.Size = new System.Drawing.Size(124, 33);
-            this.btnContact.TabIndex = 153;
-            this.btnContact.Text = "เพิ่มชื่อผู้ติดต่อ";
-            this.btnContact.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnContact, "(default)");
-            this.btnContact.UseVisualStyleBackColor = true;
-            this.btnContact.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnAddr
-            // 
-            this.btnAddr.Image = global::Xtrim_ERP.Properties.Resources.phonebook24;
-            this.btnAddr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddr.Location = new System.Drawing.Point(745, 27);
-            this.btnAddr.Name = "btnAddr";
-            this.btnAddr.Size = new System.Drawing.Size(124, 33);
-            this.btnAddr.TabIndex = 152;
-            this.btnAddr.Text = "เพิ่มที่อยู่";
-            this.btnAddr.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnAddr, "(default)");
-            this.btnAddr.UseVisualStyleBackColor = true;
-            this.btnAddr.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.btnAddr.Click += new System.EventHandler(this.btnAddr_Click);
             // 
             // btnNew
             // 
@@ -1438,13 +1369,13 @@ namespace Xtrim_ERP.gui
             // btnSave
             // 
             this.btnSave.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(656, 128);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(83, 39);
             this.btnSave.TabIndex = 146;
             this.btnSave.Text = "บันทึกช้อมูล";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.btnSave, "(default)");
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -1472,13 +1403,13 @@ namespace Xtrim_ERP.gui
             // btnVoid
             // 
             this.btnVoid.Image = global::Xtrim_ERP.Properties.Resources.trash24;
-            this.btnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVoid.Location = new System.Drawing.Point(656, 249);
             this.btnVoid.Name = "btnVoid";
             this.btnVoid.Size = new System.Drawing.Size(83, 39);
             this.btnVoid.TabIndex = 149;
             this.btnVoid.Text = "ยกเลิกช้อมูล";
-            this.btnVoid.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVoid.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.btnVoid, "(default)");
             this.btnVoid.UseVisualStyleBackColor = true;
             this.btnVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -1659,10 +1590,6 @@ namespace Xtrim_ERP.gui
             this.tabPage5.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnTaxInv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRemark)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnContact)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAddr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTaxId)).EndInit();
@@ -1785,10 +1712,6 @@ namespace Xtrim_ERP.gui
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel9;
-        private C1Button btnTaxInv;
-        private C1Button btnRemark;
-        private C1Button btnContact;
-        private C1Button btnAddr;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Panel panel10;
     }

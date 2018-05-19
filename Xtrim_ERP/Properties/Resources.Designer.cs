@@ -173,6 +173,16 @@ namespace Xtrim_ERP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap loading_transparent {
+            get {
+                object obj = ResourceManager.GetObject("loading_transparent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lock24 {
             get {
                 object obj = ResourceManager.GetObject("lock24", resourceCulture);

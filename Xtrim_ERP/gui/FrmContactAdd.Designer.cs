@@ -31,6 +31,8 @@
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkVoid = new C1.Win.C1Input.C1CheckBox();
+            this.btnVoid = new C1.Win.C1Input.C1Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtWorkResponse = new C1.Win.C1Input.C1TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -62,10 +64,10 @@
             this.txtCopCode = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
-            this.chkVoid = new C1.Win.C1Input.C1CheckBox();
-            this.btnVoid = new C1.Win.C1Input.C1Button();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWorkResponse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContLNameE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContFNameE)).BeginInit();
@@ -82,8 +84,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCopCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnVoid)).BeginInit();
             this.SuspendLayout();
             // 
             // sB
@@ -141,6 +141,40 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(758, 566);
             this.panel1.TabIndex = 2;
+            // 
+            // chkVoid
+            // 
+            this.chkVoid.BackColor = System.Drawing.Color.Transparent;
+            this.chkVoid.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkVoid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkVoid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkVoid.Location = new System.Drawing.Point(467, 217);
+            this.chkVoid.Name = "chkVoid";
+            this.chkVoid.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkVoid.Size = new System.Drawing.Size(155, 24);
+            this.chkVoid.TabIndex = 228;
+            this.chkVoid.Text = "ต้องการยกเลิกรายการ";
+            this.theme1.SetTheme(this.chkVoid, "(default)");
+            this.chkVoid.UseVisualStyleBackColor = true;
+            this.chkVoid.Value = null;
+            this.chkVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.chkVoid.Click += new System.EventHandler(this.chkVoid_Click);
+            // 
+            // btnVoid
+            // 
+            this.btnVoid.Image = global::Xtrim_ERP.Properties.Resources.trash24;
+            this.btnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVoid.Location = new System.Drawing.Point(628, 202);
+            this.btnVoid.Name = "btnVoid";
+            this.btnVoid.Size = new System.Drawing.Size(83, 39);
+            this.btnVoid.TabIndex = 227;
+            this.btnVoid.Text = "ยกเลิกช้อมูล";
+            this.btnVoid.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnVoid, "(default)");
+            this.btnVoid.UseVisualStyleBackColor = true;
+            this.btnVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnVoid.Click += new System.EventHandler(this.btnVoid_Click);
             // 
             // panel2
             // 
@@ -466,22 +500,29 @@
             // 
             // btnEdit
             // 
+            this.btnEdit.Image = global::Xtrim_ERP.Properties.Resources.lock24;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit.Location = new System.Drawing.Point(628, 14);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(118, 37);
+            this.btnEdit.Size = new System.Drawing.Size(83, 39);
             this.btnEdit.TabIndex = 62;
             this.btnEdit.Text = "แก้ไขช้อมูล";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.btnEdit, "(default)");
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnSave
             // 
+            this.btnSave.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(628, 246);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(118, 37);
+            this.btnSave.Size = new System.Drawing.Size(83, 39);
             this.btnSave.TabIndex = 61;
             this.btnSave.Text = "บันทึกช้อมูล";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.btnSave, "(default)");
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -533,38 +574,6 @@
             // 
             this.theme1.Theme = "Office2013Red";
             // 
-            // chkVoid
-            // 
-            this.chkVoid.BackColor = System.Drawing.Color.Transparent;
-            this.chkVoid.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkVoid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.chkVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkVoid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkVoid.Location = new System.Drawing.Point(311, 216);
-            this.chkVoid.Name = "chkVoid";
-            this.chkVoid.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkVoid.Size = new System.Drawing.Size(155, 24);
-            this.chkVoid.TabIndex = 226;
-            this.chkVoid.Text = "ต้องการยกเลิกรายการ";
-            this.theme1.SetTheme(this.chkVoid, "(default)");
-            this.chkVoid.UseVisualStyleBackColor = true;
-            this.chkVoid.Value = null;
-            this.chkVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnVoid
-            // 
-            this.btnVoid.Image = global::Xtrim_ERP.Properties.Resources.trash24;
-            this.btnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnVoid.Location = new System.Drawing.Point(628, 201);
-            this.btnVoid.Name = "btnVoid";
-            this.btnVoid.Size = new System.Drawing.Size(83, 39);
-            this.btnVoid.TabIndex = 225;
-            this.btnVoid.Text = "ยกเลิกช้อมูล";
-            this.btnVoid.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.theme1.SetTheme(this.btnVoid, "(default)");
-            this.btnVoid.UseVisualStyleBackColor = true;
-            this.btnVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmContactAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -580,6 +589,8 @@
             this.sB.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWorkResponse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContLNameE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContFNameE)).EndInit();
@@ -596,8 +607,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCopCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnVoid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
