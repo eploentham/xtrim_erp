@@ -220,5 +220,21 @@ namespace Xtrim_ERP.gui
             TabPage tab = new TabPage("dddddd");
             AddNewTab(frm, "Company");
         }
+
+        private void menuStf_Click(object sender, EventArgs e)
+        {
+            FrmStaff frm = new FrmStaff(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            TabPage tab = new TabPage("dddddd");
+            AddNewTab(frm, "Staff");
+        }
+
+        private void menuDept_Click(object sender, EventArgs e)
+        {
+            FrmDepartment1 frm = new FrmDepartment1(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            TabPage tab = new TabPage("dddddd");
+            AddNewTab(frm, "Department");
+        }
     }
 }

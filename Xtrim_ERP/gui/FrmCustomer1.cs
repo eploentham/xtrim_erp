@@ -231,7 +231,7 @@ namespace Xtrim_ERP.gui
         private void textBox_Enter(object sender, EventArgs e)
         {
             C1TextBox a = (C1TextBox)sender;
-            a.BackColor = Color.DarkCyan;
+            a.BackColor = xC.cTxtFocus;
             a.Font = new Font(ff, FontStyle.Bold);
         }
         private void textBox_Leave(object sender, EventArgs e)
@@ -535,6 +535,10 @@ namespace Xtrim_ERP.gui
         {
             setGrfCusH();
         }
+
+        
+
+        
 
         private void chkSExp_Click(object sender, EventArgs e)
         {

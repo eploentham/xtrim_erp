@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.theme1 = new C1.Win.C1Themes.C1ThemeController();
+            this.sB = new System.Windows.Forms.StatusStrip();
+            this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtRemark = new C1.Win.C1Input.C1TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -60,12 +62,15 @@
             this.txtStfFNameT = new C1.Win.C1Input.C1TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnEdit = new C1.Win.C1Input.C1Button();
-            this.btnOk = new C1.Win.C1Input.C1Button();
+            this.btnSave = new C1.Win.C1Input.C1Button();
             this.txtID = new C1.Win.C1Input.C1TextBox();
             this.txtStfCode = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
+            this.chkVoid = new C1.Win.C1Input.C1CheckBox();
+            this.btnVoid = new C1.Win.C1Input.C1Button();
+            this.btnNew = new C1.Win.C1Input.C1Button();
+            ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
+            this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -83,24 +88,35 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtStfFNameE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStfFNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStfCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVoid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnNew)).BeginInit();
             this.SuspendLayout();
             // 
-            // c1ThemeController1
+            // theme1
             // 
-            this.c1ThemeController1.Theme = "ExpressionDark";
+            this.theme1.Theme = "ExpressionDark";
             // 
-            // statusStrip1
+            // sB
             // 
-            this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
-            this.statusStrip1.Location = new System.Drawing.Point(0, 702);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1099, 22);
-            this.statusStrip1.TabIndex = 4;
-            this.statusStrip1.Text = "statusStrip1";
-            this.c1ThemeController1.SetTheme(this.statusStrip1, "(default)");
+            this.sB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.sB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sB1});
+            this.sB.Location = new System.Drawing.Point(0, 702);
+            this.sB.Name = "sB";
+            this.sB.Size = new System.Drawing.Size(1099, 22);
+            this.sB.TabIndex = 4;
+            this.sB.Text = "statusStrip1";
+            this.theme1.SetTheme(this.sB, "(default)");
+            // 
+            // sB1
+            // 
+            this.sB1.Name = "sB1";
+            this.sB1.Size = new System.Drawing.Size(118, 17);
+            this.sB1.Text = "toolStripStatusLabel1";
             // 
             // panel1
             // 
@@ -112,7 +128,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1099, 702);
             this.panel1.TabIndex = 5;
-            this.c1ThemeController1.SetTheme(this.panel1, "(default)");
+            this.theme1.SetTheme(this.panel1, "(default)");
             // 
             // splitContainer1
             // 
@@ -127,22 +143,36 @@
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.splitContainer1.Panel1.Controls.Add(this.panel2);
             this.splitContainer1.Panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.c1ThemeController1.SetTheme(this.splitContainer1.Panel1, "(default)");
+            this.theme1.SetTheme(this.splitContainer1.Panel1, "(default)");
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.c1ThemeController1.SetTheme(this.splitContainer1.Panel2, "(default)");
+            this.theme1.SetTheme(this.splitContainer1.Panel2, "(default)");
             this.splitContainer1.Size = new System.Drawing.Size(1099, 702);
             this.splitContainer1.SplitterDistance = 450;
             this.splitContainer1.TabIndex = 0;
-            this.c1ThemeController1.SetTheme(this.splitContainer1, "(default)");
+            this.theme1.SetTheme(this.splitContainer1, "(default)");
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(450, 702);
+            this.panel2.TabIndex = 0;
+            this.theme1.SetTheme(this.panel2, "(default)");
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.groupBox1.Controls.Add(this.btnNew);
+            this.groupBox1.Controls.Add(this.chkVoid);
+            this.groupBox1.Controls.Add(this.btnVoid);
             this.groupBox1.Controls.Add(this.txtRemark);
             this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.txtEmail);
@@ -170,7 +200,7 @@
             this.groupBox1.Controls.Add(this.txtStfFNameT);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnEdit);
-            this.groupBox1.Controls.Add(this.btnOk);
+            this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.txtID);
             this.groupBox1.Controls.Add(this.txtStfCode);
             this.groupBox1.Controls.Add(this.label1);
@@ -182,7 +212,7 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
-            this.c1ThemeController1.SetTheme(this.groupBox1, "(default)");
+            this.theme1.SetTheme(this.groupBox1, "(default)");
             // 
             // txtRemark
             // 
@@ -195,7 +225,7 @@
             this.txtRemark.Size = new System.Drawing.Size(207, 20);
             this.txtRemark.TabIndex = 103;
             this.txtRemark.Tag = null;
-            this.c1ThemeController1.SetTheme(this.txtRemark, "(default)");
+            this.theme1.SetTheme(this.txtRemark, "(default)");
             this.txtRemark.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label22
@@ -209,7 +239,7 @@
             this.label22.Size = new System.Drawing.Size(58, 16);
             this.label22.TabIndex = 102;
             this.label22.Text = "หมายเหตุ :";
-            this.c1ThemeController1.SetTheme(this.label22, "(default)");
+            this.theme1.SetTheme(this.label22, "(default)");
             // 
             // txtEmail
             // 
@@ -222,7 +252,7 @@
             this.txtEmail.Size = new System.Drawing.Size(207, 20);
             this.txtEmail.TabIndex = 101;
             this.txtEmail.Tag = null;
-            this.c1ThemeController1.SetTheme(this.txtEmail, "(default)");
+            this.theme1.SetTheme(this.txtEmail, "(default)");
             this.txtEmail.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label23
@@ -236,7 +266,7 @@
             this.label23.Size = new System.Drawing.Size(48, 16);
             this.label23.TabIndex = 100;
             this.label23.Text = "Email :";
-            this.c1ThemeController1.SetTheme(this.label23, "(default)");
+            this.theme1.SetTheme(this.label23, "(default)");
             // 
             // txtMobile
             // 
@@ -249,7 +279,7 @@
             this.txtMobile.Size = new System.Drawing.Size(207, 20);
             this.txtMobile.TabIndex = 97;
             this.txtMobile.Tag = null;
-            this.c1ThemeController1.SetTheme(this.txtMobile, "(default)");
+            this.theme1.SetTheme(this.txtMobile, "(default)");
             this.txtMobile.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label20
@@ -263,7 +293,7 @@
             this.label20.Size = new System.Drawing.Size(39, 16);
             this.label20.TabIndex = 96;
             this.label20.Text = "มือถือ :";
-            this.c1ThemeController1.SetTheme(this.label20, "(default)");
+            this.theme1.SetTheme(this.label20, "(default)");
             // 
             // label17
             // 
@@ -276,7 +306,7 @@
             this.label17.Size = new System.Drawing.Size(79, 16);
             this.label17.TabIndex = 92;
             this.label17.Text = "เลขที่บัตรปชช :";
-            this.c1ThemeController1.SetTheme(this.label17, "(default)");
+            this.theme1.SetTheme(this.label17, "(default)");
             // 
             // label16
             // 
@@ -289,7 +319,7 @@
             this.label16.Size = new System.Drawing.Size(51, 16);
             this.label16.TabIndex = 91;
             this.label16.Text = "LOGO :";
-            this.c1ThemeController1.SetTheme(this.label16, "(default)");
+            this.theme1.SetTheme(this.label16, "(default)");
             // 
             // txtLogo
             // 
@@ -302,7 +332,7 @@
             this.txtLogo.Size = new System.Drawing.Size(207, 20);
             this.txtLogo.TabIndex = 90;
             this.txtLogo.Tag = null;
-            this.c1ThemeController1.SetTheme(this.txtLogo, "(default)");
+            this.theme1.SetTheme(this.txtLogo, "(default)");
             this.txtLogo.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // cboDept
@@ -315,7 +345,7 @@
             this.cboDept.Name = "cboDept";
             this.cboDept.Size = new System.Drawing.Size(207, 24);
             this.cboDept.TabIndex = 80;
-            this.c1ThemeController1.SetTheme(this.cboDept, "(default)");
+            this.theme1.SetTheme(this.cboDept, "(default)");
             // 
             // cboPosi
             // 
@@ -327,7 +357,7 @@
             this.cboPosi.Name = "cboPosi";
             this.cboPosi.Size = new System.Drawing.Size(207, 24);
             this.cboPosi.TabIndex = 79;
-            this.c1ThemeController1.SetTheme(this.cboPosi, "(default)");
+            this.theme1.SetTheme(this.cboPosi, "(default)");
             // 
             // cboPrefix
             // 
@@ -339,7 +369,7 @@
             this.cboPrefix.Name = "cboPrefix";
             this.cboPrefix.Size = new System.Drawing.Size(207, 24);
             this.cboPrefix.TabIndex = 78;
-            this.c1ThemeController1.SetTheme(this.cboPrefix, "(default)");
+            this.theme1.SetTheme(this.cboPrefix, "(default)");
             // 
             // txtStfLNameE
             // 
@@ -352,7 +382,7 @@
             this.txtStfLNameE.Size = new System.Drawing.Size(207, 20);
             this.txtStfLNameE.TabIndex = 75;
             this.txtStfLNameE.Tag = null;
-            this.c1ThemeController1.SetTheme(this.txtStfLNameE, "(default)");
+            this.theme1.SetTheme(this.txtStfLNameE, "(default)");
             this.txtStfLNameE.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label10
@@ -366,7 +396,7 @@
             this.label10.Size = new System.Drawing.Size(68, 16);
             this.label10.TabIndex = 74;
             this.label10.Text = "Surname :";
-            this.c1ThemeController1.SetTheme(this.label10, "(default)");
+            this.theme1.SetTheme(this.label10, "(default)");
             // 
             // label8
             // 
@@ -379,7 +409,7 @@
             this.label8.Size = new System.Drawing.Size(40, 16);
             this.label8.TabIndex = 72;
             this.label8.Text = "แผนก :";
-            this.c1ThemeController1.SetTheme(this.label8, "(default)");
+            this.theme1.SetTheme(this.label8, "(default)");
             // 
             // txtPid
             // 
@@ -392,7 +422,7 @@
             this.txtPid.Size = new System.Drawing.Size(207, 20);
             this.txtPid.TabIndex = 71;
             this.txtPid.Tag = null;
-            this.c1ThemeController1.SetTheme(this.txtPid, "(default)");
+            this.theme1.SetTheme(this.txtPid, "(default)");
             this.txtPid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label7
@@ -406,7 +436,7 @@
             this.label7.Size = new System.Drawing.Size(53, 16);
             this.label7.TabIndex = 70;
             this.label7.Text = "ตำแหน่ง :";
-            this.c1ThemeController1.SetTheme(this.label7, "(default)");
+            this.theme1.SetTheme(this.label7, "(default)");
             // 
             // label6
             // 
@@ -419,7 +449,7 @@
             this.label6.Size = new System.Drawing.Size(71, 16);
             this.label6.TabIndex = 68;
             this.label6.Text = "ดำนำหน้าชื่อ :";
-            this.c1ThemeController1.SetTheme(this.label6, "(default)");
+            this.theme1.SetTheme(this.label6, "(default)");
             // 
             // txtTele
             // 
@@ -432,7 +462,7 @@
             this.txtTele.Size = new System.Drawing.Size(207, 20);
             this.txtTele.TabIndex = 67;
             this.txtTele.Tag = null;
-            this.c1ThemeController1.SetTheme(this.txtTele, "(default)");
+            this.theme1.SetTheme(this.txtTele, "(default)");
             this.txtTele.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label5
@@ -446,7 +476,7 @@
             this.label5.Size = new System.Drawing.Size(56, 16);
             this.label5.TabIndex = 66;
             this.label5.Text = "โทรศัพท์ :";
-            this.c1ThemeController1.SetTheme(this.label5, "(default)");
+            this.theme1.SetTheme(this.label5, "(default)");
             // 
             // txtStfLNameT
             // 
@@ -459,7 +489,7 @@
             this.txtStfLNameT.Size = new System.Drawing.Size(207, 20);
             this.txtStfLNameT.TabIndex = 65;
             this.txtStfLNameT.Tag = null;
-            this.c1ThemeController1.SetTheme(this.txtStfLNameT, "(default)");
+            this.theme1.SetTheme(this.txtStfLNameT, "(default)");
             this.txtStfLNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label4
@@ -473,7 +503,7 @@
             this.label4.Size = new System.Drawing.Size(52, 16);
             this.label4.TabIndex = 64;
             this.label4.Text = "นามสกุล :";
-            this.c1ThemeController1.SetTheme(this.label4, "(default)");
+            this.theme1.SetTheme(this.label4, "(default)");
             // 
             // txtStfFNameE
             // 
@@ -486,7 +516,7 @@
             this.txtStfFNameE.Size = new System.Drawing.Size(207, 20);
             this.txtStfFNameE.TabIndex = 63;
             this.txtStfFNameE.Tag = null;
-            this.c1ThemeController1.SetTheme(this.txtStfFNameE, "(default)");
+            this.theme1.SetTheme(this.txtStfFNameE, "(default)");
             this.txtStfFNameE.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label3
@@ -500,7 +530,7 @@
             this.label3.Size = new System.Drawing.Size(58, 16);
             this.label3.TabIndex = 62;
             this.label3.Text = "ชื่ออังกฤษ :";
-            this.c1ThemeController1.SetTheme(this.label3, "(default)");
+            this.theme1.SetTheme(this.label3, "(default)");
             // 
             // txtStfFNameT
             // 
@@ -513,7 +543,7 @@
             this.txtStfFNameT.Size = new System.Drawing.Size(207, 20);
             this.txtStfFNameT.TabIndex = 61;
             this.txtStfFNameT.Tag = null;
-            this.c1ThemeController1.SetTheme(this.txtStfFNameT, "(default)");
+            this.theme1.SetTheme(this.txtStfFNameT, "(default)");
             this.txtStfFNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label2
@@ -527,29 +557,37 @@
             this.label2.Size = new System.Drawing.Size(46, 16);
             this.label2.TabIndex = 60;
             this.label2.Text = "ชื่อไทย :";
-            this.c1ThemeController1.SetTheme(this.label2, "(default)");
+            this.theme1.SetTheme(this.label2, "(default)");
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(450, 19);
+            this.btnEdit.Image = global::Xtrim_ERP.Properties.Resources.lock24;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(512, 105);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(118, 37);
+            this.btnEdit.Size = new System.Drawing.Size(83, 39);
             this.btnEdit.TabIndex = 59;
-            this.btnEdit.Text = "แก้ไขช้อมูล";
-            this.c1ThemeController1.SetTheme(this.btnEdit, "(default)");
+            this.btnEdit.Text = "แก้ไขช้อมูล1";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnEdit, "(default)");
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // btnOk
+            // btnSave
             // 
-            this.btnOk.Location = new System.Drawing.Point(456, 381);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(118, 37);
-            this.btnOk.TabIndex = 58;
-            this.btnOk.Text = "บันทึกช้อมูล";
-            this.c1ThemeController1.SetTheme(this.btnOk, "(default)");
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnSave.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(512, 381);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(83, 39);
+            this.btnSave.TabIndex = 58;
+            this.btnSave.Text = "บันทึกช้อมูล";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnSave, "(default)");
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtID
             // 
@@ -562,7 +600,7 @@
             this.txtID.Size = new System.Drawing.Size(66, 20);
             this.txtID.TabIndex = 57;
             this.txtID.Tag = null;
-            this.c1ThemeController1.SetTheme(this.txtID, "(default)");
+            this.theme1.SetTheme(this.txtID, "(default)");
             this.txtID.Visible = false;
             this.txtID.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
@@ -577,7 +615,7 @@
             this.txtStfCode.Size = new System.Drawing.Size(207, 20);
             this.txtStfCode.TabIndex = 56;
             this.txtStfCode.Tag = null;
-            this.c1ThemeController1.SetTheme(this.txtStfCode, "(default)");
+            this.theme1.SetTheme(this.txtStfCode, "(default)");
             this.txtStfCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label1
@@ -591,18 +629,55 @@
             this.label1.Size = new System.Drawing.Size(35, 16);
             this.label1.TabIndex = 55;
             this.label1.Text = "รหัส :";
-            this.c1ThemeController1.SetTheme(this.label1, "(default)");
+            this.theme1.SetTheme(this.label1, "(default)");
             // 
-            // panel2
+            // chkVoid
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(450, 702);
-            this.panel2.TabIndex = 0;
-            this.c1ThemeController1.SetTheme(this.panel2, "(default)");
+            this.chkVoid.BackColor = System.Drawing.Color.Transparent;
+            this.chkVoid.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkVoid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkVoid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkVoid.Location = new System.Drawing.Point(351, 351);
+            this.chkVoid.Name = "chkVoid";
+            this.chkVoid.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkVoid.Size = new System.Drawing.Size(155, 24);
+            this.chkVoid.TabIndex = 230;
+            this.chkVoid.Text = "ต้องการยกเลิกรายการ";
+            this.theme1.SetTheme(this.chkVoid, "(default)");
+            this.chkVoid.UseVisualStyleBackColor = true;
+            this.chkVoid.Value = null;
+            this.chkVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.chkVoid.Click += new System.EventHandler(this.chkVoid_Click);
+            // 
+            // btnVoid
+            // 
+            this.btnVoid.Image = global::Xtrim_ERP.Properties.Resources.trash24;
+            this.btnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVoid.Location = new System.Drawing.Point(512, 336);
+            this.btnVoid.Name = "btnVoid";
+            this.btnVoid.Size = new System.Drawing.Size(83, 39);
+            this.btnVoid.TabIndex = 229;
+            this.btnVoid.Text = "ยกเลิกช้อมูล";
+            this.btnVoid.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnVoid, "(default)");
+            this.btnVoid.UseVisualStyleBackColor = true;
+            this.btnVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnNew
+            // 
+            this.btnNew.Image = global::Xtrim_ERP.Properties.Resources.custom_reports24;
+            this.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNew.Location = new System.Drawing.Point(512, 58);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(83, 39);
+            this.btnNew.TabIndex = 231;
+            this.btnNew.Text = "เพิ่มช้อมูล";
+            this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnNew, "(default)");
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // FrmStaff
             // 
@@ -610,13 +685,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1099, 724);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.sB);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.Name = "FrmStaff";
             this.Text = "FrmStaff";
-            this.c1ThemeController1.SetTheme(this, "(default)");
+            this.theme1.SetTheme(this, "(default)");
             this.Load += new System.EventHandler(this.FrmStaff_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
+            this.sB.ResumeLayout(false);
+            this.sB.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -635,9 +712,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtStfFNameE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStfFNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnOk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStfCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnVoid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnNew)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -645,8 +725,8 @@
 
         #endregion
 
-        private C1.Win.C1Themes.C1ThemeController c1ThemeController1;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private C1.Win.C1Themes.C1ThemeController theme1;
+        private System.Windows.Forms.StatusStrip sB;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -677,10 +757,14 @@
         private C1.Win.C1Input.C1TextBox txtStfFNameT;
         private System.Windows.Forms.Label label2;
         private C1.Win.C1Input.C1Button btnEdit;
-        private C1.Win.C1Input.C1Button btnOk;
+        private C1.Win.C1Input.C1Button btnSave;
         private C1.Win.C1Input.C1TextBox txtID;
         private C1.Win.C1Input.C1TextBox txtStfCode;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ToolStripStatusLabel sB1;
+        private C1.Win.C1Input.C1CheckBox chkVoid;
+        private C1.Win.C1Input.C1Button btnVoid;
+        private C1.Win.C1Input.C1Button btnNew;
     }
 }

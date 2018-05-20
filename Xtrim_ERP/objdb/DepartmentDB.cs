@@ -204,6 +204,17 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+        public DataTable selectAll1()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select dept.dept_id, dept.dept_code, dept.dept_name_t, dept.remark  " +
+                "From " + dept.table + " dept " +
+                " " +
+                "Where dept." + dept.active + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();

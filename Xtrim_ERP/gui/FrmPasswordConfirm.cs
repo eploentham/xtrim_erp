@@ -11,7 +11,7 @@ using Xtrim_ERP.control;
 
 namespace Xtrim_ERP.gui
 {
-    public class FrmPasswordConfirm:Form
+    public partial class FrmPasswordConfirm:Form
     {
         XtrimControl xC;
 

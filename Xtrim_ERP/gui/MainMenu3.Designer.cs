@@ -42,6 +42,7 @@
             this.menuBank = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuCust = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStf = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.ขอมลForwarderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ขอมลบรษทประกนToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,7 +59,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tC1 = new System.Windows.Forms.TabControl();
             this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
-            this.menuStf = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDept = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuPosi = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
@@ -148,6 +150,8 @@
             this.toolStripSeparator2,
             this.menuCust,
             this.menuStf,
+            this.menuDept,
+            this.menuPosi,
             this.toolStripMenuItem8,
             this.ขอมลForwarderToolStripMenuItem,
             this.ขอมลบรษทประกนToolStripMenuItem,
@@ -190,6 +194,13 @@
             this.menuCust.Size = new System.Drawing.Size(185, 22);
             this.menuCust.Text = "ข้อมูล ลูกค้า";
             this.menuCust.Click += new System.EventHandler(this.menuCust_Click);
+            // 
+            // menuStf
+            // 
+            this.menuStf.Name = "menuStf";
+            this.menuStf.Size = new System.Drawing.Size(185, 22);
+            this.menuStf.Text = "ข้อมูล พนักงาน";
+            this.menuStf.Click += new System.EventHandler(this.menuStf_Click);
             // 
             // toolStripMenuItem8
             // 
@@ -295,11 +306,18 @@
             // 
             this.c1ThemeController1.Theme = "BeigeOne";
             // 
-            // menuStf
+            // menuDept
             // 
-            this.menuStf.Name = "menuStf";
-            this.menuStf.Size = new System.Drawing.Size(185, 22);
-            this.menuStf.Text = "ข้อมูล หนักงาน";
+            this.menuDept.Name = "menuDept";
+            this.menuDept.Size = new System.Drawing.Size(185, 22);
+            this.menuDept.Text = "ข้อมูล แผนก";
+            this.menuDept.Click += new System.EventHandler(this.menuDept_Click);
+            // 
+            // menuPosi
+            // 
+            this.menuPosi.Name = "menuPosi";
+            this.menuPosi.Size = new System.Drawing.Size(185, 22);
+            this.menuPosi.Text = "ข้อมูลตำแหน่ง";
             // 
             // MainMenu3
             // 
@@ -357,5 +375,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuFormTest;
         private System.Windows.Forms.ToolStripMenuItem menuBank;
         private System.Windows.Forms.ToolStripMenuItem menuStf;
+        private System.Windows.Forms.ToolStripMenuItem menuDept;
+        private System.Windows.Forms.ToolStripMenuItem menuPosi;
     }
 }

@@ -242,12 +242,23 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+        public DataTable selectAll1()
+        {
+            DataTable dt = new DataTable();
+            String sql = "Select stf.staff_id, stf.staff_code, concat( stf.staff_fname_t, ' ' , stf.staff_lname_t) as name, stf.mobile, stf.email, stf.posi_name" +
+                ", stf.dept_name_t, stf.remark, stf.pid " +
+                "From " + stf.table + " stf " +
+                //"Left Join b_prefix pfx On stf.prefix_id = pfx.prefix_id " +
+                "Where stf." + stf.active + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();
             String sql = "select stf.* " +
                 "From " + stf.table + " stf " +
-                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where stf." + stf.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;

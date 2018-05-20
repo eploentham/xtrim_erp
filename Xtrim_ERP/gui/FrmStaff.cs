@@ -1,4 +1,6 @@
-﻿using C1.Win.C1Input;
+﻿using C1.Win.C1FlexGrid;
+using C1.Win.C1Input;
+using C1.Win.C1Themes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Xtrim_ERP.control;
 using Xtrim_ERP.object1;
+using Xtrim_ERP.Properties;
 
 namespace Xtrim_ERP.gui
 {
@@ -22,9 +25,12 @@ namespace Xtrim_ERP.gui
         Color bg, fc;
         Font ff, ffB;
 
-        int colID = 0, colE = 1, colS = 2, colCode = 3, colNameT = 4, colNameE = 5, colRemark = 6, coledit = 7;
+        int colID = 1, colCode=2, colNameT = 3, colMobile = 4, colEmail = 5, colPosiName=6, colDept=7, colRemark=8, colPid=9;
         int colCnt = 8;
 
+        C1FlexGrid grfStf;
+        //Boolean flagNew = false;
+        Boolean flagEdit = false;
         public FrmStaff(XtrimControl x)
         {
             InitializeComponent();
@@ -35,18 +41,34 @@ namespace Xtrim_ERP.gui
         {
             stf = new Staff();
 
-            bg = txtStfCode.BackColor;
-            fc = txtStfCode.ForeColor;
+            //bg = txtStfCode.BackColor;
+            //fc = txtStfCode.ForeColor;
             ff = txtStfCode.Font;
 
             ContextMenu custommenu = new ContextMenu();
             custommenu.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_void));
             //custommenu.MenuItems.Add("&ยกเลิก";
             //grdView.ContextMenu = custommenu;
+            //bg = txtStfCode.BackColor;
+            //fc = txtStfCode.ForeColor;
+            theme1.SetTheme(sB, "BeigeOne");
+            theme1.SetTheme(groupBox1, "Office2013Red");
+            theme1.SetTheme(label1, "Office2013Red");
+            theme1.SetTheme(txtStfCode, "Office2013Red");
+            foreach(Control c in groupBox1.Controls)
+            {
+                theme1.SetTheme(c, "Office2013Red");
+            }
+            bg = txtStfCode.BackColor;
+            fc = txtStfCode.ForeColor;
             setFocusColor();
-            //setGrdView();
+            initGrfStfH();
+            setGrfStfH();
             setFocusColor();
             setFocus();
+            cboPrefix = xC.xtDB.pfxDB.setCboPrefix(cboPrefix);
+            setControlEnable(false);
+            btnVoid.Hide();
         }
         private void ContextMenu_void(object sender, System.EventArgs e)
         {
@@ -63,6 +85,152 @@ namespace Xtrim_ERP.gui
             //    }
             //}
         }
+        private void initGrfStfH()
+        {
+            grfStf = new C1FlexGrid();
+            grfStf.Font = fEdit;
+            grfStf.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfStf.Location = new System.Drawing.Point(0, 0);
+
+            FilterRow fr = new FilterRow(grfStf);
+
+            grfStf.AfterDataRefresh += new System.ComponentModel.ListChangedEventHandler(this.StatusBar_AfterDataRefresh);
+            grfStf.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfStf_CellChanged);
+            grfStf.LeaveCell += new System.EventHandler(this.grfStf_LeaveCell);
+            grfStf.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfStf_AfterRowColChange);
+            //this.grfCus.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfCus_AfterRowColChange);
+            //new C1.Win.C1FlexGrid.RangeEventHandler(this.c1FlexGrid1_AfterRowColChange);
+            //splitContainer1.Panel1.Controls.Add(this.grfCus);
+            panel2.Controls.Add(this.grfStf);
+            //grfCus.ShowThemedHeaders = ShowThemedHeadersEnum.None;
+            //grfCus.Styles.Clear();
+            //Mac(grfCus.Styles);
+            //Controls.Add(sB);
+            C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
+            C1ThemeController.ApplyThemeToObject(grfStf, theme);
+        }
+        private void setGrfStfH()
+        {
+            DataTable dt = new DataTable();
+
+            dt = xC.xtDB.stfDB.selectAll1();
+            //grfCus.Cols.Count = 2;
+            //grfCus.Rows.Count = 7;
+            grfStf.DataSource = dt;
+            grfStf.Cols[colID].Width = 60;
+            grfStf.Cols[colCode].Width = 80;
+            grfStf.Cols[colNameT].Width = 100;
+            grfStf.Cols[colMobile].Width = 100;
+            grfStf.Cols[colEmail].Width = 100;
+            grfStf.Cols[colPosiName].Width = 100;
+            grfStf.Cols[colDept].Width = 100;
+            grfStf.Cols[colRemark].Width = 100;
+            grfStf.Cols[colPid].Width = 100;
+            
+            grfStf.ShowCursor = true;
+            grfStf.Cols[colCode].Caption = "รหัส";
+            grfStf.Cols[colID].Caption = "รก";
+            grfStf.Cols[colNameT].Caption = "ชื่อ นามสกุล";
+            grfStf.Cols[colMobile].Caption = "มือถือ";
+            grfStf.Cols[colEmail].Caption = "email";
+            grfStf.Cols[colPosiName].Caption = "ตำแหน่ง";
+            grfStf.Cols[colDept].Caption = "แผนก";
+            grfStf.Cols[colRemark].Caption = "s,kpgs96";
+            grfStf.Cols[colPid].Caption = "ID";
+            //grfStf.Cols[colcontact2].Caption = "ชื่อผู้ติดต่อ2";
+            grfStf.Cols[colID].Visible = false;
+            //grfCus.Col = colCnt;
+        }
+        private void setControlEnable(Boolean flag)
+        {
+            txtStfCode.Enabled = flag;
+            txtStfFNameT.Enabled = flag;
+            txtStfFNameE.Enabled = flag;
+            txtEmail.Enabled = flag;
+            txtStfLNameT.Enabled = flag;
+            txtStfLNameE.Enabled = flag;
+            txtMobile.Enabled = flag;
+            txtPid.Enabled = flag;
+            txtTele.Enabled = flag;
+            txtRemark.Enabled = flag;
+            txtLogo.Enabled = flag;
+            cboPrefix.Enabled = flag;
+            cboDept.Enabled = flag;
+            cboPosi.Enabled = flag;
+            btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
+        }
+        void StatusBar_AfterDataRefresh(object sender, System.ComponentModel.ListChangedEventArgs e)
+        {
+            int cnt = grfStf.Rows.Count - grfStf.Rows.Fixed;
+            sB.Text = cnt.ToString() + " rows in data source";
+        }
+        private void grfStf_CellChanged(object sender, C1.Win.C1FlexGrid.RowColEventArgs e)
+        {
+            sB.Text = grfStf.Rows[e.Row].ToString();
+        }
+        private void grfStf_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
+        {
+            if (e.NewRange.r1 < 0) return;
+            String aaa = "";
+            sB1.Text = e.NewRange.r1.ToString();
+            if (e.NewRange.Data == null) return;
+            sB1.Text = e.NewRange.Data.ToString();
+            String cusId = "";
+            cusId = grfStf[e.NewRange.r1, colID] != null ? grfStf[e.NewRange.r1, colID].ToString() : "";
+            setControl(cusId);
+            //setGrfAddrH(cusId);
+            //setGrfContH(cusId);
+            //setGrfRmkH(cusId);
+            //setGrfTaxH(cusId);
+            //setControlEdit(false);
+            //chkVoid.Show();
+        }
+
+        private void chkVoid_Click(object sender, EventArgs e)
+        {
+            if (btnVoid.Visible)
+            {
+                btnVoid.Hide();
+            }
+            else
+            {
+                btnVoid.Show();
+            }
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            txtID.Value = "";
+            setControlEnable(true);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                setStaff();
+                String re = xC.xtDB.stfDB.insertStaff(stf);
+                int chk = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    btnSave.Image = Resources.accept_database24;
+                }
+                else
+                {
+                    btnSave.Image = Resources.accept_database24;
+                }
+                //setGrdView();
+                //this.Dispose();
+            }
+        }
+
+        private void grfStf_LeaveCell(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
         //private void setGrdViewH()
         //{
         //    FarPoint.Win.Spread.EnhancedInterfaceRenderer outlinelook = new FarPoint.Win.Spread.EnhancedInterfaceRenderer();
@@ -111,21 +279,12 @@ namespace Xtrim_ERP.gui
         //    grdView.Sheets[0].Columns[coledit].Visible = false;
 
         //    grdView.AllowColumnMove = true;
-        //}
-
-        private void btnOk_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("ต้องการ บันทึกช้อมูล " , "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
-            {
-                setStaff();
-                xC.xtDB.stfDB.insertStaff(stf);
-                //setGrdView();
-            }
-        }
+        //}       
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            setEnable(true);
+            flagEdit = flagEdit ? false : true;
+            setControlEnable(flagEdit);
         }
 
         //private void grdView_CellDoubleClick(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
@@ -226,7 +385,7 @@ namespace Xtrim_ERP.gui
                 }
                 if (a.Name.Equals("txtLogo"))
                 {
-                    btnOk.Focus();
+                    btnSave.Focus();
                     return;
                 }
                 
@@ -284,13 +443,13 @@ namespace Xtrim_ERP.gui
             if (sender is C1TextBox)
             {
                 C1TextBox a = (C1TextBox)sender;
-                a.BackColor = Color.DarkCyan;
+                a.BackColor = xC.cTxtFocus;
                 a.Font = new Font(ff, FontStyle.Bold);
             }
             else if (sender is ComboBox)
             {
                 ComboBox a = (ComboBox)sender;
-                a.BackColor = Color.DarkCyan;
+                a.BackColor = xC.cTxtFocus;
                 a.Font = new Font(ff, FontStyle.Bold);
             }
 
@@ -314,9 +473,9 @@ namespace Xtrim_ERP.gui
             }
             
         }
-        private void setControl()
+        private void setControl(String stfId)
         {
-            //cop = xC.xtDB.copDB.selectByPk1(xC.copID);
+            stf = xC.xtDB.stfDB.selectByPk1(stfId);
             txtID.Value = stf.staff_id;
             txtStfCode.Value = stf.staff_code;
             txtStfFNameT.Value = stf.staff_fname_t;
@@ -349,22 +508,22 @@ namespace Xtrim_ERP.gui
             //stf.logo = txtLogo.Value.ToString();
             //txtCopCode.Value = xC.xtDB.copDB.cop.comp_id;
         }
-        private void setEnable(Boolean flag)
-        {
-            txtStfCode.Enabled = flag;
-            txtID.Enabled = flag;
-            txtStfFNameT.Enabled = flag;
-            txtStfFNameE.Enabled = flag;
-            txtEmail.Enabled = flag;
-            txtStfLNameT.Enabled = flag;
-            txtStfLNameE.Enabled = flag;
-            txtMobile.Enabled = flag;
-            txtPid.Enabled = flag;
-            txtTele.Enabled = flag;
-            txtRemark.Enabled = flag;
-            txtLogo.Enabled = flag;
+        //private void setEnable(Boolean flag)
+        //{
+        //    txtStfCode.Enabled = flag;
+        //    txtID.Enabled = flag;
+        //    txtStfFNameT.Enabled = flag;
+        //    txtStfFNameE.Enabled = flag;
+        //    txtEmail.Enabled = flag;
+        //    txtStfLNameT.Enabled = flag;
+        //    txtStfLNameE.Enabled = flag;
+        //    txtMobile.Enabled = flag;
+        //    txtPid.Enabled = flag;
+        //    txtTele.Enabled = flag;
+        //    txtRemark.Enabled = flag;
+        //    txtLogo.Enabled = flag;
             
-        }
+        //}
         private void FrmStaff_Load(object sender, EventArgs e)
         {
 
