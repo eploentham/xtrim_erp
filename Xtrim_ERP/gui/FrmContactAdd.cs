@@ -63,6 +63,7 @@ namespace Xtrim_ERP.gui
             sB1.Text = "";
             cont = new Contact();
             setControlEnable(false);
+            cboPrefix = xC.xtDB.pfxDB.setCboPrefix(cboPrefix);
             btnVoid.Hide();
         }
         private void initGrfContH()
@@ -122,6 +123,8 @@ namespace Xtrim_ERP.gui
             txtEmail.Value = cont.email;
             txtEmail2.Value = cont.email2;
             txtMobile.Value = cont.mobile;
+            
+            cboPrefix.Text = cont.prefix_name_t;
         }
         private void setControlEnable(Boolean flag)
         {
@@ -137,14 +140,9 @@ namespace Xtrim_ERP.gui
             txtEmail2.Enabled = flag;
             txtMobile.Enabled = flag;
             btnSave.Enabled = flag;
-            if (flag)
-            {
-                btnEdit.Image = Resources.open24;
-            }
-            else
-            {
-                btnEdit.Image = Resources.lock24;
-            }
+            cboPrefix.Enabled = flag;
+            
+            btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
         private void setContact()
         {
@@ -179,6 +177,8 @@ namespace Xtrim_ERP.gui
             cont.work_response = txtWorkResponse.Text;
             cont.mobile = txtMobile.Text;
             cont.table_id = xC.addrID;
+            //ComboBoxItem c = ((ComboBoxItem)cboPrefix.SelectedItem).;
+            cont.prefix_id = ((ComboBoxItem)cboPrefix.SelectedItem).Value;
         }
         private void setGrfInvH()
         {

@@ -66,10 +66,10 @@ namespace Xtrim_ERP.gui
                 var result = response.Results.First();
                 webBrowser1.Navigate("https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyBMj25ZUQsFrZUqllGExQXawTv4GqEDYBk");
 
-                Console.WriteLine("Full Address: " + result.FormattedAddress);         // "1600 Pennsylvania Ave NW, Washington, DC 20500, USA"
-                Console.WriteLine("Latitude: " + result.Geometry.Location.Latitude);   // 38.8976633
-                Console.WriteLine("Longitude: " + result.Geometry.Location.Longitude); // -77.0365739
-                Console.WriteLine();
+                //Console.WriteLine("Full Address: " + result.FormattedAddress);         // "1600 Pennsylvania Ave NW, Washington, DC 20500, USA"
+                //Console.WriteLine("Latitude: " + result.Geometry.Location.Latitude);   // 38.8976633
+                //Console.WriteLine("Longitude: " + result.Geometry.Location.Longitude); // -77.0365739
+                //Console.WriteLine();
                 
             }
             else

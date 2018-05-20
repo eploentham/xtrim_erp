@@ -45,5 +45,9 @@ namespace Xtrim_ERP.object1
         public String remark2 { get; set; }
         public String time_open_close { get; set; }
         public String time_open_close_over_time { get; set; }
+        public String web_site3 { get; set; }
+        public String map_pic_path { get; set; }
+        public String over_time { get; set; }
+        public String rate_over_time { get; set; }
     }
 }

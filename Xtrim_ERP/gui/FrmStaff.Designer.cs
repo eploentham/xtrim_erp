@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            
+            this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtRemark = new C1.Win.C1Input.C1TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -61,8 +64,13 @@
             this.txtID = new C1.Win.C1Input.C1TextBox();
             this.txtStfCode = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
-            
+            this.panel2 = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail)).BeginInit();
@@ -78,9 +86,59 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStfCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
             this.SuspendLayout();
-            
+            // 
+            // c1ThemeController1
+            // 
+            this.c1ThemeController1.Theme = "ExpressionDark";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.statusStrip1.Location = new System.Drawing.Point(0, 702);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1099, 22);
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "statusStrip1";
+            this.c1ThemeController1.SetTheme(this.statusStrip1, "(default)");
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.panel1.Controls.Add(this.splitContainer1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1099, 702);
+            this.panel1.TabIndex = 5;
+            this.c1ThemeController1.SetTheme(this.panel1, "(default)");
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.splitContainer1.Panel1.Controls.Add(this.panel2);
+            this.splitContainer1.Panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.c1ThemeController1.SetTheme(this.splitContainer1.Panel1, "(default)");
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
+            this.splitContainer1.Panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.c1ThemeController1.SetTheme(this.splitContainer1.Panel2, "(default)");
+            this.splitContainer1.Size = new System.Drawing.Size(1099, 702);
+            this.splitContainer1.SplitterDistance = 450;
+            this.splitContainer1.TabIndex = 0;
+            this.c1ThemeController1.SetTheme(this.splitContainer1, "(default)");
             // 
             // groupBox1
             // 
@@ -116,12 +174,12 @@
             this.groupBox1.Controls.Add(this.txtID);
             this.groupBox1.Controls.Add(this.txtStfCode);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.groupBox1.Location = new System.Drawing.Point(501, 0);
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(598, 724);
-            this.groupBox1.TabIndex = 3;
+            this.groupBox1.Size = new System.Drawing.Size(645, 702);
+            this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             this.c1ThemeController1.SetTheme(this.groupBox1, "(default)");
@@ -481,7 +539,6 @@
             this.c1ThemeController1.SetTheme(this.btnEdit, "(default)");
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnOk
             // 
@@ -493,7 +550,6 @@
             this.c1ThemeController1.SetTheme(this.btnOk, "(default)");
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // txtID
             // 
@@ -537,23 +593,35 @@
             this.label1.Text = "รหัส :";
             this.c1ThemeController1.SetTheme(this.label1, "(default)");
             // 
-            // c1ThemeController1
+            // panel2
             // 
-            this.c1ThemeController1.Theme = "ExpressionDark";
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(450, 702);
+            this.panel2.TabIndex = 0;
+            this.c1ThemeController1.SetTheme(this.panel2, "(default)");
             // 
             // FrmStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1099, 724);
-            this.Controls.Add(this.groupBox1);
-            //this.Controls.Add(this.grdView);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.statusStrip1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.Name = "FrmStaff";
             this.Text = "FrmStaff";
             this.c1ThemeController1.SetTheme(this, "(default)");
             this.Load += new System.EventHandler(this.FrmStaff_Load);
-            
+            ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).EndInit();
@@ -570,16 +638,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStfCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        
-        private System.Windows.Forms.GroupBox groupBox1;
         private C1.Win.C1Themes.C1ThemeController c1ThemeController1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.GroupBox groupBox1;
         private C1.Win.C1Input.C1TextBox txtRemark;
         private System.Windows.Forms.Label label22;
         private C1.Win.C1Input.C1TextBox txtEmail;
@@ -611,5 +681,6 @@
         private C1.Win.C1Input.C1TextBox txtID;
         private C1.Win.C1Input.C1TextBox txtStfCode;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

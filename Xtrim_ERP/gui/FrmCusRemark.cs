@@ -1,4 +1,5 @@
 ﻿using C1.Win.C1FlexGrid;
+using C1.Win.C1Input;
 using C1.Win.C1Themes;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ namespace Xtrim_ERP.gui
         Font ff, ffB;
 
         //C1FlexGrid grfCusR;
+        Boolean flagEdit = false;
 
         public FrmCusRemark(XtrimControl x)
         {
@@ -49,6 +51,9 @@ namespace Xtrim_ERP.gui
             theme1.SetTheme(sB, "BeigeOne");
             sB1.Text = "";
             setControl(xC.cusrID);
+            setControlEnable(false);
+            setFocusColor();
+            btnVoid.Hide();
         }
         
         private void setControl(String cusRId)
@@ -64,7 +69,18 @@ namespace Xtrim_ERP.gui
             //txtRemark.Value = cont.remark;
             //txtWorkResponse.Value = cont.work_response;
         }
+        private void setControlEnable(Boolean flag)
+        {
+            txtRemark.Enabled = flag;
+            txtRemark2.Enabled = flag;
+            btnSave.Enabled = flag;
+            chkStatus1.Enabled = flag;
+            chkStatus2.Enabled = flag;
+            chkStatus3.Enabled = flag;
+            chkStatus4.Enabled = flag;
 
+            btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
+        }
         private void setCustomerRemark()
         {
             cusR.remark_id = txtID.Text;
@@ -75,14 +91,41 @@ namespace Xtrim_ERP.gui
             cusR.remark2 = txtRemark2.Text;
             cusR.active = "1";
         }
+        private void setFocusColor()
+        {
+            this.txtRemark.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtRemark.Enter += new System.EventHandler(this.textBox_Enter);
 
+            this.txtRemark2.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtRemark2.Enter += new System.EventHandler(this.textBox_Enter);
+        }
+        private void textBox_Enter(object sender, EventArgs e)
+        {
+            C1TextBox a = (C1TextBox)sender;
+            a.BackColor = xC.cTxtFocus;
+            a.Font = new Font(ff, FontStyle.Bold);
+        }
+        private void textBox_Leave(object sender, EventArgs e)
+        {
+            C1TextBox a = (C1TextBox)sender;
+            a.BackColor = bg;
+            a.ForeColor = fc;
+            a.Font = new Font(ff, FontStyle.Regular);
+        }
         private void btnVoid_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void chkVoid_Click(object sender, EventArgs e)
+        {
+            btnVoid.Visible = chkVoid.Checked ? true : false;
+        }
+
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            flagEdit = flagEdit ? false : true;
+            setControlEnable(flagEdit);
         }
         private void btnSave_Click(object sender, EventArgs e)
         {

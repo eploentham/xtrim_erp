@@ -37,5 +37,7 @@ namespace Xtrim_ERP.object1
         public String nick_name { get; set; }
         public String work_response { get; set; }
         public String table_id { get; set; }
+
+        public String prefix_name_t { get; set; }
     }
 }

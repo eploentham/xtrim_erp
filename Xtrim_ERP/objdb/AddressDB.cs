@@ -70,6 +70,10 @@ namespace Xtrim_ERP.objdb
             addr.time_open_close = "time_open_close";
             addr.time_open_close_over_time = "time_open_close_over_time";
             addr.contact_id2 = "contact_id2";
+            addr.web_site3 = "web_site3";
+            addr.over_time = "over_time";
+            addr.rate_over_time = "rate_over_time";
+            addr.map_pic_path = "map_pic_path";
 
             addr.table = "b_address";
             addr.pkField = "address_id";
@@ -210,6 +214,11 @@ namespace Xtrim_ERP.objdb
             p.remark2 = p.remark2 == null ? "" : p.remark2;
             p.time_open_close = p.time_open_close == null ? "" : p.time_open_close;
             p.time_open_close_over_time = p.time_open_close_over_time == null ? "" : p.time_open_close_over_time;
+            p.web_site3 = p.web_site3 == null ? "" : p.web_site3;
+            p.over_time = p.over_time == null ? "" : p.over_time;
+            p.rate_over_time = p.rate_over_time == null ? "" : p.rate_over_time;
+            p.map_pic_path = p.map_pic_path == null ? "" : p.map_pic_path;
+            
 
             p.amphur_id = int.TryParse(p.amphur_id, out chk) ? chk.ToString() : "0";
             p.district_id = int.TryParse(p.district_id, out chk) ? chk.ToString() : "0";
@@ -240,8 +249,9 @@ namespace Xtrim_ERP.objdb
                 addr.contact_name1 + ", " + addr.contact_name2 + ", " + addr.contact_name_tel1 + ", " +
                 addr.contact_name_tel2 + "," + addr.web_site1 + "," + addr.web_site2 + "," +
                 addr.google_map + "," + addr.status_defalut_customer + ", " + addr.remark2 + ", " +
-                addr.time_open_close + "," + addr.time_open_close_over_time + ", " +
-                addr.contact_id2 + " " +
+                addr.time_open_close + "," + addr.time_open_close_over_time + ", " + addr.contact_id2 + ", " +
+                addr.web_site3 + "," + addr.over_time + ", " + addr.rate_over_time + ", " +
+                addr.map_pic_path + " " +
                 ") " +
                 "Values ('" + p.address_code + "','" + p.line_t1.Replace("'", "''") + "','" + p.line_t2.Replace("'", "''") + "'," +
                 "'" + p.line_t3 + "','" + p.line_t4.Replace("'", "''") + "','" + p.line_e1.Replace("'", "''") + "'," +
@@ -255,9 +265,10 @@ namespace Xtrim_ERP.objdb
                 "'" + p.active + "','" + p.address_name.Replace("'", "''") + "', '" + p.contact_id.Replace("'", "''") + "', " +
                 "'" + p.contact_name1 + "','" + p.contact_name2.Replace("'", "''") + "', '" + p.contact_name_tel1.Replace("'", "''") + "', " +
                 "'" + p.contact_name_tel2 + "','" + p.web_site1.Replace("'", "''") + "','" + p.web_site2.Replace("'", "''") + "'," +
-                "'" + p.google_map + "','" + p.status_defalut_customer + "','" + p.remark2 + "', " +
-                "'" + p.time_open_close + "','" + p.time_open_close_over_time + "', " +
-                "'" + p.contact_id2 + "' " +
+                "'" + p.google_map + "','" + p.status_defalut_customer + "','" + p.remark2.Replace("'", "''") + "', " +
+                "'" + p.time_open_close + "','" + p.time_open_close_over_time + "','" + p.contact_id2.Replace("'", "''") + "'," +
+                "'" + p.web_site3 + "','" + p.over_time + "','" + p.rate_over_time.Replace("'", "''") + "'," +
+                "'" + p.map_pic_path + "' "+
                 ")";
             try
             {
@@ -314,6 +325,10 @@ namespace Xtrim_ERP.objdb
                 "," + addr.time_open_close + " = '" + p.time_open_close.Replace("'", "''") + "' " +
                 "," + addr.time_open_close_over_time + " = '" + p.time_open_close_over_time.Replace("'", "''") + "' " +
                 "," + addr.contact_id2 + " = '" + p.contact_id2 + "' " +
+                "," + addr.web_site3 + " = '" + p.web_site3 + "' " +
+                "," + addr.over_time + " = '" + p.over_time + "' " +
+                "," + addr.rate_over_time + " = '" + p.rate_over_time + "' " +
+                "," + addr.map_pic_path + " = '" + p.map_pic_path + "' " +
 
                 "Where " + addr.pkField + "='" + p.address_id + "'" ;
 
@@ -515,6 +530,11 @@ namespace Xtrim_ERP.objdb
                 addr1.time_open_close = dt.Rows[0][addr.time_open_close].ToString();
                 addr1.time_open_close_over_time = dt.Rows[0][addr.time_open_close_over_time].ToString();
                 addr1.contact_id2 = dt.Rows[0][addr.contact_id2].ToString();
+
+                addr1.web_site3 = dt.Rows[0][addr.web_site3].ToString();
+                addr1.over_time = dt.Rows[0][addr.over_time].ToString();
+                addr1.rate_over_time = dt.Rows[0][addr.rate_over_time].ToString();
+                addr1.map_pic_path = dt.Rows[0][addr.map_pic_path].ToString();
             }
 
             return addr1;

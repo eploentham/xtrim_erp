@@ -38,6 +38,9 @@ namespace Xtrim_ERP.objdb
             cusR.remark = "remark";
             cusR.remark2 = "remark2";
             cusR.sort1 = "sort1";
+            cusR.status_show1 = "status_show1";
+            cusR.status_show2 = "status_show2";
+            cusR.status_show3 = "status_show3";
 
             cusR.table = "b_customer_remark";
             cusR.pkField = "remark_id";
@@ -108,6 +111,9 @@ namespace Xtrim_ERP.objdb
             p.active = p.active == null ? "" : p.active;
             p.remark = p.remark == null ? "" : p.remark;
             p.sort1 = p.sort1 == null ? "" : p.sort1;
+            p.status_show1 = p.status_show1 == null ? "" : p.status_show1;
+            p.status_show2 = p.status_show2 == null ? "" : p.status_show2;
+            p.status_show3 = p.status_show3 == null ? "" : p.status_show3;
             p.cust_id = int.TryParse(p.cust_id, out chk) ? chk.ToString() : "0";
         }
         public String insert(CustomerRemark p)
@@ -122,12 +128,14 @@ namespace Xtrim_ERP.objdb
             sql = "Insert Into " + cusR.table + "(" + cusR.cust_id + "," + cusR.remark2 + "," + cusR.remark + "," +
                 cusR.date_create + "," + cusR.date_modi + ", " + cusR.date_cancel + ", " +
                 cusR.user_create + "," + cusR.user_modi + ", " + cusR.user_cancel + ", " +
-                cusR.active + ", " + cusR.sort1 + " " +
+                cusR.active + ", " + cusR.sort1 + ", " + cusR.status_show1 + ", " +
+                cusR.status_show2 + ", " + cusR.status_show3 + " " +
                 ") " +
                 "Values ('" + p.cust_id.Replace("'", "''") + "','" + p.remark2.Replace("'", "''") + "','" + p.remark.Replace("'", "''") + "'," +
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "', " +
-                "'" + p.active + "','" + p.sort1 + "' " +
+                "'" + p.active + "','" + p.sort1 + "','" + p.status_show1 + "', " +
+                "'" + p.status_show2 + "','" + p.status_show3 + "' " +
                 ")";
             try
             {
@@ -152,8 +160,10 @@ namespace Xtrim_ERP.objdb
                 "," + cusR.remark2 + " = '" + p.remark2.Replace("'", "''") + "'" +
                 "," + cusR.remark + " = '" + p.remark.Replace("'", "''") + "'" +
                 "," + cusR.sort1 + " = '" + p.sort1.Replace("'", "''") + "'" +
-                "," + cusR.date_modi + " = now()" +
-
+                "," + cusR.date_modi + " = now() " +
+                "," + cusR.status_show1 + " = '" + p.status_show1.Replace("'", "''") + "'" +
+                "," + cusR.status_show2 + " = '" + p.status_show2.Replace("'", "''") + "'" +
+                "," + cusR.status_show3 + " = '" + p.status_show3.Replace("'", "''") + "' " +
                 "Where " + cusR.pkField + "='" + p.remark_id + "'"
                 ;
 
@@ -250,6 +260,9 @@ namespace Xtrim_ERP.objdb
                 cusR1.remark2 = dt.Rows[0][cusR.remark2].ToString();
                 cusR1.active = dt.Rows[0][cusR.active].ToString();
                 cusR1.sort1 = dt.Rows[0][cusR.sort1].ToString();
+                cusR1.status_show1 = dt.Rows[0][cusR.status_show1].ToString();
+                cusR1.status_show2 = dt.Rows[0][cusR.status_show2].ToString();
+                cusR1.status_show3 = dt.Rows[0][cusR.status_show3].ToString();
             }
 
             return cusR1;

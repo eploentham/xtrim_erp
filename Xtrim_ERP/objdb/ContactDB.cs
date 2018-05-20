@@ -49,6 +49,7 @@ namespace Xtrim_ERP.objdb
             cont.nick_name = "nick_name";
             cont.work_response = "work_response";
             cont.table_id = "table_id";
+            cont.prefix_name_t = "prefix_name_t";
 
             cont.table = "b_contact";
             cont.pkField = "contact_id";
@@ -223,9 +224,9 @@ namespace Xtrim_ERP.objdb
         {
             Contact cont1 = new Contact();
             DataTable dt = new DataTable();
-            String sql = "select cont.* " +
+            String sql = "select cont.*,pfx."+cont.prefix_name_t+" " +
                 "From " + cont.table + " cont " +
-                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Left Join b_prefix pfx On cont.prefix_id = pfx.prefix_id " +
                 "Where cont." + cont.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cont1 = setContact(dt);
@@ -278,6 +279,8 @@ namespace Xtrim_ERP.objdb
                 cont1.nick_name = dt.Rows[0][cont.nick_name].ToString();
                 cont1.work_response = dt.Rows[0][cont.work_response].ToString();
                 cont1.table_id = dt.Rows[0][cont.table_id].ToString();
+
+                cont1.prefix_name_t = dt.Rows[0][cont.prefix_name_t].ToString();
             }
 
             return cont1;

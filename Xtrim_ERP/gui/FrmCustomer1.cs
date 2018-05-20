@@ -63,10 +63,10 @@ namespace Xtrim_ERP.gui
             ////setFocusColor();
             //setFocus();
             tabPage1.Text = "รายละเอียด";
-            tabPage2.Text = "ที่อยู่ address";
+            tabPage2.Text = "สถานที่ติดต่อ (ที่อยู่)";
             tabPage3.Text = "ชื่อผู้ติดต่อ";
             tabPage4.Text = "หมายเหตุ";
-            tabPage5.Text = "ใบกำกับภาษี";
+            tabPage5.Text = "ข้อมูลจ่ายเช็ค&หักภาษี ณ ที่จ่าย";
             initGrfCusH();
             initGrfAddrH();
             initGrfContH();
@@ -109,10 +109,17 @@ namespace Xtrim_ERP.gui
             menuTax.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Tax_Cancel));
             grfTax.ContextMenu = menuTax;
 
+            
+
             //theme1.SetTheme(sB1, "BeigeOne");
         }
         private void ContextMenu_Addr_new(object sender, System.EventArgs e)
         {
+            if (txtID.Text.Equals(""))
+            {
+                MessageBox.Show("ยังไม่เลือก ลูกค้า", "");
+                return;
+            }
             xC.addrID = "";
             xC.cusID = txtID.Text;
             FrmCusAddr frm = new FrmCusAddr(xC);
@@ -120,6 +127,11 @@ namespace Xtrim_ERP.gui
         }
         private void ContextMenu_Addr_Edit(object sender, System.EventArgs e)
         {
+            if (txtID.Text.Equals(""))
+            {
+                MessageBox.Show("ยังไม่เลือก ลูกค้า", "");
+                return;
+            }
             xC.addrID = grfAddr[grfAddr.Row, colAddrID].ToString();
             xC.cusID = txtID.Text;
             FrmCusAddr frm = new FrmCusAddr(xC);
@@ -131,6 +143,11 @@ namespace Xtrim_ERP.gui
         }
         private void ContextMenu_Cont_new(object sender, System.EventArgs e)
         {
+            if (txtID.Text.Equals(""))
+            {
+                MessageBox.Show("ยังไม่เลือก ลูกค้า", "");
+                return;
+            }
             xC.contID = "";
             xC.cusID = txtID.Text;
             FrmContactAdd frm = new FrmContactAdd(xC,"0");
@@ -138,7 +155,12 @@ namespace Xtrim_ERP.gui
         }
         private void ContextMenu_Cont_Edit(object sender, System.EventArgs e)
         {
-            if(grfCont[grfCont.Row, colContId] == null) return;
+            if (txtID.Text.Equals(""))
+            {
+                MessageBox.Show("ยังไม่เลือก ลูกค้า", "");
+                return;
+            }
+            if (grfCont[grfCont.Row, colContId] == null) return;
             xC.contID = grfCont[grfCont.Row, colContId].ToString();
             xC.cusID = txtID.Text;
             FrmContactAdd frm = new FrmContactAdd(xC,"0");
@@ -150,6 +172,11 @@ namespace Xtrim_ERP.gui
         }
         private void ContextMenu_Rmk_new(object sender, System.EventArgs e)
         {
+            if (txtID.Text.Equals(""))
+            {
+                MessageBox.Show("ยังไม่เลือก ลูกค้า", "");
+                return;
+            }
             xC.cusrID = "";
             xC.cusID = txtID.Text;
             FrmCusRemark frm = new FrmCusRemark(xC);
@@ -157,6 +184,11 @@ namespace Xtrim_ERP.gui
         }
         private void ContextMenu_Rmk_Edit(object sender, System.EventArgs e)
         {
+            if (txtID.Text.Equals(""))
+            {
+                MessageBox.Show("ยังไม่เลือก ลูกค้า", "");
+                return;
+            }
             if (grfRmk[grfRmk.Row, colContId] == null) return;
             xC.cusrID = grfRmk[grfRmk.Row, colContId].ToString();
             xC.cusID = txtID.Text;
@@ -169,6 +201,11 @@ namespace Xtrim_ERP.gui
         }
         private void ContextMenu_Tax_new(object sender, System.EventArgs e)
         {
+            if (txtID.Text.Equals(""))
+            {
+                MessageBox.Show("ยังไม่เลือก ลูกค้า", "");
+                return;
+            }
             xC.custID = "";
             xC.cusID = txtID.Text;
             FrmCusTaxInvoice frm = new FrmCusTaxInvoice(xC);
@@ -176,6 +213,11 @@ namespace Xtrim_ERP.gui
         }
         private void ContextMenu_Tax_Edit(object sender, System.EventArgs e)
         {
+            if (txtID.Text.Equals(""))
+            {
+                MessageBox.Show("ยังไม่เลือก ลูกค้า", "");
+                return;
+            }
             if (grfTax[grfTax.Row, colContId] == null) return;
             xC.custID = grfTax[grfTax.Row, colContId].ToString();
             xC.cusID = txtID.Text;

@@ -20,5 +20,8 @@ namespace Xtrim_ERP.object1
         public String user_cancel { get; set; }
         public String active { get; set; }
         public String sort1 { get; set; }
+        public String status_show1 { get; set; }
+        public String status_show2 { get; set; }
+        public String status_show3 { get; set; }
     }
 }

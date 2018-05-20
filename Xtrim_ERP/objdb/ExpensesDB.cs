@@ -163,7 +163,7 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String insertexpnency(Expenses p)
+        public String insertExpnency(Expenses p)
         {
             String re = "";
 

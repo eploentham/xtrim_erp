@@ -24,7 +24,8 @@ namespace Xtrim_ERP.gui
 
         Color bg, fc;
         Font ff, ffB;
-        
+        Boolean flagEdit = false;
+
         public FrmCusAddr(XtrimControl x)
         {
             InitializeComponent();
@@ -46,6 +47,7 @@ namespace Xtrim_ERP.gui
             theme1.SetTheme(sB, "BeigeOne");
             sB1.Text = "";
             addr = new Address();
+            setControlEnable(false);
         }
         private void textBox_Enter(object sender, EventArgs e)
         {
@@ -115,6 +117,67 @@ namespace Xtrim_ERP.gui
 
             this.txtContactTel2.Leave += new System.EventHandler(this.textBox_Leave);
             this.txtContactTel2.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtWeb1.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtWeb1.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtWeb2.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtWeb2.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtWeb3.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtWeb3.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtRateOverTime.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtRateOverTime.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtOverTime.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtOverTime.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtTimeOpen.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtTimeOpen.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtTimeOpenOverTime.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtTimeOpenOverTime.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtMap.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtMap.Enter += new System.EventHandler(this.textBox_Enter);
+        }
+        private void setControlEnable(Boolean flag)
+        {
+            txtAddrName.Enabled = flag;
+            txtAddrT1.Enabled = flag;
+            txtAddrT2.Enabled = flag;
+            txtAddrT3.Enabled = flag;
+            txtAddrT4.Enabled = flag;
+            txtAddrE1.Enabled = flag;
+            txtAddrE2.Enabled = flag;
+            txtAddrE3.Enabled = flag;
+            txtAddrE4.Enabled = flag;
+            txtEmail.Enabled = flag;
+            txtTele.Enabled = flag;
+            txtFax.Enabled = flag;
+            txtRemark.Enabled = flag;
+
+            txtContID.Enabled = flag;
+            txtContID2.Enabled = flag;
+            txtContactName1.Enabled = flag;
+            txtContactName2.Enabled = flag;
+            txtContactTel1.Enabled = flag;
+            txtContactTel2.Enabled = flag;
+            txtWeb1.Enabled = flag;
+            txtWeb2.Enabled = flag;
+            txtMap.Enabled = flag;
+            txtRemark2.Enabled = flag;
+            chkAddrDefaultCus.Enabled = flag;
+            btnMapView.Enabled = flag;
+            txtOverTime.Enabled = flag; ;
+            txtRateOverTime.Enabled = flag;
+            txtWeb3.Enabled = flag;
+            txtTimeOpen.Enabled = flag;
+            txtTimeOpenOverTime.Enabled = flag;
+            chkAddrDefaultCus.Enabled = flag;
+
+            btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
         private void setControl()
         {
@@ -145,6 +208,12 @@ namespace Xtrim_ERP.gui
             txtMap.Value = addr.google_map;
             txtRemark2.Value = addr.remark2;
             chkAddrDefaultCus.Checked = addr.status_defalut_customer.Equals("1") ? true : false;
+            btnMapView.Visible = addr.map_pic_path.Length > 0 ? true : false;
+            txtOverTime.Value = addr.over_time;
+            txtRateOverTime.Value = addr.rate_over_time;
+            txtWeb3.Value = addr.web_site3;
+            txtTimeOpen.Value = addr.time_open_close;
+            txtTimeOpenOverTime.Value = addr.time_open_close_over_time;
         }
         private void setAddress()
         {
@@ -193,7 +262,24 @@ namespace Xtrim_ERP.gui
             addr.time_open_close = txtTimeOpen.Text;
             addr.time_open_close_over_time = txtTimeOpenOverTime.Text;
             addr.contact_id2 = txtContID2.Text;
+            addr.map_pic_path = txtMapPicPath.Text;
+            addr.web_site3 = txtWeb3.Text;
+            addr.over_time = txtOverTime.Text;
+            addr.rate_over_time = txtRateOverTime.Text;
         }
+
+        private void btnMap_Click(object sender, EventArgs e)
+        {
+            FrmCusMap frm = new FrmCusMap(xC);
+            frm.ShowDialog(this);
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            flagEdit = flagEdit ? false : true;
+            setControlEnable(flagEdit);
+        }
+
         private void btnCont1_Click(object sender, EventArgs e)
         {
             xC.contID = txtContID.Text;
