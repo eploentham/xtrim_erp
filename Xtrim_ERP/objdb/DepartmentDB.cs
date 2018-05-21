@@ -143,6 +143,14 @@ namespace Xtrim_ERP.objdb
 
             return "";
         }
+        public String VoidDepartment(String deptId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "Update " + dept.table + " Set "+dept.active+"='3' " +
+                "Where "+dept.pkField+"='"+deptId+"'";
+            conn.ExecuteNonQuery(conn.conn, sql);
+            return "";
+        }
         public void getlDept()
         {
             //lDept = new List<Position>();

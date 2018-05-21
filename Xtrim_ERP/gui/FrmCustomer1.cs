@@ -39,7 +39,7 @@ namespace Xtrim_ERP.gui
         int colTaxId = 1, colTaxTaxId = 2, colTaxNameT = 3, colTaxNameE=4, colTaxRemark=5;
 
         Boolean flagNew = false;
-
+        Boolean flagEdit = false;
         public FrmCustomer1(XtrimControl x)
         {
             InitializeComponent();
@@ -403,6 +403,7 @@ namespace Xtrim_ERP.gui
                 //btnEdit.Hide();
             }
             
+
         }
         private void setControlNew()
         {
@@ -456,7 +457,9 @@ namespace Xtrim_ERP.gui
         {
             bg = txtCusCode.BackColor;
             fc = txtCusCode.ForeColor;
-            setControlEdit(true);
+            flagEdit = flagEdit ? false : true;
+            setControlEnable(flagEdit);
+            //setControlEdit(true);
             //btnEdit.Show();
         }
 
@@ -535,11 +538,7 @@ namespace Xtrim_ERP.gui
         {
             setGrfCusH();
         }
-
         
-
-        
-
         private void chkSExp_Click(object sender, EventArgs e)
         {
             setGrfCusH();
@@ -973,124 +972,141 @@ namespace Xtrim_ERP.gui
         {
             //saveAddr();
         }
-        //private void saveCustomer()
-        //{
-        //    Customer cus = new Customer();
-        //    cus.cust_id = txtID.Value.ToString().Trim();
-        //    cus.cust_code = txtCusCode.Value.ToString().Trim();
-        //    cus.cust_name_t = txtCusNameT.Value.ToString().Trim();
-        //    cus.cust_name_e = txtCusNameE.Value.ToString().Trim();
-        //    cus.tax_id = txtTaxId.Value.ToString().Trim();
+        private void saveCustomer()
+        {
+            //Customer cus = new Customer();
+            cus.cust_id = txtID.Text;
+            cus.cust_code = txtCusCode.Text.Trim();
+            cus.cust_name_t = txtCusNameT.Text.Trim();
+            cus.cust_name_e = txtCusNameE.Text.Trim();
+            cus.tax_id = txtTaxId.Text.Trim();
 
-        //    cus.address_t = "";
-        //    cus.address_e = "";
-        //    cus.addr = "";
-        //    cus.amphur_id = "";
-        //    cus.district_id = "";
+            cus.address_t = "";
+            cus.address_e = "";
+            cus.addr = "";
+            cus.amphur_id = "";
+            cus.district_id = "";
 
-        //    cus.province_id = "";
-        //    cus.zipcode = "";
-        //    cus.sale_id = "";
-        //    cus.sale_name_t = "";
-        //    cus.fax = txtFax.Text;
+            cus.province_id = "";
+            cus.zipcode = "";
+            cus.sale_id = "";
+            cus.sale_name_t = "";
+            cus.fax = txtFax.Text;
 
-        //    cus.tele = txtTele.Text;
-        //    cus.email = txtEmail.Value.ToString().Trim();
-        //    cus.tax_id = txtTaxId.Value.ToString().Trim();
-        //    cus.remark = txtRemark.Text;
-        //    cus.contact_name1 = txtContactName1.Value.ToString().Trim();
+            cus.tele = txtTele.Text;
+            cus.email = txtEmail.Text.Trim();
+            cus.tax_id = txtTaxId.Text.Trim();
+            cus.remark = txtRemark.Text;
+            cus.contact_name1 = txtContactName1.Text.Trim();
 
-        //    cus.contact_name2 = txtContactName2.Value.ToString().Trim();
-        //    cus.contact_name1_tel = txtContactTel1.Text.Trim();
-        //    cus.contact_name2_tel = txtContactTel2.Text.Trim();
-        //    cus.status_company = "1";
-        //    cus.status_vendor = "";
+            cus.contact_name2 = txtContactName2.Text.Trim();
+            cus.contact_name1_tel = txtContactTel1.Text.Trim();
+            cus.contact_name2_tel = txtContactTel2.Text.Trim();
+            cus.status_company = "1";
+            cus.status_vendor = "";
 
-        //    cus.date_create = "";
-        //    cus.date_modi = "";
-        //    cus.date_cancel = "";
-        //    cus.user_create = "";
-        //    cus.user_modi = "";
+            cus.date_create = "";
+            cus.date_modi = "";
+            cus.date_cancel = "";
+            cus.user_create = "";
+            cus.user_modi = "";
 
-        //    cus.user_cancel = "";
-        //    cus.remark2 = txtAddrRemark2.Value.ToString().Trim();
-        //    cus.po_due_period = "";
-        //    cus.taddr1 = txtAddrT1.Value.ToString().Trim();
-        //    cus.taddr2 = txtAddrT2.Value.ToString().Trim();
+            cus.user_cancel = "";
+            cus.remark2 = txtRemark2.Text;
+            cus.po_due_period = "";
+            cus.taddr1 = txtAddrT1.Text.Trim();
+            cus.taddr2 = txtAddrT2.Text.Trim();
 
-        //    cus.taddr3 = txtAddrT3.Value.ToString().Trim();
-        //    cus.taddr4 = txtAddrT4.Value.ToString().Trim();
-        //    cus.eaddr1 = txtAddrE1.Value.ToString().Trim();
-        //    cus.eaddr2 = txtAddrE2.Value.ToString().Trim();
-        //    cus.eaddr3 = txtAddrE3.Value.ToString().Trim();
+            cus.taddr3 = txtAddrT3.Value.ToString().Trim();
+            cus.taddr4 = txtAddrT4.Value.ToString().Trim();
+            cus.eaddr1 = txtAddrE1.Value.ToString().Trim();
+            cus.eaddr2 = txtAddrE2.Value.ToString().Trim();
+            cus.eaddr3 = txtAddrE3.Value.ToString().Trim();
 
-        //    cus.eaddr4 = txtAddrE4.Value.ToString().Trim();
-        //    cus.sort1 = "";
+            cus.eaddr4 = txtAddrE4.Value.ToString().Trim();
+            cus.sort1 = "";
 
-        //    cus.status_cust = chkCus.Checked ? "1" : "0";
-        //    cus.status_exp = chkExp.Checked ? "1" : "0";
-        //    cus.status_fwd = chkFwd.Checked ? "1" : "0";
-        //    cus.status_imp = chkImp.Checked ? "1" : "0";
+            cus.status_cust = chkCus.Checked ? "1" : "0";
+            cus.status_exp = chkExp.Checked ? "1" : "0";
+            cus.status_fwd = chkFwd.Checked ? "1" : "0";
+            cus.status_imp = chkImp.Checked ? "1" : "0";
 
-        //    String re = xC.xtDB.cusDB.insertCustomer(cus);
-        //    int chk = 0;
-        //    if (int.TryParse(re, out chk))
-        //    {
-        //        if (flagNew)
-        //        {
-        //            Address addr = new Address();
-        //            addr.address_id = "";
-        //            addr.address_code = "";
-        //            addr.line_t1 = txtAddrT1.Value.ToString().Trim();
-        //            addr.line_t2 = txtAddrT2.Value.ToString().Trim();
-        //            addr.line_t3 = txtAddrT3.Value.ToString().Trim();
-        //            addr.line_t4 = txtAddrT4.Value.ToString().Trim();
-        //            addr.line_e1 = txtAddrE1.Value.ToString().Trim();
-        //            addr.line_e2 = txtAddrE2.Value.ToString().Trim();
-        //            addr.line_e3 = txtAddrE3.Value.ToString().Trim();
-        //            addr.line_e4 = txtAddrE4.Value.ToString().Trim();
-        //            addr.prov_id = "";
-        //            addr.amphur_id = "";
-        //            addr.district_id = "";
-        //            addr.zipcode = "";
-        //            addr.email = txtEmail.Value.ToString().Trim();
-        //            addr.email2 = "";
-        //            addr.tele = txtTele.Value.ToString().Trim();
-        //            addr.mobile = txtAddrMobile.Value.ToString().Trim();
-        //            addr.fax = txtAddrFax.Value.ToString().Trim();
-        //            addr.remark = txtAddrRemark.Value.ToString().Trim();
-        //            addr.address_type_id = "";
-        //            addr.table_id = re;
-        //            addr.date_create = "";
-        //            addr.date_modi = "";
-        //            addr.date_cancel = "";
-        //            addr.user_create = "";
-        //            addr.user_modi = "";
-        //            addr.user_cancel = "";
-        //            addr.active = "";
-        //            addr.address_name = txtAddrName.Value.ToString().Trim();
-        //            addr.contact_id = "";
-        //            addr.contact_name1 = txtContactName1.Text;
-        //            addr.contact_name2 = txtContactName2.Text;
-        //            addr.contact_name_tel1 = txtContactTel1.Text;
-        //            addr.contact_name_tel2 = txtContactTel2.Text;
+            String re = xC.xtDB.cusDB.insertCustomer(cus);
+            int chk = 0;
+            if (int.TryParse(re, out chk))
+            {
+                if (flagNew)
+                {
+                    Address addr = new Address();
+                    addr.address_id = "";
+                    addr.address_code = "";
+                    addr.line_t1 = txtAddrT1.Value.ToString().Trim();
+                    addr.line_t2 = txtAddrT2.Value.ToString().Trim();
+                    addr.line_t3 = txtAddrT3.Value.ToString().Trim();
+                    addr.line_t4 = txtAddrT4.Value.ToString().Trim();
+                    addr.line_e1 = txtAddrE1.Value.ToString().Trim();
+                    addr.line_e2 = txtAddrE2.Value.ToString().Trim();
+                    addr.line_e3 = txtAddrE3.Value.ToString().Trim();
+                    addr.line_e4 = txtAddrE4.Value.ToString().Trim();
+                    addr.prov_id = "";
+                    addr.amphur_id = "";
+                    addr.district_id = "";
+                    addr.zipcode = "";
+                    addr.email = txtEmail.Value.ToString().Trim();
+                    addr.email2 = "";
+                    addr.tele = txtTele.Value.ToString().Trim();
+                    addr.mobile = "";
+                    addr.fax = "";
+                    addr.remark = "";
+                    addr.address_type_id = "";
+                    addr.table_id = re;
+                    addr.date_create = "";
+                    addr.date_modi = "";
+                    addr.date_cancel = "";
+                    addr.user_create = "";
+                    addr.user_modi = "";
+                    addr.user_cancel = "";
+                    addr.active = "";
+                    addr.address_name = "";
+                    addr.contact_id = "";
+                    addr.contact_name1 = txtContactName1.Text;
+                    addr.contact_name2 = txtContactName2.Text;
+                    addr.contact_name_tel1 = txtContactTel1.Text;
+                    addr.contact_name_tel2 = txtContactTel2.Text;
 
-        //            addr.web_site1 = "";
-        //            addr.web_site2 = "";
-        //            addr.google_map = "";
-        //            addr.status_defalut_customer = "1";
-        //            String re1 = xC.xtDB.addrDB.insertAddress(addr);
+                    addr.web_site1 = "";
+                    addr.web_site2 = "";
+                    addr.google_map = "";
+                    addr.status_defalut_customer = "1";
+                    String re1 = xC.xtDB.addrDB.insertAddress(addr);
 
-        //        }
+                }
 
-        //        btnSave.Image = Resources.accept_database24;
-        //        sB1.Text = "บันทึกข้อมูล " + cus.cust_code + " เรียบร้อย ";
-        //    }
-        //}
+                btnSave.Image = Resources.accept_database24;
+                sB1.Text = "บันทึกข้อมูล " + cus.cust_code + " เรียบร้อย ";
+            }
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             //saveCustomer();
-            tabPage2.Show();
+            //tabPage2.Show();
+            if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                saveCustomer();
+                //String re = xC.xtDB.cusDB.insertCustomer(cus);
+                //int chk = 0;
+                //if (int.TryParse(re, out chk))
+                //{
+                //    btnSave.Image = Resources.accept_database24;
+                //}
+                //else
+                //{
+                //    btnSave.Image = Resources.accept_database24;
+                //}
+                setGrfCusH();
+                setControlEnable(false);
+                //this.Dispose();
+            }
         }
 
         //private void setControlAddrEnable(Boolean flag)
@@ -1144,6 +1160,8 @@ namespace Xtrim_ERP.gui
             txtContactName2.Enabled = flag;
             txtContactTel1.Enabled = flag;
             txtContactTel2.Enabled = flag;
+            groupBox1.Enabled = flag;
+            btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
         private void grdFlex_LeaveCell(object sender, EventArgs e)
         {

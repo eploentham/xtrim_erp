@@ -1,5 +1,6 @@
 ﻿using C1.Win.C1FlexGrid;
 using C1.Win.C1Input;
+using C1.Win.C1SuperTooltip;
 using C1.Win.C1Themes;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,8 @@ namespace Xtrim_ERP.gui
         C1FlexGrid grfDept;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
-        
+        C1SuperTooltip stt;
+        C1SuperErrorProvider sep;
         public FrmDepartment1(XtrimControl x)
         {
             InitializeComponent();
@@ -55,6 +57,8 @@ namespace Xtrim_ERP.gui
             bg = txtDeptCode.BackColor;
             fc = txtDeptCode.ForeColor;
             ff = txtDeptCode.Font;
+            btnVoid.KeyUp += BtnVoid_KeyUp;
+            txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
 
             initGrfDept();
             setGrfDeptH();
@@ -62,8 +66,12 @@ namespace Xtrim_ERP.gui
             setFocusColor();
             sB1.Text = "";
             btnVoid.Hide();
-        }                
-
+            txtPasswordVoid.Hide();
+            stt = new C1SuperTooltip();
+            sep = new C1SuperErrorProvider();
+            stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
+        }
+        
         private void initGrfDept()
         {
             grfDept = new C1FlexGrid();
@@ -156,13 +164,20 @@ namespace Xtrim_ERP.gui
             }
             else
             {
-                btnVoid.Show();
+                //btnVoid.Show();
+                txtPasswordVoid.Show();
+                txtPasswordVoid.Focus();
+                stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> กรุณาป้อนรหัสผ่าน", txtPasswordVoid);
             }
         }
 
         private void btnVoid_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                xC.xtDB.deptDB.VoidDepartment(txtID.Text);
+                setGrfDeptH();
+            }
         }
 
         private void setControl(String deptId)
@@ -179,6 +194,8 @@ namespace Xtrim_ERP.gui
             txtDeptCode.Enabled = flag;
             txtDeptNameT.Enabled = flag;
             txtRemark.Enabled = flag;
+            chkVoid.Enabled = flag;
+            btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
         private void setDeptment()
         {
@@ -215,6 +232,33 @@ namespace Xtrim_ERP.gui
             //{
             //    ((RowCollection)grfDept.Rows).Count = ((RowCollection)grfDept.Rows).Count + 1;
             //}
+        }
+        private void BtnVoid_KeyUp(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                xC.xtDB.deptDB.VoidDepartment(txtID.Text);
+                setGrfDeptH();
+            }
+        }
+        private void TxtPasswordVoid_KeyUp(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (e.KeyCode == Keys.Enter)
+            {
+                Boolean chk = xC.xtDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
+                if (chk)
+                {
+                    txtPasswordVoid.Hide();
+                    btnVoid.Show();
+                    stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> รหัสผ่านถูกต้อง", btnVoid);
+                }
+                else
+                {
+                    sep.SetError(txtPasswordVoid, "333");
+                }
+            }
         }
         private void btnNew_Click(object sender, EventArgs e)
         {

@@ -163,6 +163,8 @@ namespace Xtrim_ERP.gui
             txtPosiCode.Enabled = flag;
             txtPosiNameT.Enabled = flag;
             txtRemark.Enabled = flag;
+            chkVoid.Enabled = flag;
+            btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
         private void setDeptment()
         {

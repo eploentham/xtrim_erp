@@ -282,6 +282,15 @@ namespace Xtrim_ERP.objdb
 
             return "";
         }
+        public String VoidStaff(String stfId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "Update " + stf.table + " Set " + stf.active + "='3' " +
+                "Where " + stf.pkField + "='" + stfId + "'";
+            conn.ExecuteNonQuery(conn.conn, sql);
+
+            return "";
+        }
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
@@ -340,6 +349,24 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             cop1 = setStaff(dt);
             return cop1;
+        }
+        public Boolean selectByPasswordAdmin(String pass)
+        {
+            Staff cop1 = new Staff();
+            DataTable dt = new DataTable();
+            String sql = "select stf.* " +
+                "From " + stf.table + " stf " +
+                //"Left Join b_prefix pfx On stf.prefix_id = pfx.prefix_id " +
+                "Where stf." + stf.password1 + " ='" + pass + "' and "+stf.status_admin+"='2'";
+            dt = conn.selectData(conn.conn, sql);
+            if (dt.Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         public Staff selectByLogin(String username, String password1)
         {

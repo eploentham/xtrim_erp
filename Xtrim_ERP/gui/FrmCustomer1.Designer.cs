@@ -61,8 +61,6 @@ namespace Xtrim_ERP.gui
             this.label40 = new System.Windows.Forms.Label();
             this.txtAddrE1 = new C1.Win.C1Input.C1TextBox();
             this.label41 = new System.Windows.Forms.Label();
-            this.txtRemark2 = new C1.Win.C1Input.C1TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.txtContactName2 = new C1.Win.C1Input.C1TextBox();
             this.txtAddrT4 = new C1.Win.C1Input.C1TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -72,8 +70,6 @@ namespace Xtrim_ERP.gui
             this.label6 = new System.Windows.Forms.Label();
             this.txtAddrT1 = new C1.Win.C1Input.C1TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtRemark = new C1.Win.C1Input.C1TextBox();
-            this.label22 = new System.Windows.Forms.Label();
             this.txtEmail = new C1.Win.C1Input.C1TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -123,6 +119,10 @@ namespace Xtrim_ERP.gui
             this.label27 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txtRemark2 = new C1.Win.C1Input.C1TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtRemark = new C1.Win.C1Input.C1TextBox();
+            this.label22 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -150,13 +150,11 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrE3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrE2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrE1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRemark2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContactName2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrT4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrT3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrT2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrT1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContactName1)).BeginInit();
@@ -188,6 +186,8 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrContactName2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrContactName1)).BeginInit();
             this.sB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -312,7 +312,7 @@ namespace Xtrim_ERP.gui
             this.chkSConsExp.Location = new System.Drawing.Point(284, 9);
             this.chkSConsExp.Name = "chkSConsExp";
             this.chkSConsExp.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkSConsExp.Size = new System.Drawing.Size(63, 24);
+            this.chkSConsExp.Size = new System.Drawing.Size(71, 24);
             this.chkSConsExp.TabIndex = 156;
             this.chkSConsExp.Text = "Cons Ex";
             this.theme1.SetTheme(this.chkSConsExp, "(default)");
@@ -473,8 +473,6 @@ namespace Xtrim_ERP.gui
             this.panel2.Controls.Add(this.label40);
             this.panel2.Controls.Add(this.txtAddrE1);
             this.panel2.Controls.Add(this.label41);
-            this.panel2.Controls.Add(this.txtRemark2);
-            this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.txtContactName2);
             this.panel2.Controls.Add(this.txtAddrT4);
             this.panel2.Controls.Add(this.label11);
@@ -484,8 +482,6 @@ namespace Xtrim_ERP.gui
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.txtAddrT1);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.txtRemark);
-            this.panel2.Controls.Add(this.label22);
             this.panel2.Controls.Add(this.txtEmail);
             this.panel2.Controls.Add(this.label23);
             this.panel2.Controls.Add(this.label17);
@@ -685,32 +681,6 @@ namespace Xtrim_ERP.gui
             this.label41.Text = "ที่อยู่ 1 :";
             this.theme1.SetTheme(this.label41, "(default)");
             // 
-            // txtRemark2
-            // 
-            this.txtRemark2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRemark2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtRemark2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtRemark2.Location = new System.Drawing.Point(113, 224);
-            this.txtRemark2.Name = "txtRemark2";
-            this.txtRemark2.Size = new System.Drawing.Size(301, 20);
-            this.txtRemark2.TabIndex = 206;
-            this.txtRemark2.Tag = null;
-            this.theme1.SetTheme(this.txtRemark2, "(default)");
-            this.txtRemark2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label12.Location = new System.Drawing.Point(16, 224);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(68, 16);
-            this.label12.TabIndex = 205;
-            this.label12.Text = "หมายเหตุ 2 :";
-            this.theme1.SetTheme(this.label12, "(default)");
-            // 
             // txtContactName2
             // 
             this.txtContactName2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -827,32 +797,6 @@ namespace Xtrim_ERP.gui
             this.label4.TabIndex = 196;
             this.label4.Text = "ที่อยู่ 1 :";
             this.theme1.SetTheme(this.label4, "(default)");
-            // 
-            // txtRemark
-            // 
-            this.txtRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRemark.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtRemark.Location = new System.Drawing.Point(113, 198);
-            this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(301, 20);
-            this.txtRemark.TabIndex = 195;
-            this.txtRemark.Tag = null;
-            this.theme1.SetTheme(this.txtRemark, "(default)");
-            this.txtRemark.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label22.Location = new System.Drawing.Point(16, 198);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(58, 16);
-            this.label22.TabIndex = 194;
-            this.label22.Text = "หมายเหตุ :";
-            this.theme1.SetTheme(this.label22, "(default)");
             // 
             // txtEmail
             // 
@@ -1070,6 +1014,10 @@ namespace Xtrim_ERP.gui
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel7.Controls.Add(this.txtRemark2);
+            this.panel7.Controls.Add(this.label12);
+            this.panel7.Controls.Add(this.txtRemark);
+            this.panel7.Controls.Add(this.label22);
             this.panel7.Controls.Add(this.btnNew);
             this.panel7.Controls.Add(this.btnEdit);
             this.panel7.Controls.Add(this.txtTaxId);
@@ -1535,6 +1483,58 @@ namespace Xtrim_ERP.gui
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
+            // txtRemark2
+            // 
+            this.txtRemark2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRemark2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtRemark2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtRemark2.Location = new System.Drawing.Point(106, 149);
+            this.txtRemark2.Name = "txtRemark2";
+            this.txtRemark2.Size = new System.Drawing.Size(301, 20);
+            this.txtRemark2.TabIndex = 210;
+            this.txtRemark2.Tag = null;
+            this.theme1.SetTheme(this.txtRemark2, "(default)");
+            this.txtRemark2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label12.Location = new System.Drawing.Point(9, 149);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(68, 16);
+            this.label12.TabIndex = 209;
+            this.label12.Text = "หมายเหตุ 2 :";
+            this.theme1.SetTheme(this.label12, "(default)");
+            // 
+            // txtRemark
+            // 
+            this.txtRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRemark.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtRemark.Location = new System.Drawing.Point(106, 123);
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Size = new System.Drawing.Size(301, 20);
+            this.txtRemark.TabIndex = 208;
+            this.txtRemark.Tag = null;
+            this.theme1.SetTheme(this.txtRemark, "(default)");
+            this.txtRemark.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label22.Location = new System.Drawing.Point(9, 123);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(58, 16);
+            this.label22.TabIndex = 207;
+            this.label22.Text = "หมายเหตุ :";
+            this.theme1.SetTheme(this.label22, "(default)");
+            // 
             // FrmCustomer1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1575,13 +1575,11 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrE3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrE2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrE1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRemark2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContactName2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrT4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrT3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrT2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrT1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContactName1)).EndInit();
@@ -1615,6 +1613,8 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrContactName1)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1688,8 +1688,6 @@ namespace Xtrim_ERP.gui
         private System.Windows.Forms.Label label40;
         private C1TextBox txtAddrE1;
         private System.Windows.Forms.Label label41;
-        private C1TextBox txtRemark2;
-        private System.Windows.Forms.Label label12;
         private C1TextBox txtContactName2;
         private C1TextBox txtAddrT4;
         private System.Windows.Forms.Label label11;
@@ -1699,8 +1697,6 @@ namespace Xtrim_ERP.gui
         private System.Windows.Forms.Label label6;
         private C1TextBox txtAddrT1;
         private System.Windows.Forms.Label label4;
-        private C1TextBox txtRemark;
-        private System.Windows.Forms.Label label22;
         private C1TextBox txtEmail;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label17;
@@ -1716,5 +1712,9 @@ namespace Xtrim_ERP.gui
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Panel panel10;
+        private C1TextBox txtRemark2;
+        private System.Windows.Forms.Label label12;
+        private C1TextBox txtRemark;
+        private System.Windows.Forms.Label label22;
     }
 }
