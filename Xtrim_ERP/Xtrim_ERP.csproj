@@ -193,6 +193,12 @@
     <Compile Include="gui\FrmDepartment1.Designer.cs">
       <DependentUpon>FrmDepartment1.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmDepartmentS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmDepartmentS.Designer.cs">
+      <DependentUpon>FrmDepartmentS.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmImportData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,11 +256,35 @@
     <Compile Include="gui\FrmPasswordConfirm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="gui\FrmPosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmPosition.Designer.cs">
+      <DependentUpon>FrmPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmPositionS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmPositionS.Designer.cs">
+      <DependentUpon>FrmPositionS.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmReport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gui\FrmReport.Designer.cs">
       <DependentUpon>FrmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmSetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmSetPassword.Designer.cs">
+      <DependentUpon>FrmSetPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmSplash.Designer.cs">
+      <DependentUpon>FrmSplash.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmStaff.cs">
       <SubType>Form</SubType>
@@ -298,6 +328,7 @@
     <Compile Include="objdb\JobImportContDB.cs" />
     <Compile Include="objdb\JobImportExpnDB.cs" />
     <Compile Include="objdb\MethodPaymentDB.cs" />
+    <Compile Include="objdb\PositionDB.cs" />
     <Compile Include="objdb\PrefixDB.cs" />
     <Compile Include="objdb\PrivilegeDB.cs" />
     <Compile Include="objdb\TermPaymentDB.cs" />
@@ -338,6 +369,7 @@
     <Compile Include="object1\JobImportExpn.cs" />
     <Compile Include="object1\LogFile.cs" />
     <Compile Include="object1\MethodPayment.cs" />
+    <Compile Include="object1\Position.cs" />
     <Compile Include="object1\Prefix.cs" />
     <Compile Include="object1\Privilege.cs" />
     <Compile Include="object1\CusRemark.cs" />
@@ -406,6 +438,9 @@
     <EmbeddedResource Include="gui\FrmDepartment1.resx">
       <DependentUpon>FrmDepartment1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmDepartmentS.resx">
+      <DependentUpon>FrmDepartmentS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmImportData.resx">
       <DependentUpon>FrmImportData.cs</DependentUpon>
     </EmbeddedResource>
@@ -433,11 +468,23 @@
     <EmbeddedResource Include="gui\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmPosition.resx">
+      <DependentUpon>FrmPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmPositionS.resx">
+      <DependentUpon>FrmPositionS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmReport.resx">
       <DependentUpon>FrmReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmSearch.resx">
       <DependentUpon>FrmSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmSetPassword.resx">
+      <DependentUpon>FrmSetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmSplash.resx">
+      <DependentUpon>FrmSplash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmStaff.resx">
       <DependentUpon>FrmStaff.cs</DependentUpon>
@@ -554,6 +601,8 @@
     <None Include="Resources\accept-database24.png" />
     <None Include="Resources\ad24.png" />
     <None Include="Resources\custom-reports24.png" />
+    <None Include="Resources\Edit-Male-User24.png" />
+    <None Include="Resources\Accept-Male-User24.png" />
     <Content Include="Resources\Glass_Alternate.png" />
     <Content Include="Resources\Glass_Header.png" />
     <Content Include="Resources\Glass_HeaderSelected.png" />
@@ -561,9 +610,12 @@
     <None Include="Resources\loading-transparent.gif" />
     <Content Include="Resources\Mac_Header.png" />
     <Content Include="Resources\Mac_HeaderSelected.png" />
+    <None Include="Resources\Male-User-Warning24.png" />
+    <None Include="Resources\Male-User-Help24.png" />
     <Content Include="Resources\Opera_Header.png" />
     <Content Include="Resources\Opera_HeaderSelected.png" />
     <None Include="Resources\phonebook24.png" />
+    <None Include="Resources\prohibit24.png" />
     <Content Include="Resources\Steel_Header.png" />
     <Content Include="Resources\Steel_HeaderSelected.png" />
     <None Include="Resources\users24.png" />

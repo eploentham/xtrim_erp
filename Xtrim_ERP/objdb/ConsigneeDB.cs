@@ -71,8 +71,8 @@ namespace Xtrim_ERP.objdb
             cons.pkField = "cons_id";
             lCons = new List<Consignee>();
             lSupp = new List<Consignee>();
-            getlCons();
-            getlSupp();
+            //getlCons();
+            //getlSupp();
         }
         public String getSuppIdByCode(String code)
         {

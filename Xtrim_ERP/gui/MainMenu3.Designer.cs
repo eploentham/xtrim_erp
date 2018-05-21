@@ -30,19 +30,21 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuImpJob = new System.Windows.Forms.ToolStripMenuItem();
             this.menuImpJobView = new System.Windows.Forms.ToolStripMenuItem();
             this.menuImpJobAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.menuTest = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExpJob = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuInit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCop = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBank = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuCust = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStf = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDept = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuPosi = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.ขอมลForwarderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ขอมลบรษทประกนToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,8 +61,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tC1 = new System.Windows.Forms.TabControl();
             this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
-            this.menuDept = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuPosi = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
@@ -71,9 +71,9 @@
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuExit,
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem2});
+            this.menuImpJob,
+            this.menuExpJob,
+            this.menuInit});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -89,16 +89,16 @@
             this.menuExit.Text = "Exit";
             this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
             // 
-            // toolStripMenuItem1
+            // menuImpJob
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuImpJob.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuImpJobView,
             this.menuImpJobAdd,
             this.menuTest});
-            this.toolStripMenuItem1.Image = global::Xtrim_ERP.Properties.Resources.Forklift_48x48;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(92, 20);
-            this.toolStripMenuItem1.Text = "Import Job";
+            this.menuImpJob.Image = global::Xtrim_ERP.Properties.Resources.Forklift_48x48;
+            this.menuImpJob.Name = "menuImpJob";
+            this.menuImpJob.Size = new System.Drawing.Size(92, 20);
+            this.menuImpJob.Text = "Import Job";
             // 
             // menuImpJobView
             // 
@@ -121,14 +121,14 @@
             this.menuTest.Text = "TestMenu";
             this.menuTest.Click += new System.EventHandler(this.menuTest_Click);
             // 
-            // toolStripMenuItem4
+            // menuExpJob
             // 
-            this.toolStripMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuExpJob.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem5,
             this.toolStripMenuItem6});
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(73, 20);
-            this.toolStripMenuItem4.Text = "Export Job";
+            this.menuExpJob.Name = "menuExpJob";
+            this.menuExpJob.Size = new System.Drawing.Size(73, 20);
+            this.menuExpJob.Text = "Export Job";
             // 
             // toolStripMenuItem5
             // 
@@ -142,9 +142,9 @@
             this.toolStripMenuItem6.Size = new System.Drawing.Size(160, 22);
             this.toolStripMenuItem6.Text = "New Export Job";
             // 
-            // toolStripMenuItem2
+            // menuInit
             // 
-            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuInit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuCop,
             this.menuBank,
             this.toolStripSeparator2,
@@ -165,9 +165,9 @@
             this.toolStripSeparator3,
             this.menuConvertData,
             this.menuFormTest});
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(64, 20);
-            this.toolStripMenuItem2.Text = "กำหนดค่า";
+            this.menuInit.Name = "menuInit";
+            this.menuInit.Size = new System.Drawing.Size(64, 20);
+            this.menuInit.Text = "กำหนดค่า";
             // 
             // menuCop
             // 
@@ -201,6 +201,20 @@
             this.menuStf.Size = new System.Drawing.Size(185, 22);
             this.menuStf.Text = "ข้อมูล พนักงาน";
             this.menuStf.Click += new System.EventHandler(this.menuStf_Click);
+            // 
+            // menuDept
+            // 
+            this.menuDept.Name = "menuDept";
+            this.menuDept.Size = new System.Drawing.Size(185, 22);
+            this.menuDept.Text = "ข้อมูล แผนก";
+            this.menuDept.Click += new System.EventHandler(this.menuDept_Click);
+            // 
+            // menuPosi
+            // 
+            this.menuPosi.Name = "menuPosi";
+            this.menuPosi.Size = new System.Drawing.Size(185, 22);
+            this.menuPosi.Text = "ข้อมูล ตำแหน่ง";
+            this.menuPosi.Click += new System.EventHandler(this.menuPosi_Click);
             // 
             // toolStripMenuItem8
             // 
@@ -306,19 +320,6 @@
             // 
             this.c1ThemeController1.Theme = "BeigeOne";
             // 
-            // menuDept
-            // 
-            this.menuDept.Name = "menuDept";
-            this.menuDept.Size = new System.Drawing.Size(185, 22);
-            this.menuDept.Text = "ข้อมูล แผนก";
-            this.menuDept.Click += new System.EventHandler(this.menuDept_Click);
-            // 
-            // menuPosi
-            // 
-            this.menuPosi.Name = "menuPosi";
-            this.menuPosi.Size = new System.Drawing.Size(185, 22);
-            this.menuPosi.Text = "ข้อมูลตำแหน่ง";
-            // 
             // MainMenu3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,6 +333,7 @@
             this.Text = "MainMenu3";
             this.c1ThemeController1.SetTheme(this, "(default)");
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainMenu3_FormClosing);
             this.Load += new System.EventHandler(this.MainMenu3_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -345,18 +347,18 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem menuImpJob;
         private System.Windows.Forms.ToolStripMenuItem menuExit;
         private System.Windows.Forms.ToolStripMenuItem menuImpJobView;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TabControl tC1;
         private System.Windows.Forms.ToolStripMenuItem menuImpJobAdd;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem menuExpJob;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
         private C1.Win.C1Themes.C1ThemeController c1ThemeController1;
         private System.Windows.Forms.ToolStripMenuItem menuTest;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem menuInit;
         private System.Windows.Forms.ToolStripMenuItem menuCop;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem menuCust;

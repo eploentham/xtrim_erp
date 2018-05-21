@@ -59,6 +59,11 @@ namespace Xtrim_ERP.gui
             {
                 theme1.SetTheme(c, "Office2013Red");
             }
+            theme1.SetTheme(chkAdmin, "Office2013Red");
+            theme1.SetTheme(chkUser, "Office2013Red");
+            theme1.SetTheme(chkExpJob, "Office2013Red");
+            theme1.SetTheme(chkImpJob, "Office2013Red");
+            theme1.SetTheme(chkOtherJob, "Office2013Red");
             bg = txtStfCode.BackColor;
             fc = txtStfCode.ForeColor;
             setFocusColor();
@@ -67,8 +72,11 @@ namespace Xtrim_ERP.gui
             setFocusColor();
             setFocus();
             cboPrefix = xC.xtDB.pfxDB.setCboPrefix(cboPrefix);
+            cboDept = xC.xtDB.deptDB.setCboDept(cboDept);
+            cboPosi = xC.xtDB.posiDB.setCboPosi(cboPosi);
             setControlEnable(false);
             btnVoid.Hide();
+            btnPassword.Hide();
         }
         private void ContextMenu_void(object sender, System.EventArgs e)
         {
@@ -135,7 +143,7 @@ namespace Xtrim_ERP.gui
             grfStf.Cols[colEmail].Caption = "email";
             grfStf.Cols[colPosiName].Caption = "ตำแหน่ง";
             grfStf.Cols[colDept].Caption = "แผนก";
-            grfStf.Cols[colRemark].Caption = "s,kpgs96";
+            grfStf.Cols[colRemark].Caption = "หมายเหตุ";
             grfStf.Cols[colPid].Caption = "ID";
             //grfStf.Cols[colcontact2].Caption = "ชื่อผู้ติดต่อ2";
             grfStf.Cols[colID].Visible = false;
@@ -158,6 +166,14 @@ namespace Xtrim_ERP.gui
             cboDept.Enabled = flag;
             cboPosi.Enabled = flag;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
+            btnPassword.Enabled = flag;
+            btnLogoPath.Enabled = flag;
+            btnLogoView.Enabled = flag;
+            btnPosiAdd.Enabled = flag;
+            btnDeptAdd.Enabled = flag;
+            txtUserName.Enabled = flag;
+            panelAdmin.Enabled = flag;
+            panelModule.Enabled = flag;
         }
         void StatusBar_AfterDataRefresh(object sender, System.ComponentModel.ListChangedEventArgs e)
         {
@@ -178,6 +194,7 @@ namespace Xtrim_ERP.gui
             String cusId = "";
             cusId = grfStf[e.NewRange.r1, colID] != null ? grfStf[e.NewRange.r1, colID].ToString() : "";
             setControl(cusId);
+            setControlEnable(false);
             //setGrfAddrH(cusId);
             //setGrfContH(cusId);
             //setGrfRmkH(cusId);
@@ -202,6 +219,64 @@ namespace Xtrim_ERP.gui
         {
             txtID.Value = "";
             setControlEnable(true);
+            btnPassword.Hide();
+
+            txtID.Value = "";
+            txtStfCode.Value = "";
+            txtStfFNameT.Value = "";
+            txtStfFNameE.Value = "";
+            txtEmail.Value = "";
+            txtStfLNameT.Value = "";
+            txtStfLNameE.Value = "";
+            txtMobile.Value = "";
+            txtPid.Value = "";
+            txtTele.Value = "";
+            txtRemark.Value = "";
+            txtUserName.Value = "";
+            txtLogo.Value = "";
+            cboPrefix.Text = "";
+            cboDept.Text = "";
+            cboPosi.Text = "";
+            chkUser.Checked = true;
+            chkAdmin.Checked = false;
+        }
+
+        private void btnLogoPath_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog res = new OpenFileDialog();
+            //res.Filter = "Excel Files|*.xls;";
+            res.Filter = "All Files|*.*;";
+            if (res.ShowDialog() == DialogResult.OK)
+            {
+                //Get the file's path
+                txtLogo.Text = res.FileName;
+                //Do something
+            }
+        }
+
+        private void btnPassword_Click(object sender, EventArgs e)
+        {
+            xC.stfID = txtID.Text;
+            FrmSetPassword frm = new FrmSetPassword(xC);
+            frm.ShowDialog(this);
+        }
+
+        private void btnDeptAdd_Click(object sender, EventArgs e)
+        {
+            xC.deptID = ((ComboBoxItem)cboDept.SelectedItem).Value;
+            FrmDepartmentS frm = new FrmDepartmentS(xC);
+            frm.Show(this);
+            cboDept = xC.xtDB.deptDB.setCboDept(cboDept);
+            cboDept.Text = stf.dept_name_t;
+        }
+
+        private void btnPosiAdd_Click(object sender, EventArgs e)
+        {
+            xC.posiID = ((ComboBoxItem)cboPosi.SelectedItem).Value;
+            FrmPositionS frm = new FrmPositionS(xC);
+            frm.Show(this);
+            cboPosi = xC.xtDB.posiDB.setCboPosi(cboPosi);
+            cboPosi.Text = stf.posi_name_t;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -219,7 +294,8 @@ namespace Xtrim_ERP.gui
                 {
                     btnSave.Image = Resources.accept_database24;
                 }
-                //setGrdView();
+                setGrfStfH();
+                setControlEnable(false);
                 //this.Dispose();
             }
         }
@@ -228,9 +304,7 @@ namespace Xtrim_ERP.gui
         {
 
         }
-
         
-
         //private void setGrdViewH()
         //{
         //    FarPoint.Win.Spread.EnhancedInterfaceRenderer outlinelook = new FarPoint.Win.Spread.EnhancedInterfaceRenderer();
@@ -487,24 +561,40 @@ namespace Xtrim_ERP.gui
             txtPid.Value = stf.pid;
             txtTele.Value = stf.tele;
             txtRemark.Value = stf.remark;
+            txtUserName.Value = stf.username;
             txtLogo.Value = stf.logo;
-            
+            cboPrefix.Text = stf.prefix_name_t;
+            cboDept.Text = stf.dept_name_t;
+            cboPosi.Text = stf.posi_name_t;
+            chkAdmin.Checked = stf.status_admin.Equals("2") ? true : false;
+            chkUser.Checked = !stf.status_admin.Equals("2") ? true : false;
+            chkImpJob.Checked = stf.status_module_imp_job.Equals("1") ? true : false;
+            chkExpJob.Checked = stf.status_module_exp_job.Equals("1") ? true : false;
+            chkOtherJob.Checked = stf.status_module_other_job.Equals("1") ? true : false;
+            btnPassword.Show();
         }
         private void setStaff()
         {
-            stf.staff_id = txtID.Value.ToString();
-            stf.staff_code = txtStfCode.Value.ToString();
-            stf.staff_fname_t = txtStfFNameT.Value.ToString();
-            stf.staff_fname_e = txtStfFNameE.Value.ToString();
-            stf.email = txtEmail.Value.ToString();
-            stf.staff_lname_t = txtStfLNameT.Value.ToString();
-            stf.staff_lname_e = txtStfLNameE.Value.ToString();
-            stf.mobile = txtMobile.Value.ToString();
-            stf.pid = txtPid.Value.ToString();
-            stf.tele = txtTele.Value.ToString();
-            stf.remark = txtRemark.Value.ToString();
-            stf.logo = txtLogo.Value.ToString();
-            //stf.remark = txtRemark.Value.ToString();
+            stf.staff_id = txtID.Text;
+            stf.staff_code = txtStfCode.Text;
+            stf.staff_fname_t = txtStfFNameT.Text;
+            stf.staff_fname_e = txtStfFNameE.Text;
+            stf.email = txtEmail.Text;
+            stf.staff_lname_t = txtStfLNameT.Text;
+            stf.staff_lname_e = txtStfLNameE.Text;
+            stf.mobile = txtMobile.Text;
+            stf.pid = txtPid.Text;
+            stf.tele = txtTele.Text;
+            stf.remark = txtRemark.Text;
+            stf.logo = txtLogo.Text;
+            stf.username = txtUserName.Text;
+            stf.dept_id = cboDept.SelectedItem == null ? "" : ((ComboBoxItem)cboDept.SelectedItem).Value;
+            stf.prefix_id = cboPrefix.SelectedItem == null ? "" :  ((ComboBoxItem)cboPrefix.SelectedItem).Value;
+            stf.posi_id = cboPosi.SelectedItem == null ? "" : ((ComboBoxItem)cboPosi.SelectedItem).Value;
+            stf.status_admin = chkAdmin.Checked ? "2" : "1";
+            stf.status_module_imp_job = chkImpJob.Checked ? "1" : "0";
+            stf.status_module_exp_job = chkExpJob.Checked ? "1" : "0";
+            stf.status_module_other_job = chkOtherJob.Checked ? "1" : "0";
             //stf.logo = txtLogo.Value.ToString();
             //txtCopCode.Value = xC.xtDB.copDB.cop.comp_id;
         }

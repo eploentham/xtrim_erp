@@ -91,11 +91,11 @@ namespace Xtrim_ERP.objdb
             cus.pkField = "cust_id";
 
             lCus = new List<Customer>();
-            getlCus();
+            //getlCus();
         }
         public void getlCus()
         {
-            //lDept = new List<Department>();
+            //lDept = new List<Position>();
 
             lCus.Clear();
             DataTable dt = new DataTable();

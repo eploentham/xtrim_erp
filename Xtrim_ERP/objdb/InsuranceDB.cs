@@ -98,7 +98,7 @@ namespace Xtrim_ERP.objdb
         }
         public void getlInsr()
         {
-            //lDept = new List<Department>();
+            //lDept = new List<Position>();
 
             lInsr.Clear();
             DataTable dt = new DataTable();

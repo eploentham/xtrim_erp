@@ -49,8 +49,16 @@ namespace Xtrim_ERP.objdb
             stf.user_cancel = "user_cancel";
             stf.pid = "pid";
             stf.logo = "logo";
-            stf.dept_id = "dept_id";
+            stf.posi_id = "posi_id";
+            stf.dept_name = "dept_name";
+            stf.prefix_name_t = "prefix_name_t";
+            stf.status_admin = "status_admin";
+            stf.status_module_imp_job = "status_module_imp_job";
+            stf.status_module_exp_job = "status_module_exp_job";
+            stf.status_module_other_job = "status_module_other_job";
+            stf.posi_name_t = "posi_name_t";
             stf.dept_name_t = "dept_name_t";
+            stf.dept_id = "dept_id";
 
             stf.table = "b_staff";
             stf.pkField = "staff_id";
@@ -59,7 +67,7 @@ namespace Xtrim_ERP.objdb
         }
         public void getlStf()
         {
-            //lDept = new List<Department>();
+            //lDept = new List<Position>();
 
             lStf.Clear();
             DataTable dt = new DataTable();
@@ -109,12 +117,8 @@ namespace Xtrim_ERP.objdb
             }
             return id;
         }
-        public String insert(Staff p)
+        private void chkNull(Staff p)
         {
-            String re = "";
-            String sql = "";
-            p.active = "1";
-            //p.ssdata_id = "";
             int chk = 0;
 
             p.date_modi = p.date_modi == null ? "" : p.date_modi;
@@ -123,9 +127,46 @@ namespace Xtrim_ERP.objdb
             p.user_modi = p.user_modi == null ? "" : p.user_modi;
             p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
             p.prefix_id = int.TryParse(p.prefix_id, out chk) ? chk.ToString() : "0";
-            p.dept_id = int.TryParse(p.dept_id, out chk) ? chk.ToString() : "0";
+            p.posi_id = int.TryParse(p.posi_id, out chk) ? chk.ToString() : "0";
+            //p.posi_id = int.TryParse(p.posi_id, out chk) ? chk.ToString() : "0";
 
+            p.staff_code = p.staff_code == null ? "" : p.staff_code;
+            p.username = p.username == null ? "" : p.username;
+            p.staff_fname_t = p.staff_fname_t == null ? "" : p.staff_fname_t;
+            p.staff_fname_e = p.staff_fname_e == null ? "" : p.staff_fname_e;
+            p.password1 = p.password1 == null ? "" : p.password1;
+            p.remark = p.remark == null ? "" : p.remark;
+            p.priority = p.priority == null ? "" : p.priority;
+            p.tele = p.tele == null ? "" : p.tele;
+            p.mobile = p.mobile == null ? "" : p.mobile;
+            p.fax = p.fax == null ? "" : p.fax;
+            p.email = p.email == null ? "" : p.email;
+            p.posi_name = p.posi_name == null ? "" : p.posi_name;
+            p.posi_id = p.posi_id == null ? "" : p.posi_id;
+            p.staff_lname_t = p.staff_lname_t == null ? "" : p.staff_lname_t;
+            p.staff_lname_e = p.staff_lname_e == null ? "" : p.staff_lname_e;
+            p.pid = p.pid == null ? "" : p.pid;
+            p.logo = p.logo == null ? "" : p.logo;
+            p.dept_name = p.dept_name == null ? "" : p.dept_name;
 
+            p.status_admin = p.status_admin == null ? "0" : p.status_admin;
+            p.status_module_imp_job = p.status_module_imp_job == null ? "0" : p.status_module_imp_job;
+            p.status_module_exp_job = p.status_module_exp_job == null ? "0" : p.status_module_exp_job;
+            p.status_admin = p.status_admin.Equals("") ? "0" : p.status_admin;
+            p.status_module_imp_job = p.status_module_imp_job.Equals("") ? "0" : p.status_module_imp_job;
+            p.status_module_exp_job = p.status_module_exp_job.Equals("") ? "0" : p.status_module_exp_job;
+            p.status_module_other_job = p.status_module_other_job.Equals("") ? "0" : p.status_module_other_job;
+            //p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
+        }
+        public String insert(Staff p)
+        {
+            String re = "";
+            String sql = "";
+            p.active = "1";
+            //p.ssdata_id = "";
+            int chk = 0;
+            
+            chkNull(p);
             sql = "Insert Into " + stf.table + "(" + stf.staff_code + "," + stf.username + "," + stf.prefix_id + "," +
                 stf.staff_fname_t + "," + stf.staff_fname_e + "," + stf.password1 + "," +
                 stf.active + "," + stf.remark + "," + stf.priority + "," +
@@ -134,7 +175,9 @@ namespace Xtrim_ERP.objdb
                 stf.date_create + "," + stf.date_modi + "," + stf.date_cancel + "," +
                 stf.user_create + "," + stf.user_modi + "," + stf.user_cancel + ","+
                 stf.staff_lname_t + "," + stf.staff_lname_e + ", " + stf.pid + ", " +
-                stf.logo + ", " + stf.dept_id + ", " + stf.dept_name_t + " " +
+                stf.logo + ", " + stf.posi_id + ", " + stf.dept_name + ", " +
+                stf.status_admin + ", " + stf.status_module_imp_job + ", " + stf.status_module_exp_job + ", " +
+                stf.status_module_other_job + " " +
                 ") " +
                 "Values ('" + p.staff_code + "','" + p.username + "','" + p.prefix_id + "'," +
                 "'" + p.staff_fname_t.Replace("'", "''") + "','" + p.staff_fname_e.Replace("'", "''") + "','" + p.password1 + "'," +
@@ -144,7 +187,9 @@ namespace Xtrim_ERP.objdb
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "', " +
                 "'" + p.staff_lname_t.Replace("'", "''") + "','" + p.staff_lname_e.Replace("'", "''") + "','" + p.pid + "', " +
-                "'" + p.logo+"','" + p.dept_id + "','" + p.dept_name_t.Replace("'", "''") + "' " +
+                "'" + p.logo+"','" + p.posi_id + "','" + p.dept_name.Replace("'", "''") + "', " +
+                "'" + p.status_admin + "','" + p.status_module_imp_job + "','" + p.status_module_exp_job.Replace("'", "''") + "', " +
+                "'" + p.status_module_other_job.Replace("'", "''") + "' " +
                 ")";
             try
             {
@@ -163,14 +208,7 @@ namespace Xtrim_ERP.objdb
             String sql = "";
             int chk = 0;
 
-            p.date_modi = p.date_modi == null ? "" : p.date_modi;
-            p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
-            p.user_create = p.user_create == null ? "" : p.user_create;
-            p.user_modi = p.user_modi == null ? "" : p.user_modi;
-            p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
-            p.prefix_id = int.TryParse(p.prefix_id, out chk) ? chk.ToString() : "0";
-            p.dept_id = int.TryParse(p.dept_id, out chk) ? chk.ToString() : "0";
-
+            chkNull(p);
             sql = "Update " + stf.table + " Set " +
                 " "+stf.staff_code + " = '" + p.staff_code + "'" +
                 "," + stf.username + " = '" + p.username.Replace("'","''") + "'" +
@@ -193,7 +231,11 @@ namespace Xtrim_ERP.objdb
                 "," + stf.logo + " = '" + p.logo + "' " +
                 "," + stf.user_modi + " = '" + p.user_modi + "' " +
                 "," + stf.dept_id + " = '" + p.dept_id + "' " +
-                "," + stf.dept_name_t + " = '" + p.dept_name_t.Replace("'", "''") + "' " +
+                "," + stf.dept_name + " = '" + p.dept_name.Replace("'", "''") + "' " +
+                "," + stf.status_admin + " = '" + p.status_admin.Replace("'", "''") + "' " +
+                "," + stf.status_module_imp_job + " = '" + p.status_module_imp_job.Replace("'", "''") + "' " +
+                "," + stf.status_module_exp_job + " = '" + p.status_module_exp_job.Replace("'", "''") + "' " +
+                "," + stf.status_module_other_job + " = '" + p.status_module_other_job.Replace("'", "''") + "' " +
                 "Where " + stf.pkField + "='" + p.staff_id + "'"
                 ;
 
@@ -231,6 +273,15 @@ namespace Xtrim_ERP.objdb
 
             return "";
         }
+        public String updatePassword(String stfId, String password1)
+        {
+            DataTable dt = new DataTable();
+            String sql = "Update " + stf.table+" Set "+stf.password1+"='"+password1+"' " +
+                "Where "+stf.pkField + "='"+stfId+"'";
+            conn.ExecuteNonQuery(conn.conn, sql);
+
+            return "";
+        }
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
@@ -245,8 +296,9 @@ namespace Xtrim_ERP.objdb
         public DataTable selectAll1()
         {
             DataTable dt = new DataTable();
-            String sql = "Select stf.staff_id, stf.staff_code, concat( stf.staff_fname_t, ' ' , stf.staff_lname_t) as name, stf.mobile, stf.email, stf.posi_name" +
-                ", stf.dept_name_t, stf.remark, stf.pid " +
+            String sql = "Select stf.staff_id, stf.staff_code, concat( stf.staff_fname_t, ' ' , stf.staff_lname_t) as name" +
+                ", stf.mobile, stf.email, stf.posi_name " +
+                ", stf.dept_name, stf.remark, stf.pid, '' as dept_name_t, '' as posi_name_t " +
                 "From " + stf.table + " stf " +
                 //"Left Join b_prefix pfx On stf.prefix_id = pfx.prefix_id " +
                 "Where stf." + stf.active + " ='1' ";
@@ -267,10 +319,53 @@ namespace Xtrim_ERP.objdb
         {
             Staff cop1 = new Staff();
             DataTable dt = new DataTable();
-            String sql = "select stf.* " +
+            String sql = "select stf.*, pfx.prefix_name_t, posi.posi_name_t, dept.dept_name_t " +
                 "From " + stf.table + " stf " +
-                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Left Join b_prefix pfx On stf.prefix_id = pfx.prefix_id " +
+                "Left Join b_position posi On stf.posi_id = posi.posi_id " +
+                "Left Join b_department dept On stf.dept_id = dept.dept_id " +
                 "Where stf." + stf.pkField + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            cop1 = setStaff(dt);
+            return cop1;
+        }
+        public Staff selectByUsername(String username)
+        {
+            Staff cop1 = new Staff();
+            DataTable dt = new DataTable();
+            String sql = "select stf.*, pfx.prefix_name_t, '' as dept_name_t, '' as posi_name_t " +
+                "From " + stf.table + " stf " +
+                "Left Join b_prefix pfx On stf.prefix_id = pfx.prefix_id " +
+                "Where stf." + stf.username + " ='" + username + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            cop1 = setStaff(dt);
+            return cop1;
+        }
+        public Staff selectByLogin(String username, String password1)
+        {
+            Staff cop1 = new Staff();
+            DataTable dt = new DataTable();
+            cop1 = setStaff1(cop1);
+            if (username == null)
+            {
+                return cop1;
+            }
+            if (password1 == null)
+            {
+                return cop1;
+            }
+            if (username.Equals(""))
+            {
+                return cop1;
+            }
+            if (password1.Equals(""))
+            {
+                return cop1;
+            }
+            String sql = "select stf.*, pfx.prefix_name_t, '' as dept_name_t, '' as posi_name_t " +
+                "From " + stf.table + " stf " +
+                "Left Join b_prefix pfx On stf.prefix_id = pfx.prefix_id " +
+                "Where stf." + stf.username + " ='" + username + "' and "+stf.password1+"='"+password1+"' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setStaff(dt);
             return cop1;
@@ -306,10 +401,58 @@ namespace Xtrim_ERP.objdb
                 stf1.user_cancel = dt.Rows[0][stf.user_cancel].ToString();
                 stf1.pid = dt.Rows[0][stf.pid].ToString();
                 stf1.logo = dt.Rows[0][stf.logo].ToString();
-                stf1.dept_id = dt.Rows[0][stf.dept_id].ToString();
-                stf1.dept_name_t = dt.Rows[0][stf.dept_name_t].ToString();
+                stf1.posi_id = dt.Rows[0][stf.posi_id].ToString();
+                stf1.dept_name = dt.Rows[0][stf.dept_name].ToString();
+                stf1.prefix_name_t = dt.Rows[0][stf.prefix_name_t].ToString();
+                stf1.status_admin = dt.Rows[0][stf.status_admin].ToString();
+                stf1.status_module_imp_job = dt.Rows[0][stf.status_module_imp_job].ToString();
+                stf1.status_module_exp_job = dt.Rows[0][stf.status_module_exp_job].ToString();
+                stf1.status_module_other_job = dt.Rows[0][stf.status_module_other_job].ToString();
+                stf1.posi_name = dt.Rows[0][stf.posi_name].ToString();
+                stf1.dept_name_t = dt.Rows[0][stf.dept_name_t] != null ? dt.Rows[0][stf.dept_name_t].ToString() : "";
+                stf1.posi_name_t = dt.Rows[0][stf.posi_name_t] != null ? dt.Rows[0][stf.posi_name_t].ToString() : "";
             }
-
+            else
+            {
+                setStaff1(stf1);
+            }
+            return stf1;
+        }
+        private Staff setStaff1(Staff stf1)
+        {
+            stf1.staff_id = "";
+            stf1.staff_code = "";
+            stf1.username = "";
+            stf1.prefix_id = "";
+            stf1.staff_fname_t = "";
+            stf1.staff_fname_e = "";
+            stf1.staff_lname_t = "";
+            stf1.staff_lname_e = "";
+            stf1.password1 = "";
+            stf1.active = "";
+            stf1.remark = "";
+            stf1.priority = "";
+            stf1.tele = "";
+            stf1.mobile = "";
+            stf1.fax = "";
+            stf1.email = "";
+            stf1.posi_id = "";
+            stf1.posi_name = "";
+            stf1.date_create = "";
+            stf1.date_modi = "";
+            stf1.date_cancel = "";
+            stf1.user_create = "";
+            stf1.user_modi = "";
+            stf1.user_cancel = "";
+            stf1.pid = "";
+            stf1.logo = "";
+            stf1.posi_id = "";
+            stf1.dept_name = "";
+            stf1.prefix_name_t = "";
+            stf1.status_admin = "0";
+            stf1.status_module_imp_job = "0";
+            stf1.status_module_exp_job = "0";
+            stf1.status_module_other_job = "0";
             return stf1;
         }
     }

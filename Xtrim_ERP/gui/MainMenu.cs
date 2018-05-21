@@ -26,7 +26,7 @@ namespace Xtrim_ERP.gui
             InitializeComponent();
             //MessageBox.Show("1111", "1111");
             xC = x;
-            Login login = new Login();
+            Login login = new Login(xC);
             login.ShowDialog(this);
             if (login.LogonSuccessful.Equals("1"))
             {

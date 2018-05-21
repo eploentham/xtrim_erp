@@ -127,6 +127,7 @@ namespace Xtrim_ERP.objdb
             ComboBoxItem item1 = new ComboBoxItem();
             item1.Text = "";
             item1.Value = "000";
+            c.Items.Clear();
             c.Items.Add(item1);
             //for (int i = 0; i < dt.Rows.Count; i++)
             foreach(DataRow row in dt.Rows)

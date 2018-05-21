@@ -27,6 +27,14 @@ namespace Xtrim_ERP.object1
         public String pid { get; set; }
         public String logo { get; set; }
         public String dept_id { get; set; }
+        public String dept_name { get; set; }
+        public String prefix_name_t { get; set; }
+        public String posi_name_t { get; set; }
         public String dept_name_t { get; set; }
+
+        public String status_admin { get; set; }
+        public String status_module_imp_job { get; set; }
+        public String status_module_exp_job { get; set; }
+        public String status_module_other_job { get; set; }
     }
 }

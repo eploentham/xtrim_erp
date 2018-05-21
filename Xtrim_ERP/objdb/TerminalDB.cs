@@ -51,7 +51,7 @@ namespace Xtrim_ERP.objdb
         }
         public void getlPol()
         {
-            //lDept = new List<Department>();
+            //lDept = new List<Position>();
 
             lTmn.Clear();
             DataTable dt = new DataTable();
@@ -124,7 +124,7 @@ namespace Xtrim_ERP.objdb
             p.user_modi = p.user_modi == null ? "" : p.user_modi;
             p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
             //p.prefix_id = int.TryParse(p.prefix_id, out chk) ? chk.ToString() : "0";
-            //p.dept_id = int.TryParse(p.dept_id, out chk) ? chk.ToString() : "0";
+            //p.posi_id = int.TryParse(p.posi_id, out chk) ? chk.ToString() : "0";
 
             sql = "Insert Into " + tmn.table + "(" + tmn.terminal_code + "," + tmn.terminal_name_e + "," + tmn.terminal_name_t + "," +
                 tmn.date_create + "," + tmn.date_modi + "," + tmn.date_cancel + "," +

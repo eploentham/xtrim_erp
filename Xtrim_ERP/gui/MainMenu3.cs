@@ -19,13 +19,23 @@ namespace Xtrim_ERP.gui
         private Point _imageLocation = new Point(13, 5);
         private Point _imgHitArea = new Point(13, 2);
         Image CloseImage;
-
+        Login login;
+        Boolean flagExit = false;
         public MainMenu3(XtrimControl x)
         {
             InitializeComponent();
             //MessageBox.Show("111111", "11111111");
             xC = x;
-            initConfig();
+            login = new Login(xC);
+            login.ShowDialog(this);
+            if (login.LogonSuccessful.Equals("1"))
+            {
+                initConfig();
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
         private void initConfig()
         {
@@ -36,9 +46,18 @@ namespace Xtrim_ERP.gui
 
         private void menuExit_Click(object sender, EventArgs e)
         {
+            appExit();
+        }
+        private Boolean appExit()
+        {
             if (MessageBox.Show("ต้องการออกจากโปรแกรม", "ออกจากโปรแกรม", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 Close();
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
         public void AddNewTab(Form frm, String label)
@@ -147,6 +166,10 @@ namespace Xtrim_ERP.gui
                     return true;
                 }
             }
+            else
+            {
+                //keyData
+            }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
@@ -170,6 +193,17 @@ namespace Xtrim_ERP.gui
             tC1.DrawMode = TabDrawMode.OwnerDrawFixed;
             CloseImage = (Image)Resources.rsz_close;
             tC1.Padding = new Point(10, 3);
+
+            if (!login.LogonSuccessful.Equals("1"))
+            {
+                menuImpJob.Enabled = false;
+                menuExpJob.Enabled = false;
+                menuInit.Enabled = false;
+
+                flagExit = true;
+                Application.Exit();
+            }
+            this.Text = "Last Update 2018-05-21";
         }
 
         private void menuTest_Click(object sender, EventArgs e)
@@ -236,5 +270,37 @@ namespace Xtrim_ERP.gui
             TabPage tab = new TabPage("dddddd");
             AddNewTab(frm, "Department");
         }
+        private void menuPosi_Click(object sender, EventArgs e)
+        {
+            FrmPosition frm = new FrmPosition(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            TabPage tab = new TabPage("dddddd");
+            AddNewTab(frm, "Position");
+        }
+        private void MainMenu3_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                if (!flagExit)
+                {
+                    if (MessageBox.Show("ต้องการออกจากโปรแกรม", "ออกจากโปรแกรม", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+                    {
+                        //Close();
+                        //return true;
+                    }
+                    else
+                    {
+                        e.Cancel = true;
+                    }
+                }
+                
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+        
     }
 }

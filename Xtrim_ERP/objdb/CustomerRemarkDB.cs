@@ -47,7 +47,7 @@ namespace Xtrim_ERP.objdb
         }
         public void getlAddr()
         {
-            //lDept = new List<Department>();
+            //lDept = new List<Position>();
 
             lAddrT.Clear();
             DataTable dt = new DataTable();

@@ -86,7 +86,7 @@ namespace Xtrim_ERP.objdb
             imp.pkField = "imp_id";
 
             lImp = new List<Importer>();
-            getlImp();
+            //getlImp();
         }
         public void setCboImp(ComboBox c, String selected)
         {
@@ -106,7 +106,7 @@ namespace Xtrim_ERP.objdb
         }
         public void getlImp()
         {
-            //lDept = new List<Department>();
+            //lDept = new List<Position>();
 
             lImp.Clear();
             DataTable dt = new DataTable();

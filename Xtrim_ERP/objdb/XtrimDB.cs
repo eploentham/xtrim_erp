@@ -47,6 +47,7 @@ namespace Xtrim_ERP.objdb
         public CustomerRemarkDB cusrDB;
         public CustomerTaxInvoiceDB custDB;
         public PrefixDB pfxDB;
+        public PositionDB posiDB;
 
         public XtrimDB(ConnectDB c)
         {
@@ -93,6 +94,7 @@ namespace Xtrim_ERP.objdb
             cusrDB = new CustomerRemarkDB(conn);
             custDB = new CustomerTaxInvoiceDB(conn);
             pfxDB = new PrefixDB(conn);
+            posiDB = new PositionDB(conn);
         }
     }
 }

@@ -103,6 +103,16 @@ namespace Xtrim_ERP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Accept_Male_User24 {
+            get {
+                object obj = ResourceManager.GetObject("Accept_Male_User24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ad24 {
             get {
                 object obj = ResourceManager.GetObject("ad24", resourceCulture);
@@ -146,6 +156,16 @@ namespace Xtrim_ERP.Properties {
         internal static System.Drawing.Bitmap download_database24 {
             get {
                 object obj = ResourceManager.GetObject("download_database24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Edit_Male_User24 {
+            get {
+                object obj = ResourceManager.GetObject("Edit_Male_User24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,9 +333,29 @@ namespace Xtrim_ERP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Male_User_Help24 {
+            get {
+                object obj = ResourceManager.GetObject("Male_User_Help24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Male_User_Help48 {
             get {
                 object obj = ResourceManager.GetObject("Male_User_Help48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Male_User_Warning24 {
+            get {
+                object obj = ResourceManager.GetObject("Male_User_Warning24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -426,6 +466,16 @@ namespace Xtrim_ERP.Properties {
         internal static System.Drawing.Bitmap Process_accept16 {
             get {
                 object obj = ResourceManager.GetObject("Process_accept16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prohibit24 {
+            get {
+                object obj = ResourceManager.GetObject("prohibit24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

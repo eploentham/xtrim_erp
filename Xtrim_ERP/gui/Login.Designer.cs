@@ -28,107 +28,158 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCancel = new C1.Win.C1Input.C1Button();
-            this.c1TextBox1 = new C1.Win.C1Input.C1TextBox();
-            this.c1TextBox2 = new C1.Win.C1Input.C1TextBox();
-            this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
+            this.theme1 = new C1.Win.C1Themes.C1ThemeController();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtUserName = new C1.Win.C1Input.C1TextBox();
             this.btnOk = new C1.Win.C1Input.C1Button();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
+            this.txtPassword = new C1.Win.C1Input.C1TextBox();
+            this.btnCancel = new C1.Win.C1Input.C1Button();
+            ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUserName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnCancel
+            // theme1
             // 
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Image = global::Xtrim_ERP.Properties.Resources.stop_red48;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.Location = new System.Drawing.Point(259, 213);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(116, 59);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.TabStop = false;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.theme1.Theme = "Windows8Gray";
             // 
-            // c1TextBox1
+            // panel1
             // 
-            this.c1TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1TextBox1.Location = new System.Drawing.Point(118, 58);
-            this.c1TextBox1.Name = "c1TextBox1";
-            this.c1TextBox1.Size = new System.Drawing.Size(171, 24);
-            this.c1TextBox1.TabIndex = 2;
-            this.c1TextBox1.Tag = null;
-            this.c1TextBox1.VisualStyle = C1.Win.C1Input.VisualStyle.Office2010Black;
-            this.c1TextBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Black;
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txtUserName);
+            this.panel1.Controls.Add(this.btnOk);
+            this.panel1.Controls.Add(this.txtPassword);
+            this.panel1.Controls.Add(this.btnCancel);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(341, 230);
+            this.panel1.TabIndex = 4;
+            this.theme1.SetTheme(this.panel1, "(default)");
             // 
-            // c1TextBox2
+            // label2
             // 
-            this.c1TextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
-            this.c1TextBox2.BorderColor = System.Drawing.SystemColors.WindowFrame;
-            this.c1TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1TextBox2.Location = new System.Drawing.Point(118, 114);
-            this.c1TextBox2.Name = "c1TextBox2";
-            this.c1TextBox2.Size = new System.Drawing.Size(171, 24);
-            this.c1TextBox2.TabIndex = 3;
-            this.c1TextBox2.Tag = null;
-            this.c1TextBox2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Black;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.label2.Location = new System.Drawing.Point(24, 86);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 16);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "password";
+            this.theme1.SetTheme(this.label2, "(default)");
             // 
-            // c1ThemeController1
+            // label1
             // 
-            this.c1ThemeController1.Theme = "Windows8Gray";
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
+            this.label1.Location = new System.Drawing.Point(24, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "user name";
+            this.theme1.SetTheme(this.label1, "(default)");
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserName.Location = new System.Drawing.Point(114, 23);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(171, 24);
+            this.txtUserName.TabIndex = 0;
+            this.txtUserName.Tag = null;
+            this.txtUserName.VisualStyle = C1.Win.C1Input.VisualStyle.Office2010Black;
+            this.txtUserName.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Black;
             // 
             // btnOk
             // 
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOk.Image = global::Xtrim_ERP.Properties.Resources.Male_User_Help48;
+            this.btnOk.Image = global::Xtrim_ERP.Properties.Resources.Male_User_Help24;
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(70, 213);
+            this.btnOk.Location = new System.Drawing.Point(31, 144);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(116, 59);
-            this.btnOk.TabIndex = 1;
+            this.btnOk.Size = new System.Drawing.Size(91, 39);
+            this.btnOk.TabIndex = 2;
             this.btnOk.Text = "Ok";
             this.btnOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
+            // txtPassword
+            // 
+            this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
+            this.txtPassword.BorderColor = System.Drawing.SystemColors.WindowFrame;
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(114, 79);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(171, 24);
+            this.txtPassword.TabIndex = 1;
+            this.txtPassword.Tag = null;
+            this.txtPassword.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Black;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Image = global::Xtrim_ERP.Properties.Resources.prohibit24;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(220, 144);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(91, 39);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnCancel, "(default)");
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(417, 323);
-            this.Controls.Add(this.c1TextBox2);
-            this.Controls.Add(this.c1TextBox1);
-            this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.btnCancel);
+            this.ClientSize = new System.Drawing.Size(341, 230);
+            this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.c1ThemeController1.SetTheme(this, "Windows8Gray");
+            this.theme1.SetTheme(this, "Windows8Gray");
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.Load += new System.EventHandler(this.Login_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUserName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private C1.Win.C1Input.C1Button btnCancel;
+        private C1.Win.C1Themes.C1ThemeController theme1;
+        private System.Windows.Forms.Panel panel1;
+        private C1.Win.C1Input.C1TextBox txtUserName;
         private C1.Win.C1Input.C1Button btnOk;
-        private C1.Win.C1Input.C1TextBox c1TextBox1;
-        private C1.Win.C1Input.C1TextBox c1TextBox2;
-        private C1.Win.C1Themes.C1ThemeController c1ThemeController1;
+        private C1.Win.C1Input.C1TextBox txtPassword;
+        private C1.Win.C1Input.C1Button btnCancel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

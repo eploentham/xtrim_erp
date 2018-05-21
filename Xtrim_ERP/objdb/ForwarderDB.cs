@@ -94,7 +94,7 @@ namespace Xtrim_ERP.objdb
 
             lFwd = new List<Forwarder>();
 
-            getlFwd();
+            //getlFwd();
         }
         public void setCboFwd(ComboBox c, String selected)
         {
@@ -114,7 +114,7 @@ namespace Xtrim_ERP.objdb
         }
         public void getlFwd()
         {
-            //lDept = new List<Department>();
+            //lDept = new List<Position>();
 
             lFwd.Clear();
             DataTable dt = new DataTable();

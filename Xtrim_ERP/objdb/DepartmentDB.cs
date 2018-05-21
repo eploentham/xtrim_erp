@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Xtrim_ERP.object1;
 
 namespace Xtrim_ERP.objdb
@@ -36,9 +37,10 @@ namespace Xtrim_ERP.objdb
             dept.user_modi = "user_modi";
             dept.user_cancel = "user_cancel";
             dept.active = "active";
+            dept.sort1 = "sort1";
 
             dept.table = "b_department";
-            dept.pkField = "depart_id";
+            dept.pkField = "dept_id";
 
             lDept = new List<Department>();
             getlDept();
@@ -143,7 +145,7 @@ namespace Xtrim_ERP.objdb
         }
         public void getlDept()
         {
-            //lDept = new List<Department>();
+            //lDept = new List<Position>();
 
             lDept.Clear();
             DataTable dt = new DataTable();
@@ -258,6 +260,38 @@ namespace Xtrim_ERP.objdb
             }
 
             return dept1;
+        }
+        public DataTable selectC1()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select dept." + dept.pkField + ",dept." + dept.depart_name_t + " " +
+                "From " + dept.table + " dept " +
+                " " +
+                "Where dept." + dept.active + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public ComboBox setCboDept(ComboBox c)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            DataTable dt = selectC1();
+            //String aaa = "";
+            ComboBoxItem item1 = new ComboBoxItem();
+            item1.Text = "";
+            item1.Value = "000";
+            c.Items.Clear();
+            c.Items.Add(item1);
+            //for (int i = 0; i < dt.Rows.Count; i++)
+            foreach (DataRow row in dt.Rows)
+            {
+                item = new ComboBoxItem();
+                item.Text = row[dept.depart_name_t].ToString();
+                item.Value = row[dept.dept_id].ToString();
+
+                c.Items.Add(item);
+            }
+            return c;
         }
     }
 }

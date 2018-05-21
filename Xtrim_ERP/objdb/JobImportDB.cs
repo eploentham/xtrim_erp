@@ -82,11 +82,11 @@ namespace Xtrim_ERP.objdb
             lJim1 = new List<JobImport>();
             lYear = new List<String>();
 
-            getlJim();
+            //getlJim();
         }
         public void getlJim()
         {
-            //lDept = new List<Department>();
+            //lDept = new List<Position>();
 
             lJim.Clear();
             DataTable dt = new DataTable();
@@ -297,7 +297,7 @@ namespace Xtrim_ERP.objdb
         }
         public Dictionary<string, string> getlJobYear()
         {
-            //lDept = new List<Department>();
+            //lDept = new List<Position>();
             Dictionary<string, string> comboSource = new Dictionary<string, string>();
             //comboSource.Add("1", "Sunday");
             //comboSource.Add("2", "Monday");

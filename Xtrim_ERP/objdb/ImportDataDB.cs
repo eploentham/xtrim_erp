@@ -1089,7 +1089,7 @@ namespace Xtrim_ERP.objdb
                 stf.pid = "";
                 stf.logo = "";
                 stf.dept_id = deptDB.getIdByName(row["DepartmentName"].ToString());
-                stf.dept_name_t = row["DepartmentName"].ToString();
+                stf.dept_name = row["DepartmentName"].ToString();
 
                 stfDB.insertStaff(stf);
             }
@@ -1127,7 +1127,7 @@ namespace Xtrim_ERP.objdb
                 stf.pid = "";
                 stf.logo = "";
                 stf.dept_id = "";
-                stf.dept_name_t = "";
+                stf.dept_name = "";
 
                 stfDB.insertStaff(stf);
             }
