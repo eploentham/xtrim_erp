@@ -146,7 +146,7 @@ namespace Xtrim_ERP.objdb
         public String VoidDepartment(String deptId)
         {
             DataTable dt = new DataTable();
-            String sql = "Update " + dept.table + " Set "+dept.active+"='3' " +
+            String sql = "Update " + dept.table + " Set "+dept.active+"='3', "+dept.date_cancel+"=now() " +
                 "Where "+dept.pkField+"='"+deptId+"'";
             conn.ExecuteNonQuery(conn.conn, sql);
             return "";

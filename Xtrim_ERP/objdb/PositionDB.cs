@@ -151,6 +151,15 @@ namespace Xtrim_ERP.objdb
 
             return "";
         }
+        public String VoidPosition(String posiId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "Update  " + posi.table+" Set "+posi.active +"='3', "+posi.date_cancel+"=now() " +
+                "Where "+posi.pkField+"='"+posiId+"'";
+            conn.ExecuteNonQuery(conn.conn, sql);
+
+            return "";
+        }
         public void getlPosi()
         {
             //lDept = new List<Position>();
