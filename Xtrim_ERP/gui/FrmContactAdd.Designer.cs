@@ -64,6 +64,7 @@
             this.txtCopCode = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
+            this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).BeginInit();
@@ -84,6 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCopCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
             this.SuspendLayout();
             // 
             // sB
@@ -104,6 +106,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtPasswordVoid);
             this.panel1.Controls.Add(this.chkVoid);
             this.panel1.Controls.Add(this.btnVoid);
             this.panel1.Controls.Add(this.panel2);
@@ -149,7 +152,7 @@
             this.chkVoid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkVoid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkVoid.Location = new System.Drawing.Point(467, 217);
+            this.chkVoid.Location = new System.Drawing.Point(467, 196);
             this.chkVoid.Name = "chkVoid";
             this.chkVoid.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkVoid.Size = new System.Drawing.Size(155, 24);
@@ -574,6 +577,21 @@
             // 
             this.theme1.Theme = "Office2013Red";
             // 
+            // txtPasswordVoid
+            // 
+            this.txtPasswordVoid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPasswordVoid.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPasswordVoid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPasswordVoid.Location = new System.Drawing.Point(467, 225);
+            this.txtPasswordVoid.Name = "txtPasswordVoid";
+            this.txtPasswordVoid.PasswordChar = '*';
+            this.txtPasswordVoid.Size = new System.Drawing.Size(78, 20);
+            this.txtPasswordVoid.TabIndex = 260;
+            this.txtPasswordVoid.Tag = null;
+            this.theme1.SetTheme(this.txtPasswordVoid, "(default)");
+            this.txtPasswordVoid.Visible = false;
+            this.txtPasswordVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // FrmContactAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -607,6 +625,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCopCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -650,5 +669,6 @@
         private System.Windows.Forms.Panel panel2;
         private C1.Win.C1Input.C1CheckBox chkVoid;
         private C1.Win.C1Input.C1Button btnVoid;
+        private C1.Win.C1Input.C1TextBox txtPasswordVoid;
     }
 }

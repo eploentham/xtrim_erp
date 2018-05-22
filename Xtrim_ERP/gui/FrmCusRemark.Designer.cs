@@ -30,6 +30,11 @@
         {
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.chkStatus4 = new System.Windows.Forms.RadioButton();
+            this.chkStatus3 = new System.Windows.Forms.RadioButton();
+            this.chkStatus2 = new System.Windows.Forms.RadioButton();
+            this.chkStatus1 = new System.Windows.Forms.RadioButton();
             this.chkVoid = new C1.Win.C1Input.C1CheckBox();
             this.btnVoid = new C1.Win.C1Input.C1Button();
             this.txtID = new C1.Win.C1Input.C1TextBox();
@@ -41,13 +46,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.chkStatus1 = new System.Windows.Forms.RadioButton();
-            this.chkStatus2 = new System.Windows.Forms.RadioButton();
-            this.chkStatus3 = new System.Windows.Forms.RadioButton();
-            this.chkStatus4 = new System.Windows.Forms.RadioButton();
+            this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
@@ -56,7 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).BeginInit();
             this.sB.SuspendLayout();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -66,6 +68,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.Controls.Add(this.txtPasswordVoid);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.chkVoid);
             this.panel2.Controls.Add(this.btnVoid);
@@ -84,6 +87,88 @@
             this.panel2.TabIndex = 3;
             this.theme1.SetTheme(this.panel2, "(default)");
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.chkStatus4);
+            this.panel1.Controls.Add(this.chkStatus3);
+            this.panel1.Controls.Add(this.chkStatus2);
+            this.panel1.Controls.Add(this.chkStatus1);
+            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel1.Location = new System.Drawing.Point(103, 176);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(549, 47);
+            this.panel1.TabIndex = 227;
+            this.theme1.SetTheme(this.panel1, "(default)");
+            // 
+            // chkStatus4
+            // 
+            this.chkStatus4.AutoSize = true;
+            this.chkStatus4.BackColor = System.Drawing.Color.Transparent;
+            this.chkStatus4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkStatus4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkStatus4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkStatus4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkStatus4.Location = new System.Drawing.Point(344, 13);
+            this.chkStatus4.Name = "chkStatus4";
+            this.chkStatus4.Size = new System.Drawing.Size(83, 17);
+            this.chkStatus4.TabIndex = 3;
+            this.chkStatus4.TabStop = true;
+            this.chkStatus4.Text = "ให้แสดงที่ ...";
+            this.theme1.SetTheme(this.chkStatus4, "(default)");
+            this.chkStatus4.UseVisualStyleBackColor = false;
+            // 
+            // chkStatus3
+            // 
+            this.chkStatus3.AutoSize = true;
+            this.chkStatus3.BackColor = System.Drawing.Color.Transparent;
+            this.chkStatus3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkStatus3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkStatus3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkStatus3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkStatus3.Location = new System.Drawing.Point(233, 13);
+            this.chkStatus3.Name = "chkStatus3";
+            this.chkStatus3.Size = new System.Drawing.Size(83, 17);
+            this.chkStatus3.TabIndex = 2;
+            this.chkStatus3.TabStop = true;
+            this.chkStatus3.Text = "ให้แสดงที่ ...";
+            this.theme1.SetTheme(this.chkStatus3, "(default)");
+            this.chkStatus3.UseVisualStyleBackColor = false;
+            // 
+            // chkStatus2
+            // 
+            this.chkStatus2.AutoSize = true;
+            this.chkStatus2.BackColor = System.Drawing.Color.Transparent;
+            this.chkStatus2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkStatus2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkStatus2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkStatus2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkStatus2.Location = new System.Drawing.Point(123, 13);
+            this.chkStatus2.Name = "chkStatus2";
+            this.chkStatus2.Size = new System.Drawing.Size(83, 17);
+            this.chkStatus2.TabIndex = 1;
+            this.chkStatus2.TabStop = true;
+            this.chkStatus2.Text = "ให้แสดงที่ ...";
+            this.theme1.SetTheme(this.chkStatus2, "(default)");
+            this.chkStatus2.UseVisualStyleBackColor = false;
+            // 
+            // chkStatus1
+            // 
+            this.chkStatus1.AutoSize = true;
+            this.chkStatus1.BackColor = System.Drawing.Color.Transparent;
+            this.chkStatus1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkStatus1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkStatus1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkStatus1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkStatus1.Location = new System.Drawing.Point(3, 13);
+            this.chkStatus1.Name = "chkStatus1";
+            this.chkStatus1.Size = new System.Drawing.Size(83, 17);
+            this.chkStatus1.TabIndex = 0;
+            this.chkStatus1.TabStop = true;
+            this.chkStatus1.Text = "ให้แสดงที่ ...";
+            this.theme1.SetTheme(this.chkStatus1, "(default)");
+            this.chkStatus1.UseVisualStyleBackColor = false;
+            // 
             // chkVoid
             // 
             this.chkVoid.BackColor = System.Drawing.Color.Transparent;
@@ -91,7 +176,7 @@
             this.chkVoid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkVoid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkVoid.Location = new System.Drawing.Point(215, 298);
+            this.chkVoid.Location = new System.Drawing.Point(375, 272);
             this.chkVoid.Name = "chkVoid";
             this.chkVoid.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkVoid.Size = new System.Drawing.Size(155, 24);
@@ -232,87 +317,20 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // panel1
+            // txtPasswordVoid
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel1.Controls.Add(this.chkStatus4);
-            this.panel1.Controls.Add(this.chkStatus3);
-            this.panel1.Controls.Add(this.chkStatus2);
-            this.panel1.Controls.Add(this.chkStatus1);
-            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel1.Location = new System.Drawing.Point(103, 176);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(549, 47);
-            this.panel1.TabIndex = 227;
-            this.theme1.SetTheme(this.panel1, "(default)");
-            // 
-            // chkStatus1
-            // 
-            this.chkStatus1.AutoSize = true;
-            this.chkStatus1.BackColor = System.Drawing.Color.Transparent;
-            this.chkStatus1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkStatus1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.chkStatus1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.chkStatus1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkStatus1.Location = new System.Drawing.Point(3, 13);
-            this.chkStatus1.Name = "chkStatus1";
-            this.chkStatus1.Size = new System.Drawing.Size(83, 17);
-            this.chkStatus1.TabIndex = 0;
-            this.chkStatus1.TabStop = true;
-            this.chkStatus1.Text = "ให้แสดงที่ ...";
-            this.theme1.SetTheme(this.chkStatus1, "(default)");
-            this.chkStatus1.UseVisualStyleBackColor = false;
-            // 
-            // chkStatus2
-            // 
-            this.chkStatus2.AutoSize = true;
-            this.chkStatus2.BackColor = System.Drawing.Color.Transparent;
-            this.chkStatus2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkStatus2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.chkStatus2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.chkStatus2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkStatus2.Location = new System.Drawing.Point(123, 13);
-            this.chkStatus2.Name = "chkStatus2";
-            this.chkStatus2.Size = new System.Drawing.Size(83, 17);
-            this.chkStatus2.TabIndex = 1;
-            this.chkStatus2.TabStop = true;
-            this.chkStatus2.Text = "ให้แสดงที่ ...";
-            this.theme1.SetTheme(this.chkStatus2, "(default)");
-            this.chkStatus2.UseVisualStyleBackColor = false;
-            // 
-            // chkStatus3
-            // 
-            this.chkStatus3.AutoSize = true;
-            this.chkStatus3.BackColor = System.Drawing.Color.Transparent;
-            this.chkStatus3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkStatus3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.chkStatus3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.chkStatus3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkStatus3.Location = new System.Drawing.Point(233, 13);
-            this.chkStatus3.Name = "chkStatus3";
-            this.chkStatus3.Size = new System.Drawing.Size(83, 17);
-            this.chkStatus3.TabIndex = 2;
-            this.chkStatus3.TabStop = true;
-            this.chkStatus3.Text = "ให้แสดงที่ ...";
-            this.theme1.SetTheme(this.chkStatus3, "(default)");
-            this.chkStatus3.UseVisualStyleBackColor = false;
-            // 
-            // chkStatus4
-            // 
-            this.chkStatus4.AutoSize = true;
-            this.chkStatus4.BackColor = System.Drawing.Color.Transparent;
-            this.chkStatus4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkStatus4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.chkStatus4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.chkStatus4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkStatus4.Location = new System.Drawing.Point(344, 13);
-            this.chkStatus4.Name = "chkStatus4";
-            this.chkStatus4.Size = new System.Drawing.Size(83, 17);
-            this.chkStatus4.TabIndex = 3;
-            this.chkStatus4.TabStop = true;
-            this.chkStatus4.Text = "ให้แสดงที่ ...";
-            this.theme1.SetTheme(this.chkStatus4, "(default)");
-            this.chkStatus4.UseVisualStyleBackColor = false;
+            this.txtPasswordVoid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPasswordVoid.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPasswordVoid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPasswordVoid.Location = new System.Drawing.Point(375, 302);
+            this.txtPasswordVoid.Name = "txtPasswordVoid";
+            this.txtPasswordVoid.PasswordChar = '*';
+            this.txtPasswordVoid.Size = new System.Drawing.Size(78, 20);
+            this.txtPasswordVoid.TabIndex = 262;
+            this.txtPasswordVoid.Tag = null;
+            this.theme1.SetTheme(this.txtPasswordVoid, "(default)");
+            this.txtPasswordVoid.Visible = false;
+            this.txtPasswordVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmCusRemark
             // 
@@ -328,6 +346,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
@@ -337,8 +357,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,5 +382,6 @@
         private System.Windows.Forms.RadioButton chkStatus3;
         private System.Windows.Forms.RadioButton chkStatus2;
         private System.Windows.Forms.RadioButton chkStatus1;
+        private C1.Win.C1Input.C1TextBox txtPasswordVoid;
     }
 }

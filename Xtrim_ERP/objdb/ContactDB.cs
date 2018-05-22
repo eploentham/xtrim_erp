@@ -243,6 +243,18 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
+        public String VoidContact(String contId, String userIdVoid)
+        {
+            DataTable dt = new DataTable();
+            String sql = "Update  " + cont.table + " Set " +
+                "" + cont.active + "='3' " +
+                "," + cont.date_cancel + "=now() " +
+                "," + cont.user_cancel + "='" + userIdVoid + "' " +
+                "Where " + cont.pkField + "='" + contId + "'";
+            conn.ExecuteNonQuery(conn.conn, sql);
+
+            return "1";
+        }
         private Contact setContact(DataTable dt)
         {
             Contact cont1 = new Contact();

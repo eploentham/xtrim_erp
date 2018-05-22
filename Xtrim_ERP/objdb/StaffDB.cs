@@ -158,7 +158,7 @@ namespace Xtrim_ERP.objdb
             p.status_module_other_job = p.status_module_other_job.Equals("") ? "0" : p.status_module_other_job;
             //p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
         }
-        public String insert(Staff p)
+        public String insert(Staff p, String userId)
         {
             String re = "";
             String sql = "";
@@ -185,7 +185,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.tele + "','" + p.mobile + "','" + p.fax + "'," +
                 "'" + p.email + "','" + p.posi_id + "','" + p.posi_name + "'," +
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "'," +
-                "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "', " +
+                "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "', " +
                 "'" + p.staff_lname_t.Replace("'", "''") + "','" + p.staff_lname_e.Replace("'", "''") + "','" + p.pid + "', " +
                 "'" + p.logo+"','" + p.posi_id + "','" + p.dept_name.Replace("'", "''") + "', " +
                 "'" + p.status_admin + "','" + p.status_module_imp_job + "','" + p.status_module_exp_job.Replace("'", "''") + "', " +
@@ -202,7 +202,7 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String update(Staff p)
+        public String update(Staff p, String userId)
         {
             String re = "";
             String sql = "";
@@ -229,7 +229,7 @@ namespace Xtrim_ERP.objdb
                 "," + stf.date_modi + " = now()" +
                 "," + stf.pid + " = '" + p.pid + "'" +
                 "," + stf.logo + " = '" + p.logo + "' " +
-                "," + stf.user_modi + " = '" + p.user_modi + "' " +
+                "," + stf.user_modi + " = '" + userId + "' " +
                 "," + stf.dept_id + " = '" + p.dept_id + "' " +
                 "," + stf.dept_name + " = '" + p.dept_name.Replace("'", "''") + "' " +
                 "," + stf.status_admin + " = '" + p.status_admin.Replace("'", "''") + "' " +
@@ -250,17 +250,17 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String insertStaff(Staff p)
+        public String insertStaff(Staff p, String userId)
         {
             String re = "";
 
             if (p.staff_id.Equals(""))
             {
-                re = insert(p);
+                re = insert(p,"");
             }
             else
             {
-                re = update(p);
+                re = update(p,"");
             }
 
             return re;
@@ -282,14 +282,17 @@ namespace Xtrim_ERP.objdb
 
             return "";
         }
-        public String VoidStaff(String stfId)
+        public String VoidStaff(String stfId, String userIdVoid)
         {
             DataTable dt = new DataTable();
-            String sql = "Update " + stf.table + " Set " + stf.active + "='3' " +
+            String sql = "Update " + stf.table + " Set " +
+                "" + stf.active + "='3'" +
+                "," + stf.date_cancel + "=now() " +
+                "," + stf.user_cancel + "='" + userIdVoid + "' " +
                 "Where " + stf.pkField + "='" + stfId + "'";
             conn.ExecuteNonQuery(conn.conn, sql);
 
-            return "";
+            return "1";
         }
         public DataTable selectAll()
         {
@@ -350,7 +353,7 @@ namespace Xtrim_ERP.objdb
             cop1 = setStaff(dt);
             return cop1;
         }
-        public Boolean selectByPasswordAdmin(String pass)
+        public String selectByPasswordAdmin(String pass)
         {
             Staff cop1 = new Staff();
             DataTable dt = new DataTable();
@@ -361,11 +364,11 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             if (dt.Rows.Count > 0)
             {
-                return true;
+                return dt.Rows[0][stf.staff_id].ToString();
             }
             else
             {
-                return false;
+                return "";
             }
         }
         public Staff selectByLogin(String username, String password1)

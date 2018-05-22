@@ -61,6 +61,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tC1 = new System.Windows.Forms.TabControl();
             this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
+            this.menuOtherJob = new System.Windows.Forms.ToolStripMenuItem();
+            this.openJobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newOtherJobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
@@ -73,6 +76,7 @@
             this.menuExit,
             this.menuImpJob,
             this.menuExpJob,
+            this.menuOtherJob,
             this.menuInit});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -133,13 +137,13 @@
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem5.Text = "Open Export Job";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(160, 22);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem6.Text = "New Export Job";
             // 
             // menuInit
@@ -320,6 +324,27 @@
             // 
             this.c1ThemeController1.Theme = "BeigeOne";
             // 
+            // menuOtherJob
+            // 
+            this.menuOtherJob.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openJobToolStripMenuItem,
+            this.newOtherJobToolStripMenuItem});
+            this.menuOtherJob.Name = "menuOtherJob";
+            this.menuOtherJob.Size = new System.Drawing.Size(70, 20);
+            this.menuOtherJob.Text = "Other Job";
+            // 
+            // openJobToolStripMenuItem
+            // 
+            this.openJobToolStripMenuItem.Name = "openJobToolStripMenuItem";
+            this.openJobToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openJobToolStripMenuItem.Text = "Open Other Job";
+            // 
+            // newOtherJobToolStripMenuItem
+            // 
+            this.newOtherJobToolStripMenuItem.Name = "newOtherJobToolStripMenuItem";
+            this.newOtherJobToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newOtherJobToolStripMenuItem.Text = "New Other Job";
+            // 
             // MainMenu3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -379,5 +404,8 @@
         private System.Windows.Forms.ToolStripMenuItem menuStf;
         private System.Windows.Forms.ToolStripMenuItem menuDept;
         private System.Windows.Forms.ToolStripMenuItem menuPosi;
+        private System.Windows.Forms.ToolStripMenuItem menuOtherJob;
+        private System.Windows.Forms.ToolStripMenuItem openJobToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newOtherJobToolStripMenuItem;
     }
 }

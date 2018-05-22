@@ -32,6 +32,10 @@
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTaxInvoiceNameE = new C1.Win.C1Input.C1TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtRemark = new C1.Win.C1Input.C1TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.chkVoid = new C1.Win.C1Input.C1CheckBox();
             this.btnVoid = new C1.Win.C1Input.C1Button();
             this.txtID = new C1.Win.C1Input.C1TextBox();
@@ -41,13 +45,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTaxInvoiceNameT = new C1.Win.C1Input.C1TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtRemark = new C1.Win.C1Input.C1TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtTaxInvoiceNameE = new C1.Win.C1Input.C1TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTaxInvoiceNameE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
@@ -55,8 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTaxId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTaxInvoiceNameT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTaxInvoiceNameE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
             this.SuspendLayout();
             // 
             // sB
@@ -84,6 +86,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.txtPasswordVoid);
             this.panel1.Controls.Add(this.txtTaxInvoiceNameE);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtRemark);
@@ -105,6 +108,58 @@
             this.panel1.TabIndex = 4;
             this.theme1.SetTheme(this.panel1, "(default)");
             // 
+            // txtTaxInvoiceNameE
+            // 
+            this.txtTaxInvoiceNameE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTaxInvoiceNameE.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtTaxInvoiceNameE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtTaxInvoiceNameE.Location = new System.Drawing.Point(116, 55);
+            this.txtTaxInvoiceNameE.Name = "txtTaxInvoiceNameE";
+            this.txtTaxInvoiceNameE.Size = new System.Drawing.Size(647, 20);
+            this.txtTaxInvoiceNameE.TabIndex = 239;
+            this.txtTaxInvoiceNameE.Tag = null;
+            this.theme1.SetTheme(this.txtTaxInvoiceNameE, "(default)");
+            this.txtTaxInvoiceNameE.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label3.Location = new System.Drawing.Point(6, 55);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(107, 16);
+            this.label3.TabIndex = 238;
+            this.label3.Text = "ชื่อผู้ออกใบกำกับภาษี :";
+            this.theme1.SetTheme(this.label3, "(default)");
+            // 
+            // txtRemark
+            // 
+            this.txtRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRemark.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtRemark.Location = new System.Drawing.Point(116, 107);
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Size = new System.Drawing.Size(647, 20);
+            this.txtRemark.TabIndex = 237;
+            this.txtRemark.Tag = null;
+            this.theme1.SetTheme(this.txtRemark, "(default)");
+            this.txtRemark.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label2.Location = new System.Drawing.Point(6, 109);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 16);
+            this.label2.TabIndex = 236;
+            this.label2.Text = "หมาบเหตุ :";
+            this.theme1.SetTheme(this.label2, "(default)");
+            // 
             // chkVoid
             // 
             this.chkVoid.BackColor = System.Drawing.Color.Transparent;
@@ -112,7 +167,7 @@
             this.chkVoid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkVoid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkVoid.Location = new System.Drawing.Point(205, 255);
+            this.chkVoid.Location = new System.Drawing.Point(361, 227);
             this.chkVoid.Name = "chkVoid";
             this.chkVoid.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkVoid.Size = new System.Drawing.Size(155, 24);
@@ -154,11 +209,14 @@
             // 
             // btnEdit
             // 
+            this.btnEdit.Image = global::Xtrim_ERP.Properties.Resources.lock24;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit.Location = new System.Drawing.Point(645, 197);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(118, 37);
+            this.btnEdit.Size = new System.Drawing.Size(83, 39);
             this.btnEdit.TabIndex = 232;
             this.btnEdit.Text = "แก้ไขช้อมูล";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.btnEdit, "(default)");
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -166,11 +224,14 @@
             // 
             // btnSave
             // 
+            this.btnSave.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(645, 240);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(118, 37);
+            this.btnSave.Size = new System.Drawing.Size(83, 39);
             this.btnSave.TabIndex = 231;
             this.btnSave.Text = "บันทึกช้อมูล";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.btnSave, "(default)");
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -228,57 +289,20 @@
             this.label8.Text = "ชื่อผู้ออกใบกำกับภาษี :";
             this.theme1.SetTheme(this.label8, "(default)");
             // 
-            // txtRemark
+            // txtPasswordVoid
             // 
-            this.txtRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRemark.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtRemark.Location = new System.Drawing.Point(116, 107);
-            this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(647, 20);
-            this.txtRemark.TabIndex = 237;
-            this.txtRemark.Tag = null;
-            this.theme1.SetTheme(this.txtRemark, "(default)");
-            this.txtRemark.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label2.Location = new System.Drawing.Point(6, 109);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 16);
-            this.label2.TabIndex = 236;
-            this.label2.Text = "หมาบเหตุ :";
-            this.theme1.SetTheme(this.label2, "(default)");
-            // 
-            // txtTaxInvoiceNameE
-            // 
-            this.txtTaxInvoiceNameE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTaxInvoiceNameE.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtTaxInvoiceNameE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtTaxInvoiceNameE.Location = new System.Drawing.Point(116, 55);
-            this.txtTaxInvoiceNameE.Name = "txtTaxInvoiceNameE";
-            this.txtTaxInvoiceNameE.Size = new System.Drawing.Size(647, 20);
-            this.txtTaxInvoiceNameE.TabIndex = 239;
-            this.txtTaxInvoiceNameE.Tag = null;
-            this.theme1.SetTheme(this.txtTaxInvoiceNameE, "(default)");
-            this.txtTaxInvoiceNameE.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label3.Location = new System.Drawing.Point(6, 55);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 16);
-            this.label3.TabIndex = 238;
-            this.label3.Text = "ชื่อผู้ออกใบกำกับภาษี :";
-            this.theme1.SetTheme(this.label3, "(default)");
+            this.txtPasswordVoid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPasswordVoid.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPasswordVoid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPasswordVoid.Location = new System.Drawing.Point(361, 257);
+            this.txtPasswordVoid.Name = "txtPasswordVoid";
+            this.txtPasswordVoid.PasswordChar = '*';
+            this.txtPasswordVoid.Size = new System.Drawing.Size(78, 20);
+            this.txtPasswordVoid.TabIndex = 263;
+            this.txtPasswordVoid.Tag = null;
+            this.theme1.SetTheme(this.txtPasswordVoid, "(default)");
+            this.txtPasswordVoid.Visible = false;
+            this.txtPasswordVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmCusTaxInvoice
             // 
@@ -295,6 +319,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTaxInvoiceNameE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
@@ -302,8 +328,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTaxId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTaxInvoiceNameT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTaxInvoiceNameE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,5 +353,6 @@
         private System.Windows.Forms.Label label3;
         private C1.Win.C1Input.C1TextBox txtRemark;
         private System.Windows.Forms.Label label2;
+        private C1.Win.C1Input.C1TextBox txtPasswordVoid;
     }
 }

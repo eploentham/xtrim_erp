@@ -45,7 +45,7 @@ namespace Xtrim_ERP.objdb
             lDept = new List<Department>();
             getlDept();
         }
-        public String insert(Department p)
+        public String insert(Department p, String userId)
         {
             String re = "";
             String sql = "";
@@ -69,7 +69,7 @@ namespace Xtrim_ERP.objdb
                 ") " +
                 "Values ('" + p.depart_code + "','" + p.depart_name_t.Replace("'", "''") + "','" + p.comp_id + "'," +
                 "'" + p.dept_parent_id + "','" + p.remark.Replace("'", "''") + "',now()," +
-                "'" + p.date_modi + "','" + p.date_cancel + "','" + p.user_create + "'," +
+                "'" + p.date_modi + "','" + p.date_cancel + "','" + userId + "'," +
                 "'" + p.user_modi + "','" + p.user_cancel + "','" + p.active  + "' " +
                 ")";
             try
@@ -83,7 +83,7 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String update(Department p)
+        public String update(Department p, String userId)
         {
             String re = "";
             String sql = "";
@@ -105,7 +105,7 @@ namespace Xtrim_ERP.objdb
                 "," + dept.dept_parent_id + " = '" + p.dept_parent_id + "'" +
                 "," + dept.remark + " = '" + p.remark.Replace("'", "''") + "'" +
                 "," + dept.date_modi + " = now()" +
-                "," + dept.user_modi + " = '" + p.user_modi + "'" +                
+                "," + dept.user_modi + " = '" + userId + "'" +                
                 "Where " + dept.pkField + "='" + p.dept_id + "'"
                 ;
 
@@ -120,17 +120,17 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String insertDepartment(Department p)
+        public String insertDepartment(Department p, String userId)
         {
             String re = "";
 
             if (p.dept_id.Equals(""))
             {
-                re = insert(p);
+                re = insert(p, userId);
             }
             else
             {
-                re = update(p);
+                re = update(p, userId);
             }
 
             return re;
@@ -143,13 +143,16 @@ namespace Xtrim_ERP.objdb
 
             return "";
         }
-        public String VoidDepartment(String deptId)
+        public String VoidDepartment(String deptId, String userIdVoid)
         {
             DataTable dt = new DataTable();
-            String sql = "Update " + dept.table + " Set "+dept.active+"='3', "+dept.date_cancel+"=now() " +
-                "Where "+dept.pkField+"='"+deptId+"'";
+            String sql = "Update " + dept.table + " Set " +
+                ""+dept.active+"='3' " +
+                ","+dept.date_cancel+"=now() " +
+                "," + dept.user_cancel + "='" + userIdVoid + "' " +
+                "Where " +dept.pkField+"='"+deptId+"'";
             conn.ExecuteNonQuery(conn.conn, sql);
-            return "";
+            return "1";
         }
         public void getlDept()
         {

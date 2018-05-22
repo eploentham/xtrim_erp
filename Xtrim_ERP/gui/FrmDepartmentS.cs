@@ -133,7 +133,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setDeptment();
-                String re = xC.xtDB.deptDB.insertDepartment(dept);
+                String re = xC.xtDB.deptDB.insertDepartment(dept, xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

@@ -1,4 +1,5 @@
 ﻿using C1.Win.C1Input;
+using C1.Win.C1SuperTooltip;
 using C1.Win.C1Themes;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,9 @@ namespace Xtrim_ERP.gui
         Color bg, fc;
         Font ff, ffB;
         Boolean flagEdit = false;
-
+        C1SuperTooltip stt;
+        C1SuperErrorProvider sep;
+        String userIdVoid = "";
         public FrmCusAddr(XtrimControl x)
         {
             InitializeComponent();
@@ -45,10 +48,28 @@ namespace Xtrim_ERP.gui
             bg = txtAddrT1.BackColor;
             fc = txtAddrT1.ForeColor;
             theme1.SetTheme(sB, "BeigeOne");
+            txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
+            chkVoid.Click += ChkVoid_Click;
+            btnVoid.Click += BtnVoid_Click;
+
             sB1.Text = "";
             addr = new Address();
-            setControlEnable(false);
+            if (xC.addrID.Equals(""))
+            {
+                flagEdit = true;
+            }
+            else
+            {
+                flagEdit = false;
+            }
+            setControlEnable(flagEdit);
+            btnVoid.Hide();
+            txtPasswordVoid.Hide();
+            stt = new C1SuperTooltip();
+            sep = new C1SuperErrorProvider();
+            stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
         }
+        
         private void textBox_Enter(object sender, EventArgs e)
         {
             C1TextBox a = (C1TextBox)sender;
@@ -176,7 +197,7 @@ namespace Xtrim_ERP.gui
             txtTimeOpen.Enabled = flag;
             txtTimeOpenOverTime.Enabled = flag;
             chkAddrDefaultCus.Enabled = flag;
-
+            chkVoid.Enabled = flag;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
         private void setControl()
@@ -208,7 +229,7 @@ namespace Xtrim_ERP.gui
             txtMap.Value = addr.google_map;
             txtRemark2.Value = addr.remark2;
             chkAddrDefaultCus.Checked = addr.status_defalut_customer.Equals("1") ? true : false;
-            btnMapView.Visible = addr.map_pic_path.Length > 0 ? true : false;
+            btnMapView.Visible = addr.map_pic_path != null ? true : false;
             txtOverTime.Value = addr.over_time;
             txtRateOverTime.Value = addr.rate_over_time;
             txtWeb3.Value = addr.web_site3;
@@ -267,7 +288,47 @@ namespace Xtrim_ERP.gui
             addr.over_time = txtOverTime.Text;
             addr.rate_over_time = txtRateOverTime.Text;
         }
-
+        private void ChkVoid_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (btnVoid.Visible)
+            {
+                btnVoid.Hide();
+            }
+            else
+            {
+                txtPasswordVoid.Show();
+                txtPasswordVoid.Focus();
+                stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> กรุณาป้อนรหัสผ่าน", txtPasswordVoid);
+            }
+        }
+        private void TxtPasswordVoid_KeyUp(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (e.KeyCode == Keys.Enter)
+            {
+                userIdVoid = xC.xtDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
+                if (userIdVoid.Length > 0)
+                {
+                    txtPasswordVoid.Hide();
+                    btnVoid.Show();
+                    stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> รหัสผ่านถูกต้อง", btnVoid);
+                }
+                else
+                {
+                    sep.SetError(txtPasswordVoid, "333");
+                }
+            }
+        }
+        private void BtnVoid_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                xC.xtDB.addrDB.VoidAddress(txtID.Text, userIdVoid);
+                this.Dispose();
+            }
+        }
         private void btnMap_Click(object sender, EventArgs e)
         {
             FrmCusMap frm = new FrmCusMap(xC);

@@ -198,10 +198,34 @@ namespace Xtrim_ERP.gui
             {
                 menuImpJob.Enabled = false;
                 menuExpJob.Enabled = false;
+                menuOtherJob.Enabled = false;
                 menuInit.Enabled = false;
 
                 flagExit = true;
                 Application.Exit();
+            }
+            else
+            {
+                menuImpJob.Enabled = false;
+                menuExpJob.Enabled = false;
+                menuOtherJob.Enabled = false;
+                menuInit.Enabled = false;
+                if (xC.user.status_module_imp_job.Equals("1"))
+                {
+                    menuImpJob.Enabled = true;
+                }
+                if (xC.user.status_module_exp_job.Equals("1"))
+                {
+                    menuExpJob.Enabled = true;
+                }
+                if (xC.user.status_module_other_job.Equals("1"))
+                {
+                    menuOtherJob.Enabled = true;
+                }
+                if (xC.user.status_admin.Equals("2"))
+                {
+                    menuInit.Enabled = true;
+                }
             }
             this.Text = "Last Update 2018-05-21";
         }

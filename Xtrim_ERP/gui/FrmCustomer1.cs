@@ -1,5 +1,6 @@
 ﻿using C1.Win.C1FlexGrid;
 using C1.Win.C1Input;
+using C1.Win.C1SuperTooltip;
 using C1.Win.C1Themes;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,10 @@ namespace Xtrim_ERP.gui
 
         Boolean flagNew = false;
         Boolean flagEdit = false;
+        C1SuperTooltip stt;
+        C1SuperErrorProvider sep;
+
+        String userIdVoid = "";
         public FrmCustomer1(XtrimControl x)
         {
             InitializeComponent();
@@ -78,6 +83,8 @@ namespace Xtrim_ERP.gui
             //btnAddrVoid.Hide();
             setControlNew();
             setFocusColor();
+            txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
+
             C1ThemeController.ApplicationTheme = xC.iniC.themeApplication;
             theme1.Theme = C1ThemeController.ApplicationTheme;
             theme1.SetTheme(txtCusCode, theme1.Theme);
@@ -109,7 +116,10 @@ namespace Xtrim_ERP.gui
             menuTax.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Tax_Cancel));
             grfTax.ContextMenu = menuTax;
 
-            
+            txtPasswordVoid.Hide();
+            stt = new C1SuperTooltip();
+            sep = new C1SuperErrorProvider();
+            stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
 
             //theme1.SetTheme(sB1, "BeigeOne");
         }
@@ -124,6 +134,7 @@ namespace Xtrim_ERP.gui
             xC.cusID = txtID.Text;
             FrmCusAddr frm = new FrmCusAddr(xC);
             frm.ShowDialog(this);
+            setGrfAddrH(txtID.Text);
         }
         private void ContextMenu_Addr_Edit(object sender, System.EventArgs e)
         {
@@ -136,6 +147,7 @@ namespace Xtrim_ERP.gui
             xC.cusID = txtID.Text;
             FrmCusAddr frm = new FrmCusAddr(xC);
             frm.ShowDialog(this);
+            setGrfAddrH(txtID.Text);
         }
         private void ContextMenu_Addr_Cancel(object sender, System.EventArgs e)
         {
@@ -165,6 +177,7 @@ namespace Xtrim_ERP.gui
             xC.cusID = txtID.Text;
             FrmContactAdd frm = new FrmContactAdd(xC,"0");
             frm.ShowDialog(this);
+            setGrfContH(txtID.Text);
         }
         private void ContextMenu_Cont_Cancel(object sender, System.EventArgs e)
         {
@@ -181,6 +194,7 @@ namespace Xtrim_ERP.gui
             xC.cusID = txtID.Text;
             FrmCusRemark frm = new FrmCusRemark(xC);
             frm.ShowDialog(this);
+            setGrfRmkH(txtID.Text);
         }
         private void ContextMenu_Rmk_Edit(object sender, System.EventArgs e)
         {
@@ -194,6 +208,7 @@ namespace Xtrim_ERP.gui
             xC.cusID = txtID.Text;
             FrmCusRemark frm = new FrmCusRemark(xC);
             frm.ShowDialog(this);
+            setGrfRmkH(txtID.Text);
         }
         private void ContextMenu_Rmk_Cancel(object sender, System.EventArgs e)
         {
@@ -210,6 +225,7 @@ namespace Xtrim_ERP.gui
             xC.cusID = txtID.Text;
             FrmCusTaxInvoice frm = new FrmCusTaxInvoice(xC);
             frm.ShowDialog(this);
+            setGrfTaxH(txtID.Text);
         }
         private void ContextMenu_Tax_Edit(object sender, System.EventArgs e)
         {
@@ -223,6 +239,7 @@ namespace Xtrim_ERP.gui
             xC.cusID = txtID.Text;
             FrmCusTaxInvoice frm = new FrmCusTaxInvoice(xC);
             frm.ShowDialog(this);
+            setGrfTaxH(txtID.Text);
         }
         private void ContextMenu_Tax_Cancel(object sender, System.EventArgs e)
         {
@@ -442,6 +459,32 @@ namespace Xtrim_ERP.gui
             chkFwd.Checked = false;
             chkExp.Checked = false;
         }
+        private void setFocus()
+        {
+            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusNameT.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusNameE.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtTaxId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtRemark.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+
+            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+
+        }
         private void btnNew_Click(object sender, EventArgs e)
         {
             flagNew = true;
@@ -503,16 +546,35 @@ namespace Xtrim_ERP.gui
 
         private void chkVoid_Click(object sender, EventArgs e)
         {
-            if (chkVoid.Checked)
-            {
-                btnVoid.Show();
-            }
-            else
+            if (btnVoid.Visible)
             {
                 btnVoid.Hide();
             }
+            else
+            {
+                txtPasswordVoid.Show();
+                txtPasswordVoid.Focus();
+                stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> กรุณาป้อนรหัสผ่าน", txtPasswordVoid);
+            }
         }
-
+        private void TxtPasswordVoid_KeyUp(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (e.KeyCode == Keys.Enter)
+            {
+                userIdVoid = xC.xtDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
+                if (userIdVoid.Length > 0)
+                {
+                    txtPasswordVoid.Hide();
+                    btnVoid.Show();
+                    stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> รหัสผ่านถูกต้อง", btnVoid);
+                }
+                else
+                {
+                    sep.SetError(txtPasswordVoid, "333");
+                }
+            }
+        }
         private void btnVoid_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("ต้องการยกเลิก รายการ", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
@@ -523,7 +585,7 @@ namespace Xtrim_ERP.gui
                 {
                     MessageBox.Show("ยกเลิก ข้อมูล เรียบร้อย", "");
                     setGrfCusH();
-                    setGrfAddrH();
+                    //setGrfAddrH();
                     chkVoid.Checked = false;
                 }
             }
@@ -831,19 +893,7 @@ namespace Xtrim_ERP.gui
         //    chkAddrDefaultCus.Checked = addr.status_defalut_customer.Equals("1") ? true : false;
         //    txtAddrTableId.Value = addr.table_id;
         //}
-
-        private void chkAddrVoid_Click(object sender, EventArgs e)
-        {
-            if (chkAddrVoid.Checked)
-            {
-                //btnAddrVoid.Show();
-            }
-            else
-            {
-                //btnAddrVoid.Hide();
-            }
-        }
-
+        
         private void setControlCus(String cusId)
         {
             if (cusId.Equals("")) return;
@@ -1161,6 +1211,7 @@ namespace Xtrim_ERP.gui
             txtContactTel1.Enabled = flag;
             txtContactTel2.Enabled = flag;
             groupBox1.Enabled = flag;
+            chkVoid.Enabled = flag;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
         private void grdFlex_LeaveCell(object sender, EventArgs e)

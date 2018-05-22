@@ -1034,7 +1034,7 @@ namespace Xtrim_ERP.objdb
                 dept.user_create = "";
                 dept.user_modi = "";
 
-                deptDB.insertDepartment(dept);
+                deptDB.insertDepartment(dept,"");
             }
             conn.CloseConnectionNoClose();
             pb1.Hide();
@@ -1091,7 +1091,7 @@ namespace Xtrim_ERP.objdb
                 stf.dept_id = deptDB.getIdByName(row["DepartmentName"].ToString());
                 stf.dept_name = row["DepartmentName"].ToString();
 
-                stfDB.insertStaff(stf);
+                stfDB.insertStaff(stf,"");
             }
 
             sql = "Select * from CS ";
@@ -1129,7 +1129,7 @@ namespace Xtrim_ERP.objdb
                 stf.dept_id = "";
                 stf.dept_name = "";
 
-                stfDB.insertStaff(stf);
+                stfDB.insertStaff(stf,"");
             }
 
             conn.CloseConnectionNoClose();

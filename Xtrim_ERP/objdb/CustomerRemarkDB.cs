@@ -201,6 +201,18 @@ namespace Xtrim_ERP.objdb
 
             return "";
         }
+        public String VoidRemark(String rmkId, String userId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "Update " + cusR.table+" Set " +
+                ""+cusR.active+"='3' " +
+                ","+cusR.date_cancel+"=now() " +
+                ","+cusR.user_cancel+" ='"+userId+"' " +
+                "Where "+cusR.pkField+"='"+rmkId+"'";
+            conn.ExecuteNonQuery(conn.conn, sql);
+
+            return "";
+        }
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();

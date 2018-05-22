@@ -1,4 +1,5 @@
 ﻿using C1.Win.C1Input;
+using C1.Win.C1SuperTooltip;
 using C1.Win.C1Themes;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,9 @@ namespace Xtrim_ERP.gui
         Color bg, fc;
         Font ff, ffB;
         Boolean flagEdit = false;
+        C1SuperTooltip stt;
+        C1SuperErrorProvider sep;
+        String userIdVoid = "";
         public FrmPositionS(XtrimControl x)
         {
             InitializeComponent();
@@ -48,13 +52,18 @@ namespace Xtrim_ERP.gui
             bg = txtPosiCode.BackColor;
             fc = txtPosiCode.ForeColor;
             ff = txtPosiCode.Font;
-
+            txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
+            
             //initGrfPosi();
             //setGrfPosi();
             setControlEnable(false);
             setFocusColor();
             sB1.Text = "";
             btnVoid.Hide();
+            txtPasswordVoid.Hide();
+            stt = new C1SuperTooltip();
+            sep = new C1SuperErrorProvider();
+            stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
         }
         private void textBox_Enter(object sender, EventArgs e)
         {
@@ -94,6 +103,8 @@ namespace Xtrim_ERP.gui
             txtPosiCode.Enabled = flag;
             txtPosiNameT.Enabled = flag;
             txtRemark.Enabled = flag;
+            chkVoid.Enabled = flag;
+            btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
         private void setDeptment()
         {
@@ -103,7 +114,24 @@ namespace Xtrim_ERP.gui
             //posi.posi_name_e = txtPosiNameE.Text;
             posi.remark = txtRemark.Text;
         }
-
+        private void TxtPasswordVoid_KeyUp(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (e.KeyCode == Keys.Enter)
+            {
+                userIdVoid = xC.xtDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
+                if (userIdVoid.Length > 0)
+                {
+                    txtPasswordVoid.Hide();
+                    btnVoid.Show();
+                    stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> รหัสผ่านถูกต้อง", btnVoid);
+                }
+                else
+                {
+                    sep.SetError(txtPasswordVoid, "333");
+                }
+            }
+        }
         private void btnNew_Click(object sender, EventArgs e)
         {
             txtID.Value = "";
@@ -123,7 +151,11 @@ namespace Xtrim_ERP.gui
 
         private void btnVoid_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                xC.xtDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
+                //setGrfPosi();
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -131,7 +163,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setDeptment();
-                String re = xC.xtDB.posiDB.insertPosition(posi);
+                String re = xC.xtDB.posiDB.insertPosition(posi,xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -155,7 +187,9 @@ namespace Xtrim_ERP.gui
             }
             else
             {
-                btnVoid.Show();
+                txtPasswordVoid.Show();
+                txtPasswordVoid.Focus();
+                stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> กรุณาป้อนรหัสผ่าน", txtPasswordVoid);
             }
         }
 

@@ -33,6 +33,7 @@ namespace Xtrim_ERP.gui
         Boolean flagEdit = false;
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
+        String userIdVoid = "";
         public FrmDepartment1(XtrimControl x)
         {
             InitializeComponent();
@@ -57,7 +58,7 @@ namespace Xtrim_ERP.gui
             bg = txtDeptCode.BackColor;
             fc = txtDeptCode.ForeColor;
             ff = txtDeptCode.Font;
-            btnVoid.KeyUp += BtnVoid_KeyUp;
+            
             txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
 
             initGrfDept();
@@ -175,7 +176,7 @@ namespace Xtrim_ERP.gui
         {
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                xC.xtDB.deptDB.VoidDepartment(txtID.Text);
+                xC.xtDB.deptDB.VoidDepartment(txtID.Text, userIdVoid);
                 setGrfDeptH();
             }
         }
@@ -233,22 +234,14 @@ namespace Xtrim_ERP.gui
             //    ((RowCollection)grfDept.Rows).Count = ((RowCollection)grfDept.Rows).Count + 1;
             //}
         }
-        private void BtnVoid_KeyUp(object sender, KeyEventArgs e)
-        {
-            //throw new NotImplementedException();
-            if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
-            {
-                xC.xtDB.deptDB.VoidDepartment(txtID.Text);
-                setGrfDeptH();
-            }
-        }
+        
         private void TxtPasswordVoid_KeyUp(object sender, KeyEventArgs e)
         {
             //throw new NotImplementedException();
             if (e.KeyCode == Keys.Enter)
             {
-                Boolean chk = xC.xtDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
-                if (chk)
+                userIdVoid = xC.xtDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
+                if (userIdVoid.Length>0)
                 {
                     txtPasswordVoid.Hide();
                     btnVoid.Show();
@@ -280,7 +273,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setDeptment();
-                String re = xC.xtDB.deptDB.insertDepartment(dept);
+                String re = xC.xtDB.deptDB.insertDepartment(dept, xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

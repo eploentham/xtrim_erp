@@ -30,6 +30,7 @@
         {
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
             this.txtMapPicPath = new C1.Win.C1Input.C1TextBox();
             this.c1Button5 = new C1.Win.C1Input.C1Button();
             this.txtWeb3 = new C1.Win.C1Input.C1TextBox();
@@ -108,6 +109,7 @@
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMapPicPath)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeb3)).BeginInit();
@@ -165,6 +167,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.txtPasswordVoid);
             this.panel1.Controls.Add(this.txtMapPicPath);
             this.panel1.Controls.Add(this.c1Button5);
             this.panel1.Controls.Add(this.txtWeb3);
@@ -247,6 +250,21 @@
             this.panel1.TabIndex = 3;
             this.theme1.SetTheme(this.panel1, "(default)");
             // 
+            // txtPasswordVoid
+            // 
+            this.txtPasswordVoid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPasswordVoid.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPasswordVoid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPasswordVoid.Location = new System.Drawing.Point(617, 226);
+            this.txtPasswordVoid.Name = "txtPasswordVoid";
+            this.txtPasswordVoid.PasswordChar = '*';
+            this.txtPasswordVoid.Size = new System.Drawing.Size(78, 20);
+            this.txtPasswordVoid.TabIndex = 261;
+            this.txtPasswordVoid.Tag = null;
+            this.theme1.SetTheme(this.txtPasswordVoid, "(default)");
+            this.txtPasswordVoid.Visible = false;
+            this.txtPasswordVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // txtMapPicPath
             // 
             this.txtMapPicPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -282,7 +300,7 @@
             this.txtWeb3.Location = new System.Drawing.Point(109, 435);
             this.txtWeb3.Name = "txtWeb3";
             this.txtWeb3.Size = new System.Drawing.Size(301, 20);
-            this.txtWeb3.TabIndex = 256;
+            this.txtWeb3.TabIndex = 15;
             this.txtWeb3.Tag = null;
             this.theme1.SetTheme(this.txtWeb3, "(default)");
             this.txtWeb3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -308,7 +326,7 @@
             this.txtOverTime.Location = new System.Drawing.Point(559, 383);
             this.txtOverTime.Name = "txtOverTime";
             this.txtOverTime.Size = new System.Drawing.Size(301, 20);
-            this.txtOverTime.TabIndex = 254;
+            this.txtOverTime.TabIndex = 24;
             this.txtOverTime.Tag = null;
             this.theme1.SetTheme(this.txtOverTime, "(default)");
             this.txtOverTime.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -334,7 +352,7 @@
             this.txtRateOverTime.Location = new System.Drawing.Point(559, 409);
             this.txtRateOverTime.Name = "txtRateOverTime";
             this.txtRateOverTime.Size = new System.Drawing.Size(301, 20);
-            this.txtRateOverTime.TabIndex = 252;
+            this.txtRateOverTime.TabIndex = 25;
             this.txtRateOverTime.Tag = null;
             this.theme1.SetTheme(this.txtRateOverTime, "(default)");
             this.txtRateOverTime.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -467,7 +485,7 @@
             this.txtTimeOpenOverTime.Location = new System.Drawing.Point(559, 356);
             this.txtTimeOpenOverTime.Name = "txtTimeOpenOverTime";
             this.txtTimeOpenOverTime.Size = new System.Drawing.Size(301, 20);
-            this.txtTimeOpenOverTime.TabIndex = 242;
+            this.txtTimeOpenOverTime.TabIndex = 23;
             this.txtTimeOpenOverTime.Tag = null;
             this.theme1.SetTheme(this.txtTimeOpenOverTime, "(default)");
             this.txtTimeOpenOverTime.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -493,7 +511,7 @@
             this.txtTimeOpen.Location = new System.Drawing.Point(559, 330);
             this.txtTimeOpen.Name = "txtTimeOpen";
             this.txtTimeOpen.Size = new System.Drawing.Size(301, 20);
-            this.txtTimeOpen.TabIndex = 240;
+            this.txtTimeOpen.TabIndex = 22;
             this.txtTimeOpen.Tag = null;
             this.theme1.SetTheme(this.txtTimeOpen, "(default)");
             this.txtTimeOpen.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -519,7 +537,7 @@
             this.txtWeb2.Location = new System.Drawing.Point(109, 409);
             this.txtWeb2.Name = "txtWeb2";
             this.txtWeb2.Size = new System.Drawing.Size(301, 20);
-            this.txtWeb2.TabIndex = 238;
+            this.txtWeb2.TabIndex = 14;
             this.txtWeb2.Tag = null;
             this.theme1.SetTheme(this.txtWeb2, "(default)");
             this.txtWeb2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -545,7 +563,7 @@
             this.txtWeb1.Location = new System.Drawing.Point(109, 383);
             this.txtWeb1.Name = "txtWeb1";
             this.txtWeb1.Size = new System.Drawing.Size(301, 20);
-            this.txtWeb1.TabIndex = 236;
+            this.txtWeb1.TabIndex = 13;
             this.txtWeb1.Tag = null;
             this.theme1.SetTheme(this.txtWeb1, "(default)");
             this.txtWeb1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -585,7 +603,7 @@
             this.txtMap.Location = new System.Drawing.Point(109, 330);
             this.txtMap.Name = "txtMap";
             this.txtMap.Size = new System.Drawing.Size(301, 20);
-            this.txtMap.TabIndex = 233;
+            this.txtMap.TabIndex = 12;
             this.txtMap.Tag = null;
             this.theme1.SetTheme(this.txtMap, "(default)");
             this.txtMap.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -611,7 +629,7 @@
             this.txtAddrName.Location = new System.Drawing.Point(109, 12);
             this.txtAddrName.Name = "txtAddrName";
             this.txtAddrName.Size = new System.Drawing.Size(301, 20);
-            this.txtAddrName.TabIndex = 231;
+            this.txtAddrName.TabIndex = 0;
             this.txtAddrName.Tag = null;
             this.theme1.SetTheme(this.txtAddrName, "(default)");
             this.txtAddrName.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -640,7 +658,7 @@
             this.c1CheckBox4.Name = "c1CheckBox4";
             this.c1CheckBox4.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.c1CheckBox4.Size = new System.Drawing.Size(155, 24);
-            this.c1CheckBox4.TabIndex = 229;
+            this.c1CheckBox4.TabIndex = 30;
             this.c1CheckBox4.Text = "ให้แสดงใน ...";
             this.theme1.SetTheme(this.c1CheckBox4, "(default)");
             this.c1CheckBox4.UseVisualStyleBackColor = true;
@@ -658,7 +676,7 @@
             this.c1CheckBox3.Name = "c1CheckBox3";
             this.c1CheckBox3.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.c1CheckBox3.Size = new System.Drawing.Size(155, 24);
-            this.c1CheckBox3.TabIndex = 228;
+            this.c1CheckBox3.TabIndex = 29;
             this.c1CheckBox3.Text = "ให้แสดงใน ...";
             this.theme1.SetTheme(this.c1CheckBox3, "(default)");
             this.c1CheckBox3.UseVisualStyleBackColor = true;
@@ -676,7 +694,7 @@
             this.c1CheckBox2.Name = "c1CheckBox2";
             this.c1CheckBox2.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.c1CheckBox2.Size = new System.Drawing.Size(155, 24);
-            this.c1CheckBox2.TabIndex = 227;
+            this.c1CheckBox2.TabIndex = 28;
             this.c1CheckBox2.Text = "ให้แสดงใน ...";
             this.theme1.SetTheme(this.c1CheckBox2, "(default)");
             this.c1CheckBox2.UseVisualStyleBackColor = true;
@@ -694,7 +712,7 @@
             this.c1CheckBox1.Name = "c1CheckBox1";
             this.c1CheckBox1.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.c1CheckBox1.Size = new System.Drawing.Size(155, 24);
-            this.c1CheckBox1.TabIndex = 226;
+            this.c1CheckBox1.TabIndex = 27;
             this.c1CheckBox1.Text = "ใช่เป็นที่อยู่ ออกใบกำกับภาษี";
             this.theme1.SetTheme(this.c1CheckBox1, "(default)");
             this.c1CheckBox1.UseVisualStyleBackColor = true;
@@ -712,7 +730,7 @@
             this.chkAddrDefaultCus.Name = "chkAddrDefaultCus";
             this.chkAddrDefaultCus.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkAddrDefaultCus.Size = new System.Drawing.Size(155, 24);
-            this.chkAddrDefaultCus.TabIndex = 225;
+            this.chkAddrDefaultCus.TabIndex = 26;
             this.chkAddrDefaultCus.Text = "ใช่เป็นที่อยู่ default บริษัท";
             this.theme1.SetTheme(this.chkAddrDefaultCus, "(default)");
             this.chkAddrDefaultCus.UseVisualStyleBackColor = true;
@@ -726,7 +744,7 @@
             this.chkVoid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkVoid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkVoid.Location = new System.Drawing.Point(500, 218);
+            this.chkVoid.Location = new System.Drawing.Point(617, 196);
             this.chkVoid.Name = "chkVoid";
             this.chkVoid.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkVoid.Size = new System.Drawing.Size(155, 24);
@@ -759,7 +777,7 @@
             this.btnSave.Location = new System.Drawing.Point(817, 118);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(83, 39);
-            this.btnSave.TabIndex = 221;
+            this.btnSave.TabIndex = 31;
             this.btnSave.Text = "บันทึกช้อมูล";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.btnSave, "(default)");
@@ -829,7 +847,7 @@
             this.txtContactTel2.Location = new System.Drawing.Point(545, 304);
             this.txtContactTel2.Name = "txtContactTel2";
             this.txtContactTel2.Size = new System.Drawing.Size(207, 20);
-            this.txtContactTel2.TabIndex = 217;
+            this.txtContactTel2.TabIndex = 21;
             this.txtContactTel2.Tag = null;
             this.theme1.SetTheme(this.txtContactTel2, "(default)");
             this.txtContactTel2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -855,7 +873,7 @@
             this.txtContactTel1.Location = new System.Drawing.Point(545, 278);
             this.txtContactTel1.Name = "txtContactTel1";
             this.txtContactTel1.Size = new System.Drawing.Size(207, 20);
-            this.txtContactTel1.TabIndex = 215;
+            this.txtContactTel1.TabIndex = 20;
             this.txtContactTel1.Tag = null;
             this.theme1.SetTheme(this.txtContactTel1, "(default)");
             this.txtContactTel1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -868,7 +886,7 @@
             this.txtAddrE4.Location = new System.Drawing.Point(530, 121);
             this.txtAddrE4.Name = "txtAddrE4";
             this.txtAddrE4.Size = new System.Drawing.Size(279, 20);
-            this.txtAddrE4.TabIndex = 214;
+            this.txtAddrE4.TabIndex = 19;
             this.txtAddrE4.Tag = null;
             this.theme1.SetTheme(this.txtAddrE4, "(default)");
             this.txtAddrE4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -894,7 +912,7 @@
             this.txtAddrE3.Location = new System.Drawing.Point(530, 95);
             this.txtAddrE3.Name = "txtAddrE3";
             this.txtAddrE3.Size = new System.Drawing.Size(279, 20);
-            this.txtAddrE3.TabIndex = 212;
+            this.txtAddrE3.TabIndex = 18;
             this.txtAddrE3.Tag = null;
             this.theme1.SetTheme(this.txtAddrE3, "(default)");
             this.txtAddrE3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -920,7 +938,7 @@
             this.txtAddrE2.Location = new System.Drawing.Point(530, 69);
             this.txtAddrE2.Name = "txtAddrE2";
             this.txtAddrE2.Size = new System.Drawing.Size(279, 20);
-            this.txtAddrE2.TabIndex = 210;
+            this.txtAddrE2.TabIndex = 17;
             this.txtAddrE2.Tag = null;
             this.theme1.SetTheme(this.txtAddrE2, "(default)");
             this.txtAddrE2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -946,7 +964,7 @@
             this.txtAddrE1.Location = new System.Drawing.Point(530, 43);
             this.txtAddrE1.Name = "txtAddrE1";
             this.txtAddrE1.Size = new System.Drawing.Size(279, 20);
-            this.txtAddrE1.TabIndex = 208;
+            this.txtAddrE1.TabIndex = 16;
             this.txtAddrE1.Tag = null;
             this.theme1.SetTheme(this.txtAddrE1, "(default)");
             this.txtAddrE1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -972,7 +990,7 @@
             this.txtRemark2.Location = new System.Drawing.Point(109, 252);
             this.txtRemark2.Name = "txtRemark2";
             this.txtRemark2.Size = new System.Drawing.Size(301, 20);
-            this.txtRemark2.TabIndex = 206;
+            this.txtRemark2.TabIndex = 9;
             this.txtRemark2.Tag = null;
             this.theme1.SetTheme(this.txtRemark2, "(default)");
             this.txtRemark2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -998,7 +1016,7 @@
             this.txtContactName2.Location = new System.Drawing.Point(109, 304);
             this.txtContactName2.Name = "txtContactName2";
             this.txtContactName2.Size = new System.Drawing.Size(301, 20);
-            this.txtContactName2.TabIndex = 204;
+            this.txtContactName2.TabIndex = 11;
             this.txtContactName2.Tag = null;
             this.theme1.SetTheme(this.txtContactName2, "(default)");
             this.txtContactName2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -1011,7 +1029,7 @@
             this.txtAddrT4.Location = new System.Drawing.Point(109, 121);
             this.txtAddrT4.Name = "txtAddrT4";
             this.txtAddrT4.Size = new System.Drawing.Size(301, 20);
-            this.txtAddrT4.TabIndex = 203;
+            this.txtAddrT4.TabIndex = 4;
             this.txtAddrT4.Tag = null;
             this.theme1.SetTheme(this.txtAddrT4, "(default)");
             this.txtAddrT4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -1037,7 +1055,7 @@
             this.txtAddrT3.Location = new System.Drawing.Point(109, 95);
             this.txtAddrT3.Name = "txtAddrT3";
             this.txtAddrT3.Size = new System.Drawing.Size(301, 20);
-            this.txtAddrT3.TabIndex = 201;
+            this.txtAddrT3.TabIndex = 3;
             this.txtAddrT3.Tag = null;
             this.theme1.SetTheme(this.txtAddrT3, "(default)");
             this.txtAddrT3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -1063,7 +1081,7 @@
             this.txtAddrT2.Location = new System.Drawing.Point(109, 69);
             this.txtAddrT2.Name = "txtAddrT2";
             this.txtAddrT2.Size = new System.Drawing.Size(301, 20);
-            this.txtAddrT2.TabIndex = 199;
+            this.txtAddrT2.TabIndex = 2;
             this.txtAddrT2.Tag = null;
             this.theme1.SetTheme(this.txtAddrT2, "(default)");
             this.txtAddrT2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -1089,7 +1107,7 @@
             this.txtAddrT1.Location = new System.Drawing.Point(109, 43);
             this.txtAddrT1.Name = "txtAddrT1";
             this.txtAddrT1.Size = new System.Drawing.Size(301, 20);
-            this.txtAddrT1.TabIndex = 197;
+            this.txtAddrT1.TabIndex = 1;
             this.txtAddrT1.Tag = null;
             this.theme1.SetTheme(this.txtAddrT1, "(default)");
             this.txtAddrT1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -1115,7 +1133,7 @@
             this.txtRemark.Location = new System.Drawing.Point(109, 226);
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(301, 20);
-            this.txtRemark.TabIndex = 195;
+            this.txtRemark.TabIndex = 8;
             this.txtRemark.Tag = null;
             this.theme1.SetTheme(this.txtRemark, "(default)");
             this.txtRemark.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -1141,7 +1159,7 @@
             this.txtEmail.Location = new System.Drawing.Point(109, 200);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(301, 20);
-            this.txtEmail.TabIndex = 193;
+            this.txtEmail.TabIndex = 7;
             this.txtEmail.Tag = null;
             this.theme1.SetTheme(this.txtEmail, "(default)");
             this.txtEmail.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -1180,7 +1198,7 @@
             this.txtFax.Location = new System.Drawing.Point(109, 174);
             this.txtFax.Name = "txtFax";
             this.txtFax.Size = new System.Drawing.Size(301, 20);
-            this.txtFax.TabIndex = 190;
+            this.txtFax.TabIndex = 6;
             this.txtFax.Tag = null;
             this.theme1.SetTheme(this.txtFax, "(default)");
             this.txtFax.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -1206,7 +1224,7 @@
             this.txtContactName1.Location = new System.Drawing.Point(109, 278);
             this.txtContactName1.Name = "txtContactName1";
             this.txtContactName1.Size = new System.Drawing.Size(301, 20);
-            this.txtContactName1.TabIndex = 188;
+            this.txtContactName1.TabIndex = 10;
             this.txtContactName1.Tag = null;
             this.theme1.SetTheme(this.txtContactName1, "(default)");
             this.txtContactName1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -1232,7 +1250,7 @@
             this.txtTele.Location = new System.Drawing.Point(109, 148);
             this.txtTele.Name = "txtTele";
             this.txtTele.Size = new System.Drawing.Size(301, 20);
-            this.txtTele.TabIndex = 186;
+            this.txtTele.TabIndex = 5;
             this.txtTele.Tag = null;
             this.theme1.SetTheme(this.txtTele, "(default)");
             this.txtTele.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
@@ -1284,6 +1302,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMapPicPath)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeb3)).EndInit();
@@ -1418,5 +1437,6 @@
         private C1.Win.C1Input.C1TextBox txtWeb3;
         private System.Windows.Forms.Label label19;
         private C1.Win.C1Input.C1TextBox txtMapPicPath;
+        private C1.Win.C1Input.C1TextBox txtPasswordVoid;
     }
 }

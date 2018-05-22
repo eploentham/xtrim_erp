@@ -82,6 +82,8 @@ namespace Xtrim_ERP.gui
             stf = xC.xtDB.stfDB.selectByLogin(txtUserName.Text, txtPassword.Text);
             if (stf.staff_fname_t.Length > 0)
             {
+                xC.userId = stf.staff_id;
+                xC.user = stf;
                 LogonSuccessful = "1";
                 this.Dispose();
             }

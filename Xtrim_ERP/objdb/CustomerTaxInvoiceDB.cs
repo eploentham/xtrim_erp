@@ -191,6 +191,18 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
+        public String VoidTaxInvoice(String cusTId, String userId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "Update " + cusT.table + " Set " +
+                "" + cusT.active + "='3' " +
+                "," + cusT.date_cancel + "=now() " +
+                "," + cusT.user_cancel + " ='" + userId + "' " +
+                "Where " + cusT.pkField + "='" + cusTId + "'";
+            conn.ExecuteNonQuery(conn.conn, sql);
+
+            return "";
+        }
         public String deleteAll()
         {
             DataTable dt = new DataTable();

@@ -25,6 +25,7 @@ namespace Xtrim_ERP.control
 
         public XtrimDB xtDB;
 
+        public String userId="";
         public String copID = "", jobID="", cusID="",addrID="", contID="", cusrID="", custID="", stfID="", deptID="", posiID="";
         public String rContactName = "", rContacTel = "", rContID="";
 
@@ -38,6 +39,7 @@ namespace Xtrim_ERP.control
         public UnitPackage sUtp;
         public Terminal sTmn;
         public LogFile lf;
+        public Staff user;
 
         public Color cTxtFocus;
 
@@ -68,7 +70,8 @@ namespace Xtrim_ERP.control
                 appName = Environment.CurrentDirectory + "\\" + Application.ProductName + ".ini";
             }
             iniF = new IniFile(appName);
-            iniC = new InitConfig();            
+            iniC = new InitConfig();
+            user = new Staff();
 
             GetConfig();
             conn = new ConnectDB(iniC);

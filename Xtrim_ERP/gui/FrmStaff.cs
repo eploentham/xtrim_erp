@@ -34,6 +34,7 @@ namespace Xtrim_ERP.gui
         Boolean flagEdit = false;
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
+        String userIdVoid = "";
         public FrmStaff(XtrimControl x)
         {
             InitializeComponent();
@@ -233,8 +234,8 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             if (e.KeyCode == Keys.Enter)
             {
-                Boolean chk = xC.xtDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
-                if (chk)
+                userIdVoid = xC.xtDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
+                if (userIdVoid.Length>0)
                 {
                     txtPasswordVoid.Hide();
                     btnVoid.Show();
@@ -316,7 +317,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setStaff();
-                String re = xC.xtDB.stfDB.insertStaff(stf);
+                String re = xC.xtDB.stfDB.insertStaff(stf,xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -336,7 +337,7 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                xC.xtDB.stfDB.VoidStaff(txtID.Text);
+                xC.xtDB.stfDB.VoidStaff(txtID.Text, userIdVoid);
                 setGrfStfH();
             }
         }

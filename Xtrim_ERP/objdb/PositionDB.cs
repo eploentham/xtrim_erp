@@ -45,7 +45,7 @@ namespace Xtrim_ERP.objdb
             lDept = new List<Position>();
             getlPosi();
         }
-        public String insert(Position p)
+        public String insert(Position p, String userId)
         {
             String re = "";
             String sql = "";
@@ -73,7 +73,7 @@ namespace Xtrim_ERP.objdb
                 ") " +
                 "Values ('" + p.posi_code + "','" + p.posi_name_t.Replace("'", "''") + "','" + p.posi_name_e + "'," +
                 "'" + p.sort1 + "','" + p.remark.Replace("'", "''") + "',now()," +
-                "'" + p.date_modi + "','" + p.date_cancel + "','" + p.user_create + "'," +
+                "'" + p.date_modi + "','" + p.date_cancel + "','" + userId + "'," +
                 "'" + p.user_modi + "','" + p.user_cancel + "','" + p.active + "' " +
                 ")";
             try
@@ -87,7 +87,7 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String update(Position p)
+        public String update(Position p, String userId)
         {
             String re = "";
             String sql = "";
@@ -113,7 +113,7 @@ namespace Xtrim_ERP.objdb
                 //"," + posi.dept_parent_id + " = '" + p.dept_parent_id + "'" +
                 "," + posi.remark + " = '" + p.remark.Replace("'", "''") + "'" +
                 "," + posi.date_modi + " = now()" +
-                "," + posi.user_modi + " = '" + p.user_modi + "'" +
+                "," + posi.user_modi + " = '" + userId + "'" +
                 "Where " + posi.pkField + "='" + p.posi_id + "'"
                 ;
 
@@ -128,17 +128,17 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String insertPosition(Position p)
+        public String insertPosition(Position p, String userId)
         {
             String re = "";
 
             if (p.posi_id.Equals(""))
             {
-                re = insert(p);
+                re = insert(p, userId);
             }
             else
             {
-                re = update(p);
+                re = update(p, userId);
             }
 
             return re;
@@ -151,14 +151,17 @@ namespace Xtrim_ERP.objdb
 
             return "";
         }
-        public String VoidPosition(String posiId)
+        public String VoidPosition(String posiId, String userIdVoid)
         {
             DataTable dt = new DataTable();
-            String sql = "Update  " + posi.table+" Set "+posi.active +"='3', "+posi.date_cancel+"=now() " +
+            String sql = "Update  " + posi.table+" Set " +
+                ""+posi.active +"='3' " +
+                ","+posi.date_cancel+"=now() " +
+                ","+ posi.user_cancel+"='"+ userIdVoid+"' " +
                 "Where "+posi.pkField+"='"+posiId+"'";
             conn.ExecuteNonQuery(conn.conn, sql);
 
-            return "";
+            return "1";
         }
         public void getlPosi()
         {

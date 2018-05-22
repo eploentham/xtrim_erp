@@ -44,6 +44,7 @@
             this.txtID = new C1.Win.C1Input.C1TextBox();
             this.txtPosiCode = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -56,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPosiNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPosiCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
             this.SuspendLayout();
             // 
             // sB
@@ -81,6 +83,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.txtPasswordVoid);
             this.panel1.Controls.Add(this.btnNew);
             this.panel1.Controls.Add(this.chkVoid);
             this.panel1.Controls.Add(this.btnVoid);
@@ -272,6 +275,21 @@
             this.label1.Text = "รหัส :";
             this.theme1.SetTheme(this.label1, "(default)");
             // 
+            // txtPasswordVoid
+            // 
+            this.txtPasswordVoid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPasswordVoid.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPasswordVoid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPasswordVoid.Location = new System.Drawing.Point(255, 152);
+            this.txtPasswordVoid.Name = "txtPasswordVoid";
+            this.txtPasswordVoid.PasswordChar = '*';
+            this.txtPasswordVoid.Size = new System.Drawing.Size(78, 20);
+            this.txtPasswordVoid.TabIndex = 260;
+            this.txtPasswordVoid.Tag = null;
+            this.theme1.SetTheme(this.txtPasswordVoid, "(default)");
+            this.txtPasswordVoid.Visible = false;
+            this.txtPasswordVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // FrmPositionS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,6 +314,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPosiNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPosiCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,5 +338,6 @@
         private C1.Win.C1Input.C1TextBox txtID;
         private C1.Win.C1Input.C1TextBox txtPosiCode;
         private System.Windows.Forms.Label label1;
+        private C1.Win.C1Input.C1TextBox txtPasswordVoid;
     }
 }

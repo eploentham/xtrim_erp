@@ -408,6 +408,18 @@ namespace Xtrim_ERP.objdb
 
             return "";
         }
+        public String VoidAddress(String addrId, String userId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "Update " + addr.table+" Set " +
+                ""+addr.active + "='3' " +
+                ","+addr.date_cancel+"=now() " +
+                ","+addr.user_cancel+" ='"+userId+"' " +
+                "Where "+addr.pkField+"='"+addrId+"'";
+            conn.ExecuteNonQuery(conn.conn, sql);
+
+            return "1";
+        }
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
