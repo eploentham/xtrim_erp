@@ -86,6 +86,7 @@
     <Reference Include="C1.Win.C1Ribbon.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1SuperTooltip.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Themes.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=594a0605db190bb9, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.Calendar.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.FlexChart.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=3aa2920c09e0aefd" />
     <Reference Include="C1.Win.FlexReport.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.FlexViewer.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
@@ -98,10 +99,6 @@
     <Reference Include="Google.Maps, Version=0.22.213.0, Culture=neutral, PublicKeyToken=4aa992bb5d22d4ff, processorArchitecture=MSIL">
       <HintPath>..\packages\gmaps-api-net.0.22.0\lib\net461\Google.Maps.dll</HintPath>
     </Reference>
-    <Reference Include="GrapeCity.CalcEngine, Version=11.45.20181.0, Culture=neutral, PublicKeyToken=327c3516b1b18457" />
-    <Reference Include="GrapeCity.Spreadsheet, Version=11.45.20181.0, Culture=neutral, PublicKeyToken=327c3516b1b18457" />
-    <Reference Include="GrapeCity.Spreadsheet.Win, Version=11.45.20181.0, Culture=neutral, PublicKeyToken=327c3516b1b18457" />
-    <Reference Include="GrapeCity.Win.PluginInputMan, Version=11.45.20181.0, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -344,6 +341,7 @@
     <Compile Include="objdb\ExpensesDB.cs" />
     <Compile Include="objdb\JobImportContDB.cs" />
     <Compile Include="objdb\JobImportExpnDB.cs" />
+    <Compile Include="objdb\MeiosysDB.cs" />
     <Compile Include="objdb\MethodPaymentDB.cs" />
     <Compile Include="objdb\PositionDB.cs" />
     <Compile Include="objdb\PrefixDB.cs" />
