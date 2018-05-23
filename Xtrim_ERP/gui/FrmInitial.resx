@@ -117,13 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="c1CommandHolder1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="sB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>243, 17</value>
   </metadata>
-  <metadata name="c1FlexReport1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>181, 17</value>
+  <metadata name="theme1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>307, 17</value>
   </metadata>
-  <data name="c1FlexReport1.ReportDefinition" xml:space="preserve">
-    <value>&lt;Report ref="1"&gt;&lt;DataSourceName&gt;Main&lt;/DataSourceName&gt;&lt;Layout /&gt;&lt;DataSources&gt;&lt;DataSource&gt;&lt;Name&gt;Main&lt;/Name&gt;&lt;/DataSource&gt;&lt;/DataSources&gt;&lt;Sections&gt;&lt;Section&gt;&lt;Name&gt;Detail&lt;/Name&gt;&lt;SubSections&gt;&lt;SubSection /&gt;&lt;/SubSections&gt;&lt;Type&gt;Detail&lt;/Type&gt;&lt;Visible&gt;false&lt;/Visible&gt;&lt;/Section&gt;&lt;Section&gt;&lt;Name&gt;Header&lt;/Name&gt;&lt;SubSections&gt;&lt;SubSection /&gt;&lt;/SubSections&gt;&lt;Type&gt;Header&lt;/Type&gt;&lt;Visible&gt;false&lt;/Visible&gt;&lt;/Section&gt;&lt;Section&gt;&lt;Name&gt;Footer&lt;/Name&gt;&lt;SubSections&gt;&lt;SubSection /&gt;&lt;/SubSections&gt;&lt;Type&gt;Footer&lt;/Type&gt;&lt;Visible&gt;false&lt;/Visible&gt;&lt;/Section&gt;&lt;Section&gt;&lt;Name&gt;PageHeader&lt;/Name&gt;&lt;SubSections&gt;&lt;SubSection /&gt;&lt;/SubSections&gt;&lt;Type&gt;PageHeader&lt;/Type&gt;&lt;Visible&gt;false&lt;/Visible&gt;&lt;/Section&gt;&lt;Section&gt;&lt;Name&gt;PageFooter&lt;/Name&gt;&lt;SubSections&gt;&lt;SubSection /&gt;&lt;/SubSections&gt;&lt;Type&gt;PageFooter&lt;/Type&gt;&lt;Visible&gt;false&lt;/Visible&gt;&lt;/Section&gt;&lt;/Sections&gt;&lt;/Report&gt;</value>
-  </data>
+  <metadata name="theme1.ApplicationTheme" xml:space="preserve">
+    <value>ExpressionDark</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>62</value>
+  </metadata>
 </root>

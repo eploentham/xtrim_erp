@@ -85,6 +85,8 @@ namespace Xtrim_ERP.gui
             setFocusColor();
             setFocus();
             txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
+            txtTaxId.KeyPress += TxtTaxId_KeyPress;
+            btnChkTaxId.Click += BtnChkTaxId_Click;
 
             C1ThemeController.ApplicationTheme = xC.iniC.themeApplication;
             theme1.Theme = C1ThemeController.ApplicationTheme;
@@ -124,6 +126,7 @@ namespace Xtrim_ERP.gui
 
             //theme1.SetTheme(sB1, "BeigeOne");
         }
+        
         private void ContextMenu_Addr_new(object sender, System.EventArgs e)
         {
             if (txtID.Text.Equals(""))
@@ -490,6 +493,7 @@ namespace Xtrim_ERP.gui
         {
             if (e.KeyCode == Keys.Enter)
             {
+                sep.Clear();
                 if (((C1TextBox)sender).Name.Equals("txtCusCode"))
                 {
                     txtCusNameT.Focus();
@@ -540,7 +544,15 @@ namespace Xtrim_ERP.gui
                 }
                 else if (((C1TextBox)sender).Name.Equals("txtEmail"))
                 {
-                    txtContactName1.Focus();
+                    if (xC.checkEmail(txtEmail.Text))
+                    {
+                        txtContactName1.Focus();
+                    }
+                    else
+                    {
+                        sep.SetError(txtEmail, "Email ไม่ถูกต้อง");
+                        txtEmail.Focus();
+                    }
                 }
                 else if (((C1TextBox)sender).Name.Equals("txtContactName1"))
                 {
@@ -632,6 +644,12 @@ namespace Xtrim_ERP.gui
             grfCus.Cols[colcontact1].Caption = "ชื่อผู้ติดต่อ";
             grfCus.Cols[colcontact2].Caption = "ชื่อผู้ติดต่อ2";
             grfCus.Cols[colID].Visible = false;
+            for(int i = 1; i < grfCus.Rows.Count; i++)
+            {
+                grfCus[i, 0] = i;
+                if (i % 2 == 0)
+                    grfCus.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
+            }
             //grfCus.Col = colCnt;
         }
 
@@ -646,6 +664,29 @@ namespace Xtrim_ERP.gui
                 txtPasswordVoid.Show();
                 txtPasswordVoid.Focus();
                 stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> กรุณาป้อนรหัสผ่าน", txtPasswordVoid);
+            }
+        }
+        private void BtnChkTaxId_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            xC.sSoap.chkTaxIdSOAP1(txtTaxId.Text);
+        }
+        private void TxtTaxId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if ((sender as TextBox).SelectionStart == 0)
+                e.Handled = (e.KeyChar == (char)Keys.Space);
+            else
+                e.Handled = false;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
             }
         }
         private void TxtPasswordVoid_KeyUp(object sender, KeyEventArgs e)
@@ -1303,6 +1344,9 @@ namespace Xtrim_ERP.gui
             txtContactTel2.Enabled = flag;
             groupBox1.Enabled = flag;
             chkVoid.Enabled = flag;
+            btnChkTaxId.Enabled = flag;
+            btnCont1.Enabled = flag;
+            btnCont2.Enabled = flag;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
         private void grdFlex_LeaveCell(object sender, EventArgs e)

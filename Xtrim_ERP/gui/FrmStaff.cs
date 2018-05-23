@@ -158,6 +158,12 @@ namespace Xtrim_ERP.gui
             grfStf.Cols[colPid].Caption = "ID";
             //grfStf.Cols[colcontact2].Caption = "ชื่อผู้ติดต่อ2";
             grfStf.Cols[colID].Visible = false;
+            for (int i = 1; i < grfStf.Rows.Count; i++)
+            {
+                grfStf[i, 0] = i;
+                if (i % 2 == 0)
+                    grfStf.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
+            }
             //grfCus.Col = colCnt;
         }
         private void setControlEnable(Boolean flag)

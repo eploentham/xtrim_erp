@@ -183,7 +183,7 @@ namespace Xtrim_ERP.gui
 
         private void menuImpJobAdd_Click(object sender, EventArgs e)
         {
-            FrmJobImpNew frm = new FrmJobImpNew(xC);
+            FrmJobImpNew1 frm = new FrmJobImpNew1(xC);
             frm.FormBorderStyle = FormBorderStyle.None;
             AddNewTab(frm, "Import Job Detail");
         }

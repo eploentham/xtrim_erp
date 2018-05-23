@@ -127,6 +127,12 @@ namespace Xtrim_ERP.gui
             //grfDept.Cols[coledit].Visible = false;
             CellRange rg = grfDept.GetCellRange(2, colE);
             rg.Style = grfDept.Styles["btn"];
+            for (int i = 1; i < grfDept.Rows.Count; i++)
+            {
+                grfDept[i, 0] = i;
+                if (i % 2 == 0)
+                    grfDept.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
+            }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
             //grfBank.Cols[colE]. = false;

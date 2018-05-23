@@ -8,6 +8,7 @@ using System.Net.Mail;
 using System.Net.Mime;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Xtrim_ERP.objdb;
@@ -42,7 +43,9 @@ namespace Xtrim_ERP.control
         public Staff user;
 
         public Color cTxtFocus;
-
+        public StringSOAP sSoap;
+        Regex regEmail;
+        String soapTaxId = "";
         //public enum Search
         //{
         //    Customer,
@@ -86,8 +89,10 @@ namespace Xtrim_ERP.control
             sUgw = new UnitGw();
             sUtp = new UnitPackage();
             sTmn = new Terminal();
+            sSoap = new StringSOAP();
 
             cTxtFocus = ColorTranslator.FromHtml(iniC.txtFocus);
+            regEmail = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
         }
         public void GetConfig()
         {
@@ -111,11 +116,24 @@ namespace Xtrim_ERP.control
             iniC.grdViewFontName = iniF.Read("grdViewFontName");
             iniC.themeApplication = iniF.Read("themeApplication");
             iniC.txtFocus = iniF.Read("txtFocus");
+            iniC.txtFocus = iniF.Read("grfRowColor");
 
             iniC.grdViewFontName = iniC.grdViewFontName.Equals("") ? "Microsoft Sans Serif" : iniC.grdViewFontName;
             int.TryParse(iniC.grdViewFontSize, out grdViewFontSize);
         }
-        
+        public Boolean checkEmail(String email)
+        {
+            if (!regEmail.IsMatch(email.Trim()))
+            {
+                return false;
+                //MessageBox.Show("E-mail address format is not correct.", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //txtEmail.Focus();
+            }
+            else
+            {
+                return true;
+            }
+        }
         public String getValueCboItem(ComboBox c)
         {
             ComboBoxItem iSale;
@@ -345,6 +363,13 @@ namespace Xtrim_ERP.control
 
             // Add the signature to the existing URI.
             return uri.Scheme + "://" + uri.Host + uri.LocalPath + uri.Query + "&signature=" + signature;
+        }
+        public Boolean chkTaxIdSoap(String taxid)
+        {
+            Boolean chk = false;
+            
+            
+            return chk;
         }
     }
 }

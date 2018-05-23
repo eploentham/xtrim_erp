@@ -47,8 +47,8 @@ namespace Xtrim_ERP.gui
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.c1Button1 = new C1.Win.C1Input.C1Button();
-            this.btnCusSF2 = new C1.Win.C1Input.C1Button();
+            this.btnCont2 = new C1.Win.C1Input.C1Button();
+            this.btnCont1 = new C1.Win.C1Input.C1Button();
             this.label42 = new System.Windows.Forms.Label();
             this.txtContactTel2 = new C1.Win.C1Input.C1TextBox();
             this.label43 = new System.Windows.Forms.Label();
@@ -88,6 +88,7 @@ namespace Xtrim_ERP.gui
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.btnChkTaxId = new C1.Win.C1Input.C1Button();
             this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
             this.txtRemark2 = new C1.Win.C1Input.C1TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -143,8 +144,8 @@ namespace Xtrim_ERP.gui
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCont2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCont1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContactTel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContactTel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrE4)).BeginInit();
@@ -165,6 +166,7 @@ namespace Xtrim_ERP.gui
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnChkTaxId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).BeginInit();
@@ -461,8 +463,8 @@ namespace Xtrim_ERP.gui
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel2.Controls.Add(this.c1Button1);
-            this.panel2.Controls.Add(this.btnCusSF2);
+            this.panel2.Controls.Add(this.btnCont2);
+            this.panel2.Controls.Add(this.btnCont1);
             this.panel2.Controls.Add(this.label42);
             this.panel2.Controls.Add(this.txtContactTel2);
             this.panel2.Controls.Add(this.label43);
@@ -501,31 +503,31 @@ namespace Xtrim_ERP.gui
             this.panel2.TabIndex = 0;
             this.theme1.SetTheme(this.panel2, "(default)");
             // 
-            // c1Button1
+            // btnCont2
             // 
-            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1Button1.Location = new System.Drawing.Point(420, 275);
-            this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(18, 18);
-            this.c1Button1.TabIndex = 220;
-            this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button1, "(default)");
-            this.c1Button1.UseVisualStyleBackColor = true;
-            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnCont2.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnCont2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCont2.Location = new System.Drawing.Point(420, 275);
+            this.btnCont2.Name = "btnCont2";
+            this.btnCont2.Size = new System.Drawing.Size(18, 18);
+            this.btnCont2.TabIndex = 220;
+            this.btnCont2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnCont2, "(default)");
+            this.btnCont2.UseVisualStyleBackColor = true;
+            this.btnCont2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // btnCusSF2
+            // btnCont1
             // 
-            this.btnCusSF2.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnCusSF2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCusSF2.Location = new System.Drawing.Point(420, 251);
-            this.btnCusSF2.Name = "btnCusSF2";
-            this.btnCusSF2.Size = new System.Drawing.Size(18, 18);
-            this.btnCusSF2.TabIndex = 219;
-            this.btnCusSF2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnCusSF2, "(default)");
-            this.btnCusSF2.UseVisualStyleBackColor = true;
-            this.btnCusSF2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnCont1.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnCont1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCont1.Location = new System.Drawing.Point(420, 251);
+            this.btnCont1.Name = "btnCont1";
+            this.btnCont1.Size = new System.Drawing.Size(18, 18);
+            this.btnCont1.TabIndex = 219;
+            this.btnCont1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnCont1, "(default)");
+            this.btnCont1.UseVisualStyleBackColor = true;
+            this.btnCont1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label42
             // 
@@ -1016,6 +1018,7 @@ namespace Xtrim_ERP.gui
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel7.Controls.Add(this.btnChkTaxId);
             this.panel7.Controls.Add(this.txtPasswordVoid);
             this.panel7.Controls.Add(this.txtRemark2);
             this.panel7.Controls.Add(this.label12);
@@ -1043,6 +1046,19 @@ namespace Xtrim_ERP.gui
             this.panel7.Size = new System.Drawing.Size(908, 294);
             this.panel7.TabIndex = 1;
             this.theme1.SetTheme(this.panel7, "(default)");
+            // 
+            // btnChkTaxId
+            // 
+            this.btnChkTaxId.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnChkTaxId.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChkTaxId.Location = new System.Drawing.Point(413, 98);
+            this.btnChkTaxId.Name = "btnChkTaxId";
+            this.btnChkTaxId.Size = new System.Drawing.Size(18, 18);
+            this.btnChkTaxId.TabIndex = 260;
+            this.btnChkTaxId.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnChkTaxId, "(default)");
+            this.btnChkTaxId.UseVisualStyleBackColor = true;
+            this.btnChkTaxId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtPasswordVoid
             // 
@@ -1585,8 +1601,8 @@ namespace Xtrim_ERP.gui
             this.tabPage1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCont2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCont1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContactTel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContactTel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrE4)).EndInit();
@@ -1608,6 +1624,7 @@ namespace Xtrim_ERP.gui
             this.tabPage5.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnChkTaxId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).EndInit();
@@ -1693,8 +1710,8 @@ namespace Xtrim_ERP.gui
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel2;
-        private C1Button c1Button1;
-        private C1Button btnCusSF2;
+        private C1Button btnCont2;
+        private C1Button btnCont1;
         private System.Windows.Forms.Label label42;
         private C1TextBox txtContactTel2;
         private System.Windows.Forms.Label label43;
@@ -1736,5 +1753,6 @@ namespace Xtrim_ERP.gui
         private C1TextBox txtRemark;
         private System.Windows.Forms.Label label22;
         private C1TextBox txtPasswordVoid;
+        private C1Button btnChkTaxId;
     }
 }

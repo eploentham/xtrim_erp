@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.c1FlexGrid1 = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.c1MainMenu1 = new C1.Win.C1Command.C1MainMenu();
             this.c1CommandLink1 = new C1.Win.C1Command.C1CommandLink();
@@ -44,6 +45,7 @@
             this.c1CommandLink6 = new C1.Win.C1Command.C1CommandLink();
             this.c1CommandHolder1 = new C1.Win.C1Command.C1CommandHolder();
             this.txtContFNameT = new C1.Win.C1Input.C1TextBox();
+            this.c1FlexReport1 = new C1.Win.FlexReport.C1FlexReport();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContFNameT)).BeginInit();
@@ -175,6 +177,10 @@
             this.txtContFNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             this.txtContFNameT.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtContFNameT_KeyUp);
             // 
+            // c1FlexReport1
+            // 
+            this.c1FlexReport1.ReportDefinition = resources.GetString("c1FlexReport1.ReportDefinition");
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,5 +217,6 @@
         private C1.Win.C1Command.C1CommandLink c1CommandLink6;
         private C1.Win.C1Command.C1CommandHolder c1CommandHolder1;
         private C1.Win.C1Input.C1TextBox txtContFNameT;
+        private C1.Win.FlexReport.C1FlexReport c1FlexReport1;
     }
 }

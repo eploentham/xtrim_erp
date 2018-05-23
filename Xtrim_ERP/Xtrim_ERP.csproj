@@ -75,6 +75,8 @@
     <Reference Include="C1.Win.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.BarCode.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da" />
     <Reference Include="C1.Win.Bitmap.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
+    <Reference Include="C1.Win.C1Chart.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=a22e16972c085838" />
+    <Reference Include="C1.Win.C1Chart3D.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=a22e16972c085838" />
     <Reference Include="C1.Win.C1Command.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Document.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
     <Reference Include="C1.Win.C1DX.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
@@ -85,6 +87,7 @@
     <Reference Include="C1.Win.C1SuperTooltip.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Themes.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=594a0605db190bb9, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.FlexChart.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=3aa2920c09e0aefd" />
+    <Reference Include="C1.Win.FlexReport.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.FlexViewer.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.ImportServices.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
     <Reference Include="C1.Win.Map.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
@@ -99,6 +102,7 @@
     <Reference Include="GrapeCity.Spreadsheet, Version=11.45.20181.0, Culture=neutral, PublicKeyToken=327c3516b1b18457" />
     <Reference Include="GrapeCity.Spreadsheet.Win, Version=11.45.20181.0, Culture=neutral, PublicKeyToken=327c3516b1b18457" />
     <Reference Include="GrapeCity.Win.PluginInputMan, Version=11.45.20181.0, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -108,6 +112,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Services" />
@@ -199,6 +204,12 @@
     <Compile Include="gui\FrmDepartmentS.Designer.cs">
       <DependentUpon>FrmDepartmentS.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmJobImpNew1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmJobImpNew1.Designer.cs">
+      <DependentUpon>FrmJobImpNew1.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmImportData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +227,12 @@
     </Compile>
     <Compile Include="gui\FrmImporter1.Designer.cs">
       <DependentUpon>FrmImporter1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmInitial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmInitial.Designer.cs">
+      <DependentUpon>FrmInitial.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmJobImpExpn.cs">
       <SubType>Form</SubType>
@@ -373,6 +390,7 @@
     <Compile Include="object1\Prefix.cs" />
     <Compile Include="object1\Privilege.cs" />
     <Compile Include="object1\CusRemark.cs" />
+    <Compile Include="object1\StringSOAP.cs" />
     <Compile Include="object1\TermPayment.cs" />
     <Compile Include="object1\Consignee.cs" />
     <Compile Include="object1\Contact.cs" />
@@ -404,6 +422,7 @@
     <Compile Include="object1\UnitPackage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RDWS\X509Certificate2Collection.cs" />
     <EmbeddedResource Include="gui\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -450,6 +469,9 @@
     <EmbeddedResource Include="gui\FrmImporter1.resx">
       <DependentUpon>FrmImporter1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmInitial.resx">
+      <DependentUpon>FrmInitial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmJobImpExpn.resx">
       <DependentUpon>FrmJobImpExpn.cs</DependentUpon>
     </EmbeddedResource>
@@ -458,6 +480,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmJobImpNew.resx">
       <DependentUpon>FrmJobImpNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmJobImpNew1.resx">
+      <DependentUpon>FrmJobImpNew1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmJobImpView.resx">
       <DependentUpon>FrmJobImpView.cs</DependentUpon>

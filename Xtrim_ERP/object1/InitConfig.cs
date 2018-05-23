@@ -12,6 +12,6 @@ namespace Xtrim_ERP.object1
         public String hostDBEx = "", userDBEx = "", passDBEx = "", nameDBEx = "", portDBEx = "";
         public String hostDBIm = "", userDBIm = "", passDBIm = "", nameDBIm = "", portDBIm = "";
 
-        public String grdViewFontSize = "", grdViewFontName = "", themeApplication="", txtFocus="";
+        public String grdViewFontSize = "", grdViewFontName = "", themeApplication="", txtFocus="", grfRowColor="";
     }
 }

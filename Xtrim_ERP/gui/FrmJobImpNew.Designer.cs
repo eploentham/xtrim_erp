@@ -36,12 +36,19 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtJblId = new C1.Win.C1Input.C1TextBox();
+            this.btnImpSF4 = new C1.Win.C1Input.C1Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lbCus = new System.Windows.Forms.Label();
+            this.btnCusSF2 = new C1.Win.C1Input.C1Button();
+            this.btnImpSF2 = new C1.Win.C1Input.C1Button();
+            this.btnCusSF4 = new C1.Win.C1Input.C1Button();
             this.lbEnd = new C1.Win.C1Input.C1Label();
             this.lbStart = new C1.Win.C1Input.C1Label();
             this.txtImpNameT = new C1.Win.C1Input.C1TextBox();
             this.txtCusNameT = new C1.Win.C1Input.C1TextBox();
+            this.c1Button1 = new C1.Win.C1Input.C1Button();
+            this.btnOk = new C1.Win.C1Input.C1Button();
+            this.btnEdit = new C1.Win.C1Input.C1Button();
             this.lbRef5 = new C1.Win.C1Input.C1Label();
             this.txtRef5 = new C1.Win.C1Input.C1TextBox();
             this.lbRef4 = new C1.Win.C1Input.C1Label();
@@ -94,6 +101,12 @@
             this.txtHbl = new C1.Win.C1Input.C1TextBox();
             this.txtMbl = new C1.Win.C1Input.C1TextBox();
             this.cboTransMode = new C1.Win.C1Input.C1ComboBox();
+            this.btnTmnAdd = new C1.Win.C1Input.C1Button();
+            this.btnPtiAdd = new C1.Win.C1Input.C1Button();
+            this.btnPolAdd = new C1.Win.C1Input.C1Button();
+            this.btnEttAdd = new C1.Win.C1Input.C1Button();
+            this.btnPvlAdd = new C1.Win.C1Input.C1Button();
+            this.btnFwdAdd = new C1.Win.C1Input.C1Button();
             this.c1Label43 = new C1.Win.C1Input.C1Label();
             this.c1Label42 = new C1.Win.C1Input.C1Label();
             this.c1Label41 = new C1.Win.C1Input.C1Label();
@@ -210,19 +223,6 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panelExpn = new System.Windows.Forms.Panel();
-            this.btnImpSF4 = new C1.Win.C1Input.C1Button();
-            this.btnCusSF2 = new C1.Win.C1Input.C1Button();
-            this.btnImpSF2 = new C1.Win.C1Input.C1Button();
-            this.btnCusSF4 = new C1.Win.C1Input.C1Button();
-            this.c1Button1 = new C1.Win.C1Input.C1Button();
-            this.btnOk = new C1.Win.C1Input.C1Button();
-            this.btnEdit = new C1.Win.C1Input.C1Button();
-            this.btnTmnAdd = new C1.Win.C1Input.C1Button();
-            this.btnPtiAdd = new C1.Win.C1Input.C1Button();
-            this.btnPolAdd = new C1.Win.C1Input.C1Button();
-            this.btnEttAdd = new C1.Win.C1Input.C1Button();
-            this.btnPvlAdd = new C1.Win.C1Input.C1Button();
-            this.btnFwdAdd = new C1.Win.C1Input.C1Button();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sepCusNameT)).BeginInit();
             this.panel1.SuspendLayout();
@@ -232,10 +232,17 @@
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtJblId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImpSF4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImpSF2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbEnd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtImpNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbRef5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRef5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbRef4)).BeginInit();
@@ -288,6 +295,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtHbl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMbl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTransMode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnTmnAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPtiAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPolAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEttAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPvlAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFwdAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label43)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label42)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label41)).BeginInit();
@@ -374,19 +387,6 @@
             this.panel6.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnImpSF4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnImpSF2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnTmnAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPtiAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPolAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEttAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPvlAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFwdAdd)).BeginInit();
             this.SuspendLayout();
             // 
             // sttCusNameT
@@ -501,6 +501,19 @@
             this.txtJblId.Visible = false;
             this.txtJblId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
+            // btnImpSF4
+            // 
+            this.btnImpSF4.Image = global::Xtrim_ERP.Properties.Resources.Process_accept16;
+            this.btnImpSF4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImpSF4.Location = new System.Drawing.Point(769, 116);
+            this.btnImpSF4.Name = "btnImpSF4";
+            this.btnImpSF4.Size = new System.Drawing.Size(18, 18);
+            this.btnImpSF4.TabIndex = 109;
+            this.btnImpSF4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnImpSF4, "(default)");
+            this.btnImpSF4.UseVisualStyleBackColor = true;
+            this.btnImpSF4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -526,6 +539,45 @@
             this.lbCus.TabIndex = 107;
             this.lbCus.Text = "*Customer :";
             this.c1ThemeController1.SetTheme(this.lbCus, "(default)");
+            // 
+            // btnCusSF2
+            // 
+            this.btnCusSF2.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnCusSF2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCusSF2.Location = new System.Drawing.Point(747, 27);
+            this.btnCusSF2.Name = "btnCusSF2";
+            this.btnCusSF2.Size = new System.Drawing.Size(18, 18);
+            this.btnCusSF2.TabIndex = 105;
+            this.btnCusSF2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnCusSF2, "(default)");
+            this.btnCusSF2.UseVisualStyleBackColor = true;
+            this.btnCusSF2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnImpSF2
+            // 
+            this.btnImpSF2.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnImpSF2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImpSF2.Location = new System.Drawing.Point(747, 116);
+            this.btnImpSF2.Name = "btnImpSF2";
+            this.btnImpSF2.Size = new System.Drawing.Size(18, 18);
+            this.btnImpSF2.TabIndex = 104;
+            this.btnImpSF2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnImpSF2, "(default)");
+            this.btnImpSF2.UseVisualStyleBackColor = true;
+            this.btnImpSF2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnCusSF4
+            // 
+            this.btnCusSF4.Image = global::Xtrim_ERP.Properties.Resources.Process_accept16;
+            this.btnCusSF4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCusSF4.Location = new System.Drawing.Point(769, 27);
+            this.btnCusSF4.Name = "btnCusSF4";
+            this.btnCusSF4.Size = new System.Drawing.Size(18, 18);
+            this.btnCusSF4.TabIndex = 103;
+            this.btnCusSF4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnCusSF4, "(default)");
+            this.btnCusSF4.UseVisualStyleBackColor = true;
+            this.btnCusSF4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // lbEnd
             // 
@@ -582,6 +634,49 @@
             this.txtCusNameT.Tag = null;
             this.c1ThemeController1.SetTheme(this.txtCusNameT, "(default)");
             this.txtCusNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button1
+            // 
+            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.printer_blue24;
+            this.c1Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.c1Button1.Location = new System.Drawing.Point(482, 182);
+            this.c1Button1.Name = "c1Button1";
+            this.c1Button1.Size = new System.Drawing.Size(83, 39);
+            this.c1Button1.TabIndex = 96;
+            this.c1Button1.Text = "Print";
+            this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.c1Button1, "(default)");
+            this.c1Button1.UseVisualStyleBackColor = true;
+            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnOk
+            // 
+            this.btnOk.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
+            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOk.Location = new System.Drawing.Point(956, 182);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(83, 39);
+            this.btnOk.TabIndex = 95;
+            this.btnOk.Text = "บันทึกช้อมูล";
+            this.btnOk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.c1ThemeController1.SetTheme(this.btnOk, "(default)");
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Image = global::Xtrim_ERP.Properties.Resources.lock24;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(589, 182);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(83, 39);
+            this.btnEdit.TabIndex = 94;
+            this.btnEdit.Text = "แก้ไขช้อมูล";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnEdit, "(default)");
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // lbRef5
             // 
@@ -1467,6 +1562,84 @@
             this.cboTransMode.Tag = null;
             this.c1ThemeController1.SetTheme(this.cboTransMode, "(default)");
             this.cboTransMode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnTmnAdd
+            // 
+            this.btnTmnAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnTmnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTmnAdd.Location = new System.Drawing.Point(771, 113);
+            this.btnTmnAdd.Name = "btnTmnAdd";
+            this.btnTmnAdd.Size = new System.Drawing.Size(18, 18);
+            this.btnTmnAdd.TabIndex = 162;
+            this.btnTmnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnTmnAdd, "(default)");
+            this.btnTmnAdd.UseVisualStyleBackColor = true;
+            this.btnTmnAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnPtiAdd
+            // 
+            this.btnPtiAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnPtiAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPtiAdd.Location = new System.Drawing.Point(771, 74);
+            this.btnPtiAdd.Name = "btnPtiAdd";
+            this.btnPtiAdd.Size = new System.Drawing.Size(18, 18);
+            this.btnPtiAdd.TabIndex = 159;
+            this.btnPtiAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnPtiAdd, "(default)");
+            this.btnPtiAdd.UseVisualStyleBackColor = true;
+            this.btnPtiAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnPolAdd
+            // 
+            this.btnPolAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnPolAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPolAdd.Location = new System.Drawing.Point(349, 309);
+            this.btnPolAdd.Name = "btnPolAdd";
+            this.btnPolAdd.Size = new System.Drawing.Size(18, 18);
+            this.btnPolAdd.TabIndex = 156;
+            this.btnPolAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnPolAdd, "(default)");
+            this.btnPolAdd.UseVisualStyleBackColor = true;
+            this.btnPolAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnEttAdd
+            // 
+            this.btnEttAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnEttAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEttAdd.Location = new System.Drawing.Point(349, 14);
+            this.btnEttAdd.Name = "btnEttAdd";
+            this.btnEttAdd.Size = new System.Drawing.Size(18, 18);
+            this.btnEttAdd.TabIndex = 153;
+            this.btnEttAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnEttAdd, "(default)");
+            this.btnEttAdd.UseVisualStyleBackColor = true;
+            this.btnEttAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnPvlAdd
+            // 
+            this.btnPvlAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnPvlAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPvlAdd.Location = new System.Drawing.Point(349, 44);
+            this.btnPvlAdd.Name = "btnPvlAdd";
+            this.btnPvlAdd.Size = new System.Drawing.Size(18, 18);
+            this.btnPvlAdd.TabIndex = 150;
+            this.btnPvlAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnPvlAdd, "(default)");
+            this.btnPvlAdd.UseVisualStyleBackColor = true;
+            this.btnPvlAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnFwdAdd
+            // 
+            this.btnFwdAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnFwdAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFwdAdd.Location = new System.Drawing.Point(349, 74);
+            this.btnFwdAdd.Name = "btnFwdAdd";
+            this.btnFwdAdd.Size = new System.Drawing.Size(18, 18);
+            this.btnFwdAdd.TabIndex = 105;
+            this.btnFwdAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.c1ThemeController1.SetTheme(this.btnFwdAdd, "(default)");
+            this.btnFwdAdd.UseVisualStyleBackColor = true;
+            this.btnFwdAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // c1Label43
             // 
@@ -3151,179 +3324,6 @@
             this.panelExpn.TabIndex = 0;
             this.c1ThemeController1.SetTheme(this.panelExpn, "(default)");
             // 
-            // btnImpSF4
-            // 
-            this.btnImpSF4.Image = global::Xtrim_ERP.Properties.Resources.Process_accept16;
-            this.btnImpSF4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImpSF4.Location = new System.Drawing.Point(769, 116);
-            this.btnImpSF4.Name = "btnImpSF4";
-            this.btnImpSF4.Size = new System.Drawing.Size(18, 18);
-            this.btnImpSF4.TabIndex = 109;
-            this.btnImpSF4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnImpSF4, "(default)");
-            this.btnImpSF4.UseVisualStyleBackColor = true;
-            this.btnImpSF4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnCusSF2
-            // 
-            this.btnCusSF2.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnCusSF2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCusSF2.Location = new System.Drawing.Point(747, 27);
-            this.btnCusSF2.Name = "btnCusSF2";
-            this.btnCusSF2.Size = new System.Drawing.Size(18, 18);
-            this.btnCusSF2.TabIndex = 105;
-            this.btnCusSF2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnCusSF2, "(default)");
-            this.btnCusSF2.UseVisualStyleBackColor = true;
-            this.btnCusSF2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnImpSF2
-            // 
-            this.btnImpSF2.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnImpSF2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImpSF2.Location = new System.Drawing.Point(747, 116);
-            this.btnImpSF2.Name = "btnImpSF2";
-            this.btnImpSF2.Size = new System.Drawing.Size(18, 18);
-            this.btnImpSF2.TabIndex = 104;
-            this.btnImpSF2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnImpSF2, "(default)");
-            this.btnImpSF2.UseVisualStyleBackColor = true;
-            this.btnImpSF2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnCusSF4
-            // 
-            this.btnCusSF4.Image = global::Xtrim_ERP.Properties.Resources.Process_accept16;
-            this.btnCusSF4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCusSF4.Location = new System.Drawing.Point(769, 27);
-            this.btnCusSF4.Name = "btnCusSF4";
-            this.btnCusSF4.Size = new System.Drawing.Size(18, 18);
-            this.btnCusSF4.TabIndex = 103;
-            this.btnCusSF4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnCusSF4, "(default)");
-            this.btnCusSF4.UseVisualStyleBackColor = true;
-            this.btnCusSF4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button1
-            // 
-            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.printer_blue24;
-            this.c1Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1Button1.Location = new System.Drawing.Point(482, 182);
-            this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(83, 39);
-            this.c1Button1.TabIndex = 96;
-            this.c1Button1.Text = "Print";
-            this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.c1Button1, "(default)");
-            this.c1Button1.UseVisualStyleBackColor = true;
-            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnOk
-            // 
-            this.btnOk.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
-            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOk.Location = new System.Drawing.Point(956, 182);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(83, 39);
-            this.btnOk.TabIndex = 95;
-            this.btnOk.Text = "บันทึกช้อมูล";
-            this.btnOk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1ThemeController1.SetTheme(this.btnOk, "(default)");
-            this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Image = global::Xtrim_ERP.Properties.Resources.lock24;
-            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(589, 182);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(83, 39);
-            this.btnEdit.TabIndex = 94;
-            this.btnEdit.Text = "แก้ไขช้อมูล";
-            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnEdit, "(default)");
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnTmnAdd
-            // 
-            this.btnTmnAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnTmnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTmnAdd.Location = new System.Drawing.Point(771, 113);
-            this.btnTmnAdd.Name = "btnTmnAdd";
-            this.btnTmnAdd.Size = new System.Drawing.Size(18, 18);
-            this.btnTmnAdd.TabIndex = 162;
-            this.btnTmnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnTmnAdd, "(default)");
-            this.btnTmnAdd.UseVisualStyleBackColor = true;
-            this.btnTmnAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnPtiAdd
-            // 
-            this.btnPtiAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnPtiAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPtiAdd.Location = new System.Drawing.Point(771, 74);
-            this.btnPtiAdd.Name = "btnPtiAdd";
-            this.btnPtiAdd.Size = new System.Drawing.Size(18, 18);
-            this.btnPtiAdd.TabIndex = 159;
-            this.btnPtiAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnPtiAdd, "(default)");
-            this.btnPtiAdd.UseVisualStyleBackColor = true;
-            this.btnPtiAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnPolAdd
-            // 
-            this.btnPolAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnPolAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPolAdd.Location = new System.Drawing.Point(349, 309);
-            this.btnPolAdd.Name = "btnPolAdd";
-            this.btnPolAdd.Size = new System.Drawing.Size(18, 18);
-            this.btnPolAdd.TabIndex = 156;
-            this.btnPolAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnPolAdd, "(default)");
-            this.btnPolAdd.UseVisualStyleBackColor = true;
-            this.btnPolAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnEttAdd
-            // 
-            this.btnEttAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnEttAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEttAdd.Location = new System.Drawing.Point(349, 14);
-            this.btnEttAdd.Name = "btnEttAdd";
-            this.btnEttAdd.Size = new System.Drawing.Size(18, 18);
-            this.btnEttAdd.TabIndex = 153;
-            this.btnEttAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnEttAdd, "(default)");
-            this.btnEttAdd.UseVisualStyleBackColor = true;
-            this.btnEttAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnPvlAdd
-            // 
-            this.btnPvlAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnPvlAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPvlAdd.Location = new System.Drawing.Point(349, 44);
-            this.btnPvlAdd.Name = "btnPvlAdd";
-            this.btnPvlAdd.Size = new System.Drawing.Size(18, 18);
-            this.btnPvlAdd.TabIndex = 150;
-            this.btnPvlAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnPvlAdd, "(default)");
-            this.btnPvlAdd.UseVisualStyleBackColor = true;
-            this.btnPvlAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnFwdAdd
-            // 
-            this.btnFwdAdd.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnFwdAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFwdAdd.Location = new System.Drawing.Point(349, 74);
-            this.btnFwdAdd.Name = "btnFwdAdd";
-            this.btnFwdAdd.Size = new System.Drawing.Size(18, 18);
-            this.btnFwdAdd.TabIndex = 105;
-            this.btnFwdAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.c1ThemeController1.SetTheme(this.btnFwdAdd, "(default)");
-            this.btnFwdAdd.UseVisualStyleBackColor = true;
-            this.btnFwdAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmJobImpNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3345,10 +3345,17 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtJblId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImpSF4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImpSF2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbEnd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtImpNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnOk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbRef5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRef5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbRef4)).EndInit();
@@ -3402,6 +3409,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtHbl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMbl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTransMode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnTmnAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPtiAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPolAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEttAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPvlAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFwdAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label43)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label42)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Label41)).EndInit();
@@ -3492,19 +3505,6 @@
             this.panel6.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnImpSF4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnImpSF2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCusSF4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnOk)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnTmnAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPtiAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPolAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEttAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPvlAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFwdAdd)).EndInit();
             this.ResumeLayout(false);
 
         }
