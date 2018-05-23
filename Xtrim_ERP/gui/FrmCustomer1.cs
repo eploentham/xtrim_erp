@@ -83,6 +83,7 @@ namespace Xtrim_ERP.gui
             //btnAddrVoid.Hide();
             setControlNew();
             setFocusColor();
+            setFocus();
             txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
 
             C1ThemeController.ApplicationTheme = xC.iniC.themeApplication;
@@ -466,24 +467,114 @@ namespace Xtrim_ERP.gui
             txtCusNameE.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
             txtTaxId.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
             txtRemark.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
-            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtRemark2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
 
-            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
-            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
-            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
-            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
-            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
-            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
-            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
-            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
-            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
-            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
-            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
-            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
-            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
-            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
-            txtCusCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtAddrT1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtAddrT2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtAddrT3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtAddrT4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtTele.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtFax.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtEmail.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtContactName1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtContactName2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtAddrE1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtAddrE2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtAddrE3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtAddrE4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtContactTel1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtContactTel2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
 
+        }
+        private void textBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (((C1TextBox)sender).Name.Equals("txtCusCode"))
+                {
+                    txtCusNameT.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtCusNameT"))
+                {
+                    txtCusNameE.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtCusNameE"))
+                {
+                    txtTaxId.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtTaxId"))
+                {
+                    txtRemark.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtRemark"))
+                {
+                    txtRemark2.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtRemark2"))
+                {
+                    txtAddrT1.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtAddrT1"))
+                {
+                    txtAddrT2.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtAddrT2"))
+                {
+                    txtAddrT3.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtAddrT3"))
+                {
+                    txtAddrT4.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtAddrT4"))
+                {
+                    txtTele.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtTele"))
+                {
+                    txtFax.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtFax"))
+                {
+                    txtEmail.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtEmail"))
+                {
+                    txtContactName1.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtContactName1"))
+                {
+                    txtContactName2.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtContactName2"))
+                {
+                    txtAddrE1.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtAddrE1"))
+                {
+                    txtAddrE2.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtAddrE2"))
+                {
+                    txtAddrE3.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtAddrE3"))
+                {
+                    txtAddrE4.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtAddrE4"))
+                {
+                    txtContactTel1.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtContactTel1"))
+                {
+                    txtContactTel2.Focus();
+                }
+                else if (((C1TextBox)sender).Name.Equals("txtContactTel2"))
+                {
+                    btnSave.Focus();
+                }
+            }
         }
         private void btnNew_Click(object sender, EventArgs e)
         {

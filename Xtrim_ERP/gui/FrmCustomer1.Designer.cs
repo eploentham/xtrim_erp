@@ -88,6 +88,7 @@ namespace Xtrim_ERP.gui
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
             this.txtRemark2 = new C1.Win.C1Input.C1TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtRemark = new C1.Win.C1Input.C1TextBox();
@@ -123,7 +124,6 @@ namespace Xtrim_ERP.gui
             this.label27 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -165,6 +165,7 @@ namespace Xtrim_ERP.gui
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNew)).BeginInit();
@@ -189,7 +190,6 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrContactName2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrContactName1)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -1044,6 +1044,21 @@ namespace Xtrim_ERP.gui
             this.panel7.TabIndex = 1;
             this.theme1.SetTheme(this.panel7, "(default)");
             // 
+            // txtPasswordVoid
+            // 
+            this.txtPasswordVoid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPasswordVoid.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPasswordVoid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPasswordVoid.Location = new System.Drawing.Point(509, 262);
+            this.txtPasswordVoid.Name = "txtPasswordVoid";
+            this.txtPasswordVoid.PasswordChar = '*';
+            this.txtPasswordVoid.Size = new System.Drawing.Size(78, 20);
+            this.txtPasswordVoid.TabIndex = 259;
+            this.txtPasswordVoid.Tag = null;
+            this.theme1.SetTheme(this.txtPasswordVoid, "(default)");
+            this.txtPasswordVoid.Visible = false;
+            this.txtPasswordVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // txtRemark2
             // 
             this.txtRemark2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1257,7 +1272,7 @@ namespace Xtrim_ERP.gui
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.groupBox1.Location = new System.Drawing.Point(504, 14);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(141, 203);
+            this.groupBox1.Size = new System.Drawing.Size(141, 213);
             this.groupBox1.TabIndex = 151;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "สถานะ";
@@ -1538,21 +1553,6 @@ namespace Xtrim_ERP.gui
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // txtPasswordVoid
-            // 
-            this.txtPasswordVoid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPasswordVoid.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtPasswordVoid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtPasswordVoid.Location = new System.Drawing.Point(509, 262);
-            this.txtPasswordVoid.Name = "txtPasswordVoid";
-            this.txtPasswordVoid.PasswordChar = '*';
-            this.txtPasswordVoid.Size = new System.Drawing.Size(78, 20);
-            this.txtPasswordVoid.TabIndex = 259;
-            this.txtPasswordVoid.Tag = null;
-            this.theme1.SetTheme(this.txtPasswordVoid, "(default)");
-            this.txtPasswordVoid.Visible = false;
-            this.txtPasswordVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmCustomer1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1608,6 +1608,7 @@ namespace Xtrim_ERP.gui
             this.tabPage5.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNew)).EndInit();
@@ -1633,7 +1634,6 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrContactName1)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
