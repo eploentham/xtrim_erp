@@ -32,24 +32,24 @@
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtJobCode = new C1.Win.C1Input.C1TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbCus = new System.Windows.Forms.Label();
-            this.txtCusNameT = new C1.Win.C1Input.C1TextBox();
+            this.btnSave = new C1.Win.C1Input.C1Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.c1TextBox1 = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.c1TextBox2 = new C1.Win.C1Input.C1TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnSave = new C1.Win.C1Input.C1Button();
+            this.txtJobCode = new C1.Win.C1Input.C1TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbCus = new System.Windows.Forms.Label();
+            this.txtCusNameT = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -76,7 +76,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(195)))), ((int)(((byte)(235)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.c1TextBox1);
@@ -95,57 +95,31 @@
             this.panel1.TabIndex = 4;
             this.theme1.SetTheme(this.panel1, "(default)");
             // 
-            // txtJobCode
+            // btnSave
             // 
-            this.txtJobCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtJobCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtJobCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtJobCode.Location = new System.Drawing.Point(116, 12);
-            this.txtJobCode.Name = "txtJobCode";
-            this.txtJobCode.Size = new System.Drawing.Size(207, 24);
-            this.txtJobCode.TabIndex = 267;
-            this.txtJobCode.Tag = null;
-            this.theme1.SetTheme(this.txtJobCode, "(default)");
-            this.txtJobCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnSave.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.Location = new System.Drawing.Point(713, 12);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(83, 39);
+            this.btnSave.TabIndex = 273;
+            this.btnSave.Text = "นำเข้าช้อมูล";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.theme1.SetTheme(this.btnSave, "(default)");
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // label2
+            // panel2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label2.Location = new System.Drawing.Point(19, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 16);
-            this.label2.TabIndex = 268;
-            this.label2.Text = "Job NO :";
-            this.theme1.SetTheme(this.label2, "(default)");
-            // 
-            // lbCus
-            // 
-            this.lbCus.AutoSize = true;
-            this.lbCus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.lbCus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.lbCus.Location = new System.Drawing.Point(366, 18);
-            this.lbCus.Name = "lbCus";
-            this.lbCus.Size = new System.Drawing.Size(76, 16);
-            this.lbCus.TabIndex = 266;
-            this.lbCus.Text = "*Customer :";
-            this.theme1.SetTheme(this.lbCus, "(default)");
-            // 
-            // txtCusNameT
-            // 
-            this.txtCusNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCusNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtCusNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtCusNameT.Location = new System.Drawing.Point(443, 16);
-            this.txtCusNameT.Name = "txtCusNameT";
-            this.txtCusNameT.Size = new System.Drawing.Size(250, 20);
-            this.txtCusNameT.TabIndex = 265;
-            this.txtCusNameT.Tag = null;
-            this.theme1.SetTheme(this.txtCusNameT, "(default)");
-            this.txtCusNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel2.Location = new System.Drawing.Point(0, 212);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(827, 256);
+            this.panel2.TabIndex = 5;
+            this.theme1.SetTheme(this.panel2, "(default)");
             // 
             // c1TextBox1
             // 
@@ -200,30 +174,57 @@
             this.label3.Text = "ข้อมูลสั่งการตรวจ :";
             this.theme1.SetTheme(this.label3, "(default)");
             // 
-            // panel2
+            // txtJobCode
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(195)))), ((int)(((byte)(235)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel2.Location = new System.Drawing.Point(0, 212);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(827, 256);
-            this.panel2.TabIndex = 5;
-            this.theme1.SetTheme(this.panel2, "(default)");
+            this.txtJobCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJobCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJobCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtJobCode.Location = new System.Drawing.Point(116, 12);
+            this.txtJobCode.Name = "txtJobCode";
+            this.txtJobCode.Size = new System.Drawing.Size(207, 24);
+            this.txtJobCode.TabIndex = 267;
+            this.txtJobCode.Tag = null;
+            this.theme1.SetTheme(this.txtJobCode, "(default)");
+            this.txtJobCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // btnSave
+            // label2
             // 
-            this.btnSave.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSave.Location = new System.Drawing.Point(713, 12);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(83, 39);
-            this.btnSave.TabIndex = 273;
-            this.btnSave.Text = "นำเข้าช้อมูล";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.theme1.SetTheme(this.btnSave, "(default)");
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label2.Location = new System.Drawing.Point(19, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 16);
+            this.label2.TabIndex = 268;
+            this.label2.Text = "Job NO :";
+            this.theme1.SetTheme(this.label2, "(default)");
+            // 
+            // lbCus
+            // 
+            this.lbCus.AutoSize = true;
+            this.lbCus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.lbCus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.lbCus.Location = new System.Drawing.Point(366, 18);
+            this.lbCus.Name = "lbCus";
+            this.lbCus.Size = new System.Drawing.Size(76, 16);
+            this.lbCus.TabIndex = 266;
+            this.lbCus.Text = "*Customer :";
+            this.theme1.SetTheme(this.lbCus, "(default)");
+            // 
+            // txtCusNameT
+            // 
+            this.txtCusNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCusNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtCusNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtCusNameT.Location = new System.Drawing.Point(443, 16);
+            this.txtCusNameT.Name = "txtCusNameT";
+            this.txtCusNameT.Size = new System.Drawing.Size(250, 20);
+            this.txtCusNameT.TabIndex = 265;
+            this.txtCusNameT.Tag = null;
+            this.theme1.SetTheme(this.txtCusNameT, "(default)");
+            this.txtCusNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // RibbonForm1
             // 
@@ -235,16 +236,17 @@
             this.Name = "RibbonForm1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RibbonForm1";
+            this.Load += new System.EventHandler(this.RibbonForm1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

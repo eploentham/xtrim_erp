@@ -84,6 +84,7 @@ namespace Xtrim_ERP.gui
             {
                 xC.userId = stf.staff_id;
                 xC.user = stf;
+                xC.conn.user = stf;
                 LogonSuccessful = "1";
                 this.Dispose();
             }

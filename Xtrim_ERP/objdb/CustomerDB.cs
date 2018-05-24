@@ -468,6 +468,21 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
+        public String selectImpIdByCodeLike(String copId)
+        {
+            DataTable dt = new DataTable();
+            String cusId = "";
+            String sql = "select cus.* " +
+                "From " + cus.table + " cus " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where LOWER(cus." + cus.cust_code + ") like '" + copId.ToLower() + "%' and "+cus.status_imp+"='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            if (dt.Rows.Count > 0)
+            {
+                cusId = dt.Rows[0][cus.cust_id].ToString();
+            }
+            return cusId;
+        }
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();

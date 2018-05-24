@@ -26,7 +26,7 @@ namespace Xtrim_ERP.gui
         int grfRowOld = 0;
 
         Boolean flagEdit = false;
-        Boolean flagsearch = false;
+        Boolean flagsearch = false, flagTabInv=false;
         C1FlexGrid grfSearch, grfExpen;
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
@@ -50,15 +50,19 @@ namespace Xtrim_ERP.gui
             //theme1.SetTheme(tC1, "BeigeOne");
             //theme1.SetTheme(tC2, "BeigeOne");
             theme1.SetTheme(sB, "BeigeOne");
+            xC.setCboTransMode(cboTransMode);
+            xC.setCboTaxMethod(cboTaxMethod);
             btnJobSearch.Click += BtnJobSearch_Click;
             chkCatiria.Click += ChkCatiria_Click;
             tabExpen.DoubleClick += TabExpen_DoubleClick;
             tabExpen.TabClick += TabExpen_TabClick;
 
             panel4.Top = lbCus.Top + 10;
-            
-            
+                        
             panelCatiria.Hide();
+            tC2.SelectedTab = tabAgent;
+            //splitContainer1.SplitterDistance = 480;
+            //setPanelSearch(false);
             //locationPanelJob = panelJob.Location;
             //sizePanelJob = panelJob.Size;
         }
@@ -66,10 +70,24 @@ namespace Xtrim_ERP.gui
         private void TabExpen_TabClick(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            tabJob.Height =  100;
-            panel11.Hide();
+            flagTabInv = flagTabInv == true ? false : true;
+            setTabInv(flagTabInv);
         }
-
+        private void setTabInv(Boolean flag)
+        {
+            if (flag)
+            {
+                splitContainer1.SplitterDistance = 80;
+                //tabJob.Height = 100;
+                panel11.Hide();
+            }
+            else
+            {
+                splitContainer1.SplitterDistance = 480;
+                //tabJob.Height = 100;
+                panel11.Show();
+            }
+        }
         private void TabExpen_DoubleClick(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -102,6 +120,16 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             flagsearch = flagsearch ? false : true;
             setPanelSearch(flagsearch);
+            //if (flagsearch)
+            //{
+            //    splitContainer1.SplitterDistance = 480;
+            //}
+            //else
+            //{
+
+            //}
+            //flagTabInv = false;
+            //setTabInv(flagTabInv);
         }
         private void setPanelSearch(Boolean flag)
         {

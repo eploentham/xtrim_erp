@@ -63,10 +63,10 @@ namespace Xtrim_ERP.object1
         public String pvlCode { get; set; }
         public String pvlNameT { get; set; }
 
-        //public String polCode { get; set; }
-        //public String polNameT { get; set; }
+        public String jobno { get; set; }
+        public String job_date { get; set; }
 
-        //public String pvlCode { get; set; }
-        //public String pvlNameT { get; set; }
+        public String imp_date { get; set; }
+        public String bl { get; set; }
     }
 }

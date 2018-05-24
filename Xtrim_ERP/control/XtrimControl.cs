@@ -282,6 +282,55 @@ namespace Xtrim_ERP.control
                 return "";
             }
         }
+        public C1ComboBox setCboTransMode(C1ComboBox c)
+        {
+            ComboBoxItem a1 = new ComboBoxItem();
+            a1.Value = "1";
+            a1.Text = "1-ทางเรือ (Sea)";
+            ComboBoxItem a2 = new ComboBoxItem();
+            a2.Value = "2";
+            a2.Text = "2-รถไฟ (Rail)";
+            ComboBoxItem a3 = new ComboBoxItem();
+            a3.Value = "3";
+            a3.Text = "3-รถยนต์ (Road)";
+            ComboBoxItem a4 = new ComboBoxItem();
+            a4.Value = "4";
+            a4.Text = "4-เครื่องบิน (Air)";
+            ComboBoxItem a5 = new ComboBoxItem();
+            a5.Value = "5";
+            a5.Text = "5-ไปรษณีย์ (Mail)";
+            ComboBoxItem a6 = new ComboBoxItem();
+            a6.Value = "6";
+            a6.Text = "6-อื่นฯ (Other)";
+            c.Items.Add(a1);
+            c.Items.Add(a2);
+            c.Items.Add(a3);
+            c.Items.Add(a4);
+            c.Items.Add(a5);
+            c.Items.Add(a6);
+            return c;
+        }
+        public String getDateMiotoDB(String date)
+        {
+            String re = "";
+            if (date.Length > 8)
+            {
+                re = date.Substring(0, 4) + "-" + date.Substring(4, 2) + "-" + date.Substring(date.Length - 2);
+            }
+            return re;
+        }
+        public C1ComboBox setCboTaxMethod(C1ComboBox c)
+        {
+            ComboBoxItem b1 = new ComboBoxItem();
+            b1.Value = "1";
+            b1.Text = "1=ชำระภาษีปกติ";
+            ComboBoxItem b2 = new ComboBoxItem();
+            b2.Value = "2";
+            b2.Text = "2=ธนาคารค้ำประกัน";
+            c.Items.Add(b1);
+            c.Items.Add(b2);
+            return c;
+        }
         public String dateDBtoShow(String dt)
         {
             if (dt != "")

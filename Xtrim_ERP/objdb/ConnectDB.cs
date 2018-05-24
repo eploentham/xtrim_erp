@@ -22,6 +22,7 @@ namespace Xtrim_ERP.objdb
         
         public int _rowsAffected = 0;
         private InitConfig initC;
+        public Staff user;
 
         public ConnectDB(InitConfig initc)
         {
@@ -38,6 +39,7 @@ namespace Xtrim_ERP.objdb
                 ";port = " + initc.portDBIm + "; Connection Timeout = 300;default command timeout=0; CharSet=utf8;SslMode=none;";
             connEx.ConnectionString = "Server=" + initc.hostDBEx + ";Database=" + initc.nameDBEx + ";Uid=" + initc.userDBEx + ";Pwd=" + initc.passDBEx + 
                 ";port = " + initc.portDBEx + "; Connection Timeout = 300;default command timeout=0; CharSet=utf8;SslMode=none;";
+            user = new Staff();
         }
         public ConnectDB(String pathSSO)
         {
@@ -439,6 +441,15 @@ namespace Xtrim_ERP.objdb
             }
 
             return ret;
+        }
+        public String dateMiotoDB(String date)
+        {
+            String re = "";
+            if (date.Length > 8)
+            {
+                re = date.Substring(0, 4) + "-" + date.Substring(4, 2) + "-" + date.Substring(date.Length - 2);
+            }
+            return re;
         }
     }
 }

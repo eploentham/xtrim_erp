@@ -22,7 +22,8 @@ namespace Xtrim_ERP.gui
 
         C1FlexGrid grfInv;
         C1SuperTooltip stt;
-        C1SuperErrorProvider sep;
+
+        C1SuperErrorProvider sep;        
 
         String jobNo = "";
 
@@ -51,6 +52,8 @@ namespace Xtrim_ERP.gui
             {
                 theme1.SetTheme(c, "Office2010Blue");
             }
+            theme1.SetTheme(panel1, "Office2010Blue");
+            theme1.SetTheme(panel2, "Office2010Blue");
             theme1.SetTheme(sB, "BeigeOne");
             theme1.SetTheme(grfInv, "Office2010Blue");
             setControl();
@@ -80,6 +83,14 @@ namespace Xtrim_ERP.gui
             grfInv.Cols[colInvNo].Caption = "job no";
 
             //grfInv.Cols[colimpJob].Visible = false;
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void RibbonForm1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -63,6 +63,10 @@ namespace Xtrim_ERP.objdb
             jim.remark = "remark";
             jim.remark1 = "remark1";
             jim.remark2 = "remark2";
+            jim.jobno = "job_no";
+            jim.job_date = "job_date";
+            jim.imp_date = "imp_date";
+            jim.bl = "bl";
 
             jim.cusAddr = "";
             jim.impAddr = "";
@@ -158,6 +162,10 @@ namespace Xtrim_ERP.objdb
             p.transport_mode = p.transport_mode == null ? "" : p.transport_mode;
             p.job_import_date = p.job_import_date == null ? "" : p.job_import_date;
             p.job_import_code = p.job_import_code == null ? "" : p.job_import_code;
+            p.jobno = p.jobno == null ? "" : p.jobno;
+            p.job_date = p.job_date == null ? "" : p.job_date;
+            p.imp_date = p.imp_date == null ? "" : p.imp_date;
+            p.bl = p.bl == null ? "" : p.bl;
 
             p.date_modi = p.date_modi == null ? "" : p.date_modi;
             p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
@@ -199,7 +207,8 @@ namespace Xtrim_ERP.objdb
                 jim.date_create + "," + jim.date_modi + ", " + jim.date_cancel + ", " +
                 jim.user_create + "," + jim.user_modi + ", " + jim.user_cancel + ", " +
                 jim.active + "," + jim.remark + ", " + jim.remark1 + ", " +
-                jim.remark2 + " " +
+                jim.remark2 + ", " + jim.jobno + ", " + jim.job_date + ", " +
+                jim.imp_date + ", " + jim.bl + " " +
                 ") " +
                 "Values ('" + p.job_import_code + "','" + p.job_import_date + "','" + p.cust_id + "'," +
                 "'" + p.imp_id + "','" + p.transport_mode.Replace("'", "''") + "','" + p.staff_id + "'," +
@@ -213,7 +222,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "', " +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.remark1.Replace("'", "''") + "', " +
-                "'" + p.remark2.Replace("'", "''") + "' " +
+                "'" + p.remark2.Replace("'", "''") + "','" + p.jobno.Replace("'", "''") + "','" + p.job_date.Replace("'", "''") + "'," +
+                "'" + p.imp_date.Replace("'", "''") + "','" + p.bl.Replace("'", "''") + "' " +
                 ")";
             try
             {
@@ -267,6 +277,10 @@ namespace Xtrim_ERP.objdb
                 "," + jim.remark + " = '" + p.remark.Replace("'", "''") + "' " +
                 "," + jim.remark1 + " = '" + p.remark1.Replace("'", "''") + "' " +
                 "," + jim.remark2 + " = '" + p.remark2.Replace("'", "''") + "' " +
+                "," + jim.jobno + " = '" + p.jobno.Replace("'", "''") + "' " +
+                "," + jim.job_date + " = '" + p.job_date.Replace("'", "''") + "' " +
+                "," + jim.imp_date + " = '" + p.imp_date.Replace("'", "''") + "' " +
+                "," + jim.bl + " = '" + p.bl.Replace("'", "''") + "' " +
                 "Where " + jim.pkField + "='" + p.staff_id + "'"
                 ;
 
@@ -497,8 +511,10 @@ namespace Xtrim_ERP.objdb
                 jim1.ettNameT = dt.Rows[0]["entry_type_name_t"].ToString();
                 jim1.pvlCode = dt.Rows[0]["priv_code"].ToString();
                 jim1.pvlNameT = dt.Rows[0]["priv_name_t"].ToString();
-                //jim1.polCode = dt.Rows[0]["priv_code"].ToString();
-                //jim1.polNameT = dt.Rows[0]["priv_name_t"].ToString();
+                jim1.jobno = dt.Rows[0][jim.jobno].ToString();
+                jim1.job_date = dt.Rows[0][jim.job_date].ToString();
+                jim1.imp_date = dt.Rows[0][jim.imp_date].ToString();
+                jim1.bl = dt.Rows[0][jim.bl].ToString();
             }
 
             return jim1;
