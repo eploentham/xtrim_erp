@@ -411,7 +411,7 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1139, 742);
+            this.panel1.Size = new System.Drawing.Size(1139, 807);
             this.panel1.TabIndex = 0;
             this.c1ThemeController1.SetTheme(this.panel1, "(default)");
             // 
@@ -437,8 +437,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.tC1);
             this.splitContainer1.Panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.c1ThemeController1.SetTheme(this.splitContainer1.Panel2, "(default)");
-            this.splitContainer1.Size = new System.Drawing.Size(1139, 742);
-            this.splitContainer1.SplitterDistance = 379;
+            this.splitContainer1.Size = new System.Drawing.Size(1139, 807);
+            this.splitContainer1.SplitterDistance = 412;
             this.splitContainer1.TabIndex = 0;
             this.c1ThemeController1.SetTheme(this.splitContainer1, "(default)");
             // 
@@ -481,7 +481,7 @@
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 15, 3, 3);
-            this.groupBox1.Size = new System.Drawing.Size(1139, 379);
+            this.groupBox1.Size = new System.Drawing.Size(1139, 412);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -949,7 +949,7 @@
             this.tC1.Location = new System.Drawing.Point(0, 0);
             this.tC1.Name = "tC1";
             this.tC1.SelectedIndex = 0;
-            this.tC1.Size = new System.Drawing.Size(1139, 359);
+            this.tC1.Size = new System.Drawing.Size(1139, 391);
             this.tC1.TabIndex = 4;
             // 
             // tabPage1
@@ -1034,7 +1034,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1131, 333);
+            this.tabPage1.Size = new System.Drawing.Size(1131, 365);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "IMPORT JOB DETAIL";
             this.c1ThemeController1.SetTheme(this.tabPage1, "(default)");
@@ -3328,7 +3328,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1139, 742);
+            this.ClientSize = new System.Drawing.Size(1139, 807);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.Name = "FrmJobImpNew";

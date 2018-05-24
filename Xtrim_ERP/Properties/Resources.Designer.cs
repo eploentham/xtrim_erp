@@ -403,6 +403,16 @@ namespace Xtrim_ERP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ordering16 {
+            get {
+                object obj = ResourceManager.GetObject("ordering16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap phonebook24 {
             get {
                 object obj = ResourceManager.GetObject("phonebook24", resourceCulture);
@@ -636,6 +646,16 @@ namespace Xtrim_ERP.Properties {
         internal static System.Drawing.Bitmap trash48 {
             get {
                 object obj = ResourceManager.GetObject("trash48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unit_completed16 {
+            get {
+                object obj = ResourceManager.GetObject("unit_completed16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
