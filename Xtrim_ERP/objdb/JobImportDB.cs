@@ -166,6 +166,7 @@ namespace Xtrim_ERP.objdb
             p.job_date = p.job_date == null ? "" : p.job_date;
             p.imp_date = p.imp_date == null ? "" : p.imp_date;
             p.bl = p.bl == null ? "" : p.bl;
+            conn.user.staff_id = conn.user.staff_id == null ? "" : conn.user.staff_id;
 
             p.date_modi = p.date_modi == null ? "" : p.date_modi;
             p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
@@ -219,8 +220,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.inv_date + "','" + p.tax_amt + "','" + p.insr_date + "', " +
                 "'" + p.insr_id + "','" + p.policy_no.Replace("'", "''") + "','" + p.premium + "', " +
                 "'" + p.policy_date + "','" + p.policy_clause.Replace("'", "''") + "','" + p.job_year + "', " +
-                "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "', " +
-                "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "', " +
+                "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
+                "'" + conn.user.staff_id + "','" + p.user_modi + "','" + p.user_cancel + "', " +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.remark1.Replace("'", "''") + "', " +
                 "'" + p.remark2.Replace("'", "''") + "','" + p.jobno.Replace("'", "''") + "','" + p.job_date.Replace("'", "''") + "'," +
                 "'" + p.imp_date.Replace("'", "''") + "','" + p.bl.Replace("'", "''") + "' " +
@@ -272,8 +273,8 @@ namespace Xtrim_ERP.objdb
                 "," + jim.policy_date + " = '" + p.policy_date + "' " +
                 "," + jim.policy_clause + " = '" + p.policy_clause + "' " +
                 "," + jim.job_year + " = '" + p.job_year + "' " +
-                "," + jim.date_modi + " = '" + p.date_modi + "' " +
-                "," + jim.user_modi + " = '" + p.user_modi + "' " +
+                "," + jim.date_modi + " = now() " +
+                "," + jim.user_modi + " = '" + conn.user.staff_id + "' " +
                 "," + jim.remark + " = '" + p.remark.Replace("'", "''") + "' " +
                 "," + jim.remark1 + " = '" + p.remark1.Replace("'", "''") + "' " +
                 "," + jim.remark2 + " = '" + p.remark2.Replace("'", "''") + "' " +

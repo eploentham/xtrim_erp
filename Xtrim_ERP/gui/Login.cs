@@ -22,10 +22,12 @@ namespace Xtrim_ERP.gui
 
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
-        public Login(XtrimControl x)
+        FrmSplash splash;
+        public Login(XtrimControl x, FrmSplash splash)
         {
             InitializeComponent();
             xC = x;
+            this.splash = splash;
             initConfig();
         }
         private void initConfig()
@@ -107,6 +109,7 @@ namespace Xtrim_ERP.gui
 
         private void Login_Load(object sender, EventArgs e)
         {
+            this.splash.Dispose();
             txtUserName.Focus();
         }
 

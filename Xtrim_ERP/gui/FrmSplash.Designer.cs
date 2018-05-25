@@ -28,7 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pB1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
+            // 
+            // pB1
+            // 
+            this.pB1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pB1.Location = new System.Drawing.Point(0, 181);
+            this.pB1.Name = "pB1";
+            this.pB1.Size = new System.Drawing.Size(416, 23);
+            this.pB1.TabIndex = 0;
             // 
             // FrmSplash
             // 
@@ -36,14 +45,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(416, 204);
             this.ControlBox = false;
+            this.Controls.Add(this.pB1);
             this.MinimizeBox = false;
             this.Name = "FrmSplash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSplash";
+            this.Load += new System.EventHandler(this.FrmSplash_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.ProgressBar pB1;
     }
 }

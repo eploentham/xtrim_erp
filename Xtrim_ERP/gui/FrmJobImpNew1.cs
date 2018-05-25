@@ -1,6 +1,8 @@
 ﻿using C1.Win.C1FlexGrid;
+using C1.Win.C1Input;
 using C1.Win.C1SuperTooltip;
 using C1.Win.C1Themes;
+using C1.Win.Calendar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,10 +22,12 @@ namespace Xtrim_ERP.gui
         Font fEdit, fEditB;
         Color bg, fc, grfOld;
         Font ff, ffB;
-        int colJobNo = 1, colimpJob = 2, colJobDate = 3, colImpDate = 4, colBL = 5, colImporter = 8, colVslName = 6, colHouseBL = 5, colNameT = 9, colNameE = 10;
+        int colJobNo = 1, colimpJob = 2, colJobDate = 3, colImpDate = 4, colBL = 5, colImporter = 6, colVslName = 7, colHouseBL = 8, colNameT = 9, colNameE = 10;
         int colvslnamerem = 11, colOrigin = 12, colConsignmnt = 13, colLoaded = 14, colLoadedName = 15, colRelease = 16, colReleaseName = 17, colOutReplease = 18;
         int colOutRepleaseName=19, colApproval=20, colApprovalName=21;
         int grfRowOld = 0;
+
+        int colExpenId = 1, colExpenDate = 2, colExpenItem = 3, colExpenPayment = 4, colExpenTaxDate = 5, colExpenTax = 6, colExpenAmt = 7, colExpenReceipt = 8, colExpenSplit=9, colExpenRemark=10;
 
         Boolean flagEdit = false;
         Boolean flagsearch = false, flagTabInv=false;
@@ -56,6 +60,7 @@ namespace Xtrim_ERP.gui
             chkCatiria.Click += ChkCatiria_Click;
             tabExpen.DoubleClick += TabExpen_DoubleClick;
             tabExpen.TabClick += TabExpen_TabClick;
+            btnPrint.Click += BtnPrint_Click;
 
             panel4.Top = lbCus.Top + 10;
                         
@@ -65,6 +70,13 @@ namespace Xtrim_ERP.gui
             //setPanelSearch(false);
             //locationPanelJob = panelJob.Location;
             //sizePanelJob = panelJob.Size;
+        }
+
+        private void BtnPrint_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmReport frm = new FrmReport();
+            frm.Show(this);
         }
 
         private void TabExpen_TabClick(object sender, EventArgs e)
@@ -210,11 +222,18 @@ namespace Xtrim_ERP.gui
         {
             grfExpen = new C1FlexGrid();
             grfExpen.Dock = DockStyle.Fill;
+            C1.Win.Calendar.C1DateEdit date = new C1.Win.Calendar.C1DateEdit();
+            C1ComboBox combo = new C1ComboBox();
+            grfExpen.Cols[colExpenDate].Editor = date;
+            grfExpen.Cols[colExpenItem].Editor = combo;
+            grfExpen.Cols[colExpenPayment].Editor = combo;
             //grfExpen.Size = new System.Drawing.Size(0, panel4.Height - txtJobCode.Height - 20);
             //grfSearch.AfterRowColChange += GrfSearch_AfterRowColChange;
             //grfSearch.DoubleClick += GrfSearch_DoubleClick;
             FilterRow fr = new FilterRow(grfExpen);
             panelExpen.Controls.Add(grfExpen);
+            grfExpen.Rows.Count = 3;
+            grfExpen.Cols[colExpenId].Visible = false;
         }
         private void setGrfSearch(Boolean flag)
         {
@@ -236,7 +255,7 @@ namespace Xtrim_ERP.gui
             grfSearch.Cols[colJobNo].Caption = "job no";
             grfSearch.Cols[colJobDate].Caption = "job date";
             grfSearch.Cols[colImpDate].Caption = "import date";
-            grfSearch.Cols[colBL].Caption = "Bill Landing";
+            grfSearch.Cols[colBL].Caption = "Bill Lading";
             grfSearch.Cols[colVslName].Caption = "ชื่อยานพาหนะ ";
             grfSearch.Cols[colHouseBL].Caption = "HB/L HAWB ";
             grfSearch.Cols[colImporter].Caption = "importer";

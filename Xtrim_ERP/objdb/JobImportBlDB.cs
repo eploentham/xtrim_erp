@@ -126,6 +126,7 @@ namespace Xtrim_ERP.objdb
             p.user_create = p.user_create == null ? "" : p.user_create;
             p.user_modi = p.user_modi == null ? "" : p.user_modi;
             p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
+            conn.user.staff_id = conn.user.staff_id == null ? "" : conn.user.staff_id;
 
             p.truck_cop_id = int.TryParse(p.truck_cop_id, out chk) ? chk.ToString() : "0";
             p.tranfer_with_job_id = int.TryParse(p.tranfer_with_job_id, out chk) ? chk.ToString() : "0";
@@ -182,7 +183,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.status_job_forrow.Replace("'", "''") + "','" + p.job_forrow_description.Replace("'", "''") + "','" + p.date_finish_job_forrow + "', " +
                 "'" + p.status_oth_job + "','" + p.delivery_remark.Replace("'", "''") + "','" + p.container_yard + "', " +                
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
-                "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "', " +
+                "'" + conn.user.staff_id + "','" + p.user_modi + "','" + p.user_cancel + "', " +
                 "'" + p.active + "','" + p.remark.Replace("'", "''")  + "', '" + p.oth_job_no.Replace("'", "''") + "' " +
                 ")";
             try
@@ -244,7 +245,7 @@ namespace Xtrim_ERP.objdb
                 "," + jbl.date_modi + " = now() " +
                 //"," + jbl.date_cancel + " = '" + p.date_cancel.Replace("'", "''") + "' " +
                 //"," + jbl.user_create + " = '" + p.user_create.Replace("'", "''") + "' " +
-                "," + jbl.user_modi + " = '" + p.user_modi + "' " +
+                "," + jbl.user_modi + " = '" + conn.user.staff_id + "' " +
                 //"," + jbl.user_cancel + " = '" + p.user_cancel.Replace("'", "''") + "' " +
                 "," + jbl.remark + " = '" + p.remark.Replace("'", "''") + "' " +
 

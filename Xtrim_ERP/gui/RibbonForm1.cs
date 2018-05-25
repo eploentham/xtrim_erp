@@ -56,6 +56,12 @@ namespace Xtrim_ERP.gui
             theme1.SetTheme(panel2, "Office2010Blue");
             theme1.SetTheme(sB, "BeigeOne");
             theme1.SetTheme(grfInv, "Office2010Blue");
+            theme1.SetTheme(tC1, "Office2010Blue");
+            xC.setCboTransMode(cboTransMode);
+            tabJob.Text = "นำเข้า Job";
+            TabImporter.Text = "นำเข้า Importer";
+            tabInit.Text = "นำเข้า Master";
+            sB1.Text = "";
             setControl();
             setGrfInv();
             //panel1.BackColor = Color.Blue;
@@ -65,8 +71,23 @@ namespace Xtrim_ERP.gui
             DataTable dt = new DataTable();
             dt = xC.xtDB.mioDB.selectJobNoImport(jobNo);
             txtJobCode.Value = dt.Rows[0]["jobno"].ToString();
-            txtJobCode.Value = dt.Rows[0]["jobno"].ToString();
-            txtJobCode.Value = dt.Rows[0]["jobno"].ToString();
+            txtMbl.Value = dt.Rows[0]["bl"].ToString();
+            txtHbl.Value = dt.Rows[0]["housebl"].ToString();
+            txtMves.Value = dt.Rows[0]["vslname"].ToString();
+            txtTotalP.Value = dt.Rows[0]["nopkg"].ToString();
+            txtGw.Value = dt.Rows[0]["grsww"].ToString();
+            txtImpNameT.Value = dt.Rows[0]["tname"].ToString();
+            txtLoaded.Value = dt.Rows[0]["loaded_name"].ToString();
+            txtReleased.Value = dt.Rows[0]["name_repleased"].ToString();
+            txtOutReleased.Value = dt.Rows[0]["name_out_repleased"].ToString();
+            txtApproval.Value = dt.Rows[0]["name_approval"].ToString();
+            txtOrigin.Value = dt.Rows[0]["origin"].ToString();
+            txtConsignmnt.Value = dt.Rows[0]["consignmnt"].ToString();
+            txtVslname.Value = dt.Rows[0]["vslname"].ToString();
+            txtVslnamerem.Value = dt.Rows[0]["vslnamerem"].ToString();
+            txtNetww.Value = dt.Rows[0]["netww"].ToString();
+            //cboTransMode.SelectedItem = dt.Rows[0]["transmode"].ToString();
+            xC.setC1Combo(cboTransMode, dt.Rows[0]["transmode"].ToString());
         }
         private void setGrfInv()
         {
@@ -83,6 +104,23 @@ namespace Xtrim_ERP.gui
             grfInv.Cols[colInvNo].Caption = "job no";
 
             //grfInv.Cols[colimpJob].Visible = false;
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            // ...
+            if (keyData == (Keys.Escape))
+            {
+                //if (MessageBox.Show("ต้องการออกจากโปรแกรม", "ออกจากโปรแกรม", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+                //{
+                    Close();
+                    return true;
+                //}
+            }
+            else
+            {
+                //keyData
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
         private void btnSave_Click(object sender, EventArgs e)
         {

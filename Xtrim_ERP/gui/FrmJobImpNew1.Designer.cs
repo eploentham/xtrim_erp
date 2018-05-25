@@ -43,6 +43,7 @@
             this.txtDateStart = new C1.Win.Calendar.C1DateEdit();
             this.chkCatiria = new C1.Win.C1Input.C1CheckBox();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.btnTransMode = new C1.Win.C1Input.C1Button();
             this.label27 = new System.Windows.Forms.Label();
             this.txtGw = new C1.Win.C1Input.C1TextBox();
             this.cboUgw = new C1.Win.C1Input.C1ComboBox();
@@ -119,7 +120,7 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.tabExpen = new C1.Win.C1Command.C1DockingTabPage();
             this.panelExpen = new System.Windows.Forms.Panel();
-            this.btnTransMode = new C1.Win.C1Input.C1Button();
+            this.btnPrint = new C1.Win.C1Input.C1Button();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -138,6 +139,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDateStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCatiria)).BeginInit();
             this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnTransMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUgw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUtp)).BeginInit();
@@ -181,7 +183,7 @@
             this.c1DockingTabPage5.SuspendLayout();
             this.c1DockingTabPage6.SuspendLayout();
             this.tabExpen.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnTransMode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // sB
@@ -428,6 +430,7 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel11.Controls.Add(this.btnPrint);
             this.panel11.Controls.Add(this.btnTransMode);
             this.panel11.Controls.Add(this.label27);
             this.panel11.Controls.Add(this.txtGw);
@@ -490,6 +493,18 @@
             this.panel11.Size = new System.Drawing.Size(1214, 319);
             this.panel11.TabIndex = 4;
             this.theme1.SetTheme(this.panel11, "(default)");
+            // 
+            // btnTransMode
+            // 
+            this.btnTransMode.Image = global::Xtrim_ERP.Properties.Resources.Process_accept16;
+            this.btnTransMode.Location = new System.Drawing.Point(350, 209);
+            this.btnTransMode.Name = "btnTransMode";
+            this.btnTransMode.Size = new System.Drawing.Size(22, 22);
+            this.btnTransMode.TabIndex = 191;
+            this.btnTransMode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnTransMode, "(default)");
+            this.btnTransMode.UseVisualStyleBackColor = true;
+            this.btnTransMode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label27
             // 
@@ -1496,17 +1511,19 @@
             this.panelExpen.TabIndex = 0;
             this.theme1.SetTheme(this.panelExpen, "(default)");
             // 
-            // btnTransMode
+            // btnPrint
             // 
-            this.btnTransMode.Image = global::Xtrim_ERP.Properties.Resources.Process_accept16;
-            this.btnTransMode.Location = new System.Drawing.Point(350, 209);
-            this.btnTransMode.Name = "btnTransMode";
-            this.btnTransMode.Size = new System.Drawing.Size(22, 22);
-            this.btnTransMode.TabIndex = 191;
-            this.btnTransMode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnTransMode, "(default)");
-            this.btnTransMode.UseVisualStyleBackColor = true;
-            this.btnTransMode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnPrint.Image = global::Xtrim_ERP.Properties.Resources.printer_blue24;
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrint.Location = new System.Drawing.Point(1107, 266);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(83, 39);
+            this.btnPrint.TabIndex = 274;
+            this.btnPrint.Text = "พิมพ์";
+            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.theme1.SetTheme(this.btnPrint, "(default)");
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmJobImpNew1
             // 
@@ -1541,6 +1558,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkCatiria)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnTransMode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUgw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUtp)).EndInit();
@@ -1584,7 +1602,7 @@
             this.c1DockingTabPage5.ResumeLayout(false);
             this.c1DockingTabPage6.ResumeLayout(false);
             this.tabExpen.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnTransMode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrint)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1684,5 +1702,6 @@
         private C1.Win.C1Input.C1TextBox txtGw;
         private C1.Win.C1Input.C1ComboBox cboUgw;
         private C1.Win.C1Input.C1Button btnTransMode;
+        private C1.Win.C1Input.C1Button btnPrint;
     }
 }

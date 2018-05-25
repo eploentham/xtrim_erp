@@ -21,12 +21,12 @@ namespace Xtrim_ERP.gui
         Image CloseImage;
         Login login;
         Boolean flagExit = false;
-        public MainMenu3(XtrimControl x)
+        public MainMenu3(XtrimControl x, FrmSplash splash)
         {
             InitializeComponent();
             //MessageBox.Show("111111", "11111111");
             xC = x;
-            login = new Login(xC);
+            login = new Login(xC, splash);
             login.ShowDialog(this);
             if (login.LogonSuccessful.Equals("1"))
             {
