@@ -35,7 +35,8 @@ namespace Xtrim_ERP
             //MessageBox.Show("1111111", "1111111");
             //MainMenu3 mainmenu3 = new gui.MainMenu3(xC);
             //spl.Dispose();
-            Application.Run(new gui.MainMenu3(xc, spl));
+            //Application.Run(new gui.MainMenu3(xc, spl));
+            Application.Run(new gui.MainMenu4(xc, spl));
             //if (logon.LogonSuccessful.Equals("1"))
             //{
             //    Application.Run(new gui.MainMenu());

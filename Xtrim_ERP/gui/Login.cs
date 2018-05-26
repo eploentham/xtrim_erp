@@ -38,6 +38,8 @@ namespace Xtrim_ERP.gui
             {
                 theme1.SetTheme(c, "Office2013Red");
             }
+            theme1.SetTheme(panel1, "Office2013Red");
+            //theme1.SetTheme(label2, "Office2010Blue");
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
             stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;

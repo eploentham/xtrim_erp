@@ -50,6 +50,7 @@ namespace Xtrim_ERP.gui
         }
         private Boolean appExit()
         {
+            flagExit = true;
             if (MessageBox.Show("ต้องการออกจากโปรแกรม", "ออกจากโปรแกรม menu", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 Close();
@@ -232,7 +233,8 @@ namespace Xtrim_ERP.gui
 
         private void menuTest_Click(object sender, EventArgs e)
         {
-            FrmJobImpView1 frm = new FrmJobImpView1(xC);
+            //FrmJobImpView1 frm = new FrmJobImpView1(xC);
+            FrmJobImpNew2 frm = new FrmJobImpNew2(xC);
             frm.FormBorderStyle = FormBorderStyle.None;
             TabPage tab = new TabPage("dddddd");
             AddNewTab(frm, "Import JOB");

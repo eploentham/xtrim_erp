@@ -252,6 +252,12 @@
     <Compile Include="gui\FrmJobImpNew.Designer.cs">
       <DependentUpon>FrmJobImpNew.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmJobImpNew2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmJobImpNew2.Designer.cs">
+      <DependentUpon>FrmJobImpNew2.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmJobImpView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -335,6 +341,12 @@
     </Compile>
     <Compile Include="gui\MainMenu3.Designer.cs">
       <DependentUpon>MainMenu3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\MainMenu4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\MainMenu4.Designer.cs">
+      <DependentUpon>MainMenu4.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\RibbonForm1.cs">
       <SubType>Form</SubType>
@@ -491,6 +503,9 @@
     <EmbeddedResource Include="gui\FrmJobImpNew1.resx">
       <DependentUpon>FrmJobImpNew1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmJobImpNew2.resx">
+      <DependentUpon>FrmJobImpNew2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmJobImpView.resx">
       <DependentUpon>FrmJobImpView.cs</DependentUpon>
     </EmbeddedResource>
@@ -532,6 +547,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\MainMenu3.resx">
       <DependentUpon>MainMenu3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\MainMenu4.resx">
+      <DependentUpon>MainMenu4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\RibbonForm1.resx">
       <DependentUpon>RibbonForm1.cs</DependentUpon>

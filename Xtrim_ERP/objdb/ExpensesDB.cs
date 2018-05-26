@@ -1,4 +1,5 @@
-﻿using System;
+﻿using C1.Win.C1Input;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -241,6 +242,27 @@ namespace Xtrim_ERP.objdb
             }
 
             return expn1;
+        }
+        public C1ComboBox setCboExpen(C1ComboBox c)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            DataTable dt = selectAll();
+            //String aaa = "";
+            ComboBoxItem item1 = new ComboBoxItem();
+            item1.Text = "";
+            item1.Value = "000";
+            c.Items.Clear();
+            c.Items.Add(item1);
+            //for (int i = 0; i < dt.Rows.Count; i++)
+            foreach (DataRow row in dt.Rows)
+            {
+                item = new ComboBoxItem();
+                item.Text = row[expn.expenses_name_t].ToString();
+                item.Value = row[expn.expenses_id].ToString();
+
+                c.Items.Add(item);
+            }
+            return c;
         }
     }
 }

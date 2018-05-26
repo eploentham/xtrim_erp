@@ -176,6 +176,7 @@ namespace Xtrim_ERP.gui
                 //panelJob.Dock = DockStyle.None;
                 grfSearch.Dispose();
                 panel11.Show();
+                panel11.Height = 320;
                 txtCusNameT.Show();
                 btnCusSF2.Show();
                 btnCusSF4.Show();
@@ -224,6 +225,7 @@ namespace Xtrim_ERP.gui
             grfExpen.Dock = DockStyle.Fill;
             C1.Win.Calendar.C1DateEdit date = new C1.Win.Calendar.C1DateEdit();
             C1ComboBox combo = new C1ComboBox();
+            combo = xC.xtDB.expnDB.setCboExpen(combo);
             grfExpen.Cols[colExpenDate].Editor = date;
             grfExpen.Cols[colExpenItem].Editor = combo;
             grfExpen.Cols[colExpenPayment].Editor = combo;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.c1FlexGrid1 = new C1.Win.C1FlexGrid.C1FlexGrid();
             this.c1MainMenu1 = new C1.Win.C1Command.C1MainMenu();
@@ -46,9 +47,13 @@
             this.c1CommandHolder1 = new C1.Win.C1Command.C1CommandHolder();
             this.txtContFNameT = new C1.Win.C1Input.C1TextBox();
             this.c1FlexReport1 = new C1.Win.FlexReport.C1FlexReport();
+            this.c1DropDownControl1 = new C1.Win.C1Input.C1DropDownControl();
+            this.c1DockingManager1 = new C1.Win.C1Command.C1DockingManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContFNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1DropDownControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1DockingManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // c1FlexGrid1
@@ -181,11 +186,25 @@
             // 
             this.c1FlexReport1.ReportDefinition = resources.GetString("c1FlexReport1.ReportDefinition");
             // 
+            // c1DropDownControl1
+            // 
+            this.c1DropDownControl1.ImagePadding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.c1DropDownControl1.Location = new System.Drawing.Point(276, 53);
+            this.c1DropDownControl1.Name = "c1DropDownControl1";
+            this.c1DropDownControl1.Size = new System.Drawing.Size(200, 18);
+            this.c1DropDownControl1.TabIndex = 67;
+            this.c1DropDownControl1.Tag = null;
+            // 
+            // c1DockingManager1
+            // 
+            this.c1DockingManager1.ParentContainer = this;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1273, 736);
+            this.Controls.Add(this.c1DropDownControl1);
             this.Controls.Add(this.txtContFNameT);
             this.Controls.Add(this.c1FlexGrid1);
             this.Controls.Add(this.c1MainMenu1);
@@ -195,6 +214,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContFNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1DropDownControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1DockingManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -218,5 +239,7 @@
         private C1.Win.C1Command.C1CommandHolder c1CommandHolder1;
         private C1.Win.C1Input.C1TextBox txtContFNameT;
         private C1.Win.FlexReport.C1FlexReport c1FlexReport1;
+        private C1.Win.C1Input.C1DropDownControl c1DropDownControl1;
+        private C1.Win.C1Command.C1DockingManager c1DockingManager1;
     }
 }

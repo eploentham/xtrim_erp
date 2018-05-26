@@ -52,9 +52,13 @@ namespace Xtrim_ERP.gui
             {
                 theme1.SetTheme(c, "Office2010Blue");
             }
+            foreach(Control c in groupBox1.Controls)
+            {
+                theme1.SetTheme(c, "Office2010Blue");
+            }
             theme1.SetTheme(panel1, "Office2010Blue");
             theme1.SetTheme(panel2, "Office2010Blue");
-            theme1.SetTheme(sB, "BeigeOne");
+            theme1.SetTheme(sB, "Office2010Blue");
             theme1.SetTheme(grfInv, "Office2010Blue");
             theme1.SetTheme(tC1, "Office2010Blue");
             xC.setCboTransMode(cboTransMode);
