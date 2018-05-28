@@ -48,6 +48,7 @@ namespace Xtrim_ERP.objdb
         public CustomerTaxInvoiceDB custDB;
         public PrefixDB pfxDB;
         public PositionDB posiDB;
+        public CountryDB cotDB;
 
         public MeiosysDB mioDB;
 
@@ -98,6 +99,7 @@ namespace Xtrim_ERP.objdb
             pfxDB = new PrefixDB(conn);
             posiDB = new PositionDB(conn);
             mioDB = new MeiosysDB(conn);
+            cotDB = new CountryDB(conn);
         }
     }
 }

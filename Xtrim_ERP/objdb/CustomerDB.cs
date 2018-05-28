@@ -415,6 +415,28 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+        public DataTable selectCusAll()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cop.cust_id, cop.cust_code, cop.cust_name_t, cop.taddr1, cop.tele, cop.email, cop.remark, cop.remark2, cop.contact_name1, cop.contact_name2 " +
+                "From " + cus.table + " cop " +
+                " " +
+                "Where cop." + cus.active + " ='1' and cop."+cus.status_cust+"='1'";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectImpAll()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cop.cust_id, cop.cust_code, cop.cust_name_t, cop.taddr1, cop.tele, cop.email, cop.remark, cop.remark2, cop.contact_name1, cop.contact_name2 " +
+                "From " + cus.table + " cop " +
+                " " +
+                "Where cop." + cus.active + " ='1' and cop." + cus.status_imp + "='1'";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
         public DataTable selectAll2(String flagCus, String flagImp, String flagExp, String flagConsImp, String flagConsExp, String flagInsr, String flagFwd, String flagSupp)
         {
             DataTable dt = new DataTable();

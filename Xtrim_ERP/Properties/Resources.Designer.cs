@@ -121,6 +121,26 @@ namespace Xtrim_ERP.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Align Text Left (Ctrl + L)
+        ///Align text to the left..
+        /// </summary>
+        internal static string AlignLeft_txt {
+            get {
+                return ResourceManager.GetString("AlignLeft_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Align Text Right (Ctrl + R)
+        ///Align text to the right..
+        /// </summary>
+        internal static string AlignRight_txt {
+            get {
+                return ResourceManager.GetString("AlignRight_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap AlignTextCenter_small {
@@ -171,12 +191,33 @@ namespace Xtrim_ERP.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Background Color
+        ///Color the background behind the selected text or paragraph..
+        /// </summary>
+        internal static string BackgroundColor_txt {
+            get {
+                return ResourceManager.GetString("BackgroundColor_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap BlankPage_large {
             get {
                 object obj = ResourceManager.GetObject("BlankPage_large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blank Page
+        ///Blank Page
+        ///Insert a new blank page at the current position..
+        /// </summary>
+        internal static string BlankPage_txt {
+            get {
+                return ResourceManager.GetString("BlankPage_txt", resourceCulture);
             }
         }
         
@@ -191,6 +232,16 @@ namespace Xtrim_ERP.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bold (Ctrl + B)
+        ///Make the selected text bold..
+        /// </summary>
+        internal static string Bold_txt {
+            get {
+                return ResourceManager.GetString("Bold_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Bookmark_large {
@@ -201,12 +252,33 @@ namespace Xtrim_ERP.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bookmark
+        ///Bookmark
+        ///Create a bookmark to assign a name to a specific point in the document..
+        /// </summary>
+        internal static string Bookmark_txt {
+            get {
+                return ResourceManager.GetString("Bookmark_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Borders_small {
             get {
                 object obj = ResourceManager.GetObject("Borders_small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Borders
+        ///Customize the borders of the selected cells or text..
+        /// </summary>
+        internal static string Borders_txt {
+            get {
+                return ResourceManager.GetString("Borders_txt", resourceCulture);
             }
         }
         
@@ -240,6 +312,35 @@ namespace Xtrim_ERP.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bullets
+        ///Start a bulleted list. Click the arrow to choose different bullet styles..
+        /// </summary>
+        internal static string Bullets_txt {
+            get {
+                return ResourceManager.GetString("Bullets_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Capitalize Each Word.
+        /// </summary>
+        internal static string CapitalizeCase_txt {
+            get {
+                return ResourceManager.GetString("CapitalizeCase_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Center (Ctrl + E)
+        ///Center text..
+        /// </summary>
+        internal static string Center_txt {
+            get {
+                return ResourceManager.GetString("Center_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap ChangeCase_small {
@@ -250,12 +351,33 @@ namespace Xtrim_ERP.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change Case
+        ///Change all the selected text to UPPERCASE, lowercase, or other common capitalizations..
+        /// </summary>
+        internal static string ChangeCase_txt {
+            get {
+                return ResourceManager.GetString("ChangeCase_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Chart_large {
             get {
                 object obj = ResourceManager.GetObject("Chart_large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chart
+        ///Insert Chart
+        ///Insert a chart to illustrate and compare data..
+        /// </summary>
+        internal static string Chart_txt {
+            get {
+                return ResourceManager.GetString("Chart_txt", resourceCulture);
             }
         }
         
@@ -280,12 +402,33 @@ namespace Xtrim_ERP.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear Formatting
+        ///Clear all the formatting from the selection, leaving only the plain text..
+        /// </summary>
+        internal static string ClearFormatting_txt {
+            get {
+                return ResourceManager.GetString("ClearFormatting_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap ClipArt_large {
             get {
                 object obj = ResourceManager.GetObject("ClipArt_large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clip Art
+        ///Clip Art
+        ///Insert clip art into the document, including drawings, movies, and sounds..
+        /// </summary>
+        internal static string ClipArt_txt {
+            get {
+                return ResourceManager.GetString("ClipArt_txt", resourceCulture);
             }
         }
         
@@ -300,12 +443,45 @@ namespace Xtrim_ERP.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Compare
+        ///Compare
+        ///Compare two versions of a document and highlight the differences between them..
+        /// </summary>
+        internal static string Compare_txt {
+            get {
+                return ResourceManager.GetString("Compare_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Source Documents
+        ///Show Source Documents
+        ///Show two documents side by side and highlight the differences between them..
+        /// </summary>
+        internal static string CompareVersions_txt {
+            get {
+                return ResourceManager.GetString("CompareVersions_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Copy_small {
             get {
                 object obj = ResourceManager.GetObject("Copy_small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy
+        ///Copy (Ctrl + C)
+        ///Copy the selection and put it on the Clipboard..
+        /// </summary>
+        internal static string Copy_txt {
+            get {
+                return ResourceManager.GetString("Copy_txt", resourceCulture);
             }
         }
         
@@ -320,12 +496,35 @@ namespace Xtrim_ERP.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cover Page
+        ///Cover Page
+        ///Insert a fully formatted cover page.
+        ///You fill in the title, author, date, and other information..
+        /// </summary>
+        internal static string CoverPage_txt {
+            get {
+                return ResourceManager.GetString("CoverPage_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap CrossReference_large {
             get {
                 object obj = ResourceManager.GetObject("CrossReference_large", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cross-reference
+        ///Cross-reference
+        ///Refer to items such as headings, figures, and tables..
+        /// </summary>
+        internal static string CrossReference_txt {
+            get {
+                return ResourceManager.GetString("CrossReference_txt", resourceCulture);
             }
         }
         
@@ -340,12 +539,32 @@ namespace Xtrim_ERP.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom Margins....
+        /// </summary>
+        internal static string CustomMargins_txt {
+            get {
+                return ResourceManager.GetString("CustomMargins_txt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Cut_small {
             get {
                 object obj = ResourceManager.GetObject("Cut_small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cut
+        ///Cut (Ctrl + X)
+        ///Cut the selection from the document and put it on the Clipboard..
+        /// </summary>
+        internal static string Cut_txt {
+            get {
+                return ResourceManager.GetString("Cut_txt", resourceCulture);
             }
         }
         

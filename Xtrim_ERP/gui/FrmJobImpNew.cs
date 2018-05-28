@@ -575,6 +575,11 @@ namespace Xtrim_ERP.gui
 
         }
 
+        private void btnCusSF2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void textBox_Enter(object sender, EventArgs e)
         {
             C1TextBox a = (C1TextBox)sender;
@@ -599,9 +604,9 @@ namespace Xtrim_ERP.gui
                 {
                     int top = 0, leftg = 0;
                     top = txtCusNameT.Top+24+24+10;
-                    
+                    Point pp = txtCusNameT.Location;
                     leftg = txtCusNameT.Left;
-                    FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Customer, top, leftg);
+                    FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Customer, pp);
                     frm.ShowDialog(this);
                     lbCusAddr.Value = xC.sCus.taddr1 + "\n" + xC.sCus.taddr2 + "\n" + xC.sCus.taddr3 + "\n" + xC.sCus.taddr4;
                     txtCusNameT.Value = xC.sCus.cust_name_t;
@@ -609,10 +614,11 @@ namespace Xtrim_ERP.gui
                 }
                 else if (sender.Equals(txtImpNameT))
                 {
+
                     FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Importer);
                     frm.ShowDialog(this);
                     lbImpAddr.Value = xC.sImp.taddr1 + "\n" + xC.sImp.taddr2 + "\n" + xC.sImp.taddr3 + "\n" + xC.sImp.taddr4;
-                    txtImpNameT.Value = xC.sImp.imp_name_t;
+                    txtImpNameT.Value = xC.sImp.cust_name_t;
                     //lbImpNameT.Value = xC.sImp.imp_name_t;
                 }
                 else if (sender.Equals(txtFwdNameT))
@@ -620,7 +626,7 @@ namespace Xtrim_ERP.gui
                     FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Forwarder);
                     frm.ShowDialog(this);
                     //lbFwdAddr.Value = xC.sFwd.taddr1 + "\n" + xC.sFwd.taddr2 + "\n" + xC.sFwd.taddr3 + "\n" + xC.sFwd.taddr4;
-                    txtFwdNameT.Value = xC.sFwd.forwarder_name_t;
+                    txtFwdNameT.Value = xC.sFwd.cust_name_t;
                     //lbFwdNameT.Value = xC.sFwd.forwarder_name_t;
                 }
                 else if (sender.Equals(txtEttNameT))
@@ -691,7 +697,7 @@ namespace Xtrim_ERP.gui
                             FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Customer, txtImpNameT.Text);
                             frm.ShowDialog(this);
                             lbImpAddr.Value = xC.sImp.taddr1 + "\n" + xC.sImp.taddr2 + "\n" + xC.sImp.taddr3 + "\n" + xC.sImp.taddr4;
-                            txtImpNameT.Value = xC.sImp.imp_name_t;
+                            txtImpNameT.Value = xC.sImp.cust_name_t;
                         }
                         //MessageBox.Show("1111", "11");
                     }

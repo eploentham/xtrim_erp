@@ -738,4 +738,97 @@ Open (Ctrl + O)</value>
   <data name="Undo_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\undo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AlignLeft_txt" xml:space="preserve">
+    <value>Align Text Left (Ctrl + L)
+Align text to the left.</value>
+  </data>
+  <data name="AlignRight_txt" xml:space="preserve">
+    <value>Align Text Right (Ctrl + R)
+Align text to the right.</value>
+  </data>
+  <data name="BackgroundColor_txt" xml:space="preserve">
+    <value>Background Color
+Color the background behind the selected text or paragraph.</value>
+  </data>
+  <data name="BlankPage_txt" xml:space="preserve">
+    <value>Blank Page
+Blank Page
+Insert a new blank page at the current position.</value>
+  </data>
+  <data name="Bold_txt" xml:space="preserve">
+    <value>Bold (Ctrl + B)
+Make the selected text bold.</value>
+  </data>
+  <data name="Bookmark_txt" xml:space="preserve">
+    <value>Bookmark
+Bookmark
+Create a bookmark to assign a name to a specific point in the document.</value>
+  </data>
+  <data name="Borders_txt" xml:space="preserve">
+    <value>Borders
+Customize the borders of the selected cells or text.</value>
+  </data>
+  <data name="Bullets_txt" xml:space="preserve">
+    <value>Bullets
+Start a bulleted list. Click the arrow to choose different bullet styles.</value>
+  </data>
+  <data name="CapitalizeCase_txt" xml:space="preserve">
+    <value>&amp;Capitalize Each Word</value>
+  </data>
+  <data name="Center_txt" xml:space="preserve">
+    <value>Center (Ctrl + E)
+Center text.</value>
+  </data>
+  <data name="ChangeCase_txt" xml:space="preserve">
+    <value>Change Case
+Change all the selected text to UPPERCASE, lowercase, or other common capitalizations.</value>
+  </data>
+  <data name="Chart_txt" xml:space="preserve">
+    <value>Chart
+Insert Chart
+Insert a chart to illustrate and compare data.</value>
+  </data>
+  <data name="ClearFormatting_txt" xml:space="preserve">
+    <value>Clear Formatting
+Clear all the formatting from the selection, leaving only the plain text.</value>
+  </data>
+  <data name="ClipArt_txt" xml:space="preserve">
+    <value>Clip Art
+Clip Art
+Insert clip art into the document, including drawings, movies, and sounds.</value>
+  </data>
+  <data name="CompareVersions_txt" xml:space="preserve">
+    <value>Show Source Documents
+Show Source Documents
+Show two documents side by side and highlight the differences between them.</value>
+  </data>
+  <data name="Compare_txt" xml:space="preserve">
+    <value>Compare
+Compare
+Compare two versions of a document and highlight the differences between them.</value>
+  </data>
+  <data name="Copy_txt" xml:space="preserve">
+    <value>Copy
+Copy (Ctrl + C)
+Copy the selection and put it on the Clipboard.</value>
+  </data>
+  <data name="CoverPage_txt" xml:space="preserve">
+    <value>Cover Page
+Cover Page
+Insert a fully formatted cover page.
+You fill in the title, author, date, and other information.</value>
+  </data>
+  <data name="CrossReference_txt" xml:space="preserve">
+    <value>Cross-reference
+Cross-reference
+Refer to items such as headings, figures, and tables.</value>
+  </data>
+  <data name="CustomMargins_txt" xml:space="preserve">
+    <value>Custom Margins...</value>
+  </data>
+  <data name="Cut_txt" xml:space="preserve">
+    <value>Cut
+Cut (Ctrl + X)
+Cut the selection from the document and put it on the Clipboard.</value>
+  </data>
 </root>

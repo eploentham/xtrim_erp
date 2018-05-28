@@ -30,7 +30,10 @@ namespace Xtrim_ERP.object1
             Forwarder,
             EntryType,
             PortOfLoading,
-            Privilege
+            Privilege,
+            Staff,
+            Consignmnt,
+            EntryType1
         };
         Search flag;
         //private CellStyle _style;
@@ -63,18 +66,22 @@ namespace Xtrim_ERP.object1
             //initConfigSpreadGrd();
             initConfigFlexGrd();
         }
-        public FrmSearch(XtrimControl x, Search f, int top, int left)
+        public FrmSearch(XtrimControl x, Search f,Point pp)
         {
             xC = x;
             flag = f;
             fEdit = new Font(xC.iniC.grdViewFontName, xC.grdViewFontSize, FontStyle.Regular);
             //this.Top = top+10;
             
-            initConfig();
+            initConfig(pp);
             //initConfigSpreadGrd();
             initConfigFlexGrd();
         }
         private void initConfig()
+        {
+            initConfig(new Point(0,0));
+        }
+        private void initConfig(Point pp)
         {
             //Set up the form.
             this.MaximizeBox = false;
@@ -82,9 +89,11 @@ namespace Xtrim_ERP.object1
             this.BackColor = Color.White;
             this.ForeColor = Color.Black;
             this.Size = new System.Drawing.Size(800, 400);
+            this.Location = pp;
             this.Text = "Run-time Controls";
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.StartPosition = FormStartPosition.CenterParent;
+            this.StartPosition = FormStartPosition.Manual;
+            //this.StartPosition = FormStartPosition.CenterParent;
         }
 
         private void InitializeComponent()
@@ -138,11 +147,11 @@ namespace Xtrim_ERP.object1
             //grdFlex.DataSource = xC.xtDB.cusDB.lCus;
             if (flag == Search.Customer)
             {
-                grdFlex.DataSource = xC.xtDB.cusDB.dtCus;
+                grdFlex.DataSource = xC.xtDB.cusDB.selectCusAll();
             }
             else if(flag == Search.Importer)
             {
-                grdFlex.DataSource = xC.xtDB.impDB.dtImp;
+                grdFlex.DataSource = xC.xtDB.cusDB.selectImpAll();
             }
             else if (flag == Search.Forwarder)
             {
@@ -154,11 +163,23 @@ namespace Xtrim_ERP.object1
             }
             else if (flag == Search.PortOfLoading)
             {
-                grdFlex.DataSource = xC.xtDB.polDB.dtPol;
+                grdFlex.DataSource = xC.xtDB.polDB.selectAll();
             }
             else if (flag == Search.Privilege)
             {
                 grdFlex.DataSource = xC.xtDB.pvlDB.dtPvl;
+            }
+            else if (flag == Search.Staff)
+            {
+                grdFlex.DataSource = xC.xtDB.stfDB.selectAll1();
+            }
+            else if (flag == Search.Consignmnt)
+            {
+                grdFlex.DataSource = xC.xtDB.cotDB.selectAll();
+            }
+            else if (flag == Search.EntryType)
+            {
+                grdFlex.DataSource = xC.xtDB.ettDB.selectAll();
             }
             grdFlex.Cols[colID].Width = 60;
             grdFlex.Cols[colNameT].Width = 20;
@@ -223,6 +244,7 @@ namespace Xtrim_ERP.object1
             {
                 //if(grdFlex.Row != grdFlex.Rows.Fixed)
                 //{
+                if (grdFlex[grdFlex.Row, colID] == null) return true;
                 if (flag == Search.Customer)
                 {
                     xC.sCus = new Customer();
@@ -230,13 +252,13 @@ namespace Xtrim_ERP.object1
                 }
                 else if (flag == Search.Importer)
                 {
-                    xC.sImp = new Importer();
-                    xC.sImp = xC.xtDB.impDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
+                    xC.sImp = new Customer();
+                    xC.sImp = xC.xtDB.cusDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.Forwarder)
                 {
-                    xC.sFwd = new Forwarder();
-                    xC.sFwd = xC.xtDB.fwdDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
+                    xC.sFwd = new Customer();
+                    xC.sFwd = xC.xtDB.cusDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.EntryType)
                 {
@@ -252,6 +274,21 @@ namespace Xtrim_ERP.object1
                 {
                     xC.sPvl = new Privilege();
                     xC.sPvl = xC.xtDB.pvlDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
+                }
+                else if (flag == Search.Staff)
+                {
+                    xC.sStf = new Staff();
+                    xC.sStf = xC.xtDB.stfDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
+                }
+                else if (flag == Search.Consignmnt)
+                {
+                    xC.sCst = new Country();
+                    xC.sCst = xC.xtDB.cotDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
+                }
+                else if (flag == Search.EntryType)
+                {
+                    xC.sCst = new Country();
+                    xC.sEtt = xC.xtDB.ettDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
                 }
                 Close();
                 return true;

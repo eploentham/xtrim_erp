@@ -13,12 +13,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Xtrim_ERP.control;
+using Xtrim_ERP.object1;
+using Xtrim_ERP.Properties;
 
 namespace Xtrim_ERP.gui
 {
     public partial class FrmJobImpNew1 : Form
     {
         XtrimControl xC;
+        JobImport jim;
         Font fEdit, fEditB;
         Color bg, fc, grfOld;
         Font ff, ffB;
@@ -49,6 +52,7 @@ namespace Xtrim_ERP.gui
             C1ThemeController.ApplicationTheme = xC.iniC.themeApplication;
             theme1.Theme = C1ThemeController.ApplicationTheme;
             grfSearch = new C1FlexGrid();
+            jim = new JobImport();
             initGrfExpen();
 
             //theme1.SetTheme(tC1, "BeigeOne");
@@ -61,9 +65,22 @@ namespace Xtrim_ERP.gui
             tabExpen.DoubleClick += TabExpen_DoubleClick;
             tabExpen.TabClick += TabExpen_TabClick;
             btnPrint.Click += BtnPrint_Click;
+            btnSave.Click += BtnSave_Click;
+            btnEdit.Click += BtnEdit_Click;
 
-            panel4.Top = lbCus.Top + 10;
-                        
+            txtCusNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtImpNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtStaffCS.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtPvlNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtPolNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtConsignmnt.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtEttNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+
+            panel4.Height = txtJobCode.Height + 30;
+            panel11.Height = 580;
+            panel3.Height = this.Height - panel4.Height - panel11.Height-30;
+            tC2.Height = this.Height - panel4.Height - panel11.Height - 30;
+
             panelCatiria.Hide();
             tC2.SelectedTab = tabAgent;
             //splitContainer1.SplitterDistance = 480;
@@ -72,6 +89,120 @@ namespace Xtrim_ERP.gui
             //sizePanelJob = panelJob.Size;
         }
 
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                setJobImport();
+                String re = xC.xtDB.addrDB.insertAddress(addr);
+                int chk = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    btnSave.Image = Resources.accept_database24;
+                }
+                else
+                {
+                    btnSave.Image = Resources.accept_database24;
+                }
+                //setGrdView();
+                this.Dispose();
+            }
+        }
+
+        private void txtCusCode_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                if (sender.Equals(txtCusNameT))
+                {
+                    Point pp = txtCusNameT.Location;
+                    pp.Y = pp.Y + 120;
+                    pp.X = pp.X - 20;
+                    
+                    FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Customer, pp);
+                    frm.ShowDialog(this);
+                    lbCusAddr.Value = xC.sCus.taddr1 + "\n" + xC.sCus.taddr2 + "\n" + xC.sCus.taddr3 + "\n" + xC.sCus.taddr4;
+                    txtCusNameT.Value = xC.sCus.cust_name_t;
+                }
+                else if (sender.Equals(txtImpNameT))
+                {
+                    Point pp = txtImpNameT.Location;
+                    pp.Y = pp.Y + 120;
+                    pp.X = pp.X - 20;
+                    
+                    FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Importer, pp);
+                    frm.ShowDialog(this);
+                    lbImpAddr.Value = xC.sImp.taddr1 + "\n" + xC.sImp.taddr2 + "\n" + xC.sImp.taddr3 + "\n" + xC.sImp.taddr4;
+                    txtImpNameT.Value = xC.sImp.cust_name_t;
+                }
+                else if (sender.Equals(txtStaffCS))
+                {
+                    Point pp = txtStaffCS.Location;
+                    pp.Y = pp.Y + 120;
+                    pp.X = pp.X - 20;
+                    
+                    FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Staff, pp);
+                    frm.ShowDialog(this);
+                    txtStaffCS.Value = xC.sStf.staff_fname_t;
+                }
+                else if (sender.Equals(txtPvlNameT))
+                {
+                    Point pp = txtPvlNameT.Location;
+                    pp.Y = pp.Y + 120;
+                    pp.X = pp.X - 20;
+
+                    FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Privilege, pp);
+                    frm.ShowDialog(this);
+                    txtPvlNameT.Value = xC.sPvl.desc1;
+                }
+                else if (sender.Equals(txtFwdNameT))
+                {
+                    Point pp = txtFwdNameT.Location;
+                    pp.Y = pp.Y + 120;
+                    pp.X = pp.X - 20;
+
+                    FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Forwarder, pp);
+                    frm.ShowDialog(this);
+                    txtFwdNameT.Value = xC.sFwd.cust_name_t;
+                }
+                else if (sender.Equals(txtPolNameT))
+                {
+                    Point pp = txtPolNameT.Location;
+                    pp.Y = pp.Y + 120;
+                    pp.X = pp.X - 20;
+
+                    FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.PortOfLoading, pp);
+                    frm.ShowDialog(this);
+                    txtPolNameT.Value = xC.sPol.port_of_loading_t;
+                }
+                else if (sender.Equals(txtConsignmnt))
+                {
+                    Point pp = txtConsignmnt.Location;
+                    pp.Y = pp.Y + 120;
+                    pp.X = pp.X - 20;
+
+                    FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.PortOfLoading, pp);
+                    frm.ShowDialog(this);
+                    txtConsignmnt.Value = xC.sCst.cou_name;
+                }
+                else if (sender.Equals(txtEttNameT))
+                {
+                    Point pp = txtEttNameT.Location;
+                    pp.Y = pp.Y + 120;
+                    pp.X = pp.X - 20;
+
+                    FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.PortOfLoading, pp);
+                    frm.ShowDialog(this);
+                    txtEttNameT.Value = xC.sEtt.entry_type_name_t;
+                }
+            }
+        }
         private void BtnPrint_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -84,6 +215,11 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             flagTabInv = flagTabInv == true ? false : true;
             setTabInv(flagTabInv);
+        }
+        private void setJobImport()
+        {
+            jim = new JobImport();
+
         }
         private void setTabInv(Boolean flag)
         {
@@ -176,7 +312,7 @@ namespace Xtrim_ERP.gui
                 //panelJob.Dock = DockStyle.None;
                 grfSearch.Dispose();
                 panel11.Show();
-                panel11.Height = 320;
+                panel11.Height = 620;
                 txtCusNameT.Show();
                 btnCusSF2.Show();
                 btnCusSF4.Show();

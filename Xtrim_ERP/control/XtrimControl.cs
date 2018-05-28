@@ -31,13 +31,16 @@ namespace Xtrim_ERP.control
         public String rContactName = "", rContacTel = "", rContID="";
 
         public Customer sCus;
-        public Importer sImp;
-        public Forwarder sFwd;
+        public Customer sImp;
+        public Customer sFwd;
         public EntryType sEtt;
         public PortOfLoading sPol;
         public Privilege sPvl;
         public UnitGw sUgw;
         public UnitPackage sUtp;
+        public Staff sStf;
+        public Country sCst;
+
         public Terminal sTmn;
         public LogFile lf;
         public Staff user;
@@ -81,8 +84,8 @@ namespace Xtrim_ERP.control
 
             xtDB = new XtrimDB(conn);
             sCus = new Customer();
-            sImp = new Importer();
-            sFwd = new Forwarder();
+            sImp = new Customer();
+            sFwd = new Customer();
             sEtt = new EntryType();
             sPol = new PortOfLoading();
             sPvl = new Privilege();
@@ -90,6 +93,7 @@ namespace Xtrim_ERP.control
             sUtp = new UnitPackage();
             sTmn = new Terminal();
             sSoap = new StringSOAP();
+            sStf = new Staff();
 
             cTxtFocus = ColorTranslator.FromHtml(iniC.txtFocus);
             regEmail = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");

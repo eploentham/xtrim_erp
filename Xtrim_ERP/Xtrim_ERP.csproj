@@ -72,6 +72,7 @@
   <ItemGroup>
     <Reference Include="C1.C1Pdf.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da" />
     <Reference Include="C1.C1Report.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=594a0605db190bb9, processorArchitecture=MSIL" />
+    <Reference Include="C1.C1Word.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.C1Zip.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Data.Entity.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=64e78d493ac08671" />
     <Reference Include="C1.LiveLinq.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=28cd8b3517c57673" />
@@ -90,6 +91,7 @@
     <Reference Include="C1.Win.C1Report.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=41780e2fc605e636, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Ribbon.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1SpellChecker.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1SplitContainer.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1SuperTooltip.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Themes.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=594a0605db190bb9, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.Calendar.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
@@ -373,6 +375,7 @@
     <Compile Include="objdb\AddressDB.cs" />
     <Compile Include="objdb\AddressTypeDB.cs" />
     <Compile Include="objdb\BankDB.cs" />
+    <Compile Include="objdb\CountryDB.cs" />
     <Compile Include="objdb\CustomerRemarkDB.cs" />
     <Compile Include="objdb\CustomerTaxInvoiceDB.cs" />
     <Compile Include="objdb\ExpensesDB.cs" />
@@ -410,6 +413,7 @@
     <Compile Include="object1\Address.cs" />
     <Compile Include="object1\AddressType1.cs" />
     <Compile Include="object1\Bank.cs" />
+    <Compile Include="object1\Country.cs" />
     <Compile Include="object1\CustomerRemark.cs" />
     <Compile Include="object1\CustomerTaxInvoice.cs" />
     <Compile Include="object1\Expenses.cs" />
@@ -531,7 +535,7 @@
     <Compile Include="RichTextEditor\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RichTextEditor\Form1.Designer.cs">
+    <Compile Include="RichTextEditor\Form1.designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="RichTextEditor\RecentDocumentList.cs" />

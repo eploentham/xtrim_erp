@@ -78,5 +78,10 @@ namespace Xtrim_ERP.RichTextEditor
             _lblSentenceLength.Text = string.Format("{0:n1}", sentences > 0 ? nonSpaceChars / (float)sentences : 0f);
             _lblParagraphLength.Text = string.Format("{0:n1}", paragraphs > 0 ? nonSpaceChars / (float)paragraphs : 0f);
         }
+
+        private void WordCount_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
