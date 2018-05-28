@@ -65,6 +65,7 @@
             this.tCC1 = new C1.Win.C1Command.C1CommandDock();
             this.tC1 = new C1.Win.C1Command.C1DockingTab();
             this.PageS = new C1.Win.C1Command.C1DockingTabPage();
+            this.menuEmail = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tCC1)).BeginInit();
@@ -105,7 +106,8 @@
             this.menuImpJob.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuImpJobView,
             this.menuImpJobAdd,
-            this.menuTest});
+            this.menuTest,
+            this.menuEmail});
             this.menuImpJob.Image = global::Xtrim_ERP.Properties.Resources.Forklift_48x48;
             this.menuImpJob.Name = "menuImpJob";
             this.menuImpJob.Size = new System.Drawing.Size(92, 20);
@@ -114,20 +116,20 @@
             // menuImpJobView
             // 
             this.menuImpJobView.Name = "menuImpJobView";
-            this.menuImpJobView.Size = new System.Drawing.Size(163, 22);
+            this.menuImpJobView.Size = new System.Drawing.Size(181, 22);
             this.menuImpJobView.Text = "Open Job Import";
             // 
             // menuImpJobAdd
             // 
             this.menuImpJobAdd.Name = "menuImpJobAdd";
-            this.menuImpJobAdd.Size = new System.Drawing.Size(163, 22);
+            this.menuImpJobAdd.Size = new System.Drawing.Size(181, 22);
             this.menuImpJobAdd.Text = "New Job Import";
             this.menuImpJobAdd.Click += new System.EventHandler(this.menuImpJobAdd_Click);
             // 
             // menuTest
             // 
             this.menuTest.Name = "menuTest";
-            this.menuTest.Size = new System.Drawing.Size(163, 22);
+            this.menuTest.Size = new System.Drawing.Size(181, 22);
             this.menuTest.Text = "TestMenu";
             // 
             // menuExpJob
@@ -360,6 +362,12 @@
             this.PageS.TabIndex = 0;
             this.PageS.Text = "Start Page";
             // 
+            // menuEmail
+            // 
+            this.menuEmail.Name = "menuEmail";
+            this.menuEmail.Size = new System.Drawing.Size(181, 22);
+            this.menuEmail.Text = "Test Compose Email";
+            // 
             // MainMenu4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -422,5 +430,6 @@
         private C1.Win.C1Command.C1CommandDock tCC1;
         private C1.Win.C1Command.C1DockingTab tC1;
         private C1.Win.C1Command.C1DockingTabPage PageS;
+        private System.Windows.Forms.ToolStripMenuItem menuEmail;
     }
 }

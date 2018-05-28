@@ -188,7 +188,7 @@
             // 
             // c1DropDownControl1
             // 
-            this.c1DropDownControl1.ImagePadding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.c1DropDownControl1.ImagePadding = new System.Windows.Forms.Padding(0);
             this.c1DropDownControl1.Location = new System.Drawing.Point(276, 53);
             this.c1DropDownControl1.Name = "c1DropDownControl1";
             this.c1DropDownControl1.Size = new System.Drawing.Size(200, 18);

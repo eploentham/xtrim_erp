@@ -71,6 +71,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.C1Pdf.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da" />
+    <Reference Include="C1.C1Report.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=594a0605db190bb9, processorArchitecture=MSIL" />
     <Reference Include="C1.C1Zip.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Data.Entity.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=64e78d493ac08671" />
     <Reference Include="C1.LiveLinq.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=28cd8b3517c57673" />
@@ -82,10 +83,13 @@
     <Reference Include="C1.Win.C1Command.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Document.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
     <Reference Include="C1.Win.C1DX.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
+    <Reference Include="C1.Win.C1Editor.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1FlexGrid.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Input.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1InputPanel.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da" />
+    <Reference Include="C1.Win.C1Report.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=41780e2fc605e636, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Ribbon.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1SpellChecker.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1SuperTooltip.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Themes.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=594a0605db190bb9, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.Calendar.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
@@ -134,6 +138,12 @@
     </Compile>
     <Compile Include="gui\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmBank.cs">
       <SubType>Form</SubType>
@@ -354,6 +364,12 @@
     <Compile Include="gui\RibbonForm1.Designer.cs">
       <DependentUpon>RibbonForm1.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\RibbonForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\RibbonForm2.Designer.cs">
+      <DependentUpon>RibbonForm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="objdb\AddressDB.cs" />
     <Compile Include="objdb\AddressTypeDB.cs" />
     <Compile Include="objdb\BankDB.cs" />
@@ -442,8 +458,109 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RDWS\X509Certificate2Collection.cs" />
+    <Compile Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabButton.Designer.cs">
+      <DependentUpon>AppMenuTabButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabFileList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabFileList.Designer.cs">
+      <DependentUpon>AppMenuTabFileList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabItem.Designer.cs">
+      <DependentUpon>AppMenuTabItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RichTextEditor\AppMenuTabs\OpenTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\AppMenuTabs\OpenTab.Designer.cs">
+      <DependentUpon>OpenTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RichTextEditor\AppMenuTabs\PrintTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\AppMenuTabs\PrintTab.Designer.cs">
+      <DependentUpon>PrintTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RichTextEditor\AppMenuTabs\SaveAsTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\AppMenuTabs\SaveAsTab.Designer.cs">
+      <DependentUpon>SaveAsTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RichTextEditor\C1PrintDocument.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\C1TextEditorRibbon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\C1TextEditorRibbonTab.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\C1TextEditorXhtml.cs" />
+    <Compile Include="RichTextEditor\Dialogs\InsertDateTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\Dialogs\InsertDateTime.Designer.cs">
+      <DependentUpon>InsertDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RichTextEditor\Dialogs\InsertSymbol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\Dialogs\InsertSymbol.Designer.cs">
+      <DependentUpon>InsertSymbol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RichTextEditor\Dialogs\SetLanguage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\Dialogs\SetLanguage.Designer.cs">
+      <DependentUpon>SetLanguage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RichTextEditor\Dialogs\WordCount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\Dialogs\WordCount.Designer.cs">
+      <DependentUpon>WordCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RichTextEditor\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RichTextEditor\RecentDocumentList.cs" />
+    <Compile Include="RichTextEditor\Tabs\HomeTab.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\Tabs\InsertTab.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\Tabs\MailingsTab.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\Tabs\PageLayoutTab.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\Tabs\ReferencesTab.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\Tabs\ReviewTab.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RichTextEditor\Tabs\ViewTab.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="gui\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmBank.resx">
       <DependentUpon>FrmBank.cs</DependentUpon>
@@ -554,6 +671,9 @@
     <EmbeddedResource Include="gui\RibbonForm1.resx">
       <DependentUpon>RibbonForm1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\RibbonForm2.resx">
+      <DependentUpon>RibbonForm2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -565,6 +685,37 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabButton.resx">
+      <DependentUpon>AppMenuTabButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabFileList.resx">
+      <DependentUpon>AppMenuTabFileList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabItem.resx">
+      <DependentUpon>AppMenuTabItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RichTextEditor\AppMenuTabs\PrintTab.resx">
+      <DependentUpon>PrintTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RichTextEditor\Dialogs\InsertDateTime.resx">
+      <DependentUpon>InsertDateTime.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RichTextEditor\Dialogs\InsertSymbol.resx">
+      <DependentUpon>InsertSymbol.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RichTextEditor\Dialogs\SetLanguage.resx">
+      <DependentUpon>SetLanguage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RichTextEditor\Dialogs\WordCount.resx">
+      <DependentUpon>WordCount.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RichTextEditor\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -581,6 +732,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="report\" />
+    <Folder Include="Tabs\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rsz_close.png" />
@@ -650,30 +802,132 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Double-J-Design-Origami-Colored-Pencil-Green-star.ico" />
+    <None Include="Resources\WordCount_small.png" />
     <None Include="Resources\webpage24.png" />
     <None Include="Resources\accept-database24.png" />
     <None Include="Resources\ad24.png" />
     <None Include="Resources\custom-reports24.png" />
     <None Include="Resources\Edit-Male-User24.png" />
     <None Include="Resources\Accept-Male-User24.png" />
+    <None Include="Resources\ClipArt_large.png" />
+    <None Include="Resources\Copy_small.png" />
+    <None Include="Resources\CoverPage_large.png" />
+    <None Include="Resources\CrossReference_large.png" />
+    <None Include="Resources\Cut_small.png" />
+    <None Include="Resources\DateAndTime_large.png" />
+    <None Include="Resources\DecreaseIndent_small.png" />
+    <None Include="Resources\DeleteColumns_small.png" />
+    <None Include="Resources\DeleteRows_small.png" />
+    <None Include="Resources\DeleteTable_small.png" />
+    <None Include="Resources\DeleteTableItems_large.png" />
+    <None Include="Resources\EditorDesignMode_small.png" />
+    <None Include="Resources\EditorPreviewMode_small.png" />
+    <None Include="Resources\EditorSourceMode_small.png" />
+    <None Include="Resources\ExportPdf_large.png" />
+    <None Include="Resources\FillColor_small.png" />
+    <None Include="Resources\Find_small.png" />
+    <None Include="Resources\FixErrors_small.png" />
+    <None Include="Resources\FlashMovie_large.png" />
+    <None Include="Resources\folder.png" />
+    <None Include="Resources\FontColor_small.png" />
+    <None Include="Resources\Footer_large.png" />
+    <None Include="Resources\FormattingSymbols_small.png" />
+    <None Include="Resources\AlignTextCenter_small.png" />
+    <None Include="Resources\AlignTextJustify_small.png" />
+    <None Include="Resources\AlignTextLeft_small.png" />
+    <None Include="Resources\AlignTextRight_small.png" />
+    <None Include="Resources\AppMenuArrow.png" />
+    <None Include="Resources\BlankPage_large.png" />
+    <None Include="Resources\Bold_small.png" />
+    <None Include="Resources\Bookmark_large.png" />
+    <None Include="Resources\Borders_small.png" />
+    <None Include="Resources\Brush_small.png" />
+    <None Include="Resources\Bullets_small.png" />
+    <None Include="Resources\ChangeCase_small.png" />
+    <None Include="Resources\Chart_large.png" />
+    <None Include="Resources\Clear_small.png" />
+    <None Include="Resources\ClearFormatting_small.png" />
+    <None Include="Resources\Bold_small1.png" />
     <Content Include="Resources\Glass_Alternate.png" />
     <Content Include="Resources\Glass_Header.png" />
     <Content Include="Resources\Glass_HeaderSelected.png" />
     <Content Include="Resources\Glass_Normal.png" />
     <None Include="Resources\loading-transparent.gif" />
+    <None Include="Resources\GoToNext_small.png" />
+    <None Include="Resources\GrowFont_small.png" />
+    <None Include="Resources\Header_large.png" />
+    <None Include="Resources\HighlightColor_small.png" />
+    <None Include="Resources\Hyperlink_large.png" />
+    <None Include="Resources\Image_small.png" />
+    <None Include="Resources\IncreaseIndent_small.png" />
+    <None Include="Resources\InsertColumnAfter_small.png" />
+    <None Include="Resources\InsertColumnBefore_small.png" />
+    <None Include="Resources\InsertRowAbove_small.png" />
+    <None Include="Resources\InsertRowBelow_small.png" />
+    <None Include="Resources\InsertTableItems_large.png" />
+    <None Include="Resources\Italic_small.png" />
+    <None Include="Resources\LineSpacing_small.png" />
     <Content Include="Resources\Mac_Header.png" />
     <Content Include="Resources\Mac_HeaderSelected.png" />
     <None Include="Resources\Male-User-Warning24.png" />
     <None Include="Resources\Male-User-Help24.png" />
+    <None Include="Resources\New_large.png" />
+    <None Include="Resources\Numbering_small.png" />
+    <None Include="Resources\Open_Large.png" />
+    <None Include="Resources\Open_small.png" />
     <Content Include="Resources\Opera_Header.png" />
     <Content Include="Resources\Opera_HeaderSelected.png" />
     <None Include="Resources\phonebook24.png" />
     <None Include="Resources\prohibit24.png" />
     <None Include="Resources\ordering16.png" />
+    <None Include="Resources\PageBreaks_large.png" />
+    <None Include="Resources\PageNumber_large.png" />
+    <None Include="Resources\Paste_large.png" />
+    <None Include="Resources\Paste_small.png" />
+    <None Include="Resources\Picture_large.png" />
+    <None Include="Resources\Pin_small.png" />
+    <None Include="Resources\Pinned.png" />
+    <None Include="Resources\Pinnned_small.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\Print_large.png" />
+    <None Include="Resources\PrintPreview_large.png" />
+    <None Include="Resources\QuickPrint_large.png" />
+    <None Include="Resources\redo.png" />
+    <None Include="Resources\Replace_small.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\Save_large.png" />
+    <None Include="Resources\SaveAs_large.png" />
+    <None Include="Resources\Select_small.png" />
+    <None Include="Resources\SelectAll_small.png" />
+    <None Include="Resources\Shapes_large.png" />
+    <None Include="Resources\ShrinkFont_small.png" />
+    <None Include="Resources\SmartArt_large.png" />
+    <None Include="Resources\SortAscending_small.png" />
+    <None Include="Resources\save1.png" />
+    <None Include="Resources\redo1.png" />
     <Content Include="Resources\Steel_Header.png" />
     <Content Include="Resources\Steel_HeaderSelected.png" />
     <None Include="Resources\users24.png" />
     <None Include="Resources\unit-completed16.png" />
+    <None Include="Resources\Strikethrough_small.png" />
+    <None Include="Resources\Striketrhough_small.png" />
+    <None Include="Resources\Subscript_small.png" />
+    <None Include="Resources\Superscript_small.png" />
+    <None Include="Resources\Symbol_large.png" />
+    <None Include="Resources\Table_large.png" />
+    <None Include="Resources\Table_small.png" />
+    <None Include="Resources\TableCellProperties_small.png" />
+    <None Include="Resources\TableColumnProperties_small.png" />
+    <None Include="Resources\TableItemsProperties_large.png" />
+    <None Include="Resources\TableProperties_small.png" />
+    <None Include="Resources\TableRowProperties_small.png" />
+    <None Include="Resources\TextToTable_small.png" />
+    <None Include="Resources\Underline_small.png" />
+    <None Include="Resources\undo.png" />
+    <None Include="Resources\Unpinned.png" />
+    <None Include="Resources\ValidateDocument_small.png" />
+    <None Include="Resources\Underline_small1.png" />
+    <None Include="Resources\undo1.png" />
     <Content Include="Resources\Vista_Header.png" />
     <Content Include="Resources\Vista_Highlight.png" />
     <None Include="Resources\trash24.png" />

@@ -45,6 +45,15 @@ namespace Xtrim_ERP.gui
             menuCust.Click += MenuCust_Click;
             menuDept.Click += MenuDept_Click;
             menuPosi.Click += MenuPosi_Click;
+            menuEmail.Click += MenuEmail_Click;
+        }
+
+        private void MenuEmail_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            //RibbonForm2 frm = new RibbonForm2();
+            RichTextEditor.Form1 frm = new RichTextEditor.Form1();
+            frm.Show();
         }
 
         private void MenuPosi_Click(object sender, EventArgs e)
