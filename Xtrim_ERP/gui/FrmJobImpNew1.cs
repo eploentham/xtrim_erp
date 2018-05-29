@@ -58,6 +58,7 @@ namespace Xtrim_ERP.gui
             //theme1.SetTheme(tC1, "BeigeOne");
             //theme1.SetTheme(tC2, "BeigeOne");
             theme1.SetTheme(sB, "BeigeOne");
+
             xC.setCboTransMode(cboTransMode);
             xC.setCboTaxMethod(cboTaxMethod);
             btnJobSearch.Click += BtnJobSearch_Click;
@@ -75,6 +76,7 @@ namespace Xtrim_ERP.gui
             txtPolNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtConsignmnt.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtEttNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtFwdNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
 
             panel4.Height = txtJobCode.Height + 30;
             panel11.Height = 580;
@@ -100,7 +102,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setJobImport();
-                String re = xC.xtDB.addrDB.insertAddress(addr);
+                String re = xC.xtDB.jimDB.insertJobImport(jim);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -187,7 +189,7 @@ namespace Xtrim_ERP.gui
                     pp.Y = pp.Y + 120;
                     pp.X = pp.X - 20;
 
-                    FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.PortOfLoading, pp);
+                    FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Consignmnt, pp);
                     frm.ShowDialog(this);
                     txtConsignmnt.Value = xC.sCst.cou_name;
                 }
@@ -197,7 +199,7 @@ namespace Xtrim_ERP.gui
                     pp.Y = pp.Y + 120;
                     pp.X = pp.X - 20;
 
-                    FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.PortOfLoading, pp);
+                    FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.EntryType, pp);
                     frm.ShowDialog(this);
                     txtEttNameT.Value = xC.sEtt.entry_type_name_t;
                 }
@@ -219,6 +221,48 @@ namespace Xtrim_ERP.gui
         private void setJobImport()
         {
             jim = new JobImport();
+            jim.job_import_id = "";
+            jim.job_import_code = txtJobCode.Text;
+            jim.job_import_date = ((DateTime)txtImpDate.Value).ToString("yyyy-MM-dd");
+            jim.cust_id = "";
+            jim.imp_id = "";
+            jim.transport_mode = ((ComboBoxItem)(cboTransMode.SelectedItem)).Value;
+            jim.staff_id = "";
+            jim.entry_type = "";
+            jim.privi_id = "";
+            jim.ref_1 = "";
+            jim.ref_2 = "";
+            jim.ref_3 = "";
+            jim.ref_4 = "";
+            jim.ref_5 = "";
+            jim.ref_edi = "";
+            jim.imp_entry = "";
+            jim.edi_response = "";
+            jim.tax_method_id = "";
+            jim.check_exam_id = "";
+            jim.inv_date = "";
+            jim.tax_amt = "";
+            jim.insr_date = "";
+            jim.insr_id = "";
+            jim.policy_no = "";
+            jim.premium = "";
+            jim.policy_date = "";
+            jim.policy_clause = "";
+            jim.job_year = "";
+            jim.date_create = "";
+            jim.date_modi = "";
+            jim.date_cancel = "";
+            jim.user_create = "";
+            jim.user_modi = "";
+            jim.user_cancel = "";
+            jim.active = "1";
+            jim.remark = "";
+            jim.remark1 = "";
+            jim.remark2 = "";
+            jim.jobno = "";
+            jim.job_date = "";
+            jim.imp_date = "";
+            jim.bl = "";
 
         }
         private void setTabInv(Boolean flag)
