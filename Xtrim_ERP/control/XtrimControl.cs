@@ -315,6 +315,7 @@ namespace Xtrim_ERP.control
             c.Items.Add(a6);
             return c;
         }
+        
         public void setC1Combo(C1ComboBox c, String data)
         {
             foreach(ComboBoxItem item in c.Items)

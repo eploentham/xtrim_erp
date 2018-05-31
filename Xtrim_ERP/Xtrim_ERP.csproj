@@ -147,6 +147,12 @@
     <Compile Include="gui\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmBank.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +276,12 @@
     <Compile Include="gui\FrmJobImpNew2.Designer.cs">
       <DependentUpon>FrmJobImpNew2.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmJobImpNew3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmJobImpNew3.Designer.cs">
+      <DependentUpon>FrmJobImpNew3.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmJobImpView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -375,10 +387,13 @@
     <Compile Include="objdb\AddressDB.cs" />
     <Compile Include="objdb\AddressTypeDB.cs" />
     <Compile Include="objdb\BankDB.cs" />
+    <Compile Include="objdb\CheckExamDB.cs" />
     <Compile Include="objdb\CountryDB.cs" />
     <Compile Include="objdb\CustomerRemarkDB.cs" />
     <Compile Include="objdb\CustomerTaxInvoiceDB.cs" />
+    <Compile Include="objdb\DocTypeDB.cs" />
     <Compile Include="objdb\ExpensesDB.cs" />
+    <Compile Include="objdb\ImporterTypeDB.cs" />
     <Compile Include="objdb\JobImportContDB.cs" />
     <Compile Include="objdb\JobImportExpnDB.cs" />
     <Compile Include="objdb\MeiosysDB.cs" />
@@ -413,14 +428,17 @@
     <Compile Include="object1\Address.cs" />
     <Compile Include="object1\AddressType1.cs" />
     <Compile Include="object1\Bank.cs" />
+    <Compile Include="object1\CheckExam.cs" />
     <Compile Include="object1\Country.cs" />
     <Compile Include="object1\CustomerRemark.cs" />
     <Compile Include="object1\CustomerTaxInvoice.cs" />
+    <Compile Include="object1\DocType.cs" />
     <Compile Include="object1\Expenses.cs" />
     <Compile Include="object1\FilterRow.cs" />
     <Compile Include="gui\FrmSearch.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="object1\ImporterType.cs" />
     <Compile Include="object1\JobImportCont.cs" />
     <Compile Include="object1\JobImportExpn.cs" />
     <Compile Include="object1\LogFile.cs" />
@@ -566,6 +584,9 @@
     <EmbeddedResource Include="gui\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmBank.resx">
       <DependentUpon>FrmBank.cs</DependentUpon>
     </EmbeddedResource>
@@ -626,6 +647,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmJobImpNew2.resx">
       <DependentUpon>FrmJobImpNew2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmJobImpNew3.resx">
+      <DependentUpon>FrmJobImpNew3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmJobImpView.resx">
       <DependentUpon>FrmJobImpView.cs</DependentUpon>

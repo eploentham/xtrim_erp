@@ -49,6 +49,7 @@
             this.c1FlexReport1 = new C1.Win.FlexReport.C1FlexReport();
             this.c1DropDownControl1 = new C1.Win.C1Input.C1DropDownControl();
             this.c1DockingManager1 = new C1.Win.C1Command.C1DockingManager(this.components);
+            this.c1VScrollBar1 = new C1.Win.C1ScrollBar.C1VScrollBar();
             ((System.ComponentModel.ISupportInitialize)(this.c1FlexGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CommandHolder1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContFNameT)).BeginInit();
@@ -59,10 +60,11 @@
             // c1FlexGrid1
             // 
             this.c1FlexGrid1.ColumnInfo = "10,1,0,0,0,95,Columns:";
-            this.c1FlexGrid1.Location = new System.Drawing.Point(51, 130);
+            this.c1FlexGrid1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.c1FlexGrid1.Location = new System.Drawing.Point(0, 27);
             this.c1FlexGrid1.Name = "c1FlexGrid1";
             this.c1FlexGrid1.Rows.DefaultSize = 19;
-            this.c1FlexGrid1.Size = new System.Drawing.Size(240, 150);
+            this.c1FlexGrid1.Size = new System.Drawing.Size(240, 709);
             this.c1FlexGrid1.TabIndex = 0;
             this.c1FlexGrid1.GridChanged += new C1.Win.C1FlexGrid.GridChangedEventHandler(this.c1FlexGrid1_GridChanged);
             this.c1FlexGrid1.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.c1FlexGrid1_AfterRowColChange);
@@ -199,11 +201,22 @@
             // 
             this.c1DockingManager1.ParentContainer = this;
             // 
+            // c1VScrollBar1
+            // 
+            this.c1VScrollBar1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.c1VScrollBar1.Location = new System.Drawing.Point(1256, 27);
+            this.c1VScrollBar1.Name = "c1VScrollBar1";
+            this.c1VScrollBar1.Size = new System.Drawing.Size(17, 709);
+            this.c1VScrollBar1.TabIndex = 69;
+            this.c1VScrollBar1.TabStop = false;
+            this.c1VScrollBar1.Text = "c1VScrollBar1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1273, 736);
+            this.Controls.Add(this.c1VScrollBar1);
             this.Controls.Add(this.c1DropDownControl1);
             this.Controls.Add(this.txtContFNameT);
             this.Controls.Add(this.c1FlexGrid1);
@@ -241,5 +254,6 @@
         private C1.Win.FlexReport.C1FlexReport c1FlexReport1;
         private C1.Win.C1Input.C1DropDownControl c1DropDownControl1;
         private C1.Win.C1Command.C1DockingManager c1DockingManager1;
+        private C1.Win.C1ScrollBar.C1VScrollBar c1VScrollBar1;
     }
 }

@@ -44,6 +44,14 @@
             this.txtDateStart = new C1.Win.Calendar.C1DateEdit();
             this.chkCatiria = new C1.Win.C1Input.C1CheckBox();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.cboDocType = new C1.Win.C1Input.C1ComboBox();
+            this.c1Button11 = new C1.Win.C1Input.C1Button();
+            this.c1Button10 = new C1.Win.C1Input.C1Button();
+            this.c1Button9 = new C1.Win.C1Input.C1Button();
+            this.c1Button8 = new C1.Win.C1Input.C1Button();
+            this.c1Button7 = new C1.Win.C1Input.C1Button();
+            this.c1Button6 = new C1.Win.C1Input.C1Button();
+            this.c1Button4 = new C1.Win.C1Input.C1Button();
             this.txtStaffCS = new C1.Win.C1Input.C1TextBox();
             this.lbImpAddr = new C1.Win.C1Input.C1Label();
             this.lbCusAddr = new C1.Win.C1Input.C1Label();
@@ -71,12 +79,11 @@
             this.label39 = new System.Windows.Forms.Label();
             this.c1TextBox6 = new C1.Win.C1Input.C1TextBox();
             this.label36 = new System.Windows.Forms.Label();
-            this.c1TextBox5 = new C1.Win.C1Input.C1TextBox();
             this.label35 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.c1DateEdit2 = new C1.Win.Calendar.C1DateEdit();
             this.label33 = new System.Windows.Forms.Label();
-            this.c1ComboBox1 = new C1.Win.C1Input.C1ComboBox();
+            this.cboItt = new C1.Win.C1Input.C1ComboBox();
             this.c1Button3 = new C1.Win.C1Input.C1Button();
             this.c1Button2 = new C1.Win.C1Input.C1Button();
             this.c1Button1 = new C1.Win.C1Input.C1Button();
@@ -169,14 +176,6 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.tabExpen = new C1.Win.C1Command.C1DockingTabPage();
             this.panelExpen = new System.Windows.Forms.Panel();
-            this.c1Button4 = new C1.Win.C1Input.C1Button();
-            this.c1Button5 = new C1.Win.C1Input.C1Button();
-            this.c1Button6 = new C1.Win.C1Input.C1Button();
-            this.c1Button7 = new C1.Win.C1Input.C1Button();
-            this.c1Button8 = new C1.Win.C1Input.C1Button();
-            this.c1Button9 = new C1.Win.C1Input.C1Button();
-            this.c1Button10 = new C1.Win.C1Input.C1Button();
-            this.c1Button11 = new C1.Win.C1Input.C1Button();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -196,6 +195,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDateStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCatiria)).BeginInit();
             this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboDocType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStaffCS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbImpAddr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbCusAddr)).BeginInit();
@@ -214,9 +221,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConsignmnt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1ComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboItt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
@@ -271,14 +277,6 @@
             this.c1DockingTabPage5.SuspendLayout();
             this.c1DockingTabPage6.SuspendLayout();
             this.tabExpen.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button11)).BeginInit();
             this.SuspendLayout();
             // 
             // sB
@@ -541,13 +539,13 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel11.Controls.Add(this.cboDocType);
             this.panel11.Controls.Add(this.c1Button11);
             this.panel11.Controls.Add(this.c1Button10);
             this.panel11.Controls.Add(this.c1Button9);
             this.panel11.Controls.Add(this.c1Button8);
             this.panel11.Controls.Add(this.c1Button7);
             this.panel11.Controls.Add(this.c1Button6);
-            this.panel11.Controls.Add(this.c1Button5);
             this.panel11.Controls.Add(this.c1Button4);
             this.panel11.Controls.Add(this.txtStaffCS);
             this.panel11.Controls.Add(this.lbImpAddr);
@@ -562,12 +560,11 @@
             this.panel11.Controls.Add(this.label39);
             this.panel11.Controls.Add(this.c1TextBox6);
             this.panel11.Controls.Add(this.label36);
-            this.panel11.Controls.Add(this.c1TextBox5);
             this.panel11.Controls.Add(this.label35);
             this.panel11.Controls.Add(this.label34);
             this.panel11.Controls.Add(this.c1DateEdit2);
             this.panel11.Controls.Add(this.label33);
-            this.panel11.Controls.Add(this.c1ComboBox1);
+            this.panel11.Controls.Add(this.cboItt);
             this.panel11.Controls.Add(this.c1Button3);
             this.panel11.Controls.Add(this.c1Button2);
             this.panel11.Controls.Add(this.c1Button1);
@@ -632,6 +629,113 @@
             this.panel11.Size = new System.Drawing.Size(1235, 562);
             this.panel11.TabIndex = 4;
             this.theme1.SetTheme(this.panel11, "(default)");
+            // 
+            // cboDocType
+            // 
+            this.cboDocType.AllowSpinLoop = false;
+            this.cboDocType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboDocType.AutoOpen = true;
+            this.cboDocType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboDocType.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboDocType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboDocType.GapHeight = 0;
+            this.cboDocType.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboDocType.ItemsDisplayMember = "";
+            this.cboDocType.ItemsValueMember = "";
+            this.cboDocType.Location = new System.Drawing.Point(135, 318);
+            this.cboDocType.Name = "cboDocType";
+            this.cboDocType.Size = new System.Drawing.Size(223, 20);
+            this.cboDocType.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboDocType.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboDocType.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboDocType.TabIndex = 353;
+            this.cboDocType.Tag = null;
+            this.theme1.SetTheme(this.cboDocType, "(default)");
+            this.cboDocType.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button11
+            // 
+            this.c1Button11.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button11.Location = new System.Drawing.Point(1210, 342);
+            this.c1Button11.Name = "c1Button11";
+            this.c1Button11.Size = new System.Drawing.Size(22, 22);
+            this.c1Button11.TabIndex = 352;
+            this.c1Button11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button11, "(default)");
+            this.c1Button11.UseVisualStyleBackColor = true;
+            this.c1Button11.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button10
+            // 
+            this.c1Button10.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button10.Location = new System.Drawing.Point(1210, 317);
+            this.c1Button10.Name = "c1Button10";
+            this.c1Button10.Size = new System.Drawing.Size(22, 22);
+            this.c1Button10.TabIndex = 351;
+            this.c1Button10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button10, "(default)");
+            this.c1Button10.UseVisualStyleBackColor = true;
+            this.c1Button10.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button9
+            // 
+            this.c1Button9.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button9.Location = new System.Drawing.Point(836, 317);
+            this.c1Button9.Name = "c1Button9";
+            this.c1Button9.Size = new System.Drawing.Size(22, 22);
+            this.c1Button9.TabIndex = 350;
+            this.c1Button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button9, "(default)");
+            this.c1Button9.UseVisualStyleBackColor = true;
+            this.c1Button9.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button8
+            // 
+            this.c1Button8.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button8.Location = new System.Drawing.Point(836, 220);
+            this.c1Button8.Name = "c1Button8";
+            this.c1Button8.Size = new System.Drawing.Size(22, 22);
+            this.c1Button8.TabIndex = 349;
+            this.c1Button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button8, "(default)");
+            this.c1Button8.UseVisualStyleBackColor = true;
+            this.c1Button8.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button7
+            // 
+            this.c1Button7.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button7.Location = new System.Drawing.Point(836, 194);
+            this.c1Button7.Name = "c1Button7";
+            this.c1Button7.Size = new System.Drawing.Size(22, 22);
+            this.c1Button7.TabIndex = 348;
+            this.c1Button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button7, "(default)");
+            this.c1Button7.UseVisualStyleBackColor = true;
+            this.c1Button7.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button6
+            // 
+            this.c1Button6.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button6.Location = new System.Drawing.Point(436, 265);
+            this.c1Button6.Name = "c1Button6";
+            this.c1Button6.Size = new System.Drawing.Size(22, 22);
+            this.c1Button6.TabIndex = 347;
+            this.c1Button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button6, "(default)");
+            this.c1Button6.UseVisualStyleBackColor = true;
+            this.c1Button6.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button4
+            // 
+            this.c1Button4.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button4.Location = new System.Drawing.Point(867, 168);
+            this.c1Button4.Name = "c1Button4";
+            this.c1Button4.Size = new System.Drawing.Size(22, 22);
+            this.c1Button4.TabIndex = 345;
+            this.c1Button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button4, "(default)");
+            this.c1Button4.UseVisualStyleBackColor = true;
+            this.c1Button4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtStaffCS
             // 
@@ -1009,20 +1113,6 @@
             this.label36.Text = "Type of Shipment :";
             this.theme1.SetTheme(this.label36, "(default)");
             // 
-            // c1TextBox5
-            // 
-            this.c1TextBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox5.DataType = typeof(long);
-            this.c1TextBox5.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox5.Location = new System.Drawing.Point(135, 318);
-            this.c1TextBox5.Name = "c1TextBox5";
-            this.c1TextBox5.Size = new System.Drawing.Size(207, 20);
-            this.c1TextBox5.TabIndex = 328;
-            this.c1TextBox5.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox5, "(default)");
-            this.c1TextBox5.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // label35
             // 
             this.label35.AutoSize = true;
@@ -1096,26 +1186,26 @@
             this.label33.Text = "ประเภทใบขนฯ :";
             this.theme1.SetTheme(this.label33, "(default)");
             // 
-            // c1ComboBox1
+            // cboItt
             // 
-            this.c1ComboBox1.AllowSpinLoop = false;
-            this.c1ComboBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1ComboBox1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1ComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1ComboBox1.GapHeight = 0;
-            this.c1ComboBox1.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1ComboBox1.ItemsDisplayMember = "";
-            this.c1ComboBox1.ItemsValueMember = "";
-            this.c1ComboBox1.Location = new System.Drawing.Point(135, 240);
-            this.c1ComboBox1.Name = "c1ComboBox1";
-            this.c1ComboBox1.Size = new System.Drawing.Size(231, 20);
-            this.c1ComboBox1.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1ComboBox1.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.c1ComboBox1.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1ComboBox1.TabIndex = 324;
-            this.c1ComboBox1.Tag = null;
-            this.theme1.SetTheme(this.c1ComboBox1, "(default)");
-            this.c1ComboBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.cboItt.AllowSpinLoop = false;
+            this.cboItt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboItt.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboItt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboItt.GapHeight = 0;
+            this.cboItt.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboItt.ItemsDisplayMember = "";
+            this.cboItt.ItemsValueMember = "";
+            this.cboItt.Location = new System.Drawing.Point(135, 240);
+            this.cboItt.Name = "cboItt";
+            this.cboItt.Size = new System.Drawing.Size(231, 20);
+            this.cboItt.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboItt.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboItt.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboItt.TabIndex = 324;
+            this.cboItt.Tag = null;
+            this.theme1.SetTheme(this.cboItt, "(default)");
+            this.cboItt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // c1Button3
             // 
@@ -2387,102 +2477,6 @@
             this.panelExpen.TabIndex = 0;
             this.theme1.SetTheme(this.panelExpen, "(default)");
             // 
-            // c1Button4
-            // 
-            this.c1Button4.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button4.Location = new System.Drawing.Point(867, 168);
-            this.c1Button4.Name = "c1Button4";
-            this.c1Button4.Size = new System.Drawing.Size(22, 22);
-            this.c1Button4.TabIndex = 345;
-            this.c1Button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button4, "(default)");
-            this.c1Button4.UseVisualStyleBackColor = true;
-            this.c1Button4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button5
-            // 
-            this.c1Button5.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button5.Location = new System.Drawing.Point(344, 317);
-            this.c1Button5.Name = "c1Button5";
-            this.c1Button5.Size = new System.Drawing.Size(22, 22);
-            this.c1Button5.TabIndex = 346;
-            this.c1Button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button5, "(default)");
-            this.c1Button5.UseVisualStyleBackColor = true;
-            this.c1Button5.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button6
-            // 
-            this.c1Button6.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button6.Location = new System.Drawing.Point(436, 265);
-            this.c1Button6.Name = "c1Button6";
-            this.c1Button6.Size = new System.Drawing.Size(22, 22);
-            this.c1Button6.TabIndex = 347;
-            this.c1Button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button6, "(default)");
-            this.c1Button6.UseVisualStyleBackColor = true;
-            this.c1Button6.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button7
-            // 
-            this.c1Button7.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button7.Location = new System.Drawing.Point(836, 194);
-            this.c1Button7.Name = "c1Button7";
-            this.c1Button7.Size = new System.Drawing.Size(22, 22);
-            this.c1Button7.TabIndex = 348;
-            this.c1Button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button7, "(default)");
-            this.c1Button7.UseVisualStyleBackColor = true;
-            this.c1Button7.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button8
-            // 
-            this.c1Button8.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button8.Location = new System.Drawing.Point(836, 220);
-            this.c1Button8.Name = "c1Button8";
-            this.c1Button8.Size = new System.Drawing.Size(22, 22);
-            this.c1Button8.TabIndex = 349;
-            this.c1Button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button8, "(default)");
-            this.c1Button8.UseVisualStyleBackColor = true;
-            this.c1Button8.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button9
-            // 
-            this.c1Button9.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button9.Location = new System.Drawing.Point(836, 317);
-            this.c1Button9.Name = "c1Button9";
-            this.c1Button9.Size = new System.Drawing.Size(22, 22);
-            this.c1Button9.TabIndex = 350;
-            this.c1Button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button9, "(default)");
-            this.c1Button9.UseVisualStyleBackColor = true;
-            this.c1Button9.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button10
-            // 
-            this.c1Button10.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button10.Location = new System.Drawing.Point(1210, 317);
-            this.c1Button10.Name = "c1Button10";
-            this.c1Button10.Size = new System.Drawing.Size(22, 22);
-            this.c1Button10.TabIndex = 351;
-            this.c1Button10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button10, "(default)");
-            this.c1Button10.UseVisualStyleBackColor = true;
-            this.c1Button10.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button11
-            // 
-            this.c1Button11.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button11.Location = new System.Drawing.Point(1210, 342);
-            this.c1Button11.Name = "c1Button11";
-            this.c1Button11.Size = new System.Drawing.Size(22, 22);
-            this.c1Button11.TabIndex = 352;
-            this.c1Button11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button11, "(default)");
-            this.c1Button11.UseVisualStyleBackColor = true;
-            this.c1Button11.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmJobImpNew1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2517,6 +2511,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkCatiria)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboDocType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStaffCS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbImpAddr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbCusAddr)).EndInit();
@@ -2536,9 +2538,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConsignmnt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1ComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboItt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
@@ -2594,14 +2595,6 @@
             this.c1DockingTabPage5.ResumeLayout(false);
             this.c1DockingTabPage6.ResumeLayout(false);
             this.tabExpen.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2712,10 +2705,9 @@
         private System.Windows.Forms.Label label32;
         private C1.Win.C1Input.C1Button c1Button3;
         private System.Windows.Forms.Label label33;
-        private C1.Win.C1Input.C1ComboBox c1ComboBox1;
+        private C1.Win.C1Input.C1ComboBox cboItt;
         private System.Windows.Forms.Label label34;
         private C1.Win.Calendar.C1DateEdit c1DateEdit2;
-        private C1.Win.C1Input.C1TextBox c1TextBox5;
         private System.Windows.Forms.Label label35;
         private C1.Win.C1Input.C1TextBox c1TextBox6;
         private System.Windows.Forms.Label label36;
@@ -2751,12 +2743,12 @@
         private C1.Win.C1Input.C1Label lbImpAddr;
         private C1.Win.C1Input.C1TextBox txtStaffCS;
         private C1.Win.C1Input.C1Button c1Button4;
-        private C1.Win.C1Input.C1Button c1Button5;
         private C1.Win.C1Input.C1Button c1Button6;
         private C1.Win.C1Input.C1Button c1Button7;
         private C1.Win.C1Input.C1Button c1Button8;
         private C1.Win.C1Input.C1Button c1Button9;
         private C1.Win.C1Input.C1Button c1Button10;
         private C1.Win.C1Input.C1Button c1Button11;
+        private C1.Win.C1Input.C1ComboBox cboDocType;
     }
 }

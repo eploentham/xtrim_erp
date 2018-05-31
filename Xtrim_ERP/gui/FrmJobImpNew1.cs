@@ -61,6 +61,10 @@ namespace Xtrim_ERP.gui
 
             xC.setCboTransMode(cboTransMode);
             xC.setCboTaxMethod(cboTaxMethod);
+            xC.xtDB.ittDB.setCboImporterType(cboItt);
+            xC.xtDB.cemDB.setCboCheckExam(cboChkExam);
+            xC.xtDB.dctDB.setCboDocType(cboDocType);
+
             btnJobSearch.Click += BtnJobSearch_Click;
             chkCatiria.Click += ChkCatiria_Click;
             tabExpen.DoubleClick += TabExpen_DoubleClick;

@@ -49,6 +49,9 @@ namespace Xtrim_ERP.objdb
         public PrefixDB pfxDB;
         public PositionDB posiDB;
         public CountryDB cotDB;
+        public ImporterTypeDB ittDB;
+        public CheckExamDB cemDB;
+        public DocTypeDB dctDB;
 
         public MeiosysDB mioDB;
 
@@ -100,6 +103,9 @@ namespace Xtrim_ERP.objdb
             posiDB = new PositionDB(conn);
             mioDB = new MeiosysDB(conn);
             cotDB = new CountryDB(conn);
+            ittDB = new ImporterTypeDB(conn);
+            cemDB = new CheckExamDB(conn);
+            dctDB = new DocTypeDB(conn);
         }
     }
 }
