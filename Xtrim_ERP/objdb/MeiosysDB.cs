@@ -96,7 +96,7 @@ namespace Xtrim_ERP.objdb
             dtJob = selectJobNoImport(jobNo);
             if (dtJob.Rows.Count>0)
             {
-                impId = cusDB.selectImpIdByCodeLike(dtJob.Rows[0]["importer"].ToString());
+                impId = cusDB.selectImpIdByCodeLike1(dtJob.Rows[0]["importer"].ToString());
                 jim.job_import_id = "";
                 jim.job_import_code = "";
                 jim.job_import_date = date;

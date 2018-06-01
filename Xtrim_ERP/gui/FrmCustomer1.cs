@@ -423,8 +423,6 @@ namespace Xtrim_ERP.gui
                 btnNew.Show();
                 //btnEdit.Hide();
             }
-            
-
         }
         private void setControlNew()
         {
@@ -603,10 +601,14 @@ namespace Xtrim_ERP.gui
         {
             bg = txtCusCode.BackColor;
             fc = txtCusCode.ForeColor;
-            flagEdit = flagEdit ? false : true;
-            setControlEnable(flagEdit);
+            setControlEnable1();
             //setControlEdit(true);
             //btnEdit.Show();
+        }
+        private void setControlEnable1()
+        {
+            flagEdit = flagEdit ? false : true;
+            setControlEnable(flagEdit);
         }
 
         private void setGrfCusH()
@@ -1347,6 +1349,8 @@ namespace Xtrim_ERP.gui
             btnChkTaxId.Enabled = flag;
             btnCont1.Enabled = flag;
             btnCont2.Enabled = flag;
+            btnSave.Enabled = flag;
+            btnEdit.Enabled = !flagEdit;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
         private void grdFlex_LeaveCell(object sender, EventArgs e)
@@ -1411,7 +1415,8 @@ namespace Xtrim_ERP.gui
             setGrfContH(cusId);
             setGrfRmkH(cusId);
             setGrfTaxH(cusId);
-            setControlEdit(false);
+            flagEdit = false;
+            setControlEnable(false);
             chkVoid.Show();
         }
         void StatusBar_AfterDataRefresh(object sender, System.ComponentModel.ListChangedEventArgs e)

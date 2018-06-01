@@ -490,7 +490,29 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
-        public String selectImpIdByCodeLike(String copId)
+        public DataTable selectCusByCodeLike(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cus.* " +
+                "From " + cus.table + " cus " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where LOWER(cus." + cus.cust_code + ") like '" + copId.ToLower() + "%' and " + cus.status_cust + "='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
+        public DataTable selectImpIdByCodeLike(String copId)
+        {
+            DataTable dt = new DataTable();
+            String cusId = "";
+            String sql = "select cus.* " +
+                "From " + cus.table + " cus " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where LOWER(cus." + cus.cust_code + ") like '" + copId.ToLower() + "%' and " + cus.status_imp + "='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            
+            return dt;
+        }
+        public String selectImpIdByCodeLike1(String copId)
         {
             DataTable dt = new DataTable();
             String cusId = "";
@@ -527,7 +549,7 @@ namespace Xtrim_ERP.objdb
             cop1 = setCustomer(dt);
             return cop1;
         }
-        private Customer setCustomer(DataTable dt)
+        public Customer setCustomer(DataTable dt)
         {
             Customer cus1 = new Customer();
             if (dt.Rows.Count > 0)
