@@ -39,7 +39,7 @@ namespace Xtrim_ERP.objdb
             pol.user_create = "user_create";
             pol.user_modi = "user_modi";
             pol.user_cancel = "user_cancel";
-            //pol.status_app = "status_app";
+            pol.cntrycode = "cntrycode";
             pol.remark = "remark";
 
             pol.table = "b_port_of_loading";
@@ -47,7 +47,7 @@ namespace Xtrim_ERP.objdb
 
             lPol = new List<PortOfLoading>();
 
-            getlPol();
+            //getlPol();
         }
         public void getlPol()
         {
@@ -130,13 +130,13 @@ namespace Xtrim_ERP.objdb
                 pol.date_create + "," + pol.date_modi + "," + pol.date_cancel + "," +
                 pol.user_create + "," + pol.user_modi + "," + pol.user_cancel + "," +
                 pol.active + "," + pol.remark + ", " + pol.sort1 + ", " +
-                pol.status_app + " " +
+                pol.status_app + ", " + pol.cntrycode + " " +
                 ") " +
                 "Values ('" + p.port_of_loading_code + "','" + p.port_of_loading_e.Replace("'", "''") + "','" + p.port_of_loading_t.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "'," +
-                "'" + p.status_app + "' " +
+                "'" + p.status_app + "','" + p.cntrycode + "' " +
                 ")";
             try
             {
@@ -170,6 +170,7 @@ namespace Xtrim_ERP.objdb
                 "," + pol.user_modi + " = '" + p.user_modi + "' " +
                 "," + pol.sort1 + " = '" + p.sort1 + "' " +
                 "," + pol.status_app + " = '" + p.status_app + "' " +
+                "," + pol.cntrycode + " = '" + p.cntrycode + "' " +
                 "Where " + pol.pkField + "='" + p.port_of_loading_id + "'"
                 ;
 
@@ -259,6 +260,7 @@ namespace Xtrim_ERP.objdb
                 pti1.status_app = dt.Rows[0][pol.status_app].ToString();
                 pti1.remark = dt.Rows[0][pol.remark].ToString();
                 pti1.sort1 = dt.Rows[0][pol.sort1].ToString();
+                pti1.cntrycode = dt.Rows[0][pol.cntrycode].ToString();
             }
 
             return pti1;

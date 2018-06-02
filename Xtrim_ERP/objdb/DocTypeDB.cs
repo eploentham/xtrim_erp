@@ -159,7 +159,7 @@ namespace Xtrim_ERP.objdb
         }
         public C1ComboBox setCboContainer(C1ComboBox c)
         {
-            DataTable dt = selectAllPKG();
+            DataTable dt = selectAllContainer();
             c.Items.Clear();
             foreach (DataRow row in dt.Rows)
             {

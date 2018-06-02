@@ -218,7 +218,7 @@
             // pB1
             // 
             this.pB1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pB1.Location = new System.Drawing.Point(0, 767);
+            this.pB1.Location = new System.Drawing.Point(0, 710);
             this.pB1.Name = "pB1";
             this.pB1.Size = new System.Drawing.Size(1307, 23);
             this.pB1.TabIndex = 1;
@@ -362,9 +362,9 @@
             this.panel15.Controls.Add(this.chkPolNew);
             this.panel15.Controls.Add(this.btnPol);
             this.panel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.panel15.Location = new System.Drawing.Point(9, 600);
+            this.panel15.Location = new System.Drawing.Point(654, 253);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(620, 44);
+            this.panel15.Size = new System.Drawing.Size(512, 44);
             this.panel15.TabIndex = 75;
             this.c1ThemeController1.SetTheme(this.panel15, "(default)");
             // 
@@ -398,7 +398,7 @@
             // 
             // btnPol
             // 
-            this.btnPol.Location = new System.Drawing.Point(485, 3);
+            this.btnPol.Location = new System.Drawing.Point(382, 3);
             this.btnPol.Name = "btnPol";
             this.btnPol.Size = new System.Drawing.Size(118, 37);
             this.btnPol.TabIndex = 62;
@@ -415,9 +415,9 @@
             this.panel14.Controls.Add(this.chkImpInvNew);
             this.panel14.Controls.Add(this.btnImpInv);
             this.panel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.panel14.Location = new System.Drawing.Point(9, 550);
+            this.panel14.Location = new System.Drawing.Point(654, 200);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(620, 44);
+            this.panel14.Size = new System.Drawing.Size(512, 44);
             this.panel14.TabIndex = 74;
             this.c1ThemeController1.SetTheme(this.panel14, "(default)");
             // 
@@ -451,7 +451,7 @@
             // 
             // btnImpInv
             // 
-            this.btnImpInv.Location = new System.Drawing.Point(485, 3);
+            this.btnImpInv.Location = new System.Drawing.Point(382, 4);
             this.btnImpInv.Name = "btnImpInv";
             this.btnImpInv.Size = new System.Drawing.Size(118, 37);
             this.btnImpInv.TabIndex = 62;
@@ -1182,7 +1182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1307, 790);
+            this.ClientSize = new System.Drawing.Size(1307, 733);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.pB1);
             this.Controls.Add(this.groupBox1);

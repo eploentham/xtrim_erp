@@ -45,7 +45,7 @@ namespace Xtrim_ERP.objdb
 
             lMtp = new List<MethodPayment>();
 
-            getlMtp();
+            //getlMtp();
         }
         public void getlMtp()
         {

@@ -47,7 +47,7 @@ namespace Xtrim_ERP.objdb
 
             lEtt = new List<EntryType>();
 
-            getlEtt();
+            //getlEtt();
         }
         public void setCboEtt(ComboBox c, String selected)
         {

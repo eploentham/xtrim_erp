@@ -45,7 +45,7 @@ namespace Xtrim_ERP.objdb
 
             lTpm = new List<TermPayment>();
 
-            getlTpm();
+            //getlTpm();
         }
         public void getlTpm()
         {

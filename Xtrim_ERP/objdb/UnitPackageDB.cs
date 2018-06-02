@@ -47,7 +47,7 @@ namespace Xtrim_ERP.objdb
             utp.pkField = "unit_package_id";
 
             lUtp = new List<UnitPackage>();
-            getlPol();
+            //getlPol();
         }
         public void getlPol()
         {

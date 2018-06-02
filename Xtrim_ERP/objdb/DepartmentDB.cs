@@ -43,7 +43,7 @@ namespace Xtrim_ERP.objdb
             dept.pkField = "dept_id";
 
             lDept = new List<Department>();
-            getlDept();
+            //getlDept();
         }
         public String insert(Department p, String userId)
         {

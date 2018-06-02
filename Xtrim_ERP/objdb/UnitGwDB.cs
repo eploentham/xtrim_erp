@@ -47,7 +47,7 @@ namespace Xtrim_ERP.objdb
             ugw.pkField = "unit_gw_id";
 
             lUgw = new List<UnitGw>();
-            getlUgw();
+            //getlUgw();
         }
         public void getlUgw()
         {

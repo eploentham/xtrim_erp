@@ -1294,26 +1294,28 @@ namespace Xtrim_ERP.objdb
             pb1.Show();
             DataTable dt = new DataTable();
             String sql = "";
-            sql = "Select * from Port_of_Loading ";
-            conn.OpenConnectionA(pathA, flag);
-            dt = conn.selectDataA(conn.connA, sql);
+            //sql = "Select * from Port_of_Loading ";
+            sql = "Select * from port  where cntrycode <> ''";
+            //conn.OpenConnectionA(pathA, flag);
+            dt = conn.selectData(conn.connIm, sql);
             pb1.Minimum = 0;
             pb1.Maximum = dt.Rows.Count;
             pb1.Value = 0;
             conn.OpenConnectionNoClose();
             if (flagNew.Equals("new"))
             {
-                polDB.deleteAll();
+                //polDB.deleteAll();
             }
             foreach (DataRow row in dt.Rows)
             {
                 PortOfLoading pol = new PortOfLoading();
                 //pol = new new();
                 pol.port_of_loading_id = "";
-                pol.port_of_loading_code = row["PortOfLodingID"].ToString().Trim();
-                pol.port_of_loading_e = row["PortOfLodingID"].ToString().Trim();
-                pol.port_of_loading_t = row["PortOfLodingID"].ToString().Trim();
-                pol.remark = row["PortCountry"].ToString().Trim();
+                pol.port_of_loading_code = row["isocode"].ToString().Trim();
+                pol.port_of_loading_e = row["portname"].ToString().Trim();
+                pol.port_of_loading_t = row["portname"].ToString().Trim();
+                //pol.remark = "";
+                pol.cntrycode = row["cntrycode"].ToString().Trim();
                 //tmn.status_app = "status_app";
                 pol.sort1 = "";
 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Xtrim_ERP.control;
+using Xtrim_ERP.objdb;
 using Xtrim_ERP.Properties;
 
 namespace Xtrim_ERP.gui
@@ -15,6 +16,7 @@ namespace Xtrim_ERP.gui
     public partial class FrmImportData : Form
     {
         XtrimControl xC;
+        ImportDataDB imdDB;
         //Form fRm;
         public FrmImportData(XtrimControl x)
         {
@@ -48,6 +50,7 @@ namespace Xtrim_ERP.gui
             btnFwd.Enabled = false;
             btnjimBl.Enabled = false;
             btnImpInv.Enabled = false;
+            imdDB = new ImportDataDB(xC.conn);
             pB1.Hide();
         }
 
@@ -72,7 +75,7 @@ namespace Xtrim_ERP.gui
         {
             if (chk32.Checked)
             {
-                if (xC.xtDB.imdDB.testConnection(txtPathA.Value.ToString(), "32").Equals("ok"))
+                if (imdDB.testConnection(txtPathA.Value.ToString(), "32").Equals("ok"))
                 {
                     pic1.Show();
                     btnCus.Enabled = true;
@@ -105,7 +108,7 @@ namespace Xtrim_ERP.gui
             }
             else
             {
-                if (xC.xtDB.imdDB.testConnection(txtPathA.Value.ToString(), "64").Equals("ok"))
+                if (imdDB.testConnection(txtPathA.Value.ToString(), "64").Equals("ok"))
                 {
                     pic1.Show();
                     btnCus.Enabled = true;
@@ -156,77 +159,77 @@ namespace Xtrim_ERP.gui
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            xC.xtDB.imdDB.ImportMEIOSYSimport(txtPathA.Value.ToString(), chkImpNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
+            imdDB.ImportMEIOSYSimport(txtPathA.Value.ToString(), chkImpNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
         }
 
         private void btnCus_Click(object sender, EventArgs e)
         {
-            xC.xtDB.imdDB.ImportOpenJOBcustomer(txtPathA.Value.ToString(), chkCusNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
+            imdDB.ImportOpenJOBcustomer(txtPathA.Value.ToString(), chkCusNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
         }
 
         private void btnCons_Click(object sender, EventArgs e)
         {
-            xC.xtDB.imdDB.ImportOpenJOBconsignee(txtPathA.Value.ToString(), chkConsNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
+            imdDB.ImportOpenJOBconsignee(txtPathA.Value.ToString(), chkConsNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
         }
 
         private void btnExpCons_Click(object sender, EventArgs e)
         {
-            xC.xtDB.imdDB.ImportOpenJOBExpConsignee(txtPathA.Value.ToString(), chkExpConsNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
+            imdDB.ImportOpenJOBExpConsignee(txtPathA.Value.ToString(), chkExpConsNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
         }
 
         private void btnImpSupp_Click(object sender, EventArgs e)
         {
-            xC.xtDB.imdDB.ImportOpenJOBImpSupplier(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
+            imdDB.ImportOpenJOBImpSupplier(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
         }
 
         private void btnInsr_Click(object sender, EventArgs e)
         {
-            xC.xtDB.imdDB.ImportOpenJOBInsurance(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
+            imdDB.ImportOpenJOBInsurance(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
         }
 
         private void btnStf_Click(object sender, EventArgs e)
         {
-            xC.xtDB.imdDB.ImportOpenJOBStaff(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
+            imdDB.ImportOpenJOBStaff(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1);
         }
 
         private void btnImp1_Click(object sender, EventArgs e)
         {
-            xC.xtDB.imdDB.ImportOpenJOBJobImport(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
+            imdDB.ImportOpenJOBJobImport(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
         }
 
         private void btnTmn_Click(object sender, EventArgs e)
         {
-            xC.xtDB.imdDB.ImportOpenJOBTermail(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
+            imdDB.ImportOpenJOBTermail(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
         }
 
         private void btnFwd_Click(object sender, EventArgs e)
         {
-            xC.xtDB.imdDB.ImportOpenJOBForwarder(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
+            imdDB.ImportOpenJOBForwarder(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
         }
 
         private void btnjimBl_Click(object sender, EventArgs e)
         {
-            xC.xtDB.imdDB.ImportOpenJOBJobImportBl(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
+            imdDB.ImportOpenJOBJobImportBl(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
         }
 
         private void btnImpInv_Click(object sender, EventArgs e)
         {
-            xC.xtDB.imdDB.ImportOpenJOBJobImportInv(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
+            imdDB.ImportOpenJOBJobImportInv(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
         }
 
         private void btnPol_Click(object sender, EventArgs e)
         {
-            xC.xtDB.imdDB.ImportOpenJOBPortOfLoading(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
+            imdDB.ImportOpenJOBPortOfLoading(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
         }
 
         private void binJie_Click(object sender, EventArgs e)
         {
-            xC.xtDB.imdDB.ImportOpenJOBJobImportExpn(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
+            imdDB.ImportOpenJOBJobImportExpn(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
         }
 
         private void btnJct_Click(object sender, EventArgs e)
         {
-            xC.xtDB.imdDB.ImportOpenJOBJobImportCont(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
+            imdDB.ImportOpenJOBJobImportCont(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Xtrim_ERP.objdb
         public StaffDB stfDB;
         public CustomerDB cusDB;
         public ImporterDB impDB;
-        public ImportDataDB imdDB;
+        //public ImportDataDB imdDB;
 
         //ImporterDB impDB;
         //CustomerDB cusDB;
@@ -68,7 +68,7 @@ namespace Xtrim_ERP.objdb
             stfDB = new StaffDB(conn);
             cusDB = new CustomerDB(conn);
             impDB = new ImporterDB(conn);
-            imdDB = new ImportDataDB(conn);
+            //imdDB = new ImportDataDB(conn);
 
             //impDB = new ImporterDB(conn);
             //cusDB = new CustomerDB(conn);

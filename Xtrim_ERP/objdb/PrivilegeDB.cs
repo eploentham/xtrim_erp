@@ -46,7 +46,7 @@ namespace Xtrim_ERP.objdb
             pvl.pkField = "priv_id";
 
             lPvl = new List<Privilege>();
-            getlPvl();
+            //getlPvl();
         }
         public void setCboPvl(ComboBox c, String selected)
         {

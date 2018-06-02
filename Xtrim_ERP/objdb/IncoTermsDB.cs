@@ -45,7 +45,7 @@ namespace Xtrim_ERP.objdb
 
             lIct = new List<IncoTerms>();
 
-            getlIct();
+            //getlIct();
         }
         public void getlIct()
         {

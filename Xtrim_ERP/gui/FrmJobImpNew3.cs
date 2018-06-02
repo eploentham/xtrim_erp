@@ -64,12 +64,22 @@ namespace Xtrim_ERP.gui
             xC.setCboTaxMethod(cboTaxMethod);
             xC.xtDB.ittDB.setCboImporterType(cboItt);
             xC.xtDB.cemDB.setCboCheckExam(cboChkExam);
-            xC.xtDB.dctDB.setCboDocType(cboDocType);
-            initGrfMarsk();
-            initGrfRemark();
-            initGrfContain();
-            initGrfGw();
-            initGrfPKG();
+            //xC.xtDB.dctDB.setCboDocType(cboDocType);
+            xC.xtDB.dctDB.setCboContainer(cboContain1);
+            xC.xtDB.dctDB.setCboContainer(cboContain2);
+            xC.xtDB.dctDB.setCboContainer(cboContain3);
+            xC.xtDB.dctDB.setCboContainer(cboContain4);
+            xC.xtDB.dctDB.setCboContainer(cboContain5);
+            xC.xtDB.dctDB.setCboContainer(cboContain6);
+
+            xC.xtDB.ugwDB.setC1CboUgw(cboUgw, "");
+            xC.xtDB.utpDB.setC1CboUtp(cboUtp, "");
+
+            //initGrfMarsk();
+            //initGrfRemark();
+            //initGrfContain();
+            //initGrfGw();
+            //initGrfPKG();
 
             tC1.SelectedTab = tabJob;
             stt = new C1SuperTooltip();
@@ -83,8 +93,8 @@ namespace Xtrim_ERP.gui
             label4.ForeColor = Color.Red;
             label33.ForeColor = Color.Red;
             label14.ForeColor = Color.Red;
-            label34.ForeColor = Color.Red;
-            label35.ForeColor = Color.Red;
+            //label34.ForeColor = Color.Red;
+            //label35.ForeColor = Color.Red;
             label36.ForeColor = Color.Red;
             label13.ForeColor = Color.Red;
             label19.ForeColor = Color.Red;
@@ -97,7 +107,7 @@ namespace Xtrim_ERP.gui
             label22.ForeColor = Color.Red;
             label21.ForeColor = Color.Red;
             label23.ForeColor = Color.Red;
-            label16.ForeColor = Color.Red;
+            //label16.ForeColor = Color.Red;
             label25.ForeColor = Color.Red;
             label24.ForeColor = Color.Red;
             label15.ForeColor = Color.Red;
@@ -121,11 +131,11 @@ namespace Xtrim_ERP.gui
 
             grfMarsk.CellChanged += GrfMarsk_CellChanged;
 
-            ContextMenu menuMarsk = new ContextMenu();
-            menuMarsk.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Marsk_new));
-            menuMarsk.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Marsk_Edit));
-            menuMarsk.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Marsk_Cancel));
-            grfMarsk.ContextMenu = menuMarsk;
+            //ContextMenu menuMarsk = new ContextMenu();
+            //menuMarsk.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Marsk_new));
+            //menuMarsk.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Marsk_Edit));
+            //menuMarsk.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Marsk_Cancel));
+            //grfMarsk.ContextMenu = menuMarsk;
         }
         private void initGrfRemark()
         {
@@ -146,11 +156,11 @@ namespace Xtrim_ERP.gui
             grfRemark.AfterRowColChange += GrfRemark_AfterRowColChange;
             grfRemark.CellChanged += GrfRemark_CellChanged;
 
-            ContextMenu menuRemark = new ContextMenu();
-            menuRemark.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Remark_new));
-            menuRemark.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Remark_Edit));
-            menuRemark.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Remark_Cancel));
-            grfRemark.ContextMenu = menuRemark;
+            //ContextMenu menuRemark = new ContextMenu();
+            //menuRemark.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Remark_new));
+            //menuRemark.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Remark_Edit));
+            //menuRemark.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Remark_Cancel));
+            //grfRemark.ContextMenu = menuRemark;
         }
 
         private void initGrfContain()
@@ -176,11 +186,11 @@ namespace Xtrim_ERP.gui
 
             grfContain.CellChanged += GrfContain_CellChanged;
 
-            ContextMenu menuContain = new ContextMenu();
-            menuContain.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Contain_new));
-            menuContain.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Contain_Edit));
-            menuContain.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Contain_Cancel));
-            grfContain.ContextMenu = menuContain;
+            //ContextMenu menuContain = new ContextMenu();
+            //menuContain.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Contain_new));
+            //menuContain.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Contain_Edit));
+            //menuContain.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Contain_Cancel));
+            //grfContain.ContextMenu = menuContain;
         }
         private void initGrfGw()
         {
@@ -205,11 +215,11 @@ namespace Xtrim_ERP.gui
 
             grfGw.CellChanged += GrfGw_CellChanged;
 
-            ContextMenu menuGw = new ContextMenu();
-            menuGw.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Gw_new));
-            menuGw.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Gw_Edit));
-            menuGw.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Gw_Cancel));
-            grfGw.ContextMenu = menuGw;
+            //ContextMenu menuGw = new ContextMenu();
+            //menuGw.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Gw_new));
+            //menuGw.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Gw_Edit));
+            //menuGw.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Gw_Cancel));
+            //grfGw.ContextMenu = menuGw;
         }
         private void initGrfPKG()
         {
@@ -234,11 +244,11 @@ namespace Xtrim_ERP.gui
 
             grfPkg.CellChanged += GrfPkg_CellChanged;
 
-            ContextMenu menuPkg = new ContextMenu();
-            menuPkg.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Pkg_new));
-            menuPkg.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Pkg_Edit));
-            menuPkg.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Pkg_Cancel));
-            grfPkg.ContextMenu = menuPkg;
+            //ContextMenu menuPkg = new ContextMenu();
+            //menuPkg.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Pkg_new));
+            //menuPkg.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Pkg_Edit));
+            //menuPkg.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Pkg_Cancel));
+            //grfPkg.ContextMenu = menuPkg;
         }
         private void GrfRemark_AfterRowColChange(object sender, RangeEventArgs e)
         {
@@ -280,18 +290,18 @@ namespace Xtrim_ERP.gui
                 grfRemark.Rows.Count = grfRemark.Rows.Count + 1;
             }
         }
-        private void ContextMenu_Marsk_new(object sender, System.EventArgs e)
-        {
+        //private void ContextMenu_Marsk_new(object sender, System.EventArgs e)
+        //{
             
-        }
-        private void ContextMenu_Marsk_Edit(object sender, System.EventArgs e)
-        {
+        //}
+        //private void ContextMenu_Marsk_Edit(object sender, System.EventArgs e)
+        //{
 
-        }
-        private void ContextMenu_Marsk_Cancel(object sender, System.EventArgs e)
-        {
+        //}
+        //private void ContextMenu_Marsk_Cancel(object sender, System.EventArgs e)
+        //{
 
-        }
+        //}
         private void ContextMenu_Remark_new(object sender, System.EventArgs e)
         {
 
@@ -316,30 +326,30 @@ namespace Xtrim_ERP.gui
         {
 
         }
-        private void ContextMenu_Gw_new(object sender, System.EventArgs e)
-        {
+        //private void ContextMenu_Gw_new(object sender, System.EventArgs e)
+        //{
 
-        }
-        private void ContextMenu_Gw_Edit(object sender, System.EventArgs e)
-        {
+        //}
+        //private void ContextMenu_Gw_Edit(object sender, System.EventArgs e)
+        //{
 
-        }
-        private void ContextMenu_Gw_Cancel(object sender, System.EventArgs e)
-        {
+        //}
+        //private void ContextMenu_Gw_Cancel(object sender, System.EventArgs e)
+        //{
 
-        }
-        private void ContextMenu_Pkg_new(object sender, System.EventArgs e)
-        {
+        //}
+        //private void ContextMenu_Pkg_new(object sender, System.EventArgs e)
+        //{
 
-        }
-        private void ContextMenu_Pkg_Edit(object sender, System.EventArgs e)
-        {
+        //}
+        //private void ContextMenu_Pkg_Edit(object sender, System.EventArgs e)
+        //{
 
-        }
-        private void ContextMenu_Pkg_Cancel(object sender, System.EventArgs e)
-        {
+        //}
+        //private void ContextMenu_Pkg_Cancel(object sender, System.EventArgs e)
+        //{
 
-        }
+        //}
         private void BtnJobSearch_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -430,6 +440,7 @@ namespace Xtrim_ERP.gui
         private void setKeyUpF2Pol1()
         {
             txtPolNameT.Value = xC.sPol.port_of_loading_t;
+            txtCntryCode.Value = xC.sPol.cntrycode;
             polId = xC.sPol.port_of_loading_id;
         }
         private void setKeyUpF2Pti()
@@ -612,7 +623,7 @@ namespace Xtrim_ERP.gui
             jim = new JobImport();
             jim.job_import_id = "";
             jim.job_import_code = txtJobCode.Text;
-            jim.job_import_date = ((DateTime)txtImpDate.Value).ToString("yyyy-MM-dd");
+            //jim.job_import_date = ((DateTime)txtImpDate.Value).ToString("yyyy-MM-dd");
 
             jim.cust_id = cusId;
             jim.imp_id = impId;

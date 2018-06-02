@@ -45,7 +45,7 @@ namespace Xtrim_ERP.objdb
 
             lCurr = new List<Currency>();
 
-            getlCurr();
+            //getlCurr();
         }
         public void getlCurr()
         {

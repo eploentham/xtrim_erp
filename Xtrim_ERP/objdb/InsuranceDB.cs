@@ -70,7 +70,7 @@ namespace Xtrim_ERP.objdb
             insr.pkField = "insu_id";
 
             lInsr = new List<Insurance>();
-            getlInsr();
+            //getlInsr();
         }
         //public DataTable selectAll()
         //{

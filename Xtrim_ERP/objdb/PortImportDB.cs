@@ -44,7 +44,7 @@ namespace Xtrim_ERP.objdb
 
             lPti = new List<PortImport>();
 
-            getlPti();
+            //getlPti();
         }
         public void getlPti()
         {

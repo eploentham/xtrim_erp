@@ -47,7 +47,7 @@ namespace Xtrim_ERP.objdb
 
             lTmn = new List<Terminal>();
 
-            getlPol();
+            //getlPol();
         }
         public void getlPol()
         {

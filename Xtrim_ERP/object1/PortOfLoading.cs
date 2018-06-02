@@ -14,5 +14,6 @@ namespace Xtrim_ERP.object1
         public String port_of_loading_e { get; set; }
         public String status_app { get; set; }        
         public String sort1 { get; set; }
+        public String cntrycode { get; set; }
     }
 }

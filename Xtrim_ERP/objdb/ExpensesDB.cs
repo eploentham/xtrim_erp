@@ -46,7 +46,7 @@ namespace Xtrim_ERP.objdb
 
             lexpn = new List<Expenses>();
 
-            getlExpn();
+            //getlExpn();
         }
         public void getlExpn()
         {

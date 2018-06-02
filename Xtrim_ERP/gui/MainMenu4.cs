@@ -46,6 +46,23 @@ namespace Xtrim_ERP.gui
             menuDept.Click += MenuDept_Click;
             menuPosi.Click += MenuPosi_Click;
             menuEmail.Click += MenuEmail_Click;
+            menuTest.Click += MenuTest_Click;
+            menuConvertData.Click += MenuConvertData_Click;
+        }
+
+        private void MenuConvertData_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmImportData frm = new FrmImportData(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            TabPage tab = new TabPage("dddddd");
+            AddNewTab(frm, "Convert Data");
+        }
+
+        private void MenuTest_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+
         }
 
         private void MenuEmail_Click(object sender, EventArgs e)
@@ -243,7 +260,7 @@ namespace Xtrim_ERP.gui
                     menuInit.Enabled = true;
                 }
             }
-            this.Text = "Last Update 2018-05-21";
+            this.Text = "Last Update 2018-06-02";
         }
     }
 }
