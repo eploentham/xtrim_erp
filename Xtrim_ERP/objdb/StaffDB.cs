@@ -318,6 +318,24 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+        public DataTable selectCSByCodeLike(String copId)
+        {
+            DataTable dt = new DataTable();
+            String cusId = "";
+            //String sql = "select stf.staff_id, stf.staff_code, pfx.prefix_name_t,stf.staff_fname_t , stf.staff_lname_t, posi.posi_name_t, dept.dept_name_t " +
+            //    "From " + stf.table + " stf " +
+            //    "Left Join b_prefix pfx On stf.prefix_id = pfx.prefix_id " +
+            //    "Left Join b_position posi On stf.posi_id = posi.posi_id " +
+            //    "Left Join b_department dept On stf.dept_id = dept.dept_id " +
+            //    "Where LOWER(stf." + stf.staff_code + ") like '" + copId.ToLower() + "%'  ";
+            String sql = "select stf.*, pfx.prefix_name_t, '' as dept_name_t, '' as posi_name_t " +
+                "From " + stf.table + " stf " +
+                "Left Join b_prefix pfx On stf.prefix_id = pfx.prefix_id " +
+                "Where LOWER(stf." + stf.staff_code + ") like '" + copId.ToLower() + "%'  ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();
@@ -400,7 +418,7 @@ namespace Xtrim_ERP.objdb
             cop1 = setStaff(dt);
             return cop1;
         }
-        private Staff setStaff(DataTable dt)
+        public Staff setStaff(DataTable dt)
         {
             Staff stf1 = new Staff();
             if (dt.Rows.Count > 0)

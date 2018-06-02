@@ -58,6 +58,7 @@ namespace Xtrim_ERP.gui
             txtPtiNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtConsignmnt.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtStaffCS.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtPvlNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
 
             xC.setCboTransMode(cboTransMode);
             xC.setCboTaxMethod(cboTaxMethod);
@@ -74,29 +75,34 @@ namespace Xtrim_ERP.gui
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
             stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Silver;
+            setLabelRed();
+            
         }
-
-        private void BtnSave_Click(object sender, EventArgs e)
+        private void setLabelRed()
         {
-            //throw new NotImplementedException();
-            if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
-            {
-                setJobImport();
-                String re = xC.xtDB.jimDB.insertJobImport(jim);
-                int chk = 0;
-                if (int.TryParse(re, out chk))
-                {
-                    btnSave.Image = Resources.accept_database24;
-                }
-                else
-                {
-                    btnSave.Image = Resources.accept_database24;
-                }
-                //setGrdView();
-                this.Dispose();
-            }
+            label4.ForeColor = Color.Red;
+            label33.ForeColor = Color.Red;
+            label14.ForeColor = Color.Red;
+            label34.ForeColor = Color.Red;
+            label35.ForeColor = Color.Red;
+            label36.ForeColor = Color.Red;
+            label13.ForeColor = Color.Red;
+            label19.ForeColor = Color.Red;
+            label41.ForeColor = Color.Red;
+            label20.ForeColor = Color.Red;
+            label18.ForeColor = Color.Red;
+            label11.ForeColor = Color.Red;
+            label12.ForeColor = Color.Red;
+            label17.ForeColor = Color.Red;
+            label22.ForeColor = Color.Red;
+            label21.ForeColor = Color.Red;
+            label23.ForeColor = Color.Red;
+            label16.ForeColor = Color.Red;
+            label25.ForeColor = Color.Red;
+            label24.ForeColor = Color.Red;
+            label15.ForeColor = Color.Red;
         }
-
+        
         private void initGrfMarsk()
         {
             grfMarsk = new C1FlexGrid();
@@ -114,6 +120,12 @@ namespace Xtrim_ERP.gui
             grfMarsk.Cols[colMarskId].Visible = false;
 
             grfMarsk.CellChanged += GrfMarsk_CellChanged;
+
+            ContextMenu menuMarsk = new ContextMenu();
+            menuMarsk.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Marsk_new));
+            menuMarsk.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Marsk_Edit));
+            menuMarsk.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Marsk_Cancel));
+            grfMarsk.ContextMenu = menuMarsk;
         }
         private void initGrfRemark()
         {
@@ -134,6 +146,11 @@ namespace Xtrim_ERP.gui
             grfRemark.AfterRowColChange += GrfRemark_AfterRowColChange;
             grfRemark.CellChanged += GrfRemark_CellChanged;
 
+            ContextMenu menuRemark = new ContextMenu();
+            menuRemark.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Remark_new));
+            menuRemark.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Remark_Edit));
+            menuRemark.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Remark_Cancel));
+            grfRemark.ContextMenu = menuRemark;
         }
 
         private void initGrfContain()
@@ -158,6 +175,12 @@ namespace Xtrim_ERP.gui
             grfContain.Cols[colContainId].Visible = false;
 
             grfContain.CellChanged += GrfContain_CellChanged;
+
+            ContextMenu menuContain = new ContextMenu();
+            menuContain.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Contain_new));
+            menuContain.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Contain_Edit));
+            menuContain.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Contain_Cancel));
+            grfContain.ContextMenu = menuContain;
         }
         private void initGrfGw()
         {
@@ -181,6 +204,12 @@ namespace Xtrim_ERP.gui
             grfGw.Cols[colGwId].Visible = false;
 
             grfGw.CellChanged += GrfGw_CellChanged;
+
+            ContextMenu menuGw = new ContextMenu();
+            menuGw.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Gw_new));
+            menuGw.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Gw_Edit));
+            menuGw.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Gw_Cancel));
+            grfGw.ContextMenu = menuGw;
         }
         private void initGrfPKG()
         {
@@ -204,6 +233,12 @@ namespace Xtrim_ERP.gui
             grfPkg.Cols[colPKGId].Visible = false;
 
             grfPkg.CellChanged += GrfPkg_CellChanged;
+
+            ContextMenu menuPkg = new ContextMenu();
+            menuPkg.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Pkg_new));
+            menuPkg.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Pkg_Edit));
+            menuPkg.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Pkg_Cancel));
+            grfPkg.ContextMenu = menuPkg;
         }
         private void GrfRemark_AfterRowColChange(object sender, RangeEventArgs e)
         {
@@ -245,11 +280,91 @@ namespace Xtrim_ERP.gui
                 grfRemark.Rows.Count = grfRemark.Rows.Count + 1;
             }
         }
+        private void ContextMenu_Marsk_new(object sender, System.EventArgs e)
+        {
+            
+        }
+        private void ContextMenu_Marsk_Edit(object sender, System.EventArgs e)
+        {
+
+        }
+        private void ContextMenu_Marsk_Cancel(object sender, System.EventArgs e)
+        {
+
+        }
+        private void ContextMenu_Remark_new(object sender, System.EventArgs e)
+        {
+
+        }
+        private void ContextMenu_Remark_Edit(object sender, System.EventArgs e)
+        {
+
+        }
+        private void ContextMenu_Remark_Cancel(object sender, System.EventArgs e)
+        {
+
+        }
+        private void ContextMenu_Contain_new(object sender, System.EventArgs e)
+        {
+
+        }
+        private void ContextMenu_Contain_Edit(object sender, System.EventArgs e)
+        {
+
+        }
+        private void ContextMenu_Contain_Cancel(object sender, System.EventArgs e)
+        {
+
+        }
+        private void ContextMenu_Gw_new(object sender, System.EventArgs e)
+        {
+
+        }
+        private void ContextMenu_Gw_Edit(object sender, System.EventArgs e)
+        {
+
+        }
+        private void ContextMenu_Gw_Cancel(object sender, System.EventArgs e)
+        {
+
+        }
+        private void ContextMenu_Pkg_new(object sender, System.EventArgs e)
+        {
+
+        }
+        private void ContextMenu_Pkg_Edit(object sender, System.EventArgs e)
+        {
+
+        }
+        private void ContextMenu_Pkg_Cancel(object sender, System.EventArgs e)
+        {
+
+        }
         private void BtnJobSearch_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             Form3 frm = new Form3();
             frm.Show();
+        }
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                setJobImport();
+                String re = xC.xtDB.jimDB.insertJobImport(jim);
+                int chk = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    btnSave.Image = Resources.accept_database24;
+                }
+                else
+                {
+                    btnSave.Image = Resources.DeleteTable_small;
+                }
+                //setGrdView();
+                this.Dispose();
+            }
         }
         private void setKeyUpF2Cus()
         {
@@ -362,6 +477,21 @@ namespace Xtrim_ERP.gui
             txtStaffCS.Value = xC.sStf.staff_fname_t + " " + xC.sStf.staff_lname_t;
             stfId = xC.sStf.staff_id;
         }
+        private void setKeyUpF2Pvl()
+        {
+            Point pp = txtPvlNameT.Location;
+            pp.Y = pp.Y + 120;
+            pp.X = pp.X - 20;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Privilege, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2Pvl1();
+        }
+        private void setKeyUpF2Pvl1()
+        {
+            txtPvlNameT.Value = xC.sPvl.desc1;
+            stfId = xC.sPvl.priv_id;
+        }
         private void txtCusCode_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F2)
@@ -394,6 +524,10 @@ namespace Xtrim_ERP.gui
                 {
                     setKeyUpF2StfCS();
                 }
+                else if (sender.Equals(txtPvlNameT))
+                {
+                    setKeyUpF2Pvl();
+                }
             }
             else if (e.KeyCode == Keys.Enter)
             {
@@ -415,7 +549,10 @@ namespace Xtrim_ERP.gui
                         }
                         //MessageBox.Show("1111", "11");
                     }
-                    else if (sender.Equals(txtImpNameT))
+                }
+                else if (sender.Equals(txtImpNameT))
+                {
+                    if (txtImpNameT.Text.Length >= 2)
                     {
                         DataTable dt = new DataTable();
                         dt = xC.xtDB.cusDB.selectImpIdByCodeLike(txtImpNameT.Text);
@@ -431,6 +568,42 @@ namespace Xtrim_ERP.gui
                         }
                     }
                 }
+                else if (sender.Equals(txtFwdNameT))
+                {
+                    if (txtFwdNameT.Text.Length >= 2)
+                    {
+                        DataTable dt = new DataTable();
+                        dt = xC.xtDB.cusDB.selectFwsIdByCodeLike(txtFwdNameT.Text);
+                        if (dt.Rows.Count == 1)
+                        {
+                            xC.sFwd = new Customer();
+                            xC.sFwd = xC.xtDB.cusDB.setCustomer(dt);
+                            setKeyUpF2Fwd1();
+                        }
+                        else if (dt.Rows.Count > 1)
+                        {
+                            setKeyUpF2Fwd();
+                        }
+                    }
+                }
+                else if (sender.Equals(txtStaffCS))
+                {
+                    if (txtStaffCS.Text.Length >= 2)
+                    {
+                        DataTable dt = new DataTable();
+                        dt = xC.xtDB.stfDB.selectCSByCodeLike(txtStaffCS.Text);
+                        if (dt.Rows.Count == 1)
+                        {
+                            xC.sStf = new Staff();
+                            xC.sStf = xC.xtDB.stfDB.setStaff(dt);
+                            setKeyUpF2StfCS1();
+                        }
+                        else if (dt.Rows.Count > 1)
+                        {
+                            setKeyUpF2StfCS();
+                        }
+                    }
+                }
             }
         }
 
@@ -441,17 +614,17 @@ namespace Xtrim_ERP.gui
             jim.job_import_code = txtJobCode.Text;
             jim.job_import_date = ((DateTime)txtImpDate.Value).ToString("yyyy-MM-dd");
 
-            jim.cust_id = "";
-            jim.imp_id = "";
+            jim.cust_id = cusId;
+            jim.imp_id = impId;
             jim.transport_mode = ((ComboBoxItem)(cboTransMode.SelectedItem)).Value;
-            jim.staff_id = "";
+            jim.staff_id = stfId;
             jim.entry_type = "";
-            jim.privi_id = "";
-            jim.ref_1 = "";
-            jim.ref_2 = "";
-            jim.ref_3 = "";
-            jim.ref_4 = "";
-            jim.ref_5 = "";
+            jim.privi_id = polId;
+            jim.ref_1 = txtRef1.Text;
+            jim.ref_2 = txtRef2.Text;
+            jim.ref_3 = txtRef3.Text;
+            jim.ref_4 = txtRef4.Text;
+            jim.ref_5 = txtRef5.Text;
             jim.ref_edi = "";
             jim.imp_entry = "";
             jim.edi_response = "";
@@ -476,7 +649,7 @@ namespace Xtrim_ERP.gui
             jim.remark = "";
             jim.remark1 = "";
             jim.remark2 = "";
-            jim.jobno = "";
+            jim.jobno = txtJobNo.Text;
             jim.job_date = "";
             jim.imp_date = "";
             jim.bl = "";

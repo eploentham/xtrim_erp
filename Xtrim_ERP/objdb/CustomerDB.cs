@@ -527,6 +527,18 @@ namespace Xtrim_ERP.objdb
             }
             return cusId;
         }
+        public DataTable selectFwsIdByCodeLike(String copId)
+        {
+            DataTable dt = new DataTable();
+            String cusId = "";
+            String sql = "select cus.* " +
+                "From " + cus.table + " cus " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where LOWER(cus." + cus.cust_code + ") like '" + copId.ToLower() + "%' and " + cus.status_fwd + "='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();

@@ -167,7 +167,7 @@ namespace Xtrim_ERP.object1
             }
             else if (flag == Search.Privilege)
             {
-                grdFlex.DataSource = xC.xtDB.pvlDB.dtPvl;
+                grdFlex.DataSource = xC.xtDB.pvlDB.selectAll();
             }
             else if (flag == Search.Staff)
             {

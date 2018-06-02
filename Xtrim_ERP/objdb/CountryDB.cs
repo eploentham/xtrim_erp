@@ -37,6 +37,14 @@ namespace Xtrim_ERP.objdb
             cot.update_dd = "update_dd";
             cot.update_tt = "update_tt";
             cot.sort1 = "sort1";
+            cot.date_cancel = "date_cancel";
+            cot.date_create = "date_create";
+            cot.date_modi = "date_modi";
+            cot.user_cancel = "user_cancel";
+            cot.user_create = "user_create";
+            cot.user_modi = "user_modi";
+            cot.remark = "remark";
+            cot.active = "active";
 
             cot.table = "b_country";
             cot.pkField = "cou_id";
@@ -72,7 +80,7 @@ namespace Xtrim_ERP.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where cot." + cot.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
-            setCountry(dt);
+            cop1 = setCountry(dt);
             return cop1;
         }
         private Country setCountry(DataTable dt)
@@ -96,6 +104,14 @@ namespace Xtrim_ERP.objdb
                 cot1.update_dd = dt.Rows[0][cot.update_dd].ToString();
                 cot1.update_tt = dt.Rows[0][cot.update_tt].ToString();
                 cot1.sort1 = dt.Rows[0][cot.sort1].ToString();
+                //cot1.active = dt.Rows[0][cot.active].ToString();
+                //cot1.date_cancel = dt.Rows[0][cot.date_cancel].ToString();
+                //cot1.date_create = dt.Rows[0][cot.date_create].ToString();
+                //cot1.date_modi = dt.Rows[0][cot.date_modi].ToString();
+                //cot1.user_cancel = dt.Rows[0][cot.user_cancel].ToString();
+                //cot1.user_create = dt.Rows[0][cot.user_create].ToString();
+                //cot1.user_modi = dt.Rows[0][cot.user_modi].ToString();
+                //cot1.remark = dt.Rows[0][cot.remark].ToString();
             }
 
             return cot1;
