@@ -13,6 +13,8 @@ namespace Xtrim_ERP.objdb
     {
         public CheckExam cem;
         ConnectDB conn;
+        public List<CheckExam> lCem;
+        public DataTable dtContain;
 
         public CheckExamDB(ConnectDB c)
         {
@@ -32,14 +34,16 @@ namespace Xtrim_ERP.objdb
 
             cem.pkField = "check_exam_id";
             cem.table = "f_check_exam";
+
+            lCem = new List<CheckExam>();
         }
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
-            String sql = "select itt.*  " +
-                "From " + cem.table + " itt " +
+            String sql = "select cem.*  " +
+                "From " + cem.table + " cem " +
                 " " +
-                //"Where cot." + cot.active + " ='1' "
+                "Where cem." + cem.active + " ='1' "+
                 "";
             dt = conn.selectData(conn.conn, sql);
 
@@ -48,10 +52,10 @@ namespace Xtrim_ERP.objdb
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select itt.* " +
-                "From " + cem.table + " itt " +
+            String sql = "select cem.* " +
+                "From " + cem.table + " cem " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where cot." + cem.pkField + " ='" + copId + "' ";
+                "Where cem." + cem.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -59,13 +63,28 @@ namespace Xtrim_ERP.objdb
         {
             CheckExam cop1 = new CheckExam();
             DataTable dt = new DataTable();
-            String sql = "select itt.* " +
-                "From " + cem.table + " itt " +
+            String sql = "select cem.* " +
+                "From " + cem.table + " cem " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where cot." + cem.pkField + " ='" + copId + "' ";
+                "Where cem." + cem.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             setCheckExam(dt);
             return cop1;
+        }
+        public void getlCem()
+        {
+            lCem.Clear();
+            DataTable dt = new DataTable();
+            dt = selectAll();
+            dtContain = dt;
+            foreach (DataRow row in dt.Rows)
+            {
+                CheckExam utp1 = new CheckExam();
+                utp1.check_exam_id = row[cem.check_exam_id].ToString();
+                utp1.check_exam_code = row[cem.check_exam_code].ToString();
+                utp1.check_exam_name = row[cem.check_exam_name].ToString();
+                lCem.Add(utp1);
+            }
         }
         private CheckExam setCheckExam(DataTable dt)
         {
@@ -93,6 +112,24 @@ namespace Xtrim_ERP.objdb
                 c.Items.Add(a1);
             }
             return c;
+        }
+        public void setCboCheckExam(C1ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            //DataTable dt = selectWard();
+            if (lCem.Count <= 0) getlCem();
+            foreach (CheckExam cus1 in lCem)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.check_exam_id;
+                item.Text = cus1.check_exam_name;
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    //c.SelectedItem = item.Value;
+                    c.SelectedText = item.Text;
+                }
+            }
         }
     }
 }

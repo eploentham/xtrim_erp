@@ -63,17 +63,18 @@ namespace Xtrim_ERP.gui
             xC.setCboTransMode(cboTransMode);
             xC.setCboTaxMethod(cboTaxMethod);
             xC.xtDB.ittDB.setCboImporterType(cboItt);
-            xC.xtDB.cemDB.setCboCheckExam(cboChkExam);
-            //xC.xtDB.dctDB.setCboDocType(cboDocType);
-            xC.xtDB.dctDB.setCboContainer(cboContain1);
-            xC.xtDB.dctDB.setCboContainer(cboContain2);
-            xC.xtDB.dctDB.setCboContainer(cboContain3);
-            xC.xtDB.dctDB.setCboContainer(cboContain4);
-            xC.xtDB.dctDB.setCboContainer(cboContain5);
-            xC.xtDB.dctDB.setCboContainer(cboContain6);
+            xC.xtDB.cemDB.setCboCheckExam(cboChkExam,"");
+            xC.xtDB.dctDB.setC1CboBLTYPE(cboBlType, "");
+            //xC.xtDB.dctDB.setC1CboBLTYPE1(cboBlType,"");
+            xC.xtDB.dctDB.setC1CboContain(cboContain1,"");
+            xC.xtDB.dctDB.setC1CboContain(cboContain2, "");
+            xC.xtDB.dctDB.setC1CboContain(cboContain3, "");
+            xC.xtDB.dctDB.setC1CboContain(cboContain4, "");
+            xC.xtDB.dctDB.setC1CboContain(cboContain5, "");
+            xC.xtDB.dctDB.setC1CboContain(cboContain6, "");
 
             xC.xtDB.ugwDB.setC1CboUgw(cboUgw, "");
-            xC.xtDB.utpDB.setC1CboUtp(cboUtp, "");
+            xC.xtDB.utpDB.setC1CboUtp(cboUtp1, "");
 
             //initGrfMarsk();
             //initGrfRemark();
@@ -86,7 +87,8 @@ namespace Xtrim_ERP.gui
             sep = new C1SuperErrorProvider();
             stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Silver;
             setLabelRed();
-            
+            tC2.AutoHiding = true;
+            tC2.CanAutoHide = true;
         }
         private void setLabelRed()
         {
@@ -102,7 +104,7 @@ namespace Xtrim_ERP.gui
             label20.ForeColor = Color.Red;
             label18.ForeColor = Color.Red;
             label11.ForeColor = Color.Red;
-            label12.ForeColor = Color.Red;
+            btnBlReceive.ForeColor = Color.Red;
             label17.ForeColor = Color.Red;
             label22.ForeColor = Color.Red;
             label21.ForeColor = Color.Red;
@@ -458,7 +460,7 @@ namespace Xtrim_ERP.gui
             txtPtiNameT.Value = xC.sPol.port_of_loading_t;
             ptiId = xC.sPol.port_of_loading_id;
         }
-        private void setKeyUpF2Cst()
+        private void setKeyUpF2Cot()
         {
             Point pp = txtConsignmnt.Location;
             pp.Y = pp.Y + 120;
@@ -466,12 +468,12 @@ namespace Xtrim_ERP.gui
 
             FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Consignmnt, pp);
             frm.ShowDialog(this);
-            setKeyUpF2Cst1();
+            setKeyUpF2Cot1();
         }
-        private void setKeyUpF2Cst1()
+        private void setKeyUpF2Cot1()
         {
-            txtConsignmnt.Value = xC.sCst.cou_name;
-            cstId = xC.sCst.cou_id;
+            txtConsignmnt.Value = xC.sCot.cou_name;
+            cstId = xC.sCot.cou_id;
         }
         private void setKeyUpF2StfCS()
         {
@@ -529,7 +531,7 @@ namespace Xtrim_ERP.gui
                 }
                 else if (sender.Equals(txtConsignmnt))
                 {
-                    setKeyUpF2Cst();
+                    setKeyUpF2Cot();
                 }
                 else if (sender.Equals(txtStaffCS))
                 {
@@ -612,6 +614,24 @@ namespace Xtrim_ERP.gui
                         else if (dt.Rows.Count > 1)
                         {
                             setKeyUpF2StfCS();
+                        }
+                    }
+                }
+                else if (sender.Equals(txtConsignmnt))
+                {
+                    if (txtConsignmnt.Text.Length >= 2)
+                    {
+                        DataTable dt = new DataTable();
+                        dt = xC.xtDB.cotDB.selectByCodeLike(txtConsignmnt.Text);
+                        if (dt.Rows.Count == 1)
+                        {
+                            xC.sCot = new Country();
+                            xC.sCot = xC.xtDB.cotDB.setCountry(dt);
+                            setKeyUpF2Cot1();
+                        }
+                        else if (dt.Rows.Count > 1)
+                        {
+                            setKeyUpF2Cot();
                         }
                     }
                 }

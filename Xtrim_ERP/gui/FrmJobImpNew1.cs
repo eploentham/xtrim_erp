@@ -195,7 +195,7 @@ namespace Xtrim_ERP.gui
 
                     FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Consignmnt, pp);
                     frm.ShowDialog(this);
-                    txtConsignmnt.Value = xC.sCst.cou_name;
+                    txtConsignmnt.Value = xC.sCot.cou_name;
                 }
                 else if (sender.Equals(txtEttNameT))
                 {

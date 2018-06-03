@@ -71,6 +71,7 @@ namespace Xtrim_ERP.objdb
         public void setC1CboUgw(C1ComboBox c, String selected)
         {
             ComboBoxItem item = new ComboBoxItem();
+            if (lUgw.Count <= 0) getlUgw();
             //DataTable dt = selectWard();
             foreach (UnitGw cus1 in lUgw)
             {

@@ -83,7 +83,18 @@ namespace Xtrim_ERP.objdb
             cop1 = setCountry(dt);
             return cop1;
         }
-        private Country setCountry(DataTable dt)
+        public DataTable selectByCodeLike(String copId)
+        {
+            Country cop1 = new Country();
+            DataTable dt = new DataTable();
+            String sql = "select cot.* " +
+                "From " + cot.table + " cot " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +"Where LOWER(stf." + stf.staff_code + ") like '" + copId.ToLower() + "%'  ";
+                "Where LOWER(cot." + cot.cou_code + ") like '%" + copId.ToLower() + "%' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
+        public Country setCountry(DataTable dt)
         {
             Country cot1 = new Country();
             if (dt.Rows.Count > 0)

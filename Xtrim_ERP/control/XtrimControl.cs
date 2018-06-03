@@ -39,7 +39,7 @@ namespace Xtrim_ERP.control
         public UnitGw sUgw;
         public UnitPackage sUtp;
         public Staff sStf;
-        public Country sCst;
+        public Country sCot;
 
         public Terminal sTmn;
         public LogFile lf;
@@ -94,7 +94,7 @@ namespace Xtrim_ERP.control
             sTmn = new Terminal();
             sSoap = new StringSOAP();
             sStf = new Staff();
-            sCst = new Country();
+            sCot = new Country();
 
             cTxtFocus = ColorTranslator.FromHtml(iniC.txtFocus);
             regEmail = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");

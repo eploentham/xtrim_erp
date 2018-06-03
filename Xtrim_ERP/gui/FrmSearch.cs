@@ -282,12 +282,12 @@ namespace Xtrim_ERP.object1
                 }
                 else if (flag == Search.Consignmnt)
                 {
-                    xC.sCst = new Country();
-                    xC.sCst = xC.xtDB.cotDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
+                    xC.sCot = new Country();
+                    xC.sCot = xC.xtDB.cotDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.EntryType)
                 {
-                    xC.sCst = new Country();
+                    xC.sCot = new Country();
                     xC.sEtt = xC.xtDB.ettDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
                 }
                 Close();
