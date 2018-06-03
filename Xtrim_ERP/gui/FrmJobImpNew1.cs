@@ -260,7 +260,7 @@ namespace Xtrim_ERP.gui
             jim.user_modi = "";
             jim.user_cancel = "";
             jim.active = "1";
-            jim.remark = "";
+            jim.remark3 = "";
             jim.remark1 = "";
             jim.remark2 = "";
             jim.jobno = "";

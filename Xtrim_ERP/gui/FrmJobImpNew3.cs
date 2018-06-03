@@ -60,6 +60,7 @@ namespace Xtrim_ERP.gui
             txtStaffCS.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtPvlNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtEttNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtJobCode.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
 
             xC.setCboTransMode(cboTransMode);
             xC.setCboTaxMethod(cboTaxMethod);
@@ -90,6 +91,7 @@ namespace Xtrim_ERP.gui
             setLabelRed();
             tC2.AutoHiding = true;
             tC2.CanAutoHide = true;
+            txtJobCode.Enabled = false;
         }
         private void setLabelRed()
         {
@@ -376,7 +378,7 @@ namespace Xtrim_ERP.gui
                     btnSave.Image = Resources.DeleteTable_small;
                 }
                 //setGrdView();
-                this.Dispose();
+                //this.Dispose();
             }
         }
         private void setKeyUpF2Cus()
@@ -387,14 +389,14 @@ namespace Xtrim_ERP.gui
 
             FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Customer, pp);
             frm.ShowDialog(this);
-            setKeyUpF2Cus1();
+            setKeyUpF2Cus1(xC.sCus);
         }
-        private void setKeyUpF2Cus1()
+        private void setKeyUpF2Cus1(Customer cus)
         {
-            txtCusAddr.Value = xC.sCus.taddr1 + Environment.NewLine + xC.sCus.taddr2 + Environment.NewLine + xC.sCus.taddr3 + Environment.NewLine + xC.sCus.taddr4 + Environment.NewLine + xC.sCus.cust_code + Environment.NewLine + xC.sCus.remark;
-            txtCusNameT.Value = xC.sCus.cust_name_t;
-            txtCusContactNameT.Value = xC.sCus.contact_name1 + " " + xC.sCus.contact_name1_tel;
-            cusId = xC.sCus.cust_id;
+            txtCusAddr.Value = cus.taddr1 + Environment.NewLine + cus.taddr2 + Environment.NewLine + cus.taddr3 + Environment.NewLine + cus.taddr4 + Environment.NewLine + cus.cust_code + Environment.NewLine + cus.remark;
+            txtCusNameT.Value = cus.cust_name_t;
+            txtCusContactNameT.Value = cus.contact_name1 + " " + cus.contact_name1_tel;
+            cusId = cus.cust_id;
         }
         private void setKeyUpF2Imp()
         {
@@ -404,14 +406,14 @@ namespace Xtrim_ERP.gui
 
             FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Importer, pp);
             frm.ShowDialog(this);
-            setKeyUpF2Imp1();
+            setKeyUpF2Imp1(xC.sImp);
         }
-        private void setKeyUpF2Imp1()
+        private void setKeyUpF2Imp1(Customer imp)
         {
-            txtImpAddr.Value = xC.sImp.taddr1 + Environment.NewLine + xC.sImp.taddr2 + Environment.NewLine + xC.sImp.taddr3 + Environment.NewLine + xC.sImp.taddr4 + Environment.NewLine + xC.sImp.cust_code + Environment.NewLine + xC.sImp.remark;
-            txtImpNameT.Value = xC.sImp.cust_name_t;
-            txtImpContactNameT.Value = xC.sImp.contact_name1 + " " + xC.sImp.contact_name1_tel;
-            impId = xC.sImp.cust_id;
+            txtImpAddr.Value = imp.taddr1 + Environment.NewLine + imp.taddr2 + Environment.NewLine + imp.taddr3 + Environment.NewLine + imp.taddr4 + Environment.NewLine + imp.cust_code + Environment.NewLine + imp.remark;
+            txtImpNameT.Value = imp.cust_name_t;
+            txtImpContactNameT.Value = imp.contact_name1 + " " + imp.contact_name1_tel;
+            impId = imp.cust_id;
         }
         private void setKeyUpF2Fwd()
         {
@@ -623,7 +625,7 @@ namespace Xtrim_ERP.gui
                 {
                     xC.sImp = new Customer();
                     xC.sImp = xC.xtDB.cusDB.setCustomer(dt);
-                    setKeyUpF2Imp1();
+                    setKeyUpF2Imp1(xC.sImp);
                 }
                 else if (dt.Rows.Count > 1)
                 {
@@ -641,7 +643,7 @@ namespace Xtrim_ERP.gui
                 {
                     xC.sCus = new Customer();
                     xC.sCus = xC.xtDB.cusDB.setCustomer(dt);
-                    setKeyUpF2Cus1();
+                    setKeyUpF2Cus1(xC.sCus);
                 }
                 else if (dt.Rows.Count > 1)
                 {
@@ -771,19 +773,52 @@ namespace Xtrim_ERP.gui
                 {
                     setKeyEnterPti();
                 }
+                else if (sender.Equals(txtJobCode))
+                {
+                    setControl();
+                }
             }
         }
+        private void setControl()
+        {
+            jim = xC.xtDB.jimDB.selectByJobCode(txtJobCode.Text);
+            Customer cus = xC.xtDB.cusDB.selectByPk1(jim.cust_id);
+            Customer imp = xC.xtDB.cusDB.selectByPk1(jim.imp_id);
+            txtID.Value = jim.job_import_id;
+            txtJobNo.Value = jim.jobno;
 
+            txtRef1.Value = jim.ref_1;
+            txtRef2.Value = jim.ref_2;
+            txtRef3.Value = jim.ref_3;
+            txtRef4.Value = jim.ref_4;
+            txtRef5.Value = jim.ref_5;
+            txtRemark1.Value = jim.remark1;
+            txtRemark2.Value = jim.remark2;
+            txtRemark3.Value = jim.remark3;
+            txtRemark4.Value = jim.remark4;
+            txtRemark5.Value = jim.remark5;
+            txtRemark6.Value = jim.remark6;
+            txtMarsk1.Value = jim.marsk1;
+            txtMarsk2.Value = jim.marsk2;
+            txtMarsk3.Value = jim.marsk3;
+            txtMarsk4.Value = jim.marsk4;
+            txtMarsk5.Value = jim.marsk5;
+            txtMarsk6.Value = jim.marsk6;
+
+            setKeyUpF2Cus1(cus);
+            setKeyUpF2Imp1(imp);
+            
+        }
         private void setJobImport()
         {
             jim = new JobImport();
-            jim.job_import_id = "";
+            jim.job_import_id = txtID.Text;
             jim.job_import_code = txtJobCode.Text;
             //jim.job_import_date = ((DateTime)txtImpDate.Value).ToString("yyyy-MM-dd");
 
             jim.cust_id = cusId;
             jim.imp_id = impId;
-            jim.transport_mode = ((ComboBoxItem)(cboTransMode.SelectedItem)).Value;
+            jim.transport_mode = cboTransMode.SelectedItem != null ? ((ComboBoxItem)(cboTransMode.SelectedItem)).Value : "";
             jim.staff_id = stfId;
             jim.entry_type = "";
             jim.privi_id = polId;
@@ -813,13 +848,23 @@ namespace Xtrim_ERP.gui
             jim.user_modi = "";
             jim.user_cancel = "";
             jim.active = "1";
-            jim.remark = "";
-            jim.remark1 = "";
-            jim.remark2 = "";
-            jim.jobno = txtJobNo.Text;
+            jim.jobno = txtJobNo.Value.ToString();
             jim.job_date = "";
             jim.imp_date = "";
             jim.bl = "";
+
+            jim.remark1 = txtRemark1.Text;
+            jim.remark2 = txtRemark2.Text;
+            jim.remark3 = txtRemark3.Text;
+            jim.remark4 = txtRemark4.Text;
+            jim.remark5 = txtRemark5.Text;
+            jim.remark6 = txtRemark6.Text;
+            jim.marsk1 = txtMarsk1.Text;
+            jim.marsk2 = txtMarsk2.Text;
+            jim.marsk3 = txtMarsk3.Text;
+            jim.marsk4 = txtMarsk4.Text;
+            jim.marsk5 = txtMarsk5.Text;
+            jim.marsk6 = txtMarsk6.Text;
 
         }
         private void FrmJobImpNew3_Load(object sender, EventArgs e)

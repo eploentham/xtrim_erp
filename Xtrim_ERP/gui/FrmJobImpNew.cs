@@ -464,10 +464,10 @@ namespace Xtrim_ERP.gui
             //xC.xtDB.ugwDB.setC1CboUgw(cboUgw, jbl.gw_unit_id);
             //cboUgw.SelectedText = jbl.ugwNameT;
             xC.xtDB.ugwDB.setC1CboUgw(cboUgw, jbl.gw_unit_id);
-            xC.xtDB.utpDB.setC1CboUtp(cboUtp, jbl.unit_package_id);
+            xC.xtDB.utpDB.setC1CboUtp(cboUtp, jbl.unit_package1_id);
             //cboUtp.SelectedText = jbl.utpNameT;
             xC.xtDB.ugwDB.setCboUgw(cboUgw1, jbl.gw_unit_id);
-            xC.xtDB.utpDB.setCboUtp(cboUtp1, jbl.unit_package_id);
+            xC.xtDB.utpDB.setCboUtp(cboUtp1, jbl.unit_package1_id);
             xC.setCboC1(cboTransMode, jim.transport_mode);
             xC.setCboC1(cboChkExam, jim.check_exam_id);
             xC.setCboC1(cboTaxMethod, jim.tax_method_id);
@@ -479,8 +479,8 @@ namespace Xtrim_ERP.gui
             //cboUgw1.SelectedItem = cboUgw.SelectedItem;
             txtGw.Value = jbl.gw;
             txtGw1.Value = jbl.gw;
-            txtTotalP.Value = jbl.total_packages;
-            txtTotalP1.Value = jbl.total_packages;
+            txtTotalP.Value = jbl.packages_total;
+            txtTotalP1.Value = jbl.packages_total;
             txtVolume.Value = jbl.volume1;
             txtTotal20.Value = jbl.total_con20;
             txtTotal40.Value = jbl.total_con40;
@@ -495,7 +495,7 @@ namespace Xtrim_ERP.gui
             txtInsurDate.Value = jim.insr_date;
             txtFves.Value = jbl.f_vessel;
             txtEta.Value = jbl.eta;
-            txtRemark1.Value = jim.remark;
+            txtRemark1.Value = jim.remark3;
             txtRemark2.Value = jbl.remark;
             txtDeliRemark.Value = jbl.delivery_remark;
             txtEdiRef.Value = jim.ref_edi;

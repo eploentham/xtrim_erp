@@ -37,8 +37,8 @@ namespace Xtrim_ERP.objdb
             jbl.description = "description";
             jbl.gw = "gw";
             jbl.gw_unit_id = "unit_gw_id";
-            jbl.total_packages = "total_packages";
-            jbl.unit_package_id = "unit_package_id";
+            jbl.packages_total = "packages_total";
+            jbl.unit_package1_id = "unit_package1_id";
             jbl.total_con20 = "total_con20";
             jbl.total_con40 = "total_con40";
             jbl.volume1 = "volume1";
@@ -71,6 +71,7 @@ namespace Xtrim_ERP.objdb
             jbl.active = "active";
             jbl.remark = "remark";
             jbl.oth_job_no = "oth_job_no";
+
             jbl.fwdCode = "";
             jbl.fwdCode = "";
 
@@ -82,6 +83,29 @@ namespace Xtrim_ERP.objdb
             jbl.polNameT = "";
             jbl.tmnCode = "";
             jbl.tmnNameT = "";
+
+            jbl.packages1 = "packages1";
+            jbl.packages2 = "packages2";
+            jbl.packages3 = "packages3";
+            jbl.packages4 = "packages4";
+            jbl.packages5 = "packages5";
+            jbl.unit_package2_id = "unit_package2_id";
+            jbl.unit_package3_id = "unit_package3_id";
+            jbl.unit_package4_id = "unit_package4_id";
+            jbl.unit_package5_id = "unit_package5_id";
+            jbl.gw_total = "gw_total";
+            jbl.container1 = "container1";
+            jbl.container2 = "container2";
+            jbl.container3 = "container3";
+            jbl.container4 = "container4";
+            jbl.container5 = "container5";
+            jbl.container6 = "container6";
+            jbl.container1_doc_type_id = "container1_doc_type_id";
+            jbl.container2_doc_type_id = "container2_doc_type_id";
+            jbl.container3_doc_type_id = "container3_doc_type_id";
+            jbl.container4_doc_type_id = "container4_doc_type_id";
+            jbl.container5_doc_type_id = "container5_doc_type_id";
+            jbl.container6_doc_type_id = "container6_doc_type_id";
 
             jbl.table = "t_job_import_bl";
             jbl.pkField = "job_import_bl_id";
@@ -108,7 +132,7 @@ namespace Xtrim_ERP.objdb
             p.volume1 = p.volume1 == null ? "" : p.volume1;
             p.total_con40 = p.total_con40 == null ? "" : p.total_con40;
             p.total_con20 = p.total_con20 == null ? "" : p.total_con20;
-            p.total_packages = p.total_packages == null ? "" : p.total_packages;
+            p.packages_total = p.packages_total == null ? "" : p.packages_total;
             p.gw = p.gw == null ? "" : p.gw;
             p.description = p.description == null ? "" : p.description;
             p.marsk = p.marsk == null ? "" : p.marsk;
@@ -127,18 +151,40 @@ namespace Xtrim_ERP.objdb
             p.user_modi = p.user_modi == null ? "" : p.user_modi;
             p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
             conn.user.staff_id = conn.user.staff_id == null ? "" : conn.user.staff_id;
+            p.packages1 = p.packages1 == null ? "" : p.packages1;
+            p.packages2 = p.packages2 == null ? "" : p.packages2;
+            p.packages3 = p.packages3 == null ? "" : p.packages3;
+            p.packages4 = p.packages4 == null ? "" : p.packages4;
+            p.packages5 = p.packages5 == null ? "" : p.packages5;
+            p.container1 = p.container1 == null ? "" : p.container1;
+            p.container2 = p.container2 == null ? "" : p.container2;
+            p.container3 = p.container3 == null ? "" : p.container3;
+            p.container4 = p.container4 == null ? "" : p.container4;
+            p.container5 = p.container5 == null ? "" : p.container5;
+            p.container6 = p.container6 == null ? "" : p.container6;
+            p.gw_total = p.gw_total == null ? "" : p.gw_total;
 
             p.truck_cop_id = int.TryParse(p.truck_cop_id, out chk) ? chk.ToString() : "0";
             p.tranfer_with_job_id = int.TryParse(p.tranfer_with_job_id, out chk) ? chk.ToString() : "0";
             p.truck_id = int.TryParse(p.truck_id, out chk) ? chk.ToString() : "0";
             p.port_of_loading_id = int.TryParse(p.port_of_loading_id, out chk) ? chk.ToString() : "0";
-            p.unit_package_id = int.TryParse(p.unit_package_id, out chk) ? chk.ToString() : "0";
+            p.unit_package1_id = int.TryParse(p.unit_package1_id, out chk) ? chk.ToString() : "0";
             p.gw_unit_id = int.TryParse(p.gw_unit_id, out chk) ? chk.ToString() : "0";
             p.terminal_id = int.TryParse(p.terminal_id, out chk) ? chk.ToString() : "0";
 
             p.port_imp_id = Decimal.TryParse(p.port_imp_id, out chk1) ? chk1.ToString() : "0";
             p.forwarder_id = Decimal.TryParse(p.forwarder_id, out chk1) ? chk1.ToString() : "0";
             p.job_import_id = Decimal.TryParse(p.job_import_id, out chk1) ? chk1.ToString() : "0";
+            p.container1_doc_type_id = Decimal.TryParse(p.container1_doc_type_id, out chk1) ? chk1.ToString() : "0";
+            p.container2_doc_type_id = Decimal.TryParse(p.container2_doc_type_id, out chk1) ? chk1.ToString() : "0";
+            p.container3_doc_type_id = Decimal.TryParse(p.container3_doc_type_id, out chk1) ? chk1.ToString() : "0";
+            p.container4_doc_type_id = Decimal.TryParse(p.container4_doc_type_id, out chk1) ? chk1.ToString() : "0";
+            p.container5_doc_type_id = Decimal.TryParse(p.container5_doc_type_id, out chk1) ? chk1.ToString() : "0";
+            p.container6_doc_type_id = Decimal.TryParse(p.container6_doc_type_id, out chk1) ? chk1.ToString() : "0";
+            p.unit_package2_id = Decimal.TryParse(p.unit_package2_id, out chk1) ? chk1.ToString() : "0";
+            p.unit_package3_id = Decimal.TryParse(p.unit_package3_id, out chk1) ? chk1.ToString() : "0";
+            p.unit_package4_id = Decimal.TryParse(p.unit_package4_id, out chk1) ? chk1.ToString() : "0";
+            p.unit_package5_id = Decimal.TryParse(p.unit_package5_id, out chk1) ? chk1.ToString() : "0";
             //p.premium = Decimal.TryParse(p.premium, out chk1) ? chk1.ToString() : "0";
             //p.premium = Decimal.TryParse(p.premium, out chk1) ? chk1.ToString() : "0";
         }
@@ -158,8 +204,8 @@ namespace Xtrim_ERP.objdb
                 jbl.hbl_hawb + "," + jbl.m_vessel + "," + jbl.f_vessel + "," +
                 jbl.etd + "," + jbl.eta + "," + jbl.port_imp_id + "," +
                 jbl.terminal_id + "," + jbl.marsk + "," + jbl.description + "," +
-                jbl.gw + "," + jbl.gw_unit_id + "," + jbl.total_packages + "," +
-                jbl.unit_package_id + "," + jbl.total_con20 + "," + jbl.total_con40 + "," +
+                jbl.gw + "," + jbl.gw_unit_id + "," + jbl.packages_total + "," +
+                jbl.unit_package1_id + "," + jbl.total_con20 + "," + jbl.total_con40 + "," +
                 jbl.volume1 + "," + jbl.port_of_loading_id + "," + jbl.date_check_exam + "," +
                 jbl.date_delivery + "," + jbl.date_tofac + ", " + jbl.truck_id + ", " +
                 jbl.car_number + "," + jbl.tranfer_with_job_id + ", " + jbl.truck_cop_id + ", " +
@@ -168,14 +214,22 @@ namespace Xtrim_ERP.objdb
                 jbl.status_oth_job + "," + jbl.delivery_remark + ", " + jbl.container_yard + ", " +                
                 jbl.date_create + "," + jbl.date_modi + ", " + jbl.date_cancel + ", " +
                 jbl.user_create + "," + jbl.user_modi + ", " + jbl.user_cancel + ", " +
-                jbl.active + "," + jbl.remark + ", " + jbl.oth_job_no + " " +
+                jbl.active + "," + jbl.remark + "," + jbl.oth_job_no + "," +
+                jbl.packages1 + "," + jbl.packages2 + "," + jbl.packages3 + "," +
+                jbl.packages4 + "," + jbl.packages5 + "," + jbl.container1 + "," +
+                jbl.container2 + "," + jbl.container3 + "," + jbl.container4 + "," +
+                jbl.container5 + "," + jbl.container6 + "," + jbl.gw_total + "," +
+                jbl.container1_doc_type_id + "," + jbl.container2_doc_type_id + "," + jbl.container3_doc_type_id + "," +
+                jbl.container4_doc_type_id + "," + jbl.container5_doc_type_id + "," + jbl.container6_doc_type_id + "," +
+                jbl.unit_package2_id + "," + jbl.unit_package3_id + "," + jbl.unit_package4_id + "," +
+                jbl.unit_package5_id + " " + 
                 ") " +
                 "Values ('" + p.job_import_id + "','" + p.forwarder_id + "','" + p.mbl_mawb + "'," +
                 "'" + p.hbl_hawb.Replace("'", "''") + "','" + p.m_vessel.Replace("'", "''") + "','" + p.f_vessel.Replace("'", "''") + "'," +
                 "'" + p.etd.Replace("'", "''") + "','" + p.eta.Replace("'", "''") + "','" + p.port_imp_id + "'," +
                 "'" + p.terminal_id + "','" + p.marsk.Replace("'", "''") + "','" + p.description.Replace("'", "''") + "'," +
-                "'" + p.gw.Replace("'", "''") + "','" + p.gw_unit_id + "','" + p.total_packages.Replace("'", "''") + "'," +
-                "'" + p.unit_package_id + "','" + p.total_con20.Replace("'", "''") + "','" + p.total_con40.Replace("'", "''") + "'," +
+                "'" + p.gw.Replace("'", "''") + "','" + p.gw_unit_id + "','" + p.packages_total.Replace("'", "''") + "'," +
+                "'" + p.unit_package1_id + "','" + p.total_con20.Replace("'", "''") + "','" + p.total_con40.Replace("'", "''") + "'," +
                 "'" + p.volume1.Replace("'", "''") + "','" + p.port_of_loading_id + "','" + p.date_check_exam + "', " +
                 "'" + p.date_delivery + "','" + p.date_tofac + "','" + p.truck_id + "', " +
                 "'" + p.car_number.Replace("'", "''") + "','" + p.tranfer_with_job_id + "','" + p.truck_cop_id + "', " +
@@ -184,7 +238,15 @@ namespace Xtrim_ERP.objdb
                 "'" + p.status_oth_job + "','" + p.delivery_remark.Replace("'", "''") + "','" + p.container_yard + "', " +                
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + conn.user.staff_id + "','" + p.user_modi + "','" + p.user_cancel + "', " +
-                "'" + p.active + "','" + p.remark.Replace("'", "''")  + "', '" + p.oth_job_no.Replace("'", "''") + "' " +
+                "'" + p.active + "','" + p.remark.Replace("'", "''")  + "','" + p.oth_job_no.Replace("'", "''") + "', " +
+                "'" + p.packages1 + "','" + p.packages2.Replace("'", "''") + "','" + p.packages3.Replace("'", "''") + "', " +
+                "'" + p.packages4 + "','" + p.packages5.Replace("'", "''") + "','" + p.container1.Replace("'", "''") + "', " +
+                "'" + p.container2 + "','" + p.container3.Replace("'", "''") + "','" + p.container4.Replace("'", "''") + "', " +
+                "'" + p.container5 + "','" + p.container6.Replace("'", "''") + "','" + p.gw_total.Replace("'", "''") + "', " +
+                "'" + p.container1_doc_type_id + "','" + p.container2_doc_type_id + "','" + p.container3_doc_type_id + "', " +
+                "'" + p.container4_doc_type_id + "','" + p.container5_doc_type_id + "','" + p.container6_doc_type_id + "', " +
+                "'" + p.unit_package2_id + "','" + p.unit_package3_id.Replace("'", "''") + "','" + p.unit_package4_id + "', " +
+                "'" + p.unit_package5_id + "' " + 
                 ")";
             try
             {
@@ -219,8 +281,8 @@ namespace Xtrim_ERP.objdb
                 "," + jbl.description + " = '" + p.description.Replace("'", "''") + "'" +
                 "," + jbl.gw + " = '" + p.gw.Replace("'", "''") + "'" +
                 "," + jbl.gw_unit_id + " = '" + p.gw_unit_id + "'" +
-                "," + jbl.total_packages + " = '" + p.total_packages + "'" +
-                "," + jbl.unit_package_id + " = '" + p.unit_package_id + "'" +
+                "," + jbl.packages_total + " = '" + p.packages_total + "'" +
+                "," + jbl.unit_package1_id + " = '" + p.unit_package1_id + "'" +
                 "," + jbl.total_con20 + " = '" + p.total_con20.Replace("'", "''") + "'" +
                 "," + jbl.total_con40 + " = '" + p.total_con40.Replace("'", "''") + "'" +
                 "," + jbl.volume1 + " = '" + p.volume1.Replace("'", "''") + "'" +
@@ -248,6 +310,28 @@ namespace Xtrim_ERP.objdb
                 "," + jbl.user_modi + " = '" + conn.user.staff_id + "' " +
                 //"," + jbl.user_cancel + " = '" + p.user_cancel.Replace("'", "''") + "' " +
                 "," + jbl.remark + " = '" + p.remark.Replace("'", "''") + "' " +
+                "," + jbl.packages1 + " = '" + p.packages1.Replace("'", "''") + "' " +
+                "," + jbl.packages2 + " = '" + p.packages2.Replace("'", "''") + "' " +
+                "," + jbl.packages3 + " = '" + p.packages3.Replace("'", "''") + "' " +
+                "," + jbl.packages4 + " = '" + p.packages4.Replace("'", "''") + "' " +
+                "," + jbl.packages5 + " = '" + p.packages5.Replace("'", "''") + "' " +
+                "," + jbl.container1 + " = '" + p.container1.Replace("'", "''") + "' " +
+                "," + jbl.container2 + " = '" + p.container2.Replace("'", "''") + "' " +
+                "," + jbl.container3 + " = '" + p.container3.Replace("'", "''") + "' " +
+                "," + jbl.container4 + " = '" + p.container4.Replace("'", "''") + "' " +
+                "," + jbl.container5 + " = '" + p.container5.Replace("'", "''") + "' " +
+                "," + jbl.container6 + " = '" + p.container6.Replace("'", "''") + "' " +
+                "," + jbl.gw_total + " = '" + p.gw_total.Replace("'", "''") + "' " +
+                "," + jbl.container1_doc_type_id + " = '" + p.container1_doc_type_id.Replace("'", "''") + "' " +
+                "," + jbl.container2_doc_type_id + " = '" + p.container2_doc_type_id.Replace("'", "''") + "' " +
+                "," + jbl.container3_doc_type_id + " = '" + p.container3_doc_type_id.Replace("'", "''") + "' " +
+                "," + jbl.container4_doc_type_id + " = '" + p.container4_doc_type_id.Replace("'", "''") + "' " +
+                "," + jbl.container5_doc_type_id + " = '" + p.container5_doc_type_id.Replace("'", "''") + "' " +
+                "," + jbl.container6_doc_type_id + " = '" + p.container6_doc_type_id.Replace("'", "''") + "' " +
+                "," + jbl.unit_package2_id + " = '" + p.unit_package2_id.Replace("'", "''") + "' " +
+                "," + jbl.unit_package3_id + " = '" + p.unit_package3_id.Replace("'", "''") + "' " +
+                "," + jbl.unit_package4_id + " = '" + p.unit_package4_id.Replace("'", "''") + "' " +
+                "," + jbl.unit_package5_id + " = '" + p.unit_package5_id.Replace("'", "''") + "' " +
 
                 "Where " + jbl.pkField + "='" + p.job_import_bl_id+ "'"
                 ;
@@ -360,8 +444,8 @@ namespace Xtrim_ERP.objdb
                 jbl1.description = dt.Rows[0][jbl.description].ToString();
                 jbl1.gw = dt.Rows[0][jbl.gw].ToString();
                 jbl1.gw_unit_id = dt.Rows[0][jbl.gw_unit_id].ToString();
-                jbl1.total_packages = dt.Rows[0][jbl.total_packages].ToString();
-                jbl1.unit_package_id = dt.Rows[0][jbl.unit_package_id].ToString();
+                jbl1.packages_total = dt.Rows[0][jbl.packages_total].ToString();
+                jbl1.unit_package1_id = dt.Rows[0][jbl.unit_package1_id].ToString();
                 jbl1.total_con20 = dt.Rows[0][jbl.total_con20].ToString();
                 jbl1.total_con40 = dt.Rows[0][jbl.total_con40].ToString();
                 jbl1.volume1 = dt.Rows[0][jbl.volume1].ToString();
@@ -403,6 +487,30 @@ namespace Xtrim_ERP.objdb
                 jbl1.ptiNameT = dt.Rows[0]["port_import_name_t"].ToString();
                 jbl1.ugwCode = dt.Rows[0]["unit_gw_code"].ToString();
                 jbl1.ugwNameT = dt.Rows[0]["unit_gw_name_t"].ToString();
+
+                jbl1.packages1 = dt.Rows[0][jbl.packages1].ToString();
+                jbl1.packages2 = dt.Rows[0][jbl.packages2].ToString();
+                jbl1.packages3 = dt.Rows[0][jbl.packages3].ToString();
+                jbl1.packages4 = dt.Rows[0][jbl.packages4].ToString();
+                jbl1.packages5 = dt.Rows[0][jbl.packages5].ToString();
+                jbl1.container1 = dt.Rows[0][jbl.container1].ToString();
+                jbl1.container2 = dt.Rows[0][jbl.container2].ToString();
+                jbl1.container3 = dt.Rows[0][jbl.container3].ToString();
+                jbl1.container4 = dt.Rows[0][jbl.container4].ToString();
+                jbl1.container5 = dt.Rows[0][jbl.container5].ToString();
+                jbl1.container6 = dt.Rows[0][jbl.container6].ToString();
+                jbl1.gw_total = dt.Rows[0][jbl.gw_total].ToString();
+                jbl1.container1_doc_type_id = dt.Rows[0][jbl.container1_doc_type_id].ToString();
+                jbl1.container2_doc_type_id = dt.Rows[0][jbl.container2_doc_type_id].ToString();
+                jbl1.container3_doc_type_id = dt.Rows[0][jbl.container3_doc_type_id].ToString();
+                jbl1.container4_doc_type_id = dt.Rows[0][jbl.container4_doc_type_id].ToString();
+                jbl1.container5_doc_type_id = dt.Rows[0][jbl.container5_doc_type_id].ToString();
+                jbl1.container6_doc_type_id = dt.Rows[0][jbl.container6_doc_type_id].ToString();
+                jbl1.unit_package2_id = dt.Rows[0][jbl.unit_package2_id].ToString();
+                jbl1.unit_package3_id = dt.Rows[0][jbl.unit_package3_id].ToString();
+                jbl1.unit_package4_id = dt.Rows[0][jbl.unit_package4_id].ToString();
+                jbl1.unit_package5_id = dt.Rows[0][jbl.unit_package5_id].ToString();
+
             }
 
             return jbl1;

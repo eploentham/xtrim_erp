@@ -43,9 +43,19 @@ namespace Xtrim_ERP.object1
         public String user_modi { get; set; }
         public String user_cancel { get; set; }
         public String active { get; set; }
-        public String remark { get; set; }
+        public String remark3 { get; set; }
         public String remark1 { get; set; }
         public String remark2 { get; set; }
+        public String remark4 { get; set; }
+        public String remark5 { get; set; }
+        public String remark6 { get; set; }
+        public String marsk1 { get; set; }
+        public String marsk2 { get; set; }
+        public String marsk3 { get; set; }
+        public String marsk4 { get; set; }
+        public String marsk5 { get; set; }
+        public String marsk6 { get; set; }
+
 
         public String cusAddr { get; set; }
         public String impAddr { get; set; }

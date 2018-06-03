@@ -1233,7 +1233,7 @@ namespace Xtrim_ERP.objdb
                 jim.user_cancel = "";
                 jim.active = "1";
                 //jim.remark = DateTime.TryParse(row["ImpJobRemark"].ToString(), out dt1) ? dt1.ToString("yyyy") : "";
-                jim.remark = row["ImpJobRemark"].ToString().Trim();
+                jim.remark3 = row["ImpJobRemark"].ToString().Trim();
                 jim.remark1 = "";
                 jim.remark2 = "";
                 jimDB.insertJobImport(jim);
@@ -1500,8 +1500,8 @@ namespace Xtrim_ERP.objdb
                 jbl.description = row["Description"].ToString();
                 jbl.gw = row["GW"].ToString();
                 jbl.gw_unit_id = ugwDB.getIdByCode(row["GWUnitID"].ToString().Trim());
-                jbl.total_packages = row["TotalPackages"].ToString();
-                jbl.unit_package_id = utpDB.getIdByName(row["PackagesUnitID"].ToString().Trim());
+                jbl.packages_total = row["TotalPackages"].ToString();
+                jbl.unit_package1_id = utpDB.getIdByName(row["PackagesUnitID"].ToString().Trim());
                 jbl.total_con20 = row["TotalCon20'"].ToString();
                 jbl.total_con40 = row["TotalCon40'"].ToString();
                 jbl.volume1 = row["Volume"].ToString();

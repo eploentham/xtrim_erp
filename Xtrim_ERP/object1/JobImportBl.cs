@@ -23,8 +23,8 @@ namespace Xtrim_ERP.object1
         public String description { get; set; }
         public String gw { get; set; }
         public String gw_unit_id { get; set; }
-        public String total_packages { get; set; }
-        public String unit_package_id { get; set; }
+        public String packages_total { get; set; }
+        public String unit_package1_id { get; set; }
         public String total_con20 { get; set; }
         public String total_con40 { get; set; }
         public String volume1 { get; set; }
@@ -64,6 +64,29 @@ namespace Xtrim_ERP.object1
 
         public String ptiCode { get; set; }
         public String ptiNameT { get; set; }
+
+        public String packages1 { get; set; }
+        public String packages2 { get; set; }
+        public String packages3 { get; set; }
+        public String packages4 { get; set; }
+        public String packages5 { get; set; }
+        public String unit_package2_id { get; set; }
+        public String unit_package3_id { get; set; }
+        public String unit_package4_id { get; set; }
+        public String unit_package5_id { get; set; }
+        public String gw_total { get; set; }
+        public String container1 { get; set; }
+        public String container2 { get; set; }
+        public String container3 { get; set; }
+        public String container4 { get; set; }
+        public String container5 { get; set; }
+        public String container6 { get; set; }
+        public String container1_doc_type_id { get; set; }
+        public String container2_doc_type_id { get; set; }
+        public String container3_doc_type_id { get; set; }
+        public String container4_doc_type_id { get; set; }
+        public String container5_doc_type_id { get; set; }
+        public String container6_doc_type_id { get; set; }
         //public String ugwCode { get; set; }
         //public String ugwNameT { get; set; }
     }

@@ -185,11 +185,11 @@
             this.txtRemark1 = new C1.Win.C1Input.C1TextBox();
             this.txtEta = new C1.Win.Calendar.C1DateEdit();
             this.txtCntryCode = new C1.Win.C1Input.C1TextBox();
+            this.btnEtt = new C1.Win.C1Input.C1Button();
+            this.txtEttNameT = new C1.Win.C1Input.C1TextBox();
             this.tabInv = new C1.Win.C1Command.C1DockingTabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cDMain = new C1.Win.C1Command.C1CommandDock();
-            this.btnEtt = new C1.Win.C1Input.C1Button();
-            this.txtEttNameT = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -306,10 +306,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCntryCode)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cDMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEtt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cDMain)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -2015,7 +2015,6 @@
             // txtJobNo
             // 
             this.txtJobNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtJobNo.DataType = typeof(long);
             this.txtJobNo.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtJobNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtJobNo.Location = new System.Drawing.Point(143, 201);
@@ -2654,6 +2653,31 @@
             this.theme1.SetTheme(this.txtCntryCode, "(default)");
             this.txtCntryCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
+            // btnEtt
+            // 
+            this.btnEtt.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnEtt.Location = new System.Drawing.Point(418, 252);
+            this.btnEtt.Name = "btnEtt";
+            this.btnEtt.Size = new System.Drawing.Size(22, 22);
+            this.btnEtt.TabIndex = 501;
+            this.btnEtt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnEtt, "(default)");
+            this.btnEtt.UseVisualStyleBackColor = true;
+            this.btnEtt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtEttNameT
+            // 
+            this.txtEttNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEttNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtEttNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtEttNameT.Location = new System.Drawing.Point(143, 253);
+            this.txtEttNameT.Name = "txtEttNameT";
+            this.txtEttNameT.Size = new System.Drawing.Size(273, 20);
+            this.txtEttNameT.TabIndex = 500;
+            this.txtEttNameT.Tag = null;
+            this.theme1.SetTheme(this.txtEttNameT, "(default)");
+            this.txtEttNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // tabInv
             // 
             this.tabInv.Image = global::Xtrim_ERP.Properties.Resources.ordering16;
@@ -2685,31 +2709,6 @@
             this.cDMain.Name = "cDMain";
             this.cDMain.Size = new System.Drawing.Size(267, 718);
             this.theme1.SetTheme(this.cDMain, "(default)");
-            // 
-            // btnEtt
-            // 
-            this.btnEtt.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.btnEtt.Location = new System.Drawing.Point(418, 252);
-            this.btnEtt.Name = "btnEtt";
-            this.btnEtt.Size = new System.Drawing.Size(22, 22);
-            this.btnEtt.TabIndex = 501;
-            this.btnEtt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnEtt, "(default)");
-            this.btnEtt.UseVisualStyleBackColor = true;
-            this.btnEtt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtEttNameT
-            // 
-            this.txtEttNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEttNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtEttNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtEttNameT.Location = new System.Drawing.Point(143, 253);
-            this.txtEttNameT.Name = "txtEttNameT";
-            this.txtEttNameT.Size = new System.Drawing.Size(273, 20);
-            this.txtEttNameT.TabIndex = 500;
-            this.txtEttNameT.Tag = null;
-            this.theme1.SetTheme(this.txtEttNameT, "(default)");
-            this.txtEttNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmJobImpNew3
             // 
@@ -2843,10 +2842,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCntryCode)).EndInit();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cDMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEtt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT)).EndInit();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cDMain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

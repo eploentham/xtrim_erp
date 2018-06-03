@@ -60,13 +60,24 @@ namespace Xtrim_ERP.objdb
             jim.user_modi = "user_modi";
             jim.user_cancel = "user_cancel";
             jim.active = "active";
-            jim.remark = "remark";
+            jim.remark3 = "remark3";
             jim.remark1 = "remark1";
             jim.remark2 = "remark2";
             jim.jobno = "job_no";
             jim.job_date = "job_date";
             jim.imp_date = "imp_date";
             jim.bl = "bl";
+
+            jim.remark4 = "remark4";
+            jim.remark5 = "remark5";
+            jim.remark6 = "remark6";
+            jim.marsk1 = "marsk1";
+            jim.marsk2 = "marsk2";
+            jim.marsk3 = "marsk3";
+            jim.marsk4 = "marsk4";
+            jim.marsk5 = "marsk5";
+            jim.marsk6 = "marsk6";
+
 
             jim.cusAddr = "";
             jim.impAddr = "";
@@ -143,7 +154,17 @@ namespace Xtrim_ERP.objdb
 
             p.remark2 = p.remark2 == null ? "" : p.remark2;
             p.remark1 = p.remark1 == null ? "" : p.remark1;
-            p.remark = p.remark == null ? "" : p.remark;
+            p.remark3 = p.remark3 == null ? "" : p.remark3;
+            p.remark4 = p.remark4 == null ? "" : p.remark4;
+            p.remark5 = p.remark5 == null ? "" : p.remark5;
+            p.remark6 = p.remark6 == null ? "" : p.remark6;
+            p.marsk1 = p.marsk1 == null ? "" : p.marsk1;
+            p.marsk2 = p.marsk2 == null ? "" : p.marsk2;
+            p.marsk3 = p.marsk3 == null ? "" : p.marsk3;
+            p.marsk4 = p.marsk4 == null ? "" : p.marsk4;
+            p.marsk5 = p.marsk5 == null ? "" : p.marsk5;
+            p.marsk6 = p.marsk6 == null ? "" : p.marsk6;
+
             p.job_year = p.job_year == null ? "" : p.job_year;
             p.policy_clause = p.policy_clause == null ? "" : p.policy_clause;
             p.policy_date = p.policy_date == null ? "" : p.policy_date;
@@ -207,9 +228,12 @@ namespace Xtrim_ERP.objdb
                 jim.policy_date + "," + jim.policy_clause + ", " + jim.job_year + ", " +
                 jim.date_create + "," + jim.date_modi + ", " + jim.date_cancel + ", " +
                 jim.user_create + "," + jim.user_modi + ", " + jim.user_cancel + ", " +
-                jim.active + "," + jim.remark + ", " + jim.remark1 + ", " +
+                jim.active + "," + jim.remark3 + ", " + jim.remark1 + ", " +
                 jim.remark2 + ", " + jim.jobno + ", " + jim.job_date + ", " +
-                jim.imp_date + ", " + jim.bl + " " +
+                jim.imp_date + ", " + jim.bl + "," + jim.remark4 + ", " +
+                jim.remark5 + ", " + jim.remark6 + "," + jim.marsk1 + ", " +
+                jim.marsk2 + ", " + jim.marsk3 + "," + jim.marsk4 + ", " +
+                jim.marsk5 + ", " + jim.marsk6 + " " +
                 ") " +
                 "Values ('" + p.job_import_code + "','" + p.job_import_date + "','" + p.cust_id + "'," +
                 "'" + p.imp_id + "','" + p.transport_mode.Replace("'", "''") + "','" + p.staff_id + "'," +
@@ -222,9 +246,12 @@ namespace Xtrim_ERP.objdb
                 "'" + p.policy_date + "','" + p.policy_clause.Replace("'", "''") + "','" + p.job_year + "', " +
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + conn.user.staff_id + "','" + p.user_modi + "','" + p.user_cancel + "', " +
-                "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.remark1.Replace("'", "''") + "', " +
+                "'" + p.active + "','" + p.remark3.Replace("'", "''") + "','" + p.remark1.Replace("'", "''") + "', " +
                 "'" + p.remark2.Replace("'", "''") + "','" + p.jobno.Replace("'", "''") + "','" + p.job_date.Replace("'", "''") + "'," +
-                "'" + p.imp_date.Replace("'", "''") + "','" + p.bl.Replace("'", "''") + "' " +
+                "'" + p.imp_date.Replace("'", "''") + "','" + p.bl.Replace("'", "''") + "','" + p.remark4.Replace("'", "''") + "'," +
+                "'" + p.remark5.Replace("'", "''") + "','" + p.remark6.Replace("'", "''") + "','" + p.marsk1.Replace("'", "''") + "'," +
+                "'" + p.marsk2.Replace("'", "''") + "','" + p.marsk3.Replace("'", "''") + "','" + p.marsk4.Replace("'", "''") + "'," +
+                "'" + p.marsk5.Replace("'", "''") + "','" + p.marsk6.Replace("'", "''") + "' " +
                 ")";
             try
             {
@@ -275,14 +302,24 @@ namespace Xtrim_ERP.objdb
                 "," + jim.job_year + " = '" + p.job_year + "' " +
                 "," + jim.date_modi + " = now() " +
                 "," + jim.user_modi + " = '" + conn.user.staff_id + "' " +
-                "," + jim.remark + " = '" + p.remark.Replace("'", "''") + "' " +
+                "," + jim.remark3 + " = '" + p.remark3.Replace("'", "''") + "' " +
                 "," + jim.remark1 + " = '" + p.remark1.Replace("'", "''") + "' " +
                 "," + jim.remark2 + " = '" + p.remark2.Replace("'", "''") + "' " +
                 "," + jim.jobno + " = '" + p.jobno.Replace("'", "''") + "' " +
                 "," + jim.job_date + " = '" + p.job_date.Replace("'", "''") + "' " +
                 "," + jim.imp_date + " = '" + p.imp_date.Replace("'", "''") + "' " +
                 "," + jim.bl + " = '" + p.bl.Replace("'", "''") + "' " +
-                "Where " + jim.pkField + "='" + p.staff_id + "'"
+                "," + jim.remark4 + " = '" + p.remark4.Replace("'", "''") + "' " +
+                "," + jim.remark5 + " = '" + p.remark5.Replace("'", "''") + "' " +
+                "," + jim.remark6 + " = '" + p.remark6.Replace("'", "''") + "' " +
+                "," + jim.marsk1 + " = '" + p.marsk1.Replace("'", "''") + "' " +
+                "," + jim.marsk2 + " = '" + p.marsk2.Replace("'", "''") + "' " +
+                "," + jim.marsk3 + " = '" + p.marsk3.Replace("'", "''") + "' " +
+                "," + jim.marsk4 + " = '" + p.marsk4.Replace("'", "''") + "' " +
+                "," + jim.marsk5 + " = '" + p.marsk5.Replace("'", "''") + "' " +
+                "," + jim.marsk6 + " = '" + p.marsk6.Replace("'", "''") + "' " +
+
+                "Where " + jim.pkField + "='" + p.job_import_id + "'"
                 ;
 
             try
@@ -457,6 +494,29 @@ namespace Xtrim_ERP.objdb
             cop1 = setJobImport(dt);
             return cop1;
         }
+        public JobImport selectByJobCode(String jobId)
+        {
+            JobImport cop1 = new JobImport();
+            DataTable dt = new DataTable();
+            String sql = "select jim.* " +
+                ", IFNULL(cus.taddr1, '') as taddr1, IFNULL(cus.taddr2, '') as taddr2, " +
+                "IFNULL(cus.taddr3, '') as taddr3, IFNULL(cus.taddr4, '') as taddr4 " +
+                ", IFNULL(imp.taddr1, '') as imptaddr1, IFNULL(imp.taddr2, '') as imptaddr2, " +
+                "IFNULL(imp.taddr3, '') as imptaddr3, IFNULL(imp.taddr4, '') as imptaddr4,  " +
+                "IFNULL(cus.cust_name_t, '') as cust_name_t, IFNULL(imp.cust_name_t, '') as imp_name_t," +
+                "IFNULL(cus.cust_code, '') as cust_code, IFNULL(imp.cust_code, '') as imp_code, " +
+                "IFNULL(ett.entry_type_code, '') as entry_type_code, IFNULL(ett.entry_type_name_t, '') as entry_type_name_t, " +
+                "IFNULL(pvl.code, '') as priv_code, IFNULL(pvl.desc1, '') as priv_name_t " +
+                "From " + jim.table + " jim " +
+                "Left Join b_customer cus On jim.cust_id = cus.cust_id " +
+                "Left Join b_customer imp On jim.imp_id = cus.cust_id and cus.status_imp = '1' " +
+                "Left Join b_entry_type ett On jim.entry_type_id = ett.entry_type_id " +
+                "Left Join b_privilege pvl On jim.privi_id = pvl.priv_id " +
+                "Where jim." + jim.job_import_code + " ='" + jobId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            cop1 = setJobImport(dt);
+            return cop1;
+        }
         private JobImport setJobImport(DataTable dt)
         {
             JobImport jim1 = new JobImport();
@@ -497,7 +557,7 @@ namespace Xtrim_ERP.objdb
                 jim1.user_modi = dt.Rows[0][jim.user_modi].ToString();
                 jim1.user_cancel = dt.Rows[0][jim.user_cancel].ToString();
                 jim1.active = dt.Rows[0][jim.active].ToString();
-                jim1.remark = dt.Rows[0][jim.remark].ToString();
+                jim1.remark3 = dt.Rows[0][jim.remark3].ToString();
                 jim1.remark1 = dt.Rows[0][jim.remark1].ToString();
                 jim1.remark2 = dt.Rows[0][jim.remark2].ToString();
 
@@ -516,6 +576,15 @@ namespace Xtrim_ERP.objdb
                 jim1.job_date = dt.Rows[0][jim.job_date].ToString();
                 jim1.imp_date = dt.Rows[0][jim.imp_date].ToString();
                 jim1.bl = dt.Rows[0][jim.bl].ToString();
+                jim1.remark4 = dt.Rows[0][jim.remark4].ToString();
+                jim1.remark5 = dt.Rows[0][jim.remark5].ToString();
+                jim1.remark6 = dt.Rows[0][jim.remark6].ToString();
+                jim1.marsk1 = dt.Rows[0][jim.marsk1].ToString();
+                jim1.marsk2 = dt.Rows[0][jim.marsk2].ToString();
+                jim1.marsk3 = dt.Rows[0][jim.marsk3].ToString();
+                jim1.marsk4 = dt.Rows[0][jim.marsk4].ToString();
+                jim1.marsk5 = dt.Rows[0][jim.marsk5].ToString();
+                jim1.marsk6 = dt.Rows[0][jim.marsk6].ToString();
             }
 
             return jim1;

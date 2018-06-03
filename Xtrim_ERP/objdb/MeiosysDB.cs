@@ -132,7 +132,7 @@ namespace Xtrim_ERP.objdb
                 jim.user_modi = "";
                 jim.user_cancel = "";
                 jim.active = "1";
-                jim.remark = "";
+                jim.remark3 = "";
                 jim.remark1 = "";
                 jim.remark2 = "";
                 jim.jobno = dtJob.Rows[0]["jobno"].ToString().Trim();
@@ -160,8 +160,8 @@ namespace Xtrim_ERP.objdb
                     jbl.description = "";
                     jbl.gw = dtJob.Rows[0]["grsww"].ToString().Trim();
                     jbl.gw_unit_id = dtJob.Rows[0]["grswwunit"].ToString().Trim();
-                    jbl.total_packages = dtJob.Rows[0]["nopkg"].ToString().Trim();
-                    jbl.unit_package_id = dtJob.Rows[0]["pkgunit"].ToString().Trim();
+                    jbl.packages_total = dtJob.Rows[0]["nopkg"].ToString().Trim();
+                    jbl.unit_package1_id = dtJob.Rows[0]["pkgunit"].ToString().Trim();
                     jbl.total_con20 = "";
                     jbl.total_con40 = "";
                     jbl.volume1 = "";

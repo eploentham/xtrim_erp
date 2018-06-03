@@ -13,8 +13,55 @@ INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ต้อง', 'EXPRESS B/L', '1', 'BL_TYPE');
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ต้อง', 'SEA WAYBILL', '1', 'BL_TYPE');
 
+
+18-06-03
 ALTER TABLE `xtrim_erp`.`b_port_of_loading` 
 ADD COLUMN `cntrycode` VARCHAR(255) NULL AFTER `sort1`;
+
+ALTER TABLE `xtrim_erp`.`t_job_import` 
+CHANGE COLUMN `remark` `remark3` VARCHAR(2000) NULL DEFAULT NULL ,
+ADD COLUMN `remark4` VARCHAR(255) NULL AFTER `imp_date`,
+ADD COLUMN `remark5` VARCHAR(255) NULL AFTER `remark4`,
+ADD COLUMN `remark6` VARCHAR(255) NULL AFTER `remark5`,
+ADD COLUMN `marsk1` VARCHAR(255) NULL AFTER `remark6`,
+ADD COLUMN `marsk2` VARCHAR(255) NULL AFTER `marsk1`,
+ADD COLUMN `marsk3` VARCHAR(255) NULL AFTER `marsk2`,
+ADD COLUMN `marsk4` VARCHAR(255) NULL AFTER `marsk3`,
+ADD COLUMN `marsk5` VARCHAR(255) NULL AFTER `marsk4`,
+ADD COLUMN `marsk6` VARCHAR(255) NULL AFTER `marsk5`;
+
+ALTER TABLE `xtrim_erp`.`t_job_import_bl` 
+CHANGE COLUMN `total_packages` `packages_total` VARCHAR(255) NULL DEFAULT NULL COMMENT 'nopkg' ,
+CHANGE COLUMN `unit_package_id` `unit_package1_id` INT(11) NULL DEFAULT NULL COMMENT 'pkgunit' ,
+ADD COLUMN `packages1` VARCHAR(255) NULL AFTER `bl`,
+ADD COLUMN `packages2` VARCHAR(255) NULL AFTER `packages1`,
+ADD COLUMN `packages3` VARCHAR(255) NULL AFTER `packages2`,
+ADD COLUMN `packages4` VARCHAR(255) NULL AFTER `packages3`,
+ADD COLUMN `packages5` VARCHAR(255) NULL AFTER `packages4`,
+ADD COLUMN `unit_package2_id` INT NULL AFTER `packages5`,
+ADD COLUMN `unit_package3_id` INT NULL AFTER `unit_package2_id`,
+ADD COLUMN `unit_package4_id` INT NULL AFTER `unit_package3_id`,
+ADD COLUMN `unit_package5_id` INT NULL AFTER `unit_package4_id`;
+
+ALTER TABLE `xtrim_erp`.`t_job_import_bl` 
+CHANGE COLUMN `gw_total` `gw_total1` VARCHAR(255) NULL DEFAULT NULL ;
+
+ALTER TABLE `xtrim_erp`.`t_job_import_bl` 
+ADD COLUMN `container1` VARCHAR(255) NULL AFTER `gw_total`,
+ADD COLUMN `container2` VARCHAR(255) NULL AFTER `container1`,
+ADD COLUMN `container3` VARCHAR(255) NULL AFTER `container2`,
+ADD COLUMN `container4` VARCHAR(255) NULL AFTER `container3`,
+ADD COLUMN `container5` VARCHAR(255) NULL AFTER `container4`,
+ADD COLUMN `container6` VARCHAR(255) NULL AFTER `container5`,
+ADD COLUMN `container1_doc_type_id` VARCHAR(255) NULL AFTER `container6`,
+ADD COLUMN `container2_doc_type_id` VARCHAR(255) NULL AFTER `container1_doc_type_id`,
+ADD COLUMN `container3_doc_type_id` VARCHAR(255) NULL AFTER `container2_doc_type_id`,
+ADD COLUMN `container4_doc_type_id` VARCHAR(255) NULL AFTER `container3_doc_type_id`,
+ADD COLUMN `container5_doc_type_id` VARCHAR(255) NULL AFTER `container4_doc_type_id`,
+ADD COLUMN `container6_doc_type_id` VARCHAR(255) NULL AFTER `container5_doc_type_id`;
+
+ALTER TABLE `xtrim_erp`.`t_job_import` 
+ADD COLUMN `bl` VARCHAR(255) NULL AFTER `marsk6`;
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GenCSharpModel1`(in pTableName VARCHAR(255) )
 BEGIN
