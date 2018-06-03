@@ -73,6 +73,7 @@ namespace Xtrim_ERP.gui
         }
         private void chkTestConnection()
         {
+            if (imdDB == null) return;
             if (chk32.Checked)
             {
                 if (imdDB.testConnection(txtPathA.Value.ToString(), "32").Equals("ok"))
@@ -230,6 +231,11 @@ namespace Xtrim_ERP.gui
         private void btnJct_Click(object sender, EventArgs e)
         {
             imdDB.ImportOpenJOBJobImportCont(txtPathA.Value.ToString(), chkImpSuppNew.Checked ? "new" : "append", chk32.Checked ? "32" : "64", pB1, this);
+        }
+
+        private void btnEtt_Click(object sender, EventArgs e)
+        {
+            imdDB.ImportEntryType("new");
         }
     }
 }

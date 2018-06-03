@@ -12,6 +12,7 @@ namespace Xtrim_ERP.object1
         public String entry_type_code { get; set; }
         public String entry_type_name_t { get; set; }
         public String entry_type_name_e { get; set; }
+        public String status_app { get; set; }
 
         public String sort1 { get; set; }
     }

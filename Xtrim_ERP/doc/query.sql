@@ -13,6 +13,9 @@ INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ต้อง', 'EXPRESS B/L', '1', 'BL_TYPE');
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ต้อง', 'SEA WAYBILL', '1', 'BL_TYPE');
 
+ALTER TABLE `xtrim_erp`.`b_port_of_loading` 
+ADD COLUMN `cntrycode` VARCHAR(255) NULL AFTER `sort1`;
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GenCSharpModel1`(in pTableName VARCHAR(255) )
 BEGIN
 DECLARE vClassName varchar(255);

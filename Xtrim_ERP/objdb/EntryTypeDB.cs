@@ -39,7 +39,7 @@ namespace Xtrim_ERP.objdb
             ett.user_create = "user_create";
             ett.user_modi = "user_modi";
             ett.user_cancel = "user_cancel";
-            //ett.status_app = "status_app";
+            ett.status_app = "status_app";
             ett.remark = "remark";
 
             ett.table = "b_entry_type";
@@ -129,12 +129,14 @@ namespace Xtrim_ERP.objdb
             sql = "Insert Into " + ett.table + "(" + ett.entry_type_code + "," + ett.entry_type_name_e + "," + ett.entry_type_name_t + "," +
                 ett.date_create + "," + ett.date_modi + "," + ett.date_cancel + "," +
                 ett.user_create + "," + ett.user_modi + "," + ett.user_cancel + "," +
-                ett.active + "," + ett.remark + ", " + ett.sort1 + " " +
+                ett.active + "," + ett.remark + ", " + ett.sort1 + ", " +
+                ett.status_app + " " +
                 ") " +
                 "Values ('" + p.entry_type_code + "','" + p.entry_type_name_e.Replace("'", "''") + "','" + p.entry_type_name_t.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "'," +
-                "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "' " +
+                "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "', " +
+                "'" + p.status_app + "' " +
                 ")";
             try
             {
@@ -254,7 +256,7 @@ namespace Xtrim_ERP.objdb
                 ett1.user_cancel = dt.Rows[0][ett.user_cancel].ToString();
                 ett1.user_create = dt.Rows[0][ett.user_create].ToString();
                 ett1.user_modi = dt.Rows[0][ett.user_modi].ToString();
-                //pti1.status_app = dt.Rows[0][ett.status_app].ToString();
+                ett1.status_app = dt.Rows[0][ett.status_app].ToString();
                 ett1.remark = dt.Rows[0][ett.remark].ToString();
                 ett1.sort1 = dt.Rows[0][ett.sort1].ToString();
             }

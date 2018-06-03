@@ -1291,6 +1291,7 @@ namespace Xtrim_ERP.objdb
         }
         public void ImportOpenJOBPortOfLoading(String pathA, String flagNew, String flag, ProgressBar pb1, Form frm)
         {
+            // แก้ จากเป็นข้อมูลจาก access เป็น ข้อมูลจาก meiosys
             pb1.Show();
             DataTable dt = new DataTable();
             String sql = "";
@@ -1304,7 +1305,7 @@ namespace Xtrim_ERP.objdb
             conn.OpenConnectionNoClose();
             if (flagNew.Equals("new"))
             {
-                //polDB.deleteAll();
+                polDB.deleteAll();
             }
             foreach (DataRow row in dt.Rows)
             {
@@ -1869,6 +1870,41 @@ namespace Xtrim_ERP.objdb
             }
             conn.CloseConnectionNoClose();
             pb1.Hide();
+        }
+        public void ImportEntryType(String flagNew)
+        {
+            DataTable dt = new DataTable();
+            String sql = "";
+
+            sql = "Select * From dcltype ";
+            dt = conn.selectData(conn.connIm, sql);
+
+            conn.OpenConnectionNoClose();
+            if (flagNew.Equals("new"))
+            {
+                impDB.deleteAll();
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+                EntryType ett = new EntryType();
+                ett.entry_type_id = "";
+                ett.entry_type_code = row["code"].ToString();
+                ett.entry_type_name_e = row["name"].ToString();
+                ett.entry_type_name_t = "";
+                ett.status_app = "meiosys";
+                ett.sort1 = "";
+
+                ett.active = "1";
+                ett.date_create = "";
+                ett.date_modi = "";
+                ett.date_cancel = "";
+                ett.user_create = "";
+                ett.user_modi = "";
+                ett.user_cancel = "";
+                ett.remark = row["category"].ToString();
+
+                ettDB.insertEntryType(ett);
+            }
         }
     }
 }
