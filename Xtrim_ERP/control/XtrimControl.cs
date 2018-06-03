@@ -36,6 +36,7 @@ namespace Xtrim_ERP.control
         public EntryType sEtt;
         public PortOfLoading sPol;
         public Privilege sPvl;
+        public PortImport sPti;
         public UnitGw sUgw;
         public UnitPackage sUtp;
         public Staff sStf;
@@ -95,6 +96,7 @@ namespace Xtrim_ERP.control
             sSoap = new StringSOAP();
             sStf = new Staff();
             sCot = new Country();
+            sPti = new PortImport();
 
             cTxtFocus = ColorTranslator.FromHtml(iniC.txtFocus);
             regEmail = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");

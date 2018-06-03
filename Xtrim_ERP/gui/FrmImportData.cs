@@ -237,5 +237,10 @@ namespace Xtrim_ERP.gui
         {
             imdDB.ImportEntryType("new");
         }
+
+        private void btnPti_Click(object sender, EventArgs e)
+        {
+            imdDB.ImportPortImport("new");
+        }
     }
 }

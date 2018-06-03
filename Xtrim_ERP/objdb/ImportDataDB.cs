@@ -1882,7 +1882,7 @@ namespace Xtrim_ERP.objdb
             conn.OpenConnectionNoClose();
             if (flagNew.Equals("new"))
             {
-                impDB.deleteAll();
+                ettDB.deleteAll();
             }
             foreach (DataRow row in dt.Rows)
             {
@@ -1890,7 +1890,7 @@ namespace Xtrim_ERP.objdb
                 ett.entry_type_id = "";
                 ett.entry_type_code = row["code"].ToString();
                 ett.entry_type_name_e = row["name"].ToString();
-                ett.entry_type_name_t = "";
+                ett.entry_type_name_t = row["name"].ToString();
                 ett.status_app = "meiosys";
                 ett.sort1 = "";
 
@@ -1905,6 +1905,41 @@ namespace Xtrim_ERP.objdb
 
                 ettDB.insertEntryType(ett);
             }
+            conn.CloseConnectionNoClose();
+        }
+        public void ImportPortImport(String flagNew)
+        {
+            DataTable dt = new DataTable();
+            String sql = "";
+
+            sql = "Select * From place ";
+            dt = conn.selectData(conn.connIm, sql);
+
+            conn.OpenConnectionNoClose();
+            if (flagNew.Equals("new"))
+            {
+                ptiDB.deleteAll();
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+                PortImport pti = new PortImport();
+                pti.port_import_id = "";
+                pti.port_import_code = row["code"].ToString();
+                pti.port_import_name_t = row["name"].ToString();
+                pti.port_import_name_e = row["abname"].ToString();
+                pti.active = "1";
+                pti.date_create = "";
+                pti.date_modi = "";
+                pti.date_cancel = "";
+                pti.user_create = "";
+                pti.user_modi = "";
+                pti.user_cancel = "";
+                pti.status_app = "";
+                pti.remark = row["payment_port"].ToString();
+                pti.sort1 = "";
+                ptiDB.insertPortImprt(pti);
+            }
+            conn.CloseConnectionNoClose();
         }
     }
 }

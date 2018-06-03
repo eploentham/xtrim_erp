@@ -240,7 +240,18 @@ namespace Xtrim_ERP.objdb
             cop1 = setEntryType(dt);
             return cop1;
         }
-        private EntryType setEntryType(DataTable dt)
+        public DataTable selectByCodeLike(String copId)
+        {
+            EntryType cop1 = new EntryType();
+            DataTable dt = new DataTable();
+            String sql = "select ett.* " +
+                "From " + ett.table + " ett " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +"Where LOWER(stf." + stf.staff_code + ") like '" + copId.ToLower() + "%'  ";
+                "Where LOWER(ett." + ett.entry_type_code + ") like '%" + copId.ToLower() + "%' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
+        public EntryType setEntryType(DataTable dt)
         {
             EntryType ett1 = new EntryType();
             if (dt.Rows.Count > 0)

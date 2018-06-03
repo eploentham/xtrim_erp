@@ -236,7 +236,18 @@ namespace Xtrim_ERP.objdb
             cop1 = setPortImport(dt);
             return cop1;
         }
-        private PortImport setPortImport(DataTable dt)
+        public DataTable selectByCodeLike(String copId)
+        {
+            PortImport cop1 = new PortImport();
+            DataTable dt = new DataTable();
+            String sql = "select pti.* " +
+                "From " + pti.table + " pti " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +"Where LOWER(stf." + stf.staff_code + ") like '" + copId.ToLower() + "%'  ";
+                "Where LOWER(pti." + pti.port_import_code + ") like '%" + copId.ToLower() + "%' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
+        public PortImport setPortImport(DataTable dt)
         {
             PortImport pti1 = new PortImport();
             if (dt.Rows.Count > 0)

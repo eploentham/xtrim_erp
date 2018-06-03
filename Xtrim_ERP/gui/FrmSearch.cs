@@ -159,7 +159,7 @@ namespace Xtrim_ERP.object1
             }
             else if (flag == Search.EntryType)
             {
-                grdFlex.DataSource = xC.xtDB.ettDB.dtEtt;
+                grdFlex.DataSource = xC.xtDB.ettDB.selectAll();
             }
             else if (flag == Search.PortOfLoading)
             {

@@ -35,6 +35,12 @@
             this.tC1 = new C1.Win.C1Command.C1DockingTab();
             this.tabJob = new C1.Win.C1Command.C1DockingTabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cboBlType = new C1.Win.C1Input.C1ComboBox();
+            this.btnBlReceive = new C1.Win.C1Input.C1SplitButton();
+            this.doc1 = new C1.Win.C1Input.DropDownItem();
+            this.doc2 = new C1.Win.C1Input.DropDownItem();
+            this.doc3 = new C1.Win.C1Input.DropDownItem();
+            this.doc4 = new C1.Win.C1Input.DropDownItem();
             this.txtEtd = new C1.Win.Calendar.C1DateEdit();
             this.txtConsignmnt = new C1.Win.C1Input.C1TextBox();
             this.cDRight = new C1.Win.C1Command.C1CommandDock();
@@ -49,7 +55,7 @@
             this.c1Button9 = new C1.Win.C1Input.C1Button();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.txtEttNameT = new C1.Win.C1Input.C1TextBox();
+            this.txtEttNameT1 = new C1.Win.C1Input.C1TextBox();
             this.c1DockingTabPage4 = new C1.Win.C1Command.C1DockingTabPage();
             this.c1DockingTabPage5 = new C1.Win.C1Command.C1DockingTabPage();
             this.c1DockingTabPage6 = new C1.Win.C1Command.C1DockingTabPage();
@@ -123,7 +129,6 @@
             this.c1Button6 = new C1.Win.C1Input.C1Button();
             this.label36 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.cboItt = new C1.Win.C1Input.C1ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtPvlNameT = new C1.Win.C1Input.C1TextBox();
             this.txtStaffCS = new C1.Win.C1Input.C1TextBox();
@@ -183,12 +188,8 @@
             this.tabInv = new C1.Win.C1Command.C1DockingTabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cDMain = new C1.Win.C1Command.C1CommandDock();
-            this.btnBlReceive = new C1.Win.C1Input.C1SplitButton();
-            this.doc1 = new C1.Win.C1Input.DropDownItem();
-            this.doc2 = new C1.Win.C1Input.DropDownItem();
-            this.doc3 = new C1.Win.C1Input.DropDownItem();
-            this.doc4 = new C1.Win.C1Input.DropDownItem();
-            this.cboBlType = new C1.Win.C1Input.C1ComboBox();
+            this.btnEtt = new C1.Win.C1Input.C1Button();
+            this.txtEttNameT = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -196,6 +197,8 @@
             this.tC1.SuspendLayout();
             this.tabJob.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboBlType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBlReceive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEtd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConsignmnt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cDRight)).BeginInit();
@@ -208,7 +211,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTaxMethod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT1)).BeginInit();
             this.gBContain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboContain6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContain6)).BeginInit();
@@ -263,7 +266,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnTransMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTransMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboItt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPvlNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStaffCS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).BeginInit();
@@ -306,8 +308,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCntryCode)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnBlReceive)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboBlType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEtt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -408,7 +410,6 @@
             this.panel2.Controls.Add(this.c1Button6);
             this.panel2.Controls.Add(this.label36);
             this.panel2.Controls.Add(this.label33);
-            this.panel2.Controls.Add(this.cboItt);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.txtPvlNameT);
             this.panel2.Controls.Add(this.txtStaffCS);
@@ -453,6 +454,8 @@
             this.panel2.Controls.Add(this.gBRemark);
             this.panel2.Controls.Add(this.txtEta);
             this.panel2.Controls.Add(this.txtCntryCode);
+            this.panel2.Controls.Add(this.btnEtt);
+            this.panel2.Controls.Add(this.txtEttNameT);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -460,6 +463,59 @@
             this.panel2.Size = new System.Drawing.Size(1352, 673);
             this.panel2.TabIndex = 0;
             this.theme1.SetTheme(this.panel2, "(default)");
+            // 
+            // cboBlType
+            // 
+            this.cboBlType.AllowSpinLoop = false;
+            this.cboBlType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboBlType.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboBlType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboBlType.GapHeight = 0;
+            this.cboBlType.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboBlType.ItemsDisplayMember = "";
+            this.cboBlType.ItemsValueMember = "";
+            this.cboBlType.Location = new System.Drawing.Point(579, 330);
+            this.cboBlType.Name = "cboBlType";
+            this.cboBlType.Size = new System.Drawing.Size(223, 20);
+            this.cboBlType.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboBlType.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboBlType.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboBlType.TabIndex = 498;
+            this.cboBlType.Tag = null;
+            this.theme1.SetTheme(this.cboBlType, "(default)");
+            this.cboBlType.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnBlReceive
+            // 
+            this.btnBlReceive.Items.Add(this.doc1);
+            this.btnBlReceive.Items.Add(this.doc2);
+            this.btnBlReceive.Items.Add(this.doc3);
+            this.btnBlReceive.Items.Add(this.doc4);
+            this.btnBlReceive.Location = new System.Drawing.Point(446, 364);
+            this.btnBlReceive.Name = "btnBlReceive";
+            this.btnBlReceive.Size = new System.Drawing.Size(126, 23);
+            this.btnBlReceive.TabIndex = 6;
+            this.btnBlReceive.Text = "B/L Type Received";
+            this.btnBlReceive.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.theme1.SetTheme(this.btnBlReceive, "(default)");
+            this.btnBlReceive.UseVisualStyleBackColor = true;
+            this.btnBlReceive.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // doc1
+            // 
+            this.doc1.Text = "พิมพ์เอกสาร1";
+            // 
+            // doc2
+            // 
+            this.doc2.Text = "พิมพ์เอกสาร2";
+            // 
+            // doc3
+            // 
+            this.doc3.Text = "พิมพ์เอกสาร3";
+            // 
+            // doc4
+            // 
+            this.doc4.Text = "พิมพ์เอกสาร4";
             // 
             // txtEtd
             // 
@@ -515,9 +571,9 @@
             this.cDRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.cDRight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.cDRight.Id = 10;
-            this.cDRight.Location = new System.Drawing.Point(876, 0);
+            this.cDRight.Location = new System.Drawing.Point(1122, 0);
             this.cDRight.Name = "cDRight";
-            this.cDRight.Size = new System.Drawing.Size(476, 673);
+            this.cDRight.Size = new System.Drawing.Size(230, 673);
             this.theme1.SetTheme(this.cDRight, "(default)");
             // 
             // tC2
@@ -538,7 +594,7 @@
             this.tC2.Location = new System.Drawing.Point(0, 0);
             this.tC2.Name = "tC2";
             this.tC2.ShowCaption = true;
-            this.tC2.Size = new System.Drawing.Size(467, 673);
+            this.tC2.Size = new System.Drawing.Size(230, 673);
             this.tC2.TabIndex = 0;
             this.tC2.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
             this.tC2.TabsShowFocusCues = false;
@@ -554,7 +610,7 @@
             this.c1DockingTabPage3.Image = global::Xtrim_ERP.Properties.Resources.FixErrors_small;
             this.c1DockingTabPage3.Location = new System.Drawing.Point(4, 1);
             this.c1DockingTabPage3.Name = "c1DockingTabPage3";
-            this.c1DockingTabPage3.Size = new System.Drawing.Size(435, 671);
+            this.c1DockingTabPage3.Size = new System.Drawing.Size(201, 671);
             this.c1DockingTabPage3.TabIndex = 0;
             this.c1DockingTabPage3.Text = "Entry info";
             // 
@@ -569,12 +625,12 @@
             this.panel4.Controls.Add(this.c1Button9);
             this.panel4.Controls.Add(this.label26);
             this.panel4.Controls.Add(this.label27);
-            this.panel4.Controls.Add(this.txtEttNameT);
+            this.panel4.Controls.Add(this.txtEttNameT1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel4.Location = new System.Drawing.Point(0, 22);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(435, 649);
+            this.panel4.Size = new System.Drawing.Size(201, 649);
             this.panel4.TabIndex = 0;
             this.theme1.SetTheme(this.panel4, "(default)");
             // 
@@ -710,25 +766,25 @@
             this.label27.Text = "Entry Type :";
             this.theme1.SetTheme(this.label27, "(default)");
             // 
-            // txtEttNameT
+            // txtEttNameT1
             // 
-            this.txtEttNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEttNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtEttNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtEttNameT.Location = new System.Drawing.Point(130, 94);
-            this.txtEttNameT.Name = "txtEttNameT";
-            this.txtEttNameT.Size = new System.Drawing.Size(250, 20);
-            this.txtEttNameT.TabIndex = 412;
-            this.txtEttNameT.Tag = null;
-            this.theme1.SetTheme(this.txtEttNameT, "(default)");
-            this.txtEttNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtEttNameT1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEttNameT1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtEttNameT1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtEttNameT1.Location = new System.Drawing.Point(130, 94);
+            this.txtEttNameT1.Name = "txtEttNameT1";
+            this.txtEttNameT1.Size = new System.Drawing.Size(250, 20);
+            this.txtEttNameT1.TabIndex = 412;
+            this.txtEttNameT1.Tag = null;
+            this.theme1.SetTheme(this.txtEttNameT1, "(default)");
+            this.txtEttNameT1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // c1DockingTabPage4
             // 
             this.c1DockingTabPage4.CaptionVisible = true;
             this.c1DockingTabPage4.Location = new System.Drawing.Point(4, 1);
             this.c1DockingTabPage4.Name = "c1DockingTabPage4";
-            this.c1DockingTabPage4.Size = new System.Drawing.Size(435, 671);
+            this.c1DockingTabPage4.Size = new System.Drawing.Size(201, 671);
             this.c1DockingTabPage4.TabIndex = 1;
             this.c1DockingTabPage4.Text = "บันทึกค่าใช้จ่าย";
             // 
@@ -737,7 +793,7 @@
             this.c1DockingTabPage5.CaptionVisible = true;
             this.c1DockingTabPage5.Location = new System.Drawing.Point(4, 1);
             this.c1DockingTabPage5.Name = "c1DockingTabPage5";
-            this.c1DockingTabPage5.Size = new System.Drawing.Size(435, 671);
+            this.c1DockingTabPage5.Size = new System.Drawing.Size(201, 671);
             this.c1DockingTabPage5.TabIndex = 2;
             this.c1DockingTabPage5.Text = "ใบส่งของ";
             // 
@@ -746,7 +802,7 @@
             this.c1DockingTabPage6.CaptionVisible = true;
             this.c1DockingTabPage6.Location = new System.Drawing.Point(4, 1);
             this.c1DockingTabPage6.Name = "c1DockingTabPage6";
-            this.c1DockingTabPage6.Size = new System.Drawing.Size(435, 671);
+            this.c1DockingTabPage6.Size = new System.Drawing.Size(201, 671);
             this.c1DockingTabPage6.TabIndex = 3;
             this.c1DockingTabPage6.Text = "บันทึกข้อมูลตรวจปล่อย";
             // 
@@ -755,7 +811,7 @@
             this.c1DockingTabPage7.CaptionVisible = true;
             this.c1DockingTabPage7.Location = new System.Drawing.Point(4, 1);
             this.c1DockingTabPage7.Name = "c1DockingTabPage7";
-            this.c1DockingTabPage7.Size = new System.Drawing.Size(435, 671);
+            this.c1DockingTabPage7.Size = new System.Drawing.Size(201, 671);
             this.c1DockingTabPage7.TabIndex = 4;
             this.c1DockingTabPage7.Text = "Tab5";
             // 
@@ -1821,27 +1877,6 @@
             this.label33.Text = "ประเภทใบขนฯ :";
             this.theme1.SetTheme(this.label33, "(default)");
             // 
-            // cboItt
-            // 
-            this.cboItt.AllowSpinLoop = false;
-            this.cboItt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboItt.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboItt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboItt.GapHeight = 0;
-            this.cboItt.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboItt.ItemsDisplayMember = "";
-            this.cboItt.ItemsValueMember = "";
-            this.cboItt.Location = new System.Drawing.Point(143, 253);
-            this.cboItt.Name = "cboItt";
-            this.cboItt.Size = new System.Drawing.Size(231, 20);
-            this.cboItt.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboItt.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboItt.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboItt.TabIndex = 473;
-            this.cboItt.Tag = null;
-            this.theme1.SetTheme(this.cboItt, "(default)");
-            this.cboItt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -2651,58 +2686,30 @@
             this.cDMain.Size = new System.Drawing.Size(267, 718);
             this.theme1.SetTheme(this.cDMain, "(default)");
             // 
-            // btnBlReceive
+            // btnEtt
             // 
-            this.btnBlReceive.Items.Add(this.doc1);
-            this.btnBlReceive.Items.Add(this.doc2);
-            this.btnBlReceive.Items.Add(this.doc3);
-            this.btnBlReceive.Items.Add(this.doc4);
-            this.btnBlReceive.Location = new System.Drawing.Point(446, 364);
-            this.btnBlReceive.Name = "btnBlReceive";
-            this.btnBlReceive.Size = new System.Drawing.Size(126, 23);
-            this.btnBlReceive.TabIndex = 6;
-            this.btnBlReceive.Text = "B/L Type Received";
-            this.btnBlReceive.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.theme1.SetTheme(this.btnBlReceive, "(default)");
-            this.btnBlReceive.UseVisualStyleBackColor = true;
-            this.btnBlReceive.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnEtt.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.btnEtt.Location = new System.Drawing.Point(418, 252);
+            this.btnEtt.Name = "btnEtt";
+            this.btnEtt.Size = new System.Drawing.Size(22, 22);
+            this.btnEtt.TabIndex = 501;
+            this.btnEtt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnEtt, "(default)");
+            this.btnEtt.UseVisualStyleBackColor = true;
+            this.btnEtt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // doc1
+            // txtEttNameT
             // 
-            this.doc1.Text = "พิมพ์เอกสาร1";
-            // 
-            // doc2
-            // 
-            this.doc2.Text = "พิมพ์เอกสาร2";
-            // 
-            // doc3
-            // 
-            this.doc3.Text = "พิมพ์เอกสาร3";
-            // 
-            // doc4
-            // 
-            this.doc4.Text = "พิมพ์เอกสาร4";
-            // 
-            // cboBlType
-            // 
-            this.cboBlType.AllowSpinLoop = false;
-            this.cboBlType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboBlType.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboBlType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboBlType.GapHeight = 0;
-            this.cboBlType.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboBlType.ItemsDisplayMember = "";
-            this.cboBlType.ItemsValueMember = "";
-            this.cboBlType.Location = new System.Drawing.Point(579, 330);
-            this.cboBlType.Name = "cboBlType";
-            this.cboBlType.Size = new System.Drawing.Size(223, 20);
-            this.cboBlType.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboBlType.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboBlType.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboBlType.TabIndex = 498;
-            this.cboBlType.Tag = null;
-            this.theme1.SetTheme(this.cboBlType, "(default)");
-            this.cboBlType.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtEttNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEttNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtEttNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtEttNameT.Location = new System.Drawing.Point(143, 253);
+            this.txtEttNameT.Name = "txtEttNameT";
+            this.txtEttNameT.Size = new System.Drawing.Size(273, 20);
+            this.txtEttNameT.TabIndex = 500;
+            this.txtEttNameT.Tag = null;
+            this.theme1.SetTheme(this.txtEttNameT, "(default)");
+            this.txtEttNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmJobImpNew3
             // 
@@ -2723,6 +2730,8 @@
             this.tabJob.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboBlType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBlReceive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEtd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConsignmnt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cDRight)).EndInit();
@@ -2736,7 +2745,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTaxMethod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT1)).EndInit();
             this.gBContain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cboContain6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContain6)).EndInit();
@@ -2794,7 +2803,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnTransMode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboTransMode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboItt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPvlNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStaffCS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).EndInit();
@@ -2837,8 +2845,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCntryCode)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnBlReceive)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboBlType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEtt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2874,7 +2882,6 @@
         private C1.Win.C1Input.C1Button c1Button6;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label33;
-        private C1.Win.C1Input.C1ComboBox cboItt;
         private System.Windows.Forms.Label label14;
         private C1.Win.C1Input.C1TextBox txtPvlNameT;
         private C1.Win.C1Input.C1Button c1Button11;
@@ -2952,7 +2959,7 @@
         private C1.Win.C1Input.C1Button c1Button9;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
-        private C1.Win.C1Input.C1TextBox txtEttNameT;
+        private C1.Win.C1Input.C1TextBox txtEttNameT1;
         private C1.Win.C1Input.C1Button btnEdit;
         private C1.Win.C1Input.C1Button btnSave;
         private C1.Win.C1Input.C1TextBox txtConsignmnt;
@@ -3007,5 +3014,7 @@
         private C1.Win.C1Input.DropDownItem doc3;
         private C1.Win.C1Input.DropDownItem doc4;
         private C1.Win.C1Input.C1ComboBox cboBlType;
+        private C1.Win.C1Input.C1Button btnEtt;
+        private C1.Win.C1Input.C1TextBox txtEttNameT;
     }
 }

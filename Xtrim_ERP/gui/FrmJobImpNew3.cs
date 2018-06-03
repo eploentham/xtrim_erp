@@ -59,10 +59,11 @@ namespace Xtrim_ERP.gui
             txtConsignmnt.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtStaffCS.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtPvlNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtEttNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
 
             xC.setCboTransMode(cboTransMode);
             xC.setCboTaxMethod(cboTaxMethod);
-            xC.xtDB.ittDB.setCboImporterType(cboItt);
+            //xC.xtDB.ittDB.setCboImporterType(cboItt);
             xC.xtDB.cemDB.setCboCheckExam(cboChkExam,"");
             xC.xtDB.dctDB.setC1CboBLTYPE(cboBlType, "");
             //xC.xtDB.dctDB.setC1CboBLTYPE1(cboBlType,"");
@@ -457,8 +458,8 @@ namespace Xtrim_ERP.gui
         }
         private void setKeyUpF2Pti1()
         {
-            txtPtiNameT.Value = xC.sPol.port_of_loading_t;
-            ptiId = xC.sPol.port_of_loading_id;
+            txtPtiNameT.Value = xC.sPti.port_import_name_t;
+            ptiId = xC.sPti.port_import_id;
         }
         private void setKeyUpF2Cot()
         {
@@ -505,6 +506,188 @@ namespace Xtrim_ERP.gui
             txtPvlNameT.Value = xC.sPvl.desc1;
             stfId = xC.sPvl.priv_id;
         }
+        private void setKeyUpF2Ett()
+        {
+            Point pp = txtEttNameT.Location;
+            pp.Y = pp.Y + 120;
+            pp.X = pp.X - 20;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.EntryType, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2Ett1();
+        }
+        private void setKeyUpF2Ett1()
+        {
+            txtEttNameT.Value = xC.sEtt.entry_type_name_t;
+            stfId = xC.sPvl.priv_id;
+        }
+
+
+        private void setFeyEnterPol()
+        {
+            if (txtPolNameT.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.polDB.selectByCodeLike(txtPolNameT.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sPol = new PortOfLoading();
+                    xC.sPol = xC.xtDB.polDB.setPortOfLoading(dt);
+                    setKeyUpF2Pol1();
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2Ett();
+                }
+            }
+        }
+        private void setKeyEnterEtt()
+        {
+            if (txtEttNameT.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.ettDB.selectByCodeLike(txtEttNameT.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sEtt = new EntryType();
+                    xC.sEtt = xC.xtDB.ettDB.setEntryType(dt);
+                    setKeyUpF2Ett1();
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2Ett();
+                }
+            }
+        }
+        private void setKeyEnterConsignmnt()
+        {
+            if (txtConsignmnt.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.cotDB.selectByCodeLike(txtConsignmnt.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sCot = new Country();
+                    xC.sCot = xC.xtDB.cotDB.setCountry(dt);
+                    setKeyUpF2Cot1();
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2Cot();
+                }
+            }
+        }
+        private void setKeyEnterStaffCS()
+        {
+            if (txtStaffCS.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.stfDB.selectCSByCodeLike(txtStaffCS.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sStf = new Staff();
+                    xC.sStf = xC.xtDB.stfDB.setStaff(dt);
+                    setKeyUpF2StfCS1();
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2StfCS();
+                }
+            }
+        }
+        private void setKeyEnterFwd()
+        {
+            if (txtFwdNameT.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.cusDB.selectFwsIdByCodeLike(txtFwdNameT.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sFwd = new Customer();
+                    xC.sFwd = xC.xtDB.cusDB.setCustomer(dt);
+                    setKeyUpF2Fwd1();
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2Fwd();
+                }
+            }
+        }
+        private void setKeyEnterImp()
+        {
+            if (txtImpNameT.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.cusDB.selectImpIdByCodeLike(txtImpNameT.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sImp = new Customer();
+                    xC.sImp = xC.xtDB.cusDB.setCustomer(dt);
+                    setKeyUpF2Imp1();
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2Imp();
+                }
+            }
+        }
+        private void setKeyEnterCus()
+        {
+            if (txtCusNameT.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.cusDB.selectCusByCodeLike(txtCusNameT.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sCus = new Customer();
+                    xC.sCus = xC.xtDB.cusDB.setCustomer(dt);
+                    setKeyUpF2Cus1();
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2Cus();
+                }
+                //MessageBox.Show("1111", "11");
+            }
+        }
+        private void setKeyEnterPvl()
+        {
+            if (txtPvlNameT.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.pvlDB.selectByCodeLike(txtPvlNameT.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sPvl = new Privilege();
+                    xC.sPvl = xC.xtDB.pvlDB.setPrivilege(dt);
+                    setKeyUpF2Pvl1();
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2Pvl();
+                }
+                //MessageBox.Show("1111", "11");
+            }
+        }
+        private void setKeyEnterPti()
+        {
+            if (txtPtiNameT.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.ptiDB.selectByCodeLike(txtPtiNameT.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sPti = new PortImport();
+                    xC.sPti = xC.xtDB.ptiDB.setPortImport(dt);
+                    setKeyUpF2Pti1();
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2Pti();
+                }
+                //MessageBox.Show("1111", "11");
+            }
+        }
         private void txtCusCode_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F2)
@@ -541,99 +724,52 @@ namespace Xtrim_ERP.gui
                 {
                     setKeyUpF2Pvl();
                 }
+                else if (sender.Equals(txtEttNameT))
+                {
+                    setKeyUpF2Ett();
+                }
+                else if (sender.Equals(txtPtiNameT))
+                {
+                    setKeyUpF2Pti();
+                }
             }
             else if (e.KeyCode == Keys.Enter)
             {
                 if (sender.Equals(txtCusNameT))
                 {
-                    if (txtCusNameT.Text.Length >= 2)
-                    {
-                        DataTable dt = new DataTable();
-                        dt = xC.xtDB.cusDB.selectCusByCodeLike(txtCusNameT.Text);
-                        if (dt.Rows.Count == 1)
-                        {
-                            xC.sCus = new Customer();
-                            xC.sCus = xC.xtDB.cusDB.setCustomer(dt);
-                            setKeyUpF2Cus1();
-                        }
-                        else if (dt.Rows.Count > 1)
-                        {
-                            setKeyUpF2Cus();
-                        }
-                        //MessageBox.Show("1111", "11");
-                    }
+                    setKeyEnterCus();
                 }
                 else if (sender.Equals(txtImpNameT))
                 {
-                    if (txtImpNameT.Text.Length >= 2)
-                    {
-                        DataTable dt = new DataTable();
-                        dt = xC.xtDB.cusDB.selectImpIdByCodeLike(txtImpNameT.Text);
-                        if (dt.Rows.Count == 1)
-                        {
-                            xC.sImp = new Customer();
-                            xC.sImp = xC.xtDB.cusDB.setCustomer(dt);
-                            setKeyUpF2Imp1();
-                        }
-                        else if (dt.Rows.Count > 1)
-                        {
-                            setKeyUpF2Imp();
-                        }
-                    }
+                    setKeyEnterImp();
                 }
                 else if (sender.Equals(txtFwdNameT))
                 {
-                    if (txtFwdNameT.Text.Length >= 2)
-                    {
-                        DataTable dt = new DataTable();
-                        dt = xC.xtDB.cusDB.selectFwsIdByCodeLike(txtFwdNameT.Text);
-                        if (dt.Rows.Count == 1)
-                        {
-                            xC.sFwd = new Customer();
-                            xC.sFwd = xC.xtDB.cusDB.setCustomer(dt);
-                            setKeyUpF2Fwd1();
-                        }
-                        else if (dt.Rows.Count > 1)
-                        {
-                            setKeyUpF2Fwd();
-                        }
-                    }
+                    setKeyEnterFwd();
                 }
                 else if (sender.Equals(txtStaffCS))
                 {
-                    if (txtStaffCS.Text.Length >= 2)
-                    {
-                        DataTable dt = new DataTable();
-                        dt = xC.xtDB.stfDB.selectCSByCodeLike(txtStaffCS.Text);
-                        if (dt.Rows.Count == 1)
-                        {
-                            xC.sStf = new Staff();
-                            xC.sStf = xC.xtDB.stfDB.setStaff(dt);
-                            setKeyUpF2StfCS1();
-                        }
-                        else if (dt.Rows.Count > 1)
-                        {
-                            setKeyUpF2StfCS();
-                        }
-                    }
+                    setKeyEnterStaffCS();
                 }
                 else if (sender.Equals(txtConsignmnt))
                 {
-                    if (txtConsignmnt.Text.Length >= 2)
-                    {
-                        DataTable dt = new DataTable();
-                        dt = xC.xtDB.cotDB.selectByCodeLike(txtConsignmnt.Text);
-                        if (dt.Rows.Count == 1)
-                        {
-                            xC.sCot = new Country();
-                            xC.sCot = xC.xtDB.cotDB.setCountry(dt);
-                            setKeyUpF2Cot1();
-                        }
-                        else if (dt.Rows.Count > 1)
-                        {
-                            setKeyUpF2Cot();
-                        }
-                    }
+                    setKeyEnterConsignmnt();
+                }
+                else if (sender.Equals(txtEttNameT))
+                {
+                    setKeyEnterEtt();
+                }
+                else if (sender.Equals(txtPolNameT))
+                {
+                    setFeyEnterPol();
+                }
+                else if (sender.Equals(txtPvlNameT))
+                {
+                    setKeyEnterPvl();
+                }
+                else if (sender.Equals(txtPtiNameT))
+                {
+                    setKeyEnterPti();
                 }
             }
         }

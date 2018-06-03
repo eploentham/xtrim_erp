@@ -35,6 +35,10 @@
             this.chkImpNew = new System.Windows.Forms.RadioButton();
             this.pB1 = new System.Windows.Forms.ProgressBar();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.chkEttApp = new System.Windows.Forms.RadioButton();
+            this.chkEttNew = new System.Windows.Forms.RadioButton();
+            this.btnEtt = new C1.Win.C1Input.C1Button();
             this.panel17 = new System.Windows.Forms.Panel();
             this.chkJctApp = new System.Windows.Forms.RadioButton();
             this.chkJctNew = new System.Windows.Forms.RadioButton();
@@ -43,6 +47,10 @@
             this.chkJieApp = new System.Windows.Forms.RadioButton();
             this.chkJieNew = new System.Windows.Forms.RadioButton();
             this.binJie = new C1.Win.C1Input.C1Button();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.chkPolApp = new System.Windows.Forms.RadioButton();
+            this.chkPolNew = new System.Windows.Forms.RadioButton();
+            this.btnPol = new C1.Win.C1Input.C1Button();
             this.panel14 = new System.Windows.Forms.Panel();
             this.chkImpInvApp = new System.Windows.Forms.RadioButton();
             this.chkImpInvNew = new System.Windows.Forms.RadioButton();
@@ -101,22 +109,22 @@
             this.c1Button3 = new C1.Win.C1Input.C1Button();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.btnPol = new C1.Win.C1Input.C1Button();
-            this.chkPolNew = new System.Windows.Forms.RadioButton();
-            this.chkPolApp = new System.Windows.Forms.RadioButton();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.chkEttApp = new System.Windows.Forms.RadioButton();
-            this.chkEttNew = new System.Windows.Forms.RadioButton();
-            this.btnEtt = new C1.Win.C1Input.C1Button();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.chkPtiApp = new System.Windows.Forms.RadioButton();
+            this.chkPtiNew = new System.Windows.Forms.RadioButton();
+            this.btnPti = new C1.Win.C1Input.C1Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.panel18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEtt)).BeginInit();
             this.panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnJct)).BeginInit();
             this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.binJie)).BeginInit();
+            this.panel15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPol)).BeginInit();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnImpInv)).BeginInit();
             this.panel13.SuspendLayout();
@@ -149,10 +157,8 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPol)).BeginInit();
-            this.panel15.SuspendLayout();
-            this.panel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEtt)).BeginInit();
+            this.panel19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPti)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -232,6 +238,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
+            this.groupBox2.Controls.Add(this.panel19);
             this.groupBox2.Controls.Add(this.panel18);
             this.groupBox2.Controls.Add(this.panel17);
             this.groupBox2.Controls.Add(this.panel16);
@@ -255,6 +262,59 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "รายชื่อ ลูกค้า openjob";
             this.c1ThemeController1.SetTheme(this.groupBox2, "(default)");
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
+            this.panel18.Controls.Add(this.chkEttApp);
+            this.panel18.Controls.Add(this.chkEttNew);
+            this.panel18.Controls.Add(this.btnEtt);
+            this.panel18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panel18.Location = new System.Drawing.Point(654, 303);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(512, 44);
+            this.panel18.TabIndex = 78;
+            this.c1ThemeController1.SetTheme(this.panel18, "(default)");
+            // 
+            // chkEttApp
+            // 
+            this.chkEttApp.AutoSize = true;
+            this.chkEttApp.BackColor = System.Drawing.Color.Transparent;
+            this.chkEttApp.ForeColor = System.Drawing.Color.Black;
+            this.chkEttApp.Location = new System.Drawing.Point(216, 13);
+            this.chkEttApp.Name = "chkEttApp";
+            this.chkEttApp.Size = new System.Drawing.Size(117, 17);
+            this.chkEttApp.TabIndex = 66;
+            this.chkEttApp.TabStop = true;
+            this.chkEttApp.Text = "นำเข้า แต่ข้อมูลใหม่";
+            this.c1ThemeController1.SetTheme(this.chkEttApp, "(default)");
+            this.chkEttApp.UseVisualStyleBackColor = false;
+            // 
+            // chkEttNew
+            // 
+            this.chkEttNew.AutoSize = true;
+            this.chkEttNew.BackColor = System.Drawing.Color.Transparent;
+            this.chkEttNew.ForeColor = System.Drawing.Color.Black;
+            this.chkEttNew.Location = new System.Drawing.Point(4, 13);
+            this.chkEttNew.Name = "chkEttNew";
+            this.chkEttNew.Size = new System.Drawing.Size(192, 17);
+            this.chkEttNew.TabIndex = 65;
+            this.chkEttNew.TabStop = true;
+            this.chkEttNew.Text = "นำเข้าข้อมูลใหม่ทั้งหมด ลบข้อมูลเดิม";
+            this.c1ThemeController1.SetTheme(this.chkEttNew, "(default)");
+            this.chkEttNew.UseVisualStyleBackColor = false;
+            // 
+            // btnEtt
+            // 
+            this.btnEtt.Location = new System.Drawing.Point(382, 3);
+            this.btnEtt.Name = "btnEtt";
+            this.btnEtt.Size = new System.Drawing.Size(118, 37);
+            this.btnEtt.TabIndex = 62;
+            this.btnEtt.Text = "นำเข้าช้อมูล Entry Type";
+            this.c1ThemeController1.SetTheme(this.btnEtt, "(default)");
+            this.btnEtt.UseVisualStyleBackColor = true;
+            this.btnEtt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnEtt.Click += new System.EventHandler(this.btnEtt_Click);
             // 
             // panel17
             // 
@@ -361,6 +421,59 @@
             this.binJie.UseVisualStyleBackColor = true;
             this.binJie.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             this.binJie.Click += new System.EventHandler(this.binJie_Click);
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
+            this.panel15.Controls.Add(this.chkPolApp);
+            this.panel15.Controls.Add(this.chkPolNew);
+            this.panel15.Controls.Add(this.btnPol);
+            this.panel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panel15.Location = new System.Drawing.Point(654, 253);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(512, 44);
+            this.panel15.TabIndex = 75;
+            this.c1ThemeController1.SetTheme(this.panel15, "(default)");
+            // 
+            // chkPolApp
+            // 
+            this.chkPolApp.AutoSize = true;
+            this.chkPolApp.BackColor = System.Drawing.Color.Transparent;
+            this.chkPolApp.ForeColor = System.Drawing.Color.Black;
+            this.chkPolApp.Location = new System.Drawing.Point(216, 13);
+            this.chkPolApp.Name = "chkPolApp";
+            this.chkPolApp.Size = new System.Drawing.Size(117, 17);
+            this.chkPolApp.TabIndex = 66;
+            this.chkPolApp.TabStop = true;
+            this.chkPolApp.Text = "นำเข้า แต่ข้อมูลใหม่";
+            this.c1ThemeController1.SetTheme(this.chkPolApp, "(default)");
+            this.chkPolApp.UseVisualStyleBackColor = false;
+            // 
+            // chkPolNew
+            // 
+            this.chkPolNew.AutoSize = true;
+            this.chkPolNew.BackColor = System.Drawing.Color.Transparent;
+            this.chkPolNew.ForeColor = System.Drawing.Color.Black;
+            this.chkPolNew.Location = new System.Drawing.Point(4, 13);
+            this.chkPolNew.Name = "chkPolNew";
+            this.chkPolNew.Size = new System.Drawing.Size(192, 17);
+            this.chkPolNew.TabIndex = 65;
+            this.chkPolNew.TabStop = true;
+            this.chkPolNew.Text = "นำเข้าข้อมูลใหม่ทั้งหมด ลบข้อมูลเดิม";
+            this.c1ThemeController1.SetTheme(this.chkPolNew, "(default)");
+            this.chkPolNew.UseVisualStyleBackColor = false;
+            // 
+            // btnPol
+            // 
+            this.btnPol.Location = new System.Drawing.Point(382, 3);
+            this.btnPol.Name = "btnPol";
+            this.btnPol.Size = new System.Drawing.Size(118, 37);
+            this.btnPol.TabIndex = 62;
+            this.btnPol.Text = "นำเข้าช้อมูล Port of Loading";
+            this.c1ThemeController1.SetTheme(this.btnPol, "(default)");
+            this.btnPol.UseVisualStyleBackColor = true;
+            this.btnPol.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnPol.Click += new System.EventHandler(this.btnPol_Click);
             // 
             // panel14
             // 
@@ -1132,111 +1245,58 @@
             this.c1ThemeController1.SetTheme(this.radioButton4, "(default)");
             this.radioButton4.UseVisualStyleBackColor = false;
             // 
-            // btnPol
+            // panel19
             // 
-            this.btnPol.Location = new System.Drawing.Point(382, 3);
-            this.btnPol.Name = "btnPol";
-            this.btnPol.Size = new System.Drawing.Size(118, 37);
-            this.btnPol.TabIndex = 62;
-            this.btnPol.Text = "นำเข้าช้อมูล Port of Loading";
-            this.c1ThemeController1.SetTheme(this.btnPol, "(default)");
-            this.btnPol.UseVisualStyleBackColor = true;
-            this.btnPol.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.btnPol.Click += new System.EventHandler(this.btnPol_Click);
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
+            this.panel19.Controls.Add(this.chkPtiApp);
+            this.panel19.Controls.Add(this.chkPtiNew);
+            this.panel19.Controls.Add(this.btnPti);
+            this.panel19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panel19.Location = new System.Drawing.Point(654, 353);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(512, 44);
+            this.panel19.TabIndex = 79;
+            this.c1ThemeController1.SetTheme(this.panel19, "(default)");
             // 
-            // chkPolNew
+            // chkPtiApp
             // 
-            this.chkPolNew.AutoSize = true;
-            this.chkPolNew.BackColor = System.Drawing.Color.Transparent;
-            this.chkPolNew.ForeColor = System.Drawing.Color.Black;
-            this.chkPolNew.Location = new System.Drawing.Point(4, 13);
-            this.chkPolNew.Name = "chkPolNew";
-            this.chkPolNew.Size = new System.Drawing.Size(192, 17);
-            this.chkPolNew.TabIndex = 65;
-            this.chkPolNew.TabStop = true;
-            this.chkPolNew.Text = "นำเข้าข้อมูลใหม่ทั้งหมด ลบข้อมูลเดิม";
-            this.c1ThemeController1.SetTheme(this.chkPolNew, "(default)");
-            this.chkPolNew.UseVisualStyleBackColor = false;
+            this.chkPtiApp.AutoSize = true;
+            this.chkPtiApp.BackColor = System.Drawing.Color.Transparent;
+            this.chkPtiApp.ForeColor = System.Drawing.Color.Black;
+            this.chkPtiApp.Location = new System.Drawing.Point(216, 13);
+            this.chkPtiApp.Name = "chkPtiApp";
+            this.chkPtiApp.Size = new System.Drawing.Size(117, 17);
+            this.chkPtiApp.TabIndex = 66;
+            this.chkPtiApp.TabStop = true;
+            this.chkPtiApp.Text = "นำเข้า แต่ข้อมูลใหม่";
+            this.c1ThemeController1.SetTheme(this.chkPtiApp, "(default)");
+            this.chkPtiApp.UseVisualStyleBackColor = false;
             // 
-            // chkPolApp
+            // chkPtiNew
             // 
-            this.chkPolApp.AutoSize = true;
-            this.chkPolApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkPolApp.ForeColor = System.Drawing.Color.Black;
-            this.chkPolApp.Location = new System.Drawing.Point(216, 13);
-            this.chkPolApp.Name = "chkPolApp";
-            this.chkPolApp.Size = new System.Drawing.Size(117, 17);
-            this.chkPolApp.TabIndex = 66;
-            this.chkPolApp.TabStop = true;
-            this.chkPolApp.Text = "นำเข้า แต่ข้อมูลใหม่";
-            this.c1ThemeController1.SetTheme(this.chkPolApp, "(default)");
-            this.chkPolApp.UseVisualStyleBackColor = false;
+            this.chkPtiNew.AutoSize = true;
+            this.chkPtiNew.BackColor = System.Drawing.Color.Transparent;
+            this.chkPtiNew.ForeColor = System.Drawing.Color.Black;
+            this.chkPtiNew.Location = new System.Drawing.Point(4, 13);
+            this.chkPtiNew.Name = "chkPtiNew";
+            this.chkPtiNew.Size = new System.Drawing.Size(192, 17);
+            this.chkPtiNew.TabIndex = 65;
+            this.chkPtiNew.TabStop = true;
+            this.chkPtiNew.Text = "นำเข้าข้อมูลใหม่ทั้งหมด ลบข้อมูลเดิม";
+            this.c1ThemeController1.SetTheme(this.chkPtiNew, "(default)");
+            this.chkPtiNew.UseVisualStyleBackColor = false;
             // 
-            // panel15
+            // btnPti
             // 
-            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
-            this.panel15.Controls.Add(this.chkPolApp);
-            this.panel15.Controls.Add(this.chkPolNew);
-            this.panel15.Controls.Add(this.btnPol);
-            this.panel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.panel15.Location = new System.Drawing.Point(654, 253);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(512, 44);
-            this.panel15.TabIndex = 75;
-            this.c1ThemeController1.SetTheme(this.panel15, "(default)");
-            // 
-            // panel18
-            // 
-            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
-            this.panel18.Controls.Add(this.chkEttApp);
-            this.panel18.Controls.Add(this.chkEttNew);
-            this.panel18.Controls.Add(this.btnEtt);
-            this.panel18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.panel18.Location = new System.Drawing.Point(654, 303);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(512, 44);
-            this.panel18.TabIndex = 78;
-            this.c1ThemeController1.SetTheme(this.panel18, "(default)");
-            // 
-            // chkEttApp
-            // 
-            this.chkEttApp.AutoSize = true;
-            this.chkEttApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkEttApp.ForeColor = System.Drawing.Color.Black;
-            this.chkEttApp.Location = new System.Drawing.Point(216, 13);
-            this.chkEttApp.Name = "chkEttApp";
-            this.chkEttApp.Size = new System.Drawing.Size(117, 17);
-            this.chkEttApp.TabIndex = 66;
-            this.chkEttApp.TabStop = true;
-            this.chkEttApp.Text = "นำเข้า แต่ข้อมูลใหม่";
-            this.c1ThemeController1.SetTheme(this.chkEttApp, "(default)");
-            this.chkEttApp.UseVisualStyleBackColor = false;
-            // 
-            // chkEttNew
-            // 
-            this.chkEttNew.AutoSize = true;
-            this.chkEttNew.BackColor = System.Drawing.Color.Transparent;
-            this.chkEttNew.ForeColor = System.Drawing.Color.Black;
-            this.chkEttNew.Location = new System.Drawing.Point(4, 13);
-            this.chkEttNew.Name = "chkEttNew";
-            this.chkEttNew.Size = new System.Drawing.Size(192, 17);
-            this.chkEttNew.TabIndex = 65;
-            this.chkEttNew.TabStop = true;
-            this.chkEttNew.Text = "นำเข้าข้อมูลใหม่ทั้งหมด ลบข้อมูลเดิม";
-            this.c1ThemeController1.SetTheme(this.chkEttNew, "(default)");
-            this.chkEttNew.UseVisualStyleBackColor = false;
-            // 
-            // btnEtt
-            // 
-            this.btnEtt.Location = new System.Drawing.Point(382, 3);
-            this.btnEtt.Name = "btnEtt";
-            this.btnEtt.Size = new System.Drawing.Size(118, 37);
-            this.btnEtt.TabIndex = 62;
-            this.btnEtt.Text = "นำเข้าช้อมูล Entry Type";
-            this.c1ThemeController1.SetTheme(this.btnEtt, "(default)");
-            this.btnEtt.UseVisualStyleBackColor = true;
-            this.btnEtt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.btnEtt.Click += new System.EventHandler(this.btnEtt_Click);
+            this.btnPti.Location = new System.Drawing.Point(382, 3);
+            this.btnPti.Name = "btnPti";
+            this.btnPti.Size = new System.Drawing.Size(118, 37);
+            this.btnPti.TabIndex = 62;
+            this.btnPti.Text = "นำเข้าช้อมูล Place";
+            this.c1ThemeController1.SetTheme(this.btnPti, "(default)");
+            this.btnPti.UseVisualStyleBackColor = true;
+            this.btnPti.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnPti.Click += new System.EventHandler(this.btnPti_Click);
             // 
             // FrmImportData
             // 
@@ -1257,12 +1317,18 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEtt)).EndInit();
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnJct)).EndInit();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.binJie)).EndInit();
+            this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPol)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnImpInv)).EndInit();
@@ -1308,12 +1374,9 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPol)).EndInit();
-            this.panel15.ResumeLayout(false);
-            this.panel15.PerformLayout();
-            this.panel18.ResumeLayout(false);
-            this.panel18.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEtt)).EndInit();
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPti)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1403,5 +1466,9 @@
         private System.Windows.Forms.RadioButton chkPolApp;
         private System.Windows.Forms.RadioButton chkPolNew;
         private C1.Win.C1Input.C1Button btnPol;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.RadioButton chkPtiApp;
+        private System.Windows.Forms.RadioButton chkPtiNew;
+        private C1.Win.C1Input.C1Button btnPti;
     }
 }
