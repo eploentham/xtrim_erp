@@ -64,6 +64,11 @@ namespace Xtrim_ERP.gui
             txtPvlNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtEttNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtJobCode.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtPkg1.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
+            txtPkg2.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
+            txtPkg3.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
+            txtPkg4.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
+            txtPkg5.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
 
             xC.setCboTransMode(cboTransMode);
             xC.setCboTaxMethod(cboTaxMethod);
@@ -86,6 +91,7 @@ namespace Xtrim_ERP.gui
             xC.xtDB.utpDB.setC1CboUtp(cboUtp4, "");
             xC.xtDB.utpDB.setC1CboUtp(cboUtp5, "");
 
+            
             //initGrfMarsk();
             //initGrfRemark();
             //initGrfContain();
@@ -103,6 +109,7 @@ namespace Xtrim_ERP.gui
             initGrfInv();
             //txtJobCode.Enabled = false;
         }
+        
         private void setLabelRed()
         {
             label4.ForeColor = Color.Red;
@@ -729,6 +736,17 @@ namespace Xtrim_ERP.gui
                 }
                 //MessageBox.Show("1111", "11");
             }
+        }
+        private void TxtPkg1_KeyUp(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            Decimal pkg1 = 0, pkg2 = 0, pkg3 = 0, pkg4 = 0, pkg5 = 0;
+            Decimal.TryParse(txtPkg1.Text, out pkg1);
+            Decimal.TryParse(txtPkg2.Text, out pkg2);
+            Decimal.TryParse(txtPkg3.Text, out pkg3);
+            Decimal.TryParse(txtPkg4.Text, out pkg4);
+            Decimal.TryParse(txtPkg5.Text, out pkg5);
+            txtPkgTotal.Value = pkg1 + pkg2 + pkg3 + pkg4 + pkg5;
         }
         private void txtCusCode_KeyUp(object sender, KeyEventArgs e)
         {
