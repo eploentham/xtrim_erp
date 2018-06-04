@@ -104,7 +104,7 @@ namespace Xtrim_ERP.objdb
                 jim.imp_id = impId;
                 jim.transport_mode = dtJob.Rows[0]["transmode"].ToString().Trim();
                 jim.staff_id = conn.user.staff_id;
-                jim.entry_type = "";
+                jim.entry_type_id = "";
                 jim.privi_id = "";
                 jim.ref_1 = "";
                 jim.ref_2 = "";

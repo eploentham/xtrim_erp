@@ -15,7 +15,7 @@ namespace Xtrim_ERP.object1
         public String imp_id { get; set; }
         public String transport_mode { get; set; }
         public String staff_id { get; set; }
-        public String entry_type { get; set; }
+        public String entry_type_id { get; set; }
         public String privi_id { get; set; }
         public String ref_1 { get; set; }
         public String ref_2 { get; set; }

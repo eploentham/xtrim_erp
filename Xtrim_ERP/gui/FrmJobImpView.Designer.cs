@@ -30,16 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.c1SuperTooltip1 = new C1.Win.C1SuperTooltip.C1SuperTooltip(this.components);
-            this.c1ThemeController1 = new C1.Win.C1Themes.C1ThemeController();
+            this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.cboYear = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            
-            ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            
             this.SuspendLayout();
             // 
             // c1SuperTooltip1
@@ -48,7 +45,7 @@
             this.c1SuperTooltip1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
             this.c1SuperTooltip1.Font = new System.Drawing.Font("Tahoma", 8F);
             this.c1SuperTooltip1.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1ThemeController1.SetTheme(this.c1SuperTooltip1, "(default)");
+            this.theme1.SetTheme(this.c1SuperTooltip1, "(default)");
             // 
             // cboYear
             // 
@@ -60,7 +57,7 @@
             this.cboYear.Name = "cboYear";
             this.cboYear.Size = new System.Drawing.Size(207, 24);
             this.cboYear.TabIndex = 80;
-            this.c1ThemeController1.SetTheme(this.cboYear, "(default)");
+            this.theme1.SetTheme(this.cboYear, "(default)");
             this.cboYear.SelectedIndexChanged += new System.EventHandler(this.cboProv_SelectedIndexChanged);
             // 
             // label6
@@ -74,7 +71,7 @@
             this.label6.Size = new System.Drawing.Size(21, 16);
             this.label6.TabIndex = 79;
             this.label6.Text = "ปี :";
-            this.c1ThemeController1.SetTheme(this.label6, "(default)");
+            this.theme1.SetTheme(this.label6, "(default)");
             // 
             // panel1
             // 
@@ -85,22 +82,20 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(970, 48);
+            this.panel1.Size = new System.Drawing.Size(970, 52);
             this.panel1.TabIndex = 82;
-            this.c1ThemeController1.SetTheme(this.panel1, "(default)");
+            this.theme1.SetTheme(this.panel1, "(default)");
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
-            this.panel2.Location = new System.Drawing.Point(0, 48);
+            this.panel2.Location = new System.Drawing.Point(0, 52);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(970, 644);
+            this.panel2.Size = new System.Drawing.Size(970, 640);
             this.panel2.TabIndex = 83;
-            this.c1ThemeController1.SetTheme(this.panel2, "(default)");
-            
+            this.theme1.SetTheme(this.panel2, "(default)");
             // 
             // FrmJobImpView
             // 
@@ -113,20 +108,18 @@
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(118)))), ((int)(((byte)(135)))));
             this.Name = "FrmJobImpView";
             this.Text = "FrmJobImpView";
-            this.c1ThemeController1.SetTheme(this, "(default)");
+            this.theme1.SetTheme(this, "(default)");
             this.Load += new System.EventHandler(this.FrmJobImpView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private C1.Win.C1SuperTooltip.C1SuperTooltip c1SuperTooltip1;
-        private C1.Win.C1Themes.C1ThemeController c1ThemeController1;
+        private C1.Win.C1Themes.C1ThemeController theme1;
         private System.Windows.Forms.ComboBox cboYear;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;

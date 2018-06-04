@@ -1,4 +1,6 @@
-﻿using System;
+﻿using C1.Win.C1FlexGrid;
+using C1.Win.C1Themes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,12 +20,12 @@ namespace Xtrim_ERP.gui
         XtrimControl xC;
         Font fEdit, fEditB;
 
-        int colID = 0, colE = 1, colS = 2, colCode = 3, colCusT = 4, colImpT = 5, colRemark = 6, coledit = 7, colTmn=8, colFwd=9, colJblDesc=10, colCntInv=11, colCntExpn=12;
+        int colID = 1, colCode = 2, colCusT = 3, colImpT = 4, colRemark = 5, colTmn=6, colFwd=7, colJblDesc=8;
         int colCnt = 13;
+        C1FlexGrid grfView;
+        MainMenu4 menu;
 
-        MainMenu3 menu;
-
-        public FrmJobImpView(XtrimControl x, MainMenu3 m)
+        public FrmJobImpView(XtrimControl x, MainMenu4 m)
         {
             InitializeComponent();
             //grdView.Top = grdView.Top-30;
@@ -37,14 +39,28 @@ namespace Xtrim_ERP.gui
             //fEdit = grdView.Font;
             fEdit = new Font(xC.iniC.grdViewFontName, xC.grdViewFontSize, FontStyle.Regular);
             fEditB = new Font(xC.iniC.grdViewFontName, xC.grdViewFontSize, FontStyle.Bold);
+            initGrfView();
+            C1ThemeController.ApplicationTheme = xC.iniC.themeApplication;
+            theme1.Theme = C1ThemeController.ApplicationTheme;
+            theme1.SetTheme(panel1, theme1.Theme);
 
-            ContextMenu custommenu = new ContextMenu();
-            custommenu.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_void));
+            cboYear.SelectedIndexChanged += CboYear_SelectedIndexChanged;
+            //ContextMenu custommenu = new ContextMenu();
+            //custommenu.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_void));
             //custommenu.MenuItems.Add("&ยกเลิก";
             //grdView.ContextMenu = custommenu;
 
-            
+
         }
+
+        private void CboYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            string value = ((KeyValuePair<string, string>)cboYear.SelectedItem).Value;
+            string key = ((KeyValuePair<string, string>)cboYear.SelectedItem).Key;
+            setGrfView(key);
+        }
+
         private void ContextMenu_void(object sender, System.EventArgs e)
         {
             //FarPoint.Win.Spread.Row row = grdView.ActiveSheet.ActiveRow;
@@ -59,6 +75,84 @@ namespace Xtrim_ERP.gui
             //        grdView.Sheets[grdView.ActiveSheet.SheetName].Cells[grdView.ActiveSheet.ActiveRow.Index, 0, grdView.ActiveSheet.ActiveRow.Index, colCnt - 1].BackColor = Color.Gray;
             //    }
             //}
+        }
+        private void initGrfView()
+        {
+            grfView = new C1FlexGrid();
+            grfView.Dock = DockStyle.Fill;
+            TextBox txt = new TextBox();
+
+            grfView.Cols[colID].Editor = txt;
+            grfView.Cols[colCode].Editor = txt;
+            grfView.Cols[colCusT].Editor = txt;
+            grfView.Cols[colImpT].Editor = txt;
+            grfView.Cols[colRemark].Editor = txt;
+            grfView.Cols[colTmn].Editor = txt;
+            grfView.Cols[colFwd].Editor = txt;
+            grfView.Cols[colJblDesc].Editor = txt;
+            //grfView.Cols[colCntInv].Editor = txt;
+            //grfView.Cols[colCntExpn].Editor = txt;
+            grfView.Cols[colCode].Caption = "import job no";
+            grfView.Cols[colCusT].Caption = "Customer";
+            grfView.Cols[colImpT].Caption = "Importer";
+            grfView.Cols[colRemark].Caption = "Remark";
+            grfView.Cols[colTmn].Caption = "marsk";
+            grfView.Cols[colFwd].Caption = "Forwarder";
+            grfView.Cols[colJblDesc].Caption = "Description";
+            //grfView.Cols[colCntInv].Caption = "inv";
+            //grfView.Cols[colCntExpn].Caption = "expn";
+
+            panel2.Controls.Add(grfView);
+            //grfView.Rows.Count = 2;
+            //grfView.Cols.Count = 3;
+            grfView.Cols[colCode].Width = 200;
+            grfView.Cols[colCusT].Width = 200;
+            grfView.Cols[colImpT].Width = 200;
+            grfView.Cols[colRemark].Width = 200;
+            grfView.Cols[colTmn].Width = 200;
+            grfView.Cols[colFwd].Width = 200;
+            grfView.Cols[colJblDesc].Width = 200;
+            //grfView.Cols[colCntInv].Width = 80;
+            //grfView.Cols[colCntExpn].Width = 80;
+            
+            grfView.Cols[colID].Visible = false;
+
+            grfView.DoubleClick += GrfView_DoubleClick;
+
+        }
+
+        private void GrfView_DoubleClick(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            //MessageBox.Show("","111");
+            xC.jobID = grfView[grfView.Row, colID].ToString();
+            FrmJobImpNew3 frm = new FrmJobImpNew3(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            menu.AddNewTab(frm, "Import Job Detail");
+        }
+
+        private void setGrfView(String year)
+        {
+            if (year.Equals("")) return;
+            DataTable dt = new DataTable();
+            dt = xC.xtDB.jimDB.selectJimJblByJobYear1(year);
+            grfView.DataSource = dt;
+            grfView.Cols[colCode].Caption = "import job no";
+            grfView.Cols[colCusT].Caption = "Customer";
+            grfView.Cols[colImpT].Caption = "Importer";
+            grfView.Cols[colRemark].Caption = "Remark";
+            grfView.Cols[colTmn].Caption = "marsk";
+            grfView.Cols[colFwd].Caption = "Forwarder";
+            grfView.Cols[colJblDesc].Caption = "Description";
+            grfView.Cols[colID].Visible = false;
+            for (int i = 1; i < grfView.Rows.Count; i++)
+            {
+                grfView[i, 0] = i;
+                if (i % 2 == 0)
+                    grfView.Rows[i].StyleNew.BackColor = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
+            }
+            //grfView.Rows.Count = dt.Rows.Count;
+            //initGrfView();
         }
         //private void setGrdViewH()
         //{
@@ -133,7 +227,7 @@ namespace Xtrim_ERP.gui
         //    columnobj = grdView.ActiveSheet.Columns[colCode, colRemark];
 
         //    //dt = xC.xtDB.jimDB.selectAll();
-            
+
         //    dt = xC.xtDB.jimDB.selectJimJblByJobYear1(year);
 
         //    grdView.Sheets[0].Rows.Clear();

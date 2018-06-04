@@ -35,6 +35,7 @@
             this.tC1 = new C1.Win.C1Command.C1DockingTab();
             this.tabJob = new C1.Win.C1Command.C1DockingTabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtBlId = new C1.Win.C1Input.C1TextBox();
             this.cboBlType = new C1.Win.C1Input.C1ComboBox();
             this.btnBlReceive = new C1.Win.C1Input.C1SplitButton();
             this.doc1 = new C1.Win.C1Input.DropDownItem();
@@ -74,13 +75,13 @@
             this.cboContain1 = new C1.Win.C1Input.C1ComboBox();
             this.txtContain1 = new C1.Win.C1Input.C1TextBox();
             this.gBGw = new System.Windows.Forms.GroupBox();
-            this.c1ComboBox1 = new C1.Win.C1Input.C1ComboBox();
+            this.cboVolume = new C1.Win.C1Input.C1ComboBox();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.cboUgw = new C1.Win.C1Input.C1ComboBox();
-            this.c1TextBox18 = new C1.Win.C1Input.C1TextBox();
-            this.c1TextBox17 = new C1.Win.C1Input.C1TextBox();
-            this.c1TextBox16 = new C1.Win.C1Input.C1TextBox();
+            this.txtGwTotal = new C1.Win.C1Input.C1TextBox();
+            this.txtVolume = new C1.Win.C1Input.C1TextBox();
+            this.txtGw = new C1.Win.C1Input.C1TextBox();
             this.gBPkg = new System.Windows.Forms.GroupBox();
             this.cboUtp5 = new C1.Win.C1Input.C1ComboBox();
             this.cboUtp4 = new C1.Win.C1Input.C1ComboBox();
@@ -137,7 +138,7 @@
             this.c1Button4 = new C1.Win.C1Input.C1Button();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.c1DateEdit1 = new C1.Win.Calendar.C1DateEdit();
+            this.txtJobDate = new C1.Win.Calendar.C1DateEdit();
             this.txtJobNo = new C1.Win.C1Input.C1TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -161,7 +162,7 @@
             this.txtMarsk3 = new C1.Win.C1Input.C1TextBox();
             this.txtMarsk2 = new C1.Win.C1Input.C1TextBox();
             this.txtMarsk1 = new C1.Win.C1Input.C1TextBox();
-            this.c1TextBox7 = new C1.Win.C1Input.C1TextBox();
+            this.txtBl = new C1.Win.C1Input.C1TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.c1Button8 = new C1.Win.C1Input.C1Button();
@@ -190,6 +191,12 @@
             this.tabInv = new C1.Win.C1Command.C1DockingTabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cDMain = new C1.Win.C1Command.C1CommandDock();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -197,6 +204,7 @@
             this.tC1.SuspendLayout();
             this.tabJob.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBlId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboBlType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBlReceive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEtd)).BeginInit();
@@ -226,11 +234,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboContain1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtContain1)).BeginInit();
             this.gBGw.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1ComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboVolume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUgw)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGwTotal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVolume)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGw)).BeginInit();
             this.gBPkg.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboUtp5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUtp4)).BeginInit();
@@ -271,7 +279,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJobDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRef5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRef4)).BeginInit();
@@ -288,7 +296,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMarsk3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMarsk2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMarsk1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMbl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).BeginInit();
@@ -308,8 +316,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCntryCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEtt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT)).BeginInit();
+            this.tabInv.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // theme1
@@ -380,6 +394,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.Controls.Add(this.txtBlId);
             this.panel2.Controls.Add(this.cboBlType);
             this.panel2.Controls.Add(this.btnBlReceive);
             this.panel2.Controls.Add(this.txtEtd);
@@ -418,7 +433,7 @@
             this.panel2.Controls.Add(this.c1Button4);
             this.panel2.Controls.Add(this.label32);
             this.panel2.Controls.Add(this.label31);
-            this.panel2.Controls.Add(this.c1DateEdit1);
+            this.panel2.Controls.Add(this.txtJobDate);
             this.panel2.Controls.Add(this.txtJobNo);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label9);
@@ -436,7 +451,7 @@
             this.panel2.Controls.Add(this.txtID);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.gBMarsk);
-            this.panel2.Controls.Add(this.c1TextBox7);
+            this.panel2.Controls.Add(this.txtBl);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label18);
             this.panel2.Controls.Add(this.c1Button8);
@@ -463,6 +478,20 @@
             this.panel2.Size = new System.Drawing.Size(1352, 673);
             this.panel2.TabIndex = 0;
             this.theme1.SetTheme(this.panel2, "(default)");
+            // 
+            // txtBlId
+            // 
+            this.txtBlId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBlId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBlId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBlId.Location = new System.Drawing.Point(360, 6);
+            this.txtBlId.Name = "txtBlId";
+            this.txtBlId.Size = new System.Drawing.Size(24, 20);
+            this.txtBlId.TabIndex = 502;
+            this.txtBlId.Tag = null;
+            this.theme1.SetTheme(this.txtBlId, "(default)");
+            this.txtBlId.Visible = false;
+            this.txtBlId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // cboBlType
             // 
@@ -1046,13 +1075,13 @@
             // gBGw
             // 
             this.gBGw.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.gBGw.Controls.Add(this.c1ComboBox1);
+            this.gBGw.Controls.Add(this.cboVolume);
             this.gBGw.Controls.Add(this.label38);
             this.gBGw.Controls.Add(this.label37);
             this.gBGw.Controls.Add(this.cboUgw);
-            this.gBGw.Controls.Add(this.c1TextBox18);
-            this.gBGw.Controls.Add(this.c1TextBox17);
-            this.gBGw.Controls.Add(this.c1TextBox16);
+            this.gBGw.Controls.Add(this.txtGwTotal);
+            this.gBGw.Controls.Add(this.txtVolume);
+            this.gBGw.Controls.Add(this.txtGw);
             this.gBGw.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.gBGw.Location = new System.Drawing.Point(566, 412);
             this.gBGw.Name = "gBGw";
@@ -1062,26 +1091,26 @@
             this.gBGw.Text = "GW & VOLUME";
             this.theme1.SetTheme(this.gBGw, "(default)");
             // 
-            // c1ComboBox1
+            // cboVolume
             // 
-            this.c1ComboBox1.AllowSpinLoop = false;
-            this.c1ComboBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1ComboBox1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1ComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1ComboBox1.GapHeight = 0;
-            this.c1ComboBox1.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1ComboBox1.ItemsDisplayMember = "";
-            this.c1ComboBox1.ItemsValueMember = "";
-            this.c1ComboBox1.Location = new System.Drawing.Point(127, 41);
-            this.c1ComboBox1.Name = "c1ComboBox1";
-            this.c1ComboBox1.Size = new System.Drawing.Size(88, 20);
-            this.c1ComboBox1.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1ComboBox1.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.c1ComboBox1.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1ComboBox1.TabIndex = 450;
-            this.c1ComboBox1.Tag = null;
-            this.theme1.SetTheme(this.c1ComboBox1, "(default)");
-            this.c1ComboBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.cboVolume.AllowSpinLoop = false;
+            this.cboVolume.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboVolume.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboVolume.GapHeight = 0;
+            this.cboVolume.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboVolume.ItemsDisplayMember = "";
+            this.cboVolume.ItemsValueMember = "";
+            this.cboVolume.Location = new System.Drawing.Point(127, 41);
+            this.cboVolume.Name = "cboVolume";
+            this.cboVolume.Size = new System.Drawing.Size(88, 20);
+            this.cboVolume.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboVolume.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboVolume.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboVolume.TabIndex = 450;
+            this.cboVolume.Tag = null;
+            this.theme1.SetTheme(this.cboVolume, "(default)");
+            this.cboVolume.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label38
             // 
@@ -1130,44 +1159,44 @@
             this.theme1.SetTheme(this.cboUgw, "(default)");
             this.cboUgw.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1TextBox18
+            // txtGwTotal
             // 
-            this.c1TextBox18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox18.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox18.Location = new System.Drawing.Point(67, 63);
-            this.c1TextBox18.Name = "c1TextBox18";
-            this.c1TextBox18.Size = new System.Drawing.Size(54, 20);
-            this.c1TextBox18.TabIndex = 443;
-            this.c1TextBox18.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox18, "(default)");
-            this.c1TextBox18.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtGwTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtGwTotal.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtGwTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtGwTotal.Location = new System.Drawing.Point(67, 63);
+            this.txtGwTotal.Name = "txtGwTotal";
+            this.txtGwTotal.Size = new System.Drawing.Size(54, 20);
+            this.txtGwTotal.TabIndex = 443;
+            this.txtGwTotal.Tag = null;
+            this.theme1.SetTheme(this.txtGwTotal, "(default)");
+            this.txtGwTotal.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1TextBox17
+            // txtVolume
             // 
-            this.c1TextBox17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox17.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox17.Location = new System.Drawing.Point(67, 41);
-            this.c1TextBox17.Name = "c1TextBox17";
-            this.c1TextBox17.Size = new System.Drawing.Size(54, 20);
-            this.c1TextBox17.TabIndex = 442;
-            this.c1TextBox17.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox17, "(default)");
-            this.c1TextBox17.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtVolume.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtVolume.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtVolume.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtVolume.Location = new System.Drawing.Point(67, 41);
+            this.txtVolume.Name = "txtVolume";
+            this.txtVolume.Size = new System.Drawing.Size(54, 20);
+            this.txtVolume.TabIndex = 442;
+            this.txtVolume.Tag = null;
+            this.theme1.SetTheme(this.txtVolume, "(default)");
+            this.txtVolume.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1TextBox16
+            // txtGw
             // 
-            this.c1TextBox16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox16.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox16.Location = new System.Drawing.Point(67, 19);
-            this.c1TextBox16.Name = "c1TextBox16";
-            this.c1TextBox16.Size = new System.Drawing.Size(54, 20);
-            this.c1TextBox16.TabIndex = 441;
-            this.c1TextBox16.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox16, "(default)");
-            this.c1TextBox16.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtGw.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtGw.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtGw.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtGw.Location = new System.Drawing.Point(67, 19);
+            this.txtGw.Name = "txtGw";
+            this.txtGw.Size = new System.Drawing.Size(54, 20);
+            this.txtGw.TabIndex = 441;
+            this.txtGw.Tag = null;
+            this.theme1.SetTheme(this.txtGw, "(default)");
+            this.txtGw.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // gBPkg
             // 
@@ -1978,39 +2007,39 @@
             this.label31.Text = "วันที่รับเอกสาร :";
             this.theme1.SetTheme(this.label31, "(default)");
             // 
-            // c1DateEdit1
+            // txtJobDate
             // 
-            this.c1DateEdit1.AllowSpinLoop = false;
-            this.c1DateEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit1.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit1.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit1.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit1.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit1.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit1.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit1.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit1.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit1.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit1.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit1.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit1.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit1.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit1.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtJobDate.AllowSpinLoop = false;
+            this.txtJobDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJobDate.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJobDate.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtJobDate.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJobDate.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJobDate.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtJobDate.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtJobDate.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtJobDate.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtJobDate.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJobDate.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtJobDate.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJobDate.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtJobDate.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJobDate.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtJobDate.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit1.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit1.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit1.Location = new System.Drawing.Point(143, 39);
-            this.c1DateEdit1.Name = "c1DateEdit1";
-            this.c1DateEdit1.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit1.TabIndex = 431;
-            this.c1DateEdit1.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit1, "(default)");
-            this.c1DateEdit1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtJobDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJobDate.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtJobDate.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtJobDate.Location = new System.Drawing.Point(143, 39);
+            this.txtJobDate.Name = "txtJobDate";
+            this.txtJobDate.Size = new System.Drawing.Size(118, 20);
+            this.txtJobDate.TabIndex = 431;
+            this.txtJobDate.Tag = null;
+            this.theme1.SetTheme(this.txtJobDate, "(default)");
+            this.txtJobDate.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtJobNo
             // 
@@ -2316,18 +2345,18 @@
             this.theme1.SetTheme(this.txtMarsk1, "(default)");
             this.txtMarsk1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1TextBox7
+            // txtBl
             // 
-            this.c1TextBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox7.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox7.Location = new System.Drawing.Point(579, 364);
-            this.c1TextBox7.Name = "c1TextBox7";
-            this.c1TextBox7.Size = new System.Drawing.Size(250, 20);
-            this.c1TextBox7.TabIndex = 453;
-            this.c1TextBox7.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox7, "(default)");
-            this.c1TextBox7.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtBl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBl.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBl.Location = new System.Drawing.Point(579, 364);
+            this.txtBl.Name = "txtBl";
+            this.txtBl.Size = new System.Drawing.Size(250, 20);
+            this.txtBl.TabIndex = 453;
+            this.txtBl.Tag = null;
+            this.theme1.SetTheme(this.txtBl, "(default)");
+            this.txtBl.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label11
             // 
@@ -2680,6 +2709,8 @@
             // 
             // tabInv
             // 
+            this.tabInv.Controls.Add(this.splitContainer1);
+            this.tabInv.Controls.Add(this.panel5);
             this.tabInv.Image = global::Xtrim_ERP.Properties.Resources.ordering16;
             this.tabInv.Location = new System.Drawing.Point(1, 25);
             this.tabInv.Name = "tabInv";
@@ -2710,6 +2741,90 @@
             this.cDMain.Size = new System.Drawing.Size(267, 718);
             this.theme1.SetTheme(this.cDMain, "(default)");
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1352, 673);
+            this.panel5.TabIndex = 0;
+            this.theme1.SetTheme(this.panel5, "(default)");
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.splitContainer1.Panel1.Controls.Add(this.panel6);
+            this.splitContainer1.Panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.theme1.SetTheme(this.splitContainer1.Panel1, "(default)");
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.splitContainer1.Panel2.Controls.Add(this.panel7);
+            this.splitContainer1.Panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.theme1.SetTheme(this.splitContainer1.Panel2, "(default)");
+            this.splitContainer1.Size = new System.Drawing.Size(1352, 673);
+            this.splitContainer1.SplitterDistance = 309;
+            this.splitContainer1.TabIndex = 1;
+            this.theme1.SetTheme(this.splitContainer1, "(default)");
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel6.Controls.Add(this.panel9);
+            this.panel6.Controls.Add(this.panel8);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1352, 309);
+            this.panel6.TabIndex = 0;
+            this.theme1.SetTheme(this.panel6, "(default)");
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1352, 360);
+            this.panel7.TabIndex = 0;
+            this.theme1.SetTheme(this.panel7, "(default)");
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(944, 309);
+            this.panel8.TabIndex = 0;
+            this.theme1.SetTheme(this.panel8, "(default)");
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel9.Location = new System.Drawing.Point(944, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(408, 309);
+            this.panel9.TabIndex = 1;
+            this.theme1.SetTheme(this.panel9, "(default)");
+            // 
             // FrmJobImpNew3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2729,6 +2844,7 @@
             this.tabJob.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBlId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboBlType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBlReceive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEtd)).EndInit();
@@ -2760,11 +2876,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtContain1)).EndInit();
             this.gBGw.ResumeLayout(false);
             this.gBGw.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1ComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboVolume)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUgw)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGwTotal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVolume)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGw)).EndInit();
             this.gBPkg.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cboUtp5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUtp4)).EndInit();
@@ -2807,7 +2923,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJobDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobNo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRef5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRef4)).EndInit();
@@ -2824,7 +2940,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMarsk3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMarsk2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMarsk1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMbl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).EndInit();
@@ -2844,8 +2960,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCntryCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEtt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT)).EndInit();
+            this.tabInv.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2897,7 +3019,7 @@
         private C1.Win.C1Input.C1TextBox txtFves;
         private System.Windows.Forms.Label label17;
         private C1.Win.C1Input.C1TextBox txtMves;
-        private C1.Win.C1Input.C1TextBox c1TextBox7;
+        private C1.Win.C1Input.C1TextBox txtBl;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label18;
         private C1.Win.C1Input.C1Button c1Button8;
@@ -2916,7 +3038,7 @@
         private C1.Win.C1Input.C1Button c1Button4;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit1;
+        private C1.Win.Calendar.C1DateEdit txtJobDate;
         private C1.Win.C1Input.C1TextBox txtJobNo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label9;
@@ -2973,9 +3095,9 @@
         private C1.Win.C1Input.C1TextBox txtPkg2;
         private C1.Win.C1Input.C1TextBox txtPkg1;
         private C1.Win.C1Input.C1TextBox txtPkgTotal;
-        private C1.Win.C1Input.C1TextBox c1TextBox18;
-        private C1.Win.C1Input.C1TextBox c1TextBox17;
-        private C1.Win.C1Input.C1TextBox c1TextBox16;
+        private C1.Win.C1Input.C1TextBox txtGwTotal;
+        private C1.Win.C1Input.C1TextBox txtVolume;
+        private C1.Win.C1Input.C1TextBox txtGw;
         private C1.Win.C1Input.C1ComboBox cboUtp1;
         private C1.Win.C1Input.C1ComboBox cboUgw;
         private C1.Win.C1Input.C1TextBox txtPkg5;
@@ -3006,7 +3128,7 @@
         private C1.Win.C1Input.C1ComboBox cboUtp4;
         private C1.Win.C1Input.C1ComboBox cboUtp3;
         private C1.Win.C1Input.C1ComboBox cboUtp2;
-        private C1.Win.C1Input.C1ComboBox c1ComboBox1;
+        private C1.Win.C1Input.C1ComboBox cboVolume;
         private C1.Win.C1Input.C1SplitButton btnBlReceive;
         private C1.Win.C1Input.DropDownItem doc1;
         private C1.Win.C1Input.DropDownItem doc2;
@@ -3015,5 +3137,12 @@
         private C1.Win.C1Input.C1ComboBox cboBlType;
         private C1.Win.C1Input.C1Button btnEtt;
         private C1.Win.C1Input.C1TextBox txtEttNameT;
+        private C1.Win.C1Input.C1TextBox txtBlId;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel8;
     }
 }

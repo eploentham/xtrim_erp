@@ -1179,7 +1179,7 @@ namespace Xtrim_ERP.objdb
                 jim.imp_id = impDB.getIdByCode(row["ImporterID"].ToString().Trim());
                 jim.transport_mode = row["TransportMode"].ToString();
                 jim.staff_id = stfDB.getIdByCode(row["CsID"].ToString().Trim());
-                jim.entry_type = ettDB.getIdByCode(row["EntryType"].ToString().Trim());
+                jim.entry_type_id = ettDB.getIdByCode(row["EntryType"].ToString().Trim());
                 jim.privi_id = pvlDB.getIdByDesc(row["Pivilege"].ToString().Trim());
                 jim.ref_1 = row["CustomerRef"].ToString();
                 jim.ref_2 = "";

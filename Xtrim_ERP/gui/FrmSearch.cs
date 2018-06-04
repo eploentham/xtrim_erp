@@ -33,7 +33,8 @@ namespace Xtrim_ERP.object1
             Privilege,
             Staff,
             Consignmnt,
-            EntryType1
+            EntryType1,
+            PortImport
         };
         Search flag;
         //private CellStyle _style;
@@ -181,6 +182,10 @@ namespace Xtrim_ERP.object1
             {
                 grdFlex.DataSource = xC.xtDB.ettDB.selectAll();
             }
+            else if (flag == Search.PortImport)
+            {
+                grdFlex.DataSource = xC.xtDB.ptiDB.selectAll();
+            }
             grdFlex.Cols[colID].Width = 60;
             grdFlex.Cols[colNameT].Width = 20;
             //grdFlex.ShowCursor = true;
@@ -289,6 +294,11 @@ namespace Xtrim_ERP.object1
                 {
                     xC.sCot = new Country();
                     xC.sEtt = xC.xtDB.ettDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
+                }
+                else if (flag == Search.PortImport)
+                {
+                    xC.sCot = new Country();
+                    xC.sPti = xC.xtDB.ptiDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
                 }
                 Close();
                 return true;

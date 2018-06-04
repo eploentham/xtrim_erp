@@ -232,7 +232,7 @@ namespace Xtrim_ERP.gui
             jim.imp_id = "";
             jim.transport_mode = ((ComboBoxItem)(cboTransMode.SelectedItem)).Value;
             jim.staff_id = "";
-            jim.entry_type = "";
+            jim.entry_type_id = "";
             jim.privi_id = "";
             jim.ref_1 = "";
             jim.ref_2 = "";

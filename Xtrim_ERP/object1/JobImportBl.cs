@@ -87,7 +87,9 @@ namespace Xtrim_ERP.object1
         public String container4_doc_type_id { get; set; }
         public String container5_doc_type_id { get; set; }
         public String container6_doc_type_id { get; set; }
-        //public String ugwCode { get; set; }
-        //public String ugwNameT { get; set; }
+        public String bl_type { get; set; }
+        public String consignmnt_id { get; set; }
+        public String bl { get; set; }
+        public String unit_volume1_id { get; set; }
     }
 }

@@ -89,6 +89,7 @@ namespace Xtrim_ERP.objdb
             jbl.packages3 = "packages3";
             jbl.packages4 = "packages4";
             jbl.packages5 = "packages5";
+            jbl.unit_package1_id = "unit_package1_id";
             jbl.unit_package2_id = "unit_package2_id";
             jbl.unit_package3_id = "unit_package3_id";
             jbl.unit_package4_id = "unit_package4_id";
@@ -106,6 +107,10 @@ namespace Xtrim_ERP.objdb
             jbl.container4_doc_type_id = "container4_doc_type_id";
             jbl.container5_doc_type_id = "container5_doc_type_id";
             jbl.container6_doc_type_id = "container6_doc_type_id";
+            jbl.bl_type = "bl_type";
+            jbl.consignmnt_id = "consignmnt_id";
+            jbl.bl = "bl";
+            jbl.unit_volume1_id = "unit_volume1_id";
 
             jbl.table = "t_job_import_bl";
             jbl.pkField = "job_import_bl_id";
@@ -143,7 +148,7 @@ namespace Xtrim_ERP.objdb
             p.hbl_hawb = p.hbl_hawb == null ? "" : p.hbl_hawb;
             p.mbl_mawb = p.mbl_mawb == null ? "" : p.mbl_mawb;
             p.oth_job_no = p.oth_job_no == null ? "" : p.oth_job_no;
-            //p.job_import_code = p.job_import_code == null ? "" : p.job_import_code;
+            p.bl_type = p.bl_type == null ? "" : p.bl_type;
 
             p.date_modi = p.date_modi == null ? "" : p.date_modi;
             p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
@@ -163,6 +168,7 @@ namespace Xtrim_ERP.objdb
             p.container5 = p.container5 == null ? "" : p.container5;
             p.container6 = p.container6 == null ? "" : p.container6;
             p.gw_total = p.gw_total == null ? "" : p.gw_total;
+            p.bl = p.bl == null ? "" : p.bl;
 
             p.truck_cop_id = int.TryParse(p.truck_cop_id, out chk) ? chk.ToString() : "0";
             p.tranfer_with_job_id = int.TryParse(p.tranfer_with_job_id, out chk) ? chk.ToString() : "0";
@@ -181,12 +187,13 @@ namespace Xtrim_ERP.objdb
             p.container4_doc_type_id = Decimal.TryParse(p.container4_doc_type_id, out chk1) ? chk1.ToString() : "0";
             p.container5_doc_type_id = Decimal.TryParse(p.container5_doc_type_id, out chk1) ? chk1.ToString() : "0";
             p.container6_doc_type_id = Decimal.TryParse(p.container6_doc_type_id, out chk1) ? chk1.ToString() : "0";
+            p.unit_package1_id = Decimal.TryParse(p.unit_package1_id, out chk1) ? chk1.ToString() : "0";
             p.unit_package2_id = Decimal.TryParse(p.unit_package2_id, out chk1) ? chk1.ToString() : "0";
             p.unit_package3_id = Decimal.TryParse(p.unit_package3_id, out chk1) ? chk1.ToString() : "0";
             p.unit_package4_id = Decimal.TryParse(p.unit_package4_id, out chk1) ? chk1.ToString() : "0";
             p.unit_package5_id = Decimal.TryParse(p.unit_package5_id, out chk1) ? chk1.ToString() : "0";
-            //p.premium = Decimal.TryParse(p.premium, out chk1) ? chk1.ToString() : "0";
-            //p.premium = Decimal.TryParse(p.premium, out chk1) ? chk1.ToString() : "0";
+            p.consignmnt_id = Decimal.TryParse(p.consignmnt_id, out chk1) ? chk1.ToString() : "0";
+            p.unit_volume1_id = Decimal.TryParse(p.unit_volume1_id, out chk1) ? chk1.ToString() : "0";
         }
         public String insert(JobImportBl p)
         {
@@ -222,7 +229,8 @@ namespace Xtrim_ERP.objdb
                 jbl.container1_doc_type_id + "," + jbl.container2_doc_type_id + "," + jbl.container3_doc_type_id + "," +
                 jbl.container4_doc_type_id + "," + jbl.container5_doc_type_id + "," + jbl.container6_doc_type_id + "," +
                 jbl.unit_package2_id + "," + jbl.unit_package3_id + "," + jbl.unit_package4_id + "," +
-                jbl.unit_package5_id + " " + 
+                jbl.unit_package5_id + ", " + jbl.bl_type + ", " + jbl.consignmnt_id + ", " +
+                jbl.bl + ", " + jbl.unit_volume1_id + " " +
                 ") " +
                 "Values ('" + p.job_import_id + "','" + p.forwarder_id + "','" + p.mbl_mawb + "'," +
                 "'" + p.hbl_hawb.Replace("'", "''") + "','" + p.m_vessel.Replace("'", "''") + "','" + p.f_vessel.Replace("'", "''") + "'," +
@@ -246,7 +254,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.container1_doc_type_id + "','" + p.container2_doc_type_id + "','" + p.container3_doc_type_id + "', " +
                 "'" + p.container4_doc_type_id + "','" + p.container5_doc_type_id + "','" + p.container6_doc_type_id + "', " +
                 "'" + p.unit_package2_id + "','" + p.unit_package3_id.Replace("'", "''") + "','" + p.unit_package4_id + "', " +
-                "'" + p.unit_package5_id + "' " + 
+                "'" + p.unit_package5_id + "','" + p.bl_type + "','" + p.consignmnt_id + "'," +
+                "'" + p.bl + "','" + p.unit_volume1_id + "' " +
                 ")";
             try
             {
@@ -332,7 +341,11 @@ namespace Xtrim_ERP.objdb
                 "," + jbl.unit_package3_id + " = '" + p.unit_package3_id.Replace("'", "''") + "' " +
                 "," + jbl.unit_package4_id + " = '" + p.unit_package4_id.Replace("'", "''") + "' " +
                 "," + jbl.unit_package5_id + " = '" + p.unit_package5_id.Replace("'", "''") + "' " +
-
+                "," + jbl.mbl_mawb + " = '" + p.mbl_mawb.Replace("'", "''") + "' " +
+                "," + jbl.bl_type + " = '" + p.bl_type.Replace("'", "''") + "' " +
+                "," + jbl.consignmnt_id + " = '" + p.consignmnt_id.Replace("'", "''") + "' " +
+                "," + jbl.bl + " = '" + p.bl.Replace("'", "''") + "' " +
+                "," + jbl.unit_volume1_id + " = '" + p.unit_volume1_id.Replace("'", "''") + "' " +
                 "Where " + jbl.pkField + "='" + p.job_import_bl_id+ "'"
                 ;
 
@@ -510,7 +523,10 @@ namespace Xtrim_ERP.objdb
                 jbl1.unit_package3_id = dt.Rows[0][jbl.unit_package3_id].ToString();
                 jbl1.unit_package4_id = dt.Rows[0][jbl.unit_package4_id].ToString();
                 jbl1.unit_package5_id = dt.Rows[0][jbl.unit_package5_id].ToString();
-
+                jbl1.bl_type = dt.Rows[0][jbl.bl_type].ToString();
+                jbl1.consignmnt_id = dt.Rows[0][jbl.consignmnt_id].ToString();
+                jbl1.bl = dt.Rows[0][jbl.bl].ToString();
+                jbl1.unit_volume1_id = dt.Rows[0][jbl.unit_volume1_id].ToString();
             }
 
             return jbl1;

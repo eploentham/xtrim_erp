@@ -63,6 +63,17 @@ ADD COLUMN `container6_doc_type_id` VARCHAR(255) NULL AFTER `container5_doc_type
 ALTER TABLE `xtrim_erp`.`t_job_import` 
 ADD COLUMN `bl` VARCHAR(255) NULL AFTER `marsk6`;
 
+61-06-04
+ALTER TABLE `xtrim_erp`.`t_job_import_bl` 
+ADD COLUMN `bl_type` VARCHAR(255) NULL AFTER `container6_doc_type_id`,
+ADD COLUMN `consignmnt_id` INT NULL AFTER `bl_type`;
+
+ALTER TABLE `xtrim_erp`.`t_job_import_bl` 
+CHANGE COLUMN `consignmnt_id` `consignmnt_id` INT(11) NULL DEFAULT NULL COMMENT 'country code' ;
+
+ALTER TABLE `xtrim_erp`.`t_job_import_bl` 
+ADD COLUMN `unit_volume1_id` INT NULL AFTER `consignmnt_id`;
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GenCSharpModel1`(in pTableName VARCHAR(255) )
 BEGIN
 DECLARE vClassName varchar(255);

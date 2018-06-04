@@ -32,7 +32,7 @@ namespace Xtrim_ERP.objdb
             jim.imp_id = "imp_id";
             jim.transport_mode = "transport_mode";
             jim.staff_id = "staff_id";
-            jim.entry_type = "entry_type_id";
+            jim.entry_type_id = "entry_type_id";
             jim.privi_id = "privi_id";
             jim.ref_1 = "ref_1";
             jim.ref_2 = "ref_2";
@@ -179,7 +179,7 @@ namespace Xtrim_ERP.objdb
             p.ref_3 = p.ref_3 == null ? "" : p.ref_3;
             p.ref_2 = p.ref_2 == null ? "" : p.ref_2;
             p.ref_1 = p.ref_1 == null ? "" : p.ref_1;
-            p.entry_type = p.entry_type == null ? "" : p.entry_type;
+            p.entry_type_id = p.entry_type_id == null ? "" : p.entry_type_id;
             p.transport_mode = p.transport_mode == null ? "" : p.transport_mode;
             p.job_import_date = p.job_import_date == null ? "" : p.job_import_date;
             p.job_import_code = p.job_import_code == null ? "" : p.job_import_code;
@@ -204,7 +204,7 @@ namespace Xtrim_ERP.objdb
 
             p.tax_amt = Decimal.TryParse(p.tax_amt, out chk1) ? chk1.ToString() : "0";
             p.premium = Decimal.TryParse(p.premium, out chk1) ? chk1.ToString() : "0";
-            p.entry_type = Decimal.TryParse(p.entry_type, out chk1) ? chk1.ToString() : "0";
+            p.entry_type_id = Decimal.TryParse(p.entry_type_id, out chk1) ? chk1.ToString() : "0";
         }
         public String insert(JobImport p)
         {
@@ -219,7 +219,7 @@ namespace Xtrim_ERP.objdb
 
             sql = "Insert Into " + jim.table + "(" + jim.job_import_code + "," + jim.job_import_date + "," + jim.cust_id + "," +
                 jim.imp_id + "," + jim.transport_mode + "," + jim.staff_id + "," +
-                jim.entry_type + "," + jim.privi_id + "," + jim.ref_1 + "," +
+                jim.entry_type_id + "," + jim.privi_id + "," + jim.ref_1 + "," +
                 jim.ref_2 + "," + jim.ref_3 + "," + jim.ref_4 + "," +
                 jim.ref_5 + "," + jim.ref_edi + "," + jim.imp_entry + "," +
                 jim.edi_response + "," + jim.tax_method_id + "," + jim.check_exam_id + "," +
@@ -237,7 +237,7 @@ namespace Xtrim_ERP.objdb
                 ") " +
                 "Values ('" + p.job_import_code + "','" + p.job_import_date + "','" + p.cust_id + "'," +
                 "'" + p.imp_id + "','" + p.transport_mode.Replace("'", "''") + "','" + p.staff_id + "'," +
-                "'" + p.entry_type + "','" + p.privi_id + "','" + p.ref_1.Replace("'", "''") + "'," +
+                "'" + p.entry_type_id + "','" + p.privi_id + "','" + p.ref_1.Replace("'", "''") + "'," +
                 "'" + p.ref_2.Replace("'", "''") + "','" + p.ref_3.Replace("'", "''") + "','" + p.ref_4.Replace("'", "''") + "'," +
                 "'" + p.ref_5.Replace("'", "''") + "','" + p.ref_edi.Replace("'", "''") + "','" + p.imp_entry.Replace("'", "''") + "'," +
                 "'" + p.edi_response.Replace("'", "''") + "','" + p.tax_method_id + "','" + p.check_exam_id + "'," +
@@ -256,6 +256,12 @@ namespace Xtrim_ERP.objdb
             try
             {
                 re = conn.ExecuteNonQuery(conn.conn, sql);
+                String code = re.Substring(re.Length-6);
+
+                sql = "Update "+jim.table+" Set " +
+                    ""+jim.job_import_code+" ='"+ code + "' " +
+                    "Where "+jim.job_import_id+"='"+re+"'";
+                conn.ExecuteNonQuery(conn.conn, sql);
             }
             catch (Exception ex)
             {
@@ -279,7 +285,7 @@ namespace Xtrim_ERP.objdb
                 "," + jim.imp_id + " = '" + p.imp_id.Replace("'", "''") + "'" +
                 "," + jim.transport_mode + " = '" + p.transport_mode.Replace("'", "''") + "'" +
                 "," + jim.staff_id + " = '" + p.staff_id.Replace("'", "''") + "'" +
-                "," + jim.entry_type + " = '" + p.entry_type.Replace("'", "''") + "'" +
+                "," + jim.entry_type_id + " = '" + p.entry_type_id.Replace("'", "''") + "'" +
                 "," + jim.privi_id + " = '" + p.privi_id.Replace("'", "''") + "'" +
                 "," + jim.ref_1 + " = '" + p.ref_1.Replace("'", "''") + "'" +
                 "," + jim.ref_2 + " = '" + p.ref_2 + "'" +
@@ -442,19 +448,19 @@ namespace Xtrim_ERP.objdb
         public DataTable selectJimJblByJobYear1(String year)
         {
             DataTable dt = new DataTable();
-            String sql = "select jim.job_import_id, jim.job_import_code, jim.remark, cus.cust_name_t, imp.imp_name_t, tmn.terminal_code, tmn.terminal_name_t, fwd.forwarder_name_t" +
-                ", jbl.description, count(jin.job_import_inv_id) as cntinv " +
+            String sql = "select jim.job_import_id, concat('IMP',jim.job_import_code), jim.remark1, cus.cust_name_t, imp.cust_name_t as imp_name_t, tmn.terminal_code, tmn.terminal_name_t, fwd.cust_name_t as forwarder_name_t " +
+                ", jbl.description " +
                 //", count(jie.job_import_expenses_id) as cntexpn " +
                 "From " + jim.table + " jim " +
                 "Left Join b_customer cus on jim.cust_id = cus.cust_id " +
-                "Left Join b_importer imp on jim.imp_id = imp.imp_id " +
+                "Left Join b_customer imp on jim.imp_id = imp.cust_id " +
                 "Left Join t_job_import_bl jbl on jim.job_import_id = jbl.job_import_id " +
                 "Left Join b_terminal tmn on jbl.terminal_id = tmn.terminal_id " +
-                "Left Join b_forwarder fwd on jbl.forwarder_id = fwd.forwarder_id " +
+                "Left Join b_customer fwd on jbl.forwarder_id = fwd.cust_id " +
                 "Left Join t_job_import_inv jin on jim.job_import_id = jin.job_import_id " +
                 "Left Join t_job_import_expenses jie on jim.job_import_id = jie.job_import_id " +
                 "Where jim." + jim.active + " ='1' and " + jim.job_year + "='" + year + "' " +
-                "Group By jim.job_import_id, jim.job_import_code, jim.remark, cus.cust_name_t, imp.imp_name_t, tmn.terminal_code, tmn.terminal_name_t, fwd.forwarder_name_t, jbl.description " +
+                //"Group By jim.job_import_id, jim.job_import_code, jim.remark, cus.cust_name_t, imp.imp_name_t, tmn.terminal_code, tmn.terminal_name_t, fwd.forwarder_name_t, jbl.description " +
                 " " +
                 "Order By " + jim.job_import_code + " desc";
             dt = conn.selectData(conn.conn, sql);
@@ -517,6 +523,21 @@ namespace Xtrim_ERP.objdb
             cop1 = setJobImport(dt);
             return cop1;
         }
+        public String selectByJobCode1(String copId)
+        {
+            DataTable dt = new DataTable();
+            String re = "";
+            String sql = "select jim."+jim.job_import_id+" " +
+                "From " + jim.table + " jim " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where jim." + jim.job_import_code + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            if (dt.Rows.Count > 0)
+            {
+                re = dt.Rows[0][jim.job_import_id].ToString();
+            }
+            return re;
+        }
         private JobImport setJobImport(DataTable dt)
         {
             JobImport jim1 = new JobImport();
@@ -529,7 +550,7 @@ namespace Xtrim_ERP.objdb
                 jim1.imp_id = dt.Rows[0][jim.imp_id].ToString();
                 jim1.transport_mode = dt.Rows[0][jim.transport_mode].ToString();
                 jim1.staff_id = dt.Rows[0][jim.staff_id].ToString();
-                jim1.entry_type = dt.Rows[0][jim.entry_type].ToString();
+                jim1.entry_type_id = dt.Rows[0][jim.entry_type_id].ToString();
                 jim1.privi_id = dt.Rows[0][jim.privi_id].ToString();
                 jim1.ref_1 = dt.Rows[0][jim.ref_1].ToString();
                 jim1.ref_2 = dt.Rows[0][jim.ref_2].ToString();

@@ -50,6 +50,7 @@ namespace Xtrim_ERP.control
         public StringSOAP sSoap;
         Regex regEmail;
         String soapTaxId = "";
+        public String FixJobCode="IMP";
         //public enum Search
         //{
         //    Customer,
@@ -142,6 +143,19 @@ namespace Xtrim_ERP.control
             }
         }
         public String getValueCboItem(ComboBox c)
+        {
+            ComboBoxItem iSale;
+            iSale = (ComboBoxItem)c.SelectedItem;
+            if (iSale == null)
+            {
+                return "";
+            }
+            else
+            {
+                return iSale.Value;
+            }
+        }
+        public String getValueCboItem(C1ComboBox c)
         {
             ComboBoxItem iSale;
             iSale = (ComboBoxItem)c.SelectedItem;
@@ -320,11 +334,13 @@ namespace Xtrim_ERP.control
         
         public void setC1Combo(C1ComboBox c, String data)
         {
+            if (c.Items.Count == 0) return;
+            c.SelectedIndex = c.SelectedItem == null ? 0 : c.SelectedIndex;
             foreach(ComboBoxItem item in c.Items)
             {
                 if (item.Value.Equals(data))
                 {
-                    c.SelectedText = item.Text;
+                    c.SelectedItem = item;
                     break;
                 }
             }
@@ -438,6 +454,14 @@ namespace Xtrim_ERP.control
             
             
             return chk;
+        }
+        public String setJobCode()
+        {
+            String code = "";
+            String year = DateTime.Now.Year.ToString().Substring(2);
+            String month = DateTime.Now.Month.ToString("00");
+
+            return code;
         }
     }
 }

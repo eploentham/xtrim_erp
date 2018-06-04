@@ -176,7 +176,7 @@ namespace Xtrim_ERP.gui
 
         private void menuImpJobView_Click(object sender, EventArgs e)
         {
-            FrmJobImpView frm = new FrmJobImpView(xC, this);
+            FrmJobImpView frm = new FrmJobImpView(xC, null);
             frm.FormBorderStyle = FormBorderStyle.None;
             TabPage tab = new TabPage("dddddd");
             AddNewTab(frm, "Import JOB");

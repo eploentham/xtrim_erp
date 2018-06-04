@@ -48,6 +48,15 @@ namespace Xtrim_ERP.gui
             menuEmail.Click += MenuEmail_Click;
             menuTest.Click += MenuTest_Click;
             menuConvertData.Click += MenuConvertData_Click;
+            menuImpJobView.Click += MenuImpJobView_Click;
+        }
+
+        private void MenuImpJobView_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmJobImpView frm = new FrmJobImpView(xC, this);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "Open Job Import ");
         }
 
         private void MenuConvertData_Click(object sender, EventArgs e)
@@ -108,7 +117,13 @@ namespace Xtrim_ERP.gui
             TabPage tab = new TabPage("dddddd");
             AddNewTab(frm, "Staff");
         }
-
+        private void menuImpJobAdd_Click(object sender, EventArgs e)
+        {
+            //FrmJobImpNew2 frm = new FrmJobImpNew2(xC);
+            FrmJobImpNew3 frm = new FrmJobImpNew3(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "Import Job Detail");
+        }
         private void MenuExit_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -199,13 +214,7 @@ namespace Xtrim_ERP.gui
             tC1.SelectedTab = tab;
 
         }
-        private void menuImpJobAdd_Click(object sender, EventArgs e)
-        {
-            //FrmJobImpNew2 frm = new FrmJobImpNew2(xC);
-            FrmJobImpNew3 frm = new FrmJobImpNew3(xC);
-            frm.FormBorderStyle = FormBorderStyle.None;
-            AddNewTab(frm, "Import Job Detail");
-        }
+        
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             // ...
