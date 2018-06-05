@@ -219,7 +219,17 @@ namespace Xtrim_ERP.objdb
             cop1 = setIncoTeams(dt);
             return cop1;
         }
-        private IncoTerms setIncoTeams(DataTable dt)
+        public DataTable selectByCodeLike(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select ict.* " +
+                "From " + ict.table + " ict " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where LOWER(ict." + ict.inco_terms_code + ") like '%" + copId.ToLower() + "%' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
+        public IncoTerms setIncoTeams(DataTable dt)
         {
             IncoTerms ett1 = new IncoTerms();
             if (dt.Rows.Count > 0)

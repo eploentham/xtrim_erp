@@ -74,6 +74,14 @@ CHANGE COLUMN `consignmnt_id` `consignmnt_id` INT(11) NULL DEFAULT NULL COMMENT 
 ALTER TABLE `xtrim_erp`.`t_job_import_bl` 
 ADD COLUMN `unit_volume1_id` INT NULL AFTER `consignmnt_id`;
 
+61-06-05
+UPDATE `xtrim_erp`.`b_inco_terms` SET `inco_terms_name_t`='DDP' WHERE `inco_terms_id`='56';
+UPDATE `xtrim_erp`.`b_inco_terms` SET `inco_terms_name_t`='DDU' WHERE `inco_terms_id`='57';
+UPDATE `xtrim_erp`.`b_inco_terms` SET `inco_terms_name_t`='EX-WORK' WHERE `inco_terms_id`='58';
+UPDATE `xtrim_erp`.`b_inco_terms` SET `inco_terms_name_t`='FCA' WHERE `inco_terms_id`='59';
+UPDATE `xtrim_erp`.`b_inco_terms` SET `inco_terms_name_t`='FOB' WHERE `inco_terms_id`='60';
+
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GenCSharpModel1`(in pTableName VARCHAR(255) )
 BEGIN
 DECLARE vClassName varchar(255);

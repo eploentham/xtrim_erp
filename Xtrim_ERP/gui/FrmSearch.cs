@@ -34,7 +34,9 @@ namespace Xtrim_ERP.object1
             Staff,
             Consignmnt,
             EntryType1,
-            PortImport
+            PortImport,
+            IncoTerm,
+            TermPayment
         };
         Search flag;
         //private CellStyle _style;
@@ -186,6 +188,14 @@ namespace Xtrim_ERP.object1
             {
                 grdFlex.DataSource = xC.xtDB.ptiDB.selectAll();
             }
+            else if (flag == Search.IncoTerm)
+            {
+                grdFlex.DataSource = xC.xtDB.ictDB.selectAll();
+            }
+            else if (flag == Search.TermPayment)
+            {
+                grdFlex.DataSource = xC.xtDB.tpmDB.selectAll();
+            }
             grdFlex.Cols[colID].Width = 60;
             grdFlex.Cols[colNameT].Width = 20;
             //grdFlex.ShowCursor = true;
@@ -299,6 +309,16 @@ namespace Xtrim_ERP.object1
                 {
                     xC.sCot = new Country();
                     xC.sPti = xC.xtDB.ptiDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
+                }
+                else if (flag == Search.IncoTerm)
+                {
+                    xC.sIct = new IncoTerms();
+                    xC.sIct = xC.xtDB.ictDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
+                }
+                else if (flag == Search.TermPayment)
+                {
+                    xC.sTpm = new TermPayment();
+                    xC.sTpm = xC.xtDB.tpmDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
                 }
                 Close();
                 return true;

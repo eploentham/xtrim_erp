@@ -28,7 +28,7 @@ namespace Xtrim_ERP.gui
         C1FlexGrid grfInv, grfPkg, grfGw, grfContain, grfRemark;
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
-        String cusId = "", impId="", fwdId="", polId="", ptiId="", stfId="", cstId="", ettId="", pvlId="";
+        String cusId = "", impId="", fwdId="", polId="", ptiId="", stfId="", cstId="", ettId="", pvlId="", ictId="";
         int colJobInvId = 1, colJobInvNo = 2, colJobInvDate = 3, colJobInvCons = 4, colJobInvIncoTerm = 5, colJobInvTermPayment = 6, colJobInvAmt = 7, colJobInvCurr = 8;
 
         int colMarskId = 1, colMarskDesc = 2;
@@ -52,6 +52,7 @@ namespace Xtrim_ERP.gui
             theme1.Theme = C1ThemeController.ApplicationTheme;
             theme1.SetTheme(sB, "BeigeOne");
             theme1.SetTheme(tC2, "VS2013Light");
+            theme1.SetTheme(panel8, "VS2013Light");
             btnJobSearch.Click += BtnJobSearch_Click;
             btnSave.Click += BtnSave_Click;
             txtCusNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
@@ -64,6 +65,9 @@ namespace Xtrim_ERP.gui
             txtPvlNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtEttNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtJobCode.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtIctNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtTpmNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+
             txtPkg1.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
             txtPkg2.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
             txtPkg3.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
@@ -159,7 +163,7 @@ namespace Xtrim_ERP.gui
             grfInv.Cols[colJobInvAmt].Caption = "amount";
             grfInv.Cols[colJobInvCurr].Caption = "currency";
 
-            panel8.Controls.Add(grfInv);
+            panel7.Controls.Add(grfInv);
             grfInv.Rows.Count = 2;
             grfInv.Cols.Count = 3;
             grfInv.Cols[colMarskDesc].Width = 200;
@@ -198,7 +202,6 @@ namespace Xtrim_ERP.gui
             //menuRemark.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Remark_Cancel));
             //grfRemark.ContextMenu = menuRemark;
         }
-
         private void initGrfContain()
         {
             grfContain = new C1FlexGrid();
@@ -569,7 +572,36 @@ namespace Xtrim_ERP.gui
         {
             txtEttNameT.Value = ett.entry_type_name_t;
             ettId = ett.entry_type_id;
-            
+        }
+        private void setKeyUpF2Ict()
+        {
+            Point pp = txtIctNameT.Location;
+            pp.Y = pp.Y + 120;
+            pp.X = pp.X - 20;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.IncoTerm, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2Ict1(xC.sIct);
+        }
+        private void setKeyUpF2Ict1(IncoTerms ict)
+        {
+            txtIctNameT.Value = ict.inco_terms_name_t;
+            ictId = ict.inco_terms_id;
+        }
+        private void setKeyUpF2Tpm()
+        {
+            Point pp = txtTpmNameT.Location;
+            pp.Y = pp.Y + 120;
+            pp.X = pp.X - 20;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.TermPayment, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2Tpm1(xC.sTpm);
+        }
+        private void setKeyUpF2Tpm1(TermPayment tpm)
+        {
+            txtTpmNameT.Value = tpm.term_payment_name_t;
+            ictId = tpm.term_payment_id;
         }
 
         private void setFeyEnterPol()
@@ -737,6 +769,44 @@ namespace Xtrim_ERP.gui
                 //MessageBox.Show("1111", "11");
             }
         }
+        private void setKeyEnterIct()
+        {
+            if (txtIctNameT.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.ictDB.selectByCodeLike(txtIctNameT.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sIct = new IncoTerms();
+                    xC.sIct = xC.xtDB.ictDB.setIncoTeams(dt);
+                    setKeyUpF2Ict1(xC.sIct);
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2Ict();
+                }
+                //MessageBox.Show("1111", "11");
+            }
+        }
+        private void setKeyEnterTpm()
+        {
+            if (txtTpmNameT.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.tpmDB.selectByCodeLike(txtTpmNameT.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sTpm = new TermPayment();
+                    xC.sTpm = xC.xtDB.tpmDB.setTermPayment(dt);
+                    setKeyUpF2Tpm1(xC.sTpm);
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2Tpm();
+                }
+                //MessageBox.Show("1111", "11");
+            }
+        }
         private void TxtPkg1_KeyUp(object sender, KeyEventArgs e)
         {
             //throw new NotImplementedException();
@@ -792,6 +862,14 @@ namespace Xtrim_ERP.gui
                 {
                     setKeyUpF2Pti();
                 }
+                else if (sender.Equals(txtIctNameT))
+                {
+                    setKeyUpF2Ict();
+                }
+                else if (sender.Equals(txtTpmNameT))
+                {
+                    setKeyUpF2Tpm();
+                }
             }
             else if (e.KeyCode == Keys.Enter)
             {
@@ -835,6 +913,14 @@ namespace Xtrim_ERP.gui
                 {
                     xC.jobID = xC.xtDB.jimDB.selectByJobCode1(txtJobCode.Text);
                     setControl();
+                }
+                else if (sender.Equals(txtIctNameT))
+                {
+                    setKeyEnterIct();
+                }
+                else if (sender.Equals(txtTpmNameT))
+                {
+                    setKeyEnterTpm();
                 }
             }
         }

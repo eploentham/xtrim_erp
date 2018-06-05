@@ -189,10 +189,10 @@ namespace Xtrim_ERP.objdb
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
-            String sql = "select ett.*  " +
-                "From " + tpm.table + " ett " +
+            String sql = "select tpm.*  " +
+                "From " + tpm.table + " tpm " +
                 " " +
-                "Where ett." + tpm.active + " ='1' ";
+                "Where tpm." + tpm.active + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -200,10 +200,10 @@ namespace Xtrim_ERP.objdb
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select ett.* " +
-                "From " + tpm.table + " ett " +
+            String sql = "select tpm.* " +
+                "From " + tpm.table + " tpm " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where ett." + tpm.pkField + " ='" + copId + "' ";
+                "Where tpm." + tpm.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -211,15 +211,25 @@ namespace Xtrim_ERP.objdb
         {
             TermPayment cop1 = new TermPayment();
             DataTable dt = new DataTable();
-            String sql = "select ett.* " +
-                "From " + tpm.table + " ett " +
+            String sql = "select tpm.* " +
+                "From " + tpm.table + " tpm " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where ett." + tpm.pkField + " ='" + copId + "' ";
+                "Where tpm." + tpm.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setTermPayment(dt);
             return cop1;
         }
-        private TermPayment setTermPayment(DataTable dt)
+        public DataTable selectByCodeLike(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select tpm.* " +
+                "From " + tpm.table + " tpm " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where LOWER(tpm." + tpm.term_payment_code + ") like '%" + copId.ToLower() + "%' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
+        public TermPayment setTermPayment(DataTable dt)
         {
             TermPayment ett1 = new TermPayment();
             if (dt.Rows.Count > 0)
