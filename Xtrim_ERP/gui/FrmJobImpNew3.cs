@@ -1073,7 +1073,7 @@ namespace Xtrim_ERP.gui
             if (!txtJobDate.Text.Equals(""))
             {
                 DateTime jobDate = (DateTime)txtJobDate.Value;
-                jim.job_date = jobDate.ToString("yyyy-MM-dd");
+                jim.job_date = jobDate.Year.ToString()+"-"+ jobDate.ToString("MM-dd");
             }
             else
             {
@@ -1103,12 +1103,13 @@ namespace Xtrim_ERP.gui
             Boolean chk = false;
             jbl = new JobImportBl();
             jbl.job_import_bl_id = "";
-            jbl.job_import_id = txtID.Text;
+            
             if (txtID.Text.Length > 0)
             {
                 jbl = xC.xtDB.jblDB.selectByJobId(txtID.Text);
             }
-            
+            if(jbl.job_import_bl_id==null) jbl.job_import_bl_id = "";
+            jbl.job_import_id = txtID.Text;
             //jbl.job_import_id = "job_import_id";
             jbl.forwarder_id = fwdId;
             jbl.mbl_mawb = txtMbl.Text;
@@ -1118,7 +1119,7 @@ namespace Xtrim_ERP.gui
             if (!txtEtd.Text.Equals(""))
             {
                 DateTime etd = (DateTime)txtEtd.Value;
-                jbl.etd = etd.ToString("yyyy-MM-dd");
+                jbl.etd = etd.Year.ToString() + "-" + etd.ToString("MM-dd");
             }
             else
             {
@@ -1127,7 +1128,7 @@ namespace Xtrim_ERP.gui
             if (!txtEta.Text.Equals(""))
             {
                 DateTime eta = (DateTime)txtEta.Value;
-                jbl.eta = eta.ToString("yyyy-MM-dd");
+                jbl.eta = eta.Year.ToString() + "-" + eta.ToString("MM-dd");
             }
             else
             {
