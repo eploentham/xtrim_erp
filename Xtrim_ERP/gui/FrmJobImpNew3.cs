@@ -94,8 +94,7 @@ namespace Xtrim_ERP.gui
             xC.xtDB.utpDB.setC1CboUtp(cboUtp3, "");
             xC.xtDB.utpDB.setC1CboUtp(cboUtp4, "");
             xC.xtDB.utpDB.setC1CboUtp(cboUtp5, "");
-
-            
+                        
             //initGrfMarsk();
             //initGrfRemark();
             //initGrfContain();
