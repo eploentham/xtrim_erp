@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace Xtrim_ERP.gui
         XtrimControl xC;
         JobImport jim;
         JobImportBl jbl;
+        JobImportInv jin;
         Font fEdit, fEditB;
         Color bg, fc, cgrfOld;
         Font ff, ffB;
@@ -36,6 +38,13 @@ namespace Xtrim_ERP.gui
         int colContainId = 1, colContainQty = 2, colContainContainId = 3;
         int colGwId = 1, colGwQty = 2, colGwGwId = 3;
         int colPKGId = 1, colPKGQty = 2, colPKGPkgId = 3;
+
+        public enum BodyType
+        {
+            PlainText,
+            RTF,
+            HTML
+        }
 
         public FrmJobImpNew3(XtrimControl x)
         {
@@ -55,6 +64,11 @@ namespace Xtrim_ERP.gui
             theme1.SetTheme(panel8, "VS2013Light");
             btnJobSearch.Click += BtnJobSearch_Click;
             btnSave.Click += BtnSave_Click;
+            btnInvNew.Click += BtnInvNew_Click;
+            btnInvSave.Click += BtnInvSave_Click;
+            btnEmail.Click += BtnEmail_Click;
+            btnSend.Click += BtnSend_Click;
+
             txtCusNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtImpNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtFwdNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
@@ -67,6 +81,8 @@ namespace Xtrim_ERP.gui
             txtJobCode.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtIctNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtTpmNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtCurrCode.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtInsrNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
 
             txtPkg1.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
             txtPkg2.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
@@ -141,9 +157,12 @@ namespace Xtrim_ERP.gui
         private void initGrfInv()
         {
             grfInv = new C1FlexGrid();
+            panel7.Controls.Add(grfInv);
             grfInv.Dock = DockStyle.Fill;
             TextBox txt = new TextBox();
-
+            //DataTable dt = new DataTable();
+            //dt = xC.xtDB.jinDB.selectByJobId1(txtID.Text);
+            grfInv.DataSource = xC.xtDB.jinDB.selectByJobId1(txtID.Text);
             grfInv.Cols[colJobInvId].Editor = txt;
             grfInv.Cols[colJobInvNo].Editor = txt;
             grfInv.Cols[colJobInvDate].Editor = txt;
@@ -152,6 +171,8 @@ namespace Xtrim_ERP.gui
             grfInv.Cols[colJobInvTermPayment].Editor = txt;
             grfInv.Cols[colJobInvAmt].Editor = txt;
             grfInv.Cols[colJobInvCurr].Editor = txt;
+
+            
 
             grfInv.Cols[colJobInvId].Caption = "id";
             grfInv.Cols[colJobInvNo].Caption = "Invoice no";
@@ -162,11 +183,12 @@ namespace Xtrim_ERP.gui
             grfInv.Cols[colJobInvAmt].Caption = "amount";
             grfInv.Cols[colJobInvCurr].Caption = "currency";
 
-            panel7.Controls.Add(grfInv);
-            grfInv.Rows.Count = 2;
-            grfInv.Cols.Count = 3;
+            
+            //grfInv.Rows.Count = 2;
+            //grfInv.Cols.Count = 3;
             grfInv.Cols[colMarskDesc].Width = 200;
-            grfInv.Cols[colMarskId].Visible = false;
+            grfInv.Cols[colJobInvDate].Width = 100;
+            grfInv.Cols[colJobInvId].Visible = false;
 
             grfInv.CellChanged += GrfMarsk_CellChanged;
 
@@ -430,6 +452,55 @@ namespace Xtrim_ERP.gui
                 //this.Dispose();
             }
         }
+        private void BtnInvSave_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (txtID.Text.Equals(""))
+            {
+                MessageBox.Show("ข้อมูล job ยังไม่มีข้อมูล","");
+                return;
+            }
+            if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                setInvoice();
+
+                String re = xC.xtDB.jinDB.insertJobImportInv(jin);
+                int chk = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    btnSave.Image = Resources.accept_database24;
+                }
+                else
+                {
+                    btnSave.Image = Resources.DeleteTable_small;
+                }
+                //setGrdView();
+                //this.Dispose();
+            }
+        }
+        private void BtnSend_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            sendEmailViaOutlook("eploentham@xtrim-logistics.com", txtTo.Text, "", txtSubject.Text, txtBody.Text, BodyType.HTML, null, null);
+        }
+        private void BtnEmail_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            Company com = new Company();
+            com = xC.xtDB.copDB.selectByPk1("1020000001");
+            Customer insr = new Customer();
+            //cus = xC.xtDB.cusDB.selectByPk1(txtID.Text);
+            insr = xC.xtDB.cusDB.selectInsurByPk1(cusId);
+            Contact c = new Contact();
+            c = xC.xtDB.contDB.selectByCusId1(insr.cust_id);
+            txtTo.Text = c.email;
+            txtSubject.Text = "จาก "+com.comp_name_t+" เรียน คุณ "+c.cont_fname_t + " "+c.cont_lname_t ;
+        }
+        private void BtnInvNew_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            setControlInvNew();
+        }
         private void setKeyUpF2Cus()
         {
             Point pp = txtCusNameT.Location;
@@ -514,11 +585,12 @@ namespace Xtrim_ERP.gui
         }
         private void setKeyUpF2Cot()
         {
+            // Consignmnt = country
             Point pp = txtConsignmnt.Location;
             pp.Y = pp.Y + 120;
             pp.X = pp.X - 20;
 
-            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Consignmnt, pp);
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Country, pp);
             frm.ShowDialog(this);
             setKeyUpF2Cot1(xC.sCot);
         }
@@ -601,6 +673,35 @@ namespace Xtrim_ERP.gui
         {
             txtTpmNameT.Value = tpm.term_payment_name_t;
             ictId = tpm.term_payment_id;
+        }
+        private void setKeyUpF2Curr()
+        {
+            Point pp = txtCurrCode.Location;
+            pp.Y = pp.Y + 120;
+            pp.X = pp.X - 20;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Currency, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2Curr1(xC.sCurr);
+        }
+        private void setKeyUpF2Curr1(Currency curr)
+        {
+            txtCurrCode.Value = curr.curr_code;
+            //ictId = curr.term_payment_id;
+        }
+        private void setKeyUpF2Insr()
+        {
+            Point pp = txtInsrNameT.Location;
+            pp.Y = pp.Y + 120;
+            pp.X = pp.X - 20;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Insurance, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2Insr1(xC.sInsr);
+        }
+        private void setKeyUpF2Insr1(Customer insr)
+        {
+            txtInsrNameT.Value = insr.cust_name_t;
         }
 
         private void setFeyEnterPol()
@@ -806,6 +907,44 @@ namespace Xtrim_ERP.gui
                 //MessageBox.Show("1111", "11");
             }
         }
+        private void setKeyEnterCurr()
+        {
+            if (txtCurrCode.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.currDB.selectByCodeLike(txtCurrCode.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sCurr = new Currency();
+                    xC.sCurr = xC.xtDB.currDB.setCurr(dt);
+                    setKeyUpF2Curr1(xC.sCurr);
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2Curr();
+                }
+                //MessageBox.Show("1111", "11");
+            }
+        }
+        private void setKeyEnterInsr()
+        {
+            if (txtInsrNameT.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.cusDB.selectInsrIdByCodeLike(txtInsrNameT.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sInsr = new Customer();
+                    xC.sInsr = xC.xtDB.cusDB.setCustomer(dt);
+                    setKeyUpF2Curr1(xC.sCurr);
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2Insr();
+                }
+                //MessageBox.Show("1111", "11");
+            }
+        }
         private void TxtPkg1_KeyUp(object sender, KeyEventArgs e)
         {
             //throw new NotImplementedException();
@@ -869,6 +1008,14 @@ namespace Xtrim_ERP.gui
                 {
                     setKeyUpF2Tpm();
                 }
+                else if (sender.Equals(txtCurrCode))
+                {
+                    setKeyUpF2Curr();
+                }
+                else if (sender.Equals(txtInsrNameT))
+                {
+                    setKeyUpF2Insr();
+                }
             }
             else if (e.KeyCode == Keys.Enter)
             {
@@ -910,8 +1057,12 @@ namespace Xtrim_ERP.gui
                 }
                 else if (sender.Equals(txtJobCode))
                 {
+                    
+                    txtJobCode.Text = txtJobCode.Text.Replace(xC.FixJobCode, "");
+                    
                     xC.jobID = xC.xtDB.jimDB.selectByJobCode1(txtJobCode.Text);
                     setControl();
+                    initGrfInv();
                 }
                 else if (sender.Equals(txtIctNameT))
                 {
@@ -920,6 +1071,14 @@ namespace Xtrim_ERP.gui
                 else if (sender.Equals(txtTpmNameT))
                 {
                     setKeyEnterTpm();
+                }
+                else if (sender.Equals(txtCurrCode))
+                {
+                    setKeyEnterCurr();
+                }
+                else if (sender.Equals(txtInsrNameT))
+                {
+                    setKeyEnterCurr();
                 }
             }
         }
@@ -1004,9 +1163,9 @@ namespace Xtrim_ERP.gui
             xC.setC1Combo(cboUtp4, jbl.unit_package4_id);
             xC.setC1Combo(cboUtp5, jbl.unit_package5_id);
             txtGw.Value = jbl.gw;
-            txtGwTotal.Value = jbl.gw_total;
+            //txtGwTotal.Value = jbl.gw_total;
             txtVolume.Value = jbl.volume1;
-            txtGwTotal.Value = jbl.gw_total;
+            //txtGwTotal.Value = jbl.gw_total;
             xC.setC1Combo(cboUgw, jbl.gw_unit_id);
             xC.setC1Combo(cboVolume, jbl.unit_volume1_id);
             txtMbl.Value = jbl.mbl_mawb;
@@ -1200,7 +1359,7 @@ namespace Xtrim_ERP.gui
             jbl.unit_package3_id = cboUtp3.SelectedItem != null ? ((ComboBoxItem)(cboUtp3.SelectedItem)).Value : "";
             jbl.unit_package4_id = cboUtp4.SelectedItem != null ? ((ComboBoxItem)(cboUtp4.SelectedItem)).Value : "";
             jbl.unit_package5_id = cboUtp5.SelectedItem != null ? ((ComboBoxItem)(cboUtp5.SelectedItem)).Value : "";
-            jbl.gw_total = txtGwTotal.Text;
+            jbl.gw_total = "";
             jbl.container1 = txtContain1.Text;
             jbl.container2 = txtContain2.Text;
             jbl.container3 = txtContain3.Text;
@@ -1218,6 +1377,206 @@ namespace Xtrim_ERP.gui
             jbl.consignmnt_id = cstId;
             return chk;
         }
+        private Boolean setInvoice()
+        {
+            Boolean chk = false;
+            jin = new JobImportInv();
+            jin.job_import_inv_id = txtJinId.Text;
+            jin.job_import_id = txtID.Text;
+            if (!txtInvDate.Text.Equals(""))
+            {
+                DateTime etd = (DateTime)txtInvDate.Value;
+                jin.invoice_date = etd.Year.ToString() + "-" + etd.ToString("MM-dd");
+            }
+            else
+            {
+                jin.invoice_date = "";
+            }
+            String impId = "", ictId="", tmpId="", currId="", insrId="";
+            impId = xC.xtDB.cusDB.selectImpIdByNameTLike1(txtConsNameT.Text);
+            jin.cons_id = impId;       // buyer = cons_id จริงๆ คือ importer
+
+            ictId = xC.xtDB.ictDB.selectByNameTLike(txtIctNameT.Text);
+            jin.inco_terms_id = ictId;
+            tmpId = xC.xtDB.tpmDB.selectByNameTLike(txtTpmNameT.Text);
+            jin.term_pay_id = tmpId;
+
+            jin.amount = txtInvAmt.Text;
+            currId = xC.xtDB.currDB.selectByNameTLike(txtCurrCode.Text);
+            jin.curr_id = currId;
+            insrId = xC.xtDB.cusDB.selectInsrIdByNameTLike1(txtInsrNameT.Text);
+            jin.insr_id = insrId;
+
+            jin.date_create = "";
+            jin.date_modi = "";
+            jin.date_cancel = "";
+            jin.user_create = "";
+            jin.user_modi = "";
+            jin.user_cancel = "";
+            jin.remark = txtInvRemark.Text;
+            jin.active = "";
+            jin.inv_no = txtInvNo.Text;
+
+            jin.suppCode = "";
+            jin.SuppNameT = "";
+            jin.ictCode = "";
+            jin.ictNameT = "";
+            jin.currCode = "";
+            jin.currNameT = "";
+            jin.tpmCode = "";
+            jin.tpmNameT = "";
+
+            return chk;
+        }
+        private void setControlInvNew()
+        {
+            //Customer cus = new Customer();
+            Customer insr = new Customer();
+            //cus = xC.xtDB.cusDB.selectByPk1(txtID.Text);
+            insr = xC.xtDB.cusDB.selectInsurByPk1(cusId);
+            txtJinId.Value = "";
+            txtInvDate.Value = DateTime.Now.Year.ToString()+"-"+DateTime.Now.ToString("MM-dd");
+            txtInsrNameT.Value = insr.cust_name_t;
+            txtConsNameT.Value = txtImpNameT.Text;      //buyer จริงๆเป็น importer
+            txtIctNameT.Value = "";
+            txtTpmNameT.Value = "";
+            txtInvAmt.Value = "";
+            txtCurrCode.Value = "";
+            
+        }
+        public static bool sendEmailViaOutlook(string sFromAddress, string sToAddress, string sCc, string sSubject, string sBody, BodyType bodyType, List<string> arrAttachments = null, string sBcc = null)
+        {
+            bool bRes = false;
+            try
+            {
+                //Get Outlook COM objects
+                Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
+                Microsoft.Office.Interop.Outlook.MailItem newMail = (Microsoft.Office.Interop.Outlook.MailItem)app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+
+                //Parse 'sToAddress'
+                if (!string.IsNullOrWhiteSpace(sToAddress))
+                {
+                    string[] arrAddTos = sToAddress.Split(new char[] { ';', ',' });
+                    foreach (string strAddr in arrAddTos)
+                    {
+                        if (!string.IsNullOrWhiteSpace(strAddr) &&
+                            strAddr.IndexOf('@') != -1)
+                        {
+                            newMail.Recipients.Add(strAddr.Trim());
+                        }
+                        else
+                            throw new Exception("Bad to-address: " + sToAddress);
+                    }
+                }
+                else
+                    throw new Exception("Must specify to-address");
+
+                //Parse 'sCc'
+                if (!string.IsNullOrWhiteSpace(sCc))
+                {
+                    string[] arrAddTos = sCc.Split(new char[] { ';', ',' });
+                    foreach (string strAddr in arrAddTos)
+                    {
+                        if (!string.IsNullOrWhiteSpace(strAddr) &&
+                            strAddr.IndexOf('@') != -1)
+                        {
+                            newMail.Recipients.Add(strAddr.Trim());
+                        }
+                        else
+                            throw new Exception("Bad CC-address: " + sCc);
+                    }
+                }
+
+                //Is BCC empty?
+                if (!string.IsNullOrWhiteSpace(sBcc))
+                {
+                    newMail.BCC = sBcc.Trim();
+                }
+
+                //Resolve all recepients
+                if (!newMail.Recipients.ResolveAll())
+                {
+                    throw new Exception("Failed to resolve all recipients: " + sToAddress + ";" + sCc);
+                }
+
+
+                //Set type of message
+                switch (bodyType)
+                {
+                    case BodyType.HTML:
+                        newMail.HTMLBody = sBody;
+                        break;
+                    case BodyType.RTF:
+                        newMail.RTFBody = sBody;
+                        break;
+                    case BodyType.PlainText:
+                        newMail.Body = sBody;
+                        break;
+                    default:
+                        throw new Exception("Bad email body type: " + bodyType);
+                }
+
+
+                if (arrAttachments != null)
+                {
+                    //Add attachments
+                    foreach (string strPath in arrAttachments)
+                    {
+                        if (File.Exists(strPath))
+                        {
+                            newMail.Attachments.Add(strPath);
+                        }
+                        else
+                            throw new Exception("Attachment file is not found: \"" + strPath + "\"");
+                    }
+                }
+
+                //Add subject
+                if (!string.IsNullOrWhiteSpace(sSubject))
+                    newMail.Subject = sSubject;
+
+                Microsoft.Office.Interop.Outlook.Accounts accounts = app.Session.Accounts;
+                Microsoft.Office.Interop.Outlook.Account acc = null;
+
+                //Look for our account in the Outlook
+                foreach (Microsoft.Office.Interop.Outlook.Account account in accounts)
+                {
+                    if (account.SmtpAddress.Equals(sFromAddress, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        //Use it
+                        acc = account;
+                        break;
+                    }
+                }
+
+                //Did we get the account
+                if (acc != null)
+                {
+                    //Use this account to send the e-mail. 
+                    newMail.SendUsingAccount = acc;
+
+                    //And send it
+
+                    ((Microsoft.Office.Interop.Outlook._MailItem)newMail).Display();
+                    //((Microsoft.Office.Interop.Outlook._MailItem)newMail).Send();
+
+                    //Done
+                    bRes = true;
+                }
+                else
+                {
+                    throw new Exception("Account does not exist in Outlook: " + sFromAddress);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: Failed to send mail: " + ex.Message);
+            }
+
+            return bRes;
+        }
+
+
         private void FrmJobImpNew3_Load(object sender, EventArgs e)
         {
 

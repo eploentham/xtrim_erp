@@ -25,6 +25,7 @@ namespace Xtrim_ERP.gui
         XtrimControl xC;
         //FpSpread grdView;
         C1FlexGrid grfCus, grfAddr, grfCont, grfRmk, grfTax;
+        String insrId = "";
 
         Font fEdit, fEditB;
 
@@ -87,6 +88,7 @@ namespace Xtrim_ERP.gui
             txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
             txtTaxId.KeyPress += TxtTaxId_KeyPress;
             btnChkTaxId.Click += BtnChkTaxId_Click;
+            txtInsrNameT.KeyUp += TxtInsrNameT_KeyUp;
 
             C1ThemeController.ApplicationTheme = xC.iniC.themeApplication;
             theme1.Theme = C1ThemeController.ApplicationTheme;
@@ -126,7 +128,53 @@ namespace Xtrim_ERP.gui
 
             //theme1.SetTheme(sB1, "BeigeOne");
         }
-        
+
+        private void TxtInsrNameT_KeyUp(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (e.KeyCode == Keys.F2)
+            {
+                setKeyUpF2Insr();
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                setKeyEnterInsr();
+            }
+        }
+        private void setKeyUpF2Insr()
+        {
+            Point pp = txtCusNameT.Location;
+            pp.Y = pp.Y + 120 + 20;
+            pp.X = pp.X - 20 + groupBox1.Left;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Insurance, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2Insr1(xC.sInsr);
+        }
+        private void setKeyUpF2Insr1(Customer insr)
+        {
+            txtInsrNameT.Value = insr.cust_name_t;
+            insrId = insr.cust_id;
+        }
+        private void setKeyEnterInsr()
+        {
+            if (txtInsrNameT.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.cusDB.selectByCodeLike(txtInsrNameT.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sInsr = new Customer();
+                    xC.sInsr = xC.xtDB.cusDB.setCustomer(dt);
+                    setKeyUpF2Insr1(xC.sInsr);
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2Insr();
+                }
+                //MessageBox.Show("1111", "11");
+            }
+        }
         private void ContextMenu_Addr_new(object sender, System.EventArgs e)
         {
             if (txtID.Text.Equals(""))
@@ -1033,6 +1081,10 @@ namespace Xtrim_ERP.gui
             if (cusId.Equals("")) return;
             Customer cus = new Customer();
             cus = xC.xtDB.cusDB.selectByPk1(cusId);
+            Customer insr = xC.xtDB.cusDB.selectByPk1(cus.insr_id);
+            insrId = insr.cust_id;
+
+
             txtID.Value = cus.cust_id;
             txtCusCode.Value = cus.cust_code;
             txtCusNameT.Value = cus.cust_name_t;
@@ -1055,6 +1107,7 @@ namespace Xtrim_ERP.gui
             txtContactName2.Value = cus.contact_name2;
             txtContactTel1.Value = cus.contact_name1_tel;
             txtContactTel2.Value = cus.contact_name2_tel;
+            txtInsrNameT.Value = insr.cust_name_t;
             
             chkCus.Checked = cus.status_cust.Equals("1") ? true : false;
             chkImp.Checked = cus.status_imp.Equals("1") ? true : false;
@@ -1214,6 +1267,9 @@ namespace Xtrim_ERP.gui
             cus.status_exp = chkExp.Checked ? "1" : "0";
             cus.status_fwd = chkFwd.Checked ? "1" : "0";
             cus.status_imp = chkImp.Checked ? "1" : "0";
+            cus.status_insr = ChkInsr.Checked ? "1" : "0";
+            //cus.status_cons_imp = chkCons.Checked ? "1" : "0";
+            cus.insr_id = insrId;
 
             String re = xC.xtDB.cusDB.insertCustomer(cus);
             int chk = 0;
@@ -1352,6 +1408,7 @@ namespace Xtrim_ERP.gui
             btnSave.Enabled = flag;
             btnEdit.Enabled = !flagEdit;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
+            txtInsrNameT.Enabled = flag;
         }
         private void grdFlex_LeaveCell(object sender, EventArgs e)
         {

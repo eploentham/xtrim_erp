@@ -26,6 +26,7 @@ namespace Xtrim_ERP.object1
         public String remark { get; set; }
         public String active { get; set; }
         public String inv_no { get; set; }
+        public String insr_id { get; set; }
 
         public String suppCode { get; set; }
         public String SuppNameT { get; set; }

@@ -242,5 +242,10 @@ namespace Xtrim_ERP.gui
         {
             imdDB.ImportPortImport("new");
         }
+
+        private void btnCurr_Click(object sender, EventArgs e)
+        {
+            imdDB.ImportCurrency("new");
+        }
     }
 }

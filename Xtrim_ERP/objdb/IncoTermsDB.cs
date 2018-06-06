@@ -229,6 +229,21 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
+        public String selectByNameTLike(String copId)
+        {
+            DataTable dt = new DataTable();
+            String ictId = "";
+            String sql = "select ict.* " +
+                "From " + ict.table + " ict " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where ict." + ict.inco_terms_name_t + " like '%" + copId.ToLower() + "%' ";
+            dt = conn.selectData(conn.conn, sql);
+            if (dt.Rows.Count == 1)
+            {
+                ictId = dt.Rows[0][ict.inco_terms_id].ToString();
+            }
+            return ictId;
+        }
         public IncoTerms setIncoTeams(DataTable dt)
         {
             IncoTerms ett1 = new IncoTerms();

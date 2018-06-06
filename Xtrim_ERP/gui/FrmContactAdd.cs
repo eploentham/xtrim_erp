@@ -193,6 +193,7 @@ namespace Xtrim_ERP.gui
             cont.work_response = txtWorkResponse.Text;
             cont.mobile = txtMobile.Text;
             cont.table_id = xC.addrID;
+            cont.status_insr_email = chkInsrEmail.Checked ? "1" : "0";
             //ComboBoxItem c = ((ComboBoxItem)cboPrefix.SelectedItem).;
             cont.prefix_id = cboPrefix.SelectedItem == null ? "" :  ((ComboBoxItem)cboPrefix.SelectedItem).Value;
         }

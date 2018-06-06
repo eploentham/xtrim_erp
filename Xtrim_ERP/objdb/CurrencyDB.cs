@@ -189,21 +189,46 @@ namespace Xtrim_ERP.objdb
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
-            String sql = "select ugw.*  " +
-                "From " + curr.table + " ugw " +
+            String sql = "select curr.*  " +
+                "From " + curr.table + " curr " +
                 " " +
-                "Where ugw." + curr.active + " ='1' ";
+                "Where curr." + curr.active + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
         }
+        public DataTable selectByCodeLike(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select curr.* " +
+                "From " + curr.table + " curr " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where LOWER(curr." + curr.curr_code + ") like '%" + copId.ToLower() + "%' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
+        public String selectByNameTLike(String copId)
+        {
+            String currId = "";
+            DataTable dt = new DataTable();
+            String sql = "select curr.* " +
+                "From " + curr.table + " curr " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where curr." + curr.curr_name_t + " like '%" + copId.ToLower() + "%' ";
+            dt = conn.selectData(conn.conn, sql);
+            if (dt.Rows.Count == 1)
+            {
+                currId = dt.Rows[0][curr.curr_id].ToString();
+            }
+            return currId;
+        }
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select ugw.* " +
-                "From " + curr.table + " ugw " +
+            String sql = "select curr.* " +
+                "From " + curr.table + " curr " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where ugw." + curr.pkField + " ='" + copId + "' ";
+                "Where curr." + curr.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -211,15 +236,15 @@ namespace Xtrim_ERP.objdb
         {
             Currency cop1 = new Currency();
             DataTable dt = new DataTable();
-            String sql = "select ugw.* " +
-                "From " + curr.table + " ugw " +
+            String sql = "select curr.* " +
+                "From " + curr.table + " curr " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where ugw." + curr.pkField + " ='" + copId + "' ";
+                "Where curr." + curr.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setCurr(dt);
             return cop1;
         }
-        private Currency setCurr(DataTable dt)
+        public Currency setCurr(DataTable dt)
         {
             Currency curr1 = new Currency();
             if (dt.Rows.Count > 0)

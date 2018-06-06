@@ -193,7 +193,7 @@ namespace Xtrim_ERP.gui
                     pp.Y = pp.Y + 120;
                     pp.X = pp.X - 20;
 
-                    FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Consignmnt, pp);
+                    FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Country, pp);
                     frm.ShowDialog(this);
                     txtConsignmnt.Value = xC.sCot.cou_name;
                 }

@@ -86,6 +86,7 @@ namespace Xtrim_ERP.objdb
             cus.web_site1 = "web_site1";
             cus.web_site2 = "web_site2";
             cus.web_site3 = "web_site3";
+            cus.insr_id = "insr_id";
 
             cus.table = "b_customer";
             cus.pkField = "cust_id";
@@ -232,6 +233,8 @@ namespace Xtrim_ERP.objdb
             p.web_site3 = p.web_site3 == null ? "" : p.web_site3;
 
             p.sort1 = p.sort1 == null ? "" : p.sort1;
+
+            p.insr_id = int.TryParse(p.insr_id, out chk) ? chk.ToString() : "0";
         }
         public String insert(Customer p)
         {
@@ -259,7 +262,7 @@ namespace Xtrim_ERP.objdb
                 cus.status_fwd + ", " + cus.status_imp + ", " + cus.sort1 + ", " +
                 cus.status_cons_imp + ", " + cus.status_cons_exp + ", " + cus.status_insr + ", " +
                 cus.status_supp + ", " + cus.web_site1 + ", " + cus.web_site2 + ", " +
-                cus.web_site3 + " " +
+                cus.web_site3 + "," + cus.insr_id + " " +
                 ") " +
                 "Values ('" + p.cust_code.Replace("'", "''") + "','" + p.cust_name_t.Replace("'", "''") + "','" + p.cust_name_e.Replace("'", "''") + "'," +
                 "'" + p.active + "','" + p.address_t.Replace("'", "''") + "','" + p.address_e.Replace("'", "''") + "'," +
@@ -278,7 +281,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.status_fwd.Replace("'", "''") + "','" + p.status_imp.Replace("'", "''") + "','"+ p.sort1.Replace("'", "''") + "', " +
                 "'" + p.status_cons_imp.Replace("'", "''") + "','" + p.status_cons_exp.Replace("'", "''") + "','"+ p.status_insr.Replace("'", "''") + "', " +
                 "'" + p.status_supp.Replace("'", "''") + "','" + p.status_supp.Replace("'", "''") + "','" + p.status_supp.Replace("'", "''") + "', " +
-                "'" + p.status_supp.Replace("'", "''") + "' " +
+                "'" + p.status_supp.Replace("'", "''") + "',' " + p.insr_id + "' " +
                ")";
             try
             {
@@ -345,7 +348,7 @@ namespace Xtrim_ERP.objdb
                 "," + cus.web_site1 + " = '" + p.web_site1 + "' " +
                 "," + cus.web_site2 + " = '" + p.web_site2 + "' " +
                 "," + cus.web_site3 + " = '" + p.web_site3 + "' " +
-                //"," + cus.user_modi + " = '" + p.user_modi + "' " +
+                "," + cus.insr_id + " = '" + p.insr_id + "' " +
                 "Where " + cus.pkField + "='" + p.cust_id + "'";
 
             try
@@ -433,6 +436,17 @@ namespace Xtrim_ERP.objdb
                 "From " + cus.table + " cop " +
                 " " +
                 "Where cop." + cus.active + " ='1' and cop." + cus.status_imp + "='1'";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectInsrAll()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cop.cust_id, cop.cust_code, cop.cust_name_t, cop.taddr1, cop.tele, cop.email, cop.remark, cop.remark2, cop.contact_name1, cop.contact_name2 " +
+                "From " + cus.table + " cop " +
+                " " +
+                "Where cop." + cus.active + " ='1' and cop." + cus.status_insr + "='1'";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -527,6 +541,48 @@ namespace Xtrim_ERP.objdb
             }
             return cusId;
         }
+        public String selectImpIdByNameTLike1(String copId)
+        {
+            DataTable dt = new DataTable();
+            String cusId = "";
+            String sql = "select cus.* " +
+                "From " + cus.table + " cus " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where cus." + cus.cust_name_t + " like '" + copId.Trim() + "%' and " + cus.status_imp + "='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            if (dt.Rows.Count == 1)
+            {
+                cusId = dt.Rows[0][cus.cust_id].ToString();
+            }
+            return cusId;
+        }
+        public String selectInsrIdByNameTLike1(String copId)
+        {
+            DataTable dt = new DataTable();
+            String cusId = "";
+            String sql = "select cus.* " +
+                "From " + cus.table + " cus " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where cus." + cus.cust_name_t + " like '" + copId.Trim() + "%' and " + cus.status_insr + "='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            if (dt.Rows.Count == 1)
+            {
+                cusId = dt.Rows[0][cus.cust_id].ToString();
+            }
+            return cusId;
+        }
+        public DataTable selectInsrIdByCodeLike(String copId)
+        {
+            DataTable dt = new DataTable();
+            String cusId = "";
+            String sql = "select cus.* " +
+                "From " + cus.table + " cus " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where LOWER(cus." + cus.cust_code + ") like '" + copId.ToLower() + "%' and " + cus.status_insr + "='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            
+            return dt;
+        }
         public DataTable selectFwsIdByCodeLike(String copId)
         {
             DataTable dt = new DataTable();
@@ -557,6 +613,18 @@ namespace Xtrim_ERP.objdb
                 "From " + cus.table + " cus " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where cus." + cus.pkField + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            cop1 = setCustomer(dt);
+            return cop1;
+        }
+        public Customer selectInsurByPk1(String copId)
+        {
+            Customer cop1 = new Customer();
+            DataTable dt = new DataTable();
+            String sql = "select cus.* " +
+                "From " + cus.table + " cus " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where cus." + cus.cust_id + " in ( select "+cus.insr_id+" from "+cus.table+" Where "+cus.pkField+" ='" + copId + "')  and status_insr = '1' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setCustomer(dt);
             return cop1;
@@ -629,6 +697,7 @@ namespace Xtrim_ERP.objdb
                 cus1.web_site1 = dt.Rows[0][cus.web_site1].ToString();
                 cus1.web_site2 = dt.Rows[0][cus.web_site2].ToString();
                 cus1.web_site3 = dt.Rows[0][cus.web_site3].ToString();
+                cus1.insr_id = dt.Rows[0][cus.insr_id].ToString();
             }
 
             return cus1;

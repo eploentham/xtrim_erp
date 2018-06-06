@@ -48,6 +48,7 @@ namespace Xtrim_ERP.objdb
             jin.currNameT = "curr_name_t";
             jin.tpmCode = "";
             jin.tpmNameT = "";
+            jin.insr_id = "insr_id";
 
             jin.table = "t_job_import_inv";
             jin.pkField = "job_import_inv_id";
@@ -71,6 +72,7 @@ namespace Xtrim_ERP.objdb
             p.curr_id = int.TryParse(p.curr_id, out chk) ? chk.ToString() : "0";
             p.cons_id = int.TryParse(p.cons_id, out chk) ? chk.ToString() : "0";
             p.job_import_id = int.TryParse(p.job_import_id, out chk) ? chk.ToString() : "0";
+            p.insr_id = int.TryParse(p.insr_id, out chk) ? chk.ToString() : "0";
             p.amount = Decimal.TryParse(p.amount, out chk1) ? chk1.ToString() : "0";
 
             sql = "Insert Into " + jin.table + "(" + jin.job_import_id + "," + jin.invoice_date + "," + jin.cons_id + "," +
@@ -78,19 +80,20 @@ namespace Xtrim_ERP.objdb
                 jin.user_create + "," + jin.user_modi + "," + jin.user_cancel + "," +
                 jin.active + "," + jin.remark + ", " + jin.curr_id + ", " +
                 jin.amount + "," + jin.term_pay_id + ", " + jin.inco_terms_id + ", " +
-                jin.inv_no + " " +
+                jin.inv_no + "," + jin.insr_id + " " +
                 ") " +
                 "Values ('" + p.job_import_id + "','" + p.invoice_date + "','" + p.cons_id + "'," +
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.curr_id + "'," +
                 "'" + p.amount + "','" + p.term_pay_id + "','" + p.inco_terms_id + "', " + 
-                "'" + p.inv_no.Replace("'", "''") + "' " +
+                "'" + p.inv_no.Replace("'", "''") + "','" + p.insr_id + "' " +
                 ")";
             try
             {
                 re = conn.ExecuteNonQuery(conn.conn, sql);
             }
+
             catch (Exception ex)
             {
                 sql = ex.Message + " " + ex.InnerException;
@@ -122,6 +125,7 @@ namespace Xtrim_ERP.objdb
                 "," + jin.term_pay_id + " = '" + p.term_pay_id + "' " +
                 "," + jin.inco_terms_id + " = '" + p.inco_terms_id + "' " +
                 "," + jin.inv_no + " = '" + p.inv_no.Replace("'", "''") + "' " +
+                "," + jin.insr_id + " = '" + p.insr_id + "' " +
                 "Where " + jin.pkField + "='" + p.job_import_inv_id + "'"
                 ;
 
@@ -189,6 +193,25 @@ namespace Xtrim_ERP.objdb
             //cop1 = setJobImportInv(dt);
             return dt;
         }
+        public DataTable selectByJobId1(String jobid)
+        {
+            //JobImportInv cop1 = new JobImportInv();
+            DataTable dt = new DataTable();
+            String sql = "select jin."+jin.job_import_inv_id+ ",jin." + jin.inv_no+ ",jin." + jin.invoice_date+" " +
+                ", IFNULL(cons.cust_code, '') as supp_code, IFNULL(cons.cust_name_t, '') as supp_name_t " +
+                ", IFNULL(ict.inco_terms_code, '') as inco_terms_code, IFNULL(ict.inco_terms_name_t, '') as inco_terms_name_t " +
+                ", IFNULL(tpm.term_payment_code, '') as term_payment_code, IFNULL(tpm.term_payment_name_t, '') as term_payment_name_t " +
+                ", IFNULL(curr.curr_code, '') as curr_code, IFNULL(curr.curr_name_t, '') as curr_name_t " +
+                "From " + jin.table + " jin " +
+                "Left Join b_customer cons On jin.cons_id = cons.cust_id " +
+                "Left Join b_inco_terms ict On jin.inco_terms_id = ict.inco_terms_id " +
+                "Left Join b_term_payment tpm On jin.term_payment_id = tpm.term_payment_id " +
+                "Left Join b_currency curr On jin.curr_id = curr.curr_id " +
+                "Where jin." + jin.job_import_id + " ='" + jobid + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            //cop1 = setJobImportInv(dt);
+            return dt;
+        }
         public DataTable selectByPk(String invId)
         {
             DataTable dt = new DataTable();
@@ -240,6 +263,7 @@ namespace Xtrim_ERP.objdb
                 jin1.remark = dt.Rows[0][jin.remark].ToString();
                 jin1.active = dt.Rows[0][jin.active].ToString();
                 jin1.inv_no = dt.Rows[0][jin.inv_no].ToString();
+                jin1.insr_id = dt.Rows[0][jin.insr_id].ToString();
 
                 jin1.suppCode = dt.Rows[0]["supp_code"].ToString();
                 jin1.SuppNameT = dt.Rows[0]["supp_name_t"].ToString();

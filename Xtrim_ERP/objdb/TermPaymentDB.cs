@@ -219,6 +219,21 @@ namespace Xtrim_ERP.objdb
             cop1 = setTermPayment(dt);
             return cop1;
         }
+        public String selectByNameTLike(String copId)
+        {
+            DataTable dt = new DataTable();
+            String tmpId = "";
+            String sql = "select tpm.* " +
+                "From " + tpm.table + " tpm " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where tpm." + tpm.term_payment_name_t + " like '%" + copId.ToLower() + "%' ";
+            dt = conn.selectData(conn.conn, sql);
+            if (dt.Rows.Count == 1)
+            {
+                tmpId = dt.Rows[0][tpm.term_payment_id].ToString();
+            }
+            return tmpId;
+        }
         public DataTable selectByCodeLike(String copId)
         {
             DataTable dt = new DataTable();

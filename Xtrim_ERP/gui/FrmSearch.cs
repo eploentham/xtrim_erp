@@ -32,11 +32,13 @@ namespace Xtrim_ERP.object1
             PortOfLoading,
             Privilege,
             Staff,
-            Consignmnt,
+            Country,
             EntryType1,
             PortImport,
             IncoTerm,
-            TermPayment
+            TermPayment,
+            Insurance,
+            Currency
         };
         Search flag;
         //private CellStyle _style;
@@ -176,7 +178,7 @@ namespace Xtrim_ERP.object1
             {
                 grdFlex.DataSource = xC.xtDB.stfDB.selectAll1();
             }
-            else if (flag == Search.Consignmnt)
+            else if (flag == Search.Country)
             {
                 grdFlex.DataSource = xC.xtDB.cotDB.selectAll();
             }
@@ -195,6 +197,14 @@ namespace Xtrim_ERP.object1
             else if (flag == Search.TermPayment)
             {
                 grdFlex.DataSource = xC.xtDB.tpmDB.selectAll();
+            }
+            else if (flag == Search.Insurance)
+            {
+                grdFlex.DataSource = xC.xtDB.cusDB.selectInsrAll();
+            }
+            else if (flag == Search.Currency)
+            {
+                grdFlex.DataSource = xC.xtDB.currDB.selectAll();
             }
             grdFlex.Cols[colID].Width = 60;
             grdFlex.Cols[colNameT].Width = 20;
@@ -295,7 +305,7 @@ namespace Xtrim_ERP.object1
                     xC.sStf = new Staff();
                     xC.sStf = xC.xtDB.stfDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
                 }
-                else if (flag == Search.Consignmnt)
+                else if (flag == Search.Country)
                 {
                     xC.sCot = new Country();
                     xC.sCot = xC.xtDB.cotDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
@@ -319,6 +329,16 @@ namespace Xtrim_ERP.object1
                 {
                     xC.sTpm = new TermPayment();
                     xC.sTpm = xC.xtDB.tpmDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
+                }
+                else if (flag == Search.Insurance)
+                {
+                    xC.sInsr = new Customer();
+                    xC.sInsr = xC.xtDB.cusDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
+                }
+                else if (flag == Search.Currency)
+                {
+                    xC.sCurr = new Currency();
+                    xC.sCurr = xC.xtDB.currDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
                 }
                 Close();
                 return true;

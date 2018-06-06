@@ -82,6 +82,26 @@ UPDATE `xtrim_erp`.`b_inco_terms` SET `inco_terms_name_t`='FCA' WHERE `inco_term
 UPDATE `xtrim_erp`.`b_inco_terms` SET `inco_terms_name_t`='FOB' WHERE `inco_terms_id`='60';
 
 
+61-06-06
+ALTER TABLE `xtrim_erp`.`b_customer` 
+ADD COLUMN `insr_id` INT NULL AFTER `web_site3`;
+
+# doc_type_id, doc_type_code, doc_type_name, active, status_combo
+1430000019, ไม่ต้อง, ORIGIANL, 1, BL_TYPE
+1430000020, ต้อง, TELEX RELEASE, 1, BL_TYPE
+1430000021, ต้อง, SURRENDER B/L, 1, BL_TYPE
+1430000022, ต้อง, EXPRESS B/L, 1, BL_TYPE
+1430000023, ต้อง, SEA WAYBILL, 1, BL_TYPE
+
+ALTER TABLE `xtrim_erp`.`t_job_import_inv` 
+ADD COLUMN `insr_id` INT NULL AFTER `active`;
+
+ALTER TABLE `xtrim_erp`.`b_contact` 
+ADD COLUMN `status_insr_email` VARCHAR(255) NULL AFTER `table_id`;
+update b_contact
+set status_insr_email = '0'
+
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GenCSharpModel1`(in pTableName VARCHAR(255) )
 BEGIN
 DECLARE vClassName varchar(255);

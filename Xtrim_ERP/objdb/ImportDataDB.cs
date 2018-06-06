@@ -1941,5 +1941,39 @@ namespace Xtrim_ERP.objdb
             }
             conn.CloseConnectionNoClose();
         }
+        public void ImportCurrency(String flagNew)
+        {
+            DataTable dt = new DataTable();
+            String sql = "";
+
+            sql = "Select * From currency ";
+            dt = conn.selectData(conn.connIm, sql);
+
+            conn.OpenConnectionNoClose();
+            if (flagNew.Equals("new"))
+            {
+                currDB.deleteAll();
+            }
+            foreach (DataRow row in dt.Rows)
+            {
+                Currency curr1 = new Currency();
+                curr1.curr_id = "";
+                curr1.curr_code = row["code"].ToString();
+                curr1.curr_name_t = row["currency"].ToString();
+                curr1.curr_name_e = row["currency"].ToString();
+                curr1.active = "1";
+                curr1.date_create = "";
+                curr1.date_modi = "";
+                curr1.date_cancel = "";
+                curr1.user_create = "";
+                curr1.user_modi = "";
+                curr1.user_cancel = "";
+                curr1.status_app = "";
+                curr1.remark = "";
+                curr1.sort1 = "";
+                currDB.insertCurrency(curr1);
+            }
+            conn.CloseConnectionNoClose();
+        }
     }
 }
