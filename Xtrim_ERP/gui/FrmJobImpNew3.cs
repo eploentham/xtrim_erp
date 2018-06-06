@@ -27,7 +27,7 @@ namespace Xtrim_ERP.gui
         Font fEdit, fEditB;
         Color bg, fc, cgrfOld;
         Font ff, ffB;
-        C1FlexGrid grfInv, grfPkg, grfGw, grfContain, grfRemark;
+        C1FlexGrid grfInv, grfEmail, grfGw, grfContain, grfRemark;
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
         String cusId = "", impId="", fwdId="", polId="", ptiId="", stfId="", cstId="", ettId="", pvlId="", ictId="";
@@ -37,7 +37,7 @@ namespace Xtrim_ERP.gui
         int colRemarkId = 1, colRemarkDesc = 2;
         int colContainId = 1, colContainQty = 2, colContainContainId = 3;
         int colGwId = 1, colGwQty = 2, colGwGwId = 3;
-        int colPKGId = 1, colPKGQty = 2, colPKGPkgId = 3;
+        int colEmailB = 1, colEmailPath = 2, colEmailDel=3;
 
         public enum BodyType
         {
@@ -56,6 +56,9 @@ namespace Xtrim_ERP.gui
         {
             jim = new JobImport();
             jbl = new JobImportBl();
+            bg = txtJobCode.BackColor;
+            fc = txtJobCode.ForeColor;
+            ff = txtJobCode.Font;
 
             C1ThemeController.ApplicationTheme = xC.iniC.themeApplication;
             theme1.Theme = C1ThemeController.ApplicationTheme;
@@ -126,6 +129,9 @@ namespace Xtrim_ERP.gui
             tC2.CanAutoHide = true;
             setControl();
             initGrfInv();
+            initGrfEmail();
+            setFocus();
+            setTabIndex();
             //txtJobCode.Enabled = false;
         }
         
@@ -281,34 +287,69 @@ namespace Xtrim_ERP.gui
             //menuGw.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Gw_Cancel));
             //grfGw.ContextMenu = menuGw;
         }
-        private void initGrfPKG()
+        private void initGrfEmail()
         {
-            grfPkg = new C1FlexGrid();
-            grfPkg.Dock = DockStyle.Fill;
+            grfEmail = new C1FlexGrid();
+            grfEmail.Dock = DockStyle.Fill;
             TextBox txt = new TextBox();
-            C1ComboBox combo = new C1ComboBox();
-            combo = xC.xtDB.dctDB.setCboGW(combo);
+            C1Button btnAdd = new C1Button();
+            C1Button btnDel = new C1Button();
+            theme1.SetTheme(btnAdd, "BeigeOne");
+            grfEmail.BackColor = this.BackColor;
+            theme1.SetTheme(grfEmail, "VS2013Light");
 
-            grfPkg.Cols[colPKGId].Editor = txt;
-            grfPkg.Cols[colPKGQty].Editor = txt;
-            grfPkg.Cols[colPKGPkgId].Editor = combo;
-            grfPkg.Cols[colPKGQty].Caption = "qty";
-            grfPkg.Cols[colPKGPkgId].Caption = "PKG";
+            grfEmail.Cols[colEmailB].Editor = btnAdd;
+            grfEmail.Cols[colEmailPath].Editor = txt;
+            grfEmail.Cols[colEmailDel].Editor = btnDel;
+            btnAdd.Click += btnAdd_Click;
+            btnDel.Click += btnDel_Click;
 
-            gBPkg.Controls.Add(grfPkg);
-            grfPkg.Rows.Count = 2;
-            grfPkg.Cols.Count = 4;
-            grfPkg.Cols[colPKGQty].Width = 60;
-            grfPkg.Cols[colPKGPkgId].Width = 150;
-            grfPkg.Cols[colPKGId].Visible = false;
+            grfEmail.Cols[colEmailB].Caption = "+";
+            grfEmail.Cols[colEmailPath].Caption = "Path file";
+            grfEmail.Cols[colEmailDel].Caption = "Del";
 
-            grfPkg.CellChanged += GrfPkg_CellChanged;
+            panel10.Controls.Add(grfEmail);
+            grfEmail.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.None;
+            grfEmail.Rows.Count = 2;
+            grfEmail.Cols.Count = 4;
+            grfEmail.Cols[colEmailB].Width = 60;
+            grfEmail.Cols[colEmailPath].Width = panel10.Width - grfEmail.Cols[colEmailB].Width -20;
+            grfEmail.Cols[colEmailB].StyleNew.BackColor = Color.AntiqueWhite;
+
+            grfEmail.MouseDown += grfEmail_MouseDown;
 
             //ContextMenu menuPkg = new ContextMenu();
             //menuPkg.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Pkg_new));
             //menuPkg.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Pkg_Edit));
             //menuPkg.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Pkg_Cancel));
             //grfPkg.ContextMenu = menuPkg;
+        }
+        private void grfEmail_MouseDown(object sender, MouseEventArgs e)
+        {
+            //Check if Button column has been clicked.
+            if (grfEmail.Cols[grfEmail.MouseCol].Editor is C1Button)
+            {
+                //Current cell enters in edit mode, and button is clicked
+                SendKeys.Send("{ENTER}");
+                SendKeys.Send("{ENTER}");
+            }
+        }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(String.Format("Button clicked in - Row : {0}, column : {1}.", grfEmail.MouseRow.ToString(), grfEmail.MouseCol.ToString()));
+            OpenFileDialog theDialog = new OpenFileDialog();
+            DialogResult result = theDialog.ShowDialog();
+            if (result == DialogResult.OK) // Test result.
+            {
+                grfEmail[grfEmail.Row, colEmailPath] = theDialog.FileName;
+                if (grfEmail.Rows.Count == (grfEmail.Row+1)) grfEmail.Rows.Count++;
+            }
+        }
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(String.Format("Button clicked in - Row : {0}, column : {1}.", grfEmail.MouseRow.ToString(), grfEmail.MouseCol.ToString()));
+            if (grfEmail.Rows.Count == (grfEmail.Row + 1)) return;
+            grfEmail.RemoveItem(grfEmail.Row);
         }
         private void GrfRemark_AfterRowColChange(object sender, RangeEventArgs e)
         {
@@ -339,7 +380,7 @@ namespace Xtrim_ERP.gui
         private void GrfPkg_CellChanged(object sender, RowColEventArgs e)
         {
             //throw new NotImplementedException();
-            grfPkg.Rows.Count = (grfPkg.Row == grfPkg.Rows.Count - 1) ? (grfPkg.Rows.Count = grfPkg.Rows.Count + 1) : grfPkg.Rows.Count;
+            //grfPkg.Rows.Count = (grfPkg.Row == grfPkg.Rows.Count - 1) ? (grfPkg.Rows.Count = grfPkg.Rows.Count + 1) : grfPkg.Rows.Count;
         }
 
         private void GrfRemark_CellChanged(object sender, RowColEventArgs e)
@@ -500,6 +541,89 @@ namespace Xtrim_ERP.gui
         {
             //throw new NotImplementedException();
             setControlInvNew();
+        }
+        private void setFocusColor()
+        {
+            this.txtJobCode.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtJobCode.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtRef1.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtRef1.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtRef2.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtRef2.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtRef3.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtRef3.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtRef4.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtRef4.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtRef5.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtRef5.Enter += new System.EventHandler(this.textBox_Enter);
+        }
+        private void textBox_Enter(object sender, EventArgs e)
+        {
+            C1TextBox a = (C1TextBox)sender;
+            a.BackColor = xC.cTxtFocus;
+            a.Font = new Font(ff, FontStyle.Bold);
+        }
+        private void textBox_Leave(object sender, EventArgs e)
+        {
+            C1TextBox a = (C1TextBox)sender;
+            a.BackColor = bg;
+            a.ForeColor = fc;
+            a.Font = new Font(ff, FontStyle.Regular);
+        }
+        private void setTabIndex()
+        {
+            txtJobCode.TabIndex = 1;
+            txtJobDate.TabIndex = 2;
+            txtRef1.TabIndex = 3;
+            txtRef2.TabIndex = 4;
+            txtRef3.TabIndex = 5;
+            txtRef4.TabIndex = 6;
+            txtRef5.TabIndex = 7;
+        }
+        private void setFocus()
+        {
+            txtJobCode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtJobDate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtRef1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtRef2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtRef3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtRef4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtRef5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+        }
+        private void textBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (sender.Equals(txtJobCode))
+                {
+                    txtJobDate.Focus();
+                }
+                else if (sender.Equals(txtJobDate))
+                {
+                    txtRef1.Focus();
+                }
+                else if (sender.Equals(txtRef1))
+                {
+                    txtRef2.Focus();
+                }
+                else if (sender.Equals(txtRef2))
+                {
+                    txtRef3.Focus();
+                }
+                else if (sender.Equals(txtRef3))
+                {
+                    txtRef4.Focus();
+                }
+                else if (sender.Equals(txtRef4))
+                {
+                    txtRef5.Focus();
+                }
+            }
         }
         private void setKeyUpF2Cus()
         {
@@ -1447,135 +1571,134 @@ namespace Xtrim_ERP.gui
         public static bool sendEmailViaOutlook(string sFromAddress, string sToAddress, string sCc, string sSubject, string sBody, BodyType bodyType, List<string> arrAttachments = null, string sBcc = null)
         {
             bool bRes = false;
-            try
-            {
-                //Get Outlook COM objects
-                Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
-                Microsoft.Office.Interop.Outlook.MailItem newMail = (Microsoft.Office.Interop.Outlook.MailItem)app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+            //try
+            //{
+            //    //Get Outlook COM objects
+            //    Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
+            //    Microsoft.Office.Interop.Outlook.MailItem newMail = (Microsoft.Office.Interop.Outlook.MailItem)app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
 
-                //Parse 'sToAddress'
-                if (!string.IsNullOrWhiteSpace(sToAddress))
-                {
-                    string[] arrAddTos = sToAddress.Split(new char[] { ';', ',' });
-                    foreach (string strAddr in arrAddTos)
-                    {
-                        if (!string.IsNullOrWhiteSpace(strAddr) &&
-                            strAddr.IndexOf('@') != -1)
-                        {
-                            newMail.Recipients.Add(strAddr.Trim());
-                        }
-                        else
-                            throw new Exception("Bad to-address: " + sToAddress);
-                    }
-                }
-                else
-                    throw new Exception("Must specify to-address");
+            //    //Parse 'sToAddress'
+            //    if (!string.IsNullOrWhiteSpace(sToAddress))
+            //    {
+            //        string[] arrAddTos = sToAddress.Split(new char[] { ';', ',' });
+            //        foreach (string strAddr in arrAddTos)
+            //        {
+            //            if (!string.IsNullOrWhiteSpace(strAddr) &&
+            //                strAddr.IndexOf('@') != -1)
+            //            {
+            //                newMail.Recipients.Add(strAddr.Trim());
+            //            }
+            //            else
+            //                throw new Exception("Bad to-address: " + sToAddress);
+            //        }
+            //    }
+            //    else
+            //        throw new Exception("Must specify to-address");
 
-                //Parse 'sCc'
-                if (!string.IsNullOrWhiteSpace(sCc))
-                {
-                    string[] arrAddTos = sCc.Split(new char[] { ';', ',' });
-                    foreach (string strAddr in arrAddTos)
-                    {
-                        if (!string.IsNullOrWhiteSpace(strAddr) &&
-                            strAddr.IndexOf('@') != -1)
-                        {
-                            newMail.Recipients.Add(strAddr.Trim());
-                        }
-                        else
-                            throw new Exception("Bad CC-address: " + sCc);
-                    }
-                }
+            //    //Parse 'sCc'
+            //    if (!string.IsNullOrWhiteSpace(sCc))
+            //    {
+            //        string[] arrAddTos = sCc.Split(new char[] { ';', ',' });
+            //        foreach (string strAddr in arrAddTos)
+            //        {
+            //            if (!string.IsNullOrWhiteSpace(strAddr) &&
+            //                strAddr.IndexOf('@') != -1)
+            //            {
+            //                newMail.Recipients.Add(strAddr.Trim());
+            //            }
+            //            else
+            //                throw new Exception("Bad CC-address: " + sCc);
+            //        }
+            //    }
 
-                //Is BCC empty?
-                if (!string.IsNullOrWhiteSpace(sBcc))
-                {
-                    newMail.BCC = sBcc.Trim();
-                }
+            //    //Is BCC empty?
+            //    if (!string.IsNullOrWhiteSpace(sBcc))
+            //    {
+            //        newMail.BCC = sBcc.Trim();
+            //    }
 
-                //Resolve all recepients
-                if (!newMail.Recipients.ResolveAll())
-                {
-                    throw new Exception("Failed to resolve all recipients: " + sToAddress + ";" + sCc);
-                }
-
-
-                //Set type of message
-                switch (bodyType)
-                {
-                    case BodyType.HTML:
-                        newMail.HTMLBody = sBody;
-                        break;
-                    case BodyType.RTF:
-                        newMail.RTFBody = sBody;
-                        break;
-                    case BodyType.PlainText:
-                        newMail.Body = sBody;
-                        break;
-                    default:
-                        throw new Exception("Bad email body type: " + bodyType);
-                }
+            //    //Resolve all recepients
+            //    if (!newMail.Recipients.ResolveAll())
+            //    {
+            //        throw new Exception("Failed to resolve all recipients: " + sToAddress + ";" + sCc);
+            //    }
 
 
-                if (arrAttachments != null)
-                {
-                    //Add attachments
-                    foreach (string strPath in arrAttachments)
-                    {
-                        if (File.Exists(strPath))
-                        {
-                            newMail.Attachments.Add(strPath);
-                        }
-                        else
-                            throw new Exception("Attachment file is not found: \"" + strPath + "\"");
-                    }
-                }
+            //    //Set type of message
+            //    switch (bodyType)
+            //    {
+            //        case BodyType.HTML:
+            //            newMail.HTMLBody = sBody;
+            //            break;
+            //        case BodyType.RTF:
+            //            newMail.RTFBody = sBody;
+            //            break;
+            //        case BodyType.PlainText:
+            //            newMail.Body = sBody;
+            //            break;
+            //        default:
+            //            throw new Exception("Bad email body type: " + bodyType);
+            //    }
 
-                //Add subject
-                if (!string.IsNullOrWhiteSpace(sSubject))
-                    newMail.Subject = sSubject;
 
-                Microsoft.Office.Interop.Outlook.Accounts accounts = app.Session.Accounts;
-                Microsoft.Office.Interop.Outlook.Account acc = null;
+            //    if (arrAttachments != null)
+            //    {
+            //        //Add attachments
+            //        foreach (string strPath in arrAttachments)
+            //        {
+            //            if (File.Exists(strPath))
+            //            {
+            //                newMail.Attachments.Add(strPath);
+            //            }
+            //            else
+            //                throw new Exception("Attachment file is not found: \"" + strPath + "\"");
+            //        }
+            //    }
 
-                //Look for our account in the Outlook
-                foreach (Microsoft.Office.Interop.Outlook.Account account in accounts)
-                {
-                    if (account.SmtpAddress.Equals(sFromAddress, StringComparison.CurrentCultureIgnoreCase))
-                    {
-                        //Use it
-                        acc = account;
-                        break;
-                    }
-                }
+            //    //Add subject
+            //    if (!string.IsNullOrWhiteSpace(sSubject))
+            //        newMail.Subject = sSubject;
 
-                //Did we get the account
-                if (acc != null)
-                {
-                    //Use this account to send the e-mail. 
-                    newMail.SendUsingAccount = acc;
+            //    Microsoft.Office.Interop.Outlook.Accounts accounts = app.Session.Accounts;
+            //    Microsoft.Office.Interop.Outlook.Account acc = null;
 
-                    //And send it
+            //    //Look for our account in the Outlook
+            //    foreach (Microsoft.Office.Interop.Outlook.Account account in accounts)
+            //    {
+            //        if (account.SmtpAddress.Equals(sFromAddress, StringComparison.CurrentCultureIgnoreCase))
+            //        {
+            //            //Use it
+            //            acc = account;
+            //            break;
+            //        }
+            //    }
 
-                    ((Microsoft.Office.Interop.Outlook._MailItem)newMail).Display();
-                    //((Microsoft.Office.Interop.Outlook._MailItem)newMail).Send();
+            //    //Did we get the account
+            //    if (acc != null)
+            //    {
+            //        //Use this account to send the e-mail. 
+            //        newMail.SendUsingAccount = acc;
 
-                    //Done
-                    bRes = true;
-                }
-                else
-                {
-                    throw new Exception("Account does not exist in Outlook: " + sFromAddress);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("ERROR: Failed to send mail: " + ex.Message);
-            }
+            //        //And send it
+
+            //        ((Microsoft.Office.Interop.Outlook._MailItem)newMail).Display();
+            //        //((Microsoft.Office.Interop.Outlook._MailItem)newMail).Send();
+
+            //        //Done
+            //        bRes = true;
+            //    }
+            //    else
+            //    {
+            //        throw new Exception("Account does not exist in Outlook: " + sFromAddress);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine("ERROR: Failed to send mail: " + ex.Message);
+            //}
 
             return bRes;
         }
-
 
         private void FrmJobImpNew3_Load(object sender, EventArgs e)
         {

@@ -540,55 +540,55 @@ namespace Xtrim_ERP.gui
             if (e.KeyCode == Keys.Enter)
             {
                 sep.Clear();
-                if (((C1TextBox)sender).Name.Equals("txtCusCode"))
+                if (sender.Equals(txtCusCode))
                 {
                     txtCusNameT.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtCusNameT"))
+                else if (sender.Equals(txtCusNameT))
                 {
                     txtCusNameE.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtCusNameE"))
+                else if (sender.Equals(txtCusNameE))
                 {
                     txtTaxId.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtTaxId"))
+                else if (sender.Equals(txtTaxId))
                 {
                     txtRemark.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtRemark"))
+                else if (sender.Equals(txtRemark))
                 {
                     txtRemark2.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtRemark2"))
+                else if (sender.Equals(txtRemark2))
                 {
                     txtAddrT1.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtAddrT1"))
+                else if (sender.Equals(txtAddrT1))
                 {
                     txtAddrT2.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtAddrT2"))
+                else if (sender.Equals(txtAddrT2))
                 {
                     txtAddrT3.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtAddrT3"))
+                else if (sender.Equals(txtAddrT3))
                 {
                     txtAddrT4.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtAddrT4"))
+                else if (sender.Equals(txtAddrT4))
                 {
                     txtTele.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtTele"))
+                else if (sender.Equals(txtTele))
                 {
                     txtFax.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtFax"))
+                else if (sender.Equals(txtFax))
                 {
                     txtEmail.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtEmail"))
+                else if (sender.Equals(txtEmail))
                 {
                     if (xC.checkEmail(txtEmail.Text))
                     {
@@ -600,35 +600,35 @@ namespace Xtrim_ERP.gui
                         txtEmail.Focus();
                     }
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtContactName1"))
+                else if (sender.Equals(txtContactName1))
                 {
                     txtContactName2.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtContactName2"))
+                else if (sender.Equals(txtContactName2))
                 {
                     txtAddrE1.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtAddrE1"))
+                else if (sender.Equals(txtAddrE1))
                 {
                     txtAddrE2.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtAddrE2"))
+                else if (sender.Equals(txtAddrE2))
                 {
                     txtAddrE3.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtAddrE3"))
+                else if (sender.Equals(txtAddrE3))
                 {
                     txtAddrE4.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtAddrE4"))
+                else if (sender.Equals(txtAddrE4))
                 {
                     txtContactTel1.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtContactTel1"))
+                else if (sender.Equals(txtContactTel1))
                 {
                     txtContactTel2.Focus();
                 }
-                else if (((C1TextBox)sender).Name.Equals("txtContactTel2"))
+                else if (sender.Equals(txtContactTel2))
                 {
                     btnSave.Focus();
                 }
