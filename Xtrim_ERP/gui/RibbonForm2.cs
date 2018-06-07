@@ -24,5 +24,10 @@ namespace Xtrim_ERP.gui
         {
 
         }
+
+        private void c1Ribbon1_RibbonEvent_1(object sender, C1.Win.C1Ribbon.RibbonEventArgs e)
+        {
+
+        }
     }
 }

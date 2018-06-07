@@ -102,6 +102,132 @@ update b_contact
 set status_insr_email = '0'
 
 
+61-06-07
+INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('1', 'ORIGINAL', '1', 'type_of_bl');
+INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('2', 'TELEX RELEASE', '1', 'type_of_bl');
+INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('3', 'SURRENDER B/L', '1', 'type_of_bl');
+INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('4', 'EXPRESS B/L', '1', 'type_of_bl');
+INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('5', 'SEA WAYBILL', '1', 'type_of_bl');
+INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('1', 'FORM D', '1', 'check_list_4_1');
+INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('2', 'FORM E', '1', 'check_list_4_1');
+INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('3', 'FORM AK', '1', 'check_list_4_1');
+INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('4', 'FOMR JTAPA', '1', 'check_list_4_1');
+INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('1', 'BOI', '1', 'check_list_4_2');
+INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('1', 'สมอ', '1', 'check_list_5');
+INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('2', 'อย', '1', 'check_list_5');
+INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('3', 'วัตถุมีพิษ', '1', 'check_list_5');
+INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('4', 'กรมวิชาการเกษตร', '1', 'check_list_5');
+
+
+CREATE TABLE `xtrim_erp`.`t_job_import_check_list` (
+  `import_check_list_id` INT NOT NULL AUTO_INCREMENT,
+  `job_import_id` INT NULL,
+  `status_original` VARCHAR(255) NULL COMMENT 'INVOICE+PACKING LIST',
+  `check_list_date` VARCHAR(255) NULL COMMENT 'INVOICE+PACKING LIST',
+  `type_of_bl` INT NULL COMMENT 'Type of BL',
+  `email_do` VARCHAR(255) NULL COMMENT 'จดหมายแลก DO',
+  `privi1_id` INT NULL COMMENT 'เอกสารสิทธิประโยชน์',
+  `privi2_id` INT NULL COMMENT 'เอกสารสิทธิประโยชน์',
+  `privi1_date` VARCHAR(255) NULL COMMENT 'เอกสารสิทธิประโยชน์',
+  `privi2_date` VARCHAR(255) NULL COMMENT 'เอกสารสิทธิประโยชน์',
+  `privi1_desc` VARCHAR(255) NULL COMMENT 'เอกสารสิทธิประโยชน์',
+  `privi2_desc` VARCHAR(255) NULL COMMENT 'เอกสารสิทธิประโยชน์',
+  `doc_authen1_id` INT NULL COMMENT 'ใบอนุญาติ',
+  `doc_authen2_id` INT NULL COMMENT 'ใบอนุญาติ',
+  `doc_authen3_id` INT NULL COMMENT 'ใบอนุญาติ',
+  `doc_authen1_date` VARCHAR(255) NULL COMMENT 'ใบอนุญาติ',
+  `doc_authen2_date` VARCHAR(255) NULL COMMENT 'ใบอนุญาติ',
+  `doc_authen3_date` VARCHAR(255) NULL COMMENT 'ใบอนุญาติ',
+  `enter_bl` VARCHAR(255) NULL COMMENT 'Enter BL',
+  `insurance_atten` VARCHAR(255) CHARACTER SET 'ascii' NULL COMMENT 'แจ้งประกัน',
+  `email_do1` VARCHAR(255) NULL COMMENT 'รับจดหมายแลก DO',
+  `email_do1_date` VARCHAR(255) NULL COMMENT 'รับจดหมายแลก DO',
+  `do_date_send` VARCHAR(255) NULL COMMENT 'วันแลกDO/วันรับกลับ',
+  `date_date_receive` VARCHAR(255) NULL COMMENT 'วันแลกDO/วันรับกลับ',
+  `date_tax_send` VARCHAR(255) NULL COMMENT 'วันแจ้งยอดภาษี/รับPRQ',
+  `date_tax_receive` VARCHAR(255) NULL COMMENT 'วันแจ้งยอดภาษี/รับPRQ',
+  `exp1_date_send` VARCHAR(255) NULL COMMENT 'ค่าใช้จ่ายแลก D/O สายเรือ/รับ PRQ',
+  `exp1_date_receive` VARCHAR(255) NULL COMMENT 'ค่าใช้จ่ายแลก D/O สายเรือ/รับ PRQ',
+  `exp2_date_send` VARCHAR(255) NULL COMMENT 'ค่าใช้จ่ายค่าภาระท่าเรือ/รับ PRQ',
+  `exp2_date_receive` VARCHAR(255) NULL COMMENT 'ค่าใช้จ่ายค่าภาระท่าเรือ/รับ PRQ',
+  `receipt_date` VARCHAR(255) NULL COMMENT 'ส่งใบเสร็จ / รับสำเนาเซ็นต์รับกลับ',
+  `receipt_copy_date` VARCHAR(255) NULL COMMENT 'ส่งใบเสร็จ / รับสำเนาเซ็นต์รับกลับ',
+  `accept_tender` VARCHAR(255) NULL COMMENT 'ACCPET TENDER',
+  `advance_billing` VARCHAR(255) NULL COMMENT 'ADVANCE BILLING',
+  `approve_date` VARCHAR(255) NULL COMMENT 'APPROVE',
+  `parent1` VARCHAR(255) NULL COMMENT 'PARENT',
+  `date_create` VARCHAR(255) NULL,
+  `date_modi` VARCHAR(255) NULL,
+  `date_cancel` VARCHAR(255) NULL,
+  `user_create` VARCHAR(255) NULL,
+  `user_modi` VARCHAR(255) NULL,
+  `user_cancel` VARCHAR(255) NULL,
+  `remark` VARCHAR(255) NULL,
+  `active` VARCHAR(255) NULL,
+  PRIMARY KEY (`import_check_list_id`))
+ENGINE = MyISAM
+COMMENT = 'id=142';
+
+CREATE TABLE `xtrim_erp`.`t_job_import_check_exam` (
+  `job_import_check_exam_id` INT NOT NULL AUTO_INCREMENT,
+  `job_import_id` INT NULL,
+  `status_open_goods` VARCHAR(255) NULL COMMENT 'เปิดสินค้าตรวจ\n0=default; 1=ไม่ได้เปิด; 2=เปิดตรวจ',
+  `qty_open_goods` VARCHAR(255) NULL COMMENT 'จำนวนที่เปิดตรวจ',
+  `number_open_goods` VARCHAR(255) NULL COMMENT 'เลขหมายหีบห่อที่เปิดตรวจ',
+  `status_layout_goods` VARCHAR(255) NULL COMMENT 'สภาพหีบห่อสินค้า\n0=default;1=ดี; 2=ไม่ดี',
+  `qty_bad_goods` VARCHAR(255) NULL COMMENT 'จำนวนหีบห่อที่ไม่ดี',
+  `number_bad_goods` VARCHAR(255) NULL COMMENT 'เลขหมายหีบห่อที่ไม่ดี',
+  `bad_goods_desc` VARCHAR(255) NULL COMMENT 'บรรบาย',
+  `attend_corrupt` VARCHAR(255) NULL COMMENT 'แจ้งความเสียหายกับใคร',
+  `status_corrupt_goods` VARCHAR(255) NULL COMMENT 'สรุปสินค้าเสียหรือไม\n0=default;1=ไม่;2=เสียหาย',
+  `dmc_no` VARCHAR(255) NULL COMMENT 'SURVEYOR / DMC NO.',
+  `date_dmc` VARCHAR(255) NULL COMMENT 'วันส่ง SURVEYOR  ให้ลูกค้า',
+  `date_create` VARCHAR(255) NULL,
+  `date_modi` VARCHAR(255) NULL,
+  `date_cancel` VARCHAR(255) NULL,
+  `user_create` VARCHAR(255) NULL,
+  `user_modi` VARCHAR(255) NULL,
+  `user_cancel` VARCHAR(255) NULL,
+  `remark` VARCHAR(255) NULL,
+  `active` VARCHAR(255) NULL,
+  `sort1` VARCHAR(255) NULL,
+  PRIMARY KEY (`job_import_check_exam_id`))
+ENGINE = MyISAM
+COMMENT = 'id=143';
+
+CREATE TABLE `xtrim_erp`.`t_job_import_image` (
+  `job_import_image_id` INT NOT NULL AUTO_INCREMENT,
+  `job_import_id` INT NULL,
+  `path_pic` VARCHAR(255) NULL,
+  `active` VARCHAR(255) NULL,
+  `remark` VARCHAR(255) NULL,
+  `status_pic` VARCHAR(255) NULL,
+  `date_create` VARCHAR(255) NULL,
+  `date_modi` VARCHAR(255) NULL,
+  `date_cancel` VARCHAR(255) NULL,
+  `user_create` VARCHAR(255) NULL,
+  `user_modi` VARCHAR(255) NULL,
+  `user_cancel` VARCHAR(255) NULL,
+  `sort1` VARCHAR(255) NULL,
+  PRIMARY KEY (`job_import_image_id`))
+ENGINE = MyISAM
+COMMENT = 'id=144';
+
+ALTER TABLE `xtrim_erp`.`t_job_import_check_exam` 
+
+COMMENT = 'id=143\nบันทึกข้อมูกตรวจปล่อย' ;
+
+
+
+
+
+
+
+
+
+
+
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GenCSharpModel1`(in pTableName VARCHAR(255) )
 BEGIN
 DECLARE vClassName varchar(255);

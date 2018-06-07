@@ -27,7 +27,7 @@ namespace Xtrim_ERP.gui
         Font fEdit, fEditB;
         Color bg, fc, cgrfOld;
         Font ff, ffB;
-        C1FlexGrid grfInv, grfEmail, grfGw, grfContain, grfRemark;
+        C1FlexGrid grfInv, grfEmail, grfPic, grfJclExp, grfRemark;
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
         String cusId = "", impId="", fwdId="", polId="", ptiId="", stfId="", cstId="", ettId="", pvlId="", ictId="";
@@ -58,7 +58,7 @@ namespace Xtrim_ERP.gui
             jbl = new JobImportBl();
             bg = txtJobCode.BackColor;
             fc = txtJobCode.ForeColor;
-            ff = txtJobCode.Font;
+            ff = txtRef1.Font;
 
             C1ThemeController.ApplicationTheme = xC.iniC.themeApplication;
             theme1.Theme = C1ThemeController.ApplicationTheme;
@@ -92,6 +92,13 @@ namespace Xtrim_ERP.gui
             txtPkg3.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
             txtPkg4.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
             txtPkg5.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
+
+            txtContain1.KeyUp += new KeyEventHandler(TxtContain1_KeyUp);
+            txtContain2.KeyUp += new KeyEventHandler(TxtContain1_KeyUp);
+            txtContain3.KeyUp += new KeyEventHandler(TxtContain1_KeyUp);
+            txtContain4.KeyUp += new KeyEventHandler(TxtContain1_KeyUp);
+            txtContain5.KeyUp += new KeyEventHandler(TxtContain1_KeyUp);
+            txtContain6.KeyUp += new KeyEventHandler(TxtContain1_KeyUp);
 
             xC.setCboTransMode(cboTransMode);
             xC.setCboTaxMethod(cboTaxMethod);
@@ -130,8 +137,11 @@ namespace Xtrim_ERP.gui
             setControl();
             initGrfInv();
             initGrfEmail();
+            initGrfPic();
+            initGrfJclExp();
             setFocus();
             setTabIndex();
+            setFocusColor();
             //txtJobCode.Enabled = false;
         }
         
@@ -229,57 +239,63 @@ namespace Xtrim_ERP.gui
             //menuRemark.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Remark_Cancel));
             //grfRemark.ContextMenu = menuRemark;
         }
-        private void initGrfContain()
+        private void initGrfJclExp()
         {
-            grfContain = new C1FlexGrid();
-            grfContain.Dock = DockStyle.Fill;
-            TextBox txt = new TextBox();
-            C1ComboBox combo = new C1ComboBox();
-            combo = xC.xtDB.dctDB.setCboContainer(combo);
+            grfJclExp = new C1FlexGrid();
+            grfJclExp.Dock = DockStyle.Fill;
+            TextBox txt = new TextBox();            
 
-            grfContain.Cols[colContainId].Editor = txt;
-            grfContain.Cols[colContainQty].Editor = txt;
-            grfContain.Cols[colContainContainId].Editor = combo;
-            grfContain.Cols[colContainQty].Caption = "qty";
-            grfContain.Cols[colContainContainId].Caption = "TYPE";
+            grfJclExp.Cols[colContainId].Editor = txt;
+            grfJclExp.Cols[colContainQty].Editor = txt;
+            grfJclExp.Cols[colContainContainId].Editor = txt;
+            grfJclExp.Cols[colContainQty].Caption = "qty";
+            grfJclExp.Cols[colContainContainId].Caption = "TYPE";
 
-            gBContain.Controls.Add(grfContain);
-            grfContain.Rows.Count = 2;
-            grfContain.Cols.Count = 4;
-            grfContain.Cols[colContainQty].Width = 60;
-            grfContain.Cols[colContainContainId].Width = 150;
-            grfContain.Cols[colContainId].Visible = false;
+            panel12.Controls.Add(grfJclExp);
+            grfJclExp.Rows.Count = 2;
+            grfJclExp.Cols.Count = 4;
+            grfJclExp.Cols[colContainQty].Width = 60;
+            grfJclExp.Cols[colContainContainId].Width = 150;
+            grfJclExp.Cols[colContainId].Visible = false;
 
-            grfContain.CellChanged += GrfContain_CellChanged;
+            grfJclExp.CellChanged += GrfContain_CellChanged;
 
-            //ContextMenu menuContain = new ContextMenu();
-            //menuContain.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Contain_new));
-            //menuContain.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Contain_Edit));
-            //menuContain.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Contain_Cancel));
-            //grfContain.ContextMenu = menuContain;
+            ContextMenu menuJclExp = new ContextMenu();
+            menuJclExp.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_JclExp_new));
+            menuJclExp.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_JclExp_Edit));
+            menuJclExp.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_JclExp_Cancel));
+            grfJclExp.ContextMenu = menuJclExp;
         }
-        private void initGrfGw()
+        private void initGrfPic()
         {
-            grfGw = new C1FlexGrid();
-            grfGw.Dock = DockStyle.Fill;
+            grfPic = new C1FlexGrid();
+            grfPic.Dock = DockStyle.Fill;
             TextBox txt = new TextBox();
-            C1ComboBox combo = new C1ComboBox();
-            combo = xC.xtDB.dctDB.setCboGW(combo);
+            C1Button btnPicAdd = new C1Button();
+            C1Button btnPicDel = new C1Button();
+            theme1.SetTheme(btnPicAdd, "BeigeOne");
+            grfPic.BackColor = this.BackColor;
+            theme1.SetTheme(grfPic, "VS2013Light");
 
-            grfGw.Cols[colGwId].Editor = txt;
-            grfGw.Cols[colGwQty].Editor = txt;
-            grfGw.Cols[colGwGwId].Editor = combo;
-            grfGw.Cols[colGwQty].Caption = "qty";
-            grfGw.Cols[colGwGwId].Caption = "GW & VOLUME";
+            grfPic.Cols[colEmailB].Editor = btnPicAdd;
+            grfPic.Cols[colEmailPath].Editor = txt;
+            grfPic.Cols[colEmailDel].Editor = btnPicDel;
+            btnPicAdd.Click += btnPicAdd_Click;
+            btnPicDel.Click += btnPicDel_Click;
 
-            gBGw.Controls.Add(grfGw);
-            grfGw.Rows.Count = 2;
-            grfGw.Cols.Count = 4;
-            grfGw.Cols[colGwQty].Width = 60;
-            grfGw.Cols[colGwGwId].Width = 150;
-            grfGw.Cols[colGwId].Visible = false;
+            grfPic.Cols[colEmailB].Caption = "+";
+            grfPic.Cols[colEmailPath].Caption = "Path file";
+            grfPic.Cols[colEmailDel].Caption = "Del";
 
-            grfGw.CellChanged += GrfGw_CellChanged;
+            gbPic.Controls.Add(grfPic);
+            grfPic.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.None;
+            grfPic.Rows.Count = 2;
+            grfPic.Cols.Count = 4;
+            grfPic.Cols[colEmailB].Width = 60;
+            grfPic.Cols[colEmailPath].Width = panel10.Width - grfEmail.Cols[colEmailB].Width - 20;
+            grfPic.Cols[colEmailB].StyleNew.BackColor = Color.AntiqueWhite;
+
+            grfPic.MouseDown += grfPic_MouseDown;
 
             //ContextMenu menuGw = new ContextMenu();
             //menuGw.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Gw_new));
@@ -324,6 +340,33 @@ namespace Xtrim_ERP.gui
             //menuPkg.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Pkg_Cancel));
             //grfPkg.ContextMenu = menuPkg;
         }
+        private void grfPic_MouseDown(object sender, MouseEventArgs e)
+        {
+            //Check if Button column has been clicked.
+            if (grfPic.Cols[grfPic.MouseCol].Editor is C1Button)
+            {
+                //Current cell enters in edit mode, and button is clicked
+                SendKeys.Send("{ENTER}");
+                SendKeys.Send("{ENTER}");
+            }
+        }
+        private void btnPicAdd_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(String.Format("Button clicked in - Row : {0}, column : {1}.", grfEmail.MouseRow.ToString(), grfEmail.MouseCol.ToString()));
+            OpenFileDialog theDialog = new OpenFileDialog();
+            DialogResult result = theDialog.ShowDialog();
+            if (result == DialogResult.OK) // Test result.
+            {
+                grfPic[grfPic.Row, colEmailPath] = theDialog.FileName;
+                if (grfPic.Rows.Count == (grfPic.Row + 1)) grfPic.Rows.Count++;
+            }
+        }
+        private void btnPicDel_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(String.Format("Button clicked in - Row : {0}, column : {1}.", grfEmail.MouseRow.ToString(), grfEmail.MouseCol.ToString()));
+            if (grfPic.Rows.Count == (grfPic.Row + 1)) return;
+            grfPic.RemoveItem(grfPic.Row);
+        }
         private void grfEmail_MouseDown(object sender, MouseEventArgs e)
         {
             //Check if Button column has been clicked.
@@ -362,13 +405,13 @@ namespace Xtrim_ERP.gui
         private void GrfGw_CellChanged(object sender, RowColEventArgs e)
         {
             //throw new NotImplementedException();
-            grfGw.Rows.Count = (grfGw.Row == grfGw.Rows.Count - 1) ? (grfGw.Rows.Count = grfGw.Rows.Count + 1) : grfGw.Rows.Count;
+            //grfGw.Rows.Count = (grfGw.Row == grfGw.Rows.Count - 1) ? (grfGw.Rows.Count = grfGw.Rows.Count + 1) : grfGw.Rows.Count;
         }
 
         private void GrfContain_CellChanged(object sender, RowColEventArgs e)
         {
             //throw new NotImplementedException();
-            grfContain.Rows.Count = (grfContain.Row == grfContain.Rows.Count - 1) ? (grfContain.Rows.Count = grfContain.Rows.Count + 1) : grfContain.Rows.Count;
+            //grfContain.Rows.Count = (grfContain.Row == grfContain.Rows.Count - 1) ? (grfContain.Rows.Count = grfContain.Rows.Count + 1) : grfContain.Rows.Count;
         }
 
         private void GrfMarsk_CellChanged(object sender, RowColEventArgs e)
@@ -405,7 +448,7 @@ namespace Xtrim_ERP.gui
         //}
         private void ContextMenu_Remark_new(object sender, System.EventArgs e)
         {
-
+            
         }
         private void ContextMenu_Remark_Edit(object sender, System.EventArgs e)
         {
@@ -415,15 +458,16 @@ namespace Xtrim_ERP.gui
         {
 
         }
-        private void ContextMenu_Contain_new(object sender, System.EventArgs e)
+        private void ContextMenu_JclExp_new(object sender, System.EventArgs e)
+        {
+            FrmJobImpCheckListExp frm = new FrmJobImpCheckListExp(xC);
+            frm.ShowDialog(this);
+        }
+        private void ContextMenu_JclExp_Edit(object sender, System.EventArgs e)
         {
 
         }
-        private void ContextMenu_Contain_Edit(object sender, System.EventArgs e)
-        {
-
-        }
-        private void ContextMenu_Contain_Cancel(object sender, System.EventArgs e)
+        private void ContextMenu_JclExp_Cancel(object sender, System.EventArgs e)
         {
 
         }
@@ -522,7 +566,12 @@ namespace Xtrim_ERP.gui
         private void BtnSend_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            sendEmailViaOutlook("eploentham@xtrim-logistics.com", txtTo.Text, "", txtSubject.Text, txtBody.Text, BodyType.HTML, null, null);
+            List<String> lfile = new List<String>();
+            for(int i = 1; i < grfEmail.Rows.Count; i++)
+            {
+                if(grfEmail[i, colEmailPath]!=null) lfile.Add(grfEmail[i, colEmailPath].ToString());
+            }
+            sendEmailViaOutlook("eploentham@xtrim-logistics.com", txtTo.Text, "", txtSubject.Text, txtBody.Text, BodyType.HTML, lfile, null);
         }
         private void BtnEmail_Click(object sender, EventArgs e)
         {
@@ -561,6 +610,195 @@ namespace Xtrim_ERP.gui
 
             this.txtRef5.Leave += new System.EventHandler(this.textBox_Leave);
             this.txtRef5.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtJobNo.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtJobNo.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtStaffCS.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtStaffCS.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtEttNameT.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtEttNameT.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtPvlNameT.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtPvlNameT.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.cboChkExam.Leave += new System.EventHandler(this.textBox_Leave);
+            this.cboChkExam.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.cboTransMode.Leave += new System.EventHandler(this.textBox_Leave);
+            this.cboTransMode.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtCusNameT.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtCusNameT.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtCusAddr.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtCusAddr.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtCusContactNameT.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtCusContactNameT.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtFwdNameT.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtFwdNameT.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtPolNameT.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtPolNameT.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtConsignmnt.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtConsignmnt.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtMbl.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtMbl.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtEtd.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtEtd.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.cboBlType.Leave += new System.EventHandler(this.textBox_Leave);
+            this.cboBlType.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtBl.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtBl.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtImpNameT.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtImpNameT.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtImpAddr.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtImpAddr.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtImpContactNameT.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtImpContactNameT.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtMves.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtMves.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtFves.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtFves.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtHbl.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtHbl.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtEta.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtEta.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtPtiNameT.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtPtiNameT.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtTmnNameT.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtTmnNameT.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtMarsk1.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtMarsk1.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtMarsk2.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtMarsk2.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtMarsk3.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtMarsk3.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtMarsk4.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtMarsk4.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtMarsk5.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtMarsk5.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtMarsk6.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtMarsk6.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtPkg1.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtPkg1.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtPkg2.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtPkg2.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtPkg3.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtPkg3.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtPkg4.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtPkg4.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtPkg5.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtPkg5.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.cboUtp1.Leave += new System.EventHandler(this.textBox_Leave);
+            this.cboUtp1.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.cboUtp2.Leave += new System.EventHandler(this.textBox_Leave);
+            this.cboUtp2.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.cboUtp3.Leave += new System.EventHandler(this.textBox_Leave);
+            this.cboUtp3.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.cboUtp4.Leave += new System.EventHandler(this.textBox_Leave);
+            this.cboUtp4.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.cboUtp5.Leave += new System.EventHandler(this.textBox_Leave);
+            this.cboUtp5.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtGw.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtGw.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtVolume.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtVolume.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.cboUgw.Leave += new System.EventHandler(this.textBox_Leave);
+            this.cboUgw.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.cboVolume.Leave += new System.EventHandler(this.textBox_Leave);
+            this.cboVolume.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtContain1.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtContain1.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtContain2.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtContain2.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtContain3.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtContain3.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtContain4.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtContain4.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtContain5.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtContain5.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtContain6.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtContain6.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.cboContain1.Leave += new System.EventHandler(this.textBox_Leave);
+            this.cboContain1.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.cboContain2.Leave += new System.EventHandler(this.textBox_Leave);
+            this.cboContain2.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.cboContain3.Leave += new System.EventHandler(this.textBox_Leave);
+            this.cboContain3.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.cboContain4.Leave += new System.EventHandler(this.textBox_Leave);
+            this.cboContain4.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.cboContain5.Leave += new System.EventHandler(this.textBox_Leave);
+            this.cboContain5.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.cboContain6.Leave += new System.EventHandler(this.textBox_Leave);
+            this.cboContain6.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtRemark1.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtRemark1.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtRemark2.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtRemark2.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtRemark3.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtRemark3.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtRemark4.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtRemark4.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtRemark5.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtRemark5.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtRemark6.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtRemark6.Enter += new System.EventHandler(this.textBox_Enter);
         }
         private void textBox_Enter(object sender, EventArgs e)
         {
@@ -584,6 +822,70 @@ namespace Xtrim_ERP.gui
             txtRef3.TabIndex = 5;
             txtRef4.TabIndex = 6;
             txtRef5.TabIndex = 7;
+            txtJobNo.TabIndex = 8;
+            txtStaffCS.TabIndex = 9;
+            txtEttNameT.TabIndex = 10;
+
+            txtPvlNameT.TabIndex = 11;
+            cboChkExam.TabIndex = 12;
+            cboTransMode.TabIndex = 13;
+            txtCusNameT.TabIndex = 14;
+            txtCusAddr.TabIndex = 15;
+            txtCusContactNameT.TabIndex = 16;
+            txtFwdNameT.TabIndex = 17;
+            txtPolNameT.TabIndex = 18;
+            txtConsignmnt.TabIndex = 19;
+            txtMbl.TabIndex = 20;
+            txtEtd.TabIndex = 21;
+            cboBlType.TabIndex = 22;
+            txtBl.TabIndex = 23;
+            txtImpNameT.TabIndex = 24;
+            txtImpAddr.TabIndex = 25;
+            txtImpContactNameT.TabIndex = 26;
+            txtMves.TabIndex = 27;
+            txtFves.TabIndex = 28;
+            txtHbl.TabIndex = 29;
+            txtEta.TabIndex = 30;
+            txtPtiNameT.TabIndex = 31;
+            txtTmnNameT.TabIndex = 32;
+            txtMarsk1.TabIndex = 33;
+            txtMarsk2.TabIndex = 34;
+            txtMarsk3.TabIndex = 35;
+            txtMarsk4.TabIndex = 36;
+            txtMarsk5.TabIndex = 37;
+            txtMarsk6.TabIndex = 38;
+            txtPkg1.TabIndex = 39;
+            txtPkg2.TabIndex = 40;
+            txtPkg3.TabIndex = 41;
+            txtPkg4.TabIndex = 42;
+            txtPkg5.TabIndex = 43;
+            cboUtp1.TabIndex = 44;
+            cboUtp2.TabIndex = 45;
+            cboUtp3.TabIndex = 46;
+            cboUtp4.TabIndex = 47;
+            cboUtp5.TabIndex = 48;
+            txtGw.TabIndex = 49;
+            txtVolume.TabIndex = 50;
+            cboUgw.TabIndex = 51;
+            cboVolume.TabIndex = 52;
+            txtContain1.TabIndex = 53;
+            txtContain2.TabIndex = 54;
+            txtContain3.TabIndex = 55;
+            txtContain4.TabIndex = 56;
+            txtContain5.TabIndex = 57;
+            txtContain6.TabIndex = 58;
+            cboContain1.TabIndex = 59;
+            cboContain2.TabIndex = 60;
+            cboContain3.TabIndex = 61;
+            cboContain4.TabIndex = 62;
+            cboContain5.TabIndex = 63;
+            cboContain6.TabIndex = 64;
+            txtRemark1.TabIndex = 65;
+            txtRemark2.TabIndex = 66;
+            txtRemark3.TabIndex = 67;
+            txtRemark4.TabIndex = 68;
+            txtRemark5.TabIndex = 69;
+            txtRemark6.TabIndex = 70;
         }
         private void setFocus()
         {
@@ -594,6 +896,71 @@ namespace Xtrim_ERP.gui
             txtRef3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
             txtRef4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
             txtRef5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+
+            txtJobNo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtStaffCS.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtEttNameT.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtPvlNameT.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            cboChkExam.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            cboTransMode.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusNameT.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusAddr.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtCusContactNameT.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtFwdNameT.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtPolNameT.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtConsignmnt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtMbl.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtEtd.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            cboBlType.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtBl.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtImpNameT.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtImpAddr.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtImpContactNameT.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtMves.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtFves.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtHbl.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtEta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtPtiNameT.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtTmnNameT.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtMarsk1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtMarsk2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtMarsk3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtMarsk4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtMarsk5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtMarsk6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtPkg1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtPkg2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtPkg3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtPkg4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtPkg5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            cboUtp1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            cboUtp2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            cboUtp3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            cboUtp4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            cboUtp5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtGw.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtVolume.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            cboUgw.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            cboVolume.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtContain1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtContain2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtContain3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtContain4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtContain5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtContain6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            cboContain1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            cboContain2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            cboContain3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            cboContain4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            cboContain5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            cboContain6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtRemark1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtRemark2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtRemark3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtRemark4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtRemark5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            txtRemark6.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
+            //txtRef51.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyUp);
         }
         private void textBox_KeyUp(object sender, KeyEventArgs e)
         {
@@ -622,6 +989,262 @@ namespace Xtrim_ERP.gui
                 else if (sender.Equals(txtRef4))
                 {
                     txtRef5.Focus();
+                }
+                else if (sender.Equals(txtRef5))
+                {
+                    txtJobNo.Focus();
+                }
+                else if (sender.Equals(txtJobNo))
+                {
+                    txtStaffCS.Focus();
+                }
+                else if (sender.Equals(txtStaffCS))
+                {
+                    txtEttNameT.Focus();
+                }
+                else if (sender.Equals(txtEttNameT))
+                {
+                    txtPvlNameT.Focus();
+                }
+                else if (sender.Equals(txtPvlNameT))
+                {
+                    cboChkExam.Focus();
+                }
+                else if (sender.Equals(cboChkExam))
+                {
+                    cboTransMode.Focus();
+                }
+                else if (sender.Equals(cboTransMode))
+                {
+                    txtCusNameT.Focus();
+                }
+                else if (sender.Equals(txtCusNameT))
+                {
+                    txtCusAddr.Focus();
+                }
+                else if (sender.Equals(txtCusAddr))
+                {
+                    txtCusContactNameT.Focus();
+                }
+                else if (sender.Equals(txtCusContactNameT))
+                {
+                    txtFwdNameT.Focus();
+                }
+                else if (sender.Equals(txtFwdNameT))
+                {
+                    txtPolNameT.Focus();
+                }
+                else if (sender.Equals(txtPolNameT))
+                {
+                    txtConsignmnt.Focus();
+                }
+                else if (sender.Equals(txtConsignmnt))
+                {
+                    txtMbl.Focus();
+                }
+                else if (sender.Equals(txtMbl))
+                {
+                    txtEtd.Focus();
+                }
+                else if (sender.Equals(txtEtd))
+                {
+                    cboBlType.Focus();
+                }
+                else if (sender.Equals(cboBlType))
+                {
+                    txtBl.Focus();
+                }
+                else if (sender.Equals(txtBl))
+                {
+                    txtImpNameT.Focus();
+                }
+                else if (sender.Equals(txtImpNameT))
+                {
+                    txtImpAddr.Focus();
+                }
+                else if (sender.Equals(txtImpAddr))
+                {
+                    txtImpContactNameT.Focus();
+                }
+                else if (sender.Equals(txtImpContactNameT))
+                {
+                    txtMves.Focus();
+                }
+                else if (sender.Equals(txtMves))
+                {
+                    txtFves.Focus();
+                }
+                else if (sender.Equals(txtFves))
+                {
+                    txtHbl.Focus();
+                }
+                else if (sender.Equals(txtHbl))
+                {
+                    txtEta.Focus();
+                }
+                else if (sender.Equals(txtEta))
+                {
+                    txtPtiNameT.Focus();
+                }
+                else if (sender.Equals(txtPtiNameT))
+                {
+                    txtTmnNameT.Focus();
+                }
+                else if (sender.Equals(txtTmnNameT))
+                {
+                    txtMarsk1.Focus();
+                }
+                else if (sender.Equals(txtMarsk1))
+                {
+                    txtMarsk2.Focus();
+                }
+                else if (sender.Equals(txtMarsk2))
+                {
+                    txtMarsk3.Focus();
+                }
+                else if (sender.Equals(txtMarsk3))
+                {
+                    txtMarsk4.Focus();
+                }
+                else if (sender.Equals(txtMarsk4))
+                {
+                    txtMarsk5.Focus();
+                }
+                else if (sender.Equals(txtMarsk5))
+                {
+                    txtMarsk6.Focus();
+                }
+                else if (sender.Equals(txtMarsk6))
+                {
+                    txtPkg1.Focus();
+                }
+                else if (sender.Equals(txtPkg1))
+                {
+                    txtPkg2.Focus();
+                }
+                else if (sender.Equals(txtPkg2))
+                {
+                    txtPkg3.Focus();
+                }
+                else if (sender.Equals(txtPkg3))
+                {
+                    txtPkg4.Focus();
+                }
+                else if (sender.Equals(txtPkg4))
+                {
+                    txtPkg5.Focus();
+                }
+                else if (sender.Equals(txtPkg5))
+                {
+                    cboUtp1.Focus();
+                }
+                else if (sender.Equals(cboUtp1))
+                {
+                    cboUtp2.Focus();
+                }
+                else if (sender.Equals(cboUtp2))
+                {
+                    cboUtp3.Focus();
+                }
+                else if (sender.Equals(cboUtp3))
+                {
+                    cboUtp4.Focus();
+                }
+                else if (sender.Equals(cboUtp4))
+                {
+                    cboUtp5.Focus();
+                }
+                else if (sender.Equals(cboUtp5))
+                {
+                    txtGw.Focus();
+                }
+                else if (sender.Equals(txtGw))
+                {
+                    txtVolume.Focus();
+                }
+                else if (sender.Equals(txtVolume))
+                {
+                    cboUgw.Focus();
+                }
+                else if (sender.Equals(cboUgw))
+                {
+                    cboVolume.Focus();
+                }
+                else if (sender.Equals(cboVolume))
+                {
+                    txtContain1.Focus();
+                }
+                else if (sender.Equals(txtContain1))
+                {
+                    txtContain2.Focus();
+                }
+                else if (sender.Equals(txtContain2))
+                {
+                    txtContain3.Focus();
+                }
+                else if (sender.Equals(txtContain3))
+                {
+                    txtContain4.Focus();
+                }
+                else if (sender.Equals(txtContain4))
+                {
+                    txtContain5.Focus();
+                }
+                else if (sender.Equals(txtContain5))
+                {
+                    txtContain6.Focus();
+                }
+                else if (sender.Equals(txtContain6))
+                {
+                    cboContain1.Focus();
+                }
+                else if (sender.Equals(cboContain1))
+                {
+                    cboContain2.Focus();
+                }
+                else if (sender.Equals(cboContain2))
+                {
+                    cboContain3.Focus();
+                }
+                else if (sender.Equals(cboContain3))
+                {
+                    cboContain4.Focus();
+                }
+                else if (sender.Equals(cboContain4))
+                {
+                    cboContain5.Focus();
+                }
+                else if (sender.Equals(cboContain5))
+                {
+                    cboContain6.Focus();
+                }
+                else if (sender.Equals(cboContain6))
+                {
+                    txtRemark1.Focus();
+                }
+                else if (sender.Equals(txtRemark1))
+                {
+                    txtRemark2.Focus();
+                }
+                else if (sender.Equals(txtRemark2))
+                {
+                    txtRemark3.Focus();
+                }
+                else if (sender.Equals(txtRemark3))
+                {
+                    txtRemark4.Focus();
+                }
+                else if (sender.Equals(txtRemark4))
+                {
+                    txtRemark5.Focus();
+                }
+                else if (sender.Equals(txtRemark5))
+                {
+                    txtRemark6.Focus();
+                }
+                else if (sender.Equals(txtRemark6))
+                {
+                    //txtPvlNameT1.Focus();
                 }
             }
         }
@@ -1079,6 +1702,18 @@ namespace Xtrim_ERP.gui
             Decimal.TryParse(txtPkg4.Text, out pkg4);
             Decimal.TryParse(txtPkg5.Text, out pkg5);
             txtPkgTotal.Value = pkg1 + pkg2 + pkg3 + pkg4 + pkg5;
+        }
+        private void TxtContain1_KeyUp(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            Decimal contain1 = 0, contain2 = 0, contain3 = 0, contain4 = 0, contain5 = 0, contain6 = 0;
+            Decimal.TryParse(txtContain1.Text, out contain1);
+            Decimal.TryParse(txtContain2.Text, out contain2);
+            Decimal.TryParse(txtContain3.Text, out contain3);
+            Decimal.TryParse(txtContain4.Text, out contain4);
+            Decimal.TryParse(txtContain5.Text, out contain5);
+            Decimal.TryParse(txtContain6.Text, out contain5);
+            txtContainTotal.Value = contain1 + contain2 + contain3 + contain4 + contain5 + contain6;
         }
         private void txtCusCode_KeyUp(object sender, KeyEventArgs e)
         {
@@ -1571,131 +2206,131 @@ namespace Xtrim_ERP.gui
         public static bool sendEmailViaOutlook(string sFromAddress, string sToAddress, string sCc, string sSubject, string sBody, BodyType bodyType, List<string> arrAttachments = null, string sBcc = null)
         {
             bool bRes = false;
-            //try
-            //{
-            //    //Get Outlook COM objects
-            //    Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
-            //    Microsoft.Office.Interop.Outlook.MailItem newMail = (Microsoft.Office.Interop.Outlook.MailItem)app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+            try
+            {
+                //Get Outlook COM objects
+                Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
+                Microsoft.Office.Interop.Outlook.MailItem newMail = (Microsoft.Office.Interop.Outlook.MailItem)app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
 
-            //    //Parse 'sToAddress'
-            //    if (!string.IsNullOrWhiteSpace(sToAddress))
-            //    {
-            //        string[] arrAddTos = sToAddress.Split(new char[] { ';', ',' });
-            //        foreach (string strAddr in arrAddTos)
-            //        {
-            //            if (!string.IsNullOrWhiteSpace(strAddr) &&
-            //                strAddr.IndexOf('@') != -1)
-            //            {
-            //                newMail.Recipients.Add(strAddr.Trim());
-            //            }
-            //            else
-            //                throw new Exception("Bad to-address: " + sToAddress);
-            //        }
-            //    }
-            //    else
-            //        throw new Exception("Must specify to-address");
+                //Parse 'sToAddress'
+                if (!string.IsNullOrWhiteSpace(sToAddress))
+                {
+                    string[] arrAddTos = sToAddress.Split(new char[] { ';', ',' });
+                    foreach (string strAddr in arrAddTos)
+                    {
+                        if (!string.IsNullOrWhiteSpace(strAddr) &&
+                            strAddr.IndexOf('@') != -1)
+                        {
+                            newMail.Recipients.Add(strAddr.Trim());
+                        }
+                        else
+                            throw new Exception("Bad to-address: " + sToAddress);
+                    }
+                }
+                else
+                    throw new Exception("Must specify to-address");
 
-            //    //Parse 'sCc'
-            //    if (!string.IsNullOrWhiteSpace(sCc))
-            //    {
-            //        string[] arrAddTos = sCc.Split(new char[] { ';', ',' });
-            //        foreach (string strAddr in arrAddTos)
-            //        {
-            //            if (!string.IsNullOrWhiteSpace(strAddr) &&
-            //                strAddr.IndexOf('@') != -1)
-            //            {
-            //                newMail.Recipients.Add(strAddr.Trim());
-            //            }
-            //            else
-            //                throw new Exception("Bad CC-address: " + sCc);
-            //        }
-            //    }
+                //Parse 'sCc'
+                if (!string.IsNullOrWhiteSpace(sCc))
+                {
+                    string[] arrAddTos = sCc.Split(new char[] { ';', ',' });
+                    foreach (string strAddr in arrAddTos)
+                    {
+                        if (!string.IsNullOrWhiteSpace(strAddr) &&
+                            strAddr.IndexOf('@') != -1)
+                        {
+                            newMail.Recipients.Add(strAddr.Trim());
+                        }
+                        else
+                            throw new Exception("Bad CC-address: " + sCc);
+                    }
+                }
 
-            //    //Is BCC empty?
-            //    if (!string.IsNullOrWhiteSpace(sBcc))
-            //    {
-            //        newMail.BCC = sBcc.Trim();
-            //    }
+                //Is BCC empty?
+                if (!string.IsNullOrWhiteSpace(sBcc))
+                {
+                    newMail.BCC = sBcc.Trim();
+                }
 
-            //    //Resolve all recepients
-            //    if (!newMail.Recipients.ResolveAll())
-            //    {
-            //        throw new Exception("Failed to resolve all recipients: " + sToAddress + ";" + sCc);
-            //    }
-
-
-            //    //Set type of message
-            //    switch (bodyType)
-            //    {
-            //        case BodyType.HTML:
-            //            newMail.HTMLBody = sBody;
-            //            break;
-            //        case BodyType.RTF:
-            //            newMail.RTFBody = sBody;
-            //            break;
-            //        case BodyType.PlainText:
-            //            newMail.Body = sBody;
-            //            break;
-            //        default:
-            //            throw new Exception("Bad email body type: " + bodyType);
-            //    }
+                //Resolve all recepients
+                if (!newMail.Recipients.ResolveAll())
+                {
+                    throw new Exception("Failed to resolve all recipients: " + sToAddress + ";" + sCc);
+                }
 
 
-            //    if (arrAttachments != null)
-            //    {
-            //        //Add attachments
-            //        foreach (string strPath in arrAttachments)
-            //        {
-            //            if (File.Exists(strPath))
-            //            {
-            //                newMail.Attachments.Add(strPath);
-            //            }
-            //            else
-            //                throw new Exception("Attachment file is not found: \"" + strPath + "\"");
-            //        }
-            //    }
+                //Set type of message
+                switch (bodyType)
+                {
+                    case BodyType.HTML:
+                        newMail.HTMLBody = sBody;
+                        break;
+                    case BodyType.RTF:
+                        newMail.RTFBody = sBody;
+                        break;
+                    case BodyType.PlainText:
+                        newMail.Body = sBody;
+                        break;
+                    default:
+                        throw new Exception("Bad email body type: " + bodyType);
+                }
 
-            //    //Add subject
-            //    if (!string.IsNullOrWhiteSpace(sSubject))
-            //        newMail.Subject = sSubject;
 
-            //    Microsoft.Office.Interop.Outlook.Accounts accounts = app.Session.Accounts;
-            //    Microsoft.Office.Interop.Outlook.Account acc = null;
+                if (arrAttachments != null)
+                {
+                    //Add attachments
+                    foreach (string strPath in arrAttachments)
+                    {
+                        if (File.Exists(strPath))
+                        {
+                            newMail.Attachments.Add(strPath);
+                        }
+                        else
+                            throw new Exception("Attachment file is not found: \"" + strPath + "\"");
+                    }
+                }
 
-            //    //Look for our account in the Outlook
-            //    foreach (Microsoft.Office.Interop.Outlook.Account account in accounts)
-            //    {
-            //        if (account.SmtpAddress.Equals(sFromAddress, StringComparison.CurrentCultureIgnoreCase))
-            //        {
-            //            //Use it
-            //            acc = account;
-            //            break;
-            //        }
-            //    }
+                //Add subject
+                if (!string.IsNullOrWhiteSpace(sSubject))
+                    newMail.Subject = sSubject;
 
-            //    //Did we get the account
-            //    if (acc != null)
-            //    {
-            //        //Use this account to send the e-mail. 
-            //        newMail.SendUsingAccount = acc;
+                Microsoft.Office.Interop.Outlook.Accounts accounts = app.Session.Accounts;
+                Microsoft.Office.Interop.Outlook.Account acc = null;
 
-            //        //And send it
+                //Look for our account in the Outlook
+                foreach (Microsoft.Office.Interop.Outlook.Account account in accounts)
+                {
+                    if (account.SmtpAddress.Equals(sFromAddress, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        //Use it
+                        acc = account;
+                        break;
+                    }
+                }
 
-            //        ((Microsoft.Office.Interop.Outlook._MailItem)newMail).Display();
-            //        //((Microsoft.Office.Interop.Outlook._MailItem)newMail).Send();
+                //Did we get the account
+                if (acc != null)
+                {
+                    //Use this account to send the e-mail. 
+                    newMail.SendUsingAccount = acc;
 
-            //        //Done
-            //        bRes = true;
-            //    }
-            //    else
-            //    {
-            //        throw new Exception("Account does not exist in Outlook: " + sFromAddress);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine("ERROR: Failed to send mail: " + ex.Message);
-            //}
+                    //And send it
+
+                    ((Microsoft.Office.Interop.Outlook._MailItem)newMail).Display();
+                    //((Microsoft.Office.Interop.Outlook._MailItem)newMail).Send();
+
+                    //Done
+                    bRes = true;
+                }
+                else
+                {
+                    throw new Exception("Account does not exist in Outlook: " + sFromAddress);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: Failed to send mail: " + ex.Message);
+            }
 
             return bRes;
         }

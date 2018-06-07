@@ -100,7 +100,9 @@
     <Reference Include="C1.Win.FlexReport.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.FlexViewer.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.ImportServices.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
+    <Reference Include="C1.Win.Input.MultiSelect.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.Map.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.TreeView.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da" />
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
@@ -221,6 +223,12 @@
     </Compile>
     <Compile Include="gui\FrmDepartmentS.Designer.cs">
       <DependentUpon>FrmDepartmentS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmJobImpCheckListExp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmJobImpCheckListExp.Designer.cs">
+      <DependentUpon>FrmJobImpCheckListExp.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmJobImpNew1.cs">
       <SubType>Form</SubType>
@@ -384,6 +392,12 @@
     <Compile Include="gui\RibbonForm2.Designer.cs">
       <DependentUpon>RibbonForm2.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\RibbonForm3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\RibbonForm3.Designer.cs">
+      <DependentUpon>RibbonForm3.cs</DependentUpon>
+    </Compile>
     <Compile Include="objdb\AddressDB.cs" />
     <Compile Include="objdb\AddressTypeDB.cs" />
     <Compile Include="objdb\BankDB.cs" />
@@ -394,8 +408,11 @@
     <Compile Include="objdb\DocTypeDB.cs" />
     <Compile Include="objdb\ExpensesDB.cs" />
     <Compile Include="objdb\ImporterTypeDB.cs" />
+    <Compile Include="objdb\JobImportCheckExamDB.cs" />
+    <Compile Include="objdb\JobImportCheckListDB.cs" />
     <Compile Include="objdb\JobImportContDB.cs" />
     <Compile Include="objdb\JobImportExpnDB.cs" />
+    <Compile Include="objdb\JobImportImageDB.cs" />
     <Compile Include="objdb\MeiosysDB.cs" />
     <Compile Include="objdb\MethodPaymentDB.cs" />
     <Compile Include="objdb\PositionDB.cs" />
@@ -439,8 +456,11 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="object1\ImporterType.cs" />
+    <Compile Include="object1\JobImportCheckExam.cs" />
+    <Compile Include="object1\JobImportCheckList.cs" />
     <Compile Include="object1\JobImportCont.cs" />
     <Compile Include="object1\JobImportExpn.cs" />
+    <Compile Include="object1\JobImportImage.cs" />
     <Compile Include="object1\LogFile.cs" />
     <Compile Include="object1\MethodPayment.cs" />
     <Compile Include="object1\Position.cs" />
@@ -633,6 +653,9 @@
     <EmbeddedResource Include="gui\FrmInitial.resx">
       <DependentUpon>FrmInitial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmJobImpCheckListExp.resx">
+      <DependentUpon>FrmJobImpCheckListExp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmJobImpExpn.resx">
       <DependentUpon>FrmJobImpExpn.cs</DependentUpon>
     </EmbeddedResource>
@@ -701,6 +724,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\RibbonForm2.resx">
       <DependentUpon>RibbonForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\RibbonForm3.resx">
+      <DependentUpon>RibbonForm3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
