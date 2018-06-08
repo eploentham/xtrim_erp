@@ -218,8 +218,13 @@ ALTER TABLE `xtrim_erp`.`t_job_import_check_exam`
 COMMENT = 'id=143\nบันทึกข้อมูกตรวจปล่อย' ;
 
 
+61-06-09
+ALTER TABLE `xtrim_erp`.`t_job_import_check_list` 
+CHANGE COLUMN `date_date_receive` `do_date_receive` VARCHAR(255) NULL DEFAULT NULL COMMENT 'วันแลกDO/วันรับกลับ' ,
+CHANGE COLUMN `date_tax_send` `tax_date_send` VARCHAR(255) NULL DEFAULT NULL COMMENT 'วันแจ้งยอดภาษี/รับPRQ' ;
 
-
+ALTER TABLE `xtrim_erp`.`t_job_import_check_list` 
+CHANGE COLUMN `date_tax_receive` `tax_date_receive` VARCHAR(255) NULL DEFAULT NULL COMMENT 'วันแจ้งยอดภาษี/รับPRQ' ;
 
 
 

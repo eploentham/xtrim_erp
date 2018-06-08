@@ -90,68 +90,69 @@
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.tabCheckList = new C1.Win.C1Command.C1DockingTabPage();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.txtJclId = new C1.Win.C1Input.C1TextBox();
             this.btnJclSave = new C1.Win.C1Input.C1Button();
-            this.c1DateEdit23 = new C1.Win.Calendar.C1DateEdit();
-            this.c1DateEdit22 = new C1.Win.Calendar.C1DateEdit();
-            this.c1DateEdit21 = new C1.Win.Calendar.C1DateEdit();
-            this.c1TextBox6 = new C1.Win.C1Input.C1TextBox();
+            this.txtAcceptDate = new C1.Win.Calendar.C1DateEdit();
+            this.txtAdvanceBillingDate = new C1.Win.Calendar.C1DateEdit();
+            this.txtApproveDate = new C1.Win.Calendar.C1DateEdit();
+            this.txtParent1 = new C1.Win.C1Input.C1TextBox();
             this.label69 = new System.Windows.Forms.Label();
             this.label68 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
-            this.c1DateEdit19 = new C1.Win.Calendar.C1DateEdit();
-            this.c1DateEdit20 = new C1.Win.Calendar.C1DateEdit();
+            this.txtReceiptCopyDate = new C1.Win.Calendar.C1DateEdit();
+            this.txtReceiptDate = new C1.Win.Calendar.C1DateEdit();
             this.label65 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
-            this.c1DateEdit17 = new C1.Win.Calendar.C1DateEdit();
-            this.c1DateEdit18 = new C1.Win.Calendar.C1DateEdit();
+            this.txtExp2DateReceive = new C1.Win.Calendar.C1DateEdit();
+            this.txtExp2DateSend = new C1.Win.Calendar.C1DateEdit();
             this.label63 = new System.Windows.Forms.Label();
-            this.c1DateEdit15 = new C1.Win.Calendar.C1DateEdit();
-            this.c1DateEdit16 = new C1.Win.Calendar.C1DateEdit();
+            this.txtExp1DateReceive = new C1.Win.Calendar.C1DateEdit();
+            this.txtExp1DateSend = new C1.Win.Calendar.C1DateEdit();
             this.label62 = new System.Windows.Forms.Label();
-            this.c1DateEdit13 = new C1.Win.Calendar.C1DateEdit();
-            this.c1DateEdit14 = new C1.Win.Calendar.C1DateEdit();
+            this.txtTaxDateReceive = new C1.Win.Calendar.C1DateEdit();
+            this.txtTaxDateSend = new C1.Win.Calendar.C1DateEdit();
             this.label61 = new System.Windows.Forms.Label();
-            this.c1DateEdit12 = new C1.Win.Calendar.C1DateEdit();
-            this.c1DateEdit11 = new C1.Win.Calendar.C1DateEdit();
-            this.c1DateEdit10 = new C1.Win.Calendar.C1DateEdit();
-            this.c1TextBox5 = new C1.Win.C1Input.C1TextBox();
-            this.c1TextBox4 = new C1.Win.C1Input.C1TextBox();
-            this.c1DateEdit9 = new C1.Win.Calendar.C1DateEdit();
+            this.txtDoDateReceive = new C1.Win.Calendar.C1DateEdit();
+            this.txtDoDateSend = new C1.Win.Calendar.C1DateEdit();
+            this.txtEmailDo1Date = new C1.Win.Calendar.C1DateEdit();
+            this.txtEmailDo1 = new C1.Win.C1Input.C1TextBox();
+            this.txtInsurAtten = new C1.Win.C1Input.C1TextBox();
+            this.txtEnterBl = new C1.Win.Calendar.C1DateEdit();
             this.label60 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
-            this.c1DateEdit8 = new C1.Win.Calendar.C1DateEdit();
-            this.c1DateEdit7 = new C1.Win.Calendar.C1DateEdit();
-            this.c1DateEdit6 = new C1.Win.Calendar.C1DateEdit();
+            this.txtJclDocAuthen3 = new C1.Win.Calendar.C1DateEdit();
+            this.txtJclDocAuthen2 = new C1.Win.Calendar.C1DateEdit();
+            this.txtJclDocAuthen1 = new C1.Win.Calendar.C1DateEdit();
             this.label55 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
-            this.cboJcl53 = new C1.Win.C1Input.C1ComboBox();
-            this.cboJcl52 = new C1.Win.C1Input.C1ComboBox();
-            this.cboJcl51 = new C1.Win.C1Input.C1ComboBox();
+            this.cboJclDocAuthen3 = new C1.Win.C1Input.C1ComboBox();
+            this.cboJclDocAuthen2 = new C1.Win.C1Input.C1ComboBox();
+            this.cboJclDocAuthen1 = new C1.Win.C1Input.C1ComboBox();
             this.label52 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
-            this.c1TextBox3 = new C1.Win.C1Input.C1TextBox();
-            this.c1TextBox2 = new C1.Win.C1Input.C1TextBox();
-            this.c1DateEdit5 = new C1.Win.Calendar.C1DateEdit();
-            this.c1DateEdit4 = new C1.Win.Calendar.C1DateEdit();
-            this.cboJcl42 = new C1.Win.C1Input.C1ComboBox();
-            this.cboJcl41 = new C1.Win.C1Input.C1ComboBox();
+            this.txtJclPrivi2Desc = new C1.Win.C1Input.C1TextBox();
+            this.txtJclPrivi1Desc = new C1.Win.C1Input.C1TextBox();
+            this.txtJclPrivi2Date = new C1.Win.Calendar.C1DateEdit();
+            this.txtJclPrivi1Date = new C1.Win.Calendar.C1DateEdit();
+            this.cboJclPrivi2 = new C1.Win.C1Input.C1ComboBox();
+            this.cboJclPrivi1 = new C1.Win.C1Input.C1ComboBox();
             this.label49 = new System.Windows.Forms.Label();
-            this.c1TextBox1 = new C1.Win.C1Input.C1TextBox();
+            this.txtEmailDo = new C1.Win.C1Input.C1TextBox();
             this.c1Button17 = new C1.Win.C1Input.C1Button();
             this.label48 = new System.Windows.Forms.Label();
             this.c1DateEdit2 = new C1.Win.Calendar.C1DateEdit();
             this.cboJclTypeofBl = new C1.Win.C1Input.C1ComboBox();
             this.label47 = new System.Windows.Forms.Label();
-            this.c1DateEdit1 = new C1.Win.Calendar.C1DateEdit();
+            this.txtJclDate = new C1.Win.Calendar.C1DateEdit();
             this.label46 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.chkJclOriginal = new System.Windows.Forms.RadioButton();
+            this.chkJclCopy = new System.Windows.Forms.RadioButton();
             this.label45 = new System.Windows.Forms.Label();
             this.gBContain = new System.Windows.Forms.GroupBox();
             this.txtContainTotal = new C1.Win.C1Input.C1TextBox();
@@ -331,7 +332,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cDMain = new C1.Win.C1Command.C1CommandDock();
-            this.txtJclId = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -368,42 +368,43 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox7)).BeginInit();
             this.tabCheckList.SuspendLayout();
             this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnJclSave)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit23)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboJcl53)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboJcl52)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboJcl51)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboJcl42)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboJcl41)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAcceptDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAdvanceBillingDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtApproveDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtParent1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtReceiptCopyDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtReceiptDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtExp2DateReceive)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtExp2DateSend)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtExp1DateReceive)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtExp1DateSend)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTaxDateReceive)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTaxDateSend)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDoDateReceive)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDoDateSend)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmailDo1Date)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmailDo1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInsurAtten)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEnterBl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclDocAuthen3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclDocAuthen2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclDocAuthen1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboJclDocAuthen3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboJclDocAuthen2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboJclDocAuthen1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclPrivi2Desc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclPrivi1Desc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclPrivi2Date)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclPrivi1Date)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboJclPrivi2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboJclPrivi1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmailDo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboJclTypeofBl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclDate)).BeginInit();
             this.gBContain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtContainTotal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboContain6)).BeginInit();
@@ -537,7 +538,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJinId)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtJclId)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -1536,67 +1536,67 @@
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panel11.Controls.Add(this.txtJclId);
             this.panel11.Controls.Add(this.btnJclSave);
-            this.panel11.Controls.Add(this.c1DateEdit23);
-            this.panel11.Controls.Add(this.c1DateEdit22);
-            this.panel11.Controls.Add(this.c1DateEdit21);
-            this.panel11.Controls.Add(this.c1TextBox6);
+            this.panel11.Controls.Add(this.txtAcceptDate);
+            this.panel11.Controls.Add(this.txtAdvanceBillingDate);
+            this.panel11.Controls.Add(this.txtApproveDate);
+            this.panel11.Controls.Add(this.txtParent1);
             this.panel11.Controls.Add(this.label69);
             this.panel11.Controls.Add(this.label68);
             this.panel11.Controls.Add(this.label67);
             this.panel11.Controls.Add(this.label66);
-            this.panel11.Controls.Add(this.c1DateEdit19);
-            this.panel11.Controls.Add(this.c1DateEdit20);
+            this.panel11.Controls.Add(this.txtReceiptCopyDate);
+            this.panel11.Controls.Add(this.txtReceiptDate);
             this.panel11.Controls.Add(this.label65);
             this.panel11.Controls.Add(this.label64);
-            this.panel11.Controls.Add(this.c1DateEdit17);
-            this.panel11.Controls.Add(this.c1DateEdit18);
+            this.panel11.Controls.Add(this.txtExp2DateReceive);
+            this.panel11.Controls.Add(this.txtExp2DateSend);
             this.panel11.Controls.Add(this.label63);
-            this.panel11.Controls.Add(this.c1DateEdit15);
-            this.panel11.Controls.Add(this.c1DateEdit16);
+            this.panel11.Controls.Add(this.txtExp1DateReceive);
+            this.panel11.Controls.Add(this.txtExp1DateSend);
             this.panel11.Controls.Add(this.label62);
-            this.panel11.Controls.Add(this.c1DateEdit13);
-            this.panel11.Controls.Add(this.c1DateEdit14);
+            this.panel11.Controls.Add(this.txtTaxDateReceive);
+            this.panel11.Controls.Add(this.txtTaxDateSend);
             this.panel11.Controls.Add(this.label61);
-            this.panel11.Controls.Add(this.c1DateEdit12);
-            this.panel11.Controls.Add(this.c1DateEdit11);
-            this.panel11.Controls.Add(this.c1DateEdit10);
-            this.panel11.Controls.Add(this.c1TextBox5);
-            this.panel11.Controls.Add(this.c1TextBox4);
-            this.panel11.Controls.Add(this.c1DateEdit9);
+            this.panel11.Controls.Add(this.txtDoDateReceive);
+            this.panel11.Controls.Add(this.txtDoDateSend);
+            this.panel11.Controls.Add(this.txtEmailDo1Date);
+            this.panel11.Controls.Add(this.txtEmailDo1);
+            this.panel11.Controls.Add(this.txtInsurAtten);
+            this.panel11.Controls.Add(this.txtEnterBl);
             this.panel11.Controls.Add(this.label60);
             this.panel11.Controls.Add(this.label59);
             this.panel11.Controls.Add(this.label58);
             this.panel11.Controls.Add(this.label57);
             this.panel11.Controls.Add(this.label56);
-            this.panel11.Controls.Add(this.c1DateEdit8);
-            this.panel11.Controls.Add(this.c1DateEdit7);
-            this.panel11.Controls.Add(this.c1DateEdit6);
+            this.panel11.Controls.Add(this.txtJclDocAuthen3);
+            this.panel11.Controls.Add(this.txtJclDocAuthen2);
+            this.panel11.Controls.Add(this.txtJclDocAuthen1);
             this.panel11.Controls.Add(this.label55);
             this.panel11.Controls.Add(this.label54);
             this.panel11.Controls.Add(this.label53);
-            this.panel11.Controls.Add(this.cboJcl53);
-            this.panel11.Controls.Add(this.cboJcl52);
-            this.panel11.Controls.Add(this.cboJcl51);
+            this.panel11.Controls.Add(this.cboJclDocAuthen3);
+            this.panel11.Controls.Add(this.cboJclDocAuthen2);
+            this.panel11.Controls.Add(this.cboJclDocAuthen1);
             this.panel11.Controls.Add(this.label52);
             this.panel11.Controls.Add(this.label51);
             this.panel11.Controls.Add(this.label50);
-            this.panel11.Controls.Add(this.c1TextBox3);
-            this.panel11.Controls.Add(this.c1TextBox2);
-            this.panel11.Controls.Add(this.c1DateEdit5);
-            this.panel11.Controls.Add(this.c1DateEdit4);
-            this.panel11.Controls.Add(this.cboJcl42);
-            this.panel11.Controls.Add(this.cboJcl41);
+            this.panel11.Controls.Add(this.txtJclPrivi2Desc);
+            this.panel11.Controls.Add(this.txtJclPrivi1Desc);
+            this.panel11.Controls.Add(this.txtJclPrivi2Date);
+            this.panel11.Controls.Add(this.txtJclPrivi1Date);
+            this.panel11.Controls.Add(this.cboJclPrivi2);
+            this.panel11.Controls.Add(this.cboJclPrivi1);
             this.panel11.Controls.Add(this.label49);
-            this.panel11.Controls.Add(this.c1TextBox1);
+            this.panel11.Controls.Add(this.txtEmailDo);
             this.panel11.Controls.Add(this.c1Button17);
             this.panel11.Controls.Add(this.label48);
             this.panel11.Controls.Add(this.c1DateEdit2);
             this.panel11.Controls.Add(this.cboJclTypeofBl);
             this.panel11.Controls.Add(this.label47);
-            this.panel11.Controls.Add(this.c1DateEdit1);
+            this.panel11.Controls.Add(this.txtJclDate);
             this.panel11.Controls.Add(this.label46);
-            this.panel11.Controls.Add(this.radioButton2);
-            this.panel11.Controls.Add(this.radioButton1);
+            this.panel11.Controls.Add(this.chkJclOriginal);
+            this.panel11.Controls.Add(this.chkJclCopy);
             this.panel11.Controls.Add(this.label45);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
@@ -1605,6 +1605,20 @@
             this.panel11.Size = new System.Drawing.Size(871, 649);
             this.panel11.TabIndex = 0;
             this.theme1.SetTheme(this.panel11, "(default)");
+            // 
+            // txtJclId
+            // 
+            this.txtJclId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJclId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJclId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtJclId.Location = new System.Drawing.Point(220, 13);
+            this.txtJclId.Name = "txtJclId";
+            this.txtJclId.Size = new System.Drawing.Size(24, 20);
+            this.txtJclId.TabIndex = 556;
+            this.txtJclId.Tag = null;
+            this.theme1.SetTheme(this.txtJclId, "(default)");
+            this.txtJclId.Visible = false;
+            this.txtJclId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // btnJclSave
             // 
@@ -1620,120 +1634,120 @@
             this.btnJclSave.UseVisualStyleBackColor = true;
             this.btnJclSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1DateEdit23
+            // txtAcceptDate
             // 
-            this.c1DateEdit23.AllowSpinLoop = false;
-            this.c1DateEdit23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit23.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit23.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit23.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit23.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit23.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit23.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit23.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit23.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit23.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit23.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit23.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit23.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit23.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit23.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit23.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtAcceptDate.AllowSpinLoop = false;
+            this.txtAcceptDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAcceptDate.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtAcceptDate.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtAcceptDate.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtAcceptDate.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtAcceptDate.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtAcceptDate.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtAcceptDate.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtAcceptDate.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtAcceptDate.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtAcceptDate.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtAcceptDate.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtAcceptDate.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtAcceptDate.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtAcceptDate.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtAcceptDate.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit23.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit23.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit23.Location = new System.Drawing.Point(283, 547);
-            this.c1DateEdit23.Name = "c1DateEdit23";
-            this.c1DateEdit23.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit23.TabIndex = 554;
-            this.c1DateEdit23.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit23, "(default)");
-            this.c1DateEdit23.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtAcceptDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAcceptDate.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtAcceptDate.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtAcceptDate.Location = new System.Drawing.Point(283, 547);
+            this.txtAcceptDate.Name = "txtAcceptDate";
+            this.txtAcceptDate.Size = new System.Drawing.Size(118, 20);
+            this.txtAcceptDate.TabIndex = 554;
+            this.txtAcceptDate.Tag = null;
+            this.theme1.SetTheme(this.txtAcceptDate, "(default)");
+            this.txtAcceptDate.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1DateEdit22
+            // txtAdvanceBillingDate
             // 
-            this.c1DateEdit22.AllowSpinLoop = false;
-            this.c1DateEdit22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit22.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit22.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit22.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit22.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit22.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit22.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit22.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit22.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit22.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit22.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit22.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit22.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit22.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit22.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit22.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtAdvanceBillingDate.AllowSpinLoop = false;
+            this.txtAdvanceBillingDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAdvanceBillingDate.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtAdvanceBillingDate.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtAdvanceBillingDate.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtAdvanceBillingDate.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtAdvanceBillingDate.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtAdvanceBillingDate.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtAdvanceBillingDate.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtAdvanceBillingDate.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtAdvanceBillingDate.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtAdvanceBillingDate.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtAdvanceBillingDate.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtAdvanceBillingDate.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtAdvanceBillingDate.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtAdvanceBillingDate.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtAdvanceBillingDate.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit22.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit22.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit22.Location = new System.Drawing.Point(283, 571);
-            this.c1DateEdit22.Name = "c1DateEdit22";
-            this.c1DateEdit22.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit22.TabIndex = 553;
-            this.c1DateEdit22.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit22, "(default)");
-            this.c1DateEdit22.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtAdvanceBillingDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAdvanceBillingDate.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtAdvanceBillingDate.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtAdvanceBillingDate.Location = new System.Drawing.Point(283, 571);
+            this.txtAdvanceBillingDate.Name = "txtAdvanceBillingDate";
+            this.txtAdvanceBillingDate.Size = new System.Drawing.Size(118, 20);
+            this.txtAdvanceBillingDate.TabIndex = 553;
+            this.txtAdvanceBillingDate.Tag = null;
+            this.theme1.SetTheme(this.txtAdvanceBillingDate, "(default)");
+            this.txtAdvanceBillingDate.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1DateEdit21
+            // txtApproveDate
             // 
-            this.c1DateEdit21.AllowSpinLoop = false;
-            this.c1DateEdit21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit21.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit21.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit21.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit21.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit21.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit21.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit21.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit21.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit21.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit21.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit21.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit21.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit21.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit21.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit21.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtApproveDate.AllowSpinLoop = false;
+            this.txtApproveDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtApproveDate.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtApproveDate.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtApproveDate.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtApproveDate.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtApproveDate.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtApproveDate.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtApproveDate.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtApproveDate.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtApproveDate.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtApproveDate.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtApproveDate.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtApproveDate.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtApproveDate.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtApproveDate.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtApproveDate.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit21.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit21.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit21.Location = new System.Drawing.Point(283, 595);
-            this.c1DateEdit21.Name = "c1DateEdit21";
-            this.c1DateEdit21.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit21.TabIndex = 552;
-            this.c1DateEdit21.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit21, "(default)");
-            this.c1DateEdit21.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtApproveDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApproveDate.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtApproveDate.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtApproveDate.Location = new System.Drawing.Point(283, 595);
+            this.txtApproveDate.Name = "txtApproveDate";
+            this.txtApproveDate.Size = new System.Drawing.Size(118, 20);
+            this.txtApproveDate.TabIndex = 552;
+            this.txtApproveDate.Tag = null;
+            this.theme1.SetTheme(this.txtApproveDate, "(default)");
+            this.txtApproveDate.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1TextBox6
+            // txtParent1
             // 
-            this.c1TextBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox6.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox6.Location = new System.Drawing.Point(109, 620);
-            this.c1TextBox6.Name = "c1TextBox6";
-            this.c1TextBox6.Size = new System.Drawing.Size(423, 20);
-            this.c1TextBox6.TabIndex = 551;
-            this.c1TextBox6.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox6, "(default)");
-            this.c1TextBox6.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtParent1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtParent1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtParent1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtParent1.Location = new System.Drawing.Point(109, 620);
+            this.txtParent1.Name = "txtParent1";
+            this.txtParent1.Size = new System.Drawing.Size(423, 20);
+            this.txtParent1.TabIndex = 551;
+            this.txtParent1.Tag = null;
+            this.theme1.SetTheme(this.txtParent1, "(default)");
+            this.txtParent1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label69
             // 
@@ -1784,76 +1798,76 @@
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(109, 13);
             this.label66.TabIndex = 547;
-            this.label66.Text = "2. ACCPET TENDER";
+            this.label66.Text = "2. ACCEPT TENDER";
             this.theme1.SetTheme(this.label66, "(default)");
             // 
-            // c1DateEdit19
+            // txtReceiptCopyDate
             // 
-            this.c1DateEdit19.AllowSpinLoop = false;
-            this.c1DateEdit19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit19.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit19.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit19.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit19.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit19.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit19.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit19.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit19.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit19.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit19.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit19.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit19.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit19.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit19.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit19.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtReceiptCopyDate.AllowSpinLoop = false;
+            this.txtReceiptCopyDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtReceiptCopyDate.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtReceiptCopyDate.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtReceiptCopyDate.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtReceiptCopyDate.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtReceiptCopyDate.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtReceiptCopyDate.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtReceiptCopyDate.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtReceiptCopyDate.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtReceiptCopyDate.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtReceiptCopyDate.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtReceiptCopyDate.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtReceiptCopyDate.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtReceiptCopyDate.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtReceiptCopyDate.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtReceiptCopyDate.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit19.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit19.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit19.Location = new System.Drawing.Point(414, 524);
-            this.c1DateEdit19.Name = "c1DateEdit19";
-            this.c1DateEdit19.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit19.TabIndex = 546;
-            this.c1DateEdit19.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit19, "(default)");
-            this.c1DateEdit19.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtReceiptCopyDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReceiptCopyDate.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtReceiptCopyDate.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtReceiptCopyDate.Location = new System.Drawing.Point(414, 524);
+            this.txtReceiptCopyDate.Name = "txtReceiptCopyDate";
+            this.txtReceiptCopyDate.Size = new System.Drawing.Size(118, 20);
+            this.txtReceiptCopyDate.TabIndex = 546;
+            this.txtReceiptCopyDate.Tag = null;
+            this.theme1.SetTheme(this.txtReceiptCopyDate, "(default)");
+            this.txtReceiptCopyDate.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1DateEdit20
+            // txtReceiptDate
             // 
-            this.c1DateEdit20.AllowSpinLoop = false;
-            this.c1DateEdit20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit20.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit20.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit20.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit20.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit20.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit20.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit20.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit20.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit20.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit20.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit20.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit20.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit20.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit20.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit20.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtReceiptDate.AllowSpinLoop = false;
+            this.txtReceiptDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtReceiptDate.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtReceiptDate.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtReceiptDate.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtReceiptDate.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtReceiptDate.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtReceiptDate.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtReceiptDate.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtReceiptDate.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtReceiptDate.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtReceiptDate.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtReceiptDate.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtReceiptDate.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtReceiptDate.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtReceiptDate.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtReceiptDate.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit20.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit20.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit20.Location = new System.Drawing.Point(283, 524);
-            this.c1DateEdit20.Name = "c1DateEdit20";
-            this.c1DateEdit20.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit20.TabIndex = 545;
-            this.c1DateEdit20.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit20, "(default)");
-            this.c1DateEdit20.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtReceiptDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReceiptDate.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtReceiptDate.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtReceiptDate.Location = new System.Drawing.Point(283, 524);
+            this.txtReceiptDate.Name = "txtReceiptDate";
+            this.txtReceiptDate.Size = new System.Drawing.Size(118, 20);
+            this.txtReceiptDate.TabIndex = 545;
+            this.txtReceiptDate.Tag = null;
+            this.theme1.SetTheme(this.txtReceiptDate, "(default)");
+            this.txtReceiptDate.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label65
             // 
@@ -1881,73 +1895,73 @@
             this.label64.Text = "Finish Document Check List";
             this.theme1.SetTheme(this.label64, "(default)");
             // 
-            // c1DateEdit17
+            // txtExp2DateReceive
             // 
-            this.c1DateEdit17.AllowSpinLoop = false;
-            this.c1DateEdit17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit17.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit17.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit17.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit17.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit17.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit17.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit17.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit17.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit17.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit17.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit17.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit17.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit17.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit17.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit17.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtExp2DateReceive.AllowSpinLoop = false;
+            this.txtExp2DateReceive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtExp2DateReceive.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtExp2DateReceive.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtExp2DateReceive.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtExp2DateReceive.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtExp2DateReceive.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtExp2DateReceive.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtExp2DateReceive.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtExp2DateReceive.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtExp2DateReceive.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtExp2DateReceive.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtExp2DateReceive.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtExp2DateReceive.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtExp2DateReceive.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtExp2DateReceive.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtExp2DateReceive.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit17.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit17.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit17.Location = new System.Drawing.Point(414, 472);
-            this.c1DateEdit17.Name = "c1DateEdit17";
-            this.c1DateEdit17.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit17.TabIndex = 542;
-            this.c1DateEdit17.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit17, "(default)");
-            this.c1DateEdit17.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtExp2DateReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExp2DateReceive.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtExp2DateReceive.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtExp2DateReceive.Location = new System.Drawing.Point(414, 472);
+            this.txtExp2DateReceive.Name = "txtExp2DateReceive";
+            this.txtExp2DateReceive.Size = new System.Drawing.Size(118, 20);
+            this.txtExp2DateReceive.TabIndex = 542;
+            this.txtExp2DateReceive.Tag = null;
+            this.theme1.SetTheme(this.txtExp2DateReceive, "(default)");
+            this.txtExp2DateReceive.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1DateEdit18
+            // txtExp2DateSend
             // 
-            this.c1DateEdit18.AllowSpinLoop = false;
-            this.c1DateEdit18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit18.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit18.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit18.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit18.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit18.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit18.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit18.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit18.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit18.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit18.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit18.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit18.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit18.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit18.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit18.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtExp2DateSend.AllowSpinLoop = false;
+            this.txtExp2DateSend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtExp2DateSend.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtExp2DateSend.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtExp2DateSend.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtExp2DateSend.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtExp2DateSend.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtExp2DateSend.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtExp2DateSend.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtExp2DateSend.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtExp2DateSend.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtExp2DateSend.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtExp2DateSend.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtExp2DateSend.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtExp2DateSend.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtExp2DateSend.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtExp2DateSend.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit18.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit18.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit18.Location = new System.Drawing.Point(285, 472);
-            this.c1DateEdit18.Name = "c1DateEdit18";
-            this.c1DateEdit18.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit18.TabIndex = 541;
-            this.c1DateEdit18.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit18, "(default)");
-            this.c1DateEdit18.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtExp2DateSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExp2DateSend.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtExp2DateSend.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtExp2DateSend.Location = new System.Drawing.Point(285, 472);
+            this.txtExp2DateSend.Name = "txtExp2DateSend";
+            this.txtExp2DateSend.Size = new System.Drawing.Size(118, 20);
+            this.txtExp2DateSend.TabIndex = 541;
+            this.txtExp2DateSend.Tag = null;
+            this.theme1.SetTheme(this.txtExp2DateSend, "(default)");
+            this.txtExp2DateSend.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label63
             // 
@@ -1962,73 +1976,73 @@
             this.label63.Text = "7. คชจ. ค่าภาระท่าเรือ/รับ PRQ";
             this.theme1.SetTheme(this.label63, "(default)");
             // 
-            // c1DateEdit15
+            // txtExp1DateReceive
             // 
-            this.c1DateEdit15.AllowSpinLoop = false;
-            this.c1DateEdit15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit15.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit15.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit15.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit15.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit15.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit15.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit15.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit15.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit15.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit15.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit15.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit15.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit15.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit15.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit15.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtExp1DateReceive.AllowSpinLoop = false;
+            this.txtExp1DateReceive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtExp1DateReceive.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtExp1DateReceive.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtExp1DateReceive.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtExp1DateReceive.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtExp1DateReceive.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtExp1DateReceive.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtExp1DateReceive.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtExp1DateReceive.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtExp1DateReceive.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtExp1DateReceive.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtExp1DateReceive.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtExp1DateReceive.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtExp1DateReceive.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtExp1DateReceive.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtExp1DateReceive.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit15.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit15.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit15.Location = new System.Drawing.Point(414, 449);
-            this.c1DateEdit15.Name = "c1DateEdit15";
-            this.c1DateEdit15.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit15.TabIndex = 539;
-            this.c1DateEdit15.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit15, "(default)");
-            this.c1DateEdit15.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtExp1DateReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExp1DateReceive.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtExp1DateReceive.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtExp1DateReceive.Location = new System.Drawing.Point(414, 449);
+            this.txtExp1DateReceive.Name = "txtExp1DateReceive";
+            this.txtExp1DateReceive.Size = new System.Drawing.Size(118, 20);
+            this.txtExp1DateReceive.TabIndex = 539;
+            this.txtExp1DateReceive.Tag = null;
+            this.theme1.SetTheme(this.txtExp1DateReceive, "(default)");
+            this.txtExp1DateReceive.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1DateEdit16
+            // txtExp1DateSend
             // 
-            this.c1DateEdit16.AllowSpinLoop = false;
-            this.c1DateEdit16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit16.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit16.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit16.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit16.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit16.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit16.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit16.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit16.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit16.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit16.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit16.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit16.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit16.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit16.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit16.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtExp1DateSend.AllowSpinLoop = false;
+            this.txtExp1DateSend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtExp1DateSend.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtExp1DateSend.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtExp1DateSend.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtExp1DateSend.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtExp1DateSend.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtExp1DateSend.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtExp1DateSend.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtExp1DateSend.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtExp1DateSend.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtExp1DateSend.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtExp1DateSend.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtExp1DateSend.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtExp1DateSend.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtExp1DateSend.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtExp1DateSend.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit16.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit16.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit16.Location = new System.Drawing.Point(285, 449);
-            this.c1DateEdit16.Name = "c1DateEdit16";
-            this.c1DateEdit16.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit16.TabIndex = 538;
-            this.c1DateEdit16.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit16, "(default)");
-            this.c1DateEdit16.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtExp1DateSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExp1DateSend.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtExp1DateSend.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtExp1DateSend.Location = new System.Drawing.Point(285, 449);
+            this.txtExp1DateSend.Name = "txtExp1DateSend";
+            this.txtExp1DateSend.Size = new System.Drawing.Size(118, 20);
+            this.txtExp1DateSend.TabIndex = 538;
+            this.txtExp1DateSend.Tag = null;
+            this.theme1.SetTheme(this.txtExp1DateSend, "(default)");
+            this.txtExp1DateSend.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label62
             // 
@@ -2043,73 +2057,73 @@
             this.label62.Text = "6. คชจ. แลก D/O สายเรือ/รับ PRQ";
             this.theme1.SetTheme(this.label62, "(default)");
             // 
-            // c1DateEdit13
+            // txtTaxDateReceive
             // 
-            this.c1DateEdit13.AllowSpinLoop = false;
-            this.c1DateEdit13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit13.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit13.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit13.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit13.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit13.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit13.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit13.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit13.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit13.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit13.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit13.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit13.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit13.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit13.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit13.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtTaxDateReceive.AllowSpinLoop = false;
+            this.txtTaxDateReceive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTaxDateReceive.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtTaxDateReceive.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtTaxDateReceive.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtTaxDateReceive.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtTaxDateReceive.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtTaxDateReceive.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtTaxDateReceive.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtTaxDateReceive.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtTaxDateReceive.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtTaxDateReceive.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtTaxDateReceive.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtTaxDateReceive.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtTaxDateReceive.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtTaxDateReceive.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtTaxDateReceive.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit13.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit13.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit13.Location = new System.Drawing.Point(414, 427);
-            this.c1DateEdit13.Name = "c1DateEdit13";
-            this.c1DateEdit13.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit13.TabIndex = 536;
-            this.c1DateEdit13.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit13, "(default)");
-            this.c1DateEdit13.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtTaxDateReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTaxDateReceive.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtTaxDateReceive.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtTaxDateReceive.Location = new System.Drawing.Point(414, 427);
+            this.txtTaxDateReceive.Name = "txtTaxDateReceive";
+            this.txtTaxDateReceive.Size = new System.Drawing.Size(118, 20);
+            this.txtTaxDateReceive.TabIndex = 536;
+            this.txtTaxDateReceive.Tag = null;
+            this.theme1.SetTheme(this.txtTaxDateReceive, "(default)");
+            this.txtTaxDateReceive.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1DateEdit14
+            // txtTaxDateSend
             // 
-            this.c1DateEdit14.AllowSpinLoop = false;
-            this.c1DateEdit14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit14.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit14.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit14.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit14.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit14.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit14.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit14.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit14.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit14.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit14.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit14.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit14.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit14.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit14.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit14.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtTaxDateSend.AllowSpinLoop = false;
+            this.txtTaxDateSend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTaxDateSend.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtTaxDateSend.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtTaxDateSend.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtTaxDateSend.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtTaxDateSend.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtTaxDateSend.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtTaxDateSend.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtTaxDateSend.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtTaxDateSend.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtTaxDateSend.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtTaxDateSend.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtTaxDateSend.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtTaxDateSend.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtTaxDateSend.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtTaxDateSend.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit14.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit14.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit14.Location = new System.Drawing.Point(285, 427);
-            this.c1DateEdit14.Name = "c1DateEdit14";
-            this.c1DateEdit14.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit14.TabIndex = 535;
-            this.c1DateEdit14.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit14, "(default)");
-            this.c1DateEdit14.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtTaxDateSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTaxDateSend.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtTaxDateSend.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtTaxDateSend.Location = new System.Drawing.Point(285, 427);
+            this.txtTaxDateSend.Name = "txtTaxDateSend";
+            this.txtTaxDateSend.Size = new System.Drawing.Size(118, 20);
+            this.txtTaxDateSend.TabIndex = 535;
+            this.txtTaxDateSend.Tag = null;
+            this.theme1.SetTheme(this.txtTaxDateSend, "(default)");
+            this.txtTaxDateSend.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label61
             // 
@@ -2124,167 +2138,167 @@
             this.label61.Text = "5. วันแจ้งยอดภาษี/รับPRQ";
             this.theme1.SetTheme(this.label61, "(default)");
             // 
-            // c1DateEdit12
+            // txtDoDateReceive
             // 
-            this.c1DateEdit12.AllowSpinLoop = false;
-            this.c1DateEdit12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit12.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit12.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit12.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit12.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit12.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit12.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit12.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit12.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit12.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit12.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit12.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit12.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit12.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit12.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit12.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtDoDateReceive.AllowSpinLoop = false;
+            this.txtDoDateReceive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDoDateReceive.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtDoDateReceive.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtDoDateReceive.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtDoDateReceive.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtDoDateReceive.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtDoDateReceive.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtDoDateReceive.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtDoDateReceive.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtDoDateReceive.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtDoDateReceive.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtDoDateReceive.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtDoDateReceive.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtDoDateReceive.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtDoDateReceive.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtDoDateReceive.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit12.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit12.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit12.Location = new System.Drawing.Point(414, 404);
-            this.c1DateEdit12.Name = "c1DateEdit12";
-            this.c1DateEdit12.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit12.TabIndex = 533;
-            this.c1DateEdit12.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit12, "(default)");
-            this.c1DateEdit12.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtDoDateReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDoDateReceive.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtDoDateReceive.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtDoDateReceive.Location = new System.Drawing.Point(414, 404);
+            this.txtDoDateReceive.Name = "txtDoDateReceive";
+            this.txtDoDateReceive.Size = new System.Drawing.Size(118, 20);
+            this.txtDoDateReceive.TabIndex = 533;
+            this.txtDoDateReceive.Tag = null;
+            this.theme1.SetTheme(this.txtDoDateReceive, "(default)");
+            this.txtDoDateReceive.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1DateEdit11
+            // txtDoDateSend
             // 
-            this.c1DateEdit11.AllowSpinLoop = false;
-            this.c1DateEdit11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit11.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit11.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit11.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit11.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit11.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit11.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit11.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit11.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit11.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit11.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit11.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit11.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit11.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit11.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit11.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtDoDateSend.AllowSpinLoop = false;
+            this.txtDoDateSend.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDoDateSend.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtDoDateSend.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtDoDateSend.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtDoDateSend.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtDoDateSend.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtDoDateSend.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtDoDateSend.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtDoDateSend.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtDoDateSend.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtDoDateSend.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtDoDateSend.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtDoDateSend.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtDoDateSend.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtDoDateSend.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtDoDateSend.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit11.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit11.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit11.Location = new System.Drawing.Point(285, 404);
-            this.c1DateEdit11.Name = "c1DateEdit11";
-            this.c1DateEdit11.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit11.TabIndex = 532;
-            this.c1DateEdit11.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit11, "(default)");
-            this.c1DateEdit11.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtDoDateSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDoDateSend.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtDoDateSend.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtDoDateSend.Location = new System.Drawing.Point(285, 404);
+            this.txtDoDateSend.Name = "txtDoDateSend";
+            this.txtDoDateSend.Size = new System.Drawing.Size(118, 20);
+            this.txtDoDateSend.TabIndex = 532;
+            this.txtDoDateSend.Tag = null;
+            this.theme1.SetTheme(this.txtDoDateSend, "(default)");
+            this.txtDoDateSend.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1DateEdit10
+            // txtEmailDo1Date
             // 
-            this.c1DateEdit10.AllowSpinLoop = false;
-            this.c1DateEdit10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit10.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit10.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit10.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit10.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit10.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit10.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit10.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit10.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit10.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit10.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit10.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit10.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit10.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit10.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit10.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtEmailDo1Date.AllowSpinLoop = false;
+            this.txtEmailDo1Date.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmailDo1Date.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtEmailDo1Date.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtEmailDo1Date.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtEmailDo1Date.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtEmailDo1Date.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtEmailDo1Date.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtEmailDo1Date.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtEmailDo1Date.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtEmailDo1Date.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtEmailDo1Date.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtEmailDo1Date.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtEmailDo1Date.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtEmailDo1Date.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtEmailDo1Date.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtEmailDo1Date.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit10.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit10.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit10.Location = new System.Drawing.Point(414, 381);
-            this.c1DateEdit10.Name = "c1DateEdit10";
-            this.c1DateEdit10.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit10.TabIndex = 531;
-            this.c1DateEdit10.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit10, "(default)");
-            this.c1DateEdit10.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtEmailDo1Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailDo1Date.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtEmailDo1Date.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtEmailDo1Date.Location = new System.Drawing.Point(414, 381);
+            this.txtEmailDo1Date.Name = "txtEmailDo1Date";
+            this.txtEmailDo1Date.Size = new System.Drawing.Size(118, 20);
+            this.txtEmailDo1Date.TabIndex = 531;
+            this.txtEmailDo1Date.Tag = null;
+            this.theme1.SetTheme(this.txtEmailDo1Date, "(default)");
+            this.txtEmailDo1Date.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1TextBox5
+            // txtEmailDo1
             // 
-            this.c1TextBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox5.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox5.Location = new System.Drawing.Point(187, 381);
-            this.c1TextBox5.Name = "c1TextBox5";
-            this.c1TextBox5.Size = new System.Drawing.Size(221, 20);
-            this.c1TextBox5.TabIndex = 530;
-            this.c1TextBox5.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox5, "(default)");
-            this.c1TextBox5.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtEmailDo1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmailDo1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtEmailDo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtEmailDo1.Location = new System.Drawing.Point(187, 381);
+            this.txtEmailDo1.Name = "txtEmailDo1";
+            this.txtEmailDo1.Size = new System.Drawing.Size(221, 20);
+            this.txtEmailDo1.TabIndex = 530;
+            this.txtEmailDo1.Tag = null;
+            this.theme1.SetTheme(this.txtEmailDo1, "(default)");
+            this.txtEmailDo1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1TextBox4
+            // txtInsurAtten
             // 
-            this.c1TextBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox4.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox4.Location = new System.Drawing.Point(187, 358);
-            this.c1TextBox4.Name = "c1TextBox4";
-            this.c1TextBox4.Size = new System.Drawing.Size(345, 20);
-            this.c1TextBox4.TabIndex = 529;
-            this.c1TextBox4.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox4, "(default)");
-            this.c1TextBox4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtInsurAtten.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtInsurAtten.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtInsurAtten.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtInsurAtten.Location = new System.Drawing.Point(187, 358);
+            this.txtInsurAtten.Name = "txtInsurAtten";
+            this.txtInsurAtten.Size = new System.Drawing.Size(345, 20);
+            this.txtInsurAtten.TabIndex = 529;
+            this.txtInsurAtten.Tag = null;
+            this.theme1.SetTheme(this.txtInsurAtten, "(default)");
+            this.txtInsurAtten.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1DateEdit9
+            // txtEnterBl
             // 
-            this.c1DateEdit9.AllowSpinLoop = false;
-            this.c1DateEdit9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit9.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit9.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit9.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit9.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit9.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit9.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit9.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit9.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit9.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit9.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit9.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit9.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit9.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit9.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit9.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtEnterBl.AllowSpinLoop = false;
+            this.txtEnterBl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEnterBl.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtEnterBl.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtEnterBl.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtEnterBl.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtEnterBl.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtEnterBl.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtEnterBl.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtEnterBl.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtEnterBl.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtEnterBl.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtEnterBl.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtEnterBl.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtEnterBl.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtEnterBl.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtEnterBl.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit9.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit9.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit9.Location = new System.Drawing.Point(414, 334);
-            this.c1DateEdit9.Name = "c1DateEdit9";
-            this.c1DateEdit9.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit9.TabIndex = 528;
-            this.c1DateEdit9.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit9, "(default)");
-            this.c1DateEdit9.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtEnterBl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEnterBl.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtEnterBl.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtEnterBl.Location = new System.Drawing.Point(414, 334);
+            this.txtEnterBl.Name = "txtEnterBl";
+            this.txtEnterBl.Size = new System.Drawing.Size(118, 20);
+            this.txtEnterBl.TabIndex = 528;
+            this.txtEnterBl.Tag = null;
+            this.theme1.SetTheme(this.txtEnterBl, "(default)");
+            this.txtEnterBl.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label60
             // 
@@ -2351,107 +2365,107 @@
             this.label56.Text = "Process Job Check List";
             this.theme1.SetTheme(this.label56, "(default)");
             // 
-            // c1DateEdit8
+            // txtJclDocAuthen3
             // 
-            this.c1DateEdit8.AllowSpinLoop = false;
-            this.c1DateEdit8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit8.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit8.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit8.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit8.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit8.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit8.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit8.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit8.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit8.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit8.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit8.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit8.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit8.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit8.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit8.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtJclDocAuthen3.AllowSpinLoop = false;
+            this.txtJclDocAuthen3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJclDocAuthen3.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclDocAuthen3.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtJclDocAuthen3.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclDocAuthen3.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclDocAuthen3.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtJclDocAuthen3.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtJclDocAuthen3.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtJclDocAuthen3.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtJclDocAuthen3.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclDocAuthen3.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtJclDocAuthen3.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJclDocAuthen3.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtJclDocAuthen3.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJclDocAuthen3.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtJclDocAuthen3.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit8.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit8.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit8.Location = new System.Drawing.Point(414, 277);
-            this.c1DateEdit8.Name = "c1DateEdit8";
-            this.c1DateEdit8.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit8.TabIndex = 522;
-            this.c1DateEdit8.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit8, "(default)");
-            this.c1DateEdit8.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtJclDocAuthen3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJclDocAuthen3.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtJclDocAuthen3.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtJclDocAuthen3.Location = new System.Drawing.Point(414, 277);
+            this.txtJclDocAuthen3.Name = "txtJclDocAuthen3";
+            this.txtJclDocAuthen3.Size = new System.Drawing.Size(118, 20);
+            this.txtJclDocAuthen3.TabIndex = 522;
+            this.txtJclDocAuthen3.Tag = null;
+            this.theme1.SetTheme(this.txtJclDocAuthen3, "(default)");
+            this.txtJclDocAuthen3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1DateEdit7
+            // txtJclDocAuthen2
             // 
-            this.c1DateEdit7.AllowSpinLoop = false;
-            this.c1DateEdit7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit7.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit7.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit7.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit7.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit7.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit7.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit7.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit7.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit7.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit7.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit7.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit7.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit7.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit7.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit7.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtJclDocAuthen2.AllowSpinLoop = false;
+            this.txtJclDocAuthen2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJclDocAuthen2.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclDocAuthen2.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtJclDocAuthen2.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclDocAuthen2.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclDocAuthen2.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtJclDocAuthen2.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtJclDocAuthen2.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtJclDocAuthen2.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtJclDocAuthen2.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclDocAuthen2.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtJclDocAuthen2.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJclDocAuthen2.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtJclDocAuthen2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJclDocAuthen2.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtJclDocAuthen2.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit7.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit7.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit7.Location = new System.Drawing.Point(414, 252);
-            this.c1DateEdit7.Name = "c1DateEdit7";
-            this.c1DateEdit7.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit7.TabIndex = 521;
-            this.c1DateEdit7.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit7, "(default)");
-            this.c1DateEdit7.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtJclDocAuthen2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJclDocAuthen2.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtJclDocAuthen2.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtJclDocAuthen2.Location = new System.Drawing.Point(414, 252);
+            this.txtJclDocAuthen2.Name = "txtJclDocAuthen2";
+            this.txtJclDocAuthen2.Size = new System.Drawing.Size(118, 20);
+            this.txtJclDocAuthen2.TabIndex = 521;
+            this.txtJclDocAuthen2.Tag = null;
+            this.theme1.SetTheme(this.txtJclDocAuthen2, "(default)");
+            this.txtJclDocAuthen2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1DateEdit6
+            // txtJclDocAuthen1
             // 
-            this.c1DateEdit6.AllowSpinLoop = false;
-            this.c1DateEdit6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit6.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit6.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit6.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit6.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit6.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit6.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit6.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit6.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit6.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit6.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit6.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit6.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit6.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit6.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit6.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtJclDocAuthen1.AllowSpinLoop = false;
+            this.txtJclDocAuthen1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJclDocAuthen1.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclDocAuthen1.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtJclDocAuthen1.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclDocAuthen1.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclDocAuthen1.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtJclDocAuthen1.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtJclDocAuthen1.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtJclDocAuthen1.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtJclDocAuthen1.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclDocAuthen1.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtJclDocAuthen1.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJclDocAuthen1.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtJclDocAuthen1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJclDocAuthen1.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtJclDocAuthen1.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit6.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit6.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit6.Location = new System.Drawing.Point(414, 227);
-            this.c1DateEdit6.Name = "c1DateEdit6";
-            this.c1DateEdit6.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit6.TabIndex = 520;
-            this.c1DateEdit6.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit6, "(default)");
-            this.c1DateEdit6.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtJclDocAuthen1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJclDocAuthen1.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtJclDocAuthen1.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtJclDocAuthen1.Location = new System.Drawing.Point(414, 227);
+            this.txtJclDocAuthen1.Name = "txtJclDocAuthen1";
+            this.txtJclDocAuthen1.Size = new System.Drawing.Size(118, 20);
+            this.txtJclDocAuthen1.TabIndex = 520;
+            this.txtJclDocAuthen1.Tag = null;
+            this.theme1.SetTheme(this.txtJclDocAuthen1, "(default)");
+            this.txtJclDocAuthen1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label55
             // 
@@ -2492,68 +2506,68 @@
             this.label53.Text = "5.1";
             this.theme1.SetTheme(this.label53, "(default)");
             // 
-            // cboJcl53
+            // cboJclDocAuthen3
             // 
-            this.cboJcl53.AllowSpinLoop = false;
-            this.cboJcl53.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboJcl53.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboJcl53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboJcl53.GapHeight = 0;
-            this.cboJcl53.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboJcl53.ItemsDisplayMember = "";
-            this.cboJcl53.ItemsValueMember = "";
-            this.cboJcl53.Location = new System.Drawing.Point(57, 278);
-            this.cboJcl53.Name = "cboJcl53";
-            this.cboJcl53.Size = new System.Drawing.Size(130, 20);
-            this.cboJcl53.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboJcl53.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboJcl53.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboJcl53.TabIndex = 516;
-            this.cboJcl53.Tag = null;
-            this.theme1.SetTheme(this.cboJcl53, "(default)");
-            this.cboJcl53.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.cboJclDocAuthen3.AllowSpinLoop = false;
+            this.cboJclDocAuthen3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboJclDocAuthen3.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboJclDocAuthen3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboJclDocAuthen3.GapHeight = 0;
+            this.cboJclDocAuthen3.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboJclDocAuthen3.ItemsDisplayMember = "";
+            this.cboJclDocAuthen3.ItemsValueMember = "";
+            this.cboJclDocAuthen3.Location = new System.Drawing.Point(57, 278);
+            this.cboJclDocAuthen3.Name = "cboJclDocAuthen3";
+            this.cboJclDocAuthen3.Size = new System.Drawing.Size(130, 20);
+            this.cboJclDocAuthen3.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboJclDocAuthen3.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboJclDocAuthen3.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboJclDocAuthen3.TabIndex = 516;
+            this.cboJclDocAuthen3.Tag = null;
+            this.theme1.SetTheme(this.cboJclDocAuthen3, "(default)");
+            this.cboJclDocAuthen3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // cboJcl52
+            // cboJclDocAuthen2
             // 
-            this.cboJcl52.AllowSpinLoop = false;
-            this.cboJcl52.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboJcl52.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboJcl52.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboJcl52.GapHeight = 0;
-            this.cboJcl52.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboJcl52.ItemsDisplayMember = "";
-            this.cboJcl52.ItemsValueMember = "";
-            this.cboJcl52.Location = new System.Drawing.Point(57, 253);
-            this.cboJcl52.Name = "cboJcl52";
-            this.cboJcl52.Size = new System.Drawing.Size(130, 20);
-            this.cboJcl52.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboJcl52.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboJcl52.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboJcl52.TabIndex = 515;
-            this.cboJcl52.Tag = null;
-            this.theme1.SetTheme(this.cboJcl52, "(default)");
-            this.cboJcl52.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.cboJclDocAuthen2.AllowSpinLoop = false;
+            this.cboJclDocAuthen2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboJclDocAuthen2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboJclDocAuthen2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboJclDocAuthen2.GapHeight = 0;
+            this.cboJclDocAuthen2.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboJclDocAuthen2.ItemsDisplayMember = "";
+            this.cboJclDocAuthen2.ItemsValueMember = "";
+            this.cboJclDocAuthen2.Location = new System.Drawing.Point(57, 253);
+            this.cboJclDocAuthen2.Name = "cboJclDocAuthen2";
+            this.cboJclDocAuthen2.Size = new System.Drawing.Size(130, 20);
+            this.cboJclDocAuthen2.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboJclDocAuthen2.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboJclDocAuthen2.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboJclDocAuthen2.TabIndex = 515;
+            this.cboJclDocAuthen2.Tag = null;
+            this.theme1.SetTheme(this.cboJclDocAuthen2, "(default)");
+            this.cboJclDocAuthen2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // cboJcl51
+            // cboJclDocAuthen1
             // 
-            this.cboJcl51.AllowSpinLoop = false;
-            this.cboJcl51.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboJcl51.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboJcl51.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboJcl51.GapHeight = 0;
-            this.cboJcl51.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboJcl51.ItemsDisplayMember = "";
-            this.cboJcl51.ItemsValueMember = "";
-            this.cboJcl51.Location = new System.Drawing.Point(57, 227);
-            this.cboJcl51.Name = "cboJcl51";
-            this.cboJcl51.Size = new System.Drawing.Size(130, 20);
-            this.cboJcl51.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboJcl51.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboJcl51.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboJcl51.TabIndex = 514;
-            this.cboJcl51.Tag = null;
-            this.theme1.SetTheme(this.cboJcl51, "(default)");
-            this.cboJcl51.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.cboJclDocAuthen1.AllowSpinLoop = false;
+            this.cboJclDocAuthen1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboJclDocAuthen1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboJclDocAuthen1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboJclDocAuthen1.GapHeight = 0;
+            this.cboJclDocAuthen1.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboJclDocAuthen1.ItemsDisplayMember = "";
+            this.cboJclDocAuthen1.ItemsValueMember = "";
+            this.cboJclDocAuthen1.Location = new System.Drawing.Point(57, 227);
+            this.cboJclDocAuthen1.Name = "cboJclDocAuthen1";
+            this.cboJclDocAuthen1.Size = new System.Drawing.Size(130, 20);
+            this.cboJclDocAuthen1.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboJclDocAuthen1.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboJclDocAuthen1.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboJclDocAuthen1.TabIndex = 514;
+            this.cboJclDocAuthen1.Tag = null;
+            this.theme1.SetTheme(this.cboJclDocAuthen1, "(default)");
+            this.cboJclDocAuthen1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label52
             // 
@@ -2594,141 +2608,141 @@
             this.label50.Text = "4.1";
             this.theme1.SetTheme(this.label50, "(default)");
             // 
-            // c1TextBox3
+            // txtJclPrivi2Desc
             // 
-            this.c1TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox3.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox3.Location = new System.Drawing.Point(189, 176);
-            this.c1TextBox3.Name = "c1TextBox3";
-            this.c1TextBox3.Size = new System.Drawing.Size(221, 20);
-            this.c1TextBox3.TabIndex = 510;
-            this.c1TextBox3.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox3, "(default)");
-            this.c1TextBox3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtJclPrivi2Desc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJclPrivi2Desc.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJclPrivi2Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtJclPrivi2Desc.Location = new System.Drawing.Point(189, 176);
+            this.txtJclPrivi2Desc.Name = "txtJclPrivi2Desc";
+            this.txtJclPrivi2Desc.Size = new System.Drawing.Size(221, 20);
+            this.txtJclPrivi2Desc.TabIndex = 510;
+            this.txtJclPrivi2Desc.Tag = null;
+            this.theme1.SetTheme(this.txtJclPrivi2Desc, "(default)");
+            this.txtJclPrivi2Desc.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1TextBox2
+            // txtJclPrivi1Desc
             // 
-            this.c1TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox2.Location = new System.Drawing.Point(189, 144);
-            this.c1TextBox2.Name = "c1TextBox2";
-            this.c1TextBox2.Size = new System.Drawing.Size(221, 20);
-            this.c1TextBox2.TabIndex = 509;
-            this.c1TextBox2.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox2, "(default)");
-            this.c1TextBox2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtJclPrivi1Desc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJclPrivi1Desc.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJclPrivi1Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtJclPrivi1Desc.Location = new System.Drawing.Point(189, 144);
+            this.txtJclPrivi1Desc.Name = "txtJclPrivi1Desc";
+            this.txtJclPrivi1Desc.Size = new System.Drawing.Size(221, 20);
+            this.txtJclPrivi1Desc.TabIndex = 509;
+            this.txtJclPrivi1Desc.Tag = null;
+            this.theme1.SetTheme(this.txtJclPrivi1Desc, "(default)");
+            this.txtJclPrivi1Desc.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1DateEdit5
+            // txtJclPrivi2Date
             // 
-            this.c1DateEdit5.AllowSpinLoop = false;
-            this.c1DateEdit5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit5.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit5.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit5.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit5.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit5.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit5.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit5.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit5.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit5.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit5.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit5.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit5.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit5.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit5.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit5.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtJclPrivi2Date.AllowSpinLoop = false;
+            this.txtJclPrivi2Date.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJclPrivi2Date.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclPrivi2Date.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtJclPrivi2Date.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclPrivi2Date.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclPrivi2Date.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtJclPrivi2Date.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtJclPrivi2Date.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtJclPrivi2Date.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtJclPrivi2Date.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclPrivi2Date.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtJclPrivi2Date.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJclPrivi2Date.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtJclPrivi2Date.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJclPrivi2Date.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtJclPrivi2Date.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit5.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit5.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit5.Location = new System.Drawing.Point(414, 176);
-            this.c1DateEdit5.Name = "c1DateEdit5";
-            this.c1DateEdit5.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit5.TabIndex = 508;
-            this.c1DateEdit5.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit5, "(default)");
-            this.c1DateEdit5.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtJclPrivi2Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJclPrivi2Date.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtJclPrivi2Date.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtJclPrivi2Date.Location = new System.Drawing.Point(414, 176);
+            this.txtJclPrivi2Date.Name = "txtJclPrivi2Date";
+            this.txtJclPrivi2Date.Size = new System.Drawing.Size(118, 20);
+            this.txtJclPrivi2Date.TabIndex = 508;
+            this.txtJclPrivi2Date.Tag = null;
+            this.theme1.SetTheme(this.txtJclPrivi2Date, "(default)");
+            this.txtJclPrivi2Date.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1DateEdit4
+            // txtJclPrivi1Date
             // 
-            this.c1DateEdit4.AllowSpinLoop = false;
-            this.c1DateEdit4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit4.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit4.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit4.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit4.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit4.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit4.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit4.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit4.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit4.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit4.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit4.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit4.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit4.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit4.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit4.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtJclPrivi1Date.AllowSpinLoop = false;
+            this.txtJclPrivi1Date.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJclPrivi1Date.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclPrivi1Date.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtJclPrivi1Date.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclPrivi1Date.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclPrivi1Date.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtJclPrivi1Date.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtJclPrivi1Date.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtJclPrivi1Date.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtJclPrivi1Date.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclPrivi1Date.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtJclPrivi1Date.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJclPrivi1Date.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtJclPrivi1Date.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJclPrivi1Date.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtJclPrivi1Date.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit4.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit4.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit4.Location = new System.Drawing.Point(414, 144);
-            this.c1DateEdit4.Name = "c1DateEdit4";
-            this.c1DateEdit4.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit4.TabIndex = 507;
-            this.c1DateEdit4.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit4, "(default)");
-            this.c1DateEdit4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtJclPrivi1Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJclPrivi1Date.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtJclPrivi1Date.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtJclPrivi1Date.Location = new System.Drawing.Point(414, 144);
+            this.txtJclPrivi1Date.Name = "txtJclPrivi1Date";
+            this.txtJclPrivi1Date.Size = new System.Drawing.Size(118, 20);
+            this.txtJclPrivi1Date.TabIndex = 507;
+            this.txtJclPrivi1Date.Tag = null;
+            this.theme1.SetTheme(this.txtJclPrivi1Date, "(default)");
+            this.txtJclPrivi1Date.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // cboJcl42
+            // cboJclPrivi2
             // 
-            this.cboJcl42.AllowSpinLoop = false;
-            this.cboJcl42.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboJcl42.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboJcl42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboJcl42.GapHeight = 0;
-            this.cboJcl42.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboJcl42.ItemsDisplayMember = "";
-            this.cboJcl42.ItemsValueMember = "";
-            this.cboJcl42.Location = new System.Drawing.Point(57, 176);
-            this.cboJcl42.Name = "cboJcl42";
-            this.cboJcl42.Size = new System.Drawing.Size(130, 20);
-            this.cboJcl42.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboJcl42.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboJcl42.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboJcl42.TabIndex = 506;
-            this.cboJcl42.Tag = null;
-            this.theme1.SetTheme(this.cboJcl42, "(default)");
-            this.cboJcl42.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.cboJclPrivi2.AllowSpinLoop = false;
+            this.cboJclPrivi2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboJclPrivi2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboJclPrivi2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboJclPrivi2.GapHeight = 0;
+            this.cboJclPrivi2.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboJclPrivi2.ItemsDisplayMember = "";
+            this.cboJclPrivi2.ItemsValueMember = "";
+            this.cboJclPrivi2.Location = new System.Drawing.Point(57, 176);
+            this.cboJclPrivi2.Name = "cboJclPrivi2";
+            this.cboJclPrivi2.Size = new System.Drawing.Size(130, 20);
+            this.cboJclPrivi2.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboJclPrivi2.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboJclPrivi2.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboJclPrivi2.TabIndex = 506;
+            this.cboJclPrivi2.Tag = null;
+            this.theme1.SetTheme(this.cboJclPrivi2, "(default)");
+            this.cboJclPrivi2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // cboJcl41
+            // cboJclPrivi1
             // 
-            this.cboJcl41.AllowSpinLoop = false;
-            this.cboJcl41.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboJcl41.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboJcl41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboJcl41.GapHeight = 0;
-            this.cboJcl41.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboJcl41.ItemsDisplayMember = "";
-            this.cboJcl41.ItemsValueMember = "";
-            this.cboJcl41.Location = new System.Drawing.Point(57, 144);
-            this.cboJcl41.Name = "cboJcl41";
-            this.cboJcl41.Size = new System.Drawing.Size(130, 20);
-            this.cboJcl41.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboJcl41.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboJcl41.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboJcl41.TabIndex = 505;
-            this.cboJcl41.Tag = null;
-            this.theme1.SetTheme(this.cboJcl41, "(default)");
-            this.cboJcl41.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.cboJclPrivi1.AllowSpinLoop = false;
+            this.cboJclPrivi1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboJclPrivi1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboJclPrivi1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboJclPrivi1.GapHeight = 0;
+            this.cboJclPrivi1.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboJclPrivi1.ItemsDisplayMember = "";
+            this.cboJclPrivi1.ItemsValueMember = "";
+            this.cboJclPrivi1.Location = new System.Drawing.Point(57, 144);
+            this.cboJclPrivi1.Name = "cboJclPrivi1";
+            this.cboJclPrivi1.Size = new System.Drawing.Size(130, 20);
+            this.cboJclPrivi1.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboJclPrivi1.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboJclPrivi1.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboJclPrivi1.TabIndex = 505;
+            this.cboJclPrivi1.Tag = null;
+            this.theme1.SetTheme(this.cboJclPrivi1, "(default)");
+            this.cboJclPrivi1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label49
             // 
@@ -2743,18 +2757,18 @@
             this.label49.Text = "4. เอกสารสิทธิประโยชน์";
             this.theme1.SetTheme(this.label49, "(default)");
             // 
-            // c1TextBox1
+            // txtEmailDo
             // 
-            this.c1TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox1.Location = new System.Drawing.Point(187, 81);
-            this.c1TextBox1.Name = "c1TextBox1";
-            this.c1TextBox1.Size = new System.Drawing.Size(345, 20);
-            this.c1TextBox1.TabIndex = 503;
-            this.c1TextBox1.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox1, "(default)");
-            this.c1TextBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtEmailDo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmailDo.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtEmailDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtEmailDo.Location = new System.Drawing.Point(187, 81);
+            this.txtEmailDo.Name = "txtEmailDo";
+            this.txtEmailDo.Size = new System.Drawing.Size(345, 20);
+            this.txtEmailDo.TabIndex = 503;
+            this.txtEmailDo.Tag = null;
+            this.theme1.SetTheme(this.txtEmailDo, "(default)");
+            this.txtEmailDo.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // c1Button17
             // 
@@ -2849,39 +2863,39 @@
             this.label47.Text = "2. Type of BL";
             this.theme1.SetTheme(this.label47, "(default)");
             // 
-            // c1DateEdit1
+            // txtJclDate
             // 
-            this.c1DateEdit1.AllowSpinLoop = false;
-            this.c1DateEdit1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit1.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit1.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit1.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit1.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit1.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit1.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit1.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit1.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit1.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit1.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit1.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit1.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit1.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit1.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtJclDate.AllowSpinLoop = false;
+            this.txtJclDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJclDate.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclDate.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtJclDate.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclDate.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclDate.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtJclDate.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtJclDate.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtJclDate.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtJclDate.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtJclDate.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtJclDate.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJclDate.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtJclDate.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJclDate.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtJclDate.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit1.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit1.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit1.Location = new System.Drawing.Point(414, 13);
-            this.c1DateEdit1.Name = "c1DateEdit1";
-            this.c1DateEdit1.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit1.TabIndex = 434;
-            this.c1DateEdit1.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit1, "(default)");
-            this.c1DateEdit1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtJclDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJclDate.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtJclDate.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtJclDate.Location = new System.Drawing.Point(414, 13);
+            this.txtJclDate.Name = "txtJclDate";
+            this.txtJclDate.Size = new System.Drawing.Size(118, 20);
+            this.txtJclDate.TabIndex = 434;
+            this.txtJclDate.Tag = null;
+            this.theme1.SetTheme(this.txtJclDate, "(default)");
+            this.txtJclDate.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label46
             // 
@@ -2896,39 +2910,39 @@
             this.label46.Text = "วันที่รับเอกสาร :";
             this.theme1.SetTheme(this.label46, "(default)");
             // 
-            // radioButton2
+            // chkJclOriginal
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.radioButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.radioButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.radioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.radioButton2.Location = new System.Drawing.Point(250, 13);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(60, 17);
-            this.radioButton2.TabIndex = 118;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Original";
-            this.theme1.SetTheme(this.radioButton2, "(default)");
-            this.radioButton2.UseVisualStyleBackColor = false;
+            this.chkJclOriginal.AutoSize = true;
+            this.chkJclOriginal.BackColor = System.Drawing.Color.Transparent;
+            this.chkJclOriginal.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkJclOriginal.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkJclOriginal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkJclOriginal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkJclOriginal.Location = new System.Drawing.Point(250, 13);
+            this.chkJclOriginal.Name = "chkJclOriginal";
+            this.chkJclOriginal.Size = new System.Drawing.Size(60, 17);
+            this.chkJclOriginal.TabIndex = 118;
+            this.chkJclOriginal.TabStop = true;
+            this.chkJclOriginal.Text = "Original";
+            this.theme1.SetTheme(this.chkJclOriginal, "(default)");
+            this.chkJclOriginal.UseVisualStyleBackColor = false;
             // 
-            // radioButton1
+            // chkJclCopy
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.radioButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.radioButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.radioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.radioButton1.Location = new System.Drawing.Point(166, 13);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(49, 17);
-            this.radioButton1.TabIndex = 117;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Copy";
-            this.theme1.SetTheme(this.radioButton1, "(default)");
-            this.radioButton1.UseVisualStyleBackColor = false;
+            this.chkJclCopy.AutoSize = true;
+            this.chkJclCopy.BackColor = System.Drawing.Color.Transparent;
+            this.chkJclCopy.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkJclCopy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkJclCopy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkJclCopy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkJclCopy.Location = new System.Drawing.Point(166, 13);
+            this.chkJclCopy.Name = "chkJclCopy";
+            this.chkJclCopy.Size = new System.Drawing.Size(49, 17);
+            this.chkJclCopy.TabIndex = 117;
+            this.chkJclCopy.TabStop = true;
+            this.chkJclCopy.Text = "Copy";
+            this.theme1.SetTheme(this.chkJclCopy, "(default)");
+            this.chkJclCopy.UseVisualStyleBackColor = false;
             // 
             // label45
             // 
@@ -5535,20 +5549,6 @@
             this.cDMain.Size = new System.Drawing.Size(267, 718);
             this.theme1.SetTheme(this.cDMain, "(default)");
             // 
-            // txtJclId
-            // 
-            this.txtJclId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtJclId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtJclId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtJclId.Location = new System.Drawing.Point(220, 13);
-            this.txtJclId.Name = "txtJclId";
-            this.txtJclId.Size = new System.Drawing.Size(24, 20);
-            this.txtJclId.TabIndex = 556;
-            this.txtJclId.Tag = null;
-            this.theme1.SetTheme(this.txtJclId, "(default)");
-            this.txtJclId.Visible = false;
-            this.txtJclId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmJobImpNew3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5602,42 +5602,43 @@
             this.tabCheckList.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnJclSave)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit23)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboJcl53)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboJcl52)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboJcl51)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboJcl42)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboJcl41)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAcceptDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAdvanceBillingDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtApproveDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtParent1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtReceiptCopyDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtReceiptDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtExp2DateReceive)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtExp2DateSend)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtExp1DateReceive)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtExp1DateSend)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTaxDateReceive)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTaxDateSend)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDoDateReceive)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDoDateSend)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmailDo1Date)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmailDo1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInsurAtten)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEnterBl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclDocAuthen3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclDocAuthen2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclDocAuthen1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboJclDocAuthen3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboJclDocAuthen2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboJclDocAuthen1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclPrivi2Desc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclPrivi1Desc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclPrivi2Date)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclPrivi1Date)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboJclPrivi2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboJclPrivi1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmailDo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboJclTypeofBl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJclDate)).EndInit();
             this.gBContain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtContainTotal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboContain6)).EndInit();
@@ -5776,7 +5777,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJinId)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtJclId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5987,68 +5987,68 @@
         private C1.Win.C1Input.C1Button btnSend;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton chkJclOriginal;
+        private System.Windows.Forms.RadioButton chkJclCopy;
         private System.Windows.Forms.Label label45;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit1;
+        private C1.Win.Calendar.C1DateEdit txtJclDate;
         private System.Windows.Forms.Label label46;
         private C1.Win.C1Input.C1ComboBox cboJclTypeofBl;
         private System.Windows.Forms.Label label47;
         private C1.Win.Calendar.C1DateEdit c1DateEdit2;
-        private C1.Win.C1Input.C1TextBox c1TextBox1;
+        private C1.Win.C1Input.C1TextBox txtEmailDo;
         private C1.Win.C1Input.C1Button c1Button17;
         private System.Windows.Forms.Label label48;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit5;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit4;
-        private C1.Win.C1Input.C1ComboBox cboJcl42;
-        private C1.Win.C1Input.C1ComboBox cboJcl41;
+        private C1.Win.Calendar.C1DateEdit txtJclPrivi2Date;
+        private C1.Win.Calendar.C1DateEdit txtJclPrivi1Date;
+        private C1.Win.C1Input.C1ComboBox cboJclPrivi2;
+        private C1.Win.C1Input.C1ComboBox cboJclPrivi1;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label50;
-        private C1.Win.C1Input.C1TextBox c1TextBox3;
-        private C1.Win.C1Input.C1TextBox c1TextBox2;
+        private C1.Win.C1Input.C1TextBox txtJclPrivi2Desc;
+        private C1.Win.C1Input.C1TextBox txtJclPrivi1Desc;
         private System.Windows.Forms.Label label52;
-        private C1.Win.C1Input.C1ComboBox cboJcl52;
-        private C1.Win.C1Input.C1ComboBox cboJcl51;
+        private C1.Win.C1Input.C1ComboBox cboJclDocAuthen2;
+        private C1.Win.C1Input.C1ComboBox cboJclDocAuthen1;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label53;
-        private C1.Win.C1Input.C1ComboBox cboJcl53;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit8;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit7;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit6;
+        private C1.Win.C1Input.C1ComboBox cboJclDocAuthen3;
+        private C1.Win.Calendar.C1DateEdit txtJclDocAuthen3;
+        private C1.Win.Calendar.C1DateEdit txtJclDocAuthen2;
+        private C1.Win.Calendar.C1DateEdit txtJclDocAuthen1;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label57;
-        private C1.Win.C1Input.C1TextBox c1TextBox4;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit9;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit10;
-        private C1.Win.C1Input.C1TextBox c1TextBox5;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit12;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit11;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit15;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit16;
+        private C1.Win.C1Input.C1TextBox txtInsurAtten;
+        private C1.Win.Calendar.C1DateEdit txtEnterBl;
+        private C1.Win.Calendar.C1DateEdit txtEmailDo1Date;
+        private C1.Win.C1Input.C1TextBox txtEmailDo1;
+        private C1.Win.Calendar.C1DateEdit txtDoDateReceive;
+        private C1.Win.Calendar.C1DateEdit txtDoDateSend;
+        private C1.Win.Calendar.C1DateEdit txtExp1DateReceive;
+        private C1.Win.Calendar.C1DateEdit txtExp1DateSend;
         private System.Windows.Forms.Label label62;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit13;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit14;
+        private C1.Win.Calendar.C1DateEdit txtTaxDateReceive;
+        private C1.Win.Calendar.C1DateEdit txtTaxDateSend;
         private System.Windows.Forms.Label label61;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit17;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit18;
+        private C1.Win.Calendar.C1DateEdit txtExp2DateReceive;
+        private C1.Win.Calendar.C1DateEdit txtExp2DateSend;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Label label65;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit19;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit20;
+        private C1.Win.Calendar.C1DateEdit txtReceiptCopyDate;
+        private C1.Win.Calendar.C1DateEdit txtReceiptDate;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.Label label68;
-        private C1.Win.C1Input.C1TextBox c1TextBox6;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit22;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit21;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit23;
+        private C1.Win.C1Input.C1TextBox txtParent1;
+        private C1.Win.Calendar.C1DateEdit txtAdvanceBillingDate;
+        private C1.Win.Calendar.C1DateEdit txtApproveDate;
+        private C1.Win.Calendar.C1DateEdit txtAcceptDate;
         private C1.Win.C1Input.C1TextBox txtContainTotal;
         private System.Windows.Forms.GroupBox groupBox4;
         private C1.Win.C1Input.C1TextBox c1TextBox12;

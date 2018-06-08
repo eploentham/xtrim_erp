@@ -31,9 +31,9 @@ namespace Xtrim_ERP.object1
         public String email_do1 { get; set; }
         public String email_do1_date { get; set; }
         public String do_date_send { get; set; }
-        public String date_date_receive { get; set; }
-        public String date_tax_send { get; set; }
-        public String date_tax_receive { get; set; }
+        public String do_date_receive { get; set; }
+        public String tax_date_send { get; set; }
+        public String tax_date_receive { get; set; }
         public String exp1_date_send { get; set; }
         public String exp1_date_receive { get; set; }
         public String exp2_date_send { get; set; }

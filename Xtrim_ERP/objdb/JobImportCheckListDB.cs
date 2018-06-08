@@ -44,9 +44,9 @@ namespace Xtrim_ERP.objdb
             jcl.email_do1 = "email_do1";
             jcl.email_do1_date = "email_do1_date";
             jcl.do_date_send = "do_date_send";
-            jcl.date_date_receive = "date_date_receive";
-            jcl.date_tax_send = "date_tax_send";
-            jcl.date_tax_receive = "date_tax_receive";
+            jcl.do_date_receive = "do_date_receive";
+            jcl.tax_date_send = "tax_date_send";
+            jcl.tax_date_receive = "tax_date_receive";
             jcl.exp1_date_send = "exp1_date_send";
             jcl.exp1_date_receive = "exp1_date_receive";
             jcl.exp2_date_send = "exp2_date_send";
@@ -89,9 +89,9 @@ namespace Xtrim_ERP.objdb
             p.email_do1 = p.email_do1 == null ? "" : p.email_do1;
             p.email_do1_date = p.email_do1_date == null ? "" : p.email_do1_date;
             p.do_date_send = p.do_date_send == null ? "" : p.do_date_send;
-            p.date_date_receive = p.date_date_receive == null ? "" : p.date_date_receive;
-            p.date_tax_send = p.date_tax_send == null ? "" : p.date_tax_send;
-            p.date_tax_receive = p.date_tax_receive == null ? "" : p.date_tax_receive;
+            p.do_date_receive = p.do_date_receive == null ? "" : p.do_date_receive;
+            p.tax_date_send = p.tax_date_send == null ? "" : p.tax_date_send;
+            p.tax_date_receive = p.tax_date_receive == null ? "" : p.tax_date_receive;
             p.exp1_date_send = p.exp1_date_send == null ? "" : p.exp1_date_send;
             p.exp1_date_receive = p.exp1_date_receive == null ? "" : p.exp1_date_receive;
             p.exp2_date_send = p.exp2_date_send == null ? "" : p.exp2_date_send;
@@ -139,8 +139,8 @@ namespace Xtrim_ERP.objdb
                 jcl.doc_authen2_id + "," + jcl.doc_authen3_id + "," + jcl.doc_authen1_date + "," +
                 jcl.doc_authen2_date + "," + jcl.doc_authen3_date + "," + jcl.enter_bl + "," +
                 jcl.insurance_atten + "," + jcl.email_do1 + "," + jcl.email_do1_date + "," +
-                jcl.do_date_send + "," + jcl.date_date_receive + ", " + jcl.date_tax_send + ", " +
-                jcl.date_tax_receive + "," + jcl.exp1_date_send + ", " + jcl.exp1_date_receive + ", " +
+                jcl.do_date_send + "," + jcl.do_date_receive + ", " + jcl.tax_date_send + ", " +
+                jcl.tax_date_receive + "," + jcl.exp1_date_send + ", " + jcl.exp1_date_receive + ", " +
                 jcl.date_create + "," + jcl.date_modi + ", " + jcl.date_cancel + ", " +
                 jcl.user_create + "," + jcl.user_modi + ", " + jcl.user_cancel + ", " +
                 jcl.active + "," + jcl.exp2_date_send + ", " + jcl.exp2_date_receive + ", " +
@@ -155,8 +155,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.doc_authen2_id.Replace("'", "''") + "','" + p.doc_authen3_id.Replace("'", "''") + "','" + p.doc_authen1_date.Replace("'", "''") + "'," +
                 "'" + p.doc_authen2_date.Replace("'", "''") + "','" + p.doc_authen3_date + "','" + p.enter_bl + "'," +
                 "'" + p.insurance_atten + "','" + p.email_do1 + "','" + p.email_do1_date + "', " +
-                "'" + p.do_date_send + "','" + p.date_date_receive.Replace("'", "''") + "','" + p.date_tax_send + "', " +
-                "'" + p.date_tax_receive + "','" + p.exp1_date_send.Replace("'", "''") + "','" + p.exp1_date_receive + "', " +
+                "'" + p.do_date_send + "','" + p.do_date_receive.Replace("'", "''") + "','" + p.tax_date_send + "', " +
+                "'" + p.tax_date_receive + "','" + p.exp1_date_send.Replace("'", "''") + "','" + p.exp1_date_receive + "', " +
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + conn.user.staff_id + "','" + p.user_modi + "','" + p.user_cancel + "', " +
                 "'" + p.active + "','" + p.exp2_date_send.Replace("'", "''") + "','" + p.exp2_date_receive.Replace("'", "''") + "', " +
@@ -207,9 +207,9 @@ namespace Xtrim_ERP.objdb
                 "," + jcl.email_do1 + " = '" + p.email_do1 + "' " +
                 "," + jcl.email_do1_date + " = '" + p.email_do1_date + "' " +
                 "," + jcl.do_date_send + " = '" + p.do_date_send + "' " +
-                "," + jcl.date_date_receive + " = '" + p.date_date_receive + "' " +
-                "," + jcl.date_tax_send + " = '" + p.date_tax_send + "' " +
-                "," + jcl.date_tax_receive + " = '" + p.date_tax_receive + "' " +
+                "," + jcl.do_date_receive + " = '" + p.do_date_receive + "' " +
+                "," + jcl.tax_date_send + " = '" + p.tax_date_send + "' " +
+                "," + jcl.tax_date_receive + " = '" + p.tax_date_receive + "' " +
                 "," + jcl.exp1_date_send + " = '" + p.exp1_date_send + "' " +
                 "," + jcl.exp1_date_receive + " = '" + p.exp1_date_receive + "' " +
                 "," + jcl.date_modi + " = now() " +
@@ -313,9 +313,9 @@ namespace Xtrim_ERP.objdb
                 jcl1.email_do1  = dt.Rows[0][jcl.email_do1].ToString();
                 jcl1.email_do1_date  = dt.Rows[0][jcl.email_do1_date].ToString();
                 jcl1.do_date_send  = dt.Rows[0][jcl.do_date_send].ToString();
-                jcl1.date_date_receive  = dt.Rows[0][jcl.date_date_receive].ToString();
-                jcl1.date_tax_send  = dt.Rows[0][jcl.date_tax_send].ToString();
-                jcl1.date_tax_receive  = dt.Rows[0][jcl.date_tax_receive].ToString();
+                jcl1.do_date_receive  = dt.Rows[0][jcl.do_date_receive].ToString();
+                jcl1.tax_date_send  = dt.Rows[0][jcl.tax_date_send].ToString();
+                jcl1.tax_date_receive  = dt.Rows[0][jcl.tax_date_receive].ToString();
                 jcl1.exp1_date_send  = dt.Rows[0][jcl.exp1_date_send].ToString();
                 jcl1.exp1_date_receive  = dt.Rows[0][jcl.exp1_date_receive].ToString();
                 jcl1.exp2_date_send  = dt.Rows[0][jcl.exp2_date_send].ToString();

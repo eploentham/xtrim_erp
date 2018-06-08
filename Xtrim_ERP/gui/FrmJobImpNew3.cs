@@ -116,11 +116,11 @@ namespace Xtrim_ERP.gui
             xC.xtDB.dctDB.setC1CboContain(cboContain6, "");
 
             xC.xtDB.dctDB.setC1CboTypeofBL(cboJclTypeofBl, "");
-            xC.xtDB.dctDB.setC1CboCl41(cboJcl41, "");
-            xC.xtDB.dctDB.setC1CboCl42(cboJcl42, "");
-            xC.xtDB.dctDB.setC1CboCl5(cboJcl51, "");
-            xC.xtDB.dctDB.setC1CboCl5(cboJcl52, "");
-            xC.xtDB.dctDB.setC1CboCl5(cboJcl53, "");
+            xC.xtDB.dctDB.setC1CboCl41(cboJclPrivi1, "");
+            xC.xtDB.dctDB.setC1CboCl42(cboJclPrivi2, "");
+            xC.xtDB.dctDB.setC1CboCl5(cboJclDocAuthen1, "");
+            xC.xtDB.dctDB.setC1CboCl5(cboJclDocAuthen2, "");
+            xC.xtDB.dctDB.setC1CboCl5(cboJclDocAuthen3, "");
 
             xC.xtDB.ugwDB.setC1CboUgw(cboUgw, "");
             xC.xtDB.ugwDB.setC1CboUgw(cboVolume, "");
@@ -1872,6 +1872,7 @@ namespace Xtrim_ERP.gui
 
             txtID.Value = jim.job_import_id;
             txtBlId.Value = jbl.job_import_bl_id;
+            txtJclId.Value = jcl.import_check_list_id;
             txtJobNo.Value = jim.jobno;
             stfId = jim.staff_id;
             txtJobCode.Value = xC.FixJobCode + jim.job_import_code;
@@ -1946,6 +1947,7 @@ namespace Xtrim_ERP.gui
             txtJobDate.Value = jim.job_date;
             txtBl.Value = jbl.bl;
             xC.setC1Combo(cboBlType, jbl.bl_type);
+
         }
         private Boolean setJobImport()
         {
