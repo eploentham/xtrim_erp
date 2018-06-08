@@ -24,6 +24,7 @@ namespace Xtrim_ERP.gui
         JobImport jim;
         JobImportBl jbl;
         JobImportInv jin;
+        JobImportCheckList jcl;
         Font fEdit, fEditB;
         Color bg, fc, cgrfOld;
         Font ff, ffB;
@@ -56,6 +57,7 @@ namespace Xtrim_ERP.gui
         {
             jim = new JobImport();
             jbl = new JobImportBl();
+            jcl = new JobImportCheckList();
             bg = txtJobCode.BackColor;
             fc = txtJobCode.ForeColor;
             ff = txtRef1.Font;
@@ -112,6 +114,13 @@ namespace Xtrim_ERP.gui
             xC.xtDB.dctDB.setC1CboContain(cboContain4, "");
             xC.xtDB.dctDB.setC1CboContain(cboContain5, "");
             xC.xtDB.dctDB.setC1CboContain(cboContain6, "");
+
+            xC.xtDB.dctDB.setC1CboTypeofBL(cboJclTypeofBl, "");
+            xC.xtDB.dctDB.setC1CboCl41(cboJcl41, "");
+            xC.xtDB.dctDB.setC1CboCl42(cboJcl42, "");
+            xC.xtDB.dctDB.setC1CboCl5(cboJcl51, "");
+            xC.xtDB.dctDB.setC1CboCl5(cboJcl52, "");
+            xC.xtDB.dctDB.setC1CboCl5(cboJcl53, "");
 
             xC.xtDB.ugwDB.setC1CboUgw(cboUgw, "");
             xC.xtDB.ugwDB.setC1CboUgw(cboVolume, "");
@@ -1846,6 +1855,7 @@ namespace Xtrim_ERP.gui
             if (xC.jobID.Equals("")) return;
             jim = xC.xtDB.jimDB.selectByPk1(xC.jobID);
             jbl = xC.xtDB.jblDB.selectByJobId(xC.jobID);
+            jcl = xC.xtDB.jclDB.selectByJobId(xC.jobID);
 
             //jim = xC.xtDB.jimDB.selectByJobCode(txtJobCode.Text);
             //jbl = xC.xtDB.jblDB.selectByJobId(jim.job_import_id);

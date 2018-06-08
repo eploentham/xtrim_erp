@@ -13,8 +13,8 @@ namespace Xtrim_ERP.objdb
     {
         public DocType cem;
         ConnectDB conn;
-        public List<DocType> lContain;
-        public List<DocType> lBl;
+        public List<DocType> lContain, lBl,lTypeBl, lCl41,lCl42,lCl5;
+        //public List<DocType> lBl;
         public DataTable dtContain, dtBl;
 
         public DocTypeDB(ConnectDB c)
@@ -38,6 +38,10 @@ namespace Xtrim_ERP.objdb
             cem.table = "f_doc_type";
             lContain = new List<DocType>();
             lBl = new List<DocType>();
+            lTypeBl = new List<DocType>();
+            lCl41 = new List<DocType>();
+            lCl42 = new List<DocType>();
+            lCl5 = new List<DocType>();
         }
         public DataTable selectAll()
         {
@@ -82,6 +86,54 @@ namespace Xtrim_ERP.objdb
                 "From " + cem.table + " cem " +
                 " " +
                 "Where cem." + cem.active + " ='1' and cem." + cem.status_combo + "='BL_TYPE'" +
+                "";
+            dt = conn.selectData(conn.conn, sql);
+            dtBl = dt;
+            return dt;
+        }
+        public DataTable selectAllTYPEofBL()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cem.*  " +
+                "From " + cem.table + " cem " +
+                " " +
+                "Where cem." + cem.active + " ='1' and cem." + cem.status_combo + "='type_of_bl'" +
+                "";
+            dt = conn.selectData(conn.conn, sql);
+            dtBl = dt;
+            return dt;
+        }
+        public DataTable selectAllCl41()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cem.*  " +
+                "From " + cem.table + " cem " +
+                " " +
+                "Where cem." + cem.active + " ='1' and cem." + cem.status_combo + "='check_list_4_1'" +
+                "";
+            dt = conn.selectData(conn.conn, sql);
+            dtBl = dt;
+            return dt;
+        }
+        public DataTable selectAllCl42()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cem.*  " +
+                "From " + cem.table + " cem " +
+                " " +
+                "Where cem." + cem.active + " ='1' and cem." + cem.status_combo + "='check_list_4_2'" +
+                "";
+            dt = conn.selectData(conn.conn, sql);
+            dtBl = dt;
+            return dt;
+        }
+        public DataTable selectAllCl5()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cem.*  " +
+                "From " + cem.table + " cem " +
+                " " +
+                "Where cem." + cem.active + " ='1' and cem." + cem.status_combo + "='check_list_5'" +
                 "";
             dt = conn.selectData(conn.conn, sql);
             dtBl = dt;
@@ -217,6 +269,66 @@ namespace Xtrim_ERP.objdb
                 lBl.Add(utp1);
             }
         }
+        public void getlTypeofBL()
+        {
+            lTypeBl.Clear();
+            DataTable dt = new DataTable();
+            dt = selectAllBLTYPE();
+            dtContain = dt;
+            foreach (DataRow row in dt.Rows)
+            {
+                DocType utp1 = new DocType();
+                utp1.doc_type_id = row[cem.doc_type_id].ToString();
+                utp1.doc_type_code = row[cem.doc_type_code].ToString();
+                utp1.doc_type_name = row[cem.doc_type_name].ToString();
+                lTypeBl.Add(utp1);
+            }
+        }
+        public void getlCl41()
+        {
+            lCl41.Clear();
+            DataTable dt = new DataTable();
+            dt = selectAllCl41();
+            dtContain = dt;
+            foreach (DataRow row in dt.Rows)
+            {
+                DocType utp1 = new DocType();
+                utp1.doc_type_id = row[cem.doc_type_id].ToString();
+                utp1.doc_type_code = row[cem.doc_type_code].ToString();
+                utp1.doc_type_name = row[cem.doc_type_name].ToString();
+                lCl41.Add(utp1);
+            }
+        }
+        public void getlCl42()
+        {
+            lCl42.Clear();
+            DataTable dt = new DataTable();
+            dt = selectAllCl42();
+            dtContain = dt;
+            foreach (DataRow row in dt.Rows)
+            {
+                DocType utp1 = new DocType();
+                utp1.doc_type_id = row[cem.doc_type_id].ToString();
+                utp1.doc_type_code = row[cem.doc_type_code].ToString();
+                utp1.doc_type_name = row[cem.doc_type_name].ToString();
+                lCl42.Add(utp1);
+            }
+        }
+        public void getlCl5()
+        {
+            lCl5.Clear();
+            DataTable dt = new DataTable();
+            dt = selectAllCl5();
+            dtContain = dt;
+            foreach (DataRow row in dt.Rows)
+            {
+                DocType utp1 = new DocType();
+                utp1.doc_type_id = row[cem.doc_type_id].ToString();
+                utp1.doc_type_code = row[cem.doc_type_code].ToString();
+                utp1.doc_type_name = row[cem.doc_type_name].ToString();
+                lCl5.Add(utp1);
+            }
+        }
         public void setC1CboContain(C1ComboBox c, String selected)
         {
             ComboBoxItem item = new ComboBoxItem();
@@ -245,6 +357,78 @@ namespace Xtrim_ERP.objdb
                 item = new ComboBoxItem();
                 item.Value = cus1.doc_type_id;
                 item.Text = cus1.doc_type_name+" ["+ cus1.doc_type_code+"]";
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    //c.SelectedItem = item.Value;
+                    c.SelectedText = item.Text;
+                }
+            }
+        }
+        public void setC1CboTypeofBL(C1ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            //DataTable dt = selectWard();
+            if (lTypeBl.Count <= 0) getlTypeofBL();
+            foreach (DocType cus1 in lTypeBl)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.doc_type_id;
+                item.Text = cus1.doc_type_name + " [" + cus1.doc_type_code + "]";
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    //c.SelectedItem = item.Value;
+                    c.SelectedText = item.Text;
+                }
+            }
+        }
+        public void setC1CboCl41(C1ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            //DataTable dt = selectWard();
+            if (lCl41.Count <= 0) getlCl41();
+            foreach (DocType cus1 in lCl41)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.doc_type_id;
+                item.Text = cus1.doc_type_name + " [" + cus1.doc_type_code + "]";
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    //c.SelectedItem = item.Value;
+                    c.SelectedText = item.Text;
+                }
+            }
+        }
+        public void setC1CboCl42(C1ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            //DataTable dt = selectWard();
+            if (lCl42.Count <= 0) getlCl42();
+            foreach (DocType cus1 in lCl42)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.doc_type_id;
+                item.Text = cus1.doc_type_name + " [" + cus1.doc_type_code + "]";
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    //c.SelectedItem = item.Value;
+                    c.SelectedText = item.Text;
+                }
+            }
+        }
+        public void setC1CboCl5(C1ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            //DataTable dt = selectWard();
+            if (lCl5.Count <= 0) getlCl5();
+            foreach (DocType cus1 in lCl5)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.doc_type_id;
+                item.Text = cus1.doc_type_name + " [" + cus1.doc_type_code + "]";
                 c.Items.Add(item);
                 if (item.Value.Equals(selected))
                 {
