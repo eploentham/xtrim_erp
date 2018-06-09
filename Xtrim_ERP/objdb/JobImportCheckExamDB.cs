@@ -203,7 +203,7 @@ namespace Xtrim_ERP.objdb
             JobImportCheckExam cont1 = new JobImportCheckExam();
             DataTable dt = new DataTable();
             String sql = "select jce.*  " +
-                "From " + jce.table + " jcjcel " +
+                "From " + jce.table + " jce " +
 
                 "Where jce." + jce.job_import_id + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
@@ -239,6 +239,33 @@ namespace Xtrim_ERP.objdb
                 jcl1.sort1 = dt.Rows[0][jce.sort1].ToString();
                 jcl1.transport_date = dt.Rows[0][jce.transport_date].ToString();
                 jcl1.custom_date = dt.Rows[0][jce.custom_date].ToString();
+            }
+            else
+            {
+                jcl1.job_import_check_exam_id = "";
+                jcl1.job_import_id = "";
+                jcl1.status_open_goods = "";
+                jcl1.qty_open_goods = "";
+                jcl1.number_open_goods = "";
+                jcl1.status_layout_goods = "";
+                jcl1.qty_bad_goods = "";
+                jcl1.number_bad_goods = "";
+                jcl1.bad_goods_desc = "";
+                jcl1.attend_corrupt = "";
+                jcl1.status_corrupt_goods = "";
+                jcl1.dmc_no = "";
+                jcl1.dmc_date = "";
+                jcl1.date_create = "";
+                jcl1.date_modi = "";
+                jcl1.date_cancel = "";
+                jcl1.user_create = "";
+                jcl1.user_modi = "";
+                jcl1.user_cancel = "";
+                jcl1.remark = "";
+                jcl1.active = "";
+                jcl1.sort1 = "";
+                jcl1.transport_date = "";
+                jcl1.custom_date = "";
             }
             return jcl1;
         }

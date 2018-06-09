@@ -81,6 +81,7 @@
             this.chkJcelayoutBad = new System.Windows.Forms.RadioButton();
             this.chkJceLayoutGood = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtJceId = new C1.Win.C1Input.C1TextBox();
             this.txtJceNumOpenGoods = new C1.Win.C1Input.C1TextBox();
             this.label74 = new System.Windows.Forms.Label();
             this.label73 = new System.Windows.Forms.Label();
@@ -305,6 +306,13 @@
             this.label30 = new System.Windows.Forms.Label();
             this.c1Button12 = new C1.Win.C1Input.C1Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.panelInvSendEmail = new System.Windows.Forms.Panel();
+            this.label84 = new System.Windows.Forms.Label();
+            this.label83 = new System.Windows.Forms.Label();
+            this.c1TextBox2 = new C1.Win.C1Input.C1TextBox();
+            this.c1TextBox1 = new C1.Win.C1Input.C1TextBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.txtInvRemark = new C1.Win.C1Input.C1TextBox();
             this.label42 = new System.Windows.Forms.Label();
             this.c1Button16 = new C1.Win.C1Input.C1Button();
@@ -332,14 +340,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cDMain = new C1.Win.C1Command.C1CommandDock();
-            this.panelInvSendEmail = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.c1TextBox1 = new C1.Win.C1Input.C1TextBox();
-            this.c1TextBox2 = new C1.Win.C1Input.C1TextBox();
-            this.label83 = new System.Windows.Forms.Label();
-            this.label84 = new System.Windows.Forms.Label();
-            this.txtJceId = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -372,6 +372,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJceNumLayoutBad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJceQtyLayoutBad)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJceId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJceNumOpenGoods)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJceQtyOpenGoods)).BeginInit();
             this.tabCheckList.SuspendLayout();
@@ -528,6 +529,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtInsrNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button12)).BeginInit();
             this.panel8.SuspendLayout();
+            this.panelInvSendEmail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvRemark)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnInvNew)).BeginInit();
@@ -546,10 +550,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJinId)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).BeginInit();
-            this.panelInvSendEmail.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtJceId)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -1434,6 +1434,20 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "เปิดสินค้าตรวจ :";
             this.theme1.SetTheme(this.groupBox3, "(default)");
+            // 
+            // txtJceId
+            // 
+            this.txtJceId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJceId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJceId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtJceId.Location = new System.Drawing.Point(147, 21);
+            this.txtJceId.Name = "txtJceId";
+            this.txtJceId.Size = new System.Drawing.Size(24, 20);
+            this.txtJceId.TabIndex = 557;
+            this.txtJceId.Tag = null;
+            this.theme1.SetTheme(this.txtJceId, "(default)");
+            this.txtJceId.Visible = false;
+            this.txtJceId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtJceNumOpenGoods
             // 
@@ -5197,6 +5211,108 @@
             this.panel8.TabIndex = 0;
             this.theme1.SetTheme(this.panel8, "(default)");
             // 
+            // panelInvSendEmail
+            // 
+            this.panelInvSendEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panelInvSendEmail.Controls.Add(this.label84);
+            this.panelInvSendEmail.Controls.Add(this.label83);
+            this.panelInvSendEmail.Controls.Add(this.c1TextBox2);
+            this.panelInvSendEmail.Controls.Add(this.c1TextBox1);
+            this.panelInvSendEmail.Controls.Add(this.radioButton1);
+            this.panelInvSendEmail.Controls.Add(this.radioButton2);
+            this.panelInvSendEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panelInvSendEmail.Location = new System.Drawing.Point(16, 192);
+            this.panelInvSendEmail.Name = "panelInvSendEmail";
+            this.panelInvSendEmail.Size = new System.Drawing.Size(617, 89);
+            this.panelInvSendEmail.TabIndex = 497;
+            this.theme1.SetTheme(this.panelInvSendEmail, "(default)");
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label84.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label84.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label84.Location = new System.Drawing.Point(7, 63);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(48, 16);
+            this.label84.TabIndex = 500;
+            this.label84.Text = "วันที่ส่ง :";
+            this.theme1.SetTheme(this.label84, "(default)");
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label83.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label83.Location = new System.Drawing.Point(7, 37);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(112, 16);
+            this.label83.TabIndex = 499;
+            this.label83.Text = "เจ้าหน้าที่ผู่ส่ง email :";
+            this.theme1.SetTheme(this.label83, "(default)");
+            // 
+            // c1TextBox2
+            // 
+            this.c1TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1TextBox2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.c1TextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1TextBox2.Location = new System.Drawing.Point(71, 61);
+            this.c1TextBox2.Name = "c1TextBox2";
+            this.c1TextBox2.Size = new System.Drawing.Size(209, 20);
+            this.c1TextBox2.TabIndex = 498;
+            this.c1TextBox2.Tag = null;
+            this.theme1.SetTheme(this.c1TextBox2, "(default)");
+            this.c1TextBox2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1TextBox1
+            // 
+            this.c1TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1TextBox1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.c1TextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1TextBox1.Location = new System.Drawing.Point(125, 35);
+            this.c1TextBox1.Name = "c1TextBox1";
+            this.c1TextBox1.Size = new System.Drawing.Size(209, 20);
+            this.c1TextBox1.TabIndex = 497;
+            this.c1TextBox1.Tag = null;
+            this.theme1.SetTheme(this.c1TextBox1, "(default)");
+            this.c1TextBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.radioButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.radioButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.radioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.radioButton1.Location = new System.Drawing.Point(179, 12);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(101, 17);
+            this.radioButton1.TabIndex = 120;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "ยังไม่ได้ส่ง email";
+            this.theme1.SetTheme(this.radioButton1, "(default)");
+            this.radioButton1.UseVisualStyleBackColor = false;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.radioButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.radioButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.radioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.radioButton2.Location = new System.Drawing.Point(71, 12);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(86, 17);
+            this.radioButton2.TabIndex = 119;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "ส่ง email แล้ว";
+            this.theme1.SetTheme(this.radioButton2, "(default)");
+            this.radioButton2.UseVisualStyleBackColor = false;
+            // 
             // txtInvRemark
             // 
             this.txtInvRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -5563,122 +5679,6 @@
             this.cDMain.Size = new System.Drawing.Size(267, 718);
             this.theme1.SetTheme(this.cDMain, "(default)");
             // 
-            // panelInvSendEmail
-            // 
-            this.panelInvSendEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panelInvSendEmail.Controls.Add(this.label84);
-            this.panelInvSendEmail.Controls.Add(this.label83);
-            this.panelInvSendEmail.Controls.Add(this.c1TextBox2);
-            this.panelInvSendEmail.Controls.Add(this.c1TextBox1);
-            this.panelInvSendEmail.Controls.Add(this.radioButton1);
-            this.panelInvSendEmail.Controls.Add(this.radioButton2);
-            this.panelInvSendEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panelInvSendEmail.Location = new System.Drawing.Point(16, 192);
-            this.panelInvSendEmail.Name = "panelInvSendEmail";
-            this.panelInvSendEmail.Size = new System.Drawing.Size(617, 89);
-            this.panelInvSendEmail.TabIndex = 497;
-            this.theme1.SetTheme(this.panelInvSendEmail, "(default)");
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.radioButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.radioButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.radioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.radioButton1.Location = new System.Drawing.Point(179, 12);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(101, 17);
-            this.radioButton1.TabIndex = 120;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "ยังไม่ได้ส่ง email";
-            this.theme1.SetTheme(this.radioButton1, "(default)");
-            this.radioButton1.UseVisualStyleBackColor = false;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.radioButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.radioButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.radioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.radioButton2.Location = new System.Drawing.Point(71, 12);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(86, 17);
-            this.radioButton2.TabIndex = 119;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "ส่ง email แล้ว";
-            this.theme1.SetTheme(this.radioButton2, "(default)");
-            this.radioButton2.UseVisualStyleBackColor = false;
-            // 
-            // c1TextBox1
-            // 
-            this.c1TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox1.Location = new System.Drawing.Point(125, 35);
-            this.c1TextBox1.Name = "c1TextBox1";
-            this.c1TextBox1.Size = new System.Drawing.Size(209, 20);
-            this.c1TextBox1.TabIndex = 497;
-            this.c1TextBox1.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox1, "(default)");
-            this.c1TextBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1TextBox2
-            // 
-            this.c1TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox2.Location = new System.Drawing.Point(71, 61);
-            this.c1TextBox2.Name = "c1TextBox2";
-            this.c1TextBox2.Size = new System.Drawing.Size(209, 20);
-            this.c1TextBox2.TabIndex = 498;
-            this.c1TextBox2.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox2, "(default)");
-            this.c1TextBox2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label83.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label83.Location = new System.Drawing.Point(7, 37);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(112, 16);
-            this.label83.TabIndex = 499;
-            this.label83.Text = "เจ้าหน้าที่ผู่ส่ง email :";
-            this.theme1.SetTheme(this.label83, "(default)");
-            // 
-            // label84
-            // 
-            this.label84.AutoSize = true;
-            this.label84.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label84.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label84.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label84.Location = new System.Drawing.Point(7, 63);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(48, 16);
-            this.label84.TabIndex = 500;
-            this.label84.Text = "วันที่ส่ง :";
-            this.theme1.SetTheme(this.label84, "(default)");
-            // 
-            // txtJceId
-            // 
-            this.txtJceId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtJceId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtJceId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtJceId.Location = new System.Drawing.Point(147, 21);
-            this.txtJceId.Name = "txtJceId";
-            this.txtJceId.Size = new System.Drawing.Size(24, 20);
-            this.txtJceId.TabIndex = 557;
-            this.txtJceId.Tag = null;
-            this.theme1.SetTheme(this.txtJceId, "(default)");
-            this.txtJceId.Visible = false;
-            this.txtJceId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmJobImpNew3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5727,6 +5727,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJceQtyLayoutBad)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJceId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJceNumOpenGoods)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJceQtyOpenGoods)).EndInit();
             this.tabCheckList.ResumeLayout(false);
@@ -5889,6 +5890,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1Button12)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.panelInvSendEmail.ResumeLayout(false);
+            this.panelInvSendEmail.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvRemark)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnInvNew)).EndInit();
@@ -5907,11 +5912,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJinId)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).EndInit();
-            this.panelInvSendEmail.ResumeLayout(false);
-            this.panelInvSendEmail.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtJceId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

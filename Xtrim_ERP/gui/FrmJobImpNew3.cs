@@ -76,6 +76,7 @@ namespace Xtrim_ERP.gui
             btnJclSave.Click += BtnJclSave_Click;
             btnEmail.Click += BtnEmail_Click;
             btnSend.Click += BtnSend_Click;
+            btnJceSave.Click += BtnJceSave_Click;
 
             txtCusNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtImpNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
@@ -148,6 +149,8 @@ namespace Xtrim_ERP.gui
             tC2.CanAutoHide = true;
             setControl();
             setControlJcl();
+            setControlJce();
+
             initGrfInv();
             initGrfEmail();
             initGrfPic();
@@ -571,6 +574,31 @@ namespace Xtrim_ERP.gui
                 else
                 {
                     btnSave.Image = Resources.DeleteTable_small;
+                }
+                //setGrdView();
+                //this.Dispose();
+            }
+        }
+        private void BtnJceSave_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (txtID.Text.Equals(""))
+            {
+                MessageBox.Show("ข้อมูล job ยังไม่มีข้อมูล", "");
+                return;
+            }
+            if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                setJobImportCheckExam();
+                String re = xC.xtDB.jceDB.insertJobImportCheckExam(jce);
+                int chk = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    btnJclSave.Image = Resources.accept_database24;
+                }
+                else
+                {
+                    btnJclSave.Image = Resources.DeleteTable_small;
                 }
                 //setGrdView();
                 //this.Dispose();
@@ -1884,8 +1912,7 @@ namespace Xtrim_ERP.gui
             if (xC.jobID.Equals("")) return;
             jim = xC.xtDB.jimDB.selectByPk1(xC.jobID);
             jbl = xC.xtDB.jblDB.selectByJobId(xC.jobID);
-            jcl = xC.xtDB.jclDB.selectByJobId(xC.jobID);
-            jce = xC.xtDB.jceDB.selectByJobId(xC.jobID);
+            
 
             //jim = xC.xtDB.jimDB.selectByJobCode(txtJobCode.Text);
             //jbl = xC.xtDB.jblDB.selectByJobId(jim.job_import_id);
@@ -1981,6 +2008,8 @@ namespace Xtrim_ERP.gui
         }
         private void setControlJcl()
         {
+            jcl = xC.xtDB.jclDB.selectByJobId(xC.jobID);
+
             chkJclOriginal.Checked = jcl.status_original.Equals("2") ? true : false;
             chkJclCopy.Checked = jcl.status_original.Equals("1") ? true : false;
             txtJclDate.Value = jcl.check_list_date;
@@ -2022,6 +2051,8 @@ namespace Xtrim_ERP.gui
         }
         private void setControlJce()
         {
+            jce = xC.xtDB.jceDB.selectByJobId(xC.jobID);
+
             chkJceNoOpenGoods.Checked = jce.status_open_goods.Equals("2") ? true : false;
             chkJceOpenGoods.Checked = jce.status_open_goods.Equals("1") ? true : false;
             txtJceQtyOpenGoods.Value = jce.qty_open_goods;
@@ -2089,6 +2120,38 @@ namespace Xtrim_ERP.gui
             jcl.active = "1";
 
             return chk;
+        }
+        private Boolean setJobImportCheckExam()
+        {
+            Boolean chk = false;
+            jce = new JobImportCheckExam();
+            jce.job_import_check_exam_id = txtJceId.Text;
+            jce.job_import_id = txtID.Text;
+            jce.status_open_goods = chkJceOpenGoods.Checked ? "1" : "0";
+            jce.qty_open_goods = txtJceQtyOpenGoods.Text;
+            jce.number_open_goods = txtJceNumOpenGoods.Text;
+            jce.status_layout_goods = chkJcelayoutBad.Checked ? "1" : "2";
+            jce.qty_bad_goods = txtJceQtyLayoutBad.Text;
+            jce.number_bad_goods = txtJceNumLayoutBad.Text;
+            jce.bad_goods_desc = txtJceBadGoodsDesc.Text;
+            jce.attend_corrupt = txtJceAttendCorrupt.Text;
+            jce.status_corrupt_goods = chkJceCorruptGoodsYes.Checked ? "3" : "1";
+            jce.dmc_no = txtJceDmcNo.Text;
+            jce.dmc_date = xC.datetoDB(txtJceDmcDate.Text);
+            jce.date_create = "";
+            jce.date_modi = "";
+            jce.date_cancel = "";
+            jce.user_create = "";
+            jce.user_modi = "";
+            jce.user_cancel = "";
+            jce.remark = "";
+            jce.active = "1";
+            jce.sort1 = "";
+            jce.transport_date = xC.datetoDB(txtJceTransportDate.Text);
+            jce.custom_date = xC.datetoDB(txtJceCustomDate.Text);
+
+            return chk;
+
         }
         private Boolean setJobImport()
         {
