@@ -199,6 +199,20 @@ namespace Xtrim_ERP.control
             c.SelectedIndex = c.FindStringExact(String.Concat(System.DateTime.Now.Year));
             return c;
         }
+        public String datetoDB(String dt)
+        {
+            DateTime dt1 = new DateTime();
+            String re = "";
+            if (dt != null)
+            {
+                if (!dt.Equals(""))
+                {
+                    dt1 = DateTime.Parse(dt.ToString());
+                    re = dt1.Year.ToString() + "-" + dt1.ToString("MM-dd");
+                }
+            }
+            return re;
+        }
         public String datetoDB(object dt)
         {
             DateTime dt1 = new DateTime();

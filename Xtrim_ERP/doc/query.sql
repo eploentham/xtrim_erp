@@ -226,6 +226,17 @@ CHANGE COLUMN `date_tax_send` `tax_date_send` VARCHAR(255) NULL DEFAULT NULL COM
 ALTER TABLE `xtrim_erp`.`t_job_import_check_list` 
 CHANGE COLUMN `date_tax_receive` `tax_date_receive` VARCHAR(255) NULL DEFAULT NULL COMMENT 'วันแจ้งยอดภาษี/รับPRQ' ;
 
+ALTER TABLE `xtrim_erp`.`t_job_import_inv` 
+ADD COLUMN `status_send_email` VARCHAR(255) NULL AFTER `insr_id`,
+ADD COLUMN `send_email_staff_id` INT NULL AFTER `status_send_email`,
+ADD COLUMN `send_email_date` VARCHAR(255) NULL AFTER `send_email_staff_id`;
+
+ALTER TABLE `xtrim_erp`.`t_job_import_check_exam` 
+CHANGE COLUMN `date_dmc` `dmc_date` VARCHAR(255) NULL DEFAULT NULL COMMENT 'วันส่ง SURVEYOR  ให้ลูกค้า' ;
+
+ALTER TABLE `xtrim_erp`.`t_job_import_check_exam` 
+ADD COLUMN `custom_date` VARCHAR(255) NULL AFTER `sort1`,
+ADD COLUMN `transport_date` VARCHAR(255) NULL AFTER `custom_date`;
 
 
 

@@ -49,9 +49,35 @@ namespace Xtrim_ERP.objdb
             jin.tpmCode = "";
             jin.tpmNameT = "";
             jin.insr_id = "insr_id";
+            jin.status_send_email = "status_send_email";
+            jin.send_email_date = "send_email_date";
+            jin.send_email_staff_id = "send_email_staff_id";
 
             jin.table = "t_job_import_inv";
             jin.pkField = "job_import_inv_id";
+        }
+        private void chkNull(JobImportInv p)
+        {
+            int chk = 0;
+            Decimal chk1 = 0;
+
+            p.date_modi = p.date_modi == null ? "" : p.date_modi;
+            p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
+            p.user_create = p.user_create == null ? "" : p.user_create;
+            p.user_modi = p.user_modi == null ? "" : p.user_modi;
+            p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
+            p.status_send_email = p.status_send_email == null ? "" : p.status_send_email;
+            p.send_email_date = p.send_email_date == null ? "" : p.send_email_date;
+
+            p.term_pay_id = int.TryParse(p.term_pay_id, out chk) ? chk.ToString() : "0";
+            p.inco_terms_id = int.TryParse(p.inco_terms_id, out chk) ? chk.ToString() : "0";
+            p.curr_id = int.TryParse(p.curr_id, out chk) ? chk.ToString() : "0";
+            p.cons_id = int.TryParse(p.cons_id, out chk) ? chk.ToString() : "0";
+            p.job_import_id = int.TryParse(p.job_import_id, out chk) ? chk.ToString() : "0";
+            p.insr_id = int.TryParse(p.insr_id, out chk) ? chk.ToString() : "0";
+            p.send_email_staff_id = int.TryParse(p.send_email_staff_id, out chk) ? chk.ToString() : "0";
+
+            p.amount = Decimal.TryParse(p.amount, out chk1) ? chk1.ToString() : "0";
         }
         public String insert(JobImportInv p)
         {
@@ -62,32 +88,22 @@ namespace Xtrim_ERP.objdb
             int chk = 0;
             Decimal chk1 = 0;
 
-            p.date_modi = p.date_modi == null ? "" : p.date_modi;
-            p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
-            p.user_create = p.user_create == null ? "" : p.user_create;
-            p.user_modi = p.user_modi == null ? "" : p.user_modi;
-            p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
-            p.term_pay_id = int.TryParse(p.term_pay_id, out chk) ? chk.ToString() : "0";
-            p.inco_terms_id = int.TryParse(p.inco_terms_id, out chk) ? chk.ToString() : "0";
-            p.curr_id = int.TryParse(p.curr_id, out chk) ? chk.ToString() : "0";
-            p.cons_id = int.TryParse(p.cons_id, out chk) ? chk.ToString() : "0";
-            p.job_import_id = int.TryParse(p.job_import_id, out chk) ? chk.ToString() : "0";
-            p.insr_id = int.TryParse(p.insr_id, out chk) ? chk.ToString() : "0";
-            p.amount = Decimal.TryParse(p.amount, out chk1) ? chk1.ToString() : "0";
-
+            chkNull(p);
             sql = "Insert Into " + jin.table + "(" + jin.job_import_id + "," + jin.invoice_date + "," + jin.cons_id + "," +
                 jin.date_create + "," + jin.date_modi + "," + jin.date_cancel + "," +
                 jin.user_create + "," + jin.user_modi + "," + jin.user_cancel + "," +
                 jin.active + "," + jin.remark + ", " + jin.curr_id + ", " +
                 jin.amount + "," + jin.term_pay_id + ", " + jin.inco_terms_id + ", " +
-                jin.inv_no + "," + jin.insr_id + " " +
+                jin.inv_no + "," + jin.insr_id + ", " + jin.status_send_email + " " +
+                jin.send_email_staff_id + "," + jin.send_email_date + " " +
                 ") " +
                 "Values ('" + p.job_import_id + "','" + p.invoice_date + "','" + p.cons_id + "'," +
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.curr_id + "'," +
                 "'" + p.amount + "','" + p.term_pay_id + "','" + p.inco_terms_id + "', " + 
-                "'" + p.inv_no.Replace("'", "''") + "','" + p.insr_id + "' " +
+                "'" + p.inv_no.Replace("'", "''") + "','" + p.insr_id + "','" + p.status_send_email + "', " +
+                "'" + p.send_email_staff_id.Replace("'", "''") + "','" + p.send_email_date + "' " +
                 ")";
             try
             {
@@ -106,12 +122,9 @@ namespace Xtrim_ERP.objdb
             String re = "";
             String sql = "";
             int chk = 0;
+            Decimal chk1 = 0;
 
-            p.date_modi = p.date_modi == null ? "" : p.date_modi;
-            p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
-            p.user_create = p.user_create == null ? "" : p.user_create;
-            p.user_modi = p.user_modi == null ? "" : p.user_modi;
-            p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
+            chkNull(p);
 
             sql = "Update " + jin.table + " Set " +
                 " " + jin.job_import_id + " = '" + p.job_import_id + "'" +
@@ -126,6 +139,9 @@ namespace Xtrim_ERP.objdb
                 "," + jin.inco_terms_id + " = '" + p.inco_terms_id + "' " +
                 "," + jin.inv_no + " = '" + p.inv_no.Replace("'", "''") + "' " +
                 "," + jin.insr_id + " = '" + p.insr_id + "' " +
+                "," + jin.status_send_email + " = '" + p.status_send_email + "' " +
+                "," + jin.send_email_staff_id + " = '" + p.send_email_staff_id + "' " +
+                "," + jin.send_email_date + " = '" + p.send_email_date + "' " +
                 "Where " + jin.pkField + "='" + p.job_import_inv_id + "'"
                 ;
 
@@ -271,6 +287,10 @@ namespace Xtrim_ERP.objdb
                 jin1.ictNameT = dt.Rows[0]["inco_terms_name_t"].ToString();
                 jin1.currCode = dt.Rows[0]["curr_code"].ToString();
                 jin1.currNameT = dt.Rows[0]["curr_name_t"].ToString();
+
+                jin1.send_email_date = dt.Rows[0][jin.send_email_date].ToString();
+                jin1.send_email_staff_id = dt.Rows[0][jin.send_email_staff_id].ToString();
+                jin1.status_send_email = dt.Rows[0][jin.status_send_email].ToString();
             }
 
             return jin1;

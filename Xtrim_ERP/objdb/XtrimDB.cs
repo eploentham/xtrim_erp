@@ -53,6 +53,7 @@ namespace Xtrim_ERP.objdb
         public CheckExamDB cemDB;
         public DocTypeDB dctDB;
         public JobImportCheckListDB jclDB;
+        public JobImportCheckExamDB jceDB;
 
         public MeiosysDB mioDB;
 
@@ -108,6 +109,7 @@ namespace Xtrim_ERP.objdb
             cemDB = new CheckExamDB(conn);
             dctDB = new DocTypeDB(conn);
             jclDB = new JobImportCheckListDB(conn);
+            jceDB = new JobImportCheckExamDB(conn);
         }
     }
 }

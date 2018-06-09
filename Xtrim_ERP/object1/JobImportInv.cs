@@ -36,5 +36,9 @@ namespace Xtrim_ERP.object1
         public String currNameT { get; set; }
         public String tpmCode { get; set; }
         public String tpmNameT { get; set; }
+
+        public String status_send_email { get; set; }
+        public String send_email_staff_id { get; set; }
+        public String send_email_date { get; set; }
     }
 }

@@ -25,6 +25,7 @@ namespace Xtrim_ERP.gui
         JobImportBl jbl;
         JobImportInv jin;
         JobImportCheckList jcl;
+        JobImportCheckExam jce;
         Font fEdit, fEditB;
         Color bg, fc, cgrfOld;
         Font ff, ffB;
@@ -58,6 +59,7 @@ namespace Xtrim_ERP.gui
             jim = new JobImport();
             jbl = new JobImportBl();
             jcl = new JobImportCheckList();
+            jce = new JobImportCheckExam();
             bg = txtJobCode.BackColor;
             fc = txtJobCode.ForeColor;
             ff = txtRef1.Font;
@@ -71,6 +73,7 @@ namespace Xtrim_ERP.gui
             btnSave.Click += BtnSave_Click;
             btnInvNew.Click += BtnInvNew_Click;
             btnInvSave.Click += BtnInvSave_Click;
+            btnJclSave.Click += BtnJclSave_Click;
             btnEmail.Click += BtnEmail_Click;
             btnSend.Click += BtnSend_Click;
 
@@ -144,6 +147,7 @@ namespace Xtrim_ERP.gui
             tC2.AutoHiding = true;
             tC2.CanAutoHide = true;
             setControl();
+            setControlJcl();
             initGrfInv();
             initGrfEmail();
             initGrfPic();
@@ -567,6 +571,31 @@ namespace Xtrim_ERP.gui
                 else
                 {
                     btnSave.Image = Resources.DeleteTable_small;
+                }
+                //setGrdView();
+                //this.Dispose();
+            }
+        }
+        private void BtnJclSave_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (txtID.Text.Equals(""))
+            {
+                MessageBox.Show("ข้อมูล job ยังไม่มีข้อมูล", "");
+                return;
+            }
+            if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                setJobImportCheckList();
+                String re = xC.xtDB.jclDB.insertJobImportCheckList(jcl);
+                int chk = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    btnJclSave.Image = Resources.accept_database24;
+                }
+                else
+                {
+                    btnJclSave.Image = Resources.DeleteTable_small;
                 }
                 //setGrdView();
                 //this.Dispose();
@@ -1856,6 +1885,7 @@ namespace Xtrim_ERP.gui
             jim = xC.xtDB.jimDB.selectByPk1(xC.jobID);
             jbl = xC.xtDB.jblDB.selectByJobId(xC.jobID);
             jcl = xC.xtDB.jclDB.selectByJobId(xC.jobID);
+            jce = xC.xtDB.jceDB.selectByJobId(xC.jobID);
 
             //jim = xC.xtDB.jimDB.selectByJobCode(txtJobCode.Text);
             //jbl = xC.xtDB.jblDB.selectByJobId(jim.job_import_id);
@@ -1947,7 +1977,118 @@ namespace Xtrim_ERP.gui
             txtJobDate.Value = jim.job_date;
             txtBl.Value = jbl.bl;
             xC.setC1Combo(cboBlType, jbl.bl_type);
+            
+        }
+        private void setControlJcl()
+        {
+            chkJclOriginal.Checked = jcl.status_original.Equals("2") ? true : false;
+            chkJclCopy.Checked = jcl.status_original.Equals("1") ? true : false;
+            txtJclDate.Value = jcl.check_list_date;
 
+            xC.setC1Combo(cboJclTypeofBl, jcl.type_of_bl);
+            txtEmailDo.Value = jcl.email_do;//
+            xC.setC1Combo(cboJclPrivi1, jcl.type_of_bl);
+            xC.setC1Combo(cboJclPrivi2, jcl.type_of_bl);
+            xC.setC1Combo(cboJclDocAuthen1, jcl.type_of_bl);
+            xC.setC1Combo(cboJclDocAuthen2, jcl.type_of_bl);
+            xC.setC1Combo(cboJclDocAuthen3, jcl.type_of_bl);
+            txtJclPrivi1Date.Value = jcl.email_do;
+            txtJclPrivi2Date.Value = jcl.email_do;
+            txtJclDocAuthen1.Value = jcl.email_do;
+            txtJclDocAuthen2.Value = jcl.email_do;
+            txtJclDocAuthen3.Value = jcl.email_do;
+            txtJclPrivi1Desc.Value = jcl.email_do;
+            txtJclPrivi2Desc.Value = jcl.email_do;
+
+            txtJclEnterBl.Value = jcl.email_do;
+            txtInsurAtten.Value = jcl.email_do;
+            txtEmailDo1.Value = jcl.email_do;
+            txtEmailDo1Date.Value = jcl.email_do;
+            txtDoDateSend.Value = jcl.email_do;
+            txtDoDateReceive.Value = jcl.email_do;
+            txtTaxDateSend.Value = jcl.email_do;
+            txtTaxDateReceive.Value = jcl.email_do;
+            txtExp1DateSend.Value = jcl.email_do;
+            txtExp1DateReceive.Value = jcl.email_do;
+            txtExp2DateSend.Value = jcl.email_do;
+            txtExp2DateReceive.Value = jcl.email_do;
+            txtReceiptDate.Value = jcl.email_do;
+            txtReceiptCopyDate.Value = jcl.email_do;
+            txtAcceptDate.Value = jcl.email_do;
+            txtAdvanceBillingDate.Value = jcl.email_do;
+            txtApproveDate.Value = jcl.email_do;
+            txtParent1.Value = jcl.email_do;
+            //txtDoDateSend1.Value = jcl.email_do;
+        }
+        private void setControlJce()
+        {
+            chkJceNoOpenGoods.Checked = jce.status_open_goods.Equals("2") ? true : false;
+            chkJceOpenGoods.Checked = jce.status_open_goods.Equals("1") ? true : false;
+            txtJceQtyOpenGoods.Value = jce.qty_open_goods;
+            txtJceNumOpenGoods.Value = jce.number_open_goods;
+            chkJceLayoutGood.Checked = jce.status_layout_goods.Equals("2") ? true : false;
+            chkJcelayoutBad.Checked = jce.status_layout_goods.Equals("1") ? true : false;
+            txtJceNumLayoutBad.Value = jce.number_bad_goods;
+            txtJceBadGoodsDesc.Value = jce.bad_goods_desc;
+            txtJceAttendCorrupt.Value = jce.attend_corrupt;
+            chkJceCorruptGoodsNo.Checked = jce.status_corrupt_goods.Equals("1") ? true : false;
+            chkJceCorruptGoodsYes.Checked = jce.status_corrupt_goods.Equals("3") ? true : false;
+            txtJceDmcNo.Value = jce.dmc_no;
+            txtJceDmcDate.Value = jce.dmc_date;
+            txtJceCustomDate.Value = jce.custom_date;
+            txtJceTransportDate.Value = jce.transport_date;
+
+        }
+        private Boolean setJobImportCheckList()
+        {
+            Boolean chk = false;
+            jcl = new JobImportCheckList();
+            jcl.check_list_date = txtJclId.Text;
+            jcl.job_import_id = txtID.Text;
+            jcl.status_original = chkJclOriginal.Checked ? "2" : "1";
+            jcl.check_list_date = xC.datetoDB(txtJclDate.Text);
+            jcl.type_of_bl = cboJclTypeofBl.SelectedItem != null ? ((ComboBoxItem)(cboJclTypeofBl.SelectedItem)).Value : "";
+            jcl.email_do = txtEmailDo.Text;
+            jcl.privi1_id = cboJclPrivi1.SelectedItem != null ? ((ComboBoxItem)(cboJclPrivi1.SelectedItem)).Value : "";
+            jcl.privi2_id = cboJclPrivi2.SelectedItem != null ? ((ComboBoxItem)(cboJclPrivi2.SelectedItem)).Value : "";
+            jcl.privi1_date = xC.datetoDB(txtJclPrivi1Date.Text); ;
+            jcl.privi2_date = xC.datetoDB(txtJclPrivi2Date.Text); ;
+            jcl.privi1_desc = txtJclPrivi1Desc.Text;
+            jcl.privi2_desc = txtJclPrivi2Desc.Text;
+            jcl.doc_authen1_id = cboJclDocAuthen1.SelectedItem != null ? ((ComboBoxItem)(cboJclDocAuthen1.SelectedItem)).Value : "";
+            jcl.doc_authen2_id = cboJclDocAuthen2.SelectedItem != null ? ((ComboBoxItem)(cboJclDocAuthen2.SelectedItem)).Value : "";
+            jcl.doc_authen3_id = cboJclDocAuthen3.SelectedItem != null ? ((ComboBoxItem)(cboJclDocAuthen3.SelectedItem)).Value : "";
+            jcl.doc_authen1_date = xC.datetoDB(txtJclDocAuthen1.Text);
+            jcl.doc_authen2_date = xC.datetoDB(txtJclDocAuthen2.Text); ;
+            jcl.doc_authen3_date = xC.datetoDB(txtJclDocAuthen3.Text); ;
+            jcl.enter_bl = xC.datetoDB(txtJclEnterBl.Text);
+            jcl.insurance_atten = txtInsurAtten.Text;
+            jcl.email_do1 = txtEmailDo1.Text;
+            jcl.email_do1_date = xC.datetoDB(txtEmailDo1Date.Text);
+            jcl.do_date_send = xC.datetoDB(txtDoDateSend.Text);
+            jcl.do_date_receive = xC.datetoDB(txtDoDateReceive.Text);
+            jcl.tax_date_send = xC.datetoDB(txtTaxDateSend.Text);
+            jcl.tax_date_receive = xC.datetoDB(txtTaxDateReceive.Text);
+            jcl.exp1_date_send = xC.datetoDB(txtExp1DateSend.Text);
+            jcl.exp1_date_receive = xC.datetoDB(txtExp1DateReceive.Text);
+            jcl.exp2_date_send = xC.datetoDB(txtExp2DateSend.Text);
+            jcl.exp2_date_receive = xC.datetoDB(txtExp2DateReceive.Text);
+            jcl.receipt_date = xC.datetoDB(txtReceiptDate.Text);
+            jcl.receipt_copy_date = xC.datetoDB(txtReceiptCopyDate.Text);
+            jcl.accept_tender = xC.datetoDB(txtAcceptDate.Text);
+            jcl.advance_billing = xC.datetoDB(txtAdvanceBillingDate.Text);
+            jcl.approve_date = xC.datetoDB(txtApproveDate.Text);
+            jcl.parent1 = txtParent1.Text;
+            jcl.date_create = "";
+            jcl.date_modi = "";
+            jcl.date_cancel = "";
+            jcl.user_create = "";
+            jcl.user_modi = "";
+            jcl.user_cancel = "";
+            jcl.remark = "";
+            jcl.active = "1";
+
+            return chk;
         }
         private Boolean setJobImport()
         {
