@@ -239,6 +239,57 @@ ADD COLUMN `custom_date` VARCHAR(255) NULL AFTER `sort1`,
 ADD COLUMN `transport_date` VARCHAR(255) NULL AFTER `custom_date`;
 
 
+61-06-10
+CREATE TABLE `t_job_import_container_list` (
+  `job_import_container_id` int(11) NOT NULL,
+  `job_import_id` int(11) DEFAULT NULL,
+  `container_no` varchar(255) DEFAULT NULL,
+  `doc_type_id_container` int(11) DEFAULT NULL,
+  `seal` varchar(255) DEFAULT NULL,
+  `row1` varchar(255) DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `active` varchar(255) DEFAULT NULL,
+  `date_create` varchar(255) DEFAULT NULL,
+  `date_modi` varchar(255) DEFAULT NULL,
+  `date_cancel` varchar(255) DEFAULT NULL,
+  `user_create` varchar(255) DEFAULT NULL,
+  `user_modi` varchar(255) DEFAULT NULL,
+  `user_cancel` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`job_import_container_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='id=144';
+
+CREATE TABLE `t_job_import_delivery` (
+  `job_import_delivery_id` int(11) NOT NULL AUTO_INCREMENT,
+  `job_import_id` varchar(255) DEFAULT NULL,
+  `row1` varchar(255) DEFAULT NULL,
+  `delivery_doc_no` varchar(255) DEFAULT NULL,
+  `car_type_id` int(11) DEFAULT NULL,
+  `transporter_id` int(11) DEFAULT NULL,
+  `place_id` int(11) DEFAULT NULL,
+  `packages` varchar(255) DEFAULT NULL,
+  `unit_package_id` int(11) DEFAULT NULL,
+  `gw` varchar(255) DEFAULT NULL,
+  `unit_gw_id` int(11) DEFAULT NULL,
+  `volume1` varchar(255) DEFAULT NULL,
+  `unit_volume1_id` int(11) DEFAULT NULL,
+  `job_import_delivery1_id` int(11) DEFAULT NULL,
+  `container_no` varchar(255) DEFAULT NULL,
+  `doc_type_namet_container` varchar(255) DEFAULT NULL,
+  `seal` varchar(255) DEFAULT NULL,
+  `yard_container` varchar(255) DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `active` varchar(255) DEFAULT NULL,
+  `date_create` varchar(255) DEFAULT NULL,
+  `date_modi` varchar(255) DEFAULT NULL,
+  `date_cancel` varchar(255) DEFAULT NULL,
+  `user_create` varchar(255) DEFAULT NULL,
+  `user_modi` varchar(255) DEFAULT NULL,
+  `user_cancel` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`job_import_delivery_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='id=145';
+
+
+
 
 
 

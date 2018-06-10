@@ -29,7 +29,7 @@ namespace Xtrim_ERP.gui
         Font fEdit, fEditB;
         Color bg, fc, cgrfOld;
         Font ff, ffB;
-        C1FlexGrid grfInv, grfEmail, grfPic, grfJclExp, grfRemark;
+        C1FlexGrid grfInv, grfEmail, grfPic, grfJclExp, grfJdc;
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
         String cusId = "", impId="", fwdId="", polId="", ptiId="", stfId="", cstId="", ettId="", pvlId="", ictId="";
@@ -232,22 +232,22 @@ namespace Xtrim_ERP.gui
         }
         private void initGrfRemark()
         {
-            grfRemark = new C1FlexGrid();
-            grfRemark.Dock = DockStyle.Fill;
+            grfJdc = new C1FlexGrid();
+            grfJdc.Dock = DockStyle.Fill;
             TextBox txt = new TextBox();
 
-            grfRemark.Cols[colRemarkId].Editor = txt;
-            grfRemark.Cols[colRemarkDesc].Editor = txt;
-            grfRemark.Cols[colRemarkDesc].Caption = "remark";
+            grfJdc.Cols[colRemarkId].Editor = txt;
+            grfJdc.Cols[colRemarkDesc].Editor = txt;
+            grfJdc.Cols[colRemarkDesc].Caption = "remark";
 
-            gBRemark.Controls.Add(grfRemark);
-            grfRemark.Rows.Count = 2;
-            grfRemark.Cols.Count = 3;
-            grfRemark.Cols[colRemarkDesc].Width = 200;
+            gBRemark.Controls.Add(grfJdc);
+            grfJdc.Rows.Count = 2;
+            grfJdc.Cols.Count = 3;
+            grfJdc.Cols[colRemarkDesc].Width = 200;
 
-            grfRemark.Cols[colRemarkId].Visible = false;
-            grfRemark.AfterRowColChange += GrfRemark_AfterRowColChange;
-            grfRemark.CellChanged += GrfRemark_CellChanged;
+            grfJdc.Cols[colRemarkId].Visible = false;
+            grfJdc.AfterRowColChange += GrfRemark_AfterRowColChange;
+            grfJdc.CellChanged += GrfRemark_CellChanged;
 
             //ContextMenu menuRemark = new ContextMenu();
             //menuRemark.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Remark_new));
@@ -413,9 +413,9 @@ namespace Xtrim_ERP.gui
         private void GrfRemark_AfterRowColChange(object sender, RangeEventArgs e)
         {
             //throw new NotImplementedException();
-            if (grfRemark.Row == grfRemark.Rows.Count)
+            if (grfJdc.Row == grfJdc.Rows.Count)
             {
-                grfRemark.Rows.Count = grfRemark.Rows.Count + 1;
+                grfJdc.Rows.Count = grfJdc.Rows.Count + 1;
             }
         }
         private void GrfGw_CellChanged(object sender, RowColEventArgs e)
@@ -445,9 +445,9 @@ namespace Xtrim_ERP.gui
         private void GrfRemark_CellChanged(object sender, RowColEventArgs e)
         {
             //throw new NotImplementedException();
-            if (grfRemark.Row == grfRemark.Rows.Count - 1)
+            if (grfJdc.Row == grfJdc.Rows.Count - 1)
             {
-                grfRemark.Rows.Count = grfRemark.Rows.Count + 1;
+                grfJdc.Rows.Count = grfJdc.Rows.Count + 1;
             }
         }
         //private void ContextMenu_Marsk_new(object sender, System.EventArgs e)
