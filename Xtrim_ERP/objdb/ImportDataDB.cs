@@ -1284,7 +1284,7 @@ namespace Xtrim_ERP.objdb
                 //tmn.status_app = "status_app";
                 tmn.remark = "";
 
-                tmnDB.insertPortImprt(tmn);
+                tmnDB.insertTerminal(tmn);
             }
             conn.CloseConnectionNoClose();
             pb1.Hide();

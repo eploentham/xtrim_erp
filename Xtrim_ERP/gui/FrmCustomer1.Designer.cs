@@ -88,6 +88,9 @@ namespace Xtrim_ERP.gui
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.c1Button1 = new C1.Win.C1Input.C1Button();
+            this.txtInsrNameT = new C1.Win.C1Input.C1TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnChkTaxId = new C1.Win.C1Input.C1Button();
             this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
             this.txtRemark2 = new C1.Win.C1Input.C1TextBox();
@@ -125,9 +128,7 @@ namespace Xtrim_ERP.gui
             this.label27 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtInsrNameT = new C1.Win.C1Input.C1TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.c1Button1 = new C1.Win.C1Input.C1Button();
+            this.c1CheckBox1 = new C1.Win.C1Input.C1CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -169,6 +170,8 @@ namespace Xtrim_ERP.gui
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInsrNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnChkTaxId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark2)).BeginInit();
@@ -195,8 +198,7 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrContactName2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrContactName1)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtInsrNameT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -1055,6 +1057,45 @@ namespace Xtrim_ERP.gui
             this.panel7.TabIndex = 1;
             this.theme1.SetTheme(this.panel7, "(default)");
             // 
+            // c1Button1
+            // 
+            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.c1Button1.Location = new System.Drawing.Point(413, 176);
+            this.c1Button1.Name = "c1Button1";
+            this.c1Button1.Size = new System.Drawing.Size(18, 18);
+            this.c1Button1.TabIndex = 263;
+            this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button1, "(default)");
+            this.c1Button1.UseVisualStyleBackColor = true;
+            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtInsrNameT
+            // 
+            this.txtInsrNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtInsrNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtInsrNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtInsrNameT.Location = new System.Drawing.Point(106, 175);
+            this.txtInsrNameT.Name = "txtInsrNameT";
+            this.txtInsrNameT.Size = new System.Drawing.Size(301, 20);
+            this.txtInsrNameT.TabIndex = 262;
+            this.txtInsrNameT.Tag = null;
+            this.theme1.SetTheme(this.txtInsrNameT, "(default)");
+            this.txtInsrNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label8.Location = new System.Drawing.Point(9, 177);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 16);
+            this.label8.TabIndex = 261;
+            this.label8.Text = "ประกันภัย :";
+            this.theme1.SetTheme(this.label8, "(default)");
+            // 
             // btnChkTaxId
             // 
             this.btnChkTaxId.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
@@ -1286,6 +1327,7 @@ namespace Xtrim_ERP.gui
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.groupBox1.Controls.Add(this.c1CheckBox1);
             this.groupBox1.Controls.Add(this.ChkInsr);
             this.groupBox1.Controls.Add(this.chkCons);
             this.groupBox1.Controls.Add(this.chkExp);
@@ -1294,9 +1336,9 @@ namespace Xtrim_ERP.gui
             this.groupBox1.Controls.Add(this.chkCus);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.groupBox1.Location = new System.Drawing.Point(504, 14);
+            this.groupBox1.Location = new System.Drawing.Point(504, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(141, 213);
+            this.groupBox1.Size = new System.Drawing.Size(141, 218);
             this.groupBox1.TabIndex = 151;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "สถานะ";
@@ -1579,44 +1621,23 @@ namespace Xtrim_ERP.gui
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // txtInsrNameT
+            // c1CheckBox1
             // 
-            this.txtInsrNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtInsrNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtInsrNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtInsrNameT.Location = new System.Drawing.Point(106, 175);
-            this.txtInsrNameT.Name = "txtInsrNameT";
-            this.txtInsrNameT.Size = new System.Drawing.Size(301, 20);
-            this.txtInsrNameT.TabIndex = 262;
-            this.txtInsrNameT.Tag = null;
-            this.theme1.SetTheme(this.txtInsrNameT, "(default)");
-            this.txtInsrNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label8.Location = new System.Drawing.Point(9, 177);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 16);
-            this.label8.TabIndex = 261;
-            this.label8.Text = "ประกันภัย :";
-            this.theme1.SetTheme(this.label8, "(default)");
-            // 
-            // c1Button1
-            // 
-            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1Button1.Location = new System.Drawing.Point(413, 176);
-            this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(18, 18);
-            this.c1Button1.TabIndex = 263;
-            this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button1, "(default)");
-            this.c1Button1.UseVisualStyleBackColor = true;
-            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.c1CheckBox1.BackColor = System.Drawing.Color.Transparent;
+            this.c1CheckBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.c1CheckBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.c1CheckBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.c1CheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.c1CheckBox1.Location = new System.Drawing.Point(8, 194);
+            this.c1CheckBox1.Name = "c1CheckBox1";
+            this.c1CheckBox1.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.c1CheckBox1.Size = new System.Drawing.Size(127, 24);
+            this.c1CheckBox1.TabIndex = 157;
+            this.c1CheckBox1.Text = "Truck company";
+            this.theme1.SetTheme(this.c1CheckBox1, "(default)");
+            this.c1CheckBox1.UseVisualStyleBackColor = true;
+            this.c1CheckBox1.Value = null;
+            this.c1CheckBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmCustomer1
             // 
@@ -1673,6 +1694,8 @@ namespace Xtrim_ERP.gui
             this.tabPage5.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInsrNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnChkTaxId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark2)).EndInit();
@@ -1700,8 +1723,7 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrContactName1)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtInsrNameT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1808,5 +1830,6 @@ namespace Xtrim_ERP.gui
         private C1TextBox txtInsrNameT;
         private System.Windows.Forms.Label label8;
         private C1Button c1Button1;
+        private C1CheckBox c1CheckBox1;
     }
 }

@@ -36,7 +36,7 @@ namespace Xtrim_ERP.gui
         int colJobInvId = 1, colJobInvNo = 2, colJobInvDate = 3, colJobInvCons = 4, colJobInvIncoTerm = 5, colJobInvTermPayment = 6, colJobInvAmt = 7, colJobInvCurr = 8;
 
         int colMarskId = 1, colMarskDesc = 2;
-        int colRemarkId = 1, colRemarkDesc = 2;
+        int colJdcId = 1, colJdcContainerNo = 2, colJdcType=3, colJdcSeal=4;
         int colContainId = 1, colContainQty = 2, colContainContainId = 3;
         int colGwId = 1, colGwQty = 2, colGwGwId = 3;
         int colEmailB = 1, colEmailPath = 2, colEmailDel=3;
@@ -128,12 +128,16 @@ namespace Xtrim_ERP.gui
 
             xC.xtDB.ugwDB.setC1CboUgw(cboUgw, "");
             xC.xtDB.ugwDB.setC1CboUgw(cboVolume, "");
+            xC.xtDB.ugwDB.setC1CboUgw(cboDeliVolume, "");
+            xC.xtDB.ugwDB.setC1CboUgw(cboDeliGw, "");
             xC.xtDB.utpDB.setC1CboUtp(cboUtp1, "");
             xC.xtDB.utpDB.setC1CboUtp(cboUtp2, "");
             xC.xtDB.utpDB.setC1CboUtp(cboUtp3, "");
             xC.xtDB.utpDB.setC1CboUtp(cboUtp4, "");
             xC.xtDB.utpDB.setC1CboUtp(cboUtp5, "");
-                        
+            xC.xtDB.utpDB.setC1CboUtp(cboDeliPkg, "");
+            xC.xtDB.trkDB.setCboTrkC1(cboDeliCarType);
+
             //initGrfMarsk();
             //initGrfRemark();
             //initGrfContain();
@@ -155,6 +159,7 @@ namespace Xtrim_ERP.gui
             initGrfEmail();
             initGrfPic();
             initGrfJclExp();
+            initGrfJdc();
             setFocus();
             setTabIndex();
             setFocusColor();
@@ -202,9 +207,7 @@ namespace Xtrim_ERP.gui
             grfInv.Cols[colJobInvIncoTerm].Editor = txt;
             grfInv.Cols[colJobInvTermPayment].Editor = txt;
             grfInv.Cols[colJobInvAmt].Editor = txt;
-            grfInv.Cols[colJobInvCurr].Editor = txt;
-
-            
+            grfInv.Cols[colJobInvCurr].Editor = txt;                        
 
             grfInv.Cols[colJobInvId].Caption = "id";
             grfInv.Cols[colJobInvNo].Caption = "Invoice no";
@@ -230,22 +233,29 @@ namespace Xtrim_ERP.gui
             //menuMarsk.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Marsk_Cancel));
             //grfMarsk.ContextMenu = menuMarsk;
         }
-        private void initGrfRemark()
+        private void initGrfJdc()
         {
             grfJdc = new C1FlexGrid();
             grfJdc.Dock = DockStyle.Fill;
             TextBox txt = new TextBox();
+            C1ComboBox cbo = new C1ComboBox();
+            xC.xtDB.dctDB.setC1CboContain(cbo, "");
 
-            grfJdc.Cols[colRemarkId].Editor = txt;
-            grfJdc.Cols[colRemarkDesc].Editor = txt;
-            grfJdc.Cols[colRemarkDesc].Caption = "remark";
+            grfJdc.Cols[colJdcId].Editor = txt;
+            grfJdc.Cols[colJdcContainerNo].Editor = txt;
+            grfJdc.Cols[colJdcType].Editor = cbo;
+            grfJdc.Cols[colJdcSeal].Editor = txt;
+            grfJdc.Cols[colJdcId].Caption = "id";
+            grfJdc.Cols[colJdcContainerNo].Caption = "container no";
+            grfJdc.Cols[colJdcType].Caption = "Type";
+            grfJdc.Cols[colJdcSeal].Caption = "seal";
 
-            gBRemark.Controls.Add(grfJdc);
-            grfJdc.Rows.Count = 2;
-            grfJdc.Cols.Count = 3;
-            grfJdc.Cols[colRemarkDesc].Width = 200;
+            panel15.Controls.Add(grfJdc);
+            //grfJdc.Rows.Count = 2;
+            //grfJdc.Cols.Count = 3;
+            grfJdc.Cols[colJdcContainerNo].Width = 150;
 
-            grfJdc.Cols[colRemarkId].Visible = false;
+            grfJdc.Cols[colJdcId].Visible = false;
             grfJdc.AfterRowColChange += GrfRemark_AfterRowColChange;
             grfJdc.CellChanged += GrfRemark_CellChanged;
 

@@ -182,7 +182,7 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String insertPortImprt(Terminal p)
+        public String insertTerminal(Terminal p)
         {
             String re = "";
 
@@ -235,10 +235,10 @@ namespace Xtrim_ERP.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where tmn." + tmn.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setPortImport(dt);
+            cop1 = setTerminal(dt);
             return cop1;
         }
-        private Terminal setPortImport(DataTable dt)
+        private Terminal setTerminal(DataTable dt)
         {
             Terminal pti1 = new Terminal();
             if (dt.Rows.Count > 0)

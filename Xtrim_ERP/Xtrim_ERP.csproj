@@ -410,7 +410,9 @@
     <Compile Include="objdb\ImporterTypeDB.cs" />
     <Compile Include="objdb\JobImportCheckExamDB.cs" />
     <Compile Include="objdb\JobImportCheckListDB.cs" />
+    <Compile Include="objdb\JobImportContainerListDB.cs" />
     <Compile Include="objdb\JobImportContDB.cs" />
+    <Compile Include="objdb\JobImportDeliveryDB.cs" />
     <Compile Include="objdb\JobImportExpnDB.cs" />
     <Compile Include="objdb\JobImportImageDB.cs" />
     <Compile Include="objdb\MeiosysDB.cs" />
@@ -439,6 +441,7 @@
     <Compile Include="objdb\PortOfLoadingDB.cs" />
     <Compile Include="objdb\StaffDB.cs" />
     <Compile Include="objdb\TerminalDB.cs" />
+    <Compile Include="objdb\TruckDB.cs" />
     <Compile Include="objdb\UnitGwDB.cs" />
     <Compile Include="objdb\UnitPackageDB.cs" />
     <Compile Include="objdb\XtrimDB.cs" />
@@ -459,6 +462,8 @@
     <Compile Include="object1\JobImportCheckExam.cs" />
     <Compile Include="object1\JobImportCheckList.cs" />
     <Compile Include="object1\JobImportCont.cs" />
+    <Compile Include="object1\JobImportContainerList.cs" />
+    <Compile Include="object1\JobImportDelivery.cs" />
     <Compile Include="object1\JobImportExpn.cs" />
     <Compile Include="object1\JobImportImage.cs" />
     <Compile Include="object1\LogFile.cs" />
@@ -495,6 +500,7 @@
     <Compile Include="object1\InitConfig.cs" />
     <Compile Include="object1\Persistent.cs" />
     <Compile Include="object1\Terminal.cs" />
+    <Compile Include="object1\Truck.cs" />
     <Compile Include="object1\UnitGw.cs" />
     <Compile Include="object1\UnitPackage.cs" />
     <Compile Include="Program.cs" />
