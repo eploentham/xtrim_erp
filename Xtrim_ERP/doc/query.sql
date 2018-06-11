@@ -288,8 +288,9 @@ CREATE TABLE `t_job_import_delivery` (
   PRIMARY KEY (`job_import_delivery_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='id=145';
 
-
-
+61-06-11
+ALTER TABLE `xtrim_erp`.`b_customer` 
+ADD COLUMN `status_truck` VARCHAR(255) NULL AFTER `insr_id`;
 
 
 

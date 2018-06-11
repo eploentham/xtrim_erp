@@ -92,6 +92,8 @@ namespace Xtrim_ERP.gui
             txtTpmNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtCurrCode.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtInsrNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtDeliImporter.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtTruckCop.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
 
             txtPkg1.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
             txtPkg2.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);

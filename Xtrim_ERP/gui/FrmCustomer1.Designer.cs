@@ -109,6 +109,7 @@ namespace Xtrim_ERP.gui
             this.txtCusCode = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkTrk = new C1.Win.C1Input.C1CheckBox();
             this.ChkInsr = new C1.Win.C1Input.C1CheckBox();
             this.chkCons = new C1.Win.C1Input.C1CheckBox();
             this.chkExp = new C1.Win.C1Input.C1CheckBox();
@@ -128,7 +129,6 @@ namespace Xtrim_ERP.gui
             this.label27 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.c1CheckBox1 = new C1.Win.C1Input.C1CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -184,6 +184,7 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCusCode)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkTrk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ChkInsr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkExp)).BeginInit();
@@ -198,7 +199,6 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrContactName2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrContactName1)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -1327,7 +1327,7 @@ namespace Xtrim_ERP.gui
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.groupBox1.Controls.Add(this.c1CheckBox1);
+            this.groupBox1.Controls.Add(this.chkTrk);
             this.groupBox1.Controls.Add(this.ChkInsr);
             this.groupBox1.Controls.Add(this.chkCons);
             this.groupBox1.Controls.Add(this.chkExp);
@@ -1343,6 +1343,24 @@ namespace Xtrim_ERP.gui
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "สถานะ";
             this.theme1.SetTheme(this.groupBox1, "(default)");
+            // 
+            // chkTrk
+            // 
+            this.chkTrk.BackColor = System.Drawing.Color.Transparent;
+            this.chkTrk.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkTrk.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkTrk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkTrk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkTrk.Location = new System.Drawing.Point(8, 194);
+            this.chkTrk.Name = "chkTrk";
+            this.chkTrk.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkTrk.Size = new System.Drawing.Size(127, 24);
+            this.chkTrk.TabIndex = 157;
+            this.chkTrk.Text = "Truck company";
+            this.theme1.SetTheme(this.chkTrk, "(default)");
+            this.chkTrk.UseVisualStyleBackColor = true;
+            this.chkTrk.Value = null;
+            this.chkTrk.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // ChkInsr
             // 
@@ -1621,24 +1639,6 @@ namespace Xtrim_ERP.gui
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // c1CheckBox1
-            // 
-            this.c1CheckBox1.BackColor = System.Drawing.Color.Transparent;
-            this.c1CheckBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.c1CheckBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.c1CheckBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.c1CheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1CheckBox1.Location = new System.Drawing.Point(8, 194);
-            this.c1CheckBox1.Name = "c1CheckBox1";
-            this.c1CheckBox1.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.c1CheckBox1.Size = new System.Drawing.Size(127, 24);
-            this.c1CheckBox1.TabIndex = 157;
-            this.c1CheckBox1.Text = "Truck company";
-            this.theme1.SetTheme(this.c1CheckBox1, "(default)");
-            this.c1CheckBox1.UseVisualStyleBackColor = true;
-            this.c1CheckBox1.Value = null;
-            this.c1CheckBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmCustomer1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1708,6 +1708,7 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCusCode)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkTrk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ChkInsr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkExp)).EndInit();
@@ -1723,7 +1724,6 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrContactName1)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1830,6 +1830,6 @@ namespace Xtrim_ERP.gui
         private C1TextBox txtInsrNameT;
         private System.Windows.Forms.Label label8;
         private C1Button c1Button1;
-        private C1CheckBox c1CheckBox1;
+        private C1CheckBox chkTrk;
     }
 }

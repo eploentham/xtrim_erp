@@ -1113,7 +1113,8 @@ namespace Xtrim_ERP.gui
             chkImp.Checked = cus.status_imp.Equals("1") ? true : false;
             chkFwd.Checked = cus.status_fwd.Equals("1") ? true : false;
             chkExp.Checked = cus.status_exp.Equals("1") ? true : false;
-            
+            chkTrk.Checked = cus.status_truck.Equals("1") ? true : false;
+
         }
 
         private void btnAddrEdit_Click(object sender, EventArgs e)
@@ -1209,9 +1210,8 @@ namespace Xtrim_ERP.gui
         {
             //saveAddr();
         }
-        private void saveCustomer()
+        private void setCustomer()
         {
-            //Customer cus = new Customer();
             cus.cust_id = txtID.Text;
             cus.cust_code = txtCusCode.Text.Trim();
             cus.cust_name_t = txtCusNameT.Text.Trim();
@@ -1270,7 +1270,11 @@ namespace Xtrim_ERP.gui
             cus.status_insr = ChkInsr.Checked ? "1" : "0";
             //cus.status_cons_imp = chkCons.Checked ? "1" : "0";
             cus.insr_id = insrId;
-
+        }
+        private void saveCustomer()
+        {
+            //Customer cus = new Customer();
+            setCustomer();
             String re = xC.xtDB.cusDB.insertCustomer(cus);
             int chk = 0;
             if (int.TryParse(re, out chk))

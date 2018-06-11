@@ -45,6 +45,7 @@ namespace Xtrim_ERP.control
         public IncoTerms sIct;
         public TermPayment sTpm;
         public Currency sCurr;
+        public Truck sTrk;
 
         public Terminal sTmn;
         public LogFile lf;

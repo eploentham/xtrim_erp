@@ -35,6 +35,10 @@
             this.chkImpNew = new System.Windows.Forms.RadioButton();
             this.pB1 = new System.Windows.Forms.ProgressBar();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.chkCurrApp = new System.Windows.Forms.RadioButton();
+            this.chkCurrNew = new System.Windows.Forms.RadioButton();
+            this.btnCurr = new C1.Win.C1Input.C1Button();
             this.panel19 = new System.Windows.Forms.Panel();
             this.chkPtiApp = new System.Windows.Forms.RadioButton();
             this.chkPtiNew = new System.Windows.Forms.RadioButton();
@@ -113,14 +117,12 @@
             this.c1Button3 = new C1.Win.C1Input.C1Button();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.chkCurrApp = new System.Windows.Forms.RadioButton();
-            this.chkCurrNew = new System.Windows.Forms.RadioButton();
-            this.btnCurr = new C1.Win.C1Input.C1Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.panel20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCurr)).BeginInit();
             this.panel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnPti)).BeginInit();
             this.panel18.SuspendLayout();
@@ -163,8 +165,6 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).BeginInit();
-            this.panel20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCurr)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -269,6 +269,59 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "รายชื่อ ลูกค้า openjob";
             this.c1ThemeController1.SetTheme(this.groupBox2, "(default)");
+            // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
+            this.panel20.Controls.Add(this.chkCurrApp);
+            this.panel20.Controls.Add(this.chkCurrNew);
+            this.panel20.Controls.Add(this.btnCurr);
+            this.panel20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.panel20.Location = new System.Drawing.Point(654, 400);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(512, 44);
+            this.panel20.TabIndex = 80;
+            this.c1ThemeController1.SetTheme(this.panel20, "(default)");
+            // 
+            // chkCurrApp
+            // 
+            this.chkCurrApp.AutoSize = true;
+            this.chkCurrApp.BackColor = System.Drawing.Color.Transparent;
+            this.chkCurrApp.ForeColor = System.Drawing.Color.Black;
+            this.chkCurrApp.Location = new System.Drawing.Point(216, 13);
+            this.chkCurrApp.Name = "chkCurrApp";
+            this.chkCurrApp.Size = new System.Drawing.Size(117, 17);
+            this.chkCurrApp.TabIndex = 66;
+            this.chkCurrApp.TabStop = true;
+            this.chkCurrApp.Text = "นำเข้า แต่ข้อมูลใหม่";
+            this.c1ThemeController1.SetTheme(this.chkCurrApp, "(default)");
+            this.chkCurrApp.UseVisualStyleBackColor = false;
+            // 
+            // chkCurrNew
+            // 
+            this.chkCurrNew.AutoSize = true;
+            this.chkCurrNew.BackColor = System.Drawing.Color.Transparent;
+            this.chkCurrNew.ForeColor = System.Drawing.Color.Black;
+            this.chkCurrNew.Location = new System.Drawing.Point(4, 13);
+            this.chkCurrNew.Name = "chkCurrNew";
+            this.chkCurrNew.Size = new System.Drawing.Size(192, 17);
+            this.chkCurrNew.TabIndex = 65;
+            this.chkCurrNew.TabStop = true;
+            this.chkCurrNew.Text = "นำเข้าข้อมูลใหม่ทั้งหมด ลบข้อมูลเดิม";
+            this.c1ThemeController1.SetTheme(this.chkCurrNew, "(default)");
+            this.chkCurrNew.UseVisualStyleBackColor = false;
+            // 
+            // btnCurr
+            // 
+            this.btnCurr.Location = new System.Drawing.Point(382, 3);
+            this.btnCurr.Name = "btnCurr";
+            this.btnCurr.Size = new System.Drawing.Size(118, 37);
+            this.btnCurr.TabIndex = 62;
+            this.btnCurr.Text = "นำเข้าช้อมูล Currency";
+            this.c1ThemeController1.SetTheme(this.btnCurr, "(default)");
+            this.btnCurr.UseVisualStyleBackColor = true;
+            this.btnCurr.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnCurr.Click += new System.EventHandler(this.btnCurr_Click);
             // 
             // panel19
             // 
@@ -1305,59 +1358,6 @@
             this.c1ThemeController1.SetTheme(this.radioButton4, "(default)");
             this.radioButton4.UseVisualStyleBackColor = false;
             // 
-            // panel20
-            // 
-            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(161)))), ((int)(((byte)(106)))));
-            this.panel20.Controls.Add(this.chkCurrApp);
-            this.panel20.Controls.Add(this.chkCurrNew);
-            this.panel20.Controls.Add(this.btnCurr);
-            this.panel20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.panel20.Location = new System.Drawing.Point(654, 400);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(512, 44);
-            this.panel20.TabIndex = 80;
-            this.c1ThemeController1.SetTheme(this.panel20, "(default)");
-            // 
-            // chkCurrApp
-            // 
-            this.chkCurrApp.AutoSize = true;
-            this.chkCurrApp.BackColor = System.Drawing.Color.Transparent;
-            this.chkCurrApp.ForeColor = System.Drawing.Color.Black;
-            this.chkCurrApp.Location = new System.Drawing.Point(216, 13);
-            this.chkCurrApp.Name = "chkCurrApp";
-            this.chkCurrApp.Size = new System.Drawing.Size(117, 17);
-            this.chkCurrApp.TabIndex = 66;
-            this.chkCurrApp.TabStop = true;
-            this.chkCurrApp.Text = "นำเข้า แต่ข้อมูลใหม่";
-            this.c1ThemeController1.SetTheme(this.chkCurrApp, "(default)");
-            this.chkCurrApp.UseVisualStyleBackColor = false;
-            // 
-            // chkCurrNew
-            // 
-            this.chkCurrNew.AutoSize = true;
-            this.chkCurrNew.BackColor = System.Drawing.Color.Transparent;
-            this.chkCurrNew.ForeColor = System.Drawing.Color.Black;
-            this.chkCurrNew.Location = new System.Drawing.Point(4, 13);
-            this.chkCurrNew.Name = "chkCurrNew";
-            this.chkCurrNew.Size = new System.Drawing.Size(192, 17);
-            this.chkCurrNew.TabIndex = 65;
-            this.chkCurrNew.TabStop = true;
-            this.chkCurrNew.Text = "นำเข้าข้อมูลใหม่ทั้งหมด ลบข้อมูลเดิม";
-            this.c1ThemeController1.SetTheme(this.chkCurrNew, "(default)");
-            this.chkCurrNew.UseVisualStyleBackColor = false;
-            // 
-            // btnCurr
-            // 
-            this.btnCurr.Location = new System.Drawing.Point(382, 3);
-            this.btnCurr.Name = "btnCurr";
-            this.btnCurr.Size = new System.Drawing.Size(118, 37);
-            this.btnCurr.TabIndex = 62;
-            this.btnCurr.Text = "นำเข้าช้อมูล Place";
-            this.c1ThemeController1.SetTheme(this.btnCurr, "(default)");
-            this.btnCurr.UseVisualStyleBackColor = true;
-            this.btnCurr.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.btnCurr.Click += new System.EventHandler(this.btnCurr_Click);
-            // 
             // FrmImportData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1377,6 +1377,9 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCurr)).EndInit();
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnPti)).EndInit();
@@ -1437,9 +1440,6 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).EndInit();
-            this.panel20.ResumeLayout(false);
-            this.panel20.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCurr)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -38,7 +38,8 @@ namespace Xtrim_ERP.object1
             IncoTerm,
             TermPayment,
             Insurance,
-            Currency
+            Currency,
+            Truck
         };
         Search flag;
         //private CellStyle _style;
@@ -206,6 +207,10 @@ namespace Xtrim_ERP.object1
             {
                 grdFlex.DataSource = xC.xtDB.currDB.selectAll();
             }
+            else if (flag == Search.Truck)
+            {
+                grdFlex.DataSource = xC.xtDB.trkDB.selectAll();
+            }
             grdFlex.Cols[colID].Width = 60;
             grdFlex.Cols[colNameT].Width = 20;
             //grdFlex.ShowCursor = true;
@@ -339,6 +344,11 @@ namespace Xtrim_ERP.object1
                 {
                     xC.sCurr = new Currency();
                     xC.sCurr = xC.xtDB.currDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
+                }
+                else if (flag == Search.Truck)
+                {
+                    xC.sTrk = new Truck();
+                    xC.sTrk = xC.xtDB.trkDB.selectByPk1(grdFlex[grdFlex.Row, colID].ToString());
                 }
                 Close();
                 return true;

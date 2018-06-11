@@ -53,6 +53,8 @@
             this.c1DockingTabPage4 = new C1.Win.C1Command.C1DockingTabPage();
             this.c1DockingTabPage5 = new C1.Win.C1Command.C1DockingTabPage();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.c1Button21 = new C1.Win.C1Input.C1Button();
+            this.txtTruckCop = new C1.Win.C1Input.C1TextBox();
             this.panel16 = new System.Windows.Forms.Panel();
             this.c1Button20 = new C1.Win.C1Input.C1Button();
             this.cboYardId = new C1.Win.C1Input.C1ComboBox();
@@ -369,8 +371,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cDMain = new C1.Win.C1Command.C1CommandDock();
-            this.c1Button21 = new C1.Win.C1Input.C1Button();
-            this.txtTruckCop = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -392,6 +392,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT1)).BeginInit();
             this.c1DockingTabPage5.SuspendLayout();
             this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTruckCop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboYardId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CboPlaceId)).BeginInit();
@@ -598,8 +600,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJinId)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTruckCop)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -1029,6 +1029,31 @@
             this.panel14.Size = new System.Drawing.Size(859, 649);
             this.panel14.TabIndex = 0;
             this.theme1.SetTheme(this.panel14, "(default)");
+            // 
+            // c1Button21
+            // 
+            this.c1Button21.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button21.Location = new System.Drawing.Point(367, 233);
+            this.c1Button21.Name = "c1Button21";
+            this.c1Button21.Size = new System.Drawing.Size(22, 22);
+            this.c1Button21.TabIndex = 490;
+            this.c1Button21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button21, "(default)");
+            this.c1Button21.UseVisualStyleBackColor = true;
+            this.c1Button21.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtTruckCop
+            // 
+            this.txtTruckCop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTruckCop.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtTruckCop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtTruckCop.Location = new System.Drawing.Point(100, 234);
+            this.txtTruckCop.Name = "txtTruckCop";
+            this.txtTruckCop.Size = new System.Drawing.Size(264, 20);
+            this.txtTruckCop.TabIndex = 489;
+            this.txtTruckCop.Tag = null;
+            this.theme1.SetTheme(this.txtTruckCop, "(default)");
+            this.txtTruckCop.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // panel16
             // 
@@ -6193,31 +6218,6 @@
             this.cDMain.Size = new System.Drawing.Size(267, 718);
             this.theme1.SetTheme(this.cDMain, "(default)");
             // 
-            // c1Button21
-            // 
-            this.c1Button21.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button21.Location = new System.Drawing.Point(367, 233);
-            this.c1Button21.Name = "c1Button21";
-            this.c1Button21.Size = new System.Drawing.Size(22, 22);
-            this.c1Button21.TabIndex = 490;
-            this.c1Button21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button21, "(default)");
-            this.c1Button21.UseVisualStyleBackColor = true;
-            this.c1Button21.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtTruckCop
-            // 
-            this.txtTruckCop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTruckCop.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtTruckCop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtTruckCop.Location = new System.Drawing.Point(100, 234);
-            this.txtTruckCop.Name = "txtTruckCop";
-            this.txtTruckCop.Size = new System.Drawing.Size(264, 20);
-            this.txtTruckCop.TabIndex = 489;
-            this.txtTruckCop.Tag = null;
-            this.theme1.SetTheme(this.txtTruckCop, "(default)");
-            this.txtTruckCop.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmJobImpNew3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6253,6 +6253,8 @@
             this.c1DockingTabPage5.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTruckCop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboYardId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CboPlaceId)).EndInit();
@@ -6470,8 +6472,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJinId)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTruckCop)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
