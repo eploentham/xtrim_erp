@@ -293,6 +293,50 @@ ALTER TABLE `xtrim_erp`.`b_customer`
 ADD COLUMN `status_truck` VARCHAR(255) NULL AFTER `insr_id`;
 
 
+61-06-12
+ALTER TABLE `xtrim_erp`.`t_job_import_bl` 
+ADD COLUMN `deli_package` VARCHAR(255) NULL AFTER `unit_volume1_id`,
+ADD COLUMN `deli_gw` VARCHAR(255) NULL AFTER `deli_package`,
+ADD COLUMN `deli_volume` VARCHAR(255) NULL AFTER `delifw`,
+ADD COLUMN `deli_imp_id` INT NULL AFTER `deli_volume`,
+ADD COLUMN `deli_imp_addr` VARCHAR(255) NULL AFTER `deli_imp_id`,
+ADD COLUMN `deli_unit_package_id` INT NULL AFTER `deli_imp_addr`,
+ADD COLUMN `deli_unit_gw_id` INT NULL AFTER `deli_unit_package_id`,
+ADD COLUMN `deli_unit_volume_id` INT NULL AFTER `deli_unit_gw_id`,
+ADD COLUMN `deli_deli_truck_cop_id` INT NULL COMMENT 'บริษัทรับขนส่ง :' AFTER `deli_unit_volume_id`,
+ADD COLUMN `deli_place_addr_id` INT NULL COMMENT 'สถานที่ส่งของ :' AFTER `truck_cop_id`,
+ADD COLUMN `deli_place_addr_name_t` VARCHAR(255) NULL COMMENT 'สถานที่ส่งของ :' AFTER `place_addr_id`,
+ADD COLUMN `deli_yard_id` INT NULL COMMENT 'ลานคืนตู้ :' AFTER `place_addr_name_t`;
+
+ALTER TABLE `xtrim_erp`.`b_customer` 
+ADD COLUMN `status_container_yard` VARCHAR(255) NULL AFTER `status_truck`;
+ALTER TABLE `xtrim_erp`.`t_job_import_bl` 
+ADD COLUMN `deli_truck_id` INT NULL COMMENT 'ชนิดรถ :' AFTER `deli_yard_id`;
+
+ALTER TABLE `xtrim_erp`.`t_job_import_bl` 
+ADD COLUMN `deli_yard_addr_name_t` VARCHAR(255) NULL AFTER `deli_truck_id`;
+
+CREATE TABLE `xtrim_erp`.`t_job_import_container` (
+  `job_import_container_id` INT NOT NULL AUTO_INCREMENT,
+  `job_import_id` INT NULL,
+  `container_no` VARCHAR(255) NULL,
+  `container_doct_type_id` INT NULL,
+  `seal` VARCHAR(255) NULL,
+  `active` VARCHAR(255) NULL,
+  `remark` VARCHAR(255) NULL,
+  `date_create` VARCHAR(255) NULL,
+  `date_modi` VARCHAR(255) NULL,
+  `date_cancel` VARCHAR(255) NULL,
+  `user_create` VARCHAR(255) NULL,
+  `user_modi` VARCHAR(255) NULL,
+  `user_cancel` VARCHAR(255) NULL,
+  PRIMARY KEY (`job_import_container_id`));
+
+
+
+
+
+
 
 
 

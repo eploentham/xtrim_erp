@@ -88,6 +88,7 @@ namespace Xtrim_ERP.objdb
             cus.web_site3 = "web_site3";
             cus.insr_id = "insr_id";
             cus.status_truck = "status_truck";
+            cus.status_container_yard = "status_container_yard";
 
             cus.table = "b_customer";
             cus.pkField = "cust_id";
@@ -231,6 +232,7 @@ namespace Xtrim_ERP.objdb
             p.status_company = p.status_company == null ? "0" : p.status_company;
             p.status_vendor = p.status_vendor == null ? "0" : p.status_vendor;
             p.status_truck = p.status_truck == null ? "0" : p.status_truck;
+            p.status_container_yard = p.status_container_yard == null ? "0" : p.status_container_yard;
             p.web_site1 = p.web_site1 == null ? "" : p.web_site1;
             p.web_site2 = p.web_site2 == null ? "" : p.web_site2;
             p.web_site3 = p.web_site3 == null ? "" : p.web_site3;
@@ -266,6 +268,7 @@ namespace Xtrim_ERP.objdb
                 cus.status_cons_imp + ", " + cus.status_cons_exp + ", " + cus.status_insr + ", " +
                 cus.status_supp + ", " + cus.web_site1 + ", " + cus.web_site2 + ", " +
                 cus.web_site3 + "," + cus.insr_id + "," + cus.status_truck + " " +
+                cus.status_container_yard + " " +
                 ") " +
                 "Values ('" + p.cust_code.Replace("'", "''") + "','" + p.cust_name_t.Replace("'", "''") + "','" + p.cust_name_e.Replace("'", "''") + "'," +
                 "'" + p.active + "','" + p.address_t.Replace("'", "''") + "','" + p.address_e.Replace("'", "''") + "'," +
@@ -284,7 +287,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.status_fwd.Replace("'", "''") + "','" + p.status_imp.Replace("'", "''") + "','"+ p.sort1.Replace("'", "''") + "'," +
                 "'" + p.status_cons_imp.Replace("'", "''") + "','" + p.status_cons_exp.Replace("'", "''") + "','"+ p.status_insr.Replace("'", "''") + "'," +
                 "'" + p.status_supp.Replace("'", "''") + "','" + p.status_supp.Replace("'", "''") + "','" + p.status_supp.Replace("'", "''") + "'," +
-                "'" + p.status_supp.Replace("'", "''") + "','" + p.insr_id + "','" + p.status_truck + "' " +
+                "'" + p.status_supp.Replace("'", "''") + "','" + p.insr_id + "','" + p.status_truck + "', " +
+                "'" + p.status_container_yard.Replace("'", "''") + "' " +
                ")";
             try
             {
@@ -353,6 +357,7 @@ namespace Xtrim_ERP.objdb
                 "," + cus.web_site3 + " = '" + p.web_site3 + "' " +
                 "," + cus.insr_id + " = '" + p.insr_id + "' " +
                 "," + cus.status_truck + " = '" + p.status_truck + "' " +
+                "," + cus.status_container_yard + " = '" + p.status_container_yard + "' " +
                 "Where " + cus.pkField + "='" + p.cust_id + "'";
 
             try
@@ -703,6 +708,7 @@ namespace Xtrim_ERP.objdb
                 cus1.web_site3 = dt.Rows[0][cus.web_site3].ToString();
                 cus1.insr_id = dt.Rows[0][cus.insr_id].ToString();
                 cus1.status_truck = dt.Rows[0][cus.status_truck].ToString();
+                cus1.status_container_yard = dt.Rows[0][cus.status_container_yard].ToString();
             }
 
             return cus1;

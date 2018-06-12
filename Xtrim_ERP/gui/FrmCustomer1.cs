@@ -1114,7 +1114,7 @@ namespace Xtrim_ERP.gui
             chkFwd.Checked = cus.status_fwd.Equals("1") ? true : false;
             chkExp.Checked = cus.status_exp.Equals("1") ? true : false;
             chkTrk.Checked = cus.status_truck.Equals("1") ? true : false;
-
+            chkContainerYard.Checked = cus.status_container_yard.Equals("1") ? true : false;
         }
 
         private void btnAddrEdit_Click(object sender, EventArgs e)
@@ -1264,11 +1264,13 @@ namespace Xtrim_ERP.gui
             cus.sort1 = "";
 
             cus.status_cust = chkCus.Checked ? "1" : "0";
-            cus.status_exp = chkExp.Checked ? "1" : "0";
-            cus.status_fwd = chkFwd.Checked ? "1" : "0";
             cus.status_imp = chkImp.Checked ? "1" : "0";
+            cus.status_fwd = chkFwd.Checked ? "1" : "0";
+            cus.status_exp = chkExp.Checked ? "1" : "0";
+            cus.status_cons_imp = chkCons.Checked ? "1" : "0";
             cus.status_insr = ChkInsr.Checked ? "1" : "0";
-            //cus.status_cons_imp = chkCons.Checked ? "1" : "0";
+            cus.status_truck = chkTrk.Checked ? "1" : "0";
+            cus.status_container_yard = chkContainerYard.Checked ? "1" : "0";
             cus.insr_id = insrId;
         }
         private void saveCustomer()

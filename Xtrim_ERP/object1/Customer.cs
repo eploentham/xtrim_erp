@@ -66,5 +66,6 @@ namespace Xtrim_ERP.object1
         public String web_site3 { get; set; }
         public String insr_id { get; set; }
         public String status_truck { get; set; }
+        public String status_container_yard { get; set; }
     }
 }

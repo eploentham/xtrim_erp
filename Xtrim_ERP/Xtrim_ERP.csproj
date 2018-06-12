@@ -410,6 +410,7 @@
     <Compile Include="objdb\ImporterTypeDB.cs" />
     <Compile Include="objdb\JobImportCheckExamDB.cs" />
     <Compile Include="objdb\JobImportCheckListDB.cs" />
+    <Compile Include="objdb\JobImportContainerDB.cs" />
     <Compile Include="objdb\JobImportContainerListDB.cs" />
     <Compile Include="objdb\JobImportContDB.cs" />
     <Compile Include="objdb\JobImportDeliveryDB.cs" />
@@ -462,6 +463,7 @@
     <Compile Include="object1\JobImportCheckExam.cs" />
     <Compile Include="object1\JobImportCheckList.cs" />
     <Compile Include="object1\JobImportCont.cs" />
+    <Compile Include="object1\JobImportContainer.cs" />
     <Compile Include="object1\JobImportContainerList.cs" />
     <Compile Include="object1\JobImportDelivery.cs" />
     <Compile Include="object1\JobImportExpn.cs" />

@@ -91,5 +91,20 @@ namespace Xtrim_ERP.object1
         public String consignmnt_id { get; set; }
         public String bl { get; set; }
         public String unit_volume1_id { get; set; }
+
+        public String deli_package { get; set; }
+        public String deli_gw { get; set; }
+        public String deli_volume { get; set; }
+        public String deli_imp_id { get; set; }
+        public String deli_imp_addr { get; set; }
+        public String deli_unit_package_id { get; set; }
+        public String deli_unit_gw_id { get; set; }
+        public String deli_unit_volume_id { get; set; }
+        public String deli_truck_cop_id { get; set; }
+        public String deli_place_addr_id { get; set; }
+        public String deli_place_addr_name_t { get; set; }
+        public String deli_yard_id { get; set; }
+        public String deli_truck_id { get; set; }
+        public String deli_yard_addr_name_t { get; set; }
     }
 }

@@ -111,6 +111,20 @@ namespace Xtrim_ERP.objdb
             jbl.consignmnt_id = "consignmnt_id";
             jbl.bl = "bl";
             jbl.unit_volume1_id = "unit_volume1_id";
+            jbl.deli_gw = "deli_gw";
+            jbl.deli_imp_addr = "deli_imp_addr";
+            jbl.deli_imp_id = "deli_imp_id";
+            jbl.deli_package = "deli_package";
+            jbl.deli_place_addr_id = "deli_place_addr_id";
+            jbl.deli_place_addr_name_t = "deli_place_addr_name_t";
+            jbl.deli_truck_cop_id = "deli_truck_cop_id";
+            jbl.deli_unit_gw_id = "deli_unit_gw_id";
+            jbl.deli_unit_package_id = "deli_unit_package_id";
+            jbl.deli_unit_volume_id = "deli_unit_volume_id";
+            jbl.deli_volume = "deli_volume";
+            jbl.deli_yard_id = "deli_yard_id";
+            jbl.deli_truck_id = "deli_truck_id";
+            jbl.deli_yard_addr_name_t = "deli_yard_addr_name_t";
 
             jbl.table = "t_job_import_bl";
             jbl.pkField = "job_import_bl_id";
@@ -148,7 +162,12 @@ namespace Xtrim_ERP.objdb
             p.hbl_hawb = p.hbl_hawb == null ? "" : p.hbl_hawb;
             p.mbl_mawb = p.mbl_mawb == null ? "" : p.mbl_mawb;
             p.oth_job_no = p.oth_job_no == null ? "" : p.oth_job_no;
-            p.bl_type = p.bl_type == null ? "" : p.bl_type;
+            p.deli_gw = p.deli_gw == null ? "" : p.deli_gw;
+            p.deli_imp_addr = p.deli_imp_addr == null ? "" : p.deli_imp_addr;
+            p.deli_package = p.deli_package == null ? "" : p.deli_package;
+            p.deli_place_addr_name_t = p.deli_place_addr_name_t == null ? "" : p.deli_place_addr_name_t;
+            p.deli_volume = p.deli_volume == null ? "" : p.deli_volume;
+            p.deli_yard_addr_name_t = p.deli_yard_addr_name_t == null ? "" : p.deli_yard_addr_name_t;
 
             p.date_modi = p.date_modi == null ? "" : p.date_modi;
             p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
@@ -177,6 +196,14 @@ namespace Xtrim_ERP.objdb
             p.unit_package1_id = int.TryParse(p.unit_package1_id, out chk) ? chk.ToString() : "0";
             p.gw_unit_id = int.TryParse(p.gw_unit_id, out chk) ? chk.ToString() : "0";
             p.terminal_id = int.TryParse(p.terminal_id, out chk) ? chk.ToString() : "0";
+            p.deli_imp_id = int.TryParse(p.deli_imp_id, out chk) ? chk.ToString() : "0";
+            p.deli_place_addr_id = int.TryParse(p.deli_place_addr_id, out chk) ? chk.ToString() : "0";
+            p.deli_truck_cop_id = int.TryParse(p.deli_truck_cop_id, out chk) ? chk.ToString() : "0";
+            p.deli_unit_gw_id = int.TryParse(p.deli_unit_gw_id, out chk) ? chk.ToString() : "0";
+            p.deli_unit_package_id = int.TryParse(p.deli_unit_package_id, out chk) ? chk.ToString() : "0";
+            p.deli_unit_volume_id = int.TryParse(p.deli_unit_volume_id, out chk) ? chk.ToString() : "0";
+            p.deli_yard_id = int.TryParse(p.deli_yard_id, out chk) ? chk.ToString() : "0";
+            p.deli_truck_id = int.TryParse(p.deli_truck_id, out chk) ? chk.ToString() : "0";
 
             p.port_imp_id = Decimal.TryParse(p.port_imp_id, out chk1) ? chk1.ToString() : "0";
             p.forwarder_id = Decimal.TryParse(p.forwarder_id, out chk1) ? chk1.ToString() : "0";
@@ -230,7 +257,12 @@ namespace Xtrim_ERP.objdb
                 jbl.container4_doc_type_id + "," + jbl.container5_doc_type_id + "," + jbl.container6_doc_type_id + "," +
                 jbl.unit_package2_id + "," + jbl.unit_package3_id + "," + jbl.unit_package4_id + "," +
                 jbl.unit_package5_id + ", " + jbl.bl_type + ", " + jbl.consignmnt_id + ", " +
-                jbl.bl + ", " + jbl.unit_volume1_id + " " +
+                jbl.bl + ", " + jbl.unit_volume1_id + "," +
+                jbl.deli_gw + ", " + jbl.deli_imp_addr + ", " + jbl.deli_imp_id + ", " +
+                jbl.deli_package + ", " + jbl.deli_place_addr_id + ", " + jbl.deli_place_addr_name_t + ", " +
+                jbl.deli_truck_cop_id + ", " + jbl.deli_unit_gw_id + ", " + jbl.deli_unit_package_id + ", " +
+                jbl.deli_unit_volume_id + ", " + jbl.deli_volume + ", " + jbl.deli_yard_id + ", " +
+                jbl.deli_truck_id + "," + jbl.deli_yard_addr_name_t + " " +
                 ") " +
                 "Values ('" + p.job_import_id + "','" + p.forwarder_id + "','" + p.mbl_mawb + "'," +
                 "'" + p.hbl_hawb.Replace("'", "''") + "','" + p.m_vessel.Replace("'", "''") + "','" + p.f_vessel.Replace("'", "''") + "'," +
@@ -255,7 +287,12 @@ namespace Xtrim_ERP.objdb
                 "'" + p.container4_doc_type_id + "','" + p.container5_doc_type_id + "','" + p.container6_doc_type_id + "', " +
                 "'" + p.unit_package2_id + "','" + p.unit_package3_id.Replace("'", "''") + "','" + p.unit_package4_id + "', " +
                 "'" + p.unit_package5_id + "','" + p.bl_type + "','" + p.consignmnt_id + "'," +
-                "'" + p.bl + "','" + p.unit_volume1_id + "' " +
+                "'" + p.bl + "','" + p.unit_volume1_id + "'," +
+                "'" + p.deli_gw + "','" + p.deli_imp_addr + "','" + p.deli_imp_id + "'," +
+                "'" + p.deli_package + "','" + p.deli_place_addr_id + "','" + p.deli_place_addr_name_t + "'," +
+                "'" + p.deli_truck_cop_id + "','" + p.deli_unit_gw_id + "','" + p.deli_unit_package_id + "'," +
+                "'" + p.deli_unit_volume_id + "','" + p.deli_volume + "','" + p.deli_yard_id + "'," +
+                "'" + p.deli_truck_id + "','" + p.deli_yard_addr_name_t + "' " +
                 ")";
             try
             {
@@ -347,6 +384,43 @@ namespace Xtrim_ERP.objdb
                 "," + jbl.bl + " = '" + p.bl.Replace("'", "''") + "' " +
                 "," + jbl.unit_volume1_id + " = '" + p.unit_volume1_id.Replace("'", "''") + "' " +
                 "Where " + jbl.pkField + "='" + p.job_import_bl_id+ "'"
+                ;
+
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
+
+            return re;
+        }
+        public String updateDeli(JobImportBl p)
+        {
+            String re = "";
+            String sql = "";
+            int chk = 0;
+
+            chkNull(p);
+
+            sql = "Update " + jbl.table + " Set " +
+                " " + jbl.deli_gw + " = '" + p.deli_gw + "'" +
+                "," + jbl.deli_imp_addr + " = '" + p.deli_imp_addr + "'" +
+                "," + jbl.deli_imp_id + " = '" + p.deli_imp_id.Replace("'", "''") + "'" +
+                "," + jbl.deli_package + " = '" + p.deli_package.Replace("'", "''") + "'" +
+                "," + jbl.deli_place_addr_id + " = '" + p.deli_place_addr_id.Replace("'", "''") + "'" +
+                "," + jbl.deli_place_addr_name_t + " = '" + p.deli_place_addr_name_t.Replace("'", "''") + "'" +
+                "," + jbl.deli_truck_cop_id + " = '" + p.deli_truck_cop_id.Replace("'", "''") + "'" +
+                "," + jbl.deli_unit_gw_id + " = '" + p.deli_unit_gw_id + "'" +
+                "," + jbl.deli_unit_package_id + " = '" + p.deli_unit_package_id.Replace("'", "''") + "'" +
+                "," + jbl.deli_unit_volume_id + " = '" + p.deli_unit_volume_id.Replace("'", "''") + "'" +
+                "," + jbl.deli_volume + " = '" + p.deli_volume.Replace("'", "''") + "'" +
+                "," + jbl.deli_yard_id + " = '" + p.deli_yard_id.Replace("'", "''") + "'" +
+                "," + jbl.deli_truck_id + " = '" + p.deli_truck_id.Replace("'", "''") + "'" +
+                "," + jbl.deli_yard_addr_name_t + " = '" + p.deli_yard_addr_name_t.Replace("'", "''") + "'" +
+                "Where " + jbl.pkField + "='" + p.job_import_bl_id + "'"
                 ;
 
             try
@@ -527,6 +601,21 @@ namespace Xtrim_ERP.objdb
                 jbl1.consignmnt_id = dt.Rows[0][jbl.consignmnt_id].ToString();
                 jbl1.bl = dt.Rows[0][jbl.bl].ToString();
                 jbl1.unit_volume1_id = dt.Rows[0][jbl.unit_volume1_id].ToString();
+
+                jbl1.deli_gw = dt.Rows[0][jbl.deli_gw].ToString();
+                jbl1.deli_imp_addr = dt.Rows[0][jbl.deli_imp_addr].ToString();
+                jbl1.deli_imp_id = dt.Rows[0][jbl.deli_imp_id].ToString();
+                jbl1.deli_package = dt.Rows[0][jbl.deli_package].ToString();
+                jbl1.deli_place_addr_id = dt.Rows[0][jbl.deli_place_addr_id].ToString();
+                jbl1.deli_place_addr_name_t = dt.Rows[0][jbl.deli_place_addr_name_t].ToString();
+                jbl1.deli_truck_cop_id = dt.Rows[0][jbl.deli_truck_cop_id].ToString();
+                jbl1.deli_unit_gw_id = dt.Rows[0][jbl.deli_unit_gw_id].ToString();
+                jbl1.deli_unit_package_id = dt.Rows[0][jbl.deli_unit_package_id].ToString();
+                jbl1.deli_unit_volume_id = dt.Rows[0][jbl.deli_unit_volume_id].ToString();
+                jbl1.deli_volume = dt.Rows[0][jbl.deli_volume].ToString();
+                jbl1.deli_yard_id = dt.Rows[0][jbl.deli_yard_id].ToString();
+                jbl1.deli_truck_id = dt.Rows[0][jbl.deli_truck_id].ToString();
+                jbl1.deli_yard_addr_name_t = dt.Rows[0][jbl.deli_yard_addr_name_t].ToString();
             }
 
             return jbl1;

@@ -129,6 +129,7 @@ namespace Xtrim_ERP.gui
             this.label27 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.chkContainerYard = new C1.Win.C1Input.C1CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -199,6 +200,7 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrContactName2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrContactName1)).BeginInit();
             this.sB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkContainerYard)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -1327,6 +1329,7 @@ namespace Xtrim_ERP.gui
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.groupBox1.Controls.Add(this.chkContainerYard);
             this.groupBox1.Controls.Add(this.chkTrk);
             this.groupBox1.Controls.Add(this.ChkInsr);
             this.groupBox1.Controls.Add(this.chkCons);
@@ -1338,7 +1341,7 @@ namespace Xtrim_ERP.gui
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.groupBox1.Location = new System.Drawing.Point(504, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(141, 218);
+            this.groupBox1.Size = new System.Drawing.Size(141, 247);
             this.groupBox1.TabIndex = 151;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "สถานะ";
@@ -1351,7 +1354,7 @@ namespace Xtrim_ERP.gui
             this.chkTrk.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkTrk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkTrk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkTrk.Location = new System.Drawing.Point(8, 194);
+            this.chkTrk.Location = new System.Drawing.Point(8, 181);
             this.chkTrk.Name = "chkTrk";
             this.chkTrk.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkTrk.Size = new System.Drawing.Size(127, 24);
@@ -1369,7 +1372,7 @@ namespace Xtrim_ERP.gui
             this.ChkInsr.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ChkInsr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChkInsr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.ChkInsr.Location = new System.Drawing.Point(8, 173);
+            this.ChkInsr.Location = new System.Drawing.Point(8, 154);
             this.ChkInsr.Name = "ChkInsr";
             this.ChkInsr.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.ChkInsr.Size = new System.Drawing.Size(118, 24);
@@ -1388,7 +1391,7 @@ namespace Xtrim_ERP.gui
             this.chkCons.Enabled = false;
             this.chkCons.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkCons.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkCons.Location = new System.Drawing.Point(8, 143);
+            this.chkCons.Location = new System.Drawing.Point(8, 127);
             this.chkCons.Name = "chkCons";
             this.chkCons.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkCons.Size = new System.Drawing.Size(118, 24);
@@ -1407,7 +1410,7 @@ namespace Xtrim_ERP.gui
             this.chkExp.Enabled = false;
             this.chkExp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkExp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkExp.Location = new System.Drawing.Point(8, 116);
+            this.chkExp.Location = new System.Drawing.Point(8, 100);
             this.chkExp.Name = "chkExp";
             this.chkExp.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkExp.Size = new System.Drawing.Size(127, 24);
@@ -1425,7 +1428,7 @@ namespace Xtrim_ERP.gui
             this.chkFwd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkFwd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkFwd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkFwd.Location = new System.Drawing.Point(8, 86);
+            this.chkFwd.Location = new System.Drawing.Point(8, 73);
             this.chkFwd.Name = "chkFwd";
             this.chkFwd.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkFwd.Size = new System.Drawing.Size(127, 24);
@@ -1443,7 +1446,7 @@ namespace Xtrim_ERP.gui
             this.chkImp.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkImp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkImp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkImp.Location = new System.Drawing.Point(8, 56);
+            this.chkImp.Location = new System.Drawing.Point(8, 46);
             this.chkImp.Name = "chkImp";
             this.chkImp.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkImp.Size = new System.Drawing.Size(127, 24);
@@ -1461,7 +1464,7 @@ namespace Xtrim_ERP.gui
             this.chkCus.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkCus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkCus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkCus.Location = new System.Drawing.Point(8, 26);
+            this.chkCus.Location = new System.Drawing.Point(8, 19);
             this.chkCus.Name = "chkCus";
             this.chkCus.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkCus.Size = new System.Drawing.Size(127, 24);
@@ -1494,7 +1497,7 @@ namespace Xtrim_ERP.gui
             this.chkVoid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkVoid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkVoid.Location = new System.Drawing.Point(495, 233);
+            this.chkVoid.Location = new System.Drawing.Point(348, 258);
             this.chkVoid.Name = "chkVoid";
             this.chkVoid.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkVoid.Size = new System.Drawing.Size(155, 24);
@@ -1639,6 +1642,24 @@ namespace Xtrim_ERP.gui
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
+            // chkContainerYard
+            // 
+            this.chkContainerYard.BackColor = System.Drawing.Color.Transparent;
+            this.chkContainerYard.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkContainerYard.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkContainerYard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkContainerYard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkContainerYard.Location = new System.Drawing.Point(7, 211);
+            this.chkContainerYard.Name = "chkContainerYard";
+            this.chkContainerYard.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkContainerYard.Size = new System.Drawing.Size(127, 24);
+            this.chkContainerYard.TabIndex = 158;
+            this.chkContainerYard.Text = "ลานคืนตู้";
+            this.theme1.SetTheme(this.chkContainerYard, "(default)");
+            this.chkContainerYard.UseVisualStyleBackColor = true;
+            this.chkContainerYard.Value = null;
+            this.chkContainerYard.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // FrmCustomer1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1724,6 +1745,7 @@ namespace Xtrim_ERP.gui
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrContactName1)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkContainerYard)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1831,5 +1853,6 @@ namespace Xtrim_ERP.gui
         private System.Windows.Forms.Label label8;
         private C1Button c1Button1;
         private C1CheckBox chkTrk;
+        private C1CheckBox chkContainerYard;
     }
 }

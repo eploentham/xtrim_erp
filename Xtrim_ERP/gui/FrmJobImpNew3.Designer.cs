@@ -54,12 +54,10 @@
             this.c1DockingTabPage5 = new C1.Win.C1Command.C1DockingTabPage();
             this.panel14 = new System.Windows.Forms.Panel();
             this.c1Button21 = new C1.Win.C1Input.C1Button();
-            this.txtTruckCop = new C1.Win.C1Input.C1TextBox();
+            this.txtDeliTruckCop = new C1.Win.C1Input.C1TextBox();
             this.panel16 = new System.Windows.Forms.Panel();
             this.c1Button20 = new C1.Win.C1Input.C1Button();
-            this.cboYardId = new C1.Win.C1Input.C1ComboBox();
             this.label92 = new System.Windows.Forms.Label();
-            this.CboPlaceId = new C1.Win.C1Input.C1ComboBox();
             this.label91 = new System.Windows.Forms.Label();
             this.label90 = new System.Windows.Forms.Label();
             this.cboDeliCarType = new C1.Win.C1Input.C1ComboBox();
@@ -371,6 +369,11 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cDMain = new C1.Win.C1Command.C1CommandDock();
+            this.c1Button22 = new C1.Win.C1Input.C1Button();
+            this.txtDeliPlaceAddr = new C1.Win.C1Input.C1TextBox();
+            this.btnSaveDeli = new C1.Win.C1Input.C1Button();
+            this.c1Button23 = new C1.Win.C1Input.C1Button();
+            this.txtDeliContainYardNameT = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -393,10 +396,8 @@
             this.c1DockingTabPage5.SuspendLayout();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTruckCop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDeliTruckCop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboYardId)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CboPlaceId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboDeliCarType)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboDeliVolume)).BeginInit();
@@ -600,6 +601,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJinId)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDeliPlaceAddr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSaveDeli)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDeliContainYardNameT)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -1006,13 +1012,16 @@
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel14.Controls.Add(this.c1Button23);
+            this.panel14.Controls.Add(this.txtDeliContainYardNameT);
+            this.panel14.Controls.Add(this.btnSaveDeli);
+            this.panel14.Controls.Add(this.c1Button22);
+            this.panel14.Controls.Add(this.txtDeliPlaceAddr);
             this.panel14.Controls.Add(this.c1Button21);
-            this.panel14.Controls.Add(this.txtTruckCop);
+            this.panel14.Controls.Add(this.txtDeliTruckCop);
             this.panel14.Controls.Add(this.panel16);
             this.panel14.Controls.Add(this.c1Button20);
-            this.panel14.Controls.Add(this.cboYardId);
             this.panel14.Controls.Add(this.label92);
-            this.panel14.Controls.Add(this.CboPlaceId);
             this.panel14.Controls.Add(this.label91);
             this.panel14.Controls.Add(this.label90);
             this.panel14.Controls.Add(this.cboDeliCarType);
@@ -1042,18 +1051,18 @@
             this.c1Button21.UseVisualStyleBackColor = true;
             this.c1Button21.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // txtTruckCop
+            // txtDeliTruckCop
             // 
-            this.txtTruckCop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTruckCop.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtTruckCop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtTruckCop.Location = new System.Drawing.Point(100, 234);
-            this.txtTruckCop.Name = "txtTruckCop";
-            this.txtTruckCop.Size = new System.Drawing.Size(264, 20);
-            this.txtTruckCop.TabIndex = 489;
-            this.txtTruckCop.Tag = null;
-            this.theme1.SetTheme(this.txtTruckCop, "(default)");
-            this.txtTruckCop.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtDeliTruckCop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDeliTruckCop.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtDeliTruckCop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtDeliTruckCop.Location = new System.Drawing.Point(100, 234);
+            this.txtDeliTruckCop.Name = "txtDeliTruckCop";
+            this.txtDeliTruckCop.Size = new System.Drawing.Size(264, 20);
+            this.txtDeliTruckCop.TabIndex = 489;
+            this.txtDeliTruckCop.Tag = null;
+            this.theme1.SetTheme(this.txtDeliTruckCop, "(default)");
+            this.txtDeliTruckCop.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // panel16
             // 
@@ -1078,27 +1087,6 @@
             this.c1Button20.UseVisualStyleBackColor = true;
             this.c1Button20.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // cboYardId
-            // 
-            this.cboYardId.AllowSpinLoop = false;
-            this.cboYardId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboYardId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboYardId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboYardId.GapHeight = 0;
-            this.cboYardId.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboYardId.ItemsDisplayMember = "";
-            this.cboYardId.ItemsValueMember = "";
-            this.cboYardId.Location = new System.Drawing.Point(100, 286);
-            this.cboYardId.Name = "cboYardId";
-            this.cboYardId.Size = new System.Drawing.Size(304, 20);
-            this.cboYardId.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboYardId.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboYardId.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboYardId.TabIndex = 486;
-            this.cboYardId.Tag = null;
-            this.theme1.SetTheme(this.cboYardId, "(default)");
-            this.cboYardId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // label92
             // 
             this.label92.AutoSize = true;
@@ -1111,27 +1099,6 @@
             this.label92.TabIndex = 487;
             this.label92.Text = "ลานคืนตู้ :";
             this.theme1.SetTheme(this.label92, "(default)");
-            // 
-            // CboPlaceId
-            // 
-            this.CboPlaceId.AllowSpinLoop = false;
-            this.CboPlaceId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CboPlaceId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.CboPlaceId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.CboPlaceId.GapHeight = 0;
-            this.CboPlaceId.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.CboPlaceId.ItemsDisplayMember = "";
-            this.CboPlaceId.ItemsValueMember = "";
-            this.CboPlaceId.Location = new System.Drawing.Point(100, 260);
-            this.CboPlaceId.Name = "CboPlaceId";
-            this.CboPlaceId.Size = new System.Drawing.Size(304, 20);
-            this.CboPlaceId.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.CboPlaceId.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.CboPlaceId.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.CboPlaceId.TabIndex = 484;
-            this.CboPlaceId.Tag = null;
-            this.theme1.SetTheme(this.CboPlaceId, "(default)");
-            this.CboPlaceId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label91
             // 
@@ -6218,6 +6185,70 @@
             this.cDMain.Size = new System.Drawing.Size(267, 718);
             this.theme1.SetTheme(this.cDMain, "(default)");
             // 
+            // c1Button22
+            // 
+            this.c1Button22.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button22.Location = new System.Drawing.Point(367, 259);
+            this.c1Button22.Name = "c1Button22";
+            this.c1Button22.Size = new System.Drawing.Size(22, 22);
+            this.c1Button22.TabIndex = 492;
+            this.c1Button22.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button22, "(default)");
+            this.c1Button22.UseVisualStyleBackColor = true;
+            this.c1Button22.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtDeliPlaceAddr
+            // 
+            this.txtDeliPlaceAddr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDeliPlaceAddr.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtDeliPlaceAddr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtDeliPlaceAddr.Location = new System.Drawing.Point(100, 260);
+            this.txtDeliPlaceAddr.Name = "txtDeliPlaceAddr";
+            this.txtDeliPlaceAddr.Size = new System.Drawing.Size(264, 20);
+            this.txtDeliPlaceAddr.TabIndex = 491;
+            this.txtDeliPlaceAddr.Tag = null;
+            this.theme1.SetTheme(this.txtDeliPlaceAddr, "(default)");
+            this.txtDeliPlaceAddr.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnSaveDeli
+            // 
+            this.btnSaveDeli.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
+            this.btnSaveDeli.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveDeli.Location = new System.Drawing.Point(698, 331);
+            this.btnSaveDeli.Name = "btnSaveDeli";
+            this.btnSaveDeli.Size = new System.Drawing.Size(83, 33);
+            this.btnSaveDeli.TabIndex = 556;
+            this.btnSaveDeli.Text = "บันทึกช้อมูล";
+            this.btnSaveDeli.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnSaveDeli, "(default)");
+            this.btnSaveDeli.UseVisualStyleBackColor = true;
+            this.btnSaveDeli.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button23
+            // 
+            this.c1Button23.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button23.Location = new System.Drawing.Point(367, 285);
+            this.c1Button23.Name = "c1Button23";
+            this.c1Button23.Size = new System.Drawing.Size(22, 22);
+            this.c1Button23.TabIndex = 558;
+            this.c1Button23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button23, "(default)");
+            this.c1Button23.UseVisualStyleBackColor = true;
+            this.c1Button23.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtDeliContainYardNameT
+            // 
+            this.txtDeliContainYardNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDeliContainYardNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtDeliContainYardNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtDeliContainYardNameT.Location = new System.Drawing.Point(100, 286);
+            this.txtDeliContainYardNameT.Name = "txtDeliContainYardNameT";
+            this.txtDeliContainYardNameT.Size = new System.Drawing.Size(264, 20);
+            this.txtDeliContainYardNameT.TabIndex = 557;
+            this.txtDeliContainYardNameT.Tag = null;
+            this.theme1.SetTheme(this.txtDeliContainYardNameT, "(default)");
+            this.txtDeliContainYardNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // FrmJobImpNew3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6254,10 +6285,8 @@
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTruckCop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDeliTruckCop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboYardId)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CboPlaceId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboDeliCarType)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -6472,6 +6501,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJinId)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDeliPlaceAddr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSaveDeli)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDeliContainYardNameT)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6810,9 +6844,7 @@
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton4;
-        private C1.Win.C1Input.C1ComboBox cboYardId;
         private System.Windows.Forms.Label label92;
-        private C1.Win.C1Input.C1ComboBox CboPlaceId;
         private System.Windows.Forms.Label label91;
         private System.Windows.Forms.Label label90;
         private C1.Win.C1Input.C1ComboBox cboDeliCarType;
@@ -6820,6 +6852,11 @@
         private C1.Win.C1Input.C1Button c1Button20;
         private System.Windows.Forms.Panel panel16;
         private C1.Win.C1Input.C1Button c1Button21;
-        private C1.Win.C1Input.C1TextBox txtTruckCop;
+        private C1.Win.C1Input.C1TextBox txtDeliTruckCop;
+        private C1.Win.C1Input.C1Button c1Button22;
+        private C1.Win.C1Input.C1TextBox txtDeliPlaceAddr;
+        private C1.Win.C1Input.C1Button btnSaveDeli;
+        private C1.Win.C1Input.C1Button c1Button23;
+        private C1.Win.C1Input.C1TextBox txtDeliContainYardNameT;
     }
 }

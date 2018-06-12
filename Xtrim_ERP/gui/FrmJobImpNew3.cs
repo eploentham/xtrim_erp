@@ -93,7 +93,7 @@ namespace Xtrim_ERP.gui
             txtCurrCode.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtInsrNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtDeliImporter.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
-            txtTruckCop.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtDeliTruckCop.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
 
             txtPkg1.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
             txtPkg2.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
@@ -130,8 +130,8 @@ namespace Xtrim_ERP.gui
 
             xC.xtDB.ugwDB.setC1CboUgw(cboUgw, "");
             xC.xtDB.ugwDB.setC1CboUgw(cboVolume, "");
-            xC.xtDB.ugwDB.setC1CboUgw(cboDeliVolume, "");
-            xC.xtDB.ugwDB.setC1CboUgw(cboDeliGw, "");
+            
+            
             xC.xtDB.utpDB.setC1CboUtp(cboUtp1, "");
             xC.xtDB.utpDB.setC1CboUtp(cboUtp2, "");
             xC.xtDB.utpDB.setC1CboUtp(cboUtp3, "");
@@ -139,7 +139,9 @@ namespace Xtrim_ERP.gui
             xC.xtDB.utpDB.setC1CboUtp(cboUtp5, "");
             xC.xtDB.utpDB.setC1CboUtp(cboDeliPkg, "");
             xC.xtDB.trkDB.setCboTrkC1(cboDeliCarType);
-
+            xC.xtDB.ugwDB.setC1CboUgw(cboDeliVolume, "");
+            xC.xtDB.ugwDB.setC1CboUgw(cboDeliGw, "");
+            //xC.xtDB.trkDB.setC1CboUtp(cboDeliCarType, "");
             //initGrfMarsk();
             //initGrfRemark();
             //initGrfContain();
@@ -1529,7 +1531,7 @@ namespace Xtrim_ERP.gui
             txtInsrNameT.Value = insr.cust_name_t;
         }
 
-        private void setFeyEnterPol()
+        private void setKeyEnterPol()
         {
             if (txtPolNameT.Text.Length >= 2)
             {
@@ -1882,7 +1884,7 @@ namespace Xtrim_ERP.gui
                 }
                 else if (sender.Equals(txtPolNameT))
                 {
-                    setFeyEnterPol();
+                    setKeyEnterPol();
                 }
                 else if (sender.Equals(txtPvlNameT))
                 {
@@ -1894,9 +1896,7 @@ namespace Xtrim_ERP.gui
                 }
                 else if (sender.Equals(txtJobCode))
                 {
-                    
                     txtJobCode.Text = txtJobCode.Text.Replace(xC.FixJobCode, "");
-                    
                     xC.jobID = xC.xtDB.jimDB.selectByJobCode1(txtJobCode.Text);
                     setControl();
                     initGrfInv();
@@ -1938,6 +1938,7 @@ namespace Xtrim_ERP.gui
             PortOfLoading pol = xC.xtDB.polDB.selectByPk1(jbl.port_of_loading_id);
             PortImport pti = xC.xtDB.ptiDB.selectByPk1(jbl.port_imp_id);
             Country cst = xC.xtDB.cotDB.selectByPk1(jbl.consignmnt_id);
+            Customer trkCop = xC.xtDB.cusDB.selectByPk1(jbl.deli_truck_cop_id);
 
             txtID.Value = jim.job_import_id;
             txtBlId.Value = jbl.job_import_bl_id;
@@ -2016,7 +2017,52 @@ namespace Xtrim_ERP.gui
             txtJobDate.Value = jim.job_date;
             txtBl.Value = jbl.bl;
             xC.setC1Combo(cboBlType, jbl.bl_type);
-            
+            //xC.setC1Combo(cboDeliPkg, jbl.bl_type);
+            if (!jbl.deli_package.Equals(""))
+            {
+                txtDeliPkg.Value = jbl.deli_package;
+                xC.setC1Combo(cboDeliPkg, jbl.deli_unit_package_id);
+            }
+            else
+            {
+                txtDeliPkg.Value = txtPkgTotal.Text;
+            }
+            if (!jbl.deli_gw.Equals(""))
+            {
+                txtDeliGw.Value = jbl.deli_gw;
+                xC.setC1Combo(cboDeliGw, jbl.deli_unit_gw_id);
+            }
+            else
+            {
+                txtDeliGw.Value = txtGw.Text;
+            }
+            if (!jbl.deli_volume.Equals(""))
+            {
+                txtDeliVolume.Value = jbl.deli_volume;
+                xC.setC1Combo(cboDeliVolume, jbl.deli_unit_volume_id);
+            }
+            else
+            {
+                txtDeliVolume.Value = txtVolume.Text;
+            }
+            xC.setC1Combo(cboDeliCarType, jbl.deli_truck_id);
+            txtDeliTruckCop.Value = trkCop.cust_name_t;
+            if (!jbl.deli_place_addr_name_t.Equals(""))
+            {
+                txtDeliPlaceAddr.Value = jbl.deli_place_addr_name_t;
+            }
+            else
+            {
+                txtDeliPlaceAddr.Value = "";
+            }
+            if (!jbl.deli_yard_addr_name_t.Equals(""))
+            {
+                txtDeliContainYardNameT.Value = jbl.deli_yard_addr_name_t;
+            }
+            else
+            {
+                txtDeliContainYardNameT.Value = "";
+            }
         }
         private void setControlJcl()
         {
