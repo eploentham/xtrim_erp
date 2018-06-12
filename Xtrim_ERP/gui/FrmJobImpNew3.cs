@@ -148,6 +148,7 @@ namespace Xtrim_ERP.gui
             //initGrfContain();
             //initGrfGw();
             //initGrfPKG();
+            
 
             tC1.SelectedTab = tabJob;
             stt = new C1SuperTooltip();
@@ -165,6 +166,7 @@ namespace Xtrim_ERP.gui
             initGrfPic();
             initGrfJclExp();
             initGrfJdc();
+
             setFocus();
             setTabIndex();
             setFocusColor();
@@ -242,10 +244,12 @@ namespace Xtrim_ERP.gui
         {
             grfJdc = new C1FlexGrid();
             grfJdc.Dock = DockStyle.Fill;
+            panel15.Controls.Add(grfJdc);
+            
             TextBox txt = new TextBox();
             C1ComboBox cbo = new C1ComboBox();
-            xC.xtDB.dctDB.setC1CboContain(cbo, "");
 
+            xC.xtDB.dctDB.setC1CboContain(cbo, "");
             grfJdc.Cols[colJdcId].Editor = txt;
             grfJdc.Cols[colJdcContainerNo].Editor = txt;
             grfJdc.Cols[colJdcType].Editor = cbo;
@@ -255,7 +259,7 @@ namespace Xtrim_ERP.gui
             grfJdc.Cols[colJdcType].Caption = "Type";
             grfJdc.Cols[colJdcSeal].Caption = "seal";
 
-            panel15.Controls.Add(grfJdc);
+            
             //grfJdc.Rows.Count = 2;
             //grfJdc.Cols.Count = 3;
             grfJdc.Cols[colJdcContainerNo].Width = 150;
@@ -370,6 +374,73 @@ namespace Xtrim_ERP.gui
             //menuPkg.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Pkg_Edit));
             //menuPkg.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Pkg_Cancel));
             //grfPkg.ContextMenu = menuPkg;
+        }
+        private void setGrfJdc()
+        {
+            DataTable dt = new DataTable();
+            dt = xC.xtDB.jcnDB.selectByJobId(txtID.Text);
+            if (dt.Rows.Count > 0)
+            {
+                grfJdc.DataSource = dt;
+            }
+            else
+            {
+                ComboBoxItem ci1 = new ComboBoxItem();
+                ComboBoxItem ci2 = new ComboBoxItem();
+                ComboBoxItem ci3 = new ComboBoxItem();
+                ComboBoxItem ci4 = new ComboBoxItem();
+                ComboBoxItem ci5 = new ComboBoxItem();
+                ComboBoxItem ci6 = new ComboBoxItem();
+                ci1 = (ComboBoxItem)(cboContain1.SelectedItem);
+                ci2 = (ComboBoxItem)(cboContain2.SelectedItem);
+                ci3 = (ComboBoxItem)(cboContain3.SelectedItem);
+                ci4 = (ComboBoxItem)(cboContain4.SelectedItem);
+                ci5 = (ComboBoxItem)(cboContain5.SelectedItem);
+                ci6 = (ComboBoxItem)(cboContain6.SelectedItem);
+                int cnt = 0, cn1 = 0, cn2 = 0, cn3 = 0, cn4 = 0, cn5 = 0, cn6 = 0;
+                int.TryParse(txtContainTotal.Text, out cnt);
+                int.TryParse(txtContain1.Text, out cn1);
+                int.TryParse(txtContain2.Text, out cn2);
+                int.TryParse(txtContain3.Text, out cn3);
+                int.TryParse(txtContain4.Text, out cn4);
+                int.TryParse(txtContain5.Text, out cn5);
+                int.TryParse(txtContain6.Text, out cn6);
+                cn2 += cn1;
+                cn3 += cn2;
+                cn4 += cn3;
+                cn5 += cn4;
+                cn6 += cn5;
+                grfJdc.Rows.Count = cnt+1;
+                grfJdc.Cols.Count = 5;
+                for (int i = 1; i < grfJdc.Rows.Count; i++)
+                {
+                    grfJdc[i, 0] = i;
+                    if (i <= cn1)
+                    {
+                        grfJdc[i, colJdcType] = ci1;
+                    }
+                    else if ((i > cn1) && (i <= cn2))
+                    {
+                        grfJdc[i, colJdcType] = ci2;
+                    }
+                    else if ((i > cn2) && (i <= cn3))
+                    {
+                        grfJdc[i, colJdcType] = ci3;
+                    }
+                    else if ((i > cn3) && (i <= cn4))
+                    {
+                        grfJdc[i, colJdcType] = ci4;
+                    }
+                    else if ((i > cn4) && (i <= cn5))
+                    {
+                        grfJdc[i, colJdcType] = ci5;
+                    }
+                    else if ((i > cn5) && (i <= cn6))
+                    {
+                        grfJdc[i, colJdcType] = ci6;
+                    }
+                }
+            }
         }
         private void grfPic_MouseDown(object sender, MouseEventArgs e)
         {
@@ -1787,13 +1858,17 @@ namespace Xtrim_ERP.gui
         private void TxtContain1_KeyUp(object sender, KeyEventArgs e)
         {
             //throw new NotImplementedException();
+            calContainer();
+        }
+        private void calContainer()
+        {
             Decimal contain1 = 0, contain2 = 0, contain3 = 0, contain4 = 0, contain5 = 0, contain6 = 0;
             Decimal.TryParse(txtContain1.Text, out contain1);
             Decimal.TryParse(txtContain2.Text, out contain2);
             Decimal.TryParse(txtContain3.Text, out contain3);
             Decimal.TryParse(txtContain4.Text, out contain4);
             Decimal.TryParse(txtContain5.Text, out contain5);
-            Decimal.TryParse(txtContain6.Text, out contain5);
+            Decimal.TryParse(txtContain6.Text, out contain6);
             txtContainTotal.Value = contain1 + contain2 + contain3 + contain4 + contain5 + contain6;
         }
         private void txtCusCode_KeyUp(object sender, KeyEventArgs e)
@@ -2019,6 +2094,18 @@ namespace Xtrim_ERP.gui
             txtBl.Value = jbl.bl;
             xC.setC1Combo(cboBlType, jbl.bl_type);
             //xC.setC1Combo(cboDeliPkg, jbl.bl_type);
+            if (!jbl.deli_imp_id.Equals(""))
+            {
+                Customer deliImp = new Customer();
+                deliImp = xC.xtDB.cusDB.selectByPk1(jbl.deli_imp_id);
+                txtDeliImporter.Value = deliImp.cust_name_t;
+                txtDeliImporterAddr.Value = jbl.deli_imp_addr;
+            }
+            else
+            {
+                txtDeliImporter.Value = txtImpNameT.Text;
+                txtDeliImporterAddr.Value = txtImpAddr.Text;
+            }
             if (!jbl.deli_package.Equals(""))
             {
                 txtDeliPkg.Value = jbl.deli_package;
@@ -2064,6 +2151,8 @@ namespace Xtrim_ERP.gui
             {
                 txtDeliContainYardNameT.Value = "";
             }
+            calContainer();
+            setGrfJdc();            
         }
         private void setControlJcl()
         {

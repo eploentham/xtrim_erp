@@ -332,6 +332,10 @@ CREATE TABLE `xtrim_erp`.`t_job_import_container` (
   `user_cancel` VARCHAR(255) NULL,
   PRIMARY KEY (`job_import_container_id`));
 
+ALTER TABLE `xtrim_erp`.`b_address` 
+ADD COLUMN `status_place_addr` VARCHAR(255) NULL AFTER `map_pic_path`,
+ADD COLUMN `status_container_yard` VARCHAR(255) NULL AFTER `status_place_addr`;
+
 
 
 

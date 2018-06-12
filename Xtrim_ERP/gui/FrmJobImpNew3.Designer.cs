@@ -53,6 +53,11 @@
             this.c1DockingTabPage4 = new C1.Win.C1Command.C1DockingTabPage();
             this.c1DockingTabPage5 = new C1.Win.C1Command.C1DockingTabPage();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.c1Button23 = new C1.Win.C1Input.C1Button();
+            this.txtDeliContainYardNameT = new C1.Win.C1Input.C1TextBox();
+            this.btnSaveDeli = new C1.Win.C1Input.C1Button();
+            this.c1Button22 = new C1.Win.C1Input.C1Button();
+            this.txtDeliPlaceAddr = new C1.Win.C1Input.C1TextBox();
             this.c1Button21 = new C1.Win.C1Input.C1Button();
             this.txtDeliTruckCop = new C1.Win.C1Input.C1TextBox();
             this.panel16 = new System.Windows.Forms.Panel();
@@ -369,11 +374,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cDMain = new C1.Win.C1Command.C1CommandDock();
-            this.c1Button22 = new C1.Win.C1Input.C1Button();
-            this.txtDeliPlaceAddr = new C1.Win.C1Input.C1TextBox();
-            this.btnSaveDeli = new C1.Win.C1Input.C1Button();
-            this.c1Button23 = new C1.Win.C1Input.C1Button();
-            this.txtDeliContainYardNameT = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -395,6 +395,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT1)).BeginInit();
             this.c1DockingTabPage5.SuspendLayout();
             this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDeliContainYardNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSaveDeli)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDeliPlaceAddr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDeliTruckCop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button20)).BeginInit();
@@ -601,11 +606,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJinId)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDeliPlaceAddr)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSaveDeli)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button23)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDeliContainYardNameT)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -1038,6 +1038,70 @@
             this.panel14.Size = new System.Drawing.Size(859, 649);
             this.panel14.TabIndex = 0;
             this.theme1.SetTheme(this.panel14, "(default)");
+            // 
+            // c1Button23
+            // 
+            this.c1Button23.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button23.Location = new System.Drawing.Point(367, 285);
+            this.c1Button23.Name = "c1Button23";
+            this.c1Button23.Size = new System.Drawing.Size(22, 22);
+            this.c1Button23.TabIndex = 558;
+            this.c1Button23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button23, "(default)");
+            this.c1Button23.UseVisualStyleBackColor = true;
+            this.c1Button23.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtDeliContainYardNameT
+            // 
+            this.txtDeliContainYardNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDeliContainYardNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtDeliContainYardNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtDeliContainYardNameT.Location = new System.Drawing.Point(100, 286);
+            this.txtDeliContainYardNameT.Name = "txtDeliContainYardNameT";
+            this.txtDeliContainYardNameT.Size = new System.Drawing.Size(264, 20);
+            this.txtDeliContainYardNameT.TabIndex = 557;
+            this.txtDeliContainYardNameT.Tag = null;
+            this.theme1.SetTheme(this.txtDeliContainYardNameT, "(default)");
+            this.txtDeliContainYardNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnSaveDeli
+            // 
+            this.btnSaveDeli.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
+            this.btnSaveDeli.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSaveDeli.Location = new System.Drawing.Point(698, 331);
+            this.btnSaveDeli.Name = "btnSaveDeli";
+            this.btnSaveDeli.Size = new System.Drawing.Size(83, 33);
+            this.btnSaveDeli.TabIndex = 556;
+            this.btnSaveDeli.Text = "บันทึกช้อมูล";
+            this.btnSaveDeli.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnSaveDeli, "(default)");
+            this.btnSaveDeli.UseVisualStyleBackColor = true;
+            this.btnSaveDeli.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button22
+            // 
+            this.c1Button22.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
+            this.c1Button22.Location = new System.Drawing.Point(367, 259);
+            this.c1Button22.Name = "c1Button22";
+            this.c1Button22.Size = new System.Drawing.Size(22, 22);
+            this.c1Button22.TabIndex = 492;
+            this.c1Button22.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button22, "(default)");
+            this.c1Button22.UseVisualStyleBackColor = true;
+            this.c1Button22.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtDeliPlaceAddr
+            // 
+            this.txtDeliPlaceAddr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDeliPlaceAddr.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtDeliPlaceAddr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtDeliPlaceAddr.Location = new System.Drawing.Point(100, 260);
+            this.txtDeliPlaceAddr.Name = "txtDeliPlaceAddr";
+            this.txtDeliPlaceAddr.Size = new System.Drawing.Size(264, 20);
+            this.txtDeliPlaceAddr.TabIndex = 491;
+            this.txtDeliPlaceAddr.Tag = null;
+            this.theme1.SetTheme(this.txtDeliPlaceAddr, "(default)");
+            this.txtDeliPlaceAddr.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // c1Button21
             // 
@@ -6185,70 +6249,6 @@
             this.cDMain.Size = new System.Drawing.Size(267, 718);
             this.theme1.SetTheme(this.cDMain, "(default)");
             // 
-            // c1Button22
-            // 
-            this.c1Button22.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button22.Location = new System.Drawing.Point(367, 259);
-            this.c1Button22.Name = "c1Button22";
-            this.c1Button22.Size = new System.Drawing.Size(22, 22);
-            this.c1Button22.TabIndex = 492;
-            this.c1Button22.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button22, "(default)");
-            this.c1Button22.UseVisualStyleBackColor = true;
-            this.c1Button22.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtDeliPlaceAddr
-            // 
-            this.txtDeliPlaceAddr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDeliPlaceAddr.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtDeliPlaceAddr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtDeliPlaceAddr.Location = new System.Drawing.Point(100, 260);
-            this.txtDeliPlaceAddr.Name = "txtDeliPlaceAddr";
-            this.txtDeliPlaceAddr.Size = new System.Drawing.Size(264, 20);
-            this.txtDeliPlaceAddr.TabIndex = 491;
-            this.txtDeliPlaceAddr.Tag = null;
-            this.theme1.SetTheme(this.txtDeliPlaceAddr, "(default)");
-            this.txtDeliPlaceAddr.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // btnSaveDeli
-            // 
-            this.btnSaveDeli.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
-            this.btnSaveDeli.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveDeli.Location = new System.Drawing.Point(698, 331);
-            this.btnSaveDeli.Name = "btnSaveDeli";
-            this.btnSaveDeli.Size = new System.Drawing.Size(83, 33);
-            this.btnSaveDeli.TabIndex = 556;
-            this.btnSaveDeli.Text = "บันทึกช้อมูล";
-            this.btnSaveDeli.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnSaveDeli, "(default)");
-            this.btnSaveDeli.UseVisualStyleBackColor = true;
-            this.btnSaveDeli.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button23
-            // 
-            this.c1Button23.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button23.Location = new System.Drawing.Point(367, 285);
-            this.c1Button23.Name = "c1Button23";
-            this.c1Button23.Size = new System.Drawing.Size(22, 22);
-            this.c1Button23.TabIndex = 558;
-            this.c1Button23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button23, "(default)");
-            this.c1Button23.UseVisualStyleBackColor = true;
-            this.c1Button23.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtDeliContainYardNameT
-            // 
-            this.txtDeliContainYardNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDeliContainYardNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtDeliContainYardNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtDeliContainYardNameT.Location = new System.Drawing.Point(100, 286);
-            this.txtDeliContainYardNameT.Name = "txtDeliContainYardNameT";
-            this.txtDeliContainYardNameT.Size = new System.Drawing.Size(264, 20);
-            this.txtDeliContainYardNameT.TabIndex = 557;
-            this.txtDeliContainYardNameT.Tag = null;
-            this.theme1.SetTheme(this.txtDeliContainYardNameT, "(default)");
-            this.txtDeliContainYardNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmJobImpNew3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6284,6 +6284,11 @@
             this.c1DockingTabPage5.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDeliContainYardNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSaveDeli)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDeliPlaceAddr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDeliTruckCop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button20)).EndInit();
@@ -6501,11 +6506,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJinId)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDeliPlaceAddr)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSaveDeli)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button23)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDeliContainYardNameT)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

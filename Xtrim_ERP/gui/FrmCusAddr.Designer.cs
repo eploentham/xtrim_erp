@@ -61,8 +61,8 @@
             this.txtAddrName = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.c1CheckBox4 = new C1.Win.C1Input.C1CheckBox();
-            this.c1CheckBox3 = new C1.Win.C1Input.C1CheckBox();
-            this.c1CheckBox2 = new C1.Win.C1Input.C1CheckBox();
+            this.chkContainerYard = new C1.Win.C1Input.C1CheckBox();
+            this.chkPlaceAddr = new C1.Win.C1Input.C1CheckBox();
             this.c1CheckBox1 = new C1.Win.C1Input.C1CheckBox();
             this.chkAddrDefaultCus = new C1.Win.C1Input.C1CheckBox();
             this.chkVoid = new C1.Win.C1Input.C1CheckBox();
@@ -130,8 +130,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkContainerYard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPlaceAddr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkAddrDefaultCus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).BeginInit();
@@ -198,8 +198,8 @@
             this.panel1.Controls.Add(this.txtAddrName);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.c1CheckBox4);
-            this.panel1.Controls.Add(this.c1CheckBox3);
-            this.panel1.Controls.Add(this.c1CheckBox2);
+            this.panel1.Controls.Add(this.chkContainerYard);
+            this.panel1.Controls.Add(this.chkPlaceAddr);
             this.panel1.Controls.Add(this.c1CheckBox1);
             this.panel1.Controls.Add(this.chkAddrDefaultCus);
             this.panel1.Controls.Add(this.chkVoid);
@@ -665,41 +665,41 @@
             this.c1CheckBox4.Value = null;
             this.c1CheckBox4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1CheckBox3
+            // chkContainerYard
             // 
-            this.c1CheckBox3.BackColor = System.Drawing.Color.Transparent;
-            this.c1CheckBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.c1CheckBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.c1CheckBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.c1CheckBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1CheckBox3.Location = new System.Drawing.Point(295, 507);
-            this.c1CheckBox3.Name = "c1CheckBox3";
-            this.c1CheckBox3.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.c1CheckBox3.Size = new System.Drawing.Size(155, 24);
-            this.c1CheckBox3.TabIndex = 29;
-            this.c1CheckBox3.Text = "ให้แสดงใน ...";
-            this.theme1.SetTheme(this.c1CheckBox3, "(default)");
-            this.c1CheckBox3.UseVisualStyleBackColor = true;
-            this.c1CheckBox3.Value = null;
-            this.c1CheckBox3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.chkContainerYard.BackColor = System.Drawing.Color.Transparent;
+            this.chkContainerYard.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkContainerYard.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkContainerYard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkContainerYard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkContainerYard.Location = new System.Drawing.Point(295, 507);
+            this.chkContainerYard.Name = "chkContainerYard";
+            this.chkContainerYard.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkContainerYard.Size = new System.Drawing.Size(155, 24);
+            this.chkContainerYard.TabIndex = 29;
+            this.chkContainerYard.Text = "ลานคืนตู้";
+            this.theme1.SetTheme(this.chkContainerYard, "(default)");
+            this.chkContainerYard.UseVisualStyleBackColor = true;
+            this.chkContainerYard.Value = null;
+            this.chkContainerYard.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1CheckBox2
+            // chkPlaceAddr
             // 
-            this.c1CheckBox2.BackColor = System.Drawing.Color.Transparent;
-            this.c1CheckBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.c1CheckBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.c1CheckBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.c1CheckBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1CheckBox2.Location = new System.Drawing.Point(109, 506);
-            this.c1CheckBox2.Name = "c1CheckBox2";
-            this.c1CheckBox2.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.c1CheckBox2.Size = new System.Drawing.Size(155, 24);
-            this.c1CheckBox2.TabIndex = 28;
-            this.c1CheckBox2.Text = "ให้แสดงใน ...";
-            this.theme1.SetTheme(this.c1CheckBox2, "(default)");
-            this.c1CheckBox2.UseVisualStyleBackColor = true;
-            this.c1CheckBox2.Value = null;
-            this.c1CheckBox2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.chkPlaceAddr.BackColor = System.Drawing.Color.Transparent;
+            this.chkPlaceAddr.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkPlaceAddr.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkPlaceAddr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkPlaceAddr.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkPlaceAddr.Location = new System.Drawing.Point(109, 506);
+            this.chkPlaceAddr.Name = "chkPlaceAddr";
+            this.chkPlaceAddr.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkPlaceAddr.Size = new System.Drawing.Size(155, 24);
+            this.chkPlaceAddr.TabIndex = 28;
+            this.chkPlaceAddr.Text = "สถานที่ส่งของ";
+            this.theme1.SetTheme(this.chkPlaceAddr, "(default)");
+            this.chkPlaceAddr.UseVisualStyleBackColor = true;
+            this.chkPlaceAddr.Value = null;
+            this.chkPlaceAddr.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // c1CheckBox1
             // 
@@ -1323,8 +1323,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddrName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkContainerYard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPlaceAddr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkAddrDefaultCus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).EndInit();
@@ -1406,8 +1406,8 @@
         private C1.Win.C1Input.C1CheckBox chkAddrDefaultCus;
         private C1.Win.C1Input.C1CheckBox c1CheckBox1;
         private C1.Win.C1Input.C1CheckBox c1CheckBox4;
-        private C1.Win.C1Input.C1CheckBox c1CheckBox3;
-        private C1.Win.C1Input.C1CheckBox c1CheckBox2;
+        private C1.Win.C1Input.C1CheckBox chkContainerYard;
+        private C1.Win.C1Input.C1CheckBox chkPlaceAddr;
         private C1.Win.C1Input.C1TextBox txtAddrName;
         private System.Windows.Forms.Label label1;
         private C1.Win.C1Input.C1Button btnMap;

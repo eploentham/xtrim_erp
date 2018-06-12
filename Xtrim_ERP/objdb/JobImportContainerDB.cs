@@ -34,6 +34,9 @@ namespace Xtrim_ERP.objdb
             jcn.user_create = "user_create";
             jcn.user_modi = "user_modi";
             jcn.user_cancel = "user_cancel";
+
+            jcn.table = "t_job_import_container";
+            jcn.pkField = "job_import_container_id";
         }
         private void chkNull(JobImportContainer p)
         {
@@ -141,6 +144,16 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             cop1 = setImportContainer(dt);
             return cop1;
+        }
+        public DataTable selectByJobId(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select jcn.*  " +
+                "From " + jcn.table + " jcn " +
+                "Where jcn." + jcn.job_import_id + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            
+            return dt;
         }
         private JobImportContainer setImportContainer(DataTable dt)
         {

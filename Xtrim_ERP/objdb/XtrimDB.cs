@@ -57,6 +57,7 @@ namespace Xtrim_ERP.objdb
         public JobImportContainerListDB jcsDB;
         public JobImportDeliveryDB jdvDB;
         public TruckDB trkDB;
+        public JobImportContainerDB jcnDB;
 
         public MeiosysDB mioDB;
 
@@ -115,6 +116,7 @@ namespace Xtrim_ERP.objdb
             jceDB = new JobImportCheckExamDB(conn);
             jcsDB = new JobImportContainerListDB(conn);
             jdvDB = new JobImportDeliveryDB(conn);
+            jcnDB = new JobImportContainerDB(conn);
 
             trkDB = new TruckDB(conn);
         }

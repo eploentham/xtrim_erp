@@ -74,6 +74,8 @@ namespace Xtrim_ERP.objdb
             addr.over_time = "over_time";
             addr.rate_over_time = "rate_over_time";
             addr.map_pic_path = "map_pic_path";
+            addr.status_container_year = "status_container_year";
+            addr.status_place_addr = "status_place_addr";
 
             addr.table = "b_address";
             addr.pkField = "address_id";
@@ -218,7 +220,8 @@ namespace Xtrim_ERP.objdb
             p.over_time = p.over_time == null ? "" : p.over_time;
             p.rate_over_time = p.rate_over_time == null ? "" : p.rate_over_time;
             p.map_pic_path = p.map_pic_path == null ? "" : p.map_pic_path;
-            
+            p.status_place_addr = p.status_place_addr == null ? "0" : p.status_place_addr;
+            p.status_container_year = p.status_container_year == null ? "0" : p.status_container_year;
 
             p.amphur_id = int.TryParse(p.amphur_id, out chk) ? chk.ToString() : "0";
             p.district_id = int.TryParse(p.district_id, out chk) ? chk.ToString() : "0";
@@ -226,6 +229,7 @@ namespace Xtrim_ERP.objdb
             p.table_id = int.TryParse(p.table_id, out chk) ? chk.ToString() : "0";
             p.amphur_id = int.TryParse(p.amphur_id, out chk) ? chk.ToString() : "0";
             p.contact_id2 = int.TryParse(p.contact_id2, out chk) ? chk.ToString() : "0";
+
         }
         public String insert(Address p)
         {
@@ -251,7 +255,7 @@ namespace Xtrim_ERP.objdb
                 addr.google_map + "," + addr.status_defalut_customer + ", " + addr.remark2 + ", " +
                 addr.time_open_close + "," + addr.time_open_close_over_time + ", " + addr.contact_id2 + ", " +
                 addr.web_site3 + "," + addr.over_time + ", " + addr.rate_over_time + ", " +
-                addr.map_pic_path + " " +
+                addr.map_pic_path + ", " + addr.status_container_year + ", " + addr.status_place_addr + " " +
                 ") " +
                 "Values ('" + p.address_code + "','" + p.line_t1.Replace("'", "''") + "','" + p.line_t2.Replace("'", "''") + "'," +
                 "'" + p.line_t3 + "','" + p.line_t4.Replace("'", "''") + "','" + p.line_e1.Replace("'", "''") + "'," +
@@ -268,7 +272,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.google_map + "','" + p.status_defalut_customer + "','" + p.remark2.Replace("'", "''") + "', " +
                 "'" + p.time_open_close + "','" + p.time_open_close_over_time + "','" + p.contact_id2.Replace("'", "''") + "'," +
                 "'" + p.web_site3 + "','" + p.over_time + "','" + p.rate_over_time.Replace("'", "''") + "'," +
-                "'" + p.map_pic_path + "' "+
+                "'" + p.map_pic_path + "','"+ p.status_container_year + "','" + p.status_place_addr + "' " +
                 ")";
             try
             {
@@ -329,7 +333,8 @@ namespace Xtrim_ERP.objdb
                 "," + addr.over_time + " = '" + p.over_time + "' " +
                 "," + addr.rate_over_time + " = '" + p.rate_over_time + "' " +
                 "," + addr.map_pic_path + " = '" + p.map_pic_path + "' " +
-
+                "," + addr.status_place_addr + " = '" + p.status_place_addr + "' " +
+                "," + addr.status_container_year + " = '" + p.status_container_year + "' " +
                 "Where " + addr.pkField + "='" + p.address_id + "'" ;
 
             try
@@ -547,6 +552,8 @@ namespace Xtrim_ERP.objdb
                 addr1.over_time = dt.Rows[0][addr.over_time].ToString();
                 addr1.rate_over_time = dt.Rows[0][addr.rate_over_time].ToString();
                 addr1.map_pic_path = dt.Rows[0][addr.map_pic_path].ToString();
+                addr1.status_container_year = dt.Rows[0][addr.status_container_year].ToString();
+                addr1.status_place_addr = dt.Rows[0][addr.status_place_addr].ToString();
             }
 
             return addr1;
