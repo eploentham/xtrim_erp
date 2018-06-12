@@ -69,6 +69,7 @@ namespace Xtrim_ERP.gui
             theme1.SetTheme(sB, "BeigeOne");
             theme1.SetTheme(tC2, "VS2013Light");
             theme1.SetTheme(panel8, "VS2013Light");
+            theme1.SetTheme(cDRight, "BeigeOne");
             btnJobSearch.Click += BtnJobSearch_Click;
             btnSave.Click += BtnSave_Click;
             btnInvNew.Click += BtnInvNew_Click;
