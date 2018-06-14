@@ -381,7 +381,7 @@ namespace Xtrim_ERP.gui
             txtTimeOpen.Value = addr.time_open_close;
             txtTimeOpenOverTime.Value = addr.time_open_close_over_time;
             chkPlaceAddr.Checked = addr.status_place_addr.Equals("1") ? true : false;
-            chkContainerYard.Checked = addr.status_container_year.Equals("1") ? true : false;
+            chkContainerYard.Checked = addr.status_container_yard.Equals("1") ? true : false;
         }
         private void setAddress()
         {
@@ -434,7 +434,7 @@ namespace Xtrim_ERP.gui
             addr.web_site3 = txtWeb3.Text;
             addr.over_time = txtOverTime.Text;
             addr.rate_over_time = txtRateOverTime.Text;
-            addr.status_container_year = chkContainerYard.Checked ? "1" : "0";
+            addr.status_container_yard = chkContainerYard.Checked ? "1" : "0";
             addr.status_place_addr = chkPlaceAddr.Checked ? "1" : "0";
         }
         private void ChkVoid_Click(object sender, EventArgs e)

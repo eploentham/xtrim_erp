@@ -50,6 +50,6 @@ namespace Xtrim_ERP.object1
         public String over_time { get; set; }
         public String rate_over_time { get; set; }
         public String status_place_addr { get; set; }
-        public String status_container_year { get; set; }
+        public String status_container_yard { get; set; }
     }
 }

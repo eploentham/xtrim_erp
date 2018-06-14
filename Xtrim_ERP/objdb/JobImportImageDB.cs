@@ -34,6 +34,7 @@ namespace Xtrim_ERP.objdb
             jii.user_modi = "user_modi";
             jii.user_cancel = "user_cancel";
             jii.sort1 = "sort1";
+            jii.status_module = "status_module";
 
             jii.table = "t_job_import_image";
             jii.pkField = "job_import_image_id";
@@ -46,12 +47,14 @@ namespace Xtrim_ERP.objdb
             sql = "Insert Into " + jii.table + "(" + jii.job_import_id + "," + jii.path_pic + "," + jii.status_pic + "," +
                 jii.active + "," + jii.remark + "," + jii.date_create + "," +
                 jii.date_modi + "," + jii.date_cancel + "," + jii.user_create + "," +
-                jii.user_modi + "," + jii.user_cancel + "," + jii.sort1 + " " +
+                jii.user_modi + "," + jii.user_cancel + "," + jii.sort1 + "," +
+                jii.status_module + "," +
                 ") " +
                 "Values ('" + p.job_import_id + "','" + p.path_pic + "','" + p.status_pic + "'," +
                 "'" + p.active + "','" + p.remark + "', now() " +
                 "'" + p.date_modi + "','" + p.date_cancel + "','" + p.user_create + "'," +
-                "'" + p.user_modi + "','" + p.user_cancel + "','" + p.sort1 + "' " +
+                "'" + p.user_modi + "','" + p.user_cancel + "','" + p.sort1 + "'," +
+                "'" + p.status_module + "' " +
                 ")";
             re = conn.ExecuteNonQuery(conn.conn, sql);
 
@@ -66,8 +69,9 @@ namespace Xtrim_ERP.objdb
                 "," + jii.path_pic + "='" + p.path_pic.Replace("'", "''") + "' " +
                 "," + jii.status_pic + "='" + p.status_pic.Replace("'", "''") + "' " +
                 "," + jii.remark + "='" + p.remark.Replace("'", "''") + "' " +
-                "," + jii.user_modi + "='" + p.user_modi.Replace("'", "''") + "' " +                
+                "," + jii.user_modi + "='" + p.user_modi.Replace("'", "''") + "' " +
                 "," + jii.date_modi + "=now() " +
+                "," + jii.status_module + "='" + p.status_module.Replace("'", "''") + "' " +
                 "Where " + jii.pkField + "='" + p.job_import_image_id + "'"
                 ;
             re = conn.ExecuteNonQuery(conn.conn, sql);
@@ -140,6 +144,7 @@ namespace Xtrim_ERP.objdb
                 //pti1.status_app = dt.Rows[0][tmn.status_app].ToString();
                 jii1.remark = dt.Rows[0][jii.remark].ToString();
                 jii1.sort1 = dt.Rows[0][jii.sort1].ToString();
+                jii1.status_module = dt.Rows[0][jii.status_module].ToString();
             }
 
             return jii1;

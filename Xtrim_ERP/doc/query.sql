@@ -336,6 +336,28 @@ ALTER TABLE `xtrim_erp`.`b_address`
 ADD COLUMN `status_place_addr` VARCHAR(255) NULL AFTER `map_pic_path`,
 ADD COLUMN `status_container_yard` VARCHAR(255) NULL AFTER `status_place_addr`;
 
+61-06-13
+ALTER TABLE `xtrim_erp`.`t_job_import` 
+ADD COLUMN `container_yard1_id` INT NULL AFTER `bl`,
+ADD COLUMN `container_yard2_id` INT NULL AFTER `container_yard1_id`,
+ADD COLUMN `container_yard3_id` INT NULL AFTER `container_yard2_id`,
+ADD COLUMN `container_yard4_id` INT NULL AFTER `container_yard3_id`,
+ADD COLUMN `container_yard5_id` INT NULL AFTER `container_yard4_id`,
+ADD COLUMN `container_yard1_addr` VARCHAR(255) NULL AFTER `container_yard5_id`,
+ADD COLUMN `container_yard2_addr` VARCHAR(255) NULL AFTER `container_yard1_addr`,
+ADD COLUMN `container_yard3_addr` VARCHAR(255) NULL AFTER `container_yard2_addr`,
+ADD COLUMN `container_yard4_addr` VARCHAR(255) NULL AFTER `container_yard3_addr`,
+ADD COLUMN `container_yard5_addr` VARCHAR(255) NULL AFTER `container_yard4_addr`,
+ADD COLUMN `time_open_close1` VARCHAR(255) NULL AFTER `container_yard5_addr`,
+ADD COLUMN `time_open_close2` VARCHAR(255) NULL AFTER `time_open_close1`,
+ADD COLUMN `time_open_close3` VARCHAR(255) NULL AFTER `time_open_close2`,
+ADD COLUMN `time_open_close4` VARCHAR(255) NULL AFTER `time_open_close3`,
+ADD COLUMN `time_open_close5` VARCHAR(255) NULL AFTER `time_open_close4`,
+ADD COLUMN `time_open_close_over_time1` VARCHAR(255) NULL AFTER `time_open_close5`,
+ADD COLUMN `time_open_close_over_time2` VARCHAR(255) NULL AFTER `time_open_close_over_time1`,
+ADD COLUMN `time_open_close_over_time3` VARCHAR(255) NULL AFTER `time_open_close_over_time2`,
+ADD COLUMN `time_open_close_over_time4` VARCHAR(255) NULL AFTER `time_open_close_over_time3`,
+ADD COLUMN `time_open_close_over_time5` VARCHAR(255) NULL AFTER `time_open_close_over_time4`;
 
 
 

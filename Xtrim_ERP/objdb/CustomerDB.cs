@@ -460,6 +460,28 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+        public DataTable selectTrkCopAll()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cop.cust_id, cop.cust_code, cop.cust_name_t, cop.taddr1, cop.tele, cop.email, cop.remark, cop.remark2, cop.contact_name1, cop.contact_name2 " +
+                "From " + cus.table + " cop " +
+                " " +
+                "Where cop." + cus.active + " ='1' and cop." + cus.status_truck + "='1'";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectContainerYardAll()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select cop.cust_id, cop.cust_code, cop.cust_name_t, cop.taddr1, cop.tele, cop.email, cop.remark, cop.remark2, cop.contact_name1, cop.contact_name2 " +
+                "From " + cus.table + " cop " +
+                " " +
+                "Where cop." + cus.active + " ='1' and cop." + cus.status_container_yard + "='1'";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
         public DataTable selectAll2(String flagCus, String flagImp, String flagExp, String flagConsImp, String flagConsExp, String flagInsr, String flagFwd, String flagSupp)
         {
             DataTable dt = new DataTable();
@@ -709,6 +731,74 @@ namespace Xtrim_ERP.objdb
                 cus1.insr_id = dt.Rows[0][cus.insr_id].ToString();
                 cus1.status_truck = dt.Rows[0][cus.status_truck].ToString();
                 cus1.status_container_yard = dt.Rows[0][cus.status_container_yard].ToString();
+
+            }
+            else
+            {
+                cus1.cust_id = "";
+                cus1.cust_code = "";
+                cus1.cust_name_t = "";
+                cus1.cust_name_e = "";
+                cus1.active = "";
+
+                cus1.address_t = "";
+                cus1.address_e = "";
+                cus1.addr = "";
+                cus1.amphur_id = "";
+                cus1.district_id = "";
+
+                cus1.province_id = "";
+                cus1.zipcode = "";
+                cus1.sale_id = "";
+                cus1.sale_name_t = "";
+                cus1.fax = "";
+
+                cus1.tele = "";
+                cus1.email = "";
+                cus1.tax_id = "";
+                cus1.remark = "";
+                cus1.contact_name1 = "";
+
+                cus1.contact_name2 = "";
+                cus1.contact_name1_tel = "";
+                cus1.contact_name2_tel = "";
+                cus1.status_company = "";
+                cus1.status_vendor = "";
+
+                cus1.date_create = "";
+                cus1.date_modi = "";
+                cus1.date_cancel = "";
+                cus1.user_create = "";
+                cus1.user_modi = "";
+
+                cus1.user_cancel = "";
+                cus1.remark2 = "";
+                cus1.po_due_period = "";
+                cus1.taddr1 = "";
+                cus1.taddr2 = "";
+
+                cus1.taddr3 = "";
+                cus1.taddr4 = "";
+                cus1.eaddr1 = "";
+                cus1.eaddr2 = "";
+                cus1.eaddr3 = "";
+
+                cus1.eaddr4 = "";
+                cus1.sort1 = "";
+                cus1.status_cust = "";
+                cus1.status_exp = "";
+                cus1.status_fwd = "";
+                cus1.status_imp = "";
+                cus1.status_cons_imp = "";
+                cus1.status_cons_exp = "";
+                cus1.status_insr = "";
+                cus1.status_supp = "";
+                cus1.web_site1 = "";
+                cus1.web_site2 = "";
+                cus1.web_site3 = "";
+                cus1.insr_id = "";
+                cus1.status_truck = "";
+                cus1.status_container_yard = "";
             }
 
             return cus1;

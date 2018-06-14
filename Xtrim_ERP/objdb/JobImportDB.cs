@@ -78,6 +78,31 @@ namespace Xtrim_ERP.objdb
             jim.marsk5 = "marsk5";
             jim.marsk6 = "marsk6";
 
+            jim.container_yard1_id = "container_yard1_id";
+            jim.container_yard2_id = "container_yard2_id";
+            jim.container_yard3_id = "container_yard3_id";
+            jim.container_yard4_id = "container_yard4_id";
+            jim.container_yard5_id = "container_yard5_id";
+            jim.container_yard1_addr = "container_yard1_addr";
+            jim.container_yard2_addr = "container_yard2_addr";
+            jim.container_yard3_addr = "container_yard3_addr";
+            jim.container_yard4_addr = "container_yard4_addr";
+            jim.container_yard5_addr = "container_yard5_addr";
+            jim.time_open_close1 = "time_open_close1";
+            jim.time_open_close2 = "time_open_close2";
+            jim.time_open_close3 = "time_open_close3";
+            jim.time_open_close4 = "time_open_close4";
+            jim.time_open_close5 = "time_open_close5";
+            jim.time_open_close_over_time1 = "time_open_close_over_time1";
+            jim.time_open_close_over_time2 = "time_open_close_over_time2";
+            jim.time_open_close_over_time3 = "time_open_close_over_time3";
+            jim.time_open_close_over_time4 = "time_open_close_over_time4";
+            jim.time_open_close_over_time5 = "time_open_close_over_time5";
+            jim.status_container_yard1_tax = "status_container_yard1_tax";
+            jim.status_container_yard2_tax = "status_container_yard2_tax";
+            jim.status_container_yard3_tax = "status_container_yard3_tax";
+            jim.status_container_yard4_tax = "status_container_yard4_tax";
+            jim.status_container_yard5_tax = "status_container_yard5_tax";
 
             jim.cusAddr = "";
             jim.impAddr = "";
@@ -188,6 +213,31 @@ namespace Xtrim_ERP.objdb
             p.imp_date = p.imp_date == null ? "" : p.imp_date;
             p.bl = p.bl == null ? "" : p.bl;
             conn.user.staff_id = conn.user.staff_id == null ? "" : conn.user.staff_id;
+            p.container_yard1_id = p.container_yard1_id == null ? "0" : p.container_yard1_id;
+            p.container_yard2_id = p.container_yard2_id == null ? "0" : p.container_yard2_id;
+            p.container_yard3_id = p.container_yard3_id == null ? "0" : p.container_yard3_id;
+            p.container_yard4_id = p.container_yard4_id == null ? "0" : p.container_yard4_id;
+            p.container_yard5_id = p.container_yard5_id == null ? "0" : p.container_yard5_id;
+            p.container_yard1_addr = p.container_yard1_addr == null ? "" : p.container_yard1_addr;
+            p.container_yard2_addr = p.container_yard2_addr == null ? "" : p.container_yard2_addr;
+            p.container_yard3_addr = p.container_yard3_addr == null ? "" : p.container_yard3_addr;
+            p.container_yard4_addr = p.container_yard4_addr == null ? "" : p.container_yard4_addr;
+            p.container_yard5_addr = p.container_yard5_addr == null ? "" : p.container_yard5_addr;
+            p.time_open_close1 = p.time_open_close1 == null ? "" : p.time_open_close1;
+            p.time_open_close2 = p.time_open_close2 == null ? "" : p.time_open_close2;
+            p.time_open_close3 = p.time_open_close3 == null ? "" : p.time_open_close3;
+            p.time_open_close4 = p.time_open_close4 == null ? "" : p.time_open_close4;
+            p.time_open_close5 = p.time_open_close5 == null ? "" : p.time_open_close5;
+            p.time_open_close_over_time1 = p.time_open_close_over_time1 == null ? "" : p.time_open_close_over_time1;
+            p.time_open_close_over_time2 = p.time_open_close_over_time2 == null ? "" : p.time_open_close_over_time2;
+            p.time_open_close_over_time3 = p.time_open_close_over_time3 == null ? "" : p.time_open_close_over_time3;
+            p.time_open_close_over_time4 = p.time_open_close_over_time4 == null ? "" : p.time_open_close_over_time4;
+            p.time_open_close_over_time5 = p.time_open_close_over_time5 == null ? "" : p.time_open_close_over_time5;
+            p.status_container_yard1_tax = p.status_container_yard1_tax == null ? "0" : p.status_container_yard1_tax;
+            p.status_container_yard2_tax = p.status_container_yard2_tax == null ? "0" : p.status_container_yard2_tax;
+            p.status_container_yard3_tax = p.status_container_yard3_tax == null ? "0" : p.status_container_yard3_tax;
+            p.status_container_yard4_tax = p.status_container_yard4_tax == null ? "0" : p.status_container_yard4_tax;
+            p.status_container_yard5_tax = p.status_container_yard5_tax == null ? "0" : p.status_container_yard5_tax;
 
             p.date_modi = p.date_modi == null ? "" : p.date_modi;
             p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
@@ -233,7 +283,16 @@ namespace Xtrim_ERP.objdb
                 jim.imp_date + ", " + jim.bl + "," + jim.remark4 + ", " +
                 jim.remark5 + ", " + jim.remark6 + "," + jim.marsk1 + ", " +
                 jim.marsk2 + ", " + jim.marsk3 + "," + jim.marsk4 + ", " +
-                jim.marsk5 + ", " + jim.marsk6 + " " +
+                jim.marsk5 + ", " + jim.marsk6 + ", " +
+                jim.container_yard1_id + ", " + jim.container_yard2_id + "," + jim.container_yard3_id + ", " +
+                jim.container_yard4_id + ", " + jim.container_yard5_id + "," + jim.container_yard1_addr + ", " +
+                jim.container_yard2_addr + ", " + jim.container_yard3_addr + "," + jim.container_yard4_addr + ", " +
+                jim.container_yard5_addr + ", " + jim.time_open_close1 + "," + jim.time_open_close2 + ", " +
+                jim.time_open_close3 + ", " + jim.time_open_close4 + "," + jim.time_open_close5 + ", " +
+                jim.time_open_close_over_time1 + ", " + jim.time_open_close_over_time2 + "," + jim.time_open_close_over_time3 + ", " +
+                jim.time_open_close_over_time4 + ", " + jim.time_open_close_over_time5 + "," +
+                jim.status_container_yard1_tax + ", " + jim.status_container_yard2_tax + "," + jim.status_container_yard3_tax + "," +
+                jim.status_container_yard4_tax + ", " + jim.status_container_yard5_tax + " " +
                 ") " +
                 "Values ('" + p.job_import_code + "','" + p.job_import_date + "','" + p.cust_id + "'," +
                 "'" + p.imp_id + "','" + p.transport_mode.Replace("'", "''") + "','" + p.staff_id + "'," +
@@ -251,7 +310,16 @@ namespace Xtrim_ERP.objdb
                 "'" + p.imp_date.Replace("'", "''") + "','" + p.bl.Replace("'", "''") + "','" + p.remark4.Replace("'", "''") + "'," +
                 "'" + p.remark5.Replace("'", "''") + "','" + p.remark6.Replace("'", "''") + "','" + p.marsk1.Replace("'", "''") + "'," +
                 "'" + p.marsk2.Replace("'", "''") + "','" + p.marsk3.Replace("'", "''") + "','" + p.marsk4.Replace("'", "''") + "'," +
-                "'" + p.marsk5.Replace("'", "''") + "','" + p.marsk6.Replace("'", "''") + "' " +
+                "'" + p.marsk5.Replace("'", "''") + "','" + p.marsk6.Replace("'", "''") + "'," +
+                "'" + p.container_yard1_id.Replace("'", "''") + "','" + p.container_yard2_id.Replace("'", "''") + "','" + p.container_yard3_id.Replace("'", "''") + "'," +
+                "'" + p.container_yard4_id.Replace("'", "''") + "','" + p.container_yard5_id.Replace("'", "''") + "','" + p.container_yard1_addr.Replace("'", "''") + "'," +
+                "'" + p.container_yard2_addr.Replace("'", "''") + "','" + p.container_yard3_addr.Replace("'", "''") + "','" + p.container_yard4_addr.Replace("'", "''") + "'," +
+                "'" + p.container_yard5_addr.Replace("'", "''") + "','" + p.time_open_close1.Replace("'", "''") + "','" + p.time_open_close2.Replace("'", "''") + "'," +
+                "'" + p.time_open_close3.Replace("'", "''") + "','" + p.time_open_close4.Replace("'", "''") + "','" + p.time_open_close5.Replace("'", "''") + "'," +
+                "'" + p.time_open_close_over_time1.Replace("'", "''") + "','" + p.time_open_close_over_time2.Replace("'", "''") + "','" + p.time_open_close_over_time3.Replace("'", "''") + "'," +
+                "'" + p.time_open_close_over_time4.Replace("'", "''") + "','" + p.time_open_close_over_time5.Replace("'", "''") + "', " +
+                "'" + p.status_container_yard1_tax.Replace("'", "''") + "','" + p.status_container_yard2_tax.Replace("'", "''") + "','" + p.status_container_yard3_tax.Replace("'", "''") + "', " +
+                "'" + p.status_container_yard4_tax.Replace("'", "''") + "','" + p.status_container_yard5_tax.Replace("'", "''") + "' " + 
                 ")";
             try
             {
@@ -324,7 +392,74 @@ namespace Xtrim_ERP.objdb
                 "," + jim.marsk4 + " = '" + p.marsk4.Replace("'", "''") + "' " +
                 "," + jim.marsk5 + " = '" + p.marsk5.Replace("'", "''") + "' " +
                 "," + jim.marsk6 + " = '" + p.marsk6.Replace("'", "''") + "' " +
+                //"," + jim.container_yard1_id + " = '" + p.container_yard1_id.Replace("'", "''") + "' " +
+                //"," + jim.container_yard2_id + " = '" + p.container_yard2_id.Replace("'", "''") + "' " +
+                //"," + jim.container_yard3_id + " = '" + p.container_yard3_id.Replace("'", "''") + "' " +
+                //"," + jim.container_yard4_id + " = '" + p.container_yard4_id.Replace("'", "''") + "' " +
+                //"," + jim.container_yard5_id + " = '" + p.container_yard5_id.Replace("'", "''") + "' " +
+                //"," + jim.container_yard1_addr + " = '" + p.container_yard1_addr.Replace("'", "''") + "' " +
+                //"," + jim.container_yard2_addr + " = '" + p.container_yard2_addr.Replace("'", "''") + "' " +
+                //"," + jim.container_yard3_addr + " = '" + p.container_yard3_addr.Replace("'", "''") + "' " +
+                //"," + jim.container_yard4_addr + " = '" + p.container_yard4_addr.Replace("'", "''") + "' " +
+                //"," + jim.container_yard5_addr + " = '" + p.container_yard5_addr.Replace("'", "''") + "' " +
+                //"," + jim.time_open_close1 + " = '" + p.time_open_close1.Replace("'", "''") + "' " +
+                //"," + jim.time_open_close2 + " = '" + p.time_open_close2.Replace("'", "''") + "' " +
+                //"," + jim.time_open_close3 + " = '" + p.time_open_close3.Replace("'", "''") + "' " +
+                //"," + jim.time_open_close4 + " = '" + p.time_open_close4.Replace("'", "''") + "' " +
+                //"," + jim.time_open_close5 + " = '" + p.time_open_close5.Replace("'", "''") + "' " +
+                //"," + jim.time_open_close_over_time1 + " = '" + p.time_open_close_over_time1.Replace("'", "''") + "' " +
+                //"," + jim.time_open_close_over_time2 + " = '" + p.time_open_close_over_time2.Replace("'", "''") + "' " +
+                //"," + jim.time_open_close_over_time3 + " = '" + p.time_open_close_over_time3.Replace("'", "''") + "' " +
+                //"," + jim.time_open_close_over_time4 + " = '" + p.time_open_close_over_time4.Replace("'", "''") + "' " +
+                //"," + jim.time_open_close_over_time5 + " = '" + p.time_open_close_over_time5.Replace("'", "''") + "' " +
+                "Where " + jim.pkField + "='" + p.job_import_id + "'"
+                ;
 
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
+
+            return re;
+        }
+        public String updateContainerYard(JobImport p)
+        {
+            String re = "";
+            String sql = "";
+            int chk = 0;
+
+            chkNull(p);
+
+            sql = "Update " + jim.table + " Set " +
+                "" + jim.container_yard1_id + " = '" + p.container_yard1_id.Replace("'", "''") + "' " +
+                "," + jim.container_yard2_id + " = '" + p.container_yard2_id.Replace("'", "''") + "' " +
+                "," + jim.container_yard3_id + " = '" + p.container_yard3_id.Replace("'", "''") + "' " +
+                "," + jim.container_yard4_id + " = '" + p.container_yard4_id.Replace("'", "''") + "' " +
+                "," + jim.container_yard5_id + " = '" + p.container_yard5_id.Replace("'", "''") + "' " +
+                "," + jim.container_yard1_addr + " = '" + p.container_yard1_addr.Replace("'", "''") + "' " +
+                "," + jim.container_yard2_addr + " = '" + p.container_yard2_addr.Replace("'", "''") + "' " +
+                "," + jim.container_yard3_addr + " = '" + p.container_yard3_addr.Replace("'", "''") + "' " +
+                "," + jim.container_yard4_addr + " = '" + p.container_yard4_addr.Replace("'", "''") + "' " +
+                "," + jim.container_yard5_addr + " = '" + p.container_yard5_addr.Replace("'", "''") + "' " +
+                "," + jim.time_open_close1 + " = '" + p.time_open_close1.Replace("'", "''") + "' " +
+                "," + jim.time_open_close2 + " = '" + p.time_open_close2.Replace("'", "''") + "' " +
+                "," + jim.time_open_close3 + " = '" + p.time_open_close3.Replace("'", "''") + "' " +
+                "," + jim.time_open_close4 + " = '" + p.time_open_close4.Replace("'", "''") + "' " +
+                "," + jim.time_open_close5 + " = '" + p.time_open_close5.Replace("'", "''") + "' " +
+                "," + jim.time_open_close_over_time1 + " = '" + p.time_open_close_over_time1.Replace("'", "''") + "' " +
+                "," + jim.time_open_close_over_time2 + " = '" + p.time_open_close_over_time2.Replace("'", "''") + "' " +
+                "," + jim.time_open_close_over_time3 + " = '" + p.time_open_close_over_time3.Replace("'", "''") + "' " +
+                "," + jim.time_open_close_over_time4 + " = '" + p.time_open_close_over_time4.Replace("'", "''") + "' " +
+                "," + jim.time_open_close_over_time5 + " = '" + p.time_open_close_over_time5.Replace("'", "''") + "' " +
+                "," + jim.status_container_yard1_tax + " = '" + p.status_container_yard1_tax.Replace("'", "''") + "' " +
+                "," + jim.status_container_yard2_tax + " = '" + p.status_container_yard2_tax.Replace("'", "''") + "' " +
+                "," + jim.status_container_yard3_tax + " = '" + p.status_container_yard3_tax.Replace("'", "''") + "' " +
+                "," + jim.status_container_yard4_tax + " = '" + p.status_container_yard4_tax.Replace("'", "''") + "' " +
+                "," + jim.status_container_yard5_tax + " = '" + p.status_container_yard5_tax.Replace("'", "''") + "' " +
                 "Where " + jim.pkField + "='" + p.job_import_id + "'"
                 ;
 
@@ -606,6 +741,31 @@ namespace Xtrim_ERP.objdb
                 jim1.marsk4 = dt.Rows[0][jim.marsk4].ToString();
                 jim1.marsk5 = dt.Rows[0][jim.marsk5].ToString();
                 jim1.marsk6 = dt.Rows[0][jim.marsk6].ToString();
+                jim1.container_yard1_id = dt.Rows[0][jim.container_yard1_id].ToString();
+                jim1.container_yard2_id = dt.Rows[0][jim.container_yard2_id].ToString();
+                jim1.container_yard3_id = dt.Rows[0][jim.container_yard3_id].ToString();
+                jim1.container_yard4_id = dt.Rows[0][jim.container_yard4_id].ToString();
+                jim1.container_yard5_id = dt.Rows[0][jim.container_yard5_id].ToString();
+                jim1.container_yard1_addr = dt.Rows[0][jim.container_yard1_addr].ToString();
+                jim1.container_yard2_addr = dt.Rows[0][jim.container_yard2_addr].ToString();
+                jim1.container_yard3_addr = dt.Rows[0][jim.container_yard3_addr].ToString();
+                jim1.container_yard4_addr = dt.Rows[0][jim.container_yard4_addr].ToString();
+                jim1.container_yard5_addr = dt.Rows[0][jim.container_yard5_addr].ToString();
+                jim1.time_open_close1 = dt.Rows[0][jim.time_open_close1].ToString();
+                jim1.time_open_close2 = dt.Rows[0][jim.time_open_close2].ToString();
+                jim1.time_open_close3 = dt.Rows[0][jim.time_open_close3].ToString();
+                jim1.time_open_close4 = dt.Rows[0][jim.time_open_close4].ToString();
+                jim1.time_open_close5 = dt.Rows[0][jim.time_open_close5].ToString();
+                jim1.time_open_close_over_time1 = dt.Rows[0][jim.time_open_close_over_time1].ToString();
+                jim1.time_open_close_over_time2 = dt.Rows[0][jim.time_open_close_over_time2].ToString();
+                jim1.time_open_close_over_time3 = dt.Rows[0][jim.time_open_close_over_time3].ToString();
+                jim1.time_open_close_over_time4 = dt.Rows[0][jim.time_open_close_over_time4].ToString();
+                jim1.time_open_close_over_time5 = dt.Rows[0][jim.time_open_close_over_time5].ToString();
+                jim1.status_container_yard1_tax = dt.Rows[0][jim.status_container_yard1_tax].ToString();
+                jim1.status_container_yard2_tax = dt.Rows[0][jim.status_container_yard2_tax].ToString();
+                jim1.status_container_yard3_tax = dt.Rows[0][jim.status_container_yard3_tax].ToString();
+                jim1.status_container_yard4_tax = dt.Rows[0][jim.status_container_yard4_tax].ToString();
+                jim1.status_container_yard5_tax = dt.Rows[0][jim.status_container_yard5_tax].ToString();
             }
 
             return jim1;

@@ -26,13 +26,15 @@ namespace Xtrim_ERP.gui
         JobImportInv jin;
         JobImportCheckList jcl;
         JobImportCheckExam jce;
+        JobImport jConY;
         Font fEdit, fEditB;
         Color bg, fc, cgrfOld;
         Font ff, ffB;
-        C1FlexGrid grfInv, grfEmail, grfPic, grfJclExp, grfJdc;
+        C1FlexGrid grfInv, grfEmail, grfPic, grfJclExp, grfJdc, grfDeli, grfConY;
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
-        String cusId = "", impId="", fwdId="", polId="", ptiId="", stfId="", cstId="", ettId="", pvlId="", ictId="";
+        String cusId = "", impId="", fwdId="", polId="", ptiId="", stfId="", cstId="", ettId="", pvlId="", ictId="", cony1id="", cony2id = "", cony3id = "", cony4id = "";
+
         int colJobInvId = 1, colJobInvNo = 2, colJobInvDate = 3, colJobInvCons = 4, colJobInvIncoTerm = 5, colJobInvTermPayment = 6, colJobInvAmt = 7, colJobInvCurr = 8;
 
         int colMarskId = 1, colMarskDesc = 2;
@@ -40,6 +42,7 @@ namespace Xtrim_ERP.gui
         int colContainId = 1, colContainQty = 2, colContainContainId = 3;
         int colGwId = 1, colGwQty = 2, colGwGwId = 3;
         int colEmailB = 1, colEmailPath = 2, colEmailDel=3;
+        int colConyId = 1, colConYPath = 2;
 
         public enum BodyType
         {
@@ -60,6 +63,7 @@ namespace Xtrim_ERP.gui
             jbl = new JobImportBl();
             jcl = new JobImportCheckList();
             jce = new JobImportCheckExam();
+            jConY = new JobImport();
             bg = txtJobCode.BackColor;
             fc = txtJobCode.ForeColor;
             ff = txtRef1.Font;
@@ -78,6 +82,7 @@ namespace Xtrim_ERP.gui
             btnEmail.Click += BtnEmail_Click;
             btnSend.Click += BtnSend_Click;
             btnJceSave.Click += BtnJceSave_Click;
+            btnConySave.Click += BtnConySave_Click;
 
             txtCusNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtImpNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
@@ -95,6 +100,12 @@ namespace Xtrim_ERP.gui
             txtInsrNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtDeliImporter.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
             txtDeliTruckCop.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtDeliPlaceAddr.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtDeliContainYardNameT.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtConYCop1.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtConYCop2.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtConYCop3.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
+            txtConYCop4.KeyUp += new KeyEventHandler(txtCusCode_KeyUp);
 
             txtPkg1.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
             txtPkg2.KeyUp += new KeyEventHandler(TxtPkg1_KeyUp);
@@ -108,7 +119,7 @@ namespace Xtrim_ERP.gui
             txtContain4.KeyUp += new KeyEventHandler(TxtContain1_KeyUp);
             txtContain5.KeyUp += new KeyEventHandler(TxtContain1_KeyUp);
             txtContain6.KeyUp += new KeyEventHandler(TxtContain1_KeyUp);
-
+            
             xC.setCboTransMode(cboTransMode);
             xC.setCboTaxMethod(cboTaxMethod);
             //xC.xtDB.ittDB.setCboImporterType(cboItt);
@@ -166,6 +177,7 @@ namespace Xtrim_ERP.gui
             initGrfPic();
             initGrfJclExp();
             initGrfJdc();
+            initGrfConY();
 
             setFocus();
             setTabIndex();
@@ -239,6 +251,40 @@ namespace Xtrim_ERP.gui
             //menuMarsk.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Marsk_Edit));
             //menuMarsk.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Marsk_Cancel));
             //grfMarsk.ContextMenu = menuMarsk;
+        }
+        private void initGrfDeli()
+        {
+            grfDeli = new C1FlexGrid();
+            grfDeli.Dock = DockStyle.Fill;
+            panel16.Controls.Add(grfDeli);
+
+            TextBox txt = new TextBox();
+            C1ComboBox cbo = new C1ComboBox();
+
+            xC.xtDB.dctDB.setC1CboContain(cbo, "");
+            grfDeli.Cols[colJdcId].Editor = txt;
+            grfDeli.Cols[colJdcContainerNo].Editor = txt;
+            grfDeli.Cols[colJdcType].Editor = cbo;
+            grfDeli.Cols[colJdcSeal].Editor = txt;
+            grfDeli.Cols[colJdcId].Caption = "id";
+            grfDeli.Cols[colJdcContainerNo].Caption = "container no";
+            grfDeli.Cols[colJdcType].Caption = "Type";
+            grfDeli.Cols[colJdcSeal].Caption = "seal";
+
+
+            //grfJdc.Rows.Count = 2;
+            //grfJdc.Cols.Count = 3;
+            grfDeli.Cols[colJdcContainerNo].Width = 150;
+
+            grfDeli.Cols[colJdcId].Visible = false;
+            grfDeli.AfterRowColChange += GrfRemark_AfterRowColChange;
+            grfDeli.CellChanged += GrfRemark_CellChanged;
+
+            //ContextMenu menuRemark = new ContextMenu();
+            //menuRemark.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_Remark_new));
+            //menuRemark.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Remark_Edit));
+            //menuRemark.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Remark_Cancel));
+            //grfRemark.ContextMenu = menuRemark;
         }
         private void initGrfJdc()
         {
@@ -374,6 +420,39 @@ namespace Xtrim_ERP.gui
             //menuPkg.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Pkg_Edit));
             //menuPkg.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Pkg_Cancel));
             //grfPkg.ContextMenu = menuPkg;
+        }
+        private void initGrfConY()
+        {
+            grfConY = new C1FlexGrid();
+            grfConY.Dock = DockStyle.Fill;
+            TextBox txt = new TextBox();
+            
+            theme1.SetTheme(grfConY, "BeigeOne");
+            //grfConY.BackColor = this.BackColor;
+            theme1.SetTheme(grfPic, "VS2013Light");
+
+            grfConY.Cols[colConyId].Editor = txt;
+            grfConY.Cols[colConYPath].Editor = txt;
+
+            //grfConY.Cols[colConyId].Caption = "+";
+            grfConY.Cols[colConYPath].Caption = "Path file";
+            
+
+            gBConY.Controls.Add(grfConY);
+            grfConY.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.None;
+            grfConY.Rows.Count = 2;
+            grfConY.Cols.Count = 3;
+            grfConY.Cols[colConyId].Width = 60;
+            grfConY.Cols[colConYPath].Width = gBConY.Width - 20;
+            grfConY.Cols[colEmailB].StyleNew.BackColor = Color.AntiqueWhite;
+            grfConY.Cols[colConyId].Visible = false;
+            //grfPic.MouseDown += grfPic_MouseDown;
+
+            ContextMenu menuConY = new ContextMenu();
+            menuConY.MenuItems.Add("&เพิ่มใหม่", new EventHandler(ContextMenu_ConY_new));
+            menuConY.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_ConY_Del));
+            menuConY.MenuItems.Add("&view", new EventHandler(ContextMenu_ConY_View));
+            grfConY.ContextMenu = menuConY;
         }
         private void setGrfJdc()
         {
@@ -538,7 +617,7 @@ namespace Xtrim_ERP.gui
         }
         //private void ContextMenu_Marsk_new(object sender, System.EventArgs e)
         //{
-            
+
         //}
         //private void ContextMenu_Marsk_Edit(object sender, System.EventArgs e)
         //{
@@ -548,6 +627,25 @@ namespace Xtrim_ERP.gui
         //{
 
         //}
+        private void ContextMenu_ConY_new(object sender, System.EventArgs e)
+        {
+            OpenFileDialog theDialog = new OpenFileDialog();
+            DialogResult result = theDialog.ShowDialog();
+            if (result == DialogResult.OK) // Test result.
+            {
+                grfConY[grfConY.Rows.Count-1, colConYPath] = theDialog.FileName;
+                //if (grfConY.Rows.Count == (grfConY.Row + 1)) grfConY.Rows.Count++;
+                grfConY.Rows.Count++;
+            }
+        }
+        private void ContextMenu_ConY_Del(object sender, System.EventArgs e)
+        {
+
+        }
+        private void ContextMenu_ConY_View(object sender, System.EventArgs e)
+        {
+
+        }
         private void ContextMenu_Remark_new(object sender, System.EventArgs e)
         {
             
@@ -660,6 +758,31 @@ namespace Xtrim_ERP.gui
                 else
                 {
                     btnSave.Image = Resources.DeleteTable_small;
+                }
+                //setGrdView();
+                //this.Dispose();
+            }
+        }
+        private void BtnConySave_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (txtID.Text.Equals(""))
+            {
+                MessageBox.Show("ข้อมูล job ยังไม่มีข้อมูล", "");
+                return;
+            }
+            if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                setJobImportContainYard();
+                String re = xC.xtDB.jimDB.updateContainerYard(jConY);
+                int chk = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    btnConySave.Image = Resources.accept_database24;
+                }
+                else
+                {
+                    btnConySave.Image = Resources.DeleteTable_small;
                 }
                 //setGrdView();
                 //this.Dispose();
@@ -951,6 +1074,117 @@ namespace Xtrim_ERP.gui
 
             this.txtRemark6.Leave += new System.EventHandler(this.textBox_Leave);
             this.txtRemark6.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtDeliImporter.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtDeliImporter.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtDeliImporterAddr.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtDeliImporterAddr.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtDeliPkg.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtDeliPkg.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtDeliGw.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtDeliGw.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtDeliVolume.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtDeliVolume.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtDeliTruckCop.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtDeliTruckCop.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtDeliPlaceAddr.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtDeliPlaceAddr.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtDeliContainYardNameT.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtDeliContainYardNameT.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtJceNumOpenGoods.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtJceNumOpenGoods.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtJceNumLayoutBad.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtJceNumLayoutBad.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtJceBadGoodsDesc.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtJceBadGoodsDesc.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtJceAttendCorrupt.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtJceAttendCorrupt.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtJceDmcNo.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtJceDmcNo.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtEmailDo.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtEmailDo.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtJclPrivi1Desc.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtJclPrivi1Desc.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtJclPrivi2Desc.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtJclPrivi2Desc.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtInsurAtten.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtInsurAtten.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtEmailDo1.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtEmailDo1.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtParent1.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtParent1.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtConYCop1.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtConYCop1.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtConYCop1Addr.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtConYCop1Addr.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtConYCop1TimeOpen.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtConYCop1TimeOpen.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtConYCop1TimeOpenOver.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtConYCop1TimeOpenOver.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtConYCop2.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtConYCop2.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtConYCop2Addr.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtConYCop2Addr.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtConYCop2TimeOpen.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtConYCop2TimeOpen.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtConYCop2TimeOpenOver.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtConYCop2TimeOpenOver.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtConYCop3.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtConYCop3.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtConYCop3Addr.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtConYCop3Addr.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtConYCop3TimeOpen.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtConYCop3TimeOpen.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtConYCop3TimeOpenOver.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtConYCop3TimeOpenOver.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtConYCop4.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtConYCop4.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtConYCop4Addr.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtConYCop4Addr.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtConYCop4TimeOpen.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtConYCop4TimeOpen.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtConYCop4TimeOpenOver.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtConYCop4TimeOpenOver.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtJceQtyOpenGoods.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtJceQtyOpenGoods.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtJceQtyLayoutBad.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtJceQtyLayoutBad.Enter += new System.EventHandler(this.textBox_Enter);
         }
         private void textBox_Enter(object sender, EventArgs e)
         {
@@ -1602,7 +1836,207 @@ namespace Xtrim_ERP.gui
         {
             txtInsrNameT.Value = insr.cust_name_t;
         }
+        private void setKeyUpF2DeliImp()
+        {
+            Point pp = txtDeliImporter.Location;
+            pp.Y = pp.Y + 120;
+            pp.X = pp.X - 20;
 
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Importer, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2DeliImp1(xC.sImp);
+        }
+        private void setKeyUpF2DeliImp1(Customer imp)
+        {
+            txtDeliImporter.Value = imp.cust_name_t;
+            txtDeliImporterAddr.Value = imp.taddr1 + Environment.NewLine + imp.taddr2 + Environment.NewLine + imp.taddr3 + Environment.NewLine + imp.taddr4 + Environment.NewLine + imp.cust_code + Environment.NewLine + imp.remark;
+        }
+        private void setKeyUpF2DeliTrkCop()
+        {
+            Point pp = txtDeliTruckCop.Location;
+            pp.Y = pp.Y + 120;
+            pp.X = pp.X - 20;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.TruckCop, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2DeliTrkCop1(xC.sTrkCop);
+        }
+        private void setKeyUpF2DeliTrkCop1(Customer trk)
+        {
+            txtDeliTruckCop.Value = trk.cust_name_t;
+        }
+        private void setKeyUpF2DeliPlaceAddr()
+        {
+            Point pp = txtDeliPlaceAddr.Location;
+            pp.Y = pp.Y + 140;
+            pp.X = pp.X + 240;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.AddressPlaceAddr, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2DeliPlaceAddr1(xC.sAddr);
+        }
+        private void setKeyUpF2DeliPlaceAddr1(Address addr)
+        {
+            txtDeliPlaceAddr.Value = addr.address_name+" "+addr.line_t1;
+        }
+        private void setKeyUpF2DeliContainerYard()
+        {
+            Point pp = txtDeliContainYardNameT.Location;
+            pp.Y = pp.Y + 140;
+            pp.X = pp.X + 240;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.AddressPlaceAddr, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2DeliContainerYard1(xC.sAddr);
+        }
+        private void setKeyUpF2DeliContainerYard1(Address addr)
+        {
+            txtDeliContainYardNameT.Value = addr.address_name + " " + addr.line_t1;
+        }
+        private void setKeyUpF2ConYCop1()
+        {
+            Point pp = txtConYCop1.Location;
+            pp.Y = pp.Y + 150;
+            pp.X = pp.X + 280;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.ContainerYard, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2ConYCop11(xC.sConY, xC.sAddr);
+        }
+        private void setKeyUpF2ConYCop11(Customer conY, Address addr)
+        {
+            String txt = "",txt1="",addrname="";
+            txt = conY.taddr1 + Environment.NewLine;
+            if(!conY.taddr2.Equals("")) txt += conY.taddr2 + Environment.NewLine;
+            if (!conY.taddr3.Equals("")) txt += conY.taddr3 + Environment.NewLine;
+            if (!conY.taddr4.Equals("")) txt += conY.taddr4 + Environment.NewLine;
+            if (!conY.cust_code.Equals("")) txt += conY.cust_code + Environment.NewLine;
+            if (!conY.remark.Equals("")) txt += conY.remark + Environment.NewLine;
+            if (!conY.tele.Equals("")) txt += conY.tele + Environment.NewLine;
+            //if (!conY.t.Equals("")) txt += conY.tele + Environment.NewLine;
+            txtConYCop1.Value = conY.cust_name_t;
+            txtConYCop1Addr.Value = txt;
+            cony1id = xC.sConY.cust_id;
+
+            if (addr == null) return;
+
+            addrname = addr.address_name.Equals("") ? "ชื่อลานคืนตู้ ไม่ได้ระบุ" : addr.address_name;
+            if (!addrname.Equals("")) txt1 = addrname + Environment.NewLine;
+            if (!addr.time_open_close.Equals("")) txt1 += "เวลาเปิด-ปิด "+addr.time_open_close + Environment.NewLine;
+            if (!addr.contact_name1.Equals("")) txt1 += "ชื่อผู้ติดต่อ1 "+addr.contact_name1 + Environment.NewLine;
+            if (!addr.contact_name_tel1.Equals("")) txt1 += "เบอร์ "+addr.contact_name_tel1 + Environment.NewLine;
+            txtConYCop1TimeOpen.Value = txt1;
+            txtConYCop1TimeOpenOver.Value = addr.time_open_close_over_time +"[" +addr.rate_over_time+ "] ชื่อผู้ติดต่อ2 " + addr.contact_name2+ " เบอร์ " + addr.contact_name_tel2;
+            
+        }
+        private void setKeyUpF2ConYCop2()
+        {
+            Point pp = txtConYCop2.Location;
+            pp.Y = pp.Y + 150;
+            pp.X = pp.X + 280;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.ContainerYard, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2ConYCop21(xC.sConY, xC.sAddr);
+        }
+        private void setKeyUpF2ConYCop21(Customer conY, Address addr)
+        {
+            String txt = "", txt1 = "", addrname = "";
+            txt = conY.taddr1 + Environment.NewLine;
+            if (!conY.taddr2.Equals("")) txt += conY.taddr2 + Environment.NewLine;
+            if (!conY.taddr3.Equals("")) txt += conY.taddr3 + Environment.NewLine;
+            if (!conY.taddr4.Equals("")) txt += conY.taddr4 + Environment.NewLine;
+            if (!conY.cust_code.Equals("")) txt += conY.cust_code + Environment.NewLine;
+            if (!conY.remark.Equals("")) txt += conY.remark + Environment.NewLine;
+            if (!conY.tele.Equals("")) txt += conY.tele + Environment.NewLine;
+            //if (!conY.t.Equals("")) txt += conY.tele + Environment.NewLine;
+            txtConYCop2.Value = conY.cust_name_t;
+            txtConYCop2Addr.Value = txt;
+            cony1id = xC.sConY.cust_id;
+
+            if (addr == null) return;
+
+            addrname = addr.address_name.Equals("") ? "ชื่อลานคืนตู้ ไม่ได้ระบุ" : addr.address_name;
+            if (!addrname.Equals("")) txt1 = addrname + Environment.NewLine;
+            if (!addr.time_open_close.Equals("")) txt1 += "เวลาเปิด-ปิด " + addr.time_open_close + Environment.NewLine;
+            if (!addr.contact_name1.Equals("")) txt1 += "ชื่อผู้ติดต่อ1 " + addr.contact_name1 + Environment.NewLine;
+            if (!addr.contact_name_tel1.Equals("")) txt1 += "เบอร์ " + addr.contact_name_tel1 + Environment.NewLine;
+            txtConYCop2TimeOpen.Value = txt1;
+            txtConYCop2TimeOpenOver.Value = addr.time_open_close_over_time + "[" + addr.rate_over_time + "] ชื่อผู้ติดต่อ2 " + addr.contact_name2 + " เบอร์ " + addr.contact_name_tel2;
+
+        }
+        private void setKeyUpF2ConYCop3()
+        {
+            Point pp = txtConYCop3.Location;
+            pp.Y = pp.Y + 150;
+            pp.X = pp.X + 280;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.ContainerYard, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2ConYCop31(xC.sConY, xC.sAddr);
+        }
+        private void setKeyUpF2ConYCop31(Customer conY, Address addr)
+        {
+            String txt = "", txt1 = "", addrname = "";
+            txt = conY.taddr1 + Environment.NewLine;
+            if (!conY.taddr2.Equals("")) txt += conY.taddr2 + Environment.NewLine;
+            if (!conY.taddr3.Equals("")) txt += conY.taddr3 + Environment.NewLine;
+            if (!conY.taddr4.Equals("")) txt += conY.taddr4 + Environment.NewLine;
+            if (!conY.cust_code.Equals("")) txt += conY.cust_code + Environment.NewLine;
+            if (!conY.remark.Equals("")) txt += conY.remark + Environment.NewLine;
+            if (!conY.tele.Equals("")) txt += conY.tele + Environment.NewLine;
+            //if (!conY.t.Equals("")) txt += conY.tele + Environment.NewLine;
+            txtConYCop3.Value = conY.cust_name_t;
+            txtConYCop3Addr.Value = txt;
+            cony1id = xC.sConY.cust_id;
+
+            if (addr == null) return;
+
+            addrname = addr.address_name.Equals("") ? "ชื่อลานคืนตู้ ไม่ได้ระบุ" : addr.address_name;
+            if (!addrname.Equals("")) txt1 = addrname + Environment.NewLine;
+            if (!addr.time_open_close.Equals("")) txt1 += "เวลาเปิด-ปิด " + addr.time_open_close + Environment.NewLine;
+            if (!addr.contact_name1.Equals("")) txt1 += "ชื่อผู้ติดต่อ1 " + addr.contact_name1 + Environment.NewLine;
+            if (!addr.contact_name_tel1.Equals("")) txt1 += "เบอร์ " + addr.contact_name_tel1 + Environment.NewLine;
+            txtConYCop3TimeOpen.Value = txt1;
+            txtConYCop3TimeOpenOver.Value = addr.time_open_close_over_time + "[" + addr.rate_over_time + "] ชื่อผู้ติดต่อ2 " + addr.contact_name2 + " เบอร์ " + addr.contact_name_tel2;
+
+        }
+        private void setKeyUpF2ConYCop4()
+        {
+            Point pp = txtConYCop4.Location;
+            pp.Y = pp.Y + 150;
+            pp.X = pp.X + 280;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.ContainerYard, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2ConYCop41(xC.sConY, xC.sAddr);
+        }
+        private void setKeyUpF2ConYCop41(Customer conY, Address addr)
+        {
+            String txt = "", txt1 = "", addrname = "";
+            txt = conY.taddr1 + Environment.NewLine;
+            if (!conY.taddr2.Equals("")) txt += conY.taddr2 + Environment.NewLine;
+            if (!conY.taddr3.Equals("")) txt += conY.taddr3 + Environment.NewLine;
+            if (!conY.taddr4.Equals("")) txt += conY.taddr4 + Environment.NewLine;
+            if (!conY.cust_code.Equals("")) txt += conY.cust_code + Environment.NewLine;
+            if (!conY.remark.Equals("")) txt += conY.remark + Environment.NewLine;
+            if (!conY.tele.Equals("")) txt += conY.tele + Environment.NewLine;
+            //if (!conY.t.Equals("")) txt += conY.tele + Environment.NewLine;
+            txtConYCop4.Value = conY.cust_name_t;
+            txtConYCop4Addr.Value = txt;
+            cony1id = xC.sConY.cust_id;
+
+            if (addr == null) return;
+
+            addrname = addr.address_name.Equals("") ? "ชื่อลานคืนตู้ ไม่ได้ระบุ" : addr.address_name;
+            if (!addrname.Equals("")) txt1 = addrname + Environment.NewLine;
+            if (!addr.time_open_close.Equals("")) txt1 += "เวลาเปิด-ปิด " + addr.time_open_close + Environment.NewLine;
+            if (!addr.contact_name1.Equals("")) txt1 += "ชื่อผู้ติดต่อ1 " + addr.contact_name1 + Environment.NewLine;
+            if (!addr.contact_name_tel1.Equals("")) txt1 += "เบอร์ " + addr.contact_name_tel1 + Environment.NewLine;
+            txtConYCop4TimeOpen.Value = txt1;
+            txtConYCop4TimeOpenOver.Value = addr.time_open_close_over_time + "[" + addr.rate_over_time + "] ชื่อผู้ติดต่อ2 " + addr.contact_name2 + " เบอร์ " + addr.contact_name_tel2;
+
+        }
         private void setKeyEnterPol()
         {
             if (txtPolNameT.Text.Length >= 2)
@@ -1708,6 +2142,132 @@ namespace Xtrim_ERP.gui
                 else if (dt.Rows.Count > 1)
                 {
                     setKeyUpF2Imp();
+                }
+            }
+        }
+        private void setKeyEnterDeliImp()
+        {
+            if (txtDeliImporter.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.cusDB.selectImpIdByCodeLike(txtDeliImporter.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sImp = new Customer();
+                    xC.sImp = xC.xtDB.cusDB.setCustomer(dt);
+                    setKeyUpF2DeliImp1(xC.sImp);
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2DeliImp();
+                }
+            }
+        }
+        private void setKeyEnterDeliPlaceAddr()
+        {
+            if (txtDeliPlaceAddr.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.addrDB.selectByCodeLike(txtDeliPlaceAddr.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sAddr = new Address();
+                    xC.sAddr = xC.xtDB.addrDB.setAddress(dt);
+                    setKeyUpF2DeliPlaceAddr1(xC.sAddr);
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2DeliPlaceAddr();
+                }
+            }
+        }
+        private void setKeyEnterDeliContainerYard()
+        {
+            if (txtDeliContainYardNameT.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.addrDB.selectByCodeLike(txtDeliContainYardNameT.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sAddr = new Address();
+                    xC.sAddr = xC.xtDB.addrDB.setAddress(dt);
+                    setKeyUpF2DeliContainerYard1(xC.sAddr);
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2DeliContainerYard();
+                }
+            }
+        }
+        private void setKeyEnterConY1()
+        {
+            if (txtConYCop1.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.cusDB.selectByCodeLike(txtConYCop1.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sConY = new Customer();
+                    xC.sConY = xC.xtDB.cusDB.setCustomer(dt);
+                    setKeyUpF2ConYCop11(xC.sConY, null);
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2ConYCop1();
+                }
+            }
+        }
+        private void setKeyEnterConY2()
+        {
+            if (txtConYCop2.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.cusDB.selectByCodeLike(txtConYCop2.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sConY = new Customer();
+                    xC.sConY = xC.xtDB.cusDB.setCustomer(dt);
+                    setKeyUpF2ConYCop21(xC.sConY, null);
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2ConYCop2();
+                }
+            }
+        }
+        private void setKeyEnterConY3()
+        {
+            if (txtConYCop2.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.cusDB.selectByCodeLike(txtConYCop3.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sConY = new Customer();
+                    xC.sConY = xC.xtDB.cusDB.setCustomer(dt);
+                    setKeyUpF2ConYCop31(xC.sConY, null);
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2ConYCop3();
+                }
+            }
+        }
+        private void setKeyEnterConY4()
+        {
+            if (txtConYCop2.Text.Length >= 2)
+            {
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.cusDB.selectByCodeLike(txtConYCop4.Text);
+                if (dt.Rows.Count == 1)
+                {
+                    xC.sConY = new Customer();
+                    xC.sConY = xC.xtDB.cusDB.setCustomer(dt);
+                    setKeyUpF2ConYCop41(xC.sConY, null);
+                }
+                else if (dt.Rows.Count > 1)
+                {
+                    setKeyUpF2ConYCop4();
                 }
             }
         }
@@ -1835,7 +2395,7 @@ namespace Xtrim_ERP.gui
                 {
                     xC.sInsr = new Customer();
                     xC.sInsr = xC.xtDB.cusDB.setCustomer(dt);
-                    setKeyUpF2Curr1(xC.sCurr);
+                    setKeyUpF2Insr1(xC.sInsr);
                 }
                 else if (dt.Rows.Count > 1)
                 {
@@ -1931,6 +2491,38 @@ namespace Xtrim_ERP.gui
                 {
                     setKeyUpF2Insr();
                 }
+                else if (sender.Equals(txtDeliImporter))
+                {
+                    setKeyUpF2DeliImp();
+                }
+                else if (sender.Equals(txtDeliTruckCop))
+                {
+                    setKeyUpF2DeliTrkCop();
+                }
+                else if (sender.Equals(txtDeliPlaceAddr))
+                {
+                    setKeyUpF2DeliPlaceAddr();
+                }
+                else if (sender.Equals(txtDeliContainYardNameT))
+                {
+                    setKeyUpF2DeliContainerYard();
+                }
+                else if (sender.Equals(txtConYCop1))
+                {
+                    setKeyUpF2ConYCop1();
+                }
+                else if (sender.Equals(txtConYCop2))
+                {
+                    setKeyUpF2ConYCop2();
+                }
+                else if (sender.Equals(txtConYCop3))
+                {
+                    setKeyUpF2ConYCop3();
+                }
+                else if (sender.Equals(txtConYCop4))
+                {
+                    setKeyUpF2ConYCop4();
+                }
             }
             else if (e.KeyCode == Keys.Enter)
             {
@@ -1991,7 +2583,35 @@ namespace Xtrim_ERP.gui
                 }
                 else if (sender.Equals(txtInsrNameT))
                 {
-                    setKeyEnterCurr();
+                    setKeyEnterInsr();
+                }
+                else if (sender.Equals(txtDeliImporter))
+                {
+                    setKeyEnterDeliImp();
+                }
+                else if (sender.Equals(txtDeliPlaceAddr))
+                {
+                    setKeyEnterDeliPlaceAddr();
+                }
+                else if (sender.Equals(txtDeliContainYardNameT))
+                {
+                    setKeyEnterDeliContainerYard();
+                }
+                else if (sender.Equals(txtConYCop1))
+                {
+                    setKeyEnterConY1();
+                }
+                else if (sender.Equals(txtConYCop2))
+                {
+                    setKeyEnterConY2();
+                }
+                else if (sender.Equals(txtConYCop3))
+                {
+                    setKeyEnterConY3();
+                }
+                else if (sender.Equals(txtConYCop4))
+                {
+                    setKeyEnterConY4();
                 }
             }
         }
@@ -2152,7 +2772,45 @@ namespace Xtrim_ERP.gui
                 txtDeliContainYardNameT.Value = "";
             }
             calContainer();
-            setGrfJdc();            
+            setGrfJdc();
+
+            Customer conY = new Customer();
+            if (!jim.container_yard1_id.Equals(""))
+            {
+                conY = xC.xtDB.cusDB.selectByPk1(jim.container_yard1_id);
+                setKeyUpF2ConYCop11(conY, null);
+                txtConYCop1Addr.Value = jim.container_yard1_addr;
+                txtConYCop1TimeOpen.Value = jim.time_open_close1;
+                txtConYCop1TimeOpenOver.Value = jim.time_open_close_over_time1;
+                chkConY1Tax.Checked = jim.status_container_yard1_tax.Equals("1") ? true : false;
+            }
+            if (!jim.container_yard2_id.Equals(""))
+            {
+                conY = xC.xtDB.cusDB.selectByPk1(jim.container_yard2_id);
+                setKeyUpF2ConYCop11(conY, null);
+                txtConYCop2Addr.Value = jim.container_yard2_addr;
+                txtConYCop2TimeOpen.Value = jim.time_open_close2;
+                txtConYCop2TimeOpenOver.Value = jim.time_open_close_over_time2;
+                chkConY2Tax.Checked = jim.status_container_yard2_tax.Equals("1") ? true : false;
+            }
+            if (!jim.container_yard3_id.Equals(""))
+            {
+                conY = xC.xtDB.cusDB.selectByPk1(jim.container_yard3_id);
+                setKeyUpF2ConYCop11(conY, null);
+                txtConYCop3Addr.Value = jim.container_yard3_addr;
+                txtConYCop3TimeOpen.Value = jim.time_open_close3;
+                txtConYCop3TimeOpenOver.Value = jim.time_open_close_over_time3;
+                chkConY3Tax.Checked = jim.status_container_yard3_tax.Equals("1") ? true : false;
+            }
+            if (!jim.container_yard4_id.Equals(""))
+            {
+                conY = xC.xtDB.cusDB.selectByPk1(jim.container_yard4_id);
+                setKeyUpF2ConYCop11(conY, null);
+                txtConYCop4Addr.Value = jim.container_yard4_addr;
+                txtConYCop4TimeOpen.Value = jim.time_open_close4;
+                txtConYCop4TimeOpenOver.Value = jim.time_open_close_over_time4;
+                chkConY4Tax.Checked = jim.status_container_yard4_tax.Equals("1") ? true : false;
+            }
         }
         private void setControlJcl()
         {
@@ -2217,6 +2875,40 @@ namespace Xtrim_ERP.gui
             txtJceCustomDate.Value = jce.custom_date;
             txtJceTransportDate.Value = jce.transport_date;
 
+        }
+        private Boolean setJobImportContainYard()
+        {
+            Boolean chk = false;
+            
+            Customer cony = new Customer();
+            
+            jConY.job_import_id = txtID.Text;
+            jConY.container_yard1_id = cony1id;
+            jConY.container_yard2_id = cony2id;
+            jConY.container_yard3_id = cony3id;
+            jConY.container_yard4_id = cony4id;
+            jConY.container_yard5_id = "";
+            jConY.container_yard1_addr = txtConYCop1Addr.Text;
+            jConY.container_yard2_addr = txtConYCop2Addr.Text;
+            jConY.container_yard3_addr = txtConYCop3Addr.Text;
+            jConY.container_yard4_addr = txtConYCop4Addr.Text;
+            jConY.container_yard5_addr = "";
+            jConY.time_open_close1 = txtConYCop1TimeOpen.Text;
+            jConY.time_open_close2 = txtConYCop2TimeOpen.Text;
+            jConY.time_open_close3 = txtConYCop3TimeOpen.Text;
+            jConY.time_open_close4 = txtConYCop4TimeOpen.Text;
+            jConY.time_open_close5 = "";
+            jConY.time_open_close_over_time1 = txtConYCop1TimeOpenOver.Text;
+            jConY.time_open_close_over_time2 = txtConYCop2TimeOpenOver.Text;
+            jConY.time_open_close_over_time3 = txtConYCop3TimeOpenOver.Text;
+            jConY.time_open_close_over_time4 = txtConYCop4TimeOpenOver.Text;
+            jConY.time_open_close_over_time5 = "";
+            jConY.status_container_yard1_tax = chkConY1Tax.Checked ? "1" : "0";
+            jConY.status_container_yard2_tax = chkConY2Tax.Checked ? "1" : "0";
+            jConY.status_container_yard3_tax = chkConY3Tax.Checked ? "1" : "0";
+            jConY.status_container_yard4_tax = chkConY4Tax.Checked ? "1" : "0";
+
+            return chk;
         }
         private Boolean setJobImportCheckList()
         {
@@ -2299,7 +2991,6 @@ namespace Xtrim_ERP.gui
             jce.custom_date = xC.datetoDB(txtJceCustomDate.Text);
 
             return chk;
-
         }
         private Boolean setJobImport()
         {

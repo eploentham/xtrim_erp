@@ -78,5 +78,31 @@ namespace Xtrim_ERP.object1
 
         public String imp_date { get; set; }
         public String bl { get; set; }
+
+        public String container_yard1_id { get; set; }
+        public String container_yard2_id { get; set; }
+        public String container_yard3_id { get; set; }
+        public String container_yard4_id { get; set; }
+        public String container_yard5_id { get; set; }
+        public String container_yard1_addr { get; set; }
+        public String container_yard2_addr { get; set; }
+        public String container_yard3_addr { get; set; }
+        public String container_yard4_addr { get; set; }
+        public String container_yard5_addr { get; set; }
+        public String time_open_close1 { get; set; }
+        public String time_open_close2 { get; set; }
+        public String time_open_close3 { get; set; }
+        public String time_open_close4 { get; set; }
+        public String time_open_close5 { get; set; }
+        public String time_open_close_over_time1 { get; set; }
+        public String time_open_close_over_time2 { get; set; }
+        public String time_open_close_over_time3 { get; set; }
+        public String time_open_close_over_time4 { get; set; }
+        public String time_open_close_over_time5 { get; set; }
+        public String status_container_yard1_tax { get; set; }
+        public String status_container_yard2_tax { get; set; }
+        public String status_container_yard3_tax { get; set; }
+        public String status_container_yard4_tax { get; set; }
+        public String status_container_yard5_tax { get; set; }
     }
 }

@@ -34,6 +34,8 @@ namespace Xtrim_ERP.control
         public Customer sImp;
         public Customer sFwd;
         public Customer sInsr;
+        public Customer sTrkCop;
+        public Customer sConY;
         public EntryType sEtt;
         public PortOfLoading sPol;
         public Privilege sPvl;
@@ -46,6 +48,7 @@ namespace Xtrim_ERP.control
         public TermPayment sTpm;
         public Currency sCurr;
         public Truck sTrk;
+        public Address sAddr;
 
         public Terminal sTmn;
         public LogFile lf;
@@ -107,6 +110,9 @@ namespace Xtrim_ERP.control
             sTpm = new TermPayment();
             sInsr = new Customer();
             sCurr = new Currency();
+            sTrkCop = new Customer();
+            sAddr = new Address();
+            sConY = new Customer();
 
             cTxtFocus = ColorTranslator.FromHtml(iniC.txtFocus);
             regEmail = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
