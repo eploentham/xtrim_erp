@@ -16,5 +16,10 @@ namespace Xtrim_ERP.gui
         {
             InitializeComponent();
         }
+
+        private void FrmJobImpExpn_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

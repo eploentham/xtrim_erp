@@ -35,6 +35,7 @@
             this.menuImpJobView = new System.Windows.Forms.ToolStripMenuItem();
             this.menuImpJobAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.menuTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuEmail = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExpJob = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,13 +60,18 @@
             this.ขอมลTerminalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ขอมลPortOfLoadingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ขอมลPrivilegesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ขอมลคาใชจายToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExpnType = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExpnCat = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExpnGrp = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExpense = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuConvertData = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFormTest = new System.Windows.Forms.ToolStripMenuItem();
             this.tCC1 = new C1.Win.C1Command.C1CommandDock();
             this.tC1 = new C1.Win.C1Command.C1DockingTab();
             this.PageS = new C1.Win.C1Command.C1DockingTabPage();
-            this.menuEmail = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuMethodPay = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tCC1)).BeginInit();
@@ -132,6 +138,12 @@
             this.menuTest.Size = new System.Drawing.Size(181, 22);
             this.menuTest.Text = "TestMenu";
             // 
+            // menuEmail
+            // 
+            this.menuEmail.Name = "menuEmail";
+            this.menuEmail.Size = new System.Drawing.Size(181, 22);
+            this.menuEmail.Text = "Test Compose Email";
+            // 
             // menuExpJob
             // 
             this.menuExpJob.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -194,6 +206,7 @@
             this.ขอมลTerminalToolStripMenuItem,
             this.ขอมลPortOfLoadingToolStripMenuItem,
             this.ขอมลPrivilegesToolStripMenuItem,
+            this.ขอมลคาใชจายToolStripMenuItem,
             this.toolStripSeparator3,
             this.menuConvertData,
             this.menuFormTest});
@@ -301,6 +314,42 @@
             this.ขอมลPrivilegesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.ขอมลPrivilegesToolStripMenuItem.Text = "ข้อมูล Privileges";
             // 
+            // ขอมลคาใชจายToolStripMenuItem
+            // 
+            this.ขอมลคาใชจายToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuExpnType,
+            this.menuExpnCat,
+            this.menuExpnGrp,
+            this.menuMethodPay,
+            this.menuExpense});
+            this.ขอมลคาใชจายToolStripMenuItem.Name = "ขอมลคาใชจายToolStripMenuItem";
+            this.ขอมลคาใชจายToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.ขอมลคาใชจายToolStripMenuItem.Text = "ข้อมูลค่าใช้จ่าย";
+            // 
+            // menuExpnType
+            // 
+            this.menuExpnType.Name = "menuExpnType";
+            this.menuExpnType.Size = new System.Drawing.Size(180, 22);
+            this.menuExpnType.Text = "ประเภท ค่าใช้จ่าย";
+            // 
+            // menuExpnCat
+            // 
+            this.menuExpnCat.Name = "menuExpnCat";
+            this.menuExpnCat.Size = new System.Drawing.Size(180, 22);
+            this.menuExpnCat.Text = "หมวด ค่าใช้จ่าย";
+            // 
+            // menuExpnGrp
+            // 
+            this.menuExpnGrp.Name = "menuExpnGrp";
+            this.menuExpnGrp.Size = new System.Drawing.Size(180, 22);
+            this.menuExpnGrp.Text = "กลุ่ม ค่าใช้จ่าย";
+            // 
+            // menuExpense
+            // 
+            this.menuExpense.Name = "menuExpense";
+            this.menuExpense.Size = new System.Drawing.Size(180, 22);
+            this.menuExpense.Text = "รายการ ค่าใช้จ่าย";
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
@@ -362,11 +411,11 @@
             this.PageS.TabIndex = 0;
             this.PageS.Text = "Start Page";
             // 
-            // menuEmail
+            // menuMethodPay
             // 
-            this.menuEmail.Name = "menuEmail";
-            this.menuEmail.Size = new System.Drawing.Size(181, 22);
-            this.menuEmail.Text = "Test Compose Email";
+            this.menuMethodPay.Name = "menuMethodPay";
+            this.menuMethodPay.Size = new System.Drawing.Size(180, 22);
+            this.menuMethodPay.Text = "วิธีการจ่ายเงิน";
             // 
             // MainMenu4
             // 
@@ -431,5 +480,11 @@
         private C1.Win.C1Command.C1DockingTab tC1;
         private C1.Win.C1Command.C1DockingTabPage PageS;
         private System.Windows.Forms.ToolStripMenuItem menuEmail;
+        private System.Windows.Forms.ToolStripMenuItem ขอมลคาใชจายToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuExpnType;
+        private System.Windows.Forms.ToolStripMenuItem menuExpnCat;
+        private System.Windows.Forms.ToolStripMenuItem menuExpense;
+        private System.Windows.Forms.ToolStripMenuItem menuExpnGrp;
+        private System.Windows.Forms.ToolStripMenuItem menuMethodPay;
     }
 }

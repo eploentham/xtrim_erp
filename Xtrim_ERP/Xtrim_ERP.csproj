@@ -224,6 +224,30 @@
     <Compile Include="gui\FrmDepartmentS.Designer.cs">
       <DependentUpon>FrmDepartmentS.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmExpense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmExpense.Designer.cs">
+      <DependentUpon>FrmExpense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmExpenseCat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmExpenseCat.Designer.cs">
+      <DependentUpon>FrmExpenseCat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmExpenseGrp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmExpenseGrp.Designer.cs">
+      <DependentUpon>FrmExpenseGrp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmExpenseType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmExpenseType.Designer.cs">
+      <DependentUpon>FrmExpenseType.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmJobImpCheckListExp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,6 +331,12 @@
     </Compile>
     <Compile Include="gui\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmMethodPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmMethodPayment.Designer.cs">
+      <DependentUpon>FrmMethodPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmPasswordConfirm.cs">
       <SubType>Form</SubType>
@@ -406,7 +436,10 @@
     <Compile Include="objdb\CustomerRemarkDB.cs" />
     <Compile Include="objdb\CustomerTaxInvoiceDB.cs" />
     <Compile Include="objdb\DocTypeDB.cs" />
+    <Compile Include="objdb\ExpensesCatDB.cs" />
     <Compile Include="objdb\ExpensesDB.cs" />
+    <Compile Include="objdb\ExpensesGrpDB.cs" />
+    <Compile Include="objdb\ExpensesTypeDB.cs" />
     <Compile Include="objdb\ImporterTypeDB.cs" />
     <Compile Include="objdb\JobImportCheckExamDB.cs" />
     <Compile Include="objdb\JobImportCheckListDB.cs" />
@@ -454,7 +487,10 @@
     <Compile Include="object1\CustomerRemark.cs" />
     <Compile Include="object1\CustomerTaxInvoice.cs" />
     <Compile Include="object1\DocType.cs" />
+    <Compile Include="object1\ExpensesCat.cs" />
     <Compile Include="object1\Expenses.cs" />
+    <Compile Include="object1\ExpensesGrp.cs" />
+    <Compile Include="object1\ExpensesType.cs" />
     <Compile Include="object1\FilterRow.cs" />
     <Compile Include="gui\FrmSearch.cs">
       <SubType>Form</SubType>
@@ -649,6 +685,18 @@
     <EmbeddedResource Include="gui\FrmDepartmentS.resx">
       <DependentUpon>FrmDepartmentS.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmExpense.resx">
+      <DependentUpon>FrmExpense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmExpenseCat.resx">
+      <DependentUpon>FrmExpenseCat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmExpenseGrp.resx">
+      <DependentUpon>FrmExpenseGrp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmExpenseType.resx">
+      <DependentUpon>FrmExpenseType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmImportData.resx">
       <DependentUpon>FrmImportData.cs</DependentUpon>
     </EmbeddedResource>
@@ -690,6 +738,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmMethodPayment.resx">
+      <DependentUpon>FrmMethodPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmPosition.resx">
       <DependentUpon>FrmPosition.cs</DependentUpon>

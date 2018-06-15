@@ -58,6 +58,9 @@ namespace Xtrim_ERP.objdb
         public JobImportDeliveryDB jdvDB;
         public TruckDB trkDB;
         public JobImportContainerDB jcnDB;
+        public ExpensesCatDB expncDB;
+        public ExpensesTypeDB expntDB;
+        public ExpensesGrpDB expngDB;
 
         public MeiosysDB mioDB;
 
@@ -119,6 +122,9 @@ namespace Xtrim_ERP.objdb
             jcnDB = new JobImportContainerDB(conn);
 
             trkDB = new TruckDB(conn);
+            expncDB = new ExpensesCatDB(conn);
+            expntDB = new ExpensesTypeDB(conn);
+            expngDB = new ExpensesGrpDB(conn);
         }
     }
 }

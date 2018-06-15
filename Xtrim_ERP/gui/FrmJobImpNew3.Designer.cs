@@ -191,8 +191,10 @@
             this.label45 = new System.Windows.Forms.Label();
             this.tabContainerYard = new C1.Win.C1Command.C1DockingTabPage();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.gBConY = new System.Windows.Forms.GroupBox();
             this.btnConySave = new C1.Win.C1Input.C1Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.chkConY4Tax = new C1.Win.C1Input.C1CheckBox();
             this.label102 = new System.Windows.Forms.Label();
             this.txtConYCop4TimeOpenOver = new C1.Win.C1Input.C1TextBox();
             this.label103 = new System.Windows.Forms.Label();
@@ -202,6 +204,7 @@
             this.label104 = new System.Windows.Forms.Label();
             this.txtConYCop4 = new C1.Win.C1Input.C1TextBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.chkConY3Tax = new C1.Win.C1Input.C1CheckBox();
             this.label99 = new System.Windows.Forms.Label();
             this.txtConYCop3TimeOpenOver = new C1.Win.C1Input.C1TextBox();
             this.label100 = new System.Windows.Forms.Label();
@@ -211,6 +214,7 @@
             this.label101 = new System.Windows.Forms.Label();
             this.txtConYCop3 = new C1.Win.C1Input.C1TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.chkConY2Tax = new C1.Win.C1Input.C1CheckBox();
             this.label94 = new System.Windows.Forms.Label();
             this.txtConYCop2TimeOpenOver = new C1.Win.C1Input.C1TextBox();
             this.label97 = new System.Windows.Forms.Label();
@@ -220,6 +224,7 @@
             this.label98 = new System.Windows.Forms.Label();
             this.txtConYCop2 = new C1.Win.C1Input.C1TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.chkConY1Tax = new C1.Win.C1Input.C1CheckBox();
             this.label96 = new System.Windows.Forms.Label();
             this.txtConYCop1TimeOpenOver = new C1.Win.C1Input.C1TextBox();
             this.label95 = new System.Windows.Forms.Label();
@@ -413,11 +418,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cDMain = new C1.Win.C1Command.C1CommandDock();
-            this.gBConY = new System.Windows.Forms.GroupBox();
-            this.chkConY1Tax = new C1.Win.C1Input.C1CheckBox();
-            this.chkConY2Tax = new C1.Win.C1Input.C1CheckBox();
-            this.chkConY3Tax = new C1.Win.C1Input.C1CheckBox();
-            this.chkConY4Tax = new C1.Win.C1Input.C1CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -518,24 +518,28 @@
             this.panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnConySave)).BeginInit();
             this.groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkConY4Tax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop4TimeOpenOver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop4TimeOpen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop4Addr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button27)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop4)).BeginInit();
             this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkConY3Tax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop3TimeOpenOver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop3TimeOpen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop3Addr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop3)).BeginInit();
             this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkConY2Tax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop2TimeOpenOver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop2TimeOpen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop2Addr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop2)).BeginInit();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkConY1Tax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop1TimeOpenOver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop1TimeOpen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop1Addr)).BeginInit();
@@ -677,10 +681,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJinId)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkConY1Tax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkConY2Tax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkConY3Tax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkConY4Tax)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -3657,6 +3657,18 @@
             this.panel17.TabIndex = 0;
             this.theme1.SetTheme(this.panel17, "(default)");
             // 
+            // gBConY
+            // 
+            this.gBConY.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.gBConY.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.gBConY.Location = new System.Drawing.Point(9, 445);
+            this.gBConY.Name = "gBConY";
+            this.gBConY.Size = new System.Drawing.Size(749, 111);
+            this.gBConY.TabIndex = 1;
+            this.gBConY.TabStop = false;
+            this.gBConY.Text = "File Scan";
+            this.theme1.SetTheme(this.gBConY, "(default)");
+            // 
             // btnConySave
             // 
             this.btnConySave.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
@@ -3691,6 +3703,24 @@
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "CONTAINER YARD 4";
             this.theme1.SetTheme(this.groupBox9, "(default)");
+            // 
+            // chkConY4Tax
+            // 
+            this.chkConY4Tax.BackColor = System.Drawing.Color.Transparent;
+            this.chkConY4Tax.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkConY4Tax.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkConY4Tax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkConY4Tax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkConY4Tax.Location = new System.Drawing.Point(6, 146);
+            this.chkConY4Tax.Name = "chkConY4Tax";
+            this.chkConY4Tax.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkConY4Tax.Size = new System.Drawing.Size(53, 24);
+            this.chkConY4Tax.TabIndex = 499;
+            this.chkConY4Tax.Text = "tax";
+            this.theme1.SetTheme(this.chkConY4Tax, "(default)");
+            this.chkConY4Tax.UseVisualStyleBackColor = true;
+            this.chkConY4Tax.Value = null;
+            this.chkConY4Tax.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label102
             // 
@@ -3819,6 +3849,24 @@
             this.groupBox8.Text = "CONTAINER YARD 3";
             this.theme1.SetTheme(this.groupBox8, "(default)");
             // 
+            // chkConY3Tax
+            // 
+            this.chkConY3Tax.BackColor = System.Drawing.Color.Transparent;
+            this.chkConY3Tax.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkConY3Tax.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkConY3Tax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkConY3Tax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkConY3Tax.Location = new System.Drawing.Point(9, 143);
+            this.chkConY3Tax.Name = "chkConY3Tax";
+            this.chkConY3Tax.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkConY3Tax.Size = new System.Drawing.Size(53, 24);
+            this.chkConY3Tax.TabIndex = 499;
+            this.chkConY3Tax.Text = "tax";
+            this.theme1.SetTheme(this.chkConY3Tax, "(default)");
+            this.chkConY3Tax.UseVisualStyleBackColor = true;
+            this.chkConY3Tax.Value = null;
+            this.chkConY3Tax.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // label99
             // 
             this.label99.AutoSize = true;
@@ -3946,6 +3994,24 @@
             this.groupBox7.Text = "CONTAINER YARD 2";
             this.theme1.SetTheme(this.groupBox7, "(default)");
             // 
+            // chkConY2Tax
+            // 
+            this.chkConY2Tax.BackColor = System.Drawing.Color.Transparent;
+            this.chkConY2Tax.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkConY2Tax.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkConY2Tax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkConY2Tax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkConY2Tax.Location = new System.Drawing.Point(5, 146);
+            this.chkConY2Tax.Name = "chkConY2Tax";
+            this.chkConY2Tax.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkConY2Tax.Size = new System.Drawing.Size(53, 24);
+            this.chkConY2Tax.TabIndex = 499;
+            this.chkConY2Tax.Text = "tax";
+            this.theme1.SetTheme(this.chkConY2Tax, "(default)");
+            this.chkConY2Tax.UseVisualStyleBackColor = true;
+            this.chkConY2Tax.Value = null;
+            this.chkConY2Tax.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // label94
             // 
             this.label94.AutoSize = true;
@@ -4072,6 +4138,24 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "CONTAINER YARD 1";
             this.theme1.SetTheme(this.groupBox6, "(default)");
+            // 
+            // chkConY1Tax
+            // 
+            this.chkConY1Tax.BackColor = System.Drawing.Color.Transparent;
+            this.chkConY1Tax.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkConY1Tax.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkConY1Tax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkConY1Tax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkConY1Tax.Location = new System.Drawing.Point(9, 143);
+            this.chkConY1Tax.Name = "chkConY1Tax";
+            this.chkConY1Tax.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkConY1Tax.Size = new System.Drawing.Size(53, 24);
+            this.chkConY1Tax.TabIndex = 498;
+            this.chkConY1Tax.Text = "tax";
+            this.theme1.SetTheme(this.chkConY1Tax, "(default)");
+            this.chkConY1Tax.UseVisualStyleBackColor = true;
+            this.chkConY1Tax.Value = null;
+            this.chkConY1Tax.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label96
             // 
@@ -6874,90 +6958,6 @@
             this.cDMain.Size = new System.Drawing.Size(267, 718);
             this.theme1.SetTheme(this.cDMain, "(default)");
             // 
-            // gBConY
-            // 
-            this.gBConY.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.gBConY.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.gBConY.Location = new System.Drawing.Point(9, 445);
-            this.gBConY.Name = "gBConY";
-            this.gBConY.Size = new System.Drawing.Size(749, 111);
-            this.gBConY.TabIndex = 1;
-            this.gBConY.TabStop = false;
-            this.gBConY.Text = "File Scan";
-            this.theme1.SetTheme(this.gBConY, "(default)");
-            // 
-            // chkConY1Tax
-            // 
-            this.chkConY1Tax.BackColor = System.Drawing.Color.Transparent;
-            this.chkConY1Tax.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkConY1Tax.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.chkConY1Tax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkConY1Tax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkConY1Tax.Location = new System.Drawing.Point(9, 143);
-            this.chkConY1Tax.Name = "chkConY1Tax";
-            this.chkConY1Tax.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkConY1Tax.Size = new System.Drawing.Size(53, 24);
-            this.chkConY1Tax.TabIndex = 498;
-            this.chkConY1Tax.Text = "tax";
-            this.theme1.SetTheme(this.chkConY1Tax, "(default)");
-            this.chkConY1Tax.UseVisualStyleBackColor = true;
-            this.chkConY1Tax.Value = null;
-            this.chkConY1Tax.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // chkConY2Tax
-            // 
-            this.chkConY2Tax.BackColor = System.Drawing.Color.Transparent;
-            this.chkConY2Tax.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkConY2Tax.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.chkConY2Tax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkConY2Tax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkConY2Tax.Location = new System.Drawing.Point(5, 146);
-            this.chkConY2Tax.Name = "chkConY2Tax";
-            this.chkConY2Tax.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkConY2Tax.Size = new System.Drawing.Size(53, 24);
-            this.chkConY2Tax.TabIndex = 499;
-            this.chkConY2Tax.Text = "tax";
-            this.theme1.SetTheme(this.chkConY2Tax, "(default)");
-            this.chkConY2Tax.UseVisualStyleBackColor = true;
-            this.chkConY2Tax.Value = null;
-            this.chkConY2Tax.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // chkConY3Tax
-            // 
-            this.chkConY3Tax.BackColor = System.Drawing.Color.Transparent;
-            this.chkConY3Tax.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkConY3Tax.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.chkConY3Tax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkConY3Tax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkConY3Tax.Location = new System.Drawing.Point(9, 143);
-            this.chkConY3Tax.Name = "chkConY3Tax";
-            this.chkConY3Tax.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkConY3Tax.Size = new System.Drawing.Size(53, 24);
-            this.chkConY3Tax.TabIndex = 499;
-            this.chkConY3Tax.Text = "tax";
-            this.theme1.SetTheme(this.chkConY3Tax, "(default)");
-            this.chkConY3Tax.UseVisualStyleBackColor = true;
-            this.chkConY3Tax.Value = null;
-            this.chkConY3Tax.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // chkConY4Tax
-            // 
-            this.chkConY4Tax.BackColor = System.Drawing.Color.Transparent;
-            this.chkConY4Tax.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkConY4Tax.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.chkConY4Tax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkConY4Tax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkConY4Tax.Location = new System.Drawing.Point(6, 146);
-            this.chkConY4Tax.Name = "chkConY4Tax";
-            this.chkConY4Tax.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkConY4Tax.Size = new System.Drawing.Size(53, 24);
-            this.chkConY4Tax.TabIndex = 499;
-            this.chkConY4Tax.Text = "tax";
-            this.theme1.SetTheme(this.chkConY4Tax, "(default)");
-            this.chkConY4Tax.UseVisualStyleBackColor = true;
-            this.chkConY4Tax.Value = null;
-            this.chkConY4Tax.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmJobImpNew3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7078,6 +7078,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnConySave)).EndInit();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkConY4Tax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop4TimeOpenOver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop4TimeOpen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop4Addr)).EndInit();
@@ -7085,6 +7086,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop4)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkConY3Tax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop3TimeOpenOver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop3TimeOpen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop3Addr)).EndInit();
@@ -7092,6 +7094,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop3)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkConY2Tax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop2TimeOpenOver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop2TimeOpen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop2Addr)).EndInit();
@@ -7099,6 +7102,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop2)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkConY1Tax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop1TimeOpenOver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop1TimeOpen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConYCop1Addr)).EndInit();
@@ -7246,10 +7250,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJinId)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkConY1Tax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkConY2Tax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkConY3Tax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkConY4Tax)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

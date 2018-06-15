@@ -1,4 +1,5 @@
-﻿using System;
+﻿using C1.Win.C1Input;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -91,7 +92,24 @@ namespace Xtrim_ERP.objdb
             }
             return id;
         }
-        public String insert(MethodPayment p)
+        public void setC1CboMtp(C1ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            if (lMtp.Count <= 0) getlMtp();
+            //DataTable dt = selectWard();
+            foreach (MethodPayment cus1 in lMtp)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.method_payment_id;
+                item.Text = cus1.method_payment_name_t;
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    c.SelectedText = item.Text;
+                }
+            }
+        }
+        public String insert(MethodPayment p, String userId)
         {
             String re = "";
             String sql = "";
@@ -114,7 +132,7 @@ namespace Xtrim_ERP.objdb
                 ") " +
                 "Values ('" + p.method_payment_code + "','" + p.method_payment_name_e.Replace("'", "''") + "','" + p.method_payment_name_t.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
-                "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "'," +
+                "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "' " +
                 ")";
             try
@@ -128,7 +146,7 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String update(MethodPayment p)
+        public String update(MethodPayment p, String userId)
         {
             String re = "";
             String sql = "";
@@ -146,7 +164,7 @@ namespace Xtrim_ERP.objdb
                 "," + mtp.method_payment_name_t + " = '" + p.method_payment_name_t.Replace("'", "''") + "'" +
                 "," + mtp.remark + " = '" + p.remark.Replace("'", "''") + "'" +
                 "," + mtp.date_modi + " = now()" +
-                "," + mtp.user_modi + " = '" + p.user_modi + "' " +
+                "," + mtp.user_modi + " = '" + userId + "' " +
                 "," + mtp.sort1 + " = '" + p.sort1 + "' " +
                 //"," + tmn.status_app + " = '" + p.status_app + "' " +
                 "Where " + mtp.pkField + "='" + p.method_payment_id + "'"
@@ -163,17 +181,17 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String insertMethodPayment(MethodPayment p)
+        public String insertMethodPayment(MethodPayment p, String userId)
         {
             String re = "";
 
             if (p.method_payment_id.Equals(""))
             {
-                re = insert(p);
+                re = insert(p, userId);
             }
             else
             {
-                re = update(p);
+                re = update(p, userId);
             }
 
             return re;

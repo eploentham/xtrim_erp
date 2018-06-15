@@ -92,7 +92,7 @@ namespace Xtrim_ERP.objdb
             }
             return id;
         }
-        public String insert(Expenses p)
+        public String insert(Expenses p, String userId)
         {
             String re = "";
             String sql = "";
@@ -115,7 +115,7 @@ namespace Xtrim_ERP.objdb
                 ") " +
                 "Values ('" + p.expenses_code + "','" + p.expenses_name_e.Replace("'", "''") + "','" + p.expenses_name_t.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
-                "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "'," +
+                "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "' " +
                 ")";
             try
@@ -129,7 +129,7 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String update(Expenses p)
+        public String update(Expenses p, String userId)
         {
             String re = "";
             String sql = "";
@@ -147,7 +147,7 @@ namespace Xtrim_ERP.objdb
                 "," + expn.expenses_name_t + " = '" + p.expenses_name_t.Replace("'", "''") + "'" +
                 "," + expn.remark + " = '" + p.remark.Replace("'", "''") + "'" +
                 "," + expn.date_modi + " = now()" +
-                "," + expn.user_modi + " = '" + p.user_modi + "' " +
+                "," + expn.user_modi + " = '" + userId + "' " +
                 "," + expn.sort1 + " = '" + p.sort1 + "' " +
                 //"," + tmn.status_app + " = '" + p.status_app + "' " +
                 "Where " + expn.pkField + "='" + p.expenses_id + "'"
@@ -164,17 +164,17 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String insertExpnency(Expenses p)
+        public String insertExpnes(Expenses p, String userId)
         {
             String re = "";
 
             if (p.expenses_id.Equals(""))
             {
-                re = insert(p);
+                re = insert(p, userId);
             }
             else
             {
-                re = update(p);
+                re = update(p, userId);
             }
 
             return re;

@@ -49,6 +49,51 @@ namespace Xtrim_ERP.gui
             menuTest.Click += MenuTest_Click;
             menuConvertData.Click += MenuConvertData_Click;
             menuImpJobView.Click += MenuImpJobView_Click;
+            menuExpnType.Click += MenuExpnType_Click;
+            menuExpnCat.Click += MenuExpnCat_Click;
+            menuExpense.Click += MenuExpense_Click;
+            menuExpnGrp.Click += MenuExpnGrp_Click;
+            menuMethodPay.Click += MenuMethodPay_Click;
+        }
+
+        private void MenuMethodPay_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmMethodPayment frm = new FrmMethodPayment(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "วิธีการจ่ายเงิน ");
+        }
+
+        private void MenuExpnGrp_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmExpenseGrp frm = new FrmExpenseGrp(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "กลุ่ม ค่าใช้จ่าย ");
+        }
+
+        private void MenuExpense_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmExpense frm = new FrmExpense(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "รายการ ค่าใช้จ่าย ");
+        }
+
+        private void MenuExpnCat_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmExpenseCat frm = new FrmExpenseCat(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "หมวด ค่าใช้จ่าย ");
+        }
+
+        private void MenuExpnType_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmExpenseType frm = new FrmExpenseType(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "ประเภท ค่าใช้จ่าย ");
         }
 
         private void MenuImpJobView_Click(object sender, EventArgs e)
