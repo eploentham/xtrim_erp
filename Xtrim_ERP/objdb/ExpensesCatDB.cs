@@ -11,7 +11,7 @@ namespace Xtrim_ERP.objdb
 {
     public class ExpensesCatDB
     {
-        public ExpensesCat expC;
+        public ExpensesCat expnC;
         ConnectDB conn;
 
         public List<ExpensesCat> lexpnC;
@@ -22,26 +22,26 @@ namespace Xtrim_ERP.objdb
         }
         private void initConfig()
         {
-            expC = new ExpensesCat();
-            expC.expense_cat_id = "expense_cat_id";
-            expC.expense_cat_code = "expense_cat_code";
-            expC.expense_cat_name_e = "expense_cat_name_e";
-            expC.expense_cat_name_t = "expense_cat_name_t";
+            expnC = new ExpensesCat();
+            expnC.expense_cat_id = "expense_cat_id";
+            expnC.expense_cat_code = "expense_cat_code";
+            expnC.expense_cat_name_e = "expense_cat_name_e";
+            expnC.expense_cat_name_t = "expense_cat_name_t";
             //tmn.status_app = "status_app";
-            expC.sort1 = "sort1";
+            expnC.sort1 = "sort1";
 
-            expC.active = "active";
-            expC.date_create = "date_create";
-            expC.date_modi = "date_modi";
-            expC.date_cancel = "date_cancel";
-            expC.user_create = "user_create";
-            expC.user_modi = "user_modi";
-            expC.user_cancel = "user_cancel";
+            expnC.active = "active";
+            expnC.date_create = "date_create";
+            expnC.date_modi = "date_modi";
+            expnC.date_cancel = "date_cancel";
+            expnC.user_create = "user_create";
+            expnC.user_modi = "user_modi";
+            expnC.user_cancel = "user_cancel";
             //tmn.status_app = "status_app";
-            expC.remark = "remark";
+            expnC.remark = "remark";
 
-            expC.table = "b_expense_cat";
-            expC.pkField = "expense_cat_id";
+            expnC.table = "b_expense_cat";
+            expnC.pkField = "expense_cat_id";
 
             lexpnC = new List<ExpensesCat>();
         }
@@ -54,10 +54,10 @@ namespace Xtrim_ERP.objdb
             foreach (DataRow row in dt.Rows)
             {
                 ExpensesCat curr1 = new ExpensesCat();
-                curr1.expense_cat_id = row[expC.expense_cat_id].ToString();
-                curr1.expense_cat_code = row[expC.expense_cat_code].ToString();
-                curr1.expense_cat_name_e = row[expC.expense_cat_name_e].ToString();
-                curr1.expense_cat_name_t = row[expC.expense_cat_name_t].ToString();
+                curr1.expense_cat_id = row[expnC.expense_cat_id].ToString();
+                curr1.expense_cat_code = row[expnC.expense_cat_code].ToString();
+                curr1.expense_cat_name_e = row[expnC.expense_cat_name_e].ToString();
+                curr1.expense_cat_name_t = row[expnC.expense_cat_name_t].ToString();
                 lexpnC.Add(curr1);
             }
         }
@@ -132,10 +132,10 @@ namespace Xtrim_ERP.objdb
             //p.prefix_id = int.TryParse(p.prefix_id, out chk) ? chk.ToString() : "0";
             //p.dept_id = int.TryParse(p.dept_id, out chk) ? chk.ToString() : "0";
 
-            sql = "Insert Into " + expC.table + "(" + expC.expense_cat_code + "," + expC.expense_cat_name_e + "," + expC.expense_cat_name_t + "," +
-                expC.date_create + "," + expC.date_modi + "," + expC.date_cancel + "," +
-                expC.user_create + "," + expC.user_modi + "," + expC.user_cancel + "," +
-                expC.active + "," + expC.remark + ", " + expC.sort1 + " " +
+            sql = "Insert Into " + expnC.table + "(" + expnC.expense_cat_code + "," + expnC.expense_cat_name_e + "," + expnC.expense_cat_name_t + "," +
+                expnC.date_create + "," + expnC.date_modi + "," + expnC.date_cancel + "," +
+                expnC.user_create + "," + expnC.user_modi + "," + expnC.user_cancel + "," +
+                expnC.active + "," + expnC.remark + ", " + expnC.sort1 + " " +
                 ") " +
                 "Values ('" + p.expense_cat_code + "','" + p.expense_cat_name_e.Replace("'", "''") + "','" + p.expense_cat_name_t.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
@@ -161,16 +161,16 @@ namespace Xtrim_ERP.objdb
 
             chkNull(p);
 
-            sql = "Update " + expC.table + " Set " +
-                " " + expC.expense_cat_code + " = '" + p.expense_cat_code + "'" +
-                "," + expC.expense_cat_name_e + " = '" + p.expense_cat_name_e.Replace("'", "''") + "'" +
-                "," + expC.expense_cat_name_t + " = '" + p.expense_cat_name_t.Replace("'", "''") + "'" +
-                "," + expC.remark + " = '" + p.remark.Replace("'", "''") + "'" +
-                "," + expC.date_modi + " = now()" +
-                "," + expC.user_modi + " = '" + userId + "' " +
-                "," + expC.sort1 + " = '" + p.sort1 + "' " +
+            sql = "Update " + expnC.table + " Set " +
+                " " + expnC.expense_cat_code + " = '" + p.expense_cat_code + "'" +
+                "," + expnC.expense_cat_name_e + " = '" + p.expense_cat_name_e.Replace("'", "''") + "'" +
+                "," + expnC.expense_cat_name_t + " = '" + p.expense_cat_name_t.Replace("'", "''") + "'" +
+                "," + expnC.remark + " = '" + p.remark.Replace("'", "''") + "'" +
+                "," + expnC.date_modi + " = now()" +
+                "," + expnC.user_modi + " = '" + userId + "' " +
+                "," + expnC.sort1 + " = '" + p.sort1 + "' " +
                 //"," + tmn.status_app + " = '" + p.status_app + "' " +
-                "Where " + expC.pkField + "='" + p.expense_cat_id + "'"
+                "Where " + expnC.pkField + "='" + p.expense_cat_id + "'"
                 ;
 
             try
@@ -202,7 +202,7 @@ namespace Xtrim_ERP.objdb
         public String deleteAll()
         {
             DataTable dt = new DataTable();
-            String sql = "Delete From  " + expC.table;
+            String sql = "Delete From  " + expnC.table;
             conn.ExecuteNonQuery(conn.conn, sql);
 
             return "";
@@ -211,9 +211,9 @@ namespace Xtrim_ERP.objdb
         {
             DataTable dt = new DataTable();
             String sql = "select expC.*  " +
-                "From " + expC.table + " expC " +
+                "From " + expnC.table + " expC " +
                 " " +
-                "Where expC." + expC.active + " ='1' ";
+                "Where expC." + expnC.active + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -222,9 +222,9 @@ namespace Xtrim_ERP.objdb
         {
             DataTable dt = new DataTable();
             String sql = "select expC.* " +
-                "From " + expC.table + " expC " +
+                "From " + expnC.table + " expC " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where LOWER(expC." + expC.expense_cat_code + ") like '%" + copId.ToLower() + "%' ";
+                "Where LOWER(expC." + expnC.expense_cat_code + ") like '%" + copId.ToLower() + "%' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -233,13 +233,13 @@ namespace Xtrim_ERP.objdb
             String currId = "";
             DataTable dt = new DataTable();
             String sql = "select expC.* " +
-                "From " + expC.table + " expC " +
+                "From " + expnC.table + " expC " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where expC." + expC.expense_cat_name_t + " like '%" + copId.ToLower() + "%' ";
+                "Where expC." + expnC.expense_cat_name_t + " like '%" + copId.ToLower() + "%' ";
             dt = conn.selectData(conn.conn, sql);
             if (dt.Rows.Count == 1)
             {
-                currId = dt.Rows[0][expC.expense_cat_id].ToString();
+                currId = dt.Rows[0][expnC.expense_cat_id].ToString();
             }
             return currId;
         }
@@ -247,9 +247,9 @@ namespace Xtrim_ERP.objdb
         {
             DataTable dt = new DataTable();
             String sql = "select expC.* " +
-                "From " + expC.table + " expC " +
+                "From " + expnC.table + " expC " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where expC." + expC.pkField + " ='" + copId + "' ";
+                "Where expC." + expnC.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -258,9 +258,9 @@ namespace Xtrim_ERP.objdb
             ExpensesCat cop1 = new ExpensesCat();
             DataTable dt = new DataTable();
             String sql = "select expC.* " +
-                "From " + expC.table + " expC " +
+                "From " + expnC.table + " expC " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where expC." + expC.pkField + " ='" + copId + "' ";
+                "Where expC." + expnC.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setExpenseCat(dt);
             return cop1;
@@ -270,20 +270,20 @@ namespace Xtrim_ERP.objdb
             ExpensesCat curr1 = new ExpensesCat();
             if (dt.Rows.Count > 0)
             {
-                curr1.expense_cat_id = dt.Rows[0][expC.expense_cat_id].ToString();
-                curr1.expense_cat_code = dt.Rows[0][expC.expense_cat_code].ToString();
-                curr1.expense_cat_name_e = dt.Rows[0][expC.expense_cat_name_e].ToString();
-                curr1.expense_cat_name_t = dt.Rows[0][expC.expense_cat_name_t].ToString();
-                curr1.active = dt.Rows[0][expC.active].ToString();
-                curr1.date_cancel = dt.Rows[0][expC.date_cancel].ToString();
-                curr1.date_create = dt.Rows[0][expC.date_create].ToString();
-                curr1.date_modi = dt.Rows[0][expC.date_modi].ToString();
-                curr1.user_cancel = dt.Rows[0][expC.user_cancel].ToString();
-                curr1.user_create = dt.Rows[0][expC.user_create].ToString();
-                curr1.user_modi = dt.Rows[0][expC.user_modi].ToString();
+                curr1.expense_cat_id = dt.Rows[0][expnC.expense_cat_id].ToString();
+                curr1.expense_cat_code = dt.Rows[0][expnC.expense_cat_code].ToString();
+                curr1.expense_cat_name_e = dt.Rows[0][expnC.expense_cat_name_e].ToString();
+                curr1.expense_cat_name_t = dt.Rows[0][expnC.expense_cat_name_t].ToString();
+                curr1.active = dt.Rows[0][expnC.active].ToString();
+                curr1.date_cancel = dt.Rows[0][expnC.date_cancel].ToString();
+                curr1.date_create = dt.Rows[0][expnC.date_create].ToString();
+                curr1.date_modi = dt.Rows[0][expnC.date_modi].ToString();
+                curr1.user_cancel = dt.Rows[0][expnC.user_cancel].ToString();
+                curr1.user_create = dt.Rows[0][expnC.user_create].ToString();
+                curr1.user_modi = dt.Rows[0][expnC.user_modi].ToString();
                 //pti1.status_app = dt.Rows[0][tmn.status_app].ToString();
-                curr1.remark = dt.Rows[0][expC.remark].ToString();
-                curr1.sort1 = dt.Rows[0][expC.sort1].ToString();
+                curr1.remark = dt.Rows[0][expnC.remark].ToString();
+                curr1.sort1 = dt.Rows[0][expnC.sort1].ToString();
             }
 
             return curr1;
