@@ -230,6 +230,12 @@
     <Compile Include="gui\FrmExpense.Designer.cs">
       <DependentUpon>FrmExpense.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmExpenseAppv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmExpenseAppv.Designer.cs">
+      <DependentUpon>FrmExpenseAppv.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmExpenseCat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,12 @@
     </Compile>
     <Compile Include="gui\FrmExpenseDrawType.Designer.cs">
       <DependentUpon>FrmExpenseDrawType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmExpenseDrawView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmExpenseDrawView.Designer.cs">
+      <DependentUpon>FrmExpenseDrawView.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmExpenseGrp.cs">
       <SubType>Form</SubType>
@@ -706,6 +718,9 @@
     <EmbeddedResource Include="gui\FrmExpense.resx">
       <DependentUpon>FrmExpense.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmExpenseAppv.resx">
+      <DependentUpon>FrmExpenseAppv.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmExpenseCat.resx">
       <DependentUpon>FrmExpenseCat.cs</DependentUpon>
     </EmbeddedResource>
@@ -714,6 +729,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmExpenseDrawType.resx">
       <DependentUpon>FrmExpenseDrawType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmExpenseDrawView.resx">
+      <DependentUpon>FrmExpenseDrawView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmExpenseGrp.resx">
       <DependentUpon>FrmExpenseGrp.cs</DependentUpon>

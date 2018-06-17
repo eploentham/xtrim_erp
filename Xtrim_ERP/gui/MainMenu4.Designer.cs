@@ -36,12 +36,17 @@
             this.menuImpJobAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.menuTest = new System.Windows.Forms.ToolStripMenuItem();
             this.menuEmail = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExpnView = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExpJob = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuOtherJob = new System.Windows.Forms.ToolStripMenuItem();
             this.openJobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newOtherJobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.การเงนToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExpnDraw = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExpnDrawAppv = new System.Windows.Forms.ToolStripMenuItem();
+            this.จายเงนToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuInit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCop = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBank = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +77,6 @@
             this.tCC1 = new C1.Win.C1Command.C1CommandDock();
             this.tC1 = new C1.Win.C1Command.C1DockingTab();
             this.PageS = new C1.Win.C1Command.C1DockingTabPage();
-            this.menuExpnDraw = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tCC1)).BeginInit();
@@ -93,10 +97,11 @@
             this.menuImpJob,
             this.menuExpJob,
             this.menuOtherJob,
+            this.การเงนToolStripMenuItem,
             this.menuInit});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(931, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.c1ThemeController1.SetTheme(this.menuStrip1, "(default)");
@@ -113,9 +118,9 @@
             this.menuImpJob.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuImpJobView,
             this.menuImpJobAdd,
-            this.menuExpnDraw,
             this.menuTest,
-            this.menuEmail});
+            this.menuEmail,
+            this.menuExpnView});
             this.menuImpJob.Image = global::Xtrim_ERP.Properties.Resources.Forklift_48x48;
             this.menuImpJob.Name = "menuImpJob";
             this.menuImpJob.Size = new System.Drawing.Size(92, 20);
@@ -145,6 +150,12 @@
             this.menuEmail.Name = "menuEmail";
             this.menuEmail.Size = new System.Drawing.Size(181, 22);
             this.menuEmail.Text = "Test Compose Email";
+            // 
+            // menuExpnView
+            // 
+            this.menuExpnView.Name = "menuExpnView";
+            this.menuExpnView.Size = new System.Drawing.Size(181, 22);
+            this.menuExpnView.Text = "ป้อนค่าใช้จ่าย";
             // 
             // menuExpJob
             // 
@@ -187,6 +198,34 @@
             this.newOtherJobToolStripMenuItem.Name = "newOtherJobToolStripMenuItem";
             this.newOtherJobToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.newOtherJobToolStripMenuItem.Text = "New Other Job";
+            // 
+            // การเงนToolStripMenuItem
+            // 
+            this.การเงนToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuExpnDraw,
+            this.menuExpnDrawAppv,
+            this.จายเงนToolStripMenuItem});
+            this.การเงนToolStripMenuItem.Name = "การเงนToolStripMenuItem";
+            this.การเงนToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.การเงนToolStripMenuItem.Text = "การเงิน";
+            // 
+            // menuExpnDraw
+            // 
+            this.menuExpnDraw.Name = "menuExpnDraw";
+            this.menuExpnDraw.Size = new System.Drawing.Size(180, 22);
+            this.menuExpnDraw.Text = "ใบเบิกเงิน";
+            // 
+            // menuExpnDrawAppv
+            // 
+            this.menuExpnDrawAppv.Name = "menuExpnDrawAppv";
+            this.menuExpnDrawAppv.Size = new System.Drawing.Size(180, 22);
+            this.menuExpnDrawAppv.Text = "อนุมัติ เบิกเงิน";
+            // 
+            // จายเงนToolStripMenuItem
+            // 
+            this.จายเงนToolStripMenuItem.Name = "จายเงนToolStripMenuItem";
+            this.จายเงนToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.จายเงนToolStripMenuItem.Text = "จ่ายเงิน";
             // 
             // menuInit
             // 
@@ -331,31 +370,31 @@
             // menuExpnType
             // 
             this.menuExpnType.Name = "menuExpnType";
-            this.menuExpnType.Size = new System.Drawing.Size(180, 22);
+            this.menuExpnType.Size = new System.Drawing.Size(151, 22);
             this.menuExpnType.Text = "ประเภท ค่าใช้จ่าย";
             // 
             // menuExpnCat
             // 
             this.menuExpnCat.Name = "menuExpnCat";
-            this.menuExpnCat.Size = new System.Drawing.Size(180, 22);
+            this.menuExpnCat.Size = new System.Drawing.Size(151, 22);
             this.menuExpnCat.Text = "หมวด ค่าใช้จ่าย";
             // 
             // menuExpnGrp
             // 
             this.menuExpnGrp.Name = "menuExpnGrp";
-            this.menuExpnGrp.Size = new System.Drawing.Size(180, 22);
+            this.menuExpnGrp.Size = new System.Drawing.Size(151, 22);
             this.menuExpnGrp.Text = "กลุ่ม ค่าใช้จ่าย";
             // 
             // menuMethodPay
             // 
             this.menuMethodPay.Name = "menuMethodPay";
-            this.menuMethodPay.Size = new System.Drawing.Size(180, 22);
+            this.menuMethodPay.Size = new System.Drawing.Size(151, 22);
             this.menuMethodPay.Text = "วิธีการจ่ายเงิน";
             // 
             // menuExpense
             // 
             this.menuExpense.Name = "menuExpense";
-            this.menuExpense.Size = new System.Drawing.Size(180, 22);
+            this.menuExpense.Size = new System.Drawing.Size(151, 22);
             this.menuExpense.Text = "รายการ ค่าใช้จ่าย";
             // 
             // toolStripSeparator3
@@ -384,7 +423,7 @@
             this.tCC1.Id = 5;
             this.tCC1.Location = new System.Drawing.Point(0, 24);
             this.tCC1.Name = "tCC1";
-            this.tCC1.Size = new System.Drawing.Size(800, 426);
+            this.tCC1.Size = new System.Drawing.Size(931, 570);
             this.c1ThemeController1.SetTheme(this.tCC1, "(default)");
             // 
             // tC1
@@ -400,7 +439,7 @@
             this.tC1.Location = new System.Drawing.Point(0, 0);
             this.tC1.Name = "tC1";
             this.tC1.ShowCaption = true;
-            this.tC1.Size = new System.Drawing.Size(800, 426);
+            this.tC1.Size = new System.Drawing.Size(931, 570);
             this.tC1.TabIndex = 0;
             this.tC1.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
             this.tC1.TabsShowFocusCues = false;
@@ -415,21 +454,15 @@
             this.PageS.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.PageS.Location = new System.Drawing.Point(1, 1);
             this.PageS.Name = "PageS";
-            this.PageS.Size = new System.Drawing.Size(798, 400);
+            this.PageS.Size = new System.Drawing.Size(929, 544);
             this.PageS.TabIndex = 0;
             this.PageS.Text = "Start Page";
-            // 
-            // menuExpnDraw
-            // 
-            this.menuExpnDraw.Name = "menuExpnDraw";
-            this.menuExpnDraw.Size = new System.Drawing.Size(181, 22);
-            this.menuExpnDraw.Text = "เบิกเงิน";
             // 
             // MainMenu4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(931, 594);
             this.Controls.Add(this.tCC1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "MainMenu4";
@@ -494,6 +527,10 @@
         private System.Windows.Forms.ToolStripMenuItem menuExpense;
         private System.Windows.Forms.ToolStripMenuItem menuExpnGrp;
         private System.Windows.Forms.ToolStripMenuItem menuMethodPay;
+        private System.Windows.Forms.ToolStripMenuItem การเงนToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuExpnDraw;
+        private System.Windows.Forms.ToolStripMenuItem menuExpnDrawAppv;
+        private System.Windows.Forms.ToolStripMenuItem จายเงนToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuExpnView;
     }
 }
