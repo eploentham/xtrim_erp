@@ -148,7 +148,7 @@ namespace Xtrim_ERP.gui
             }
             else if ((grfExpnD.Col == colDamt))
             {
-
+                calAmount();
             }
             if ((grfExpnD.Col == colDamt) && (grfExpnD.Rows.Count == (grfExpnD.Row + 1))) grfExpnD.Rows.Count++;
         }
@@ -159,7 +159,19 @@ namespace Xtrim_ERP.gui
             //if (e.r1 < 0) return;
             //if ((grfExpnD.Col == colDamt) && (grfExpnD.Rows.Count == (grfExpnD.Row + 1))) grfExpnD.Rows.Count++;
         }
-
+        private void calAmount()
+        {
+            Decimal amt = 0;
+            for(int i = 1; i < grfExpnD.Rows.Count; i++)
+            {
+                Decimal amt1 = 0;
+                if(Decimal.TryParse(grfExpnD[i, colDamt].ToString(), out amt1))
+                {
+                    amt += amt1;
+                }
+            }
+            txtAmt.Value = amt;
+        }
         private void setGrfDeptH()
         {
             grfExpnD.Clear();
