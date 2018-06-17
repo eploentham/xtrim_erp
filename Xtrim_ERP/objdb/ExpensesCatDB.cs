@@ -23,10 +23,10 @@ namespace Xtrim_ERP.objdb
         private void initConfig()
         {
             expnC = new ExpensesCat();
-            expnC.expense_cat_id = "expense_cat_id";
-            expnC.expense_cat_code = "expense_cat_code";
-            expnC.expense_cat_name_e = "expense_cat_name_e";
-            expnC.expense_cat_name_t = "expense_cat_name_t";
+            expnC.expenses_cat_id = "expenses_cat_id";
+            expnC.expenses_cat_code = "expenses_cat_code";
+            expnC.expenses_cat_name_e = "expenses_cat_name_e";
+            expnC.expenses_cat_name_t = "expenses_cat_name_t";
             //tmn.status_app = "status_app";
             expnC.sort1 = "sort1";
 
@@ -54,10 +54,10 @@ namespace Xtrim_ERP.objdb
             foreach (DataRow row in dt.Rows)
             {
                 ExpensesCat curr1 = new ExpensesCat();
-                curr1.expense_cat_id = row[expnC.expense_cat_id].ToString();
-                curr1.expense_cat_code = row[expnC.expense_cat_code].ToString();
-                curr1.expense_cat_name_e = row[expnC.expense_cat_name_e].ToString();
-                curr1.expense_cat_name_t = row[expnC.expense_cat_name_t].ToString();
+                curr1.expenses_cat_id = row[expnC.expenses_cat_id].ToString();
+                curr1.expenses_cat_code = row[expnC.expenses_cat_code].ToString();
+                curr1.expenses_cat_name_e = row[expnC.expenses_cat_name_e].ToString();
+                curr1.expenses_cat_name_t = row[expnC.expenses_cat_name_t].ToString();
                 lexpnC.Add(curr1);
             }
         }
@@ -66,9 +66,9 @@ namespace Xtrim_ERP.objdb
             String id = "";
             foreach (ExpensesCat curr1 in lexpnC)
             {
-                if (code.Trim().Equals(curr1.expense_cat_code))
+                if (code.Trim().Equals(curr1.expenses_cat_code))
                 {
-                    id = curr1.expense_cat_id;
+                    id = curr1.expenses_cat_id;
                     break;
                 }
             }
@@ -79,9 +79,9 @@ namespace Xtrim_ERP.objdb
             String id = "";
             foreach (ExpensesCat curr1 in lexpnC)
             {
-                if (name.Trim().Equals(curr1.expense_cat_name_t))
+                if (name.Trim().Equals(curr1.expenses_cat_name_t))
                 {
-                    id = curr1.expense_cat_id;
+                    id = curr1.expenses_cat_id;
                     break;
                 }
             }
@@ -95,8 +95,8 @@ namespace Xtrim_ERP.objdb
             foreach (ExpensesCat cus1 in lexpnC)
             {
                 item = new ComboBoxItem();
-                item.Value = cus1.expense_cat_id;
-                item.Text = cus1.expense_cat_name_t;
+                item.Value = cus1.expenses_cat_id;
+                item.Text = cus1.expenses_cat_name_t;
                 c.Items.Add(item);
                 if (item.Value.Equals(selected))
                 {
@@ -114,9 +114,9 @@ namespace Xtrim_ERP.objdb
             p.user_create = p.user_create == null ? "" : p.user_create;
             p.user_modi = p.user_modi == null ? "" : p.user_modi;
             p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
-            p.expense_cat_code = p.expense_cat_code == null ? "" : p.expense_cat_code;
-            p.expense_cat_name_e = p.expense_cat_name_e == null ? "" : p.expense_cat_name_e;
-            p.expense_cat_name_t = p.expense_cat_name_t == null ? "" : p.expense_cat_name_t;
+            p.expenses_cat_code = p.expenses_cat_code == null ? "" : p.expenses_cat_code;
+            p.expenses_cat_name_e = p.expenses_cat_name_e == null ? "" : p.expenses_cat_name_e;
+            p.expenses_cat_name_t = p.expenses_cat_name_t == null ? "" : p.expenses_cat_name_t;
             p.remark = p.remark == null ? "" : p.remark;
             p.sort1 = p.sort1 == null ? "" : p.sort1;
         }
@@ -132,12 +132,12 @@ namespace Xtrim_ERP.objdb
             //p.prefix_id = int.TryParse(p.prefix_id, out chk) ? chk.ToString() : "0";
             //p.dept_id = int.TryParse(p.dept_id, out chk) ? chk.ToString() : "0";
 
-            sql = "Insert Into " + expnC.table + "(" + expnC.expense_cat_code + "," + expnC.expense_cat_name_e + "," + expnC.expense_cat_name_t + "," +
+            sql = "Insert Into " + expnC.table + "(" + expnC.expenses_cat_code + "," + expnC.expenses_cat_name_e + "," + expnC.expenses_cat_name_t + "," +
                 expnC.date_create + "," + expnC.date_modi + "," + expnC.date_cancel + "," +
                 expnC.user_create + "," + expnC.user_modi + "," + expnC.user_cancel + "," +
                 expnC.active + "," + expnC.remark + ", " + expnC.sort1 + " " +
                 ") " +
-                "Values ('" + p.expense_cat_code + "','" + p.expense_cat_name_e.Replace("'", "''") + "','" + p.expense_cat_name_t.Replace("'", "''") + "'," +
+                "Values ('" + p.expenses_cat_code + "','" + p.expenses_cat_name_e.Replace("'", "''") + "','" + p.expenses_cat_name_t.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "' " +
@@ -162,15 +162,15 @@ namespace Xtrim_ERP.objdb
             chkNull(p);
 
             sql = "Update " + expnC.table + " Set " +
-                " " + expnC.expense_cat_code + " = '" + p.expense_cat_code + "'" +
-                "," + expnC.expense_cat_name_e + " = '" + p.expense_cat_name_e.Replace("'", "''") + "'" +
-                "," + expnC.expense_cat_name_t + " = '" + p.expense_cat_name_t.Replace("'", "''") + "'" +
+                " " + expnC.expenses_cat_code + " = '" + p.expenses_cat_code + "'" +
+                "," + expnC.expenses_cat_name_e + " = '" + p.expenses_cat_name_e.Replace("'", "''") + "'" +
+                "," + expnC.expenses_cat_name_t + " = '" + p.expenses_cat_name_t.Replace("'", "''") + "'" +
                 "," + expnC.remark + " = '" + p.remark.Replace("'", "''") + "'" +
                 "," + expnC.date_modi + " = now()" +
                 "," + expnC.user_modi + " = '" + userId + "' " +
                 "," + expnC.sort1 + " = '" + p.sort1 + "' " +
                 //"," + tmn.status_app + " = '" + p.status_app + "' " +
-                "Where " + expnC.pkField + "='" + p.expense_cat_id + "'"
+                "Where " + expnC.pkField + "='" + p.expenses_cat_id + "'"
                 ;
 
             try
@@ -188,7 +188,7 @@ namespace Xtrim_ERP.objdb
         {
             String re = "";
 
-            if (p.expense_cat_id.Equals(""))
+            if (p.expenses_cat_id.Equals(""))
             {
                 re = insert(p, userId);
             }
@@ -224,7 +224,7 @@ namespace Xtrim_ERP.objdb
             String sql = "select expC.* " +
                 "From " + expnC.table + " expC " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where LOWER(expC." + expnC.expense_cat_code + ") like '%" + copId.ToLower() + "%' ";
+                "Where LOWER(expC." + expnC.expenses_cat_code + ") like '%" + copId.ToLower() + "%' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -235,11 +235,11 @@ namespace Xtrim_ERP.objdb
             String sql = "select expC.* " +
                 "From " + expnC.table + " expC " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where expC." + expnC.expense_cat_name_t + " like '%" + copId.ToLower() + "%' ";
+                "Where expC." + expnC.expenses_cat_name_t + " like '%" + copId.ToLower() + "%' ";
             dt = conn.selectData(conn.conn, sql);
             if (dt.Rows.Count == 1)
             {
-                currId = dt.Rows[0][expnC.expense_cat_id].ToString();
+                currId = dt.Rows[0][expnC.expenses_cat_id].ToString();
             }
             return currId;
         }
@@ -270,10 +270,10 @@ namespace Xtrim_ERP.objdb
             ExpensesCat curr1 = new ExpensesCat();
             if (dt.Rows.Count > 0)
             {
-                curr1.expense_cat_id = dt.Rows[0][expnC.expense_cat_id].ToString();
-                curr1.expense_cat_code = dt.Rows[0][expnC.expense_cat_code].ToString();
-                curr1.expense_cat_name_e = dt.Rows[0][expnC.expense_cat_name_e].ToString();
-                curr1.expense_cat_name_t = dt.Rows[0][expnC.expense_cat_name_t].ToString();
+                curr1.expenses_cat_id = dt.Rows[0][expnC.expenses_cat_id].ToString();
+                curr1.expenses_cat_code = dt.Rows[0][expnC.expenses_cat_code].ToString();
+                curr1.expenses_cat_name_e = dt.Rows[0][expnC.expenses_cat_name_e].ToString();
+                curr1.expenses_cat_name_t = dt.Rows[0][expnC.expenses_cat_name_t].ToString();
                 curr1.active = dt.Rows[0][expnC.active].ToString();
                 curr1.date_cancel = dt.Rows[0][expnC.date_cancel].ToString();
                 curr1.date_create = dt.Rows[0][expnC.date_create].ToString();

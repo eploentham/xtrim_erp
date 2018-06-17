@@ -8,10 +8,10 @@ namespace Xtrim_ERP.object1
 {
     public class ExpensesType:Persistent
     {
-        public String expense_type_id { get; set; }
-        public String expense_type_code { get; set; }
-        public String expense_type_name_t { get; set; }
-        public String expense_type_name_e { get; set; }
+        public String expenses_type_id { get; set; }
+        public String expenses_type_code { get; set; }
+        public String expenses_type_name_t { get; set; }
+        public String expenses_type_name_e { get; set; }
         public String active { get; set; }
         public String remark { get; set; }
         public String date_create { get; set; }

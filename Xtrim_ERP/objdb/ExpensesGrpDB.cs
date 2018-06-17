@@ -23,10 +23,10 @@ namespace Xtrim_ERP.objdb
         private void initConfig()
         {
             expC = new ExpensesGrp();
-            expC.expense_grp_id = "expense_grp_id";
-            expC.expense_grp_code = "expense_grp_code";
-            expC.expense_grp_name_e = "expense_grp_name_e";
-            expC.expense_grp_name_t = "expense_grp_name_t";
+            expC.expenses_grp_id = "expenses_grp_id";
+            expC.expenses_grp_code = "expenses_grp_code";
+            expC.expenses_grp_name_e = "expenses_grp_name_e";
+            expC.expenses_grp_name_t = "expenses_grp_name_t";
             //tmn.status_app = "status_app";
             expC.sort1 = "sort1";
 
@@ -40,8 +40,8 @@ namespace Xtrim_ERP.objdb
             //tmn.status_app = "status_app";
             expC.remark = "remark";
 
-            expC.table = "b_expense_grp";
-            expC.pkField = "expense_grp_id";
+            expC.table = "b_expenses_grp";
+            expC.pkField = "expenses_grp_id";
 
             lexpnC = new List<ExpensesGrp>();
         }
@@ -54,10 +54,10 @@ namespace Xtrim_ERP.objdb
             foreach (DataRow row in dt.Rows)
             {
                 ExpensesGrp curr1 = new ExpensesGrp();
-                curr1.expense_grp_id = row[expC.expense_grp_id].ToString();
-                curr1.expense_grp_code = row[expC.expense_grp_code].ToString();
-                curr1.expense_grp_name_e = row[expC.expense_grp_name_e].ToString();
-                curr1.expense_grp_name_t = row[expC.expense_grp_name_t].ToString();
+                curr1.expenses_grp_id = row[expC.expenses_grp_id].ToString();
+                curr1.expenses_grp_code = row[expC.expenses_grp_code].ToString();
+                curr1.expenses_grp_name_e = row[expC.expenses_grp_name_e].ToString();
+                curr1.expenses_grp_name_t = row[expC.expenses_grp_name_t].ToString();
                 lexpnC.Add(curr1);
             }
         }
@@ -66,9 +66,9 @@ namespace Xtrim_ERP.objdb
             String id = "";
             foreach (ExpensesGrp curr1 in lexpnC)
             {
-                if (code.Trim().Equals(curr1.expense_grp_code))
+                if (code.Trim().Equals(curr1.expenses_grp_code))
                 {
-                    id = curr1.expense_grp_id;
+                    id = curr1.expenses_grp_id;
                     break;
                 }
             }
@@ -79,9 +79,9 @@ namespace Xtrim_ERP.objdb
             String id = "";
             foreach (ExpensesGrp curr1 in lexpnC)
             {
-                if (name.Trim().Equals(curr1.expense_grp_name_t))
+                if (name.Trim().Equals(curr1.expenses_grp_name_t))
                 {
-                    id = curr1.expense_grp_id;
+                    id = curr1.expenses_grp_id;
                     break;
                 }
             }
@@ -95,8 +95,8 @@ namespace Xtrim_ERP.objdb
             foreach (ExpensesGrp cus1 in lexpnC)
             {
                 item = new ComboBoxItem();
-                item.Value = cus1.expense_grp_id;
-                item.Text = cus1.expense_grp_name_t;
+                item.Value = cus1.expenses_grp_id;
+                item.Text = cus1.expenses_grp_name_t;
                 c.Items.Add(item);
                 if (item.Value.Equals(selected))
                 {
@@ -114,9 +114,9 @@ namespace Xtrim_ERP.objdb
             p.user_create = p.user_create == null ? "" : p.user_create;
             p.user_modi = p.user_modi == null ? "" : p.user_modi;
             p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
-            p.expense_grp_code = p.expense_grp_code == null ? "" : p.expense_grp_code;
-            p.expense_grp_name_e = p.expense_grp_name_e == null ? "" : p.expense_grp_name_e;
-            p.expense_grp_name_t = p.expense_grp_name_t == null ? "" : p.expense_grp_name_t;
+            p.expenses_grp_code = p.expenses_grp_code == null ? "" : p.expenses_grp_code;
+            p.expenses_grp_name_e = p.expenses_grp_name_e == null ? "" : p.expenses_grp_name_e;
+            p.expenses_grp_name_t = p.expenses_grp_name_t == null ? "" : p.expenses_grp_name_t;
             p.remark = p.remark == null ? "" : p.remark;
             p.sort1 = p.sort1 == null ? "" : p.sort1;
         }
@@ -132,12 +132,12 @@ namespace Xtrim_ERP.objdb
             //p.prefix_id = int.TryParse(p.prefix_id, out chk) ? chk.ToString() : "0";
             //p.dept_id = int.TryParse(p.dept_id, out chk) ? chk.ToString() : "0";
 
-            sql = "Insert Into " + expC.table + "(" + expC.expense_grp_code + "," + expC.expense_grp_name_e + "," + expC.expense_grp_name_t + "," +
+            sql = "Insert Into " + expC.table + "(" + expC.expenses_grp_code + "," + expC.expenses_grp_name_e + "," + expC.expenses_grp_name_t + "," +
                 expC.date_create + "," + expC.date_modi + "," + expC.date_cancel + "," +
                 expC.user_create + "," + expC.user_modi + "," + expC.user_cancel + "," +
                 expC.active + "," + expC.remark + ", " + expC.sort1 + " " +
                 ") " +
-                "Values ('" + p.expense_grp_code + "','" + p.expense_grp_name_e.Replace("'", "''") + "','" + p.expense_grp_name_t.Replace("'", "''") + "'," +
+                "Values ('" + p.expenses_grp_code + "','" + p.expenses_grp_name_e.Replace("'", "''") + "','" + p.expenses_grp_name_t.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "' " +
@@ -162,15 +162,15 @@ namespace Xtrim_ERP.objdb
             chkNull(p);
 
             sql = "Update " + expC.table + " Set " +
-                " " + expC.expense_grp_code + " = '" + p.expense_grp_code + "'" +
-                "," + expC.expense_grp_name_e + " = '" + p.expense_grp_name_e.Replace("'", "''") + "'" +
-                "," + expC.expense_grp_name_t + " = '" + p.expense_grp_name_t.Replace("'", "''") + "'" +
+                " " + expC.expenses_grp_code + " = '" + p.expenses_grp_code + "'" +
+                "," + expC.expenses_grp_name_e + " = '" + p.expenses_grp_name_e.Replace("'", "''") + "'" +
+                "," + expC.expenses_grp_name_t + " = '" + p.expenses_grp_name_t.Replace("'", "''") + "'" +
                 "," + expC.remark + " = '" + p.remark.Replace("'", "''") + "'" +
                 "," + expC.date_modi + " = now()" +
                 "," + expC.user_modi + " = '" + userId + "' " +
                 "," + expC.sort1 + " = '" + p.sort1 + "' " +
                 //"," + tmn.status_app + " = '" + p.status_app + "' " +
-                "Where " + expC.pkField + "='" + p.expense_grp_id + "'"
+                "Where " + expC.pkField + "='" + p.expenses_grp_id + "'"
                 ;
 
             try
@@ -188,7 +188,7 @@ namespace Xtrim_ERP.objdb
         {
             String re = "";
 
-            if (p.expense_grp_id.Equals(""))
+            if (p.expenses_grp_id.Equals(""))
             {
                 re = insert(p, userId);
             }
@@ -224,7 +224,7 @@ namespace Xtrim_ERP.objdb
             String sql = "select expC.* " +
                 "From " + expC.table + " expC " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where LOWER(expC." + expC.expense_grp_code + ") like '%" + copId.ToLower() + "%' ";
+                "Where LOWER(expC." + expC.expenses_grp_code + ") like '%" + copId.ToLower() + "%' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -235,11 +235,11 @@ namespace Xtrim_ERP.objdb
             String sql = "select expC.* " +
                 "From " + expC.table + " expC " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where expC." + expC.expense_grp_name_t + " like '%" + copId.ToLower() + "%' ";
+                "Where expC." + expC.expenses_grp_name_t + " like '%" + copId.ToLower() + "%' ";
             dt = conn.selectData(conn.conn, sql);
             if (dt.Rows.Count == 1)
             {
-                currId = dt.Rows[0][expC.expense_grp_id].ToString();
+                currId = dt.Rows[0][expC.expenses_grp_id].ToString();
             }
             return currId;
         }
@@ -270,10 +270,10 @@ namespace Xtrim_ERP.objdb
             ExpensesGrp curr1 = new ExpensesGrp();
             if (dt.Rows.Count > 0)
             {
-                curr1.expense_grp_id = dt.Rows[0][expC.expense_grp_id].ToString();
-                curr1.expense_grp_code = dt.Rows[0][expC.expense_grp_code].ToString();
-                curr1.expense_grp_name_e = dt.Rows[0][expC.expense_grp_name_e].ToString();
-                curr1.expense_grp_name_t = dt.Rows[0][expC.expense_grp_name_t].ToString();
+                curr1.expenses_grp_id = dt.Rows[0][expC.expenses_grp_id].ToString();
+                curr1.expenses_grp_code = dt.Rows[0][expC.expenses_grp_code].ToString();
+                curr1.expenses_grp_name_e = dt.Rows[0][expC.expenses_grp_name_e].ToString();
+                curr1.expenses_grp_name_t = dt.Rows[0][expC.expenses_grp_name_t].ToString();
                 curr1.active = dt.Rows[0][expC.active].ToString();
                 curr1.date_cancel = dt.Rows[0][expC.date_cancel].ToString();
                 curr1.date_create = dt.Rows[0][expC.date_create].ToString();

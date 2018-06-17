@@ -151,9 +151,9 @@ namespace Xtrim_ERP.gui
         private void setControl(String deptId)
         {
             expnT = xC.xtDB.expntDB.selectByPk1(deptId);
-            txtID.Value = expnT.expense_type_id;
-            txtCode.Value = expnT.expense_type_code;
-            txtNameT.Value = expnT.expense_type_name_t;
+            txtID.Value = expnT.expenses_type_id;
+            txtCode.Value = expnT.expenses_type_code;
+            txtNameT.Value = expnT.expenses_type_name_t;
             txtRemark.Value = expnT.remark;
         }
         private void setControlEnable(Boolean flag)
@@ -167,9 +167,9 @@ namespace Xtrim_ERP.gui
         }
         private void setDeptment()
         {
-            expnT.expense_type_id = txtID.Text;
-            expnT.expense_type_code = txtCode.Text;
-            expnT.expense_type_name_t = txtNameT.Text;
+            expnT.expenses_type_id = txtID.Text;
+            expnT.expenses_type_code = txtCode.Text;
+            expnT.expenses_type_name_t = txtNameT.Text;
             expnT.remark = txtRemark.Text;
         }
         private void grfDept_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)

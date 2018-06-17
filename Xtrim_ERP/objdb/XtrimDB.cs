@@ -39,7 +39,7 @@ namespace Xtrim_ERP.objdb
         public UnitGwDB ugwDB;
         public UnitPackageDB utpDB;
         public JobImportExpnDB jieDB;
-        public ExpensesDB expnDB;
+        
         public MethodPaymentDB mtpDB;
         public JobImportContDB jctDB;
         public AddressDB addrDB;
@@ -58,9 +58,14 @@ namespace Xtrim_ERP.objdb
         public JobImportDeliveryDB jdvDB;
         public TruckDB trkDB;
         public JobImportContainerDB jcnDB;
+
+        public ExpensesDB expnDB;
         public ExpensesCatDB expncDB;
         public ExpensesTypeDB expntDB;
         public ExpensesGrpDB expngDB;
+        public ExpensesDrawDB expndDB;
+        public ExpensesDrawDetailDB expnddDB;
+        public ExpensesDrawTypeDB expndtDB;
 
         public MeiosysDB mioDB;
 
@@ -101,7 +106,7 @@ namespace Xtrim_ERP.objdb
             utpDB = new UnitPackageDB(conn);
 
             jieDB = new JobImportExpnDB(conn);
-            expnDB = new ExpensesDB(conn);
+            
             mtpDB = new MethodPaymentDB(conn);
             jctDB = new JobImportContDB(conn);
             addrDB = new AddressDB(conn);
@@ -122,9 +127,13 @@ namespace Xtrim_ERP.objdb
             jcnDB = new JobImportContainerDB(conn);
 
             trkDB = new TruckDB(conn);
+            expnDB = new ExpensesDB(conn);
             expncDB = new ExpensesCatDB(conn);
             expntDB = new ExpensesTypeDB(conn);
             expngDB = new ExpensesGrpDB(conn);
+            expndDB = new ExpensesDrawDB(conn);
+            expnddDB = new ExpensesDrawDetailDB(conn);
+            expndtDB = new ExpensesDrawTypeDB(conn);
         }
     }
 }

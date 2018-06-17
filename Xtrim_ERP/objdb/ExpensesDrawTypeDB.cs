@@ -40,7 +40,7 @@ namespace Xtrim_ERP.objdb
             //tmn.status_app = "status_app";
             expndT.remark = "remark";
 
-            expndT.table = "b_expense_cat";
+            expndT.table = "b_expenses_draw_type";
             expndT.pkField = "expenses_draw_type_id";
 
             lexpnC = new List<ExpensesDrawType>();

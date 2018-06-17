@@ -8,10 +8,10 @@ namespace Xtrim_ERP.object1
 {
     public class ExpensesGrp:Persistent
     {
-        public String expense_grp_id { get; set; }
-        public String expense_grp_code { get; set; }
-        public String expense_grp_name_t { get; set; }
-        public String expense_grp_name_e { get; set; }
+        public String expenses_grp_id { get; set; }
+        public String expenses_grp_code { get; set; }
+        public String expenses_grp_name_t { get; set; }
+        public String expenses_grp_name_e { get; set; }
         public String active { get; set; }
         public String remark { get; set; }
         public String date_create { get; set; }

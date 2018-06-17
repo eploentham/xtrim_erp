@@ -64,6 +64,7 @@
             this.menuExpnType = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExpnCat = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExpnGrp = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuMethodPay = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExpense = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuConvertData = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,7 +72,7 @@
             this.tCC1 = new C1.Win.C1Command.C1CommandDock();
             this.tC1 = new C1.Win.C1Command.C1DockingTab();
             this.PageS = new C1.Win.C1Command.C1DockingTabPage();
-            this.menuMethodPay = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExpnDraw = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tCC1)).BeginInit();
@@ -112,6 +113,7 @@
             this.menuImpJob.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuImpJobView,
             this.menuImpJobAdd,
+            this.menuExpnDraw,
             this.menuTest,
             this.menuEmail});
             this.menuImpJob.Image = global::Xtrim_ERP.Properties.Resources.Forklift_48x48;
@@ -344,6 +346,12 @@
             this.menuExpnGrp.Size = new System.Drawing.Size(180, 22);
             this.menuExpnGrp.Text = "กลุ่ม ค่าใช้จ่าย";
             // 
+            // menuMethodPay
+            // 
+            this.menuMethodPay.Name = "menuMethodPay";
+            this.menuMethodPay.Size = new System.Drawing.Size(180, 22);
+            this.menuMethodPay.Text = "วิธีการจ่ายเงิน";
+            // 
             // menuExpense
             // 
             this.menuExpense.Name = "menuExpense";
@@ -411,11 +419,11 @@
             this.PageS.TabIndex = 0;
             this.PageS.Text = "Start Page";
             // 
-            // menuMethodPay
+            // menuExpnDraw
             // 
-            this.menuMethodPay.Name = "menuMethodPay";
-            this.menuMethodPay.Size = new System.Drawing.Size(180, 22);
-            this.menuMethodPay.Text = "วิธีการจ่ายเงิน";
+            this.menuExpnDraw.Name = "menuExpnDraw";
+            this.menuExpnDraw.Size = new System.Drawing.Size(181, 22);
+            this.menuExpnDraw.Text = "เบิกเงิน";
             // 
             // MainMenu4
             // 
@@ -486,5 +494,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuExpense;
         private System.Windows.Forms.ToolStripMenuItem menuExpnGrp;
         private System.Windows.Forms.ToolStripMenuItem menuMethodPay;
+        private System.Windows.Forms.ToolStripMenuItem menuExpnDraw;
     }
 }

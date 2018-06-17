@@ -54,6 +54,15 @@ namespace Xtrim_ERP.gui
             menuExpense.Click += MenuExpense_Click;
             menuExpnGrp.Click += MenuExpnGrp_Click;
             menuMethodPay.Click += MenuMethodPay_Click;
+            menuExpnDraw.Click += MenuExpnDraw_Click;
+        }
+
+        private void MenuExpnDraw_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmExpenseDraw frm = new FrmExpenseDraw(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "เบิกเงิน ");
         }
 
         private void MenuMethodPay_Click(object sender, EventArgs e)

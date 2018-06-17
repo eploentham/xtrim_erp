@@ -767,6 +767,97 @@ namespace Xtrim_ERP.objdb
                 jim1.status_container_yard4_tax = dt.Rows[0][jim.status_container_yard4_tax].ToString();
                 jim1.status_container_yard5_tax = dt.Rows[0][jim.status_container_yard5_tax].ToString();
             }
+            else
+            {
+                jim.job_import_id = "";
+                jim.job_import_code = "";
+                jim.job_import_date = "";
+                jim.cust_id = "";
+                jim.imp_id = "";
+                jim.transport_mode = "";
+                jim.staff_id = "";
+                jim.entry_type_id = "";
+                jim.privi_id = "";
+                jim.ref_1 = "";
+                jim.ref_2 = "";
+                jim.ref_3 = "";
+                jim.ref_4 = "";
+                jim.ref_5 = "";
+                jim.ref_edi = "";
+                jim.imp_entry = "";
+                jim.edi_response = "";
+                jim.tax_method_id = "";
+                jim.check_exam_id = "";
+                jim.inv_date = "";
+                jim.tax_amt = "";
+                jim.insr_date = "";
+                jim.insr_id = "";
+                jim.policy_no = "";
+                jim.premium = "";
+                jim.policy_date = "";
+                jim.policy_clause = "";
+                jim.job_year = "";
+                jim.date_create = "";
+                jim.date_modi = "";
+                jim.date_cancel = "";
+                jim.user_create = "";
+                jim.user_modi = "";
+                jim.user_cancel = "";
+                jim.active = "";
+                jim.remark3 = "";
+                jim.remark1 = "";
+                jim.remark2 = "";
+                jim.jobno = "";
+                jim.job_date = "";
+                jim.imp_date = "";
+                jim.bl = "";
+
+                jim.remark4 = "";
+                jim.remark5 = "";
+                jim.remark6 = "";
+                jim.marsk1 = "";
+                jim.marsk2 = "";
+                jim.marsk3 = "";
+                jim.marsk4 = "";
+                jim.marsk5 = "";
+                jim.marsk6 = "";
+
+                jim.container_yard1_id = "";
+                jim.container_yard2_id = "";
+                jim.container_yard3_id = "";
+                jim.container_yard4_id = "";
+                jim.container_yard5_id = "";
+                jim.container_yard1_addr = "";
+                jim.container_yard2_addr = "";
+                jim.container_yard3_addr = "";
+                jim.container_yard4_addr = "";
+                jim.container_yard5_addr = "";
+                jim.time_open_close1 = "";
+                jim.time_open_close2 = "";
+                jim.time_open_close3 = "";
+                jim.time_open_close4 = "";
+                jim.time_open_close5 = "";
+                jim.time_open_close_over_time1 = "";
+                jim.time_open_close_over_time2 = "";
+                jim.time_open_close_over_time3 = "";
+                jim.time_open_close_over_time4 = "";
+                jim.time_open_close_over_time5 = "";
+                jim.status_container_yard1_tax = "";
+                jim.status_container_yard2_tax = "";
+                jim.status_container_yard3_tax = "";
+                jim.status_container_yard4_tax = "";
+                jim.status_container_yard5_tax = "";
+
+                jim.cusAddr = "";
+                jim.impAddr = "";
+                jim.cusNameT = "";
+                jim.impNameT = "";
+                jim.cusCode = "";
+                jim.impCode = "";
+
+                jim.fwdCode = "";
+                jim.fwdNameT = "";
+            }
 
             return jim1;
         }

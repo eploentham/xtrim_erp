@@ -236,6 +236,12 @@
     <Compile Include="gui\FrmExpenseCat.Designer.cs">
       <DependentUpon>FrmExpenseCat.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmExpenseDraw.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmExpenseDraw.Designer.cs">
+      <DependentUpon>FrmExpenseDraw.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmExpenseDrawType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -445,6 +451,7 @@
     <Compile Include="objdb\ExpensesCatDB.cs" />
     <Compile Include="objdb\ExpensesDB.cs" />
     <Compile Include="objdb\ExpensesDrawDB.cs" />
+    <Compile Include="objdb\ExpensesDrawDetailDB.cs" />
     <Compile Include="objdb\ExpensesDrawTypeDB.cs" />
     <Compile Include="objdb\ExpensesGrpDB.cs" />
     <Compile Include="objdb\ExpensesTypeDB.cs" />
@@ -498,6 +505,7 @@
     <Compile Include="object1\ExpensesCat.cs" />
     <Compile Include="object1\Expenses.cs" />
     <Compile Include="object1\ExpensesDraw.cs" />
+    <Compile Include="object1\ExpensesDrawDatail.cs" />
     <Compile Include="object1\ExpensesDrawType.cs" />
     <Compile Include="object1\ExpensesGrp.cs" />
     <Compile Include="object1\ExpensesType.cs" />
@@ -700,6 +708,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmExpenseCat.resx">
       <DependentUpon>FrmExpenseCat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmExpenseDraw.resx">
+      <DependentUpon>FrmExpenseDraw.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmExpenseDrawType.resx">
       <DependentUpon>FrmExpenseDrawType.cs</DependentUpon>

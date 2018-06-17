@@ -6,6 +6,13 @@ ALTER TABLE b_customer_tax_invoice AUTO_INCREMENT = 1380000000;
 ALTER TABLE b_address_type AUTO_INCREMENT = 1370000000;
 
 ALTER TABLE b_pre_fix AUTO_INCREMENT = 1200000000;
+ALTER TABLE t_expenses_draw AUTO_INCREMENT = 1520000000;
+ALTER TABLE t_expenses_draw_detail AUTO_INCREMENT = 1530000000;
+ALTER TABLE b_expenses_cat AUTO_INCREMENT = 1470000000;
+ALTER TABLE b_expenses_draw_type AUTO_INCREMENT = 1510000000;
+ALTER TABLE b_expenses_grp AUTO_INCREMENT = 1490000000;
+ALTER TABLE b_expenses_type AUTO_INCREMENT = 1480000000;
+
 
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ไม่ต้อง', 'ORIGIANL', '1', 'BL_TYPE');
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ต้อง', 'TELEX RELEASE', '1', 'BL_TYPE');
