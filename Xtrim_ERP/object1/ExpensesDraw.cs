@@ -27,5 +27,10 @@ namespace Xtrim_ERP.object1
         public String status_appv { get; set; }
         public String status_email { get; set; }
         public String amount { get; set; }
+        public String year { get; set; }
+        public String appv_amount { get; set; }
+        public String appv_desc { get; set; }
+        public String status_pay { get; set; }
+
     }
 }

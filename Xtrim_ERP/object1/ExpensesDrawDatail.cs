@@ -24,5 +24,17 @@ namespace Xtrim_ERP.object1
         public String expense_type_id { get; set; }
         public String sort1 { get; set; }
         public String expense_draw_id { get; set; }
+
+        public String status_pay { get; set; }
+        public String pay_type { get; set; }
+        public String pay_amount { get; set; }
+        public String pay_date { get; set; }
+        public String pay_cheque_no { get; set; }
+        public String pay_cheque_bank_id { get; set; }
+        public String pay_staff_id { get; set; }
+        public String expenses_id { get; set; }
+        public String pay_bank_date { get; set; }
+        public String job_id { get; set; }
+        public String job_code { get; set; }
     }
 }

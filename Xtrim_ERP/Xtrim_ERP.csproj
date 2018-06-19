@@ -224,11 +224,11 @@
     <Compile Include="gui\FrmDepartmentS.Designer.cs">
       <DependentUpon>FrmDepartmentS.cs</DependentUpon>
     </Compile>
-    <Compile Include="gui\FrmExpense.cs">
+    <Compile Include="gui\FrmItems.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gui\FrmExpense.Designer.cs">
-      <DependentUpon>FrmExpense.cs</DependentUpon>
+    <Compile Include="gui\FrmItems.Designer.cs">
+      <DependentUpon>FrmItems.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmExpenseAppv.cs">
       <SubType>Form</SubType>
@@ -247,6 +247,30 @@
     </Compile>
     <Compile Include="gui\FrmExpenseDraw.Designer.cs">
       <DependentUpon>FrmExpenseDraw.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmExpenseDraw1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmExpenseDraw1.Designer.cs">
+      <DependentUpon>FrmExpenseDraw1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmExpenseDrawAppvView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmExpenseDrawAppvView.Designer.cs">
+      <DependentUpon>FrmExpenseDrawAppvView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmExpenseDrawPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmExpenseDrawPay.Designer.cs">
+      <DependentUpon>FrmExpenseDrawPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmExpenseDrawPayView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmExpenseDrawPayView.Designer.cs">
+      <DependentUpon>FrmExpenseDrawPayView.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmExpenseDrawType.cs">
       <SubType>Form</SubType>
@@ -460,13 +484,13 @@
     <Compile Include="objdb\CustomerRemarkDB.cs" />
     <Compile Include="objdb\CustomerTaxInvoiceDB.cs" />
     <Compile Include="objdb\DocTypeDB.cs" />
-    <Compile Include="objdb\ExpensesCatDB.cs" />
-    <Compile Include="objdb\ExpensesDB.cs" />
+    <Compile Include="objdb\ItemsCatDB.cs" />
+    <Compile Include="objdb\ItemsDB.cs" />
     <Compile Include="objdb\ExpensesDrawDB.cs" />
     <Compile Include="objdb\ExpensesDrawDetailDB.cs" />
     <Compile Include="objdb\ExpensesDrawTypeDB.cs" />
-    <Compile Include="objdb\ExpensesGrpDB.cs" />
-    <Compile Include="objdb\ExpensesTypeDB.cs" />
+    <Compile Include="objdb\ItemsGrpDB.cs" />
+    <Compile Include="objdb\ItemsTypeDB.cs" />
     <Compile Include="objdb\ImporterTypeDB.cs" />
     <Compile Include="objdb\JobImportCheckExamDB.cs" />
     <Compile Include="objdb\JobImportCheckListDB.cs" />
@@ -514,13 +538,13 @@
     <Compile Include="object1\CustomerRemark.cs" />
     <Compile Include="object1\CustomerTaxInvoice.cs" />
     <Compile Include="object1\DocType.cs" />
-    <Compile Include="object1\ExpensesCat.cs" />
-    <Compile Include="object1\Expenses.cs" />
+    <Compile Include="object1\ItemsCat.cs" />
+    <Compile Include="object1\Items.cs" />
     <Compile Include="object1\ExpensesDraw.cs" />
     <Compile Include="object1\ExpensesDrawDatail.cs" />
     <Compile Include="object1\ExpensesDrawType.cs" />
-    <Compile Include="object1\ExpensesGrp.cs" />
-    <Compile Include="object1\ExpensesType.cs" />
+    <Compile Include="object1\ItemsGrp.cs" />
+    <Compile Include="object1\ItemsType.cs" />
     <Compile Include="object1\FilterRow.cs" />
     <Compile Include="gui\FrmSearch.cs">
       <SubType>Form</SubType>
@@ -715,8 +739,8 @@
     <EmbeddedResource Include="gui\FrmDepartmentS.resx">
       <DependentUpon>FrmDepartmentS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gui\FrmExpense.resx">
-      <DependentUpon>FrmExpense.cs</DependentUpon>
+    <EmbeddedResource Include="gui\FrmItems.resx">
+      <DependentUpon>FrmItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmExpenseAppv.resx">
       <DependentUpon>FrmExpenseAppv.cs</DependentUpon>
@@ -726,6 +750,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmExpenseDraw.resx">
       <DependentUpon>FrmExpenseDraw.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmExpenseDraw1.resx">
+      <DependentUpon>FrmExpenseDraw1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmExpenseDrawAppvView.resx">
+      <DependentUpon>FrmExpenseDrawAppvView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmExpenseDrawPay.resx">
+      <DependentUpon>FrmExpenseDrawPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmExpenseDrawPayView.resx">
+      <DependentUpon>FrmExpenseDrawPayView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmExpenseDrawType.resx">
       <DependentUpon>FrmExpenseDrawType.cs</DependentUpon>

@@ -65,11 +65,15 @@ namespace Xtrim_ERP.gui
             {
                 theme1.SetTheme(c, "Office2013Red");
             }
-            theme1.SetTheme(chkAdmin, "Office2013Red");
-            theme1.SetTheme(chkUser, "Office2013Red");
-            theme1.SetTheme(chkExpJob, "Office2013Red");
-            theme1.SetTheme(chkImpJob, "Office2013Red");
-            theme1.SetTheme(chkOtherJob, "Office2013Red");
+            foreach (Control c in panelModule.Controls)
+            {
+                theme1.SetTheme(c, "Office2013Red");
+            }
+            //theme1.SetTheme(chkAdmin, "Office2013Red");
+            //theme1.SetTheme(chkUser, "Office2013Red");
+            //theme1.SetTheme(chkExpJob, "Office2013Red");
+            //theme1.SetTheme(chkImpJob, "Office2013Red");
+            //theme1.SetTheme(chkOtherJob, "Office2013Red");
             bg = txtStfCode.BackColor;
             fc = txtStfCode.ForeColor;
             setFocusColor();

@@ -46,7 +46,7 @@
             this.การเงนToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExpnDraw = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExpnDrawAppv = new System.Windows.Forms.ToolStripMenuItem();
-            this.จายเงนToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuExpnDrawPay = new System.Windows.Forms.ToolStripMenuItem();
             this.menuInit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCop = new System.Windows.Forms.ToolStripMenuItem();
             this.menuBank = new System.Windows.Forms.ToolStripMenuItem();
@@ -204,7 +204,7 @@
             this.การเงนToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuExpnDraw,
             this.menuExpnDrawAppv,
-            this.จายเงนToolStripMenuItem});
+            this.menuExpnDrawPay});
             this.การเงนToolStripMenuItem.Name = "การเงนToolStripMenuItem";
             this.การเงนToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.การเงนToolStripMenuItem.Text = "การเงิน";
@@ -221,11 +221,11 @@
             this.menuExpnDrawAppv.Size = new System.Drawing.Size(180, 22);
             this.menuExpnDrawAppv.Text = "อนุมัติ เบิกเงิน";
             // 
-            // จายเงนToolStripMenuItem
+            // menuExpnDrawPay
             // 
-            this.จายเงนToolStripMenuItem.Name = "จายเงนToolStripMenuItem";
-            this.จายเงนToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.จายเงนToolStripMenuItem.Text = "จ่ายเงิน";
+            this.menuExpnDrawPay.Name = "menuExpnDrawPay";
+            this.menuExpnDrawPay.Size = new System.Drawing.Size(180, 22);
+            this.menuExpnDrawPay.Text = "จ่ายเงิน";
             // 
             // menuInit
             // 
@@ -530,7 +530,7 @@
         private System.Windows.Forms.ToolStripMenuItem การเงนToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuExpnDraw;
         private System.Windows.Forms.ToolStripMenuItem menuExpnDrawAppv;
-        private System.Windows.Forms.ToolStripMenuItem จายเงนToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuExpnDrawPay;
         private System.Windows.Forms.ToolStripMenuItem menuExpnView;
     }
 }

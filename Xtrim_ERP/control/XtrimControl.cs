@@ -27,7 +27,7 @@ namespace Xtrim_ERP.control
         public XtrimDB xtDB;
 
         public String userId="";
-        public String copID = "", jobID="", cusID="",addrID="", contID="", cusrID="", custID="", stfID="", deptID="", posiID="";
+        public String copID = "", jobID="", cusID="",addrID="", contID="", cusrID="", custID="", stfID="", deptID="", posiID="", drawID="";
         public String rContactName = "", rContacTel = "", rContID="";
 
         public Customer sCus;
@@ -204,6 +204,15 @@ namespace Xtrim_ERP.control
             c.Items.Add(System.DateTime.Now.Year - 1);
             c.Items.Add(System.DateTime.Now.Year - 2);
             c.SelectedIndex = c.FindStringExact(String.Concat(System.DateTime.Now.Year));
+            return c;
+        }
+        public C1ComboBox setCboYear(C1ComboBox c)
+        {
+            c.Items.Clear();
+            c.Items.Add(System.DateTime.Now.Year);
+            c.Items.Add(System.DateTime.Now.Year - 1);
+            c.Items.Add(System.DateTime.Now.Year - 2);
+            c.SelectedText = System.DateTime.Now.Year.ToString();
             return c;
         }
         public String datetoDB(String dt)

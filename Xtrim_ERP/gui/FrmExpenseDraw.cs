@@ -33,10 +33,13 @@ namespace Xtrim_ERP.gui
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
         String userIdVoid = "", jobId="";
-        public FrmExpenseDraw(XtrimControl x)
+        public String drawId="", flagForm="";
+        public FrmExpenseDraw(XtrimControl x, String drawid, String flagform)
         {
             InitializeComponent();
             xC = x;
+            drawId = drawid;
+            flagForm = flagform;
             initConfig();
         }
         private void initConfig()
@@ -56,7 +59,7 @@ namespace Xtrim_ERP.gui
             bg = txtCode.BackColor;
             fc = txtCode.ForeColor;
             ff = txtCode.Font;
-            xC.xtDB.expndDB.setC1CboExpnC(cboStaff, "");
+            xC.xtDB.stfDB.setCboStaff(cboStaff,"");
             DateTime jobDate = DateTime.Now;
             txtExpndDrawDate.Value = jobDate.Year.ToString() + "-" + jobDate.ToString("MM-dd");
             jobDate = jobDate.AddDays(7);
@@ -74,6 +77,9 @@ namespace Xtrim_ERP.gui
             setGrfDeptH1();
             setControlEnable(false);
             setFocusColor();
+            setControlAppv();
+            setControl(drawId);
+
             sB1.Text = "";
             btnVoid.Hide();
             txtPasswordVoid.Hide();
@@ -94,9 +100,7 @@ namespace Xtrim_ERP.gui
                     txtJobCode.Value = "IMP"+jim.job_import_code;
                     setGrfDeptH1();
                 }
-                
             }
-            
         }
 
         private void initGrfDept()
@@ -165,6 +169,7 @@ namespace Xtrim_ERP.gui
             for(int i = 1; i < grfExpnD.Rows.Count; i++)
             {
                 Decimal amt1 = 0;
+                if (grfExpnD[i, colDamt] == null) continue;
                 if(Decimal.TryParse(grfExpnD[i, colDamt].ToString(), out amt1))
                 {
                     amt += amt1;
@@ -175,9 +180,15 @@ namespace Xtrim_ERP.gui
         private void setGrfDeptH()
         {
             grfExpnD.Clear();
-            
+            if (txtID.Text.Equals("")) return;
+            grfExpnD.DataSource = xC.xtDB.expnddDB.selectByDrawId(txtID.Text);
+
             grfExpnD.Cols.Count = 6;
-            grfExpnD.Rows.Count = 2;
+            if (flagForm.Equals("new"))
+            {
+                grfExpnD.Rows.Count = 2;
+            }
+            //grfExpnD.Rows.Count = 2;
             C1TextBox txt = new C1TextBox();
             txt.DataType = txtCode.DataType;
             C1TextBox txt1 = new C1TextBox();
@@ -210,16 +221,25 @@ namespace Xtrim_ERP.gui
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
+            if (flagForm.Equals("pay"))
+            {
+                ContextMenu menuGw = new ContextMenu();
+                menuGw.MenuItems.Add("&จ่ายเงิน รายการเบิก", new EventHandler(ContextMenu_pay));
+                //menuGw.MenuItems.Add("&แก้ไข", new EventHandler(ContextMenu_Gw_Edit));
+                //menuGw.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Gw_Cancel));
+                grfExpnD.ContextMenu = menuGw;
+            }
+            
+
             grfExpnD.Cols[colID].Visible = false;
 
-            if (txtID.Text.Equals("")) return;
-            grfExpnD.DataSource = xC.xtDB.expnddDB.selectByDrawId(txtID.Text);
+            
         }
         private void setGrfDeptH1()
         {
             grfExpnD1.Rows.Count = 2;
             grfExpnD1.Clear();
-            if (jobId.Equals("")) return;
+            if (txtJobCode.Text.Equals("")) return;
             grfExpnD1.DataSource = xC.xtDB.expndDB.selectByJobCode2(txtJobCode.Text.Replace("IMP",""));
 
             grfExpnD1.Cols.Count = 5;
@@ -281,11 +301,16 @@ namespace Xtrim_ERP.gui
             expnD = xC.xtDB.expndDB.selectByPk1(deptId);
             txtID.Value = expnD.expenses_draw_id;
             txtCode.Value = expnD.expenses_draw_code;
+            txtJobCode.Value = "IMP"+expnD.job_code;
             txtDesc.Value = expnD.desc1;
             txtRemark.Value = expnD.remark;
             txtExpndDrawDate.Value = expnD.expenses_draw_date;
             txtDrawDate.Value = expnD.draw_date;
+            txtAmt.Value = expnD.amount;
             xC.setC1Combo(cboStaff, expnD.staff_id);
+
+            setGrfDeptH();
+            setGrfDeptH1();
         }
         private void setControlEnable(Boolean flag)
         {
@@ -298,6 +323,53 @@ namespace Xtrim_ERP.gui
             txtDrawDate.Enabled = flag;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
+        private void setControlAppv()
+        {
+            if (flagForm.Equals("new"))
+            {
+                btnDoc.Show();
+                btnNew.Show();
+                btnSave.Show();
+                btnVoid.Show();
+                btnEdit.Show();
+                btnAppv.Hide();
+                label7.Hide();
+                txtAppvAmt.Hide();
+            }
+            else if (flagForm.Equals("view"))
+            {
+                btnDoc.Show();
+                btnNew.Show();
+                btnSave.Show();
+                btnVoid.Show();
+                btnEdit.Show();
+                btnAppv.Hide();
+                label7.Hide();
+                txtAppvAmt.Hide();
+            }
+            else if (flagForm.Equals("appv"))
+            {
+                btnDoc.Hide();
+                btnNew.Hide();
+                btnSave.Hide();
+                btnVoid.Hide();
+                btnEdit.Hide();
+                btnAppv.Show();
+                label7.Show();
+                txtAppvAmt.Show();
+            }
+            else if (flagForm.Equals("pay"))
+            {
+                btnDoc.Hide();
+                btnNew.Hide();
+                btnSave.Hide();
+                btnVoid.Hide();
+                btnEdit.Hide();
+                btnAppv.Hide();
+                label7.Show();
+                txtAppvAmt.Show();
+            }
+        }
         private void setExpensesDraw()
         {
             expnD.expenses_draw_id = txtID.Text;
@@ -309,6 +381,8 @@ namespace Xtrim_ERP.gui
             expnD.staff_id = cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "";
             expnD.job_code = txtJobCode.Text.Replace("IMP","");
             expnD.job_id = jobId;
+            expnD.amount = txtAmt.Value.ToString();
+            expnD.year = (DateTime.Parse(txtDrawDate.Text)).Year.ToString();
         }
         private void setExpensesDrawDetail()
         {
@@ -316,6 +390,7 @@ namespace Xtrim_ERP.gui
             {
                 if (grfExpnD.Row <= 0) continue;
                 ExpensesDrawDatail expndd = new ExpensesDrawDatail();
+                expndd.expense_draw_id = txtID.Text;
                 expndd.expenses_draw_detail_id = grfExpnD[i, colDid] == null ? "" : grfExpnD[i, colDid].ToString();
                 expndd.desc1 = grfExpnD[i, colDdesc1] == null ? "" : grfExpnD[i, colDdesc1].ToString();
                 expndd.desc2 = grfExpnD[i, colDdesc2] == null ? "" : grfExpnD[i, colDdesc2].ToString();
@@ -325,7 +400,6 @@ namespace Xtrim_ERP.gui
                 {
                     xC.xtDB.expnddDB.insertExpenseDrawDetail(expndd, xC.userId);
                 }
-                
             }
         }
         private void grfExpnD_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
@@ -337,8 +411,8 @@ namespace Xtrim_ERP.gui
             //deptId = grfExpnD[e.NewRange.r1, colID] != null ? grfExpnD[e.NewRange.r1, colID].ToString() : "";
             //setControl(deptId);
             //setControlEnable(false);
-            
-            
+
+
             //setControlAddr(addrId);
             //setControlAddrEnable(false);
         }
@@ -347,7 +421,21 @@ namespace Xtrim_ERP.gui
             if (e.NewRange.r1 < 0) return;
             if (e.NewRange.Data == null) return;
 
-            
+
+        }
+        private void ContextMenu_pay(object sender, System.EventArgs e)
+        {
+            if (grfExpnD.Row == null) return;
+            if (grfExpnD.Row < 0) return;
+
+            String drawdId = "";
+            drawdId = grfExpnD[grfExpnD.Row, colID] != null ? grfExpnD[grfExpnD.Row, colID].ToString() : "";
+            FrmExpenseDrawPay frm = new FrmExpenseDrawPay(xC, drawdId, "pay");
+            //frm.drawId = xC.drawID;
+            //frm.flagForm = "appv";
+            frm.WindowState = FormWindowState.Normal;
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog(this);
         }
         private void TxtPasswordVoid_KeyUp(object sender, KeyEventArgs e)
         {

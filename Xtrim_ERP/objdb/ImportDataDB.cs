@@ -33,7 +33,7 @@ namespace Xtrim_ERP.objdb
         UnitPackageDB utpDB;
         UnitGwDB ugwDB;
         JobImportExpnDB jieDB;
-        ExpensesDB expnDB;
+        ItemsDB expnDB;
         MethodPaymentDB mtpDB;
         JobImportContDB jctDB;
         AddressDB addrDB;
@@ -68,7 +68,7 @@ namespace Xtrim_ERP.objdb
             utpDB = new UnitPackageDB(conn);
             ugwDB = new UnitGwDB(conn);
             jieDB = new JobImportExpnDB(conn);
-            expnDB = new ExpensesDB(conn);
+            expnDB = new ItemsDB(conn);
             mtpDB = new MethodPaymentDB(conn);
             jctDB = new JobImportContDB(conn);
             addrDB = new AddressDB(conn);

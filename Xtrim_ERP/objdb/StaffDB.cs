@@ -1,4 +1,5 @@
-﻿using System;
+﻿using C1.Win.C1Input;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -502,6 +503,24 @@ namespace Xtrim_ERP.objdb
             stf1.status_module_exp_job = "0";
             stf1.status_module_other_job = "0";
             return stf1;
+        }
+        public void setCboStaff(C1ComboBox c, String selected)
+        {
+            ComboBoxItem item = new ComboBoxItem();
+            //DataTable dt = selectWard();
+            if (lStf.Count <= 0) getlStf();
+            foreach (Staff cus1 in lStf)
+            {
+                item = new ComboBoxItem();
+                item.Value = cus1.staff_id;
+                item.Text = cus1.staff_fname_t;
+                c.Items.Add(item);
+                if (item.Value.Equals(selected))
+                {
+                    //c.SelectedItem = item.Value;
+                    c.SelectedText = item.Text;
+                }
+            }
         }
     }
 }

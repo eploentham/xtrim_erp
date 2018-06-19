@@ -35,6 +35,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
             this.btnPosiAdd = new C1.Win.C1Input.C1Button();
             this.btnDeptAdd = new C1.Win.C1Input.C1Button();
             this.panelModule = new System.Windows.Forms.Panel();
@@ -84,7 +85,9 @@
             this.txtID = new C1.Win.C1Input.C1TextBox();
             this.txtStfCode = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
+            this.c1CheckBox1 = new C1.Win.C1Input.C1CheckBox();
+            this.c1CheckBox2 = new C1.Win.C1Input.C1CheckBox();
+            this.c1CheckBox3 = new C1.Win.C1Input.C1CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -93,6 +96,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPosiAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDeptAdd)).BeginInit();
             this.panelModule.SuspendLayout();
@@ -121,7 +125,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStfCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -253,6 +259,22 @@
             this.groupBox1.Text = "groupBox1";
             this.theme1.SetTheme(this.groupBox1, "(default)");
             // 
+            // txtPasswordVoid
+            // 
+            this.txtPasswordVoid.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.txtPasswordVoid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPasswordVoid.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(172)))), ((int)(((byte)(172)))));
+            this.txtPasswordVoid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPasswordVoid.Location = new System.Drawing.Point(385, 340);
+            this.txtPasswordVoid.Name = "txtPasswordVoid";
+            this.txtPasswordVoid.PasswordChar = '*';
+            this.txtPasswordVoid.Size = new System.Drawing.Size(78, 20);
+            this.txtPasswordVoid.TabIndex = 257;
+            this.txtPasswordVoid.Tag = null;
+            this.theme1.SetTheme(this.txtPasswordVoid, "(default)");
+            this.txtPasswordVoid.Visible = false;
+            this.txtPasswordVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // btnPosiAdd
             // 
             this.btnPosiAdd.Image = global::Xtrim_ERP.Properties.Resources.Search_globe16;
@@ -282,6 +304,9 @@
             // panelModule
             // 
             this.panelModule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.panelModule.Controls.Add(this.c1CheckBox3);
+            this.panelModule.Controls.Add(this.c1CheckBox2);
+            this.panelModule.Controls.Add(this.c1CheckBox1);
             this.panelModule.Controls.Add(this.chkOtherJob);
             this.panelModule.Controls.Add(this.chkExpJob);
             this.panelModule.Controls.Add(this.chkImpJob);
@@ -299,7 +324,7 @@
             this.chkOtherJob.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkOtherJob.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkOtherJob.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.chkOtherJob.Location = new System.Drawing.Point(325, 16);
+            this.chkOtherJob.Location = new System.Drawing.Point(325, 10);
             this.chkOtherJob.Name = "chkOtherJob";
             this.chkOtherJob.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkOtherJob.Size = new System.Drawing.Size(155, 24);
@@ -317,7 +342,7 @@
             this.chkExpJob.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkExpJob.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkExpJob.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.chkExpJob.Location = new System.Drawing.Point(183, 16);
+            this.chkExpJob.Location = new System.Drawing.Point(183, 10);
             this.chkExpJob.Name = "chkExpJob";
             this.chkExpJob.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkExpJob.Size = new System.Drawing.Size(155, 24);
@@ -335,7 +360,7 @@
             this.chkImpJob.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkImpJob.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkImpJob.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.chkImpJob.Location = new System.Drawing.Point(3, 16);
+            this.chkImpJob.Location = new System.Drawing.Point(3, 10);
             this.chkImpJob.Name = "chkImpJob";
             this.chkImpJob.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkImpJob.Size = new System.Drawing.Size(155, 24);
@@ -931,21 +956,59 @@
             this.label1.Text = "รหัส :";
             this.theme1.SetTheme(this.label1, "(default)");
             // 
-            // txtPasswordVoid
+            // c1CheckBox1
             // 
-            this.txtPasswordVoid.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
-            this.txtPasswordVoid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPasswordVoid.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(172)))), ((int)(((byte)(172)))));
-            this.txtPasswordVoid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtPasswordVoid.Location = new System.Drawing.Point(385, 340);
-            this.txtPasswordVoid.Name = "txtPasswordVoid";
-            this.txtPasswordVoid.PasswordChar = '*';
-            this.txtPasswordVoid.Size = new System.Drawing.Size(78, 20);
-            this.txtPasswordVoid.TabIndex = 257;
-            this.txtPasswordVoid.Tag = null;
-            this.theme1.SetTheme(this.txtPasswordVoid, "(default)");
-            this.txtPasswordVoid.Visible = false;
-            this.txtPasswordVoid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.c1CheckBox1.BackColor = System.Drawing.Color.Transparent;
+            this.c1CheckBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.c1CheckBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.c1CheckBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.c1CheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.c1CheckBox1.Location = new System.Drawing.Point(3, 40);
+            this.c1CheckBox1.Name = "c1CheckBox1";
+            this.c1CheckBox1.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.c1CheckBox1.Size = new System.Drawing.Size(155, 24);
+            this.c1CheckBox1.TabIndex = 258;
+            this.c1CheckBox1.Text = "หน้าจอ เบิกเงิน";
+            this.theme1.SetTheme(this.c1CheckBox1, "(default)");
+            this.c1CheckBox1.UseVisualStyleBackColor = true;
+            this.c1CheckBox1.Value = null;
+            this.c1CheckBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1CheckBox2
+            // 
+            this.c1CheckBox2.BackColor = System.Drawing.Color.Transparent;
+            this.c1CheckBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.c1CheckBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.c1CheckBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.c1CheckBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.c1CheckBox2.Location = new System.Drawing.Point(183, 40);
+            this.c1CheckBox2.Name = "c1CheckBox2";
+            this.c1CheckBox2.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.c1CheckBox2.Size = new System.Drawing.Size(136, 24);
+            this.c1CheckBox2.TabIndex = 259;
+            this.c1CheckBox2.Text = "หน้าจอ อนุมัติเบิกเงิน";
+            this.theme1.SetTheme(this.c1CheckBox2, "(default)");
+            this.c1CheckBox2.UseVisualStyleBackColor = true;
+            this.c1CheckBox2.Value = null;
+            this.c1CheckBox2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1CheckBox3
+            // 
+            this.c1CheckBox3.BackColor = System.Drawing.Color.Transparent;
+            this.c1CheckBox3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(71)))));
+            this.c1CheckBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.c1CheckBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.c1CheckBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.c1CheckBox3.Location = new System.Drawing.Point(325, 40);
+            this.c1CheckBox3.Name = "c1CheckBox3";
+            this.c1CheckBox3.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.c1CheckBox3.Size = new System.Drawing.Size(155, 24);
+            this.c1CheckBox3.TabIndex = 260;
+            this.c1CheckBox3.Text = "หน้าจอ จ่ายเงิน";
+            this.theme1.SetTheme(this.c1CheckBox3, "(default)");
+            this.c1CheckBox3.UseVisualStyleBackColor = true;
+            this.c1CheckBox3.Value = null;
+            this.c1CheckBox3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmStaff
             // 
@@ -969,6 +1032,7 @@
             this.splitContainer1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPosiAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDeptAdd)).EndInit();
             this.panelModule.ResumeLayout(false);
@@ -998,7 +1062,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStfCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1063,5 +1129,8 @@
         private C1.Win.C1Input.C1Button btnPosiAdd;
         private C1.Win.C1Input.C1Button btnDeptAdd;
         private C1.Win.C1Input.C1TextBox txtPasswordVoid;
+        private C1.Win.C1Input.C1CheckBox c1CheckBox3;
+        private C1.Win.C1Input.C1CheckBox c1CheckBox2;
+        private C1.Win.C1Input.C1CheckBox c1CheckBox1;
     }
 }

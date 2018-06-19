@@ -368,6 +368,20 @@ ADD COLUMN `time_open_close_over_time5` VARCHAR(255) NULL AFTER `time_open_close
 
 
 
+61-06-19
+ALTER TABLE `xtrim_erp`.`b_expenses` 
+CHANGE COLUMN `expenses_id` `item_id` INT(11) NOT NULL AUTO_INCREMENT ,
+CHANGE COLUMN `expenses_code` `item_code` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
+CHANGE COLUMN `expenses_name_t` `item_name_t` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
+CHANGE COLUMN `expenses_name_e` `item_name_e` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
+CHANGE COLUMN `expense_cat_id` `item_cat_id` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `expense_type_id` `item_type_sub_id` INT(11) NULL DEFAULT NULL , RENAME TO  `xtrim_erp`.`b_items` ;
+
+ALTER TABLE `xtrim_erp`.`b_expenses_type` 
+CHANGE COLUMN `expenses_type_id` `item_type_id` INT(11) NOT NULL AUTO_INCREMENT ,
+CHANGE COLUMN `expenses_type_code` `item_type_code` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
+CHANGE COLUMN `expenses_type_name_t` `item_type_name_t` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
+CHANGE COLUMN `expenses_type_name_e` `item_type_name_e` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL , RENAME TO  `xtrim_erp`.`b_items_type` ;
 
 
 

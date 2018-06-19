@@ -32,15 +32,18 @@
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.cboStaff = new C1.Win.C1Input.C1ComboBox();
-            this.label36 = new System.Windows.Forms.Label();
+            this.chkAll = new System.Windows.Forms.RadioButton();
+            this.chkAppvOk = new System.Windows.Forms.RadioButton();
+            this.chkAppvWait = new System.Windows.Forms.RadioButton();
             this.btnNew = new C1.Win.C1Input.C1Button();
+            this.cboYear = new C1.Win.C1Input.C1ComboBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboStaff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNew)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboYear)).BeginInit();
             this.SuspendLayout();
             // 
             // sB
@@ -66,8 +69,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.chkAll);
+            this.panel1.Controls.Add(this.chkAppvOk);
+            this.panel1.Controls.Add(this.chkAppvWait);
             this.panel1.Controls.Add(this.btnNew);
-            this.panel1.Controls.Add(this.cboStaff);
+            this.panel1.Controls.Add(this.cboYear);
             this.panel1.Controls.Add(this.label36);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
@@ -77,50 +83,56 @@
             this.panel1.TabIndex = 8;
             this.theme1.SetTheme(this.panel1, "(default)");
             // 
-            // panel2
+            // chkAll
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel2.Location = new System.Drawing.Point(0, 71);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 357);
-            this.panel2.TabIndex = 9;
-            this.theme1.SetTheme(this.panel2, "(default)");
+            this.chkAll.AutoSize = true;
+            this.chkAll.BackColor = System.Drawing.Color.Transparent;
+            this.chkAll.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkAll.Location = new System.Drawing.Point(481, 15);
+            this.chkAll.Name = "chkAll";
+            this.chkAll.Size = new System.Drawing.Size(58, 17);
+            this.chkAll.TabIndex = 487;
+            this.chkAll.TabStop = true;
+            this.chkAll.Text = "ทั้งหมด";
+            this.theme1.SetTheme(this.chkAll, "(default)");
+            this.chkAll.UseVisualStyleBackColor = false;
             // 
-            // cboStaff
+            // chkAppvOk
             // 
-            this.cboStaff.AllowSpinLoop = false;
-            this.cboStaff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboStaff.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboStaff.GapHeight = 0;
-            this.cboStaff.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboStaff.ItemsDisplayMember = "";
-            this.cboStaff.ItemsValueMember = "";
-            this.cboStaff.Location = new System.Drawing.Point(118, 12);
-            this.cboStaff.Name = "cboStaff";
-            this.cboStaff.Size = new System.Drawing.Size(134, 20);
-            this.cboStaff.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboStaff.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboStaff.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboStaff.TabIndex = 482;
-            this.cboStaff.Tag = null;
-            this.theme1.SetTheme(this.cboStaff, "(default)");
-            this.cboStaff.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.chkAppvOk.AutoSize = true;
+            this.chkAppvOk.BackColor = System.Drawing.Color.Transparent;
+            this.chkAppvOk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkAppvOk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkAppvOk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkAppvOk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkAppvOk.Location = new System.Drawing.Point(380, 14);
+            this.chkAppvOk.Name = "chkAppvOk";
+            this.chkAppvOk.Size = new System.Drawing.Size(73, 17);
+            this.chkAppvOk.TabIndex = 486;
+            this.chkAppvOk.TabStop = true;
+            this.chkAppvOk.Text = "อนุมัติแล้ว";
+            this.theme1.SetTheme(this.chkAppvOk, "(default)");
+            this.chkAppvOk.UseVisualStyleBackColor = false;
             // 
-            // label36
+            // chkAppvWait
             // 
-            this.label36.AutoSize = true;
-            this.label36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label36.Location = new System.Drawing.Point(12, 14);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(50, 16);
-            this.label36.TabIndex = 483;
-            this.label36.Text = "ผู้ขอเบิก :";
-            this.theme1.SetTheme(this.label36, "(default)");
+            this.chkAppvWait.AutoSize = true;
+            this.chkAppvWait.BackColor = System.Drawing.Color.Transparent;
+            this.chkAppvWait.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkAppvWait.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkAppvWait.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkAppvWait.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkAppvWait.Location = new System.Drawing.Point(272, 14);
+            this.chkAppvWait.Name = "chkAppvWait";
+            this.chkAppvWait.Size = new System.Drawing.Size(65, 17);
+            this.chkAppvWait.TabIndex = 485;
+            this.chkAppvWait.TabStop = true;
+            this.chkAppvWait.Text = "รออนุมัติ";
+            this.theme1.SetTheme(this.chkAppvWait, "(default)");
+            this.chkAppvWait.UseVisualStyleBackColor = false;
             // 
             // btnNew
             // 
@@ -136,6 +148,51 @@
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
+            // cboYear
+            // 
+            this.cboYear.AllowSpinLoop = false;
+            this.cboYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboYear.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboYear.GapHeight = 0;
+            this.cboYear.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboYear.ItemsDisplayMember = "";
+            this.cboYear.ItemsValueMember = "";
+            this.cboYear.Location = new System.Drawing.Point(39, 12);
+            this.cboYear.Name = "cboYear";
+            this.cboYear.Size = new System.Drawing.Size(134, 20);
+            this.cboYear.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboYear.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboYear.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboYear.TabIndex = 482;
+            this.cboYear.Tag = null;
+            this.theme1.SetTheme(this.cboYear, "(default)");
+            this.cboYear.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label36.Location = new System.Drawing.Point(12, 14);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(21, 16);
+            this.label36.TabIndex = 483;
+            this.label36.Text = "ปี :";
+            this.theme1.SetTheme(this.label36, "(default)");
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel2.Location = new System.Drawing.Point(0, 71);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(800, 357);
+            this.panel2.TabIndex = 9;
+            this.theme1.SetTheme(this.panel2, "(default)");
+            // 
             // FrmExpenseDrawView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,13 +203,14 @@
             this.Controls.Add(this.sB);
             this.Name = "FrmExpenseDrawView";
             this.Text = "FrmExpenseDrawView";
+            this.Load += new System.EventHandler(this.FrmExpenseDrawView_Load);
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboStaff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNew)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboYear)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,8 +223,11 @@
         private C1.Win.C1Themes.C1ThemeController theme1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private C1.Win.C1Input.C1ComboBox cboStaff;
+        private C1.Win.C1Input.C1ComboBox cboYear;
         private System.Windows.Forms.Label label36;
         private C1.Win.C1Input.C1Button btnNew;
+        private System.Windows.Forms.RadioButton chkAppvOk;
+        private System.Windows.Forms.RadioButton chkAppvWait;
+        private System.Windows.Forms.RadioButton chkAll;
     }
 }

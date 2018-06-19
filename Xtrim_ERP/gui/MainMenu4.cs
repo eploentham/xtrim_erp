@@ -55,12 +55,31 @@ namespace Xtrim_ERP.gui
             menuExpnGrp.Click += MenuExpnGrp_Click;
             menuMethodPay.Click += MenuMethodPay_Click;
             menuExpnDraw.Click += MenuExpnDraw_Click;
+            menuExpnDrawAppv.Click += MenuExpnDrawAppv_Click;
+            menuExpnDrawPay.Click += MenuExpnDrawPay_Click;
+        }
+
+        private void MenuExpnDrawPay_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmExpenseDrawPayView frm = new FrmExpenseDrawPayView(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "จ่ายเบิกเงิน ");
+        }
+
+        private void MenuExpnDrawAppv_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmExpenseDrawAppvView frm = new FrmExpenseDrawAppvView(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "อนุมัติเบิกเงิน ");
         }
 
         private void MenuExpnDraw_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmExpenseDraw frm = new FrmExpenseDraw(xC);
+            //FrmExpenseDraw frm = new FrmExpenseDraw(xC);
+            FrmExpenseDrawView frm = new FrmExpenseDrawView(xC);
             frm.FormBorderStyle = FormBorderStyle.None;
             AddNewTab(frm, "เบิกเงิน ");
         }
@@ -84,7 +103,7 @@ namespace Xtrim_ERP.gui
         private void MenuExpense_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmExpense frm = new FrmExpense(xC);
+            FrmItems frm = new FrmItems(xC);
             frm.FormBorderStyle = FormBorderStyle.None;
             AddNewTab(frm, "รายการ ค่าใช้จ่าย ");
         }
@@ -324,7 +343,7 @@ namespace Xtrim_ERP.gui
                     menuInit.Enabled = true;
                 }
             }
-            this.Text = "Last Update 2018-06-14";
+            this.Text = "Last Update 2018-06-18";
         }
     }
 }

@@ -43,6 +43,11 @@ namespace Xtrim_ERP.objdb
             expnC.status_appv = "status_appv";
             expnC.status_email = "status_email";
             expnC.amount = "amount";
+            expnC.year = "year";
+            expnC.appv_amount = "appv_amount";
+            expnC.appv_desc = "appv_desc";
+            expnC.status_pay = "status_pay";
+
 
             expnC.table = "t_expenses_draw";
             expnC.pkField = "expenses_draw_id";
@@ -126,12 +131,20 @@ namespace Xtrim_ERP.objdb
             p.desc1 = p.desc1 == null ? "" : p.desc1;
             p.status_appv = p.status_appv == null ? "" : p.status_appv;
             p.status_email = p.status_email == null ? "" : p.status_email;
+            p.status_pay = p.status_pay == null ? "" : p.status_pay;
+
+            p.year = p.year == null ? "" : p.year;
+            p.appv_desc = p.appv_desc == null ? "" : p.appv_desc;
+            
 
             p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
             p.staff_id = int.TryParse(p.staff_id, out chk) ? chk.ToString() : "0";
-            p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
+            //p.job_code = int.TryParse(p.job_code, out chk) ? chk.ToString() : "0";
+            
 
             p.amount = Decimal.TryParse(p.amount, out chk1) ? chk1.ToString() : "0";
+            p.appv_amount = Decimal.TryParse(p.appv_amount, out chk1) ? chk1.ToString() : "0";
+            
         }
         public String insert(ExpensesDraw p, String userId)
         {
@@ -150,14 +163,18 @@ namespace Xtrim_ERP.objdb
                 expnC.user_create + "," + expnC.user_modi + "," + expnC.user_cancel + "," +
                 expnC.active + "," + expnC.remark + ", " + expnC.job_code + ", " +
                 expnC.draw_date + "," + expnC.staff_id + "," + expnC.desc1 + ", " +
-                expnC.status_email + "," + expnC.status_appv + "," + expnC.amount + " " +
+                expnC.status_email + "," + expnC.status_appv + "," + expnC.amount + ", " +
+                expnC.year + "," + expnC.status_pay + " " +
+
                 ") " +
                 "Values ('" + p.expenses_draw_date + "','" + p.expenses_draw_code.Replace("'", "''") + "','" + p.job_id.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.job_code + "', " +
                 "'" + p.draw_date + "','" + p.staff_id.Replace("'", "''") + "','" + p.desc1.Replace("'", "''") + "', " +
-                "'" + p.status_email + "','" + p.status_appv.Replace("'", "''") + "','" + p.amount + "' " +
+                "'" + p.status_email + "','" + p.status_appv.Replace("'", "''") + "','" + p.amount + "', " +
+                "'" + p.year + "','" + p.status_pay + "' " +
+                
                 ")";
             try
             {
@@ -192,6 +209,8 @@ namespace Xtrim_ERP.objdb
                 "," + expnC.status_email + " = '" + p.status_email + "' " +
                 "," + expnC.status_appv + " = '" + p.status_appv + "' " +
                 "," + expnC.amount + " = '" + p.amount + "' " +
+                "," + expnC.year + " = '" + p.year + "' " +
+                "," + expnC.status_pay + " = '" + p.status_pay + "' " +
                 "Where " + expnC.pkField + "='" + p.expenses_draw_id + "'"
                 ;
 
@@ -206,6 +225,7 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
+        
         public String insertExpenseDraw(ExpensesDraw p, String userId)
         {
             String re = "";
@@ -236,6 +256,28 @@ namespace Xtrim_ERP.objdb
                 "From " + expnC.table + " expC " +
                 " " +
                 "Where expC." + expnC.active + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectAll(String year)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select expC.*  " +
+                "From " + expnC.table + " expC " +
+                " " +
+                "Where expC." + expnC.active + " ='1' and "+expnC.year + "='"+year+"'";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectAll1(String year)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select expC."+expnC.expenses_draw_id+","+expnC.expenses_draw_code+","+expnC.desc1+","+expnC.remark+","+expnC.amount+","+expnC.status_appv+ " " +
+                "From " + expnC.table + " expC " +
+                " " +
+                "Where expC." + expnC.active + " ='1' and " + expnC.year + "='" + year + "'";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -321,6 +363,9 @@ namespace Xtrim_ERP.objdb
                 curr1.status_appv = dt.Rows[0][expnC.status_appv].ToString();
                 curr1.status_email = dt.Rows[0][expnC.status_email].ToString();
                 curr1.amount = dt.Rows[0][expnC.amount].ToString();
+                curr1.year = dt.Rows[0][expnC.year].ToString();
+                curr1.status_pay = dt.Rows[0][expnC.status_pay].ToString();
+                
             }
 
             return curr1;

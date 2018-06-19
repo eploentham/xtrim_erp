@@ -20,7 +20,7 @@ namespace Xtrim_ERP.gui
     public partial class FrmExpenseType : Form
     {
         XtrimControl xC;
-        ExpensesType expnT;
+        ItemsType expnT;
         Font fEdit, fEditB;
 
         Color bg, fc;
@@ -41,7 +41,7 @@ namespace Xtrim_ERP.gui
         }
         private void initConfig()
         {
-            expnT = new ExpensesType();
+            expnT = new ItemsType();
             fEdit = new Font(xC.iniC.grdViewFontName, xC.grdViewFontSize, FontStyle.Regular);
             fEditB = new Font(xC.iniC.grdViewFontName, xC.grdViewFontSize, FontStyle.Bold);
 
@@ -151,9 +151,9 @@ namespace Xtrim_ERP.gui
         private void setControl(String deptId)
         {
             expnT = xC.xtDB.expntDB.selectByPk1(deptId);
-            txtID.Value = expnT.expenses_type_id;
-            txtCode.Value = expnT.expenses_type_code;
-            txtNameT.Value = expnT.expenses_type_name_t;
+            txtID.Value = expnT.item_type_id;
+            txtCode.Value = expnT.item_type_code;
+            txtNameT.Value = expnT.item_type_name_t;
             txtRemark.Value = expnT.remark;
         }
         private void setControlEnable(Boolean flag)
@@ -167,9 +167,9 @@ namespace Xtrim_ERP.gui
         }
         private void setDeptment()
         {
-            expnT.expenses_type_id = txtID.Text;
-            expnT.expenses_type_code = txtCode.Text;
-            expnT.expenses_type_name_t = txtNameT.Text;
+            expnT.item_type_id = txtID.Text;
+            expnT.item_type_code = txtCode.Text;
+            expnT.item_type_name_t = txtNameT.Text;
             expnT.remark = txtRemark.Text;
         }
         private void grfDept_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)

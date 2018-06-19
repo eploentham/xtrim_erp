@@ -41,6 +41,18 @@ namespace Xtrim_ERP.objdb
             expnC.remark = "remark";
             expnC.expense_type_id = "expenses_type_id";
 
+            expnC.status_pay = "status_pay";
+            expnC.pay_type = "pay_type";
+            expnC.pay_amount = "pay_amount";
+            expnC.pay_date = "pay_date";
+            expnC.pay_cheque_no = "pay_cheque_no";
+            expnC.pay_cheque_bank_id = "pay_cheque_bank_id";
+            expnC.pay_staff_id = "pay_staff_id";
+            expnC.expenses_id = "expenses_id";
+            expnC.pay_bank_date = "pay_bank_date";
+            expnC.job_id = "job_id";
+            expnC.job_code = "job_code";
+
             expnC.table = "t_expenses_draw_detail";
             expnC.pkField = "expenses_draw_detail_id";
 
@@ -120,11 +132,22 @@ namespace Xtrim_ERP.objdb
             //p.amount = p.amount == null ? "" : p.amount;
             p.remark = p.remark == null ? "" : p.remark;
             p.sort1 = p.sort1 == null ? "" : p.sort1;
+            p.status_pay = p.status_pay == null ? "" : p.status_pay;
+            p.pay_type = p.pay_type == null ? "" : p.pay_type;
+            p.pay_date = p.pay_date == null ? "" : p.pay_date;
+            p.pay_cheque_no = p.pay_cheque_no == null ? "" : p.pay_cheque_no;
+            p.pay_bank_date = p.pay_bank_date == null ? "" : p.pay_bank_date;
+            p.job_code = p.job_code == null ? "" : p.job_code;
 
             p.expense_draw_id = int.TryParse(p.expense_draw_id, out chk) ? chk.ToString() : "0";
             p.expense_type_id = int.TryParse(p.expense_type_id, out chk) ? chk.ToString() : "0";
+            p.pay_cheque_bank_id = int.TryParse(p.pay_cheque_bank_id, out chk) ? chk.ToString() : "0";
+            p.expenses_id = int.TryParse(p.expenses_id, out chk) ? chk.ToString() : "0";
+            p.pay_staff_id = int.TryParse(p.pay_staff_id, out chk) ? chk.ToString() : "0";
+            p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
 
             p.amount = Decimal.TryParse(p.amount, out chk1) ? chk1.ToString() : "0";
+            p.pay_amount = Decimal.TryParse(p.pay_amount, out chk1) ? chk1.ToString() : "0";
         }
         public String insert(ExpensesDrawDatail p, String userId)
         {
@@ -142,13 +165,21 @@ namespace Xtrim_ERP.objdb
                 expnC.date_create + "," + expnC.date_modi + "," + expnC.date_cancel + "," +
                 expnC.user_create + "," + expnC.user_modi + "," + expnC.user_cancel + "," +
                 expnC.active + "," + expnC.remark + ", " + expnC.sort1 + "," +
-                expnC.expense_draw_id + "," + expnC.expense_type_id + " " + 
+                expnC.expense_draw_id + "," + expnC.expense_type_id + "," + expnC.status_pay + "," +
+                expnC.pay_type + "," + expnC.pay_amount + "," + expnC.pay_date + ", " +
+                expnC.pay_cheque_no + "," + expnC.pay_cheque_bank_id + "," + expnC.pay_staff_id + ", " +
+                expnC.expenses_id + "," + expnC.pay_bank_date + "," + expnC.job_id + "," +
+                expnC.job_code + " " +
                 ") " +
                 "Values ('" + p.desc1.Replace("'", "''") + "','" + p.desc2.Replace("'", "''") + "','" + p.amount + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "', " +
-                "'" + p.expense_draw_id + "','" + p.expense_type_id.Replace("'", "''") + "' " + 
+                "'" + p.expense_draw_id + "','" + p.expense_type_id.Replace("'", "''") + "','" + p.status_pay + "'," +
+                "'" + p.pay_type + "','" + p.pay_amount.Replace("'", "''") + "','" + p.pay_date + "', " +
+                "'" + p.pay_cheque_no + "','" + p.pay_cheque_bank_id.Replace("'", "''") + "','" + p.pay_staff_id + "', " +
+                "'" + p.expenses_id + "','" + p.pay_bank_date.Replace("'", "''") + "' " + p.job_id + "' " +
+                "'" + p.job_code + "' " +
                 ")";
             try
             {
@@ -179,8 +210,44 @@ namespace Xtrim_ERP.objdb
                 "," + expnC.sort1 + " = '" + p.sort1 + "' " +
                 "," + expnC.expense_draw_id + " = '" + p.expense_draw_id + "' " +
                 "," + expnC.expense_type_id + " = '" + p.expense_type_id + "' " +
+                "," + expnC.job_code + " = '" + p.job_code + "' " +
+                "," + expnC.job_id + " = '" + p.job_id + "' " +
                 "Where " + expnC.pkField + "='" + p.expenses_draw_detail_id + "'"
                 ;
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
+
+            return re;
+        }
+        public String updatePay(ExpensesDrawDatail p, String userId)
+        {
+            String re = "";
+            String sql = "";
+            int chk = 0;
+
+            chkNull(p);
+
+            sql = "Update " + expnC.table + " Set " +
+                " " + expnC.pay_type + " = '" + p.pay_type + "'" +
+                "," + expnC.pay_amount + " = '" + p.pay_amount.Replace("'", "''") + "'" +
+                "," + expnC.pay_date + " = '" + p.pay_date.Replace("'", "''") + "'" +
+                "," + expnC.pay_cheque_no + " = '" + p.pay_cheque_no.Replace("'", "''") + "'" +
+                "," + expnC.date_modi + " = now()" +
+                "," + expnC.user_modi + " = '" + userId + "' " +
+                "," + expnC.pay_cheque_bank_id + " = '" + p.pay_cheque_bank_id + "' " +
+                "," + expnC.pay_staff_id + " = '" + p.pay_staff_id + "' " +
+                "," + expnC.expenses_id + " = '" + p.expenses_id + "' " +
+                "," + expnC.pay_bank_date + " = '" + p.pay_bank_date + "' " +
+
+                "Where " + expnC.pkField + "='" + p.expenses_draw_detail_id + "'"
+                ;
+
             try
             {
                 re = conn.ExecuteNonQuery(conn.conn, sql);
@@ -290,6 +357,18 @@ namespace Xtrim_ERP.objdb
                 curr1.sort1 = dt.Rows[0][expnC.sort1].ToString();
                 curr1.expense_draw_id = dt.Rows[0][expnC.expense_draw_id].ToString();
                 curr1.expense_type_id = dt.Rows[0][expnC.expense_type_id].ToString();
+
+                curr1.status_pay = dt.Rows[0][expnC.status_pay].ToString();
+                curr1.pay_type = dt.Rows[0][expnC.pay_type].ToString();
+                curr1.pay_amount = dt.Rows[0][expnC.pay_amount].ToString();
+                curr1.pay_date = dt.Rows[0][expnC.pay_date].ToString();
+                curr1.pay_cheque_no = dt.Rows[0][expnC.pay_cheque_no].ToString();
+                curr1.pay_cheque_bank_id = dt.Rows[0][expnC.pay_cheque_bank_id].ToString();
+                curr1.pay_staff_id = dt.Rows[0][expnC.pay_staff_id].ToString();
+                curr1.expenses_id = dt.Rows[0][expnC.expenses_id].ToString();
+                curr1.pay_bank_date = dt.Rows[0][expnC.pay_bank_date].ToString();
+                curr1.job_id = dt.Rows[0][expnC.job_id].ToString();
+                curr1.job_code = dt.Rows[0][expnC.job_code].ToString();
             }
 
             return curr1;
