@@ -385,6 +385,11 @@ CHANGE COLUMN `expenses_type_code` `item_type_code` VARCHAR(255) CHARACTER SET '
 CHANGE COLUMN `expenses_type_name_t` `item_type_name_t` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL ,
 CHANGE COLUMN `expenses_type_name_e` `item_type_name_e` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NULL DEFAULT NULL , RENAME TO  `xtrim_erp`.`b_items_type` ;
 
+61-06-21
+ALTER TABLE `xtrim_erp`.`b_company` 
+ADD COLUMN `cash_draw_doc` INT NULL AFTER `eaddr4`,
+ADD COLUMN `year_curr` VARCHAR(255) NULL AFTER `cash_draw_doc`;
+
 
 
 

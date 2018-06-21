@@ -295,7 +295,7 @@ namespace Xtrim_ERP.objdb
         public DataTable selectByJobCode2(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select expC."+expnC.expenses_draw_id + ",expC." + expnC.expenses_draw_code + ",expC." + expnC.desc1 + ",expC." + expnC.remark+ ",expC." + expnC.amount +" "+
+            String sql = "select expC."+expnC.expenses_draw_id + ",expC." + expnC.expenses_draw_code + ",expC." + expnC.desc1 + ",expC." + expnC.amount+ ",expC." + expnC.remark +" "+
                 "From " + expnC.table + " expC " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where expC." + expnC.job_code + " = '" + copId + "' ";
@@ -365,7 +365,34 @@ namespace Xtrim_ERP.objdb
                 curr1.amount = dt.Rows[0][expnC.amount].ToString();
                 curr1.year = dt.Rows[0][expnC.year].ToString();
                 curr1.status_pay = dt.Rows[0][expnC.status_pay].ToString();
-                
+
+            }
+            else
+            {
+                curr1.expenses_draw_id = "";
+                curr1.expenses_draw_date = "";
+                curr1.job_id = "";
+                curr1.job_code = "";
+                curr1.draw_date = "";
+                curr1.staff_id = "";
+
+                curr1.active = "";
+                curr1.date_create = "";
+                curr1.date_modi = "";
+                curr1.date_cancel = "";
+                curr1.user_create = "";
+                curr1.user_modi = "";
+                curr1.user_cancel = "";
+                curr1.expenses_draw_code = "";
+                curr1.remark = "";
+                curr1.desc1 = "";
+                curr1.status_appv = "";
+                curr1.status_email = "";
+                curr1.amount = "";
+                curr1.year = "";
+                curr1.appv_amount = "";
+                curr1.appv_desc = "";
+                curr1.status_pay = "";
             }
 
             return curr1;

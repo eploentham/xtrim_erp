@@ -25,8 +25,8 @@ namespace Xtrim_ERP.gui
 
         Color bg, fc;
         Font ff, ffB;
-        int colID = 1, colCode = 2, colDesc = 3, colRemark = 4;
-        int colDid = 1, colDdesc1 = 2, colDdesc2 = 3, colDamt = 4, colDremark = 5;
+        int colID = 1, colCode = 2, colDesc = 3, colAmt=4, colRemark = 5;
+        int colDid = 1, colDCode=2, colDdesc1 = 3, colDdesc2 = 4, colDamt = 5, colDremark = 6;
         C1FlexGrid grfExpnD, grfExpnD1;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
@@ -70,6 +70,7 @@ namespace Xtrim_ERP.gui
             btnNew.Click += BtnNew_Click;
             btnEdit.Click += BtnEdit_Click;
             btnSave.Click += BtnSave_Click;
+            btnDoc.Click += BtnDoc_Click;
 
             initGrfDept();
             initGrfDept1();
@@ -88,12 +89,14 @@ namespace Xtrim_ERP.gui
             stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
         }
 
+        
+
         private void TxtJobCode_KeyUp(object sender, KeyEventArgs e)
         {
             //throw new NotImplementedException();
             if(e.KeyCode== Keys.Enter)
             {
-                JobImport jim = xC.xtDB.jimDB.selectByJobCode(txtJobCode.Text);
+                JobImport jim = xC.xtDB.jimDB.selectByJobCode(txtJobCode.Text.Replace("IMP",""));
                 if (!jim.job_import_id.Equals(""))
                 {
                     jobId = jim.job_import_id;
@@ -180,20 +183,25 @@ namespace Xtrim_ERP.gui
         private void setGrfDeptH()
         {
             grfExpnD.Clear();
-            if (txtID.Text.Equals("")) return;
-            grfExpnD.DataSource = xC.xtDB.expnddDB.selectByDrawId(txtID.Text);
+            //if (txtID.Text.Equals("")) return;
 
-            grfExpnD.Cols.Count = 6;
+            grfExpnD.Cols.Count = 7;
             if (flagForm.Equals("new"))
             {
                 grfExpnD.Rows.Count = 2;
+            }
+            else
+            {
+                grfExpnD.DataSource = xC.xtDB.expnddDB.selectByDrawId(txtID.Text);
             }
             //grfExpnD.Rows.Count = 2;
             C1TextBox txt = new C1TextBox();
             txt.DataType = txtCode.DataType;
             C1TextBox txt1 = new C1TextBox();
-            txt1.DataType = txtAmt.DataType;            
-
+            txt1.DataType = txtAmt.DataType;
+            C1ComboBox cbo = new C1ComboBox();
+            xC.xtDB.itmDB.setCboExpen(cbo);
+            grfExpnD.Cols[colDCode].Editor = cbo;
             grfExpnD.Cols[colDdesc1].Editor = txt;
             grfExpnD.Cols[colDdesc2].Editor = txt;
             grfExpnD.Cols[colDremark].Editor = txt;
@@ -207,7 +215,7 @@ namespace Xtrim_ERP.gui
             grfExpnD.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
             //grfDept.Cols[colCode].Caption = "รหัส";
-
+            grfExpnD.Cols[colDCode].Caption = "รายการ";
             grfExpnD.Cols[colDdesc1].Caption = "รายละเอียด 1";
             grfExpnD.Cols[colDdesc2].Caption = "รายละเอียด 2";
             grfExpnD.Cols[colDremark].Caption = "หมายเหตุ";
@@ -221,6 +229,10 @@ namespace Xtrim_ERP.gui
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
+            //if (grfPic.Rows.Count == (grfPic.Row + 1)) grfPic.Rows.Count++;
+            //grfExpnD.AfterRowColChange += GrfExpnD_AfterRowColChange;
+            //grfExpnD.RowColChange += GrfExpnD_RowColChange;
+            
             if (flagForm.Equals("pay"))
             {
                 ContextMenu menuGw = new ContextMenu();
@@ -235,20 +247,49 @@ namespace Xtrim_ERP.gui
 
             
         }
+
+        private void GrfExpnD_RowColChange(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (grfExpnD.Col == colDCode)
+            {
+                grfExpnD.Col = colDdesc1;
+            }
+            else if (grfExpnD.Col == colDamt)
+            {
+                if (grfExpnD.Rows.Count == (grfExpnD.Row + 1)) grfExpnD.Rows.Count++;
+            }
+        }
+
+        private void GrfExpnD_AfterRowColChange(object sender, RangeEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (e.OldRange.c1 == colDCode)
+            {
+                if (grfExpnD.Rows.Count == (grfExpnD.Row + 1)) grfExpnD.Rows.Count++;
+                grfExpnD.Col = colDdesc1;
+            }
+            
+
+        }
+
         private void setGrfDeptH1()
         {
+            grfExpnD1.DataSource = null;
             grfExpnD1.Rows.Count = 2;
             grfExpnD1.Clear();
             if (txtJobCode.Text.Equals("")) return;
             grfExpnD1.DataSource = xC.xtDB.expndDB.selectByJobCode2(txtJobCode.Text.Replace("IMP",""));
 
-            grfExpnD1.Cols.Count = 5;
+            grfExpnD1.Cols.Count = 6;
             TextBox txt = new TextBox();
 
             grfExpnD1.Cols[colCode].Editor = txt;
             grfExpnD1.Cols[colDesc].Editor = txt;
             grfExpnD1.Cols[colRemark].Editor = txt;
+            grfExpnD1.Cols[colAmt].Editor = txt;
 
+            grfExpnD1.Cols[colAmt].Width = 80;
             grfExpnD1.Cols[colCode].Width = 60;
             grfExpnD1.Cols[colDesc].Width = 200;
             grfExpnD1.Cols[colRemark].Width = 100;
@@ -256,7 +297,7 @@ namespace Xtrim_ERP.gui
             grfExpnD1.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
             //grfDept.Cols[colCode].Caption = "รหัส";
-
+            grfExpnD1.Cols[colAmt].Caption = "ยอดเงิน";
             grfExpnD1.Cols[colCode].Caption = "เลขที่ใบเบิก";
             grfExpnD1.Cols[colDesc].Caption = "รายละเอียด";
             grfExpnD1.Cols[colRemark].Caption = "หมายเหตุ";
@@ -299,15 +340,31 @@ namespace Xtrim_ERP.gui
         private void setControl(String deptId)
         {
             expnD = xC.xtDB.expndDB.selectByPk1(deptId);
-            txtID.Value = expnD.expenses_draw_id;
-            txtCode.Value = expnD.expenses_draw_code;
-            txtJobCode.Value = "IMP"+expnD.job_code;
-            txtDesc.Value = expnD.desc1;
-            txtRemark.Value = expnD.remark;
-            txtExpndDrawDate.Value = expnD.expenses_draw_date;
-            txtDrawDate.Value = expnD.draw_date;
-            txtAmt.Value = expnD.amount;
-            xC.setC1Combo(cboStaff, expnD.staff_id);
+            if (expnD.expenses_draw_id.Equals(""))
+            {
+                txtID.Value = "";
+                txtCode.Value = "";
+                txtJobCode.Value = "IMP" + expnD.job_code;
+                txtDesc.Value = "";
+                txtRemark.Value = "";
+                DateTime jobDate = DateTime.Now;
+                txtExpndDrawDate.Value = jobDate.Year.ToString() + "-" + jobDate.ToString("MM-dd");
+                jobDate = jobDate.AddDays(7);
+                txtDrawDate.Value = jobDate.Year.ToString() + "-" + jobDate.ToString("MM-dd");
+                txtAmt.Value = 0;
+            }
+            else
+            {
+                txtID.Value = expnD.expenses_draw_id;
+                txtCode.Value = expnD.expenses_draw_code;
+                txtJobCode.Value = "IMP" + expnD.job_code;
+                txtDesc.Value = expnD.desc1;
+                txtRemark.Value = expnD.remark;
+                txtExpndDrawDate.Value = expnD.expenses_draw_date;
+                txtDrawDate.Value = expnD.draw_date;
+                txtAmt.Value = expnD.amount;
+                xC.setC1Combo(cboStaff, expnD.staff_id);
+            }
 
             setGrfDeptH();
             setGrfDeptH1();
@@ -384,13 +441,13 @@ namespace Xtrim_ERP.gui
             expnD.amount = txtAmt.Value.ToString();
             expnD.year = (DateTime.Parse(txtDrawDate.Text)).Year.ToString();
         }
-        private void setExpensesDrawDetail()
+        private void setExpensesDrawDetail(String expnid)
         {
             for (int i = 1; i < grfExpnD.Rows.Count; i++)
             {
                 if (grfExpnD.Row <= 0) continue;
                 ExpensesDrawDatail expndd = new ExpensesDrawDatail();
-                expndd.expense_draw_id = txtID.Text;
+                expndd.expense_draw_id = expnid;
                 expndd.expenses_draw_detail_id = grfExpnD[i, colDid] == null ? "" : grfExpnD[i, colDid].ToString();
                 expndd.desc1 = grfExpnD[i, colDdesc1] == null ? "" : grfExpnD[i, colDdesc1].ToString();
                 expndd.desc2 = grfExpnD[i, colDdesc2] == null ? "" : grfExpnD[i, colDdesc2].ToString();
@@ -455,6 +512,11 @@ namespace Xtrim_ERP.gui
                 }
             }
         }
+        private void BtnDoc_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+
+        }
         private void BtnSave_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -465,7 +527,7 @@ namespace Xtrim_ERP.gui
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
-                    setExpensesDrawDetail();
+                    setExpensesDrawDetail(re);
                     btnSave.Image = Resources.accept_database24;
                 }
                 else

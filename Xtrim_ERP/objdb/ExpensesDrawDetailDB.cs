@@ -178,7 +178,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.expense_draw_id + "','" + p.expense_type_id.Replace("'", "''") + "','" + p.status_pay + "'," +
                 "'" + p.pay_type + "','" + p.pay_amount.Replace("'", "''") + "','" + p.pay_date + "', " +
                 "'" + p.pay_cheque_no + "','" + p.pay_cheque_bank_id.Replace("'", "''") + "','" + p.pay_staff_id + "', " +
-                "'" + p.expenses_id + "','" + p.pay_bank_date.Replace("'", "''") + "' " + p.job_id + "' " +
+                "'" + p.expenses_id + "','" + p.pay_bank_date.Replace("'", "''") + "','" + p.job_id + "', " +
                 "'" + p.job_code + "' " +
                 ")";
             try

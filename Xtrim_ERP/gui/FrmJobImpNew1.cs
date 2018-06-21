@@ -409,7 +409,7 @@ namespace Xtrim_ERP.gui
             grfExpen.Dock = DockStyle.Fill;
             C1.Win.Calendar.C1DateEdit date = new C1.Win.Calendar.C1DateEdit();
             C1ComboBox combo = new C1ComboBox();
-            combo = xC.xtDB.expnDB.setCboExpen(combo);
+            combo = xC.xtDB.itmDB.setCboExpen(combo);
             grfExpen.Cols[colExpenDate].Editor = date;
             grfExpen.Cols[colExpenItem].Editor = combo;
             grfExpen.Cols[colExpenPayment].Editor = combo;
