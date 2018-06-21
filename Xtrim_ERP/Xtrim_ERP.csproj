@@ -236,11 +236,11 @@
     <Compile Include="gui\FrmExpenseAppv.Designer.cs">
       <DependentUpon>FrmExpenseAppv.cs</DependentUpon>
     </Compile>
-    <Compile Include="gui\FrmExpenseCat.cs">
+    <Compile Include="gui\FrmItemsCat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gui\FrmExpenseCat.Designer.cs">
-      <DependentUpon>FrmExpenseCat.cs</DependentUpon>
+    <Compile Include="gui\FrmItemsCat.Designer.cs">
+      <DependentUpon>FrmItemsCat.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmExpenseDraw.cs">
       <SubType>Form</SubType>
@@ -284,17 +284,17 @@
     <Compile Include="gui\FrmExpenseDrawView.Designer.cs">
       <DependentUpon>FrmExpenseDrawView.cs</DependentUpon>
     </Compile>
-    <Compile Include="gui\FrmExpenseGrp.cs">
+    <Compile Include="gui\FrmItemsGrp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gui\FrmExpenseGrp.Designer.cs">
-      <DependentUpon>FrmExpenseGrp.cs</DependentUpon>
+    <Compile Include="gui\FrmItemsGrp.Designer.cs">
+      <DependentUpon>FrmItemsGrp.cs</DependentUpon>
     </Compile>
-    <Compile Include="gui\FrmExpenseType.cs">
+    <Compile Include="gui\FrmItemsSubType.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gui\FrmExpenseType.Designer.cs">
-      <DependentUpon>FrmExpenseType.cs</DependentUpon>
+    <Compile Include="gui\FrmItemsSubType.Designer.cs">
+      <DependentUpon>FrmItemsSubType.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmJobImpCheckListExp.cs">
       <SubType>Form</SubType>
@@ -745,8 +745,8 @@
     <EmbeddedResource Include="gui\FrmExpenseAppv.resx">
       <DependentUpon>FrmExpenseAppv.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gui\FrmExpenseCat.resx">
-      <DependentUpon>FrmExpenseCat.cs</DependentUpon>
+    <EmbeddedResource Include="gui\FrmItemsCat.resx">
+      <DependentUpon>FrmItemsCat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmExpenseDraw.resx">
       <DependentUpon>FrmExpenseDraw.cs</DependentUpon>
@@ -769,11 +769,11 @@
     <EmbeddedResource Include="gui\FrmExpenseDrawView.resx">
       <DependentUpon>FrmExpenseDrawView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gui\FrmExpenseGrp.resx">
-      <DependentUpon>FrmExpenseGrp.cs</DependentUpon>
+    <EmbeddedResource Include="gui\FrmItemsGrp.resx">
+      <DependentUpon>FrmItemsGrp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gui\FrmExpenseType.resx">
-      <DependentUpon>FrmExpenseType.cs</DependentUpon>
+    <EmbeddedResource Include="gui\FrmItemsSubType.resx">
+      <DependentUpon>FrmItemsSubType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmImportData.resx">
       <DependentUpon>FrmImportData.cs</DependentUpon>

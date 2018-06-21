@@ -95,7 +95,7 @@ namespace Xtrim_ERP.gui
         private void MenuExpnGrp_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmExpenseGrp frm = new FrmExpenseGrp(xC);
+            FrmItemsGrp frm = new FrmItemsGrp(xC);
             frm.FormBorderStyle = FormBorderStyle.None;
             AddNewTab(frm, "กลุ่ม ค่าใช้จ่าย ");
         }
@@ -111,7 +111,7 @@ namespace Xtrim_ERP.gui
         private void MenuExpnCat_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmExpenseCat frm = new FrmExpenseCat(xC);
+            FrmItemsCat frm = new FrmItemsCat(xC);
             frm.FormBorderStyle = FormBorderStyle.None;
             AddNewTab(frm, "หมวด ค่าใช้จ่าย ");
         }
@@ -119,7 +119,7 @@ namespace Xtrim_ERP.gui
         private void MenuExpnType_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmExpenseType frm = new FrmExpenseType(xC);
+            FrmItemsSubType frm = new FrmItemsSubType(xC);
             frm.FormBorderStyle = FormBorderStyle.None;
             AddNewTab(frm, "ประเภท ค่าใช้จ่าย ");
         }
