@@ -421,6 +421,11 @@ namespace Xtrim_ERP.control
             if (!folderExists)
                 Directory.CreateDirectory(path);
         }
+        public Boolean fileExit(String path)
+        {
+            bool folderExists = File.Exists(path);
+            return folderExists;
+        }
         private AlternateView getEmbeddedImage(String filePath, String cid)
         {
             LinkedResource res = new LinkedResource(filePath);
