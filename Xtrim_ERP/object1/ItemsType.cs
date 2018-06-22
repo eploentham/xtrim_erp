@@ -21,5 +21,6 @@ namespace Xtrim_ERP.object1
         public String user_modi { get; set; }
         public String user_cancel { get; set; }
         public String sort1 { get; set; }
+        public String item_group_id { get; set; }
     }
 }

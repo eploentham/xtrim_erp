@@ -49,14 +49,23 @@ namespace Xtrim_ERP.gui
             menuTest.Click += MenuTest_Click;
             menuConvertData.Click += MenuConvertData_Click;
             menuImpJobView.Click += MenuImpJobView_Click;
-            menuExpnType.Click += MenuExpnType_Click;
-            menuExpnCat.Click += MenuExpnCat_Click;
-            menuExpense.Click += MenuExpense_Click;
-            menuExpnGrp.Click += MenuExpnGrp_Click;
+            menuItmType.Click += MenuItmType_Click;
+            menuItmCat.Click += MenuItmCat_Click;
+            menuItems.Click += MenuItems_Click;
+            menuItmGrp.Click += MenuItmGrp_Click;
             menuMethodPay.Click += MenuMethodPay_Click;
             menuExpnDraw.Click += MenuExpnDraw_Click;
             menuExpnDrawAppv.Click += MenuExpnDrawAppv_Click;
             menuExpnDrawPay.Click += MenuExpnDrawPay_Click;
+            menuItmTypeSub.Click += MenuItmTypeSub_Click;
+        }
+
+        private void MenuItmTypeSub_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmItemsTypeSub frm = new FrmItemsTypeSub(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "ประเภทย่อย ");
         }
 
         private void MenuExpnDrawPay_Click(object sender, EventArgs e)
@@ -92,7 +101,7 @@ namespace Xtrim_ERP.gui
             AddNewTab(frm, "วิธีการจ่ายเงิน ");
         }
 
-        private void MenuExpnGrp_Click(object sender, EventArgs e)
+        private void MenuItmGrp_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             FrmItemsGrp frm = new FrmItemsGrp(xC);
@@ -100,7 +109,7 @@ namespace Xtrim_ERP.gui
             AddNewTab(frm, "กลุ่ม ค่าใช้จ่าย ");
         }
 
-        private void MenuExpense_Click(object sender, EventArgs e)
+        private void MenuItems_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             FrmItems frm = new FrmItems(xC);
@@ -108,7 +117,7 @@ namespace Xtrim_ERP.gui
             AddNewTab(frm, "รายการ ค่าใช้จ่าย ");
         }
 
-        private void MenuExpnCat_Click(object sender, EventArgs e)
+        private void MenuItmCat_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             FrmItemsCat frm = new FrmItemsCat(xC);
@@ -116,12 +125,12 @@ namespace Xtrim_ERP.gui
             AddNewTab(frm, "หมวด ค่าใช้จ่าย ");
         }
 
-        private void MenuExpnType_Click(object sender, EventArgs e)
+        private void MenuItmType_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmItemsSubType frm = new FrmItemsSubType(xC);
+            FrmItemsType frm = new FrmItemsType(xC);
             frm.FormBorderStyle = FormBorderStyle.None;
-            AddNewTab(frm, "ประเภท ค่าใช้จ่าย ");
+            AddNewTab(frm, "ประเภทหลัก ");
         }
 
         private void MenuImpJobView_Click(object sender, EventArgs e)

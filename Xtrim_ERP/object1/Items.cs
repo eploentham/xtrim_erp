@@ -22,5 +22,13 @@ namespace Xtrim_ERP.object1
         public String status_app { get; set; }
         public String remark { get; set; }
         public String sort1 { get; set; }
+
+        public String acc_code { get; set; }
+        public String status_tax53 { get; set; }
+        public String item_grp_id { get; set; }
+        public String item_type_sub_id { get; set; }
+        public String item_cat_id { get; set; }
+        public String method_payment_id { get; set; }
+        public String status_invoice { get; set; }
     }
 }

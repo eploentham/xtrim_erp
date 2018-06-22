@@ -41,6 +41,14 @@ namespace Xtrim_ERP.objdb
             //tmn.status_app = "status_app";
             itm.remark = "remark";
 
+            itm.acc_code = "acc_code";
+            itm.status_tax53 = "status_tax53";
+            itm.item_grp_id = "item_grp_id";
+            itm.item_type_sub_id = "item_type_sub_id";
+            itm.item_cat_id = "item_cat_id";
+            itm.method_payment_id = "method_payment_id";
+            itm.status_invoice = "status_invoice";
+
             itm.table = "b_items";
             itm.pkField = "item_id";
 
@@ -92,6 +100,31 @@ namespace Xtrim_ERP.objdb
             }
             return id;
         }
+        private void chkNull(Items p)
+        {
+            int chk = 0;
+            Decimal chk1 = 0;
+
+            p.date_modi = p.date_modi == null ? "" : p.date_modi;
+            p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
+            p.user_create = p.user_create == null ? "" : p.user_create;
+            p.user_modi = p.user_modi == null ? "" : p.user_modi;
+            p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
+            p.status_tax53 = p.status_tax53 == null ? "0" : p.status_tax53;
+            p.acc_code = p.acc_code == null ? "" : p.acc_code;
+            p.remark = p.remark == null ? "" : p.remark;
+            p.sort1 = p.sort1 == null ? "" : p.sort1;
+            p.status_app = p.status_app == null ? "" : p.status_app;
+            p.item_name_t = p.item_name_t == null ? "" : p.item_name_t;
+            p.item_name_e = p.item_name_e == null ? "" : p.item_name_e;
+            p.item_code = p.item_code == null ? "" : p.item_code;
+            p.status_invoice = p.status_invoice == null ? "0" : p.status_invoice;
+
+            p.item_grp_id = int.TryParse(p.item_grp_id, out chk) ? chk.ToString() : "0";
+            p.item_type_sub_id = int.TryParse(p.item_type_sub_id, out chk) ? chk.ToString() : "0";
+            p.item_cat_id = int.TryParse(p.item_cat_id, out chk) ? chk.ToString() : "0";
+            p.method_payment_id = int.TryParse(p.method_payment_id, out chk) ? chk.ToString() : "0";
+        }
         public String insert(Items p, String userId)
         {
             String re = "";
@@ -100,23 +133,25 @@ namespace Xtrim_ERP.objdb
             //p.ssdata_id = "";
             int chk = 0;
 
-            p.date_modi = p.date_modi == null ? "" : p.date_modi;
-            p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
-            p.user_create = p.user_create == null ? "" : p.user_create;
-            p.user_modi = p.user_modi == null ? "" : p.user_modi;
-            p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
+
             //p.prefix_id = int.TryParse(p.prefix_id, out chk) ? chk.ToString() : "0";
             //p.dept_id = int.TryParse(p.dept_id, out chk) ? chk.ToString() : "0";
-
+            chkNull(p);
             sql = "Insert Into " + itm.table + "(" + itm.item_code + "," + itm.item_name_e + "," + itm.item_name_t + "," +
                 itm.date_create + "," + itm.date_modi + "," + itm.date_cancel + "," +
                 itm.user_create + "," + itm.user_modi + "," + itm.user_cancel + "," +
-                itm.active + "," + itm.remark + ", " + itm.sort1 + " " +
+                itm.active + "," + itm.remark + ", " + itm.sort1 + "," +
+                itm.acc_code + "," + itm.status_tax53 + ", " + itm.item_grp_id + "," +
+                itm.item_type_sub_id + "," + itm.item_cat_id + ", " + itm.status_app + "," +
+                itm.method_payment_id + "," + itm.status_invoice + " " +
                 ") " +
                 "Values ('" + p.item_code + "','" + p.item_name_e.Replace("'", "''") + "','" + p.item_name_t.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
-                "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "' " +
+                "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "'," +
+                "'" + p.acc_code + "','" + p.status_tax53.Replace("'", "''") + "','" + p.item_grp_id + "'," +
+                "'" + p.item_type_sub_id + "','" + p.item_cat_id.Replace("'", "''") + "','" + p.status_app + "'," +
+                "'" + p.method_payment_id + "','" + p.status_invoice.Replace("'", "''") + "' " +
                 ")";
             try
             {
@@ -135,12 +170,7 @@ namespace Xtrim_ERP.objdb
             String sql = "";
             int chk = 0;
 
-            p.date_modi = p.date_modi == null ? "" : p.date_modi;
-            p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
-            p.user_create = p.user_create == null ? "" : p.user_create;
-            p.user_modi = p.user_modi == null ? "" : p.user_modi;
-            p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
-
+            chkNull(p);
             sql = "Update " + itm.table + " Set " +
                 " " + itm.item_code + " = '" + p.item_code + "'" +
                 "," + itm.item_name_e + " = '" + p.item_name_e.Replace("'", "''") + "'" +
@@ -149,7 +179,14 @@ namespace Xtrim_ERP.objdb
                 "," + itm.date_modi + " = now()" +
                 "," + itm.user_modi + " = '" + userId + "' " +
                 "," + itm.sort1 + " = '" + p.sort1 + "' " +
-                //"," + tmn.status_app + " = '" + p.status_app + "' " +
+                "," + itm.acc_code + " = '" + p.acc_code + "' " +
+                "," + itm.status_tax53 + " = '" + p.status_tax53 + "' " +
+                "," + itm.item_grp_id + " = '" + p.item_grp_id + "' " +
+                "," + itm.item_type_sub_id + " = '" + p.item_type_sub_id + "' " +
+                "," + itm.item_cat_id + " = '" + p.item_cat_id + "' " +
+                "," + itm.status_app + " = '" + p.status_app + "' " +
+                "," + itm.method_payment_id + " = '" + p.method_payment_id + "' " +
+                "," + itm.status_invoice + " = '" + p.status_invoice + "' " +
                 "Where " + itm.pkField + "='" + p.item_id + "'"
                 ;
 
@@ -164,7 +201,7 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String insertExpnes(Items p, String userId)
+        public String insertItem(Items p, String userId)
         {
             String re = "";
 
@@ -201,10 +238,10 @@ namespace Xtrim_ERP.objdb
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select expn.* " +
-                "From " + itm.table + " expn " +
+            String sql = "select itm.* " +
+                "From " + itm.table + " itm " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where expn." + itm.pkField + " ='" + copId + "' ";
+                "Where itm." + itm.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -217,10 +254,10 @@ namespace Xtrim_ERP.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where expn." + itm.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setExpn(dt);
+            cop1 = setItem(dt);
             return cop1;
         }
-        private Items setExpn(DataTable dt)
+        public Items setItem(DataTable dt)
         {
             Items expn1 = new Items();
             if (dt.Rows.Count > 0)
@@ -239,11 +276,19 @@ namespace Xtrim_ERP.objdb
                 //pti1.status_app = dt.Rows[0][tmn.status_app].ToString();
                 expn1.remark = dt.Rows[0][itm.remark].ToString();
                 expn1.sort1 = dt.Rows[0][itm.sort1].ToString();
+                expn1.acc_code = dt.Rows[0][itm.acc_code].ToString();
+                expn1.status_tax53 = dt.Rows[0][itm.status_tax53].ToString();
+                expn1.item_grp_id = dt.Rows[0][itm.item_grp_id].ToString();
+                expn1.item_type_sub_id = dt.Rows[0][itm.item_type_sub_id].ToString();
+                expn1.item_cat_id = dt.Rows[0][itm.item_cat_id].ToString();
+                expn1.status_app = dt.Rows[0][itm.status_app].ToString();
+                expn1.method_payment_id = dt.Rows[0][itm.method_payment_id].ToString();
+                expn1.status_invoice = dt.Rows[0][itm.status_invoice].ToString();
             }
 
             return expn1;
         }
-        public C1ComboBox setCboExpen(C1ComboBox c)
+        public C1ComboBox setCboItem(C1ComboBox c)
         {
             ComboBoxItem item = new ComboBoxItem();
             DataTable dt = selectAll();

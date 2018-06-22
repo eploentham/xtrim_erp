@@ -66,11 +66,12 @@
             this.ขอมลPortOfLoadingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ขอมลPrivilegesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ขอมลคาใชจายToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuExpnType = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuExpnCat = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuExpnGrp = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItmType = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItmCat = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItmGrp = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMethodPay = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuExpense = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItems = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItmTypeSub = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuConvertData = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFormTest = new System.Windows.Forms.ToolStripMenuItem();
@@ -212,19 +213,19 @@
             // menuExpnDraw
             // 
             this.menuExpnDraw.Name = "menuExpnDraw";
-            this.menuExpnDraw.Size = new System.Drawing.Size(180, 22);
+            this.menuExpnDraw.Size = new System.Drawing.Size(136, 22);
             this.menuExpnDraw.Text = "ใบเบิกเงิน";
             // 
             // menuExpnDrawAppv
             // 
             this.menuExpnDrawAppv.Name = "menuExpnDrawAppv";
-            this.menuExpnDrawAppv.Size = new System.Drawing.Size(180, 22);
+            this.menuExpnDrawAppv.Size = new System.Drawing.Size(136, 22);
             this.menuExpnDrawAppv.Text = "อนุมัติ เบิกเงิน";
             // 
             // menuExpnDrawPay
             // 
             this.menuExpnDrawPay.Name = "menuExpnDrawPay";
-            this.menuExpnDrawPay.Size = new System.Drawing.Size(180, 22);
+            this.menuExpnDrawPay.Size = new System.Drawing.Size(136, 22);
             this.menuExpnDrawPay.Text = "จ่ายเงิน";
             // 
             // menuInit
@@ -358,44 +359,51 @@
             // ขอมลคาใชจายToolStripMenuItem
             // 
             this.ขอมลคาใชจายToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuExpnType,
-            this.menuExpnCat,
-            this.menuExpnGrp,
+            this.menuItmType,
+            this.menuItmTypeSub,
+            this.menuItmCat,
+            this.menuItmGrp,
             this.menuMethodPay,
-            this.menuExpense});
+            this.menuItems});
             this.ขอมลคาใชจายToolStripMenuItem.Name = "ขอมลคาใชจายToolStripMenuItem";
             this.ขอมลคาใชจายToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.ขอมลคาใชจายToolStripMenuItem.Text = "ข้อมูลค่าใช้จ่าย";
+            this.ขอมลคาใชจายToolStripMenuItem.Text = "ข้อมูลการเงิน";
             // 
-            // menuExpnType
+            // menuItmType
             // 
-            this.menuExpnType.Name = "menuExpnType";
-            this.menuExpnType.Size = new System.Drawing.Size(151, 22);
-            this.menuExpnType.Text = "ประเภท ค่าใช้จ่าย";
+            this.menuItmType.Name = "menuItmType";
+            this.menuItmType.Size = new System.Drawing.Size(180, 22);
+            this.menuItmType.Text = "ประเภท การเงิน";
             // 
-            // menuExpnCat
+            // menuItmCat
             // 
-            this.menuExpnCat.Name = "menuExpnCat";
-            this.menuExpnCat.Size = new System.Drawing.Size(151, 22);
-            this.menuExpnCat.Text = "หมวด ค่าใช้จ่าย";
+            this.menuItmCat.Name = "menuItmCat";
+            this.menuItmCat.Size = new System.Drawing.Size(180, 22);
+            this.menuItmCat.Text = "หมวด การเงิน";
             // 
-            // menuExpnGrp
+            // menuItmGrp
             // 
-            this.menuExpnGrp.Name = "menuExpnGrp";
-            this.menuExpnGrp.Size = new System.Drawing.Size(151, 22);
-            this.menuExpnGrp.Text = "กลุ่ม ค่าใช้จ่าย";
+            this.menuItmGrp.Name = "menuItmGrp";
+            this.menuItmGrp.Size = new System.Drawing.Size(180, 22);
+            this.menuItmGrp.Text = "กลุ่ม การเงิน";
             // 
             // menuMethodPay
             // 
             this.menuMethodPay.Name = "menuMethodPay";
-            this.menuMethodPay.Size = new System.Drawing.Size(151, 22);
+            this.menuMethodPay.Size = new System.Drawing.Size(180, 22);
             this.menuMethodPay.Text = "วิธีการจ่ายเงิน";
             // 
-            // menuExpense
+            // menuItems
             // 
-            this.menuExpense.Name = "menuExpense";
-            this.menuExpense.Size = new System.Drawing.Size(151, 22);
-            this.menuExpense.Text = "รายการ ค่าใช้จ่าย";
+            this.menuItems.Name = "menuItems";
+            this.menuItems.Size = new System.Drawing.Size(180, 22);
+            this.menuItems.Text = "รายการ การเงิน";
+            // 
+            // menuItmTypeSub
+            // 
+            this.menuItmTypeSub.Name = "menuItmTypeSub";
+            this.menuItmTypeSub.Size = new System.Drawing.Size(180, 22);
+            this.menuItmTypeSub.Text = "ประเภทย่อย การเงิน";
             // 
             // toolStripSeparator3
             // 
@@ -522,15 +530,16 @@
         private C1.Win.C1Command.C1DockingTabPage PageS;
         private System.Windows.Forms.ToolStripMenuItem menuEmail;
         private System.Windows.Forms.ToolStripMenuItem ขอมลคาใชจายToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuExpnType;
-        private System.Windows.Forms.ToolStripMenuItem menuExpnCat;
-        private System.Windows.Forms.ToolStripMenuItem menuExpense;
-        private System.Windows.Forms.ToolStripMenuItem menuExpnGrp;
+        private System.Windows.Forms.ToolStripMenuItem menuItmType;
+        private System.Windows.Forms.ToolStripMenuItem menuItmCat;
+        private System.Windows.Forms.ToolStripMenuItem menuItems;
+        private System.Windows.Forms.ToolStripMenuItem menuItmGrp;
         private System.Windows.Forms.ToolStripMenuItem menuMethodPay;
         private System.Windows.Forms.ToolStripMenuItem การเงนToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuExpnDraw;
         private System.Windows.Forms.ToolStripMenuItem menuExpnDrawAppv;
         private System.Windows.Forms.ToolStripMenuItem menuExpnDrawPay;
         private System.Windows.Forms.ToolStripMenuItem menuExpnView;
+        private System.Windows.Forms.ToolStripMenuItem menuItmTypeSub;
     }
 }

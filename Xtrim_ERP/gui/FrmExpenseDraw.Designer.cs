@@ -32,6 +32,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtAppvAmt = new C1.Win.C1Input.C1TextBox();
+            this.btnAppv = new C1.Win.C1Input.C1Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtAmt = new C1.Win.C1Input.C1TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,12 +62,12 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnAppv = new C1.Win.C1Input.C1Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtAppvAmt = new C1.Win.C1Input.C1TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAppvAmt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAppv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
@@ -82,8 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtExpndDrawDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAppv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAppvAmt)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -117,6 +118,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.txtAppvAmt);
             this.panel2.Controls.Add(this.btnAppv);
@@ -152,6 +154,53 @@
             this.panel2.Size = new System.Drawing.Size(1159, 252);
             this.panel2.TabIndex = 0;
             this.theme1.SetTheme(this.panel2, "(default)");
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label7.Location = new System.Drawing.Point(15, 216);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 16);
+            this.label7.TabIndex = 496;
+            this.label7.Text = "อนุมัติเงิน :";
+            this.theme1.SetTheme(this.label7, "(default)");
+            // 
+            // txtAppvAmt
+            // 
+            this.txtAppvAmt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAppvAmt.DataType = typeof(decimal);
+            this.txtAppvAmt.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtAppvAmt.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtAppvAmt.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
+            this.txtAppvAmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtAppvAmt.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtAppvAmt.Location = new System.Drawing.Point(121, 214);
+            this.txtAppvAmt.Name = "txtAppvAmt";
+            this.txtAppvAmt.Size = new System.Drawing.Size(223, 24);
+            this.txtAppvAmt.TabIndex = 495;
+            this.txtAppvAmt.Tag = null;
+            this.theme1.SetTheme(this.txtAppvAmt, "(default)");
+            this.txtAppvAmt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnAppv
+            // 
+            this.btnAppv.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
+            this.btnAppv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAppv.Location = new System.Drawing.Point(649, 97);
+            this.btnAppv.Name = "btnAppv";
+            this.btnAppv.Size = new System.Drawing.Size(83, 39);
+            this.btnAppv.TabIndex = 494;
+            this.btnAppv.Text = "Approve";
+            this.btnAppv.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnAppv, "(default)");
+            this.btnAppv.UseVisualStyleBackColor = true;
+            this.btnAppv.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label6
             // 
@@ -564,52 +613,18 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // btnAppv
+            // label8
             // 
-            this.btnAppv.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
-            this.btnAppv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAppv.Location = new System.Drawing.Point(649, 97);
-            this.btnAppv.Name = "btnAppv";
-            this.btnAppv.Size = new System.Drawing.Size(83, 39);
-            this.btnAppv.TabIndex = 494;
-            this.btnAppv.Text = "Approve";
-            this.btnAppv.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnAppv, "(default)");
-            this.btnAppv.UseVisualStyleBackColor = true;
-            this.btnAppv.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label7.Location = new System.Drawing.Point(15, 216);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 16);
-            this.label7.TabIndex = 496;
-            this.label7.Text = "อนุมัติเงิน :";
-            this.theme1.SetTheme(this.label7, "(default)");
-            // 
-            // txtAppvAmt
-            // 
-            this.txtAppvAmt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAppvAmt.DataType = typeof(decimal);
-            this.txtAppvAmt.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtAppvAmt.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
-            this.txtAppvAmt.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
-            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
-            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
-            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.txtAppvAmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtAppvAmt.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
-            this.txtAppvAmt.Location = new System.Drawing.Point(121, 214);
-            this.txtAppvAmt.Name = "txtAppvAmt";
-            this.txtAppvAmt.Size = new System.Drawing.Size(223, 24);
-            this.txtAppvAmt.TabIndex = 495;
-            this.txtAppvAmt.Tag = null;
-            this.theme1.SetTheme(this.txtAppvAmt, "(default)");
-            this.txtAppvAmt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label8.Location = new System.Drawing.Point(403, 23);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(17, 16);
+            this.label8.TabIndex = 497;
+            this.label8.Text = "...";
+            this.theme1.SetTheme(this.label8, "(default)");
             // 
             // FrmExpenseDraw
             // 
@@ -625,6 +640,8 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAppvAmt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAppv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
@@ -643,8 +660,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAppv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAppvAmt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -686,5 +701,6 @@
         private C1.Win.C1Input.C1Button btnAppv;
         private System.Windows.Forms.Label label7;
         private C1.Win.C1Input.C1TextBox txtAppvAmt;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -94,7 +94,7 @@ namespace Xtrim_ERP.gui
         private void setGrfDeptH()
         {
             //grfDept.Rows.Count = 7;
-            grfExpnC.DataSource = xC.xtDB.expncDB.selectAll();
+            grfExpnC.DataSource = xC.xtDB.itmcDB.selectAll();
             grfExpnC.Cols.Count = 5;
             TextBox txt = new TextBox();
 
@@ -150,7 +150,7 @@ namespace Xtrim_ERP.gui
         }
         private void setControl(String deptId)
         {
-            expnC = xC.xtDB.expncDB.selectByPk1(deptId);
+            expnC = xC.xtDB.itmcDB.selectByPk1(deptId);
             txtID.Value = expnC.item_cat_id;
             txtCode.Value = expnC.item_cat_code;
             txtNameT.Value = expnC.item_cat_name_t;
@@ -208,7 +208,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setDeptment();
-                String re = xC.xtDB.expncDB.insertExpenseCat(expnC, xC.user.staff_id);
+                String re = xC.xtDB.itmcDB.insertExpenseCat(expnC, xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

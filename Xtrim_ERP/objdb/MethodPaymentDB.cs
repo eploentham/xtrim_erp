@@ -97,6 +97,10 @@ namespace Xtrim_ERP.objdb
             ComboBoxItem item = new ComboBoxItem();
             if (lMtp.Count <= 0) getlMtp();
             //DataTable dt = selectWard();
+            item = new ComboBoxItem();
+            item.Value = "";
+            item.Text = "";
+            c.Items.Add(item);
             foreach (MethodPayment cus1 in lMtp)
             {
                 item = new ComboBoxItem();

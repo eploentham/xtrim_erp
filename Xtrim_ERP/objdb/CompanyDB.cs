@@ -70,6 +70,8 @@ namespace Xtrim_ERP.objdb
             cop.eaddr2 = "eaddr2";
             cop.eaddr3 = "eaddr3";
             cop.eaddr4 = "eaddr4";
+            cop.year_curr = "year_curr";
+            cop.cash_draw_doc = "cash_draw_doc";
 
             cop.table = "b_company";
             cop.pkField = "comp_id";
@@ -295,6 +297,52 @@ namespace Xtrim_ERP.objdb
             cop1 = setCompany(dt);
             return cop1;
         }
+        public Company selectByCode1(String copId)
+        {
+            Company cop1 = new Company();
+            DataTable dt = new DataTable();
+            String sql = "select cop.* " +
+                "From " + cop.table + " cop " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where cop." + cop.comp_code + " ='" + copId + "' and cop." + cop.active + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            cop1 = setCompany(dt);
+            return cop1;
+        }
+        public String genCashDrawDoc()
+        {
+            String doc = "", year="", sql="";
+            Company cop1 = new Company();
+            cop1 = selectByCode1("001");
+            year = DateTime.Now.ToString("yyyy");
+            if (!year.Equals(cop1.year_curr))
+            {
+                sql = "Update " + cop.table + " Set " +
+                    " " + cop.year_curr + "='" + year + "' " +
+                    ","+cop.cash_draw_doc+"=1 " +
+                    "Where "+cop.pkField+"='001'";
+                conn.ExecuteNonQuery(conn.conn, sql);
+                doc = "00001";
+            }
+            else
+            {
+                int chk = 0;
+                if(int.TryParse(cop1.cash_draw_doc, out chk))
+                {
+                    chk++;
+                    doc = "00000" + chk;
+                    doc = doc.Substring(doc.Length - 5, 5);
+                    year = cop1.year_curr;
+
+                    sql = "Update " + cop.table + " Set " +                    
+                    "" + cop.cash_draw_doc + "="+chk +
+                    "Where " + cop.pkField + "='001'";
+                    conn.ExecuteNonQuery(conn.conn, sql);
+                }
+            }
+            doc = "CD"+year.Substring(year.Length-2,2) + doc;
+            return doc;
+        }
         private Company setCompany(DataTable dt)
         {
             Company cop1 = new Company();
@@ -350,6 +398,63 @@ namespace Xtrim_ERP.objdb
                 cop1.eaddr2 = dt.Rows[0][cop.eaddr2].ToString();
                 cop1.eaddr3 = dt.Rows[0][cop.eaddr3].ToString();
                 cop1.eaddr4 = dt.Rows[0][cop.eaddr4].ToString();
+                cop1.year_curr = dt.Rows[0][cop.year_curr].ToString();
+                cop1.cash_draw_doc = dt.Rows[0][cop.cash_draw_doc].ToString();
+            }
+            else
+            {
+                cop.comp_id = "";
+                cop.comp_code = "";
+                cop.comp_name_t = "";
+                cop.comp_name_e = "";
+                cop.comp_address_e = "";
+                cop.comp_address_t = "";
+                cop.addr1 = "";
+                cop.addr2 = "";
+                cop.amphur_id = "";
+                cop.district_id = "";
+                cop.province_id = "";
+                cop.zipcode = "";
+                cop.tele = "";
+                cop.fax = "";
+                cop.email = "";
+                cop.website = "";
+                cop.logo = "";
+                cop.tax_id = "";
+                cop.vat = "";
+                cop.spec1 = "";
+                cop.date_create = "";
+                cop.date_modi = "";
+                cop.date_cancel = "";
+                cop.user_create = "";
+                cop.user_modi = "";
+                cop.user_cancel = "";
+                cop.qu_line1 = "";
+                cop.qu_line2 = "";
+                cop.qu_line3 = "";
+                cop.qu_line4 = "";
+                cop.qu_line5 = "";
+                cop.qu_line6 = "";
+                cop.inv_line1 = "";
+                cop.inv_line2 = "";
+                cop.inv_line3 = "";
+                cop.inv_line4 = "";
+                cop.inv_line5 = "";
+                cop.inv_line6 = "";
+                cop.po_line1 = "";
+                cop.po_due_period = "";
+                cop.active = "";
+                cop.remark = "";
+                cop.taddr1 = "";
+                cop.taddr2 = "";
+                cop.taddr3 = "";
+                cop.taddr4 = "";
+                cop.eaddr1 = "";
+                cop.eaddr2 = "";
+                cop.eaddr3 = "";
+                cop.eaddr4 = "";
+                cop.year_curr = "";
+                cop.cash_draw_doc = "";
             }
 
             return cop1;

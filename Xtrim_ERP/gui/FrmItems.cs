@@ -20,7 +20,7 @@ namespace Xtrim_ERP.gui
     public partial class FrmItems : Form
     {
         XtrimControl xC;
-        Items expn;
+        Items itm;
         Font fEdit, fEditB;
 
         Color bg, fc;
@@ -41,7 +41,7 @@ namespace Xtrim_ERP.gui
         }
         private void initConfig()
         {
-            expn = new Items();
+            itm = new Items();
             fEdit = new Font(xC.iniC.grdViewFontName, xC.grdViewFontSize, FontStyle.Regular);
             fEditB = new Font(xC.iniC.grdViewFontName, xC.grdViewFontSize, FontStyle.Bold);
 
@@ -61,10 +61,12 @@ namespace Xtrim_ERP.gui
             btnNew.Click += BtnNew_Click;
             btnEdit.Click += BtnEdit_Click;
             btnSave.Click += BtnSave_Click;
+            cboItmts.SelectedItemChanged += CboItmts_SelectedItemChanged;
 
-            xC.xtDB.expncDB.setC1CboExpnC(cboExpnC, "");
-            xC.xtDB.expntDB.setC1CboExpnT(cboExpnT, "");
-            xC.xtDB.expngDB.setC1CboExpnG(cboExpnG, "");
+            xC.xtDB.itmcDB.setC1CboExpnC(cboItmC, "");
+            xC.xtDB.itmtsDB.setC1CboItmTypeSub(cboItmts, "");
+            xC.xtDB.itmgDB.setC1CboExpnG(cboItmG, "");
+            xC.xtDB.mtpDB.setC1CboMtp(cboMtp, "");
             initGrfDept();
             setGrfDeptH();
             setControlEnable(false);
@@ -76,6 +78,7 @@ namespace Xtrim_ERP.gui
             sep = new C1SuperErrorProvider();
             stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
         }
+        
         private void initGrfDept()
         {
             grfExpn = new C1FlexGrid();
@@ -113,7 +116,7 @@ namespace Xtrim_ERP.gui
             //grfDept.Cols[colCode].Caption = "รหัส";
 
             grfExpn.Cols[colCode].Caption = "รหัส";
-            grfExpn.Cols[colName].Caption = "ชื่อ รายการ ค่าใช้จ่าย";
+            grfExpn.Cols[colName].Caption = "ชื่อ รายการ ";
             grfExpn.Cols[colRemark].Caption = "หมายเหตุ";
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
             for (int i = 1; i < grfExpn.Rows.Count; i++)
@@ -152,11 +155,39 @@ namespace Xtrim_ERP.gui
         }
         private void setControl(String deptId)
         {
-            expn = xC.xtDB.itmDB.selectByPk1(deptId);
-            txtID.Value = expn.item_id;
-            txtCode.Value = expn.item_code;
-            txtNameT.Value = expn.item_name_t;
-            txtRemark.Value = expn.remark;
+            itm = xC.xtDB.itmDB.selectByPk1(deptId);
+            txtID.Value = itm.item_id;
+            txtCode.Value = itm.item_code;
+            txtNameT.Value = itm.item_name_t;
+            txtRemark.Value = itm.remark;
+            xC.setC1Combo(cboItmC, itm.item_cat_id);
+            xC.setC1Combo(cboItmG, itm.item_grp_id);
+            xC.setC1Combo(cboItmts, itm.item_type_sub_id);
+            xC.setC1Combo(cboMtp, itm.method_payment_id);
+
+            txtAccCode.Value = itm.acc_code;
+            chkInv.Checked = itm.status_invoice.Equals("1") ? true : false;
+            chkTax53.Checked = itm.status_tax53.Equals("1") ? true : false;
+
+            ItemsTypeSub itmts = new ItemsTypeSub();
+            itmts = xC.xtDB.itmtsDB.selectByPk1(itm.item_type_sub_id);
+            if (itmts.status_item_edit.Equals("1"))
+            {
+                gBTypeSub.Enabled = true;
+            }
+            else
+            {
+                gBTypeSub.Enabled = false;
+            }
+            //if (txtID.Text.Equals(""))
+            //{
+
+            //}
+            //else
+            //{
+
+            //}
+
         }
         private void setControlEnable(Boolean flag)
         {
@@ -167,12 +198,19 @@ namespace Xtrim_ERP.gui
             chkVoid.Enabled = flag;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
-        private void setDeptment()
+        private void setItem()
         {
-            expn.item_id = txtID.Text;
-            expn.item_code = txtCode.Text;
-            expn.item_name_t = txtNameT.Text;
-            expn.remark = txtRemark.Text;
+            itm.item_id = txtID.Text;
+            itm.item_code = txtCode.Text;
+            itm.item_name_t = txtNameT.Text;
+            itm.remark = txtRemark.Text;
+            itm.item_type_sub_id = cboItmts.SelectedItem != null ? ((ComboBoxItem)(cboItmts.SelectedItem)).Value : "";
+            itm.item_cat_id = cboItmC.SelectedItem != null ? ((ComboBoxItem)(cboItmC.SelectedItem)).Value : "";
+            itm.item_grp_id = cboItmG.SelectedItem != null ? ((ComboBoxItem)(cboItmG.SelectedItem)).Value : "";
+            itm.status_invoice = chkInv.Checked ? "1" : "0";
+            itm.status_tax53 = chkTax53.Checked ? "1" : "0";
+            itm.acc_code = txtAccCode.Text;
+            itm.method_payment_id = cboMtp.SelectedItem != null ? ((ComboBoxItem)(cboMtp.SelectedItem)).Value : "";
         }
         private void grfDept_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
         {
@@ -204,13 +242,34 @@ namespace Xtrim_ERP.gui
                 }
             }
         }
+        private void CboItmts_SelectedItemChanged(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            String itmts1 = "";
+            itmts1 = cboItmts.SelectedItem != null ? ((ComboBoxItem)(cboItmts.SelectedItem)).Value : "";
+            if (itmts1.Equals("")) return;
+            ItemsTypeSub itmts = new ItemsTypeSub();
+            itmts = xC.xtDB.itmtsDB.selectByPk1(itmts1);
+            if (itmts.status_item_edit.Equals("1"))
+            {
+                gBTypeSub.Enabled = true;
+            }
+            else
+            {
+                gBTypeSub.Enabled = false;
+            }
+            txtAccCode.Value = itmts.acc_code;
+            chkInv.Checked = itmts.status_invoice.Equals("1") ? true : false;
+            chkTax53.Checked = itmts.status_tax53.Equals("1") ? true : false;
+            xC.setC1Combo(cboMtp, itmts.method_payment_id);
+        }
         private void BtnSave_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                setDeptment();
-                String re = xC.xtDB.itmDB.insertExpnes(expn, xC.user.staff_id);
+                setItem();
+                String re = xC.xtDB.itmDB.insertItem(itm, xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

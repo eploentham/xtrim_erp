@@ -60,9 +60,11 @@ namespace Xtrim_ERP.objdb
         public JobImportContainerDB jcnDB;
 
         public ItemsDB itmDB;
-        public ItemsCatDB expncDB;
-        public ItemsTypeDB expntDB;
-        public ItemsGrpDB expngDB;
+        public ItemsCatDB itmcDB;
+        public ItemsTypeDB itmtDB;
+        public ItemsGrpDB itmgDB;
+        public ItemGroupDB itmGrpDB;
+        public ItemsTypeSubDB itmtsDB;
         public ExpensesDrawDB expndDB;
         public ExpensesDrawDetailDB expnddDB;
         public ExpensesDrawTypeDB expndtDB;
@@ -128,9 +130,12 @@ namespace Xtrim_ERP.objdb
 
             trkDB = new TruckDB(conn);
             itmDB = new ItemsDB(conn);
-            expncDB = new ItemsCatDB(conn);
-            expntDB = new ItemsTypeDB(conn);
-            expngDB = new ItemsGrpDB(conn);
+            itmcDB = new ItemsCatDB(conn);
+            itmtDB = new ItemsTypeDB(conn);
+            itmgDB = new ItemsGrpDB(conn);
+            itmGrpDB = new ItemGroupDB(conn);
+            itmtsDB = new ItemsTypeSubDB(conn);
+
             expndDB = new ExpensesDrawDB(conn);
             expnddDB = new ExpensesDrawDetailDB(conn);
             expndtDB = new ExpensesDrawTypeDB(conn);

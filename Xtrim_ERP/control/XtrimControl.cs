@@ -506,6 +506,12 @@ namespace Xtrim_ERP.control
 
             return code;
         }
-        
+        public String updateDrawSendToApprove(String id)
+        {
+            String re = "";
+            String doc = xtDB.copDB.genCashDrawDoc();
+            re = xtDB.expndDB.updateSendToApprove(doc, id);
+            return re;
+        }
     }
 }

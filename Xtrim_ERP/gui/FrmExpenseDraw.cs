@@ -200,7 +200,7 @@ namespace Xtrim_ERP.gui
             C1TextBox txt1 = new C1TextBox();
             txt1.DataType = txtAmt.DataType;
             C1ComboBox cbo = new C1ComboBox();
-            xC.xtDB.itmDB.setCboExpen(cbo);
+            xC.xtDB.itmDB.setCboItem(cbo);
             grfExpnD.Cols[colDCode].Editor = cbo;
             grfExpnD.Cols[colDdesc1].Editor = txt;
             grfExpnD.Cols[colDdesc2].Editor = txt;
@@ -368,6 +368,21 @@ namespace Xtrim_ERP.gui
 
             setGrfDeptH();
             setGrfDeptH1();
+            if (expnD.status_appv.Equals("0"))
+            {
+                label8.Text = "...";
+                
+            }            
+            else if (expnD.status_appv.Equals("1"))
+            {
+                label8.Text = "รออนุมัติ";
+                label8.ForeColor = Color.Red;
+            }
+            else if (expnD.status_appv.Equals("1"))
+            {
+                label8.Text = "อนุมัติแล้ว";
+                label8.ForeColor = Color.Green;
+            }
         }
         private void setControlEnable(Boolean flag)
         {
@@ -440,6 +455,19 @@ namespace Xtrim_ERP.gui
             expnD.job_id = jobId;
             expnD.amount = txtAmt.Value.ToString();
             expnD.year = (DateTime.Parse(txtDrawDate.Text)).Year.ToString();
+            if (label8.Text.Equals("..."))
+            {
+                expnD.status_appv = "0";
+            }
+            else if (label8.Text.Equals("รออนุมัติ"))
+            {
+                expnD.status_appv = "1";
+            }
+            else if (label8.Text.Equals("อนุมัติแล้ว"))
+            {
+                expnD.status_appv = "2";
+            }
+
         }
         private void setExpensesDrawDetail(String expnid)
         {
@@ -515,7 +543,15 @@ namespace Xtrim_ERP.gui
         private void BtnDoc_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-
+            if (MessageBox.Show("ต้องการ ออกเลขที่เอกสาร  \n การเบิกเงิน และส่งข้อมูล ขออนุมัติ ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                String re = xC.updateDrawSendToApprove(txtID.Text);
+                int chk = 0;
+                if(int.TryParse(re, out chk))
+                {
+                    setControl(drawId);
+                }
+            }
         }
         private void BtnSave_Click(object sender, EventArgs e)
         {

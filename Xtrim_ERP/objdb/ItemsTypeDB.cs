@@ -37,7 +37,7 @@ namespace Xtrim_ERP.objdb
             itmT.user_create = "user_create";
             itmT.user_modi = "user_modi";
             itmT.user_cancel = "user_cancel";
-            //tmn.status_app = "status_app";
+            itmT.item_group_id = "item_group_id";
             itmT.remark = "remark";
 
             itmT.table = "b_items_type";
@@ -88,11 +88,15 @@ namespace Xtrim_ERP.objdb
             }
             return id;
         }
-        public void setC1CboExpnT(C1ComboBox c, String selected)
+        public void setC1CboItemsT(C1ComboBox c, String selected)
         {
             ComboBoxItem item = new ComboBoxItem();
             if (lExpnT.Count <= 0) getlExpnT();
             //DataTable dt = selectWard();
+            item = new ComboBoxItem();
+            item.Value = "";
+            item.Text = "";
+            c.Items.Add(item);
             foreach (ItemsType cus1 in lExpnT)
             {
                 item = new ComboBoxItem();
@@ -120,6 +124,8 @@ namespace Xtrim_ERP.objdb
             p.item_type_name_t = p.item_type_name_t == null ? "" : p.item_type_name_t;
             p.remark = p.remark == null ? "" : p.remark;
             p.sort1 = p.sort1 == null ? "" : p.sort1;
+
+            p.item_group_id = p.item_group_id == null ? "0" : p.item_group_id;
         }
         public String insert(ItemsType p, String userId)
         {
@@ -136,12 +142,14 @@ namespace Xtrim_ERP.objdb
             sql = "Insert Into " + itmT.table + "(" + itmT.item_type_code + "," + itmT.item_type_name_e + "," + itmT.item_type_name_t + "," +
                 itmT.date_create + "," + itmT.date_modi + "," + itmT.date_cancel + "," +
                 itmT.user_create + "," + itmT.user_modi + "," + itmT.user_cancel + "," +
-                itmT.active + "," + itmT.remark + ", " + itmT.sort1 + " " +
+                itmT.active + "," + itmT.remark + ", " + itmT.sort1 + ", " +
+                itmT.item_group_id + "," +
                 ") " +
                 "Values ('" + p.item_type_code + "','" + p.item_type_name_e.Replace("'", "''") + "','" + p.item_type_name_t.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
-                "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "' " +
+                "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "', " +
+                "'" + p.item_group_id + "','" +
                 ")";
             try
             {
@@ -170,7 +178,7 @@ namespace Xtrim_ERP.objdb
                 "," + itmT.date_modi + " = now()" +
                 "," + itmT.user_modi + " = '" + userId + "' " +
                 "," + itmT.sort1 + " = '" + p.sort1 + "' " +
-                //"," + tmn.status_app + " = '" + p.status_app + "' " +
+                "," + itmT.item_group_id + " = '" + p.item_group_id + "' " +
                 "Where " + itmT.pkField + "='" + p.item_type_id + "'"
                 ;
 
@@ -185,7 +193,7 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String insertExpenseType(ItemsType p, String userId)
+        public String insertItemsType(ItemsType p, String userId)
         {
             String re = "";
 
@@ -263,10 +271,10 @@ namespace Xtrim_ERP.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where expC." + itmT.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setExpenseType(dt);
+            cop1 = setItemsType(dt);
             return cop1;
         }
-        public ItemsType setExpenseType(DataTable dt)
+        public ItemsType setItemsType(DataTable dt)
         {
             ItemsType curr1 = new ItemsType();
             if (dt.Rows.Count > 0)
@@ -282,9 +290,28 @@ namespace Xtrim_ERP.objdb
                 curr1.user_cancel = dt.Rows[0][itmT.user_cancel].ToString();
                 curr1.user_create = dt.Rows[0][itmT.user_create].ToString();
                 curr1.user_modi = dt.Rows[0][itmT.user_modi].ToString();
-                //pti1.status_app = dt.Rows[0][tmn.status_app].ToString();
+                curr1.item_group_id = dt.Rows[0][itmT.item_group_id].ToString();
                 curr1.remark = dt.Rows[0][itmT.remark].ToString();
                 curr1.sort1 = dt.Rows[0][itmT.sort1].ToString();
+            }
+            else
+            {
+                curr1.item_type_id = "";
+                curr1.item_type_code = "";
+                curr1.item_type_name_e = "";
+                curr1.item_type_name_t = "";
+                //tmn.status_app = "status_app";
+                curr1.sort1 = "";
+
+                curr1.active = "";
+                curr1.date_create = "";
+                curr1.date_modi = "";
+                curr1.date_cancel = "";
+                curr1.user_create = "";
+                curr1.user_modi = "";
+                curr1.user_cancel = "";
+                curr1.item_group_id = "";
+                curr1.remark = "";
             }
 
             return curr1;
