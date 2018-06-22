@@ -262,6 +262,18 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
+        public String updateStatusApprove(String id)
+        {
+            DataTable dt = new DataTable();
+            String re = "";
+
+            String sql = "update " + expnC.table + " Set " +                
+                "" + expnC.status_appv + "='2' " +
+                "Where " + expnC.pkField + "='" + id + "'";
+            re = conn.ExecuteNonQuery(conn.conn, sql);
+
+            return re;
+        }
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();

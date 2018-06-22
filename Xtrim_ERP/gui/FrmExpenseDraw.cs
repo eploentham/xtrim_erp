@@ -71,6 +71,7 @@ namespace Xtrim_ERP.gui
             btnEdit.Click += BtnEdit_Click;
             btnSave.Click += BtnSave_Click;
             btnDoc.Click += BtnDoc_Click;
+            btnAppv.Click += BtnAppv_Click;
 
             initGrfDept();
             initGrfDept1();
@@ -88,9 +89,7 @@ namespace Xtrim_ERP.gui
             sep = new C1SuperErrorProvider();
             stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
         }
-
         
-
         private void TxtJobCode_KeyUp(object sender, KeyEventArgs e)
         {
             //throw new NotImplementedException();
@@ -184,7 +183,7 @@ namespace Xtrim_ERP.gui
         {
             grfExpnD.Clear();
             //if (txtID.Text.Equals("")) return;
-
+            DataTable dt = new DataTable();
             grfExpnD.Cols.Count = 7;
             if (flagForm.Equals("new"))
             {
@@ -192,7 +191,9 @@ namespace Xtrim_ERP.gui
             }
             else
             {
-                grfExpnD.DataSource = xC.xtDB.expnddDB.selectByDrawId(txtID.Text);
+                dt = xC.xtDB.expnddDB.selectByDrawId1(txtID.Text);
+                grfExpnD.Rows.Count = dt.Rows.Count+1;
+                grfExpnD.Cols.Count = 7;
             }
             //grfExpnD.Rows.Count = 2;
             C1TextBox txt = new C1TextBox();
@@ -211,6 +212,7 @@ namespace Xtrim_ERP.gui
             grfExpnD.Cols[colDdesc2].Width = 200;
             grfExpnD.Cols[colDremark].Width = 100;
             grfExpnD.Cols[colDamt].Width = 80;
+            grfExpnD.Cols[colDCode].Width = 200;
 
             grfExpnD.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
@@ -221,11 +223,17 @@ namespace Xtrim_ERP.gui
             grfExpnD.Cols[colDremark].Caption = "หมายเหตุ";
             grfExpnD.Cols[colDamt].Caption = "ยอดเงินเบิก";
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
-            for (int i = 1; i < grfExpnD.Rows.Count; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                grfExpnD[i, 0] = i;
+                grfExpnD[i + 1, 0] = i;
                 if (i % 2 == 0)
                     grfExpnD.Rows[i].StyleNew.BackColor = color;
+                grfExpnD[i+1, colDid] = dt.Rows[i][xC.xtDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
+                grfExpnD[i + 1, colCode] = xC.xtDB.itmDB.getNameById(dt.Rows[i][xC.xtDB.expnddDB.expnC.expenses_id].ToString());
+                grfExpnD[i + 1, colDdesc1] = dt.Rows[i][xC.xtDB.expnddDB.expnC.desc1].ToString();
+                grfExpnD[i + 1, colDdesc2] = dt.Rows[i][xC.xtDB.expnddDB.expnC.desc2].ToString();
+                grfExpnD[i + 1, colDremark] = xC.xtDB.itmDB.getNameById(dt.Rows[i][xC.xtDB.expnddDB.expnC.remark].ToString());
+                grfExpnD[i + 1, colDamt] = dt.Rows[i][xC.xtDB.expnddDB.expnC.amount].ToString();
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
@@ -241,11 +249,7 @@ namespace Xtrim_ERP.gui
                 //menuGw.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Gw_Cancel));
                 grfExpnD.ContextMenu = menuGw;
             }
-            
-
-            grfExpnD.Cols[colID].Visible = false;
-
-            
+            grfExpnD.Cols[colDid].Visible = false;            
         }
 
         private void GrfExpnD_RowColChange(object sender, EventArgs e)
@@ -378,7 +382,7 @@ namespace Xtrim_ERP.gui
                 label8.Text = "รออนุมัติ";
                 label8.ForeColor = Color.Red;
             }
-            else if (expnD.status_appv.Equals("1"))
+            else if (expnD.status_appv.Equals("2"))
             {
                 label8.Text = "อนุมัติแล้ว";
                 label8.ForeColor = Color.Green;
@@ -481,6 +485,8 @@ namespace Xtrim_ERP.gui
                 expndd.desc2 = grfExpnD[i, colDdesc2] == null ? "" : grfExpnD[i, colDdesc2].ToString();
                 expndd.amount = grfExpnD[i, colDamt] == null ? "" : grfExpnD[i, colDamt].ToString();
                 expndd.remark = grfExpnD[i, colDremark] == null ? "" : grfExpnD[i, colDremark].ToString();
+                expndd.expenses_id = grfExpnD[i, colCode] == null ? "" : xC.xtDB.itmDB.getIdByName(grfExpnD[i, colCode].ToString().Trim());
+
                 if (!expndd.amount.Equals(""))
                 {
                     xC.xtDB.expnddDB.insertExpenseDrawDetail(expndd, xC.userId);
@@ -537,6 +543,19 @@ namespace Xtrim_ERP.gui
                 else
                 {
                     sep.SetError(txtPasswordVoid, "333");
+                }
+            }
+        }
+        private void BtnAppv_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ อนุมัติ  \n การเบิกเงิน  ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                String re = xC.xtDB.expndDB.updateStatusApprove(txtID.Text);
+                int chk = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    setControl(drawId);
                 }
             }
         }

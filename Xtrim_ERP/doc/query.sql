@@ -394,6 +394,17 @@ ADD COLUMN `year_curr` VARCHAR(255) NULL AFTER `cash_draw_doc`;
 
 
 
+
+select  itmts.item_type_sub_name_t, mtp.method_payment_name_t, sum(edd.amount) as amt
+from t_expenses_draw_detail edd
+inner join b_items itm on edd.expenses_id = itm.item_id
+inner join b_items_type_sub itmts on itm.item_type_sub_id = itmts.item_type_sub_id
+inner join b_method_payment mtp on itm.method_payment_id = mtp.method_payment_id
+group by itmts.item_type_sub_name_t, mtp.method_payment_name_t
+
+
+
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GenCSharpModel1`(in pTableName VARCHAR(255) )
 BEGIN
 DECLARE vClassName varchar(255);

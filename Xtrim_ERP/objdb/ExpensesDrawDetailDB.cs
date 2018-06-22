@@ -314,6 +314,17 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);            
             return dt;
         }
+        public DataTable selectByDrawId1(String copId)
+        {
+            String currId = "";
+            DataTable dt = new DataTable();
+            String sql = "select expC."+expnC.expenses_draw_detail_id+","+expnC.expenses_id+","+expnC.desc1+","+expnC.desc2+","+expnC.remark+","+expnC.amount+" " +
+                "From " + expnC.table + " expC " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where expC." + expnC.expense_draw_id + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();

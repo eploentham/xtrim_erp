@@ -100,6 +100,19 @@ namespace Xtrim_ERP.objdb
             }
             return id;
         }
+        public String getNameById(String name)
+        {
+            String id = "";
+            foreach (Items expn1 in lexpn)
+            {
+                if (name.Trim().Equals(expn1.item_id))
+                {
+                    id = expn1.item_name_t;
+                    break;
+                }
+            }
+            return id;
+        }
         private void chkNull(Items p)
         {
             int chk = 0;
@@ -290,6 +303,7 @@ namespace Xtrim_ERP.objdb
         }
         public C1ComboBox setCboItem(C1ComboBox c)
         {
+            lexpn.Clear();
             ComboBoxItem item = new ComboBoxItem();
             DataTable dt = selectAll();
             //String aaa = "";
@@ -304,8 +318,15 @@ namespace Xtrim_ERP.objdb
                 item = new ComboBoxItem();
                 item.Text = row[itm.item_name_t].ToString();
                 item.Value = row[itm.item_id].ToString();
-
                 c.Items.Add(item);
+
+                Items expn1 = new Items();
+                expn1.item_id = row[itm.item_id].ToString();
+                expn1.item_code = row[itm.item_code].ToString();
+                expn1.item_name_e = row[itm.item_name_e].ToString();
+                expn1.item_name_t = row[itm.item_name_t].ToString();
+
+                lexpn.Add(expn1);
             }
             return c;
         }
