@@ -32,16 +32,32 @@
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.chkAll = new System.Windows.Forms.RadioButton();
             this.chkAppvOk = new System.Windows.Forms.RadioButton();
             this.chkAppvWait = new System.Windows.Forms.RadioButton();
             this.cboYear = new C1.Win.C1Input.C1ComboBox();
             this.label36 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.c1DockingTab1 = new C1.Win.C1Command.C1DockingTab();
+            this.c1DockingTabPage2 = new C1.Win.C1Command.C1DockingTabPage();
+            this.c1DockingTabPage3 = new C1.Win.C1Command.C1DockingTabPage();
+            this.c1DockingTabPage1 = new C1.Win.C1Command.C1DockingTabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboYear)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).BeginInit();
+            this.c1DockingTab1.SuspendLayout();
+            this.c1DockingTabPage2.SuspendLayout();
+            this.c1DockingTabPage3.SuspendLayout();
+            this.c1DockingTabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // sB
@@ -76,20 +92,9 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(941, 66);
+            this.panel1.Size = new System.Drawing.Size(941, 54);
             this.panel1.TabIndex = 10;
             this.theme1.SetTheme(this.panel1, "(default)");
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel2.Location = new System.Drawing.Point(0, 66);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(941, 527);
-            this.panel2.TabIndex = 11;
-            this.theme1.SetTheme(this.panel2, "(default)");
             // 
             // chkAll
             // 
@@ -176,11 +181,129 @@
             this.label36.Text = "ปี :";
             this.theme1.SetTheme(this.label36, "(default)");
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel2.Location = new System.Drawing.Point(0, 54);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(386, 539);
+            this.panel2.TabIndex = 11;
+            this.theme1.SetTheme(this.panel2, "(default)");
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel3.Controls.Add(this.groupBox1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel3.Location = new System.Drawing.Point(386, 54);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(555, 539);
+            this.panel3.TabIndex = 0;
+            this.theme1.SetTheme(this.panel3, "(default)");
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.groupBox1.Controls.Add(this.c1DockingTab1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(555, 539);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "วิธีการจ่ายเงิน";
+            this.theme1.SetTheme(this.groupBox1, "(default)");
+            // 
+            // c1DockingTab1
+            // 
+            this.c1DockingTab1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.c1DockingTab1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1DockingTab1.Controls.Add(this.c1DockingTabPage1);
+            this.c1DockingTab1.Controls.Add(this.c1DockingTabPage2);
+            this.c1DockingTab1.Controls.Add(this.c1DockingTabPage3);
+            this.c1DockingTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.c1DockingTab1.HotTrack = true;
+            this.c1DockingTab1.Location = new System.Drawing.Point(3, 16);
+            this.c1DockingTab1.Name = "c1DockingTab1";
+            this.c1DockingTab1.SelectedIndex = 2;
+            this.c1DockingTab1.Size = new System.Drawing.Size(549, 520);
+            this.c1DockingTab1.TabIndex = 1;
+            this.c1DockingTab1.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
+            this.c1DockingTab1.TabsShowFocusCues = false;
+            this.c1DockingTab1.TabsSpacing = 2;
+            this.c1DockingTab1.TabStyle = C1.Win.C1Command.TabStyleEnum.Office2007;
+            this.theme1.SetTheme(this.c1DockingTab1, "(default)");
+            // 
+            // c1DockingTabPage2
+            // 
+            this.c1DockingTabPage2.Controls.Add(this.panel5);
+            this.c1DockingTabPage2.Location = new System.Drawing.Point(1, 24);
+            this.c1DockingTabPage2.Name = "c1DockingTabPage2";
+            this.c1DockingTabPage2.Size = new System.Drawing.Size(547, 495);
+            this.c1DockingTabPage2.TabIndex = 1;
+            this.c1DockingTabPage2.Text = "Cash";
+            // 
+            // c1DockingTabPage3
+            // 
+            this.c1DockingTabPage3.Controls.Add(this.panel6);
+            this.c1DockingTabPage3.Location = new System.Drawing.Point(1, 24);
+            this.c1DockingTabPage3.Name = "c1DockingTabPage3";
+            this.c1DockingTabPage3.Size = new System.Drawing.Size(547, 495);
+            this.c1DockingTabPage3.TabIndex = 2;
+            this.c1DockingTabPage3.Text = "Tranfer";
+            // 
+            // c1DockingTabPage1
+            // 
+            this.c1DockingTabPage1.Controls.Add(this.panel4);
+            this.c1DockingTabPage1.Location = new System.Drawing.Point(1, 24);
+            this.c1DockingTabPage1.Name = "c1DockingTabPage1";
+            this.c1DockingTabPage1.Size = new System.Drawing.Size(547, 495);
+            this.c1DockingTabPage1.TabIndex = 3;
+            this.c1DockingTabPage1.Text = "Cheque";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(547, 495);
+            this.panel4.TabIndex = 0;
+            this.theme1.SetTheme(this.panel4, "(default)");
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(547, 495);
+            this.panel5.TabIndex = 0;
+            this.theme1.SetTheme(this.panel5, "(default)");
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(547, 495);
+            this.panel6.TabIndex = 0;
+            this.theme1.SetTheme(this.panel6, "(default)");
+            // 
             // FrmExpenseDrawPayView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(941, 615);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sB);
@@ -193,6 +316,13 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboYear)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).EndInit();
+            this.c1DockingTab1.ResumeLayout(false);
+            this.c1DockingTabPage2.ResumeLayout(false);
+            this.c1DockingTabPage3.ResumeLayout(false);
+            this.c1DockingTabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,5 +340,14 @@
         private System.Windows.Forms.RadioButton chkAppvWait;
         private C1.Win.C1Input.C1ComboBox cboYear;
         private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private C1.Win.C1Command.C1DockingTab c1DockingTab1;
+        private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage1;
+        private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage2;
+        private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
     }
 }
