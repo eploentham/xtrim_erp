@@ -66,7 +66,7 @@ namespace Xtrim_ERP.gui
             xC.xtDB.itmcDB.setC1CboExpnC(cboItmC, "");
             xC.xtDB.itmtsDB.setC1CboItmTypeSub(cboItmts, "");
             xC.xtDB.itmgDB.setC1CboExpnG(cboItmG, "");
-            xC.xtDB.mtpDB.setC1CboMtp(cboMtp, "");
+            xC.xtDB.fmtpDB.setC1CboMtp(cboFMtp, "");
             initGrfDept();
             setGrfDeptH();
             setControlEnable(false);
@@ -163,7 +163,7 @@ namespace Xtrim_ERP.gui
             xC.setC1Combo(cboItmC, itm.item_cat_id);
             xC.setC1Combo(cboItmG, itm.item_grp_id);
             xC.setC1Combo(cboItmts, itm.item_type_sub_id);
-            xC.setC1Combo(cboMtp, itm.method_payment_id);
+            xC.setC1Combo(cboFMtp, itm.f_method_payment_id);
 
             txtAccCode.Value = itm.acc_code;
             chkInv.Checked = itm.status_invoice.Equals("1") ? true : false;
@@ -210,7 +210,7 @@ namespace Xtrim_ERP.gui
             itm.status_invoice = chkInv.Checked ? "1" : "0";
             itm.status_tax53 = chkTax53.Checked ? "1" : "0";
             itm.acc_code = txtAccCode.Text;
-            itm.method_payment_id = cboMtp.SelectedItem != null ? ((ComboBoxItem)(cboMtp.SelectedItem)).Value : "";
+            itm.f_method_payment_id = cboFMtp.SelectedItem != null ? ((ComboBoxItem)(cboFMtp.SelectedItem)).Value : "";
         }
         private void grfDept_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
         {
@@ -261,7 +261,7 @@ namespace Xtrim_ERP.gui
             txtAccCode.Value = itmts.acc_code;
             chkInv.Checked = itmts.status_invoice.Equals("1") ? true : false;
             chkTax53.Checked = itmts.status_tax53.Equals("1") ? true : false;
-            xC.setC1Combo(cboMtp, itmts.method_payment_id);
+            xC.setC1Combo(cboFMtp, itmts.f_method_payment_id);
         }
         private void BtnSave_Click(object sender, EventArgs e)
         {

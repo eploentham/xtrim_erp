@@ -71,7 +71,7 @@ namespace Xtrim_ERP.gui
         private void MenuExpnDrawPay_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmExpenseDrawPayView frm = new FrmExpenseDrawPayView(xC);
+            FrmExpenseDrawPayView1 frm = new FrmExpenseDrawPayView1(xC);
             frm.FormBorderStyle = FormBorderStyle.None;
             AddNewTab(frm, "จ่ายเบิกเงิน ");
         }
@@ -96,9 +96,9 @@ namespace Xtrim_ERP.gui
         private void MenuMethodPay_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmMethodPayment frm = new FrmMethodPayment(xC);
-            frm.FormBorderStyle = FormBorderStyle.None;
-            AddNewTab(frm, "วิธีการจ่ายเงิน ");
+            //FrmMethodPayment frm = new FrmMethodPayment(xC);
+            //frm.FormBorderStyle = FormBorderStyle.None;
+            //AddNewTab(frm, "วิธีการจ่ายเงิน ");
         }
 
         private void MenuItmGrp_Click(object sender, EventArgs e)
@@ -352,7 +352,7 @@ namespace Xtrim_ERP.gui
                     menuInit.Enabled = true;
                 }
             }
-            this.Text = "Last Update 2018-06-18";
+            this.Text = "Last Update 2018-06-25";
         }
     }
 }

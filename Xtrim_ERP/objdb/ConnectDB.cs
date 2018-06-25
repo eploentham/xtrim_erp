@@ -86,6 +86,34 @@ namespace Xtrim_ERP.objdb
             }
             return toReturn;
         }
+        public DataSet selectDataDS(MySqlConnection con, String sql)
+        {
+            DataSet toReturn = new DataSet();
+
+            MySqlCommand comMainhis = new MySqlCommand();
+            comMainhis.CommandText = sql;
+            comMainhis.CommandType = CommandType.Text;
+            comMainhis.Connection = con;
+            MySqlDataAdapter adapMainhis = new MySqlDataAdapter(comMainhis);
+            try
+            {
+                con.Open();
+                adapMainhis.Fill(toReturn);
+                //return toReturn;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("HResult " + ex.HResult + "\n" + "Message" + ex.Message + "\n" + sql, "Error");
+                throw new Exception(ex.Message, ex);
+            }
+            finally
+            {
+                con.Close();
+                comMainhis.Dispose();
+                adapMainhis.Dispose();
+            }
+            return toReturn;
+        }
         public DataTable selectDataA(OleDbConnection con, String sql)
         {
             DataTable toReturn = new DataTable();

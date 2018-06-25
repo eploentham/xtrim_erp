@@ -63,7 +63,7 @@ namespace Xtrim_ERP.gui
             btnSave.Click += BtnSave_Click;
 
             xC.xtDB.itmtDB.setC1CboItemsT(cboItmT, "");
-            xC.xtDB.mtpDB.setC1CboMtp(cboMtp, "");
+            xC.xtDB.fmtpDB.setC1CboMtp(cboFMtp, "");
 
             initGrfDept();
             setGrfDeptH();
@@ -159,7 +159,7 @@ namespace Xtrim_ERP.gui
             txtNameT.Value = itmtS.item_type_sub_name_t;
             txtRemark.Value = itmtS.remark;
             xC.setC1Combo(cboItmT, itmtS.item_type_id);
-            xC.setC1Combo(cboMtp, itmtS.method_payment_id);
+            xC.setC1Combo(cboFMtp, itmtS.f_method_payment_id);
             chkItmEdit.Checked = itmtS.status_item_edit.Equals("1") ? true : false;
             chkInv.Checked = itmtS.status_invoice.Equals("1") ? true : false;
             chkTax53.Checked = itmtS.status_tax53.Equals("1") ? true : false;
@@ -181,7 +181,7 @@ namespace Xtrim_ERP.gui
             itmtS.item_type_sub_name_t = txtNameT.Text;
             itmtS.remark = txtRemark.Text;
             itmtS.item_type_id = cboItmT.SelectedItem != null ? ((ComboBoxItem)(cboItmT.SelectedItem)).Value : "";
-            itmtS.method_payment_id = cboMtp.SelectedItem != null ? ((ComboBoxItem)(cboMtp.SelectedItem)).Value : "";
+            itmtS.f_method_payment_id = cboFMtp.SelectedItem != null ? ((ComboBoxItem)(cboFMtp.SelectedItem)).Value : "";
             itmtS.status_item_edit = chkItmEdit.Checked ? "1" : "0";
             itmtS.status_invoice = chkInv.Checked ? "1" : "0";
             itmtS.status_tax53 = chkTax53.Checked ? "1" : "0";

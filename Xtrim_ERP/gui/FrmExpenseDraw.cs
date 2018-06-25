@@ -229,7 +229,7 @@ namespace Xtrim_ERP.gui
                 if (i % 2 == 0)
                     grfExpnD.Rows[i].StyleNew.BackColor = color;
                 grfExpnD[i+1, colDid] = dt.Rows[i][xC.xtDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
-                grfExpnD[i + 1, colCode] = xC.xtDB.itmDB.getNameById(dt.Rows[i][xC.xtDB.expnddDB.expnC.expenses_id].ToString());
+                grfExpnD[i + 1, colCode] = xC.xtDB.itmDB.getNameById(dt.Rows[i][xC.xtDB.expnddDB.expnC.item_id].ToString());
                 grfExpnD[i + 1, colDdesc1] = dt.Rows[i][xC.xtDB.expnddDB.expnC.desc1].ToString();
                 grfExpnD[i + 1, colDdesc2] = dt.Rows[i][xC.xtDB.expnddDB.expnC.desc2].ToString();
                 grfExpnD[i + 1, colDremark] = xC.xtDB.itmDB.getNameById(dt.Rows[i][xC.xtDB.expnddDB.expnC.remark].ToString());
@@ -485,7 +485,7 @@ namespace Xtrim_ERP.gui
                 expndd.desc2 = grfExpnD[i, colDdesc2] == null ? "" : grfExpnD[i, colDdesc2].ToString();
                 expndd.amount = grfExpnD[i, colDamt] == null ? "" : grfExpnD[i, colDamt].ToString();
                 expndd.remark = grfExpnD[i, colDremark] == null ? "" : grfExpnD[i, colDremark].ToString();
-                expndd.expenses_id = grfExpnD[i, colCode] == null ? "" : xC.xtDB.itmDB.getIdByName(grfExpnD[i, colCode].ToString().Trim());
+                expndd.item_id = grfExpnD[i, colCode] == null ? "" : xC.xtDB.itmDB.getIdByName(grfExpnD[i, colCode].ToString().Trim());
 
                 if (!expndd.amount.Equals(""))
                 {
@@ -582,7 +582,15 @@ namespace Xtrim_ERP.gui
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
-                    setExpensesDrawDetail(re);
+                    if (flagForm.Equals("new"))
+                    {
+                        setExpensesDrawDetail(re);
+                    }
+                    else
+                    {
+                        setExpensesDrawDetail(txtID.Text);
+                    }
+                    
                     btnSave.Image = Resources.accept_database24;
                 }
                 else

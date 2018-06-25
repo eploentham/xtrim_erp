@@ -28,7 +28,7 @@ namespace Xtrim_ERP.object1
         public String item_grp_id { get; set; }
         public String item_type_sub_id { get; set; }
         public String item_cat_id { get; set; }
-        public String method_payment_id { get; set; }
+        public String f_method_payment_id { get; set; }
         public String status_invoice { get; set; }
     }
 }

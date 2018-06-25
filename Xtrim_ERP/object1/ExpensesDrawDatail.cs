@@ -32,7 +32,7 @@ namespace Xtrim_ERP.object1
         public String pay_cheque_no { get; set; }
         public String pay_cheque_bank_id { get; set; }
         public String pay_staff_id { get; set; }
-        public String expenses_id { get; set; }
+        public String item_id { get; set; }
         public String pay_bank_date { get; set; }
         public String job_id { get; set; }
         public String job_code { get; set; }

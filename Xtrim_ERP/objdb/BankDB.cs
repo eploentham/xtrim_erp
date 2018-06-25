@@ -1,4 +1,5 @@
-﻿using System;
+﻿using C1.Win.C1Input;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -10,9 +11,10 @@ namespace Xtrim_ERP.objdb
 {
     public class BankDB
     {
-        public Bank ban;
+        public Bank bnk;
         ConnectDB conn;
 
+        public List<Bank> lexpn;
         public BankDB(ConnectDB c)
         {
             conn = c;
@@ -20,30 +22,32 @@ namespace Xtrim_ERP.objdb
         }
         private void initConfig()
         {
-            ban = new Bank();
-            ban.bank_id = "bank_id";
-            ban.bank_code = "bank_code";
-            ban.bank_name_t = "bank_name_t";
-            ban.bank_name_e = "bank_name_e";
-            ban.active = "active";
-            ban.remark = "remark";
-            ban.user_cancel = "user_cancel";
-            ban.user_create = "user_create";
-            ban.user_modi = "user_modi";
-            ban.date_cancel = "date_cancel";
-            ban.date_create = "date_create";
-            ban.date_modi = "date_modi";
+            bnk = new Bank();
+            bnk.bank_id = "bank_id";
+            bnk.bank_code = "bank_code";
+            bnk.bank_name_t = "bank_name_t";
+            bnk.bank_name_e = "bank_name_e";
+            bnk.active = "active";
+            bnk.remark = "remark";
+            bnk.user_cancel = "user_cancel";
+            bnk.user_create = "user_create";
+            bnk.user_modi = "user_modi";
+            bnk.date_cancel = "date_cancel";
+            bnk.date_create = "date_create";
+            bnk.date_modi = "date_modi";
 
-            ban.table = "b_bank";
-            ban.pkField = "bank_id";
+            bnk.table = "b_bank";
+            bnk.pkField = "bank_id";
+
+            lexpn = new List<Bank>();
         }
         public String insert(Bank p)
         {
             String re = "", sql="";            
             p.active = "1";
             //p.ssdata_id = "";
-            sql = "Insert Into " + ban.table + "(" + ban.bank_code + "," + ban.bank_name_t + "," + ban.bank_name_e + "," +
-                ban.active + "," + ban.remark + ", " + ban.date_create + " " +
+            sql = "Insert Into " + bnk.table + "(" + bnk.bank_code + "," + bnk.bank_name_t + "," + bnk.bank_name_e + "," +
+                bnk.active + "," + bnk.remark + ", " + bnk.date_create + " " +
                 ") " +
                 "Values ('" + p.bank_code + "','" + p.bank_name_t + "','" + p.bank_name_e + "'," +
                 "'" + p.active + "','" + p.remark + "', now() " +
@@ -56,13 +60,13 @@ namespace Xtrim_ERP.objdb
         {
             String re = "", sql="";
 
-            sql = "Update "+ban.table + " Set " +
-                " "+ban.bank_code +"='"+p.bank_code+"' " +
-                ","+ban.bank_name_e + "='" + p.bank_name_e.Replace("'", "''") + "' " +
-                "," + ban.bank_name_t + "='" + p.bank_name_t.Replace("'", "''") + "' " +
-                "," + ban.remark + "='" + p.remark.Replace("'","''") + "' " +
-                "," + ban.date_modi + "=now() " +
-                "Where " +ban.bank_id +"='"+p.bank_id+"'"
+            sql = "Update "+bnk.table + " Set " +
+                " "+bnk.bank_code +"='"+p.bank_code+"' " +
+                ","+bnk.bank_name_e + "='" + p.bank_name_e.Replace("'", "''") + "' " +
+                "," + bnk.bank_name_t + "='" + p.bank_name_t.Replace("'", "''") + "' " +
+                "," + bnk.remark + "='" + p.remark.Replace("'","''") + "' " +
+                "," + bnk.date_modi + "=now() " +
+                "Where " +bnk.bank_id +"='"+p.bank_id+"'"
                 ;
             re = conn.ExecuteNonQuery(conn.conn, sql);
 
@@ -86,10 +90,10 @@ namespace Xtrim_ERP.objdb
         {
             String re = "", sql = "";
 
-            sql = "Update " + ban.table + " Set " +
-                " " + ban.active + "='3' " +                
-                "," + ban.date_cancel + "=now() " +
-                "Where " + ban.bank_id + "='" + id + "'"
+            sql = "Update " + bnk.table + " Set " +
+                " " + bnk.active + "='3' " +                
+                "," + bnk.date_cancel + "=now() " +
+                "Where " + bnk.bank_id + "='" + id + "'"
                 ;
             re = conn.ExecuteNonQuery(conn.conn, sql);
 
@@ -100,13 +104,53 @@ namespace Xtrim_ERP.objdb
         {
             DataTable dt = new DataTable();
             String sql = "select ban.*  " +
-                "From " + ban.table + " ban " +
+                "From " + bnk.table + " ban " +
                 " " +
-                "Where ban." + ban.active + " ='1' ";
+                "Where ban." + bnk.active + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
         }
-        
+        public DataTable selectAll1()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select ban."+bnk.bank_id+","+bnk.bank_name_t+","+bnk.remark+" " +
+                "From " + bnk.table + " ban " +
+                " " +
+                "Where ban." + bnk.active + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public C1ComboBox setCboItem(C1ComboBox c)
+        {
+            lexpn.Clear();
+            ComboBoxItem item = new ComboBoxItem();
+            DataTable dt = selectAll();
+            //String aaa = "";
+            ComboBoxItem item1 = new ComboBoxItem();
+            item1.Text = "";
+            item1.Value = "000";
+            c.Items.Clear();
+            c.Items.Add(item1);
+            //for (int i = 0; i < dt.Rows.Count; i++)
+            foreach (DataRow row in dt.Rows)
+            {
+                item = new ComboBoxItem();
+                item.Text = row[bnk.bank_name_t].ToString();
+                item.Value = row[bnk.bank_id].ToString();
+                c.Items.Add(item);
+
+                Bank expn1 = new Bank();
+                expn1.bank_id = row[bnk.bank_id].ToString();
+                expn1.bank_code = row[bnk.bank_code].ToString();
+                expn1.bank_name_e = row[bnk.bank_name_e].ToString();
+                expn1.bank_name_t = row[bnk.bank_name_t].ToString();
+
+                lexpn.Add(expn1);
+            }
+            return c;
+        }
+
     }
 }

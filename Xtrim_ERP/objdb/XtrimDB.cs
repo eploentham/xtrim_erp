@@ -11,7 +11,7 @@ namespace Xtrim_ERP.objdb
         ConnectDB conn;
 
         //public StaffDB sfDB;
-        public BankDB banDB;
+        public BankDB bnkDB;
         public CompanyDB copDB;
         public StaffDB stfDB;
         public CustomerDB cusDB;
@@ -68,6 +68,7 @@ namespace Xtrim_ERP.objdb
         public ExpensesDrawDB expndDB;
         public ExpensesDrawDetailDB expnddDB;
         public ExpensesDrawTypeDB expndtDB;
+        public FMethodPaymentDB fmtpDB;
 
         public MeiosysDB mioDB;
 
@@ -79,7 +80,7 @@ namespace Xtrim_ERP.objdb
         private void initConfig()
         {
             //sfDB = new StaffDB(conn);
-            banDB = new BankDB(conn);
+            bnkDB = new BankDB(conn);
             copDB = new CompanyDB(conn);
             stfDB = new StaffDB(conn);
             cusDB = new CustomerDB(conn);
@@ -139,6 +140,7 @@ namespace Xtrim_ERP.objdb
             expndDB = new ExpensesDrawDB(conn);
             expnddDB = new ExpensesDrawDetailDB(conn);
             expndtDB = new ExpensesDrawTypeDB(conn);
+            fmtpDB = new FMethodPaymentDB(conn);
         }
     }
 }

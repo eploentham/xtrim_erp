@@ -851,6 +851,26 @@ namespace Xtrim_ERP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Hide_left {
+            get {
+                object obj = ResourceManager.GetObject("Hide_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hide_right {
+            get {
+                object obj = ResourceManager.GetObject("Hide_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HighlightColor_small {
             get {
                 object obj = ResourceManager.GetObject("HighlightColor_small", resourceCulture);
@@ -1151,6 +1171,26 @@ namespace Xtrim_ERP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Navigate_left {
+            get {
+                object obj = ResourceManager.GetObject("Navigate_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Navigate_right {
+            get {
+                object obj = ResourceManager.GetObject("Navigate_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap New_large {
             get {
                 object obj = ResourceManager.GetObject("New_large", resourceCulture);
@@ -1174,6 +1214,16 @@ namespace Xtrim_ERP.Properties {
         internal static System.Drawing.Bitmap open {
             get {
                 object obj = ResourceManager.GetObject("open", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Open_folder_accept {
+            get {
+                object obj = ResourceManager.GetObject("Open_folder_accept", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

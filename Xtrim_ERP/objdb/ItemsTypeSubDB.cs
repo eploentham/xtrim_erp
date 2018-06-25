@@ -37,7 +37,7 @@ namespace Xtrim_ERP.objdb
             itmtS.user_create = "user_create";
             itmtS.user_modi = "user_modi";
             itmtS.user_cancel = "user_cancel";
-            itmtS.method_payment_id = "method_payment_id";
+            itmtS.f_method_payment_id = "f_method_payment_id";
             itmtS.status_invoice = "status_invoice";
             itmtS.status_tax53 = "status_tax53";
             itmtS.acc_code = "acc_code";
@@ -155,7 +155,7 @@ namespace Xtrim_ERP.objdb
             p.status_item_edit = p.status_item_edit == null ? "0" : p.status_item_edit;
 
             p.item_type_id = int.TryParse(p.item_type_id, out chk) ? chk.ToString() : "0";
-            p.method_payment_id = int.TryParse(p.method_payment_id, out chk) ? chk.ToString() : "0";
+            p.f_method_payment_id = int.TryParse(p.f_method_payment_id, out chk) ? chk.ToString() : "0";
         }
         public String insert(ItemsTypeSub p, String userId)
         {
@@ -173,14 +173,14 @@ namespace Xtrim_ERP.objdb
                 itmtS.date_create + "," + itmtS.date_modi + "," + itmtS.date_cancel + "," +
                 itmtS.user_create + "," + itmtS.user_modi + "," + itmtS.user_cancel + "," +
                 itmtS.active + "," + itmtS.remark + ", " + itmtS.sort1 + ", " +
-                itmtS.item_type_sub_name_e + "," + itmtS.method_payment_id + ", " + itmtS.status_invoice + ", " +
+                itmtS.item_type_sub_name_e + "," + itmtS.f_method_payment_id + ", " + itmtS.status_invoice + ", " +
                 itmtS.status_tax53 + "," + itmtS.acc_code + "," + itmtS.status_item_edit + " " +
                 ") " +
                 "Values ('" + p.item_type_id + "','" + p.item_type_sub_code.Replace("'", "''") + "','" + p.item_type_sub_name_t.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "'," +
-                "'" + p.item_type_sub_name_e + "','" + p.method_payment_id.Replace("'", "''") + "','" + p.status_invoice + "'," +
+                "'" + p.item_type_sub_name_e + "','" + p.f_method_payment_id.Replace("'", "''") + "','" + p.status_invoice + "'," +
                 "'" + p.status_tax53 + "','" + p.acc_code.Replace("'", "''") + "','" + p.status_item_edit.Replace("'", "''") + "' " +
                 ")";
             try
@@ -211,7 +211,7 @@ namespace Xtrim_ERP.objdb
                 "," + itmtS.user_modi + " = '" + userId + "' " +
                 "," + itmtS.sort1 + " = '" + p.sort1 + "' " +
                 "," + itmtS.item_type_sub_name_e + " = '" + p.item_type_sub_name_e + "' " +
-                "," + itmtS.method_payment_id + " = '" + p.method_payment_id + "' " +
+                "," + itmtS.f_method_payment_id + " = '" + p.f_method_payment_id + "' " +
                 "," + itmtS.status_invoice + " = '" + p.status_invoice + "' " +
                 "," + itmtS.status_tax53 + " = '" + p.status_tax53 + "' " +
                 "," + itmtS.acc_code + " = '" + p.acc_code + "' " +
@@ -311,7 +311,7 @@ namespace Xtrim_ERP.objdb
                 curr1.item_type_sub_name_e = dt.Rows[0][itmtS.item_type_sub_name_e].ToString();
                 curr1.remark = dt.Rows[0][itmtS.remark].ToString();
                 curr1.sort1 = dt.Rows[0][itmtS.sort1].ToString();
-                curr1.method_payment_id = dt.Rows[0][itmtS.method_payment_id].ToString();
+                curr1.f_method_payment_id = dt.Rows[0][itmtS.f_method_payment_id].ToString();
                 curr1.status_invoice = dt.Rows[0][itmtS.status_invoice].ToString();
                 curr1.status_tax53 = dt.Rows[0][itmtS.status_tax53].ToString();
                 curr1.acc_code = dt.Rows[0][itmtS.acc_code].ToString();
@@ -332,7 +332,7 @@ namespace Xtrim_ERP.objdb
                 curr1.user_create = "";
                 curr1.user_modi = "";
                 curr1.user_cancel = "";
-                curr1.method_payment_id = "";
+                curr1.f_method_payment_id = "";
                 curr1.status_invoice = "";
                 curr1.status_tax53 = "";
                 curr1.acc_code = "";

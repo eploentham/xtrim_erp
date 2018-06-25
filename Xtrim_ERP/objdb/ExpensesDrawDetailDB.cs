@@ -48,7 +48,7 @@ namespace Xtrim_ERP.objdb
             expnC.pay_cheque_no = "pay_cheque_no";
             expnC.pay_cheque_bank_id = "pay_cheque_bank_id";
             expnC.pay_staff_id = "pay_staff_id";
-            expnC.expenses_id = "expenses_id";
+            expnC.item_id = "item_id";
             expnC.pay_bank_date = "pay_bank_date";
             expnC.job_id = "job_id";
             expnC.job_code = "job_code";
@@ -142,7 +142,7 @@ namespace Xtrim_ERP.objdb
             p.expense_draw_id = int.TryParse(p.expense_draw_id, out chk) ? chk.ToString() : "0";
             p.expense_type_id = int.TryParse(p.expense_type_id, out chk) ? chk.ToString() : "0";
             p.pay_cheque_bank_id = int.TryParse(p.pay_cheque_bank_id, out chk) ? chk.ToString() : "0";
-            p.expenses_id = int.TryParse(p.expenses_id, out chk) ? chk.ToString() : "0";
+            p.item_id = int.TryParse(p.item_id, out chk) ? chk.ToString() : "0";
             p.pay_staff_id = int.TryParse(p.pay_staff_id, out chk) ? chk.ToString() : "0";
             p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
 
@@ -168,7 +168,7 @@ namespace Xtrim_ERP.objdb
                 expnC.expense_draw_id + "," + expnC.expense_type_id + "," + expnC.status_pay + "," +
                 expnC.pay_type + "," + expnC.pay_amount + "," + expnC.pay_date + ", " +
                 expnC.pay_cheque_no + "," + expnC.pay_cheque_bank_id + "," + expnC.pay_staff_id + ", " +
-                expnC.expenses_id + "," + expnC.pay_bank_date + "," + expnC.job_id + "," +
+                expnC.item_id + "," + expnC.pay_bank_date + "," + expnC.job_id + "," +
                 expnC.job_code + " " +
                 ") " +
                 "Values ('" + p.desc1.Replace("'", "''") + "','" + p.desc2.Replace("'", "''") + "','" + p.amount + "'," +
@@ -178,7 +178,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.expense_draw_id + "','" + p.expense_type_id.Replace("'", "''") + "','" + p.status_pay + "'," +
                 "'" + p.pay_type + "','" + p.pay_amount.Replace("'", "''") + "','" + p.pay_date + "', " +
                 "'" + p.pay_cheque_no + "','" + p.pay_cheque_bank_id.Replace("'", "''") + "','" + p.pay_staff_id + "', " +
-                "'" + p.expenses_id + "','" + p.pay_bank_date.Replace("'", "''") + "','" + p.job_id + "', " +
+                "'" + p.item_id + "','" + p.pay_bank_date.Replace("'", "''") + "','" + p.job_id + "', " +
                 "'" + p.job_code + "' " +
                 ")";
             try
@@ -242,7 +242,7 @@ namespace Xtrim_ERP.objdb
                 "," + expnC.user_modi + " = '" + userId + "' " +
                 "," + expnC.pay_cheque_bank_id + " = '" + p.pay_cheque_bank_id + "' " +
                 "," + expnC.pay_staff_id + " = '" + p.pay_staff_id + "' " +
-                "," + expnC.expenses_id + " = '" + p.expenses_id + "' " +
+                "," + expnC.item_id + " = '" + p.item_id + "' " +
                 "," + expnC.pay_bank_date + " = '" + p.pay_bank_date + "' " +
 
                 "Where " + expnC.pkField + "='" + p.expenses_draw_detail_id + "'"
@@ -318,7 +318,7 @@ namespace Xtrim_ERP.objdb
         {
             String currId = "";
             DataTable dt = new DataTable();
-            String sql = "select expC."+expnC.expenses_draw_detail_id+","+expnC.expenses_id+","+expnC.desc1+","+expnC.desc2+","+expnC.remark+","+expnC.amount+" " +
+            String sql = "select expC."+expnC.expenses_draw_detail_id+","+expnC.item_id+","+expnC.desc1+","+expnC.desc2+","+expnC.remark+","+expnC.amount+" " +
                 "From " + expnC.table + " expC " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where expC." + expnC.expense_draw_id + " ='" + copId + "' ";
@@ -332,6 +332,20 @@ namespace Xtrim_ERP.objdb
                 "From " + expnC.table + " expC " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where expC." + expnC.pkField + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
+        public DataTable selectByChequeAppv(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select edd.expenses_draw_detail_id, itmts.item_type_sub_name_t, fmtp.f_method_payment_name_t, itm.item_name_t, ed.draw_date , edd.amount " +
+                "from t_expenses_draw_detail edd " +
+                "inner join t_expenses_draw ed on ed.expenses_draw_id = edd.expenses_draw_id " +
+                "inner join b_items itm on edd.item_id = itm.item_id " +
+                "inner join b_items_type_sub itmts on itm.item_type_sub_id = itmts.item_type_sub_id " +
+                "inner join f_method_payment fmtp on itm.f_method_payment_id = fmtp.f_method_payment_id " +
+                "where fmtp.f_method_payment_id = '1560000000' and ed.status_appv = '"+ copId + "' " +
+                "Order By edd.expenses_draw_detail_id ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -376,7 +390,7 @@ namespace Xtrim_ERP.objdb
                 curr1.pay_cheque_no = dt.Rows[0][expnC.pay_cheque_no].ToString();
                 curr1.pay_cheque_bank_id = dt.Rows[0][expnC.pay_cheque_bank_id].ToString();
                 curr1.pay_staff_id = dt.Rows[0][expnC.pay_staff_id].ToString();
-                curr1.expenses_id = dt.Rows[0][expnC.expenses_id].ToString();
+                curr1.item_id = dt.Rows[0][expnC.item_id].ToString();
                 curr1.pay_bank_date = dt.Rows[0][expnC.pay_bank_date].ToString();
                 curr1.job_id = dt.Rows[0][expnC.job_id].ToString();
                 curr1.job_code = dt.Rows[0][expnC.job_code].ToString();

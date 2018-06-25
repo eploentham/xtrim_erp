@@ -64,7 +64,7 @@
             this.c1FlexGrid1.Location = new System.Drawing.Point(0, 27);
             this.c1FlexGrid1.Name = "c1FlexGrid1";
             this.c1FlexGrid1.Rows.DefaultSize = 19;
-            this.c1FlexGrid1.Size = new System.Drawing.Size(240, 709);
+            this.c1FlexGrid1.Size = new System.Drawing.Size(479, 709);
             this.c1FlexGrid1.TabIndex = 0;
             this.c1FlexGrid1.GridChanged += new C1.Win.C1FlexGrid.GridChangedEventHandler(this.c1FlexGrid1_GridChanged);
             this.c1FlexGrid1.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.c1FlexGrid1_AfterRowColChange);
@@ -191,7 +191,7 @@
             // c1DropDownControl1
             // 
             this.c1DropDownControl1.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DropDownControl1.Location = new System.Drawing.Point(276, 53);
+            this.c1DropDownControl1.Location = new System.Drawing.Point(477, 53);
             this.c1DropDownControl1.Name = "c1DropDownControl1";
             this.c1DropDownControl1.Size = new System.Drawing.Size(200, 18);
             this.c1DropDownControl1.TabIndex = 67;

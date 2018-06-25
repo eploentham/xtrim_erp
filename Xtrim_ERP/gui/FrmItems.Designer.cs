@@ -33,6 +33,17 @@
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.gBTypeSub = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.cboFMtp = new C1.Win.C1Input.C1ComboBox();
+            this.chkTax53 = new C1.Win.C1Input.C1CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.chkInv = new C1.Win.C1Input.C1CheckBox();
+            this.txtAccCode = new C1.Win.C1Input.C1TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.cboItmG = new C1.Win.C1Input.C1ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
@@ -53,21 +64,17 @@
             this.txtCode = new C1.Win.C1Input.C1TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cboMtp = new C1.Win.C1Input.C1ComboBox();
-            this.gBTypeSub = new System.Windows.Forms.GroupBox();
-            this.txtAccCode = new C1.Win.C1Input.C1TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.chkTax53 = new C1.Win.C1Input.C1CheckBox();
-            this.chkInv = new C1.Win.C1Input.C1CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.gBTypeSub.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboFMtp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkTax53)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkInv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAccCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboItmG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).BeginInit();
@@ -81,13 +88,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboMtp)).BeginInit();
-            this.gBTypeSub.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAccCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkTax53)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkInv)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // sB
@@ -155,6 +155,180 @@
             this.panel3.Size = new System.Drawing.Size(518, 503);
             this.panel3.TabIndex = 1;
             this.theme1.SetTheme(this.panel3, "(default)");
+            // 
+            // gBTypeSub
+            // 
+            this.gBTypeSub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.gBTypeSub.Controls.Add(this.groupBox1);
+            this.gBTypeSub.Controls.Add(this.cboFMtp);
+            this.gBTypeSub.Controls.Add(this.chkTax53);
+            this.gBTypeSub.Controls.Add(this.label6);
+            this.gBTypeSub.Controls.Add(this.chkInv);
+            this.gBTypeSub.Controls.Add(this.txtAccCode);
+            this.gBTypeSub.Controls.Add(this.label4);
+            this.gBTypeSub.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.gBTypeSub.Location = new System.Drawing.Point(11, 168);
+            this.gBTypeSub.Name = "gBTypeSub";
+            this.gBTypeSub.Size = new System.Drawing.Size(452, 236);
+            this.gBTypeSub.TabIndex = 561;
+            this.gBTypeSub.TabStop = false;
+            this.gBTypeSub.Text = "ประเภทย่อย";
+            this.theme1.SetTheme(this.gBTypeSub, "(default)");
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.groupBox1.Controls.Add(this.panel4);
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.groupBox1.Location = new System.Drawing.Point(10, 126);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(364, 100);
+            this.groupBox1.TabIndex = 558;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "ให้แสดงใน หน้าจอค่าใช้จ่าย";
+            this.theme1.SetTheme(this.groupBox1, "(default)");
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel4.Controls.Add(this.radioButton1);
+            this.panel4.Controls.Add(this.radioButton2);
+            this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel4.Location = new System.Drawing.Point(15, 19);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(332, 70);
+            this.panel4.TabIndex = 559;
+            this.theme1.SetTheme(this.panel4, "(default)");
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.radioButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.radioButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.radioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.radioButton1.Location = new System.Drawing.Point(7, 35);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(191, 17);
+            this.radioButton1.TabIndex = 121;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "เป็นรายจ่ายของบริษัท เก็บเงินลูกค้า";
+            this.theme1.SetTheme(this.radioButton1, "(default)");
+            this.radioButton1.UseVisualStyleBackColor = false;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.radioButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.radioButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.radioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.radioButton2.Location = new System.Drawing.Point(7, 12);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(204, 17);
+            this.radioButton2.TabIndex = 120;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "เป็นรายจ่ายของบริษัท ไม่เก็บเงินลูกค้า";
+            this.theme1.SetTheme(this.radioButton2, "(default)");
+            this.radioButton2.UseVisualStyleBackColor = false;
+            // 
+            // cboFMtp
+            // 
+            this.cboFMtp.AllowSpinLoop = false;
+            this.cboFMtp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboFMtp.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboFMtp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboFMtp.GapHeight = 0;
+            this.cboFMtp.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboFMtp.ItemsDisplayMember = "";
+            this.cboFMtp.ItemsValueMember = "";
+            this.cboFMtp.Location = new System.Drawing.Point(129, 14);
+            this.cboFMtp.Name = "cboFMtp";
+            this.cboFMtp.Size = new System.Drawing.Size(262, 20);
+            this.cboFMtp.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboFMtp.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboFMtp.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboFMtp.TabIndex = 559;
+            this.cboFMtp.Tag = null;
+            this.theme1.SetTheme(this.cboFMtp, "(default)");
+            this.cboFMtp.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // chkTax53
+            // 
+            this.chkTax53.BackColor = System.Drawing.Color.Transparent;
+            this.chkTax53.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkTax53.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkTax53.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkTax53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkTax53.Location = new System.Drawing.Point(129, 96);
+            this.chkTax53.Name = "chkTax53";
+            this.chkTax53.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkTax53.Size = new System.Drawing.Size(153, 24);
+            this.chkTax53.TabIndex = 557;
+            this.chkTax53.Text = "ใช้ออกใบภาษี หัก ณ ที่จ่าย";
+            this.theme1.SetTheme(this.chkTax53, "(default)");
+            this.chkTax53.UseVisualStyleBackColor = true;
+            this.chkTax53.Value = null;
+            this.chkTax53.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label6.Location = new System.Drawing.Point(7, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 16);
+            this.label6.TabIndex = 560;
+            this.label6.Text = "วิธีการจ่ายเงิน :";
+            this.theme1.SetTheme(this.label6, "(default)");
+            // 
+            // chkInv
+            // 
+            this.chkInv.BackColor = System.Drawing.Color.Transparent;
+            this.chkInv.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkInv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkInv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkInv.Location = new System.Drawing.Point(129, 66);
+            this.chkInv.Name = "chkInv";
+            this.chkInv.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkInv.Size = new System.Drawing.Size(153, 24);
+            this.chkInv.TabIndex = 556;
+            this.chkInv.Text = "ใช้ออกใบกำกับภาษี";
+            this.theme1.SetTheme(this.chkInv, "(default)");
+            this.chkInv.UseVisualStyleBackColor = true;
+            this.chkInv.Value = null;
+            this.chkInv.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtAccCode
+            // 
+            this.txtAccCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAccCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtAccCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtAccCode.Location = new System.Drawing.Point(129, 40);
+            this.txtAccCode.Name = "txtAccCode";
+            this.txtAccCode.Size = new System.Drawing.Size(245, 20);
+            this.txtAccCode.TabIndex = 487;
+            this.txtAccCode.Tag = null;
+            this.theme1.SetTheme(this.txtAccCode, "(default)");
+            this.txtAccCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label4.Location = new System.Drawing.Point(7, 42);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 16);
+            this.label4.TabIndex = 486;
+            this.label4.Text = "รหัสบัญชี :";
+            this.theme1.SetTheme(this.label4, "(default)");
             // 
             // cboItmG
             // 
@@ -450,180 +624,6 @@
             this.panel2.TabIndex = 0;
             this.theme1.SetTheme(this.panel2, "(default)");
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label6.Location = new System.Drawing.Point(7, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 16);
-            this.label6.TabIndex = 560;
-            this.label6.Text = "วิธีการจ่ายเงิน :";
-            this.theme1.SetTheme(this.label6, "(default)");
-            // 
-            // cboMtp
-            // 
-            this.cboMtp.AllowSpinLoop = false;
-            this.cboMtp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboMtp.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboMtp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboMtp.GapHeight = 0;
-            this.cboMtp.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboMtp.ItemsDisplayMember = "";
-            this.cboMtp.ItemsValueMember = "";
-            this.cboMtp.Location = new System.Drawing.Point(129, 14);
-            this.cboMtp.Name = "cboMtp";
-            this.cboMtp.Size = new System.Drawing.Size(262, 20);
-            this.cboMtp.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboMtp.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboMtp.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboMtp.TabIndex = 559;
-            this.cboMtp.Tag = null;
-            this.theme1.SetTheme(this.cboMtp, "(default)");
-            this.cboMtp.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // gBTypeSub
-            // 
-            this.gBTypeSub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.gBTypeSub.Controls.Add(this.groupBox1);
-            this.gBTypeSub.Controls.Add(this.cboMtp);
-            this.gBTypeSub.Controls.Add(this.chkTax53);
-            this.gBTypeSub.Controls.Add(this.label6);
-            this.gBTypeSub.Controls.Add(this.chkInv);
-            this.gBTypeSub.Controls.Add(this.txtAccCode);
-            this.gBTypeSub.Controls.Add(this.label4);
-            this.gBTypeSub.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.gBTypeSub.Location = new System.Drawing.Point(11, 168);
-            this.gBTypeSub.Name = "gBTypeSub";
-            this.gBTypeSub.Size = new System.Drawing.Size(452, 236);
-            this.gBTypeSub.TabIndex = 561;
-            this.gBTypeSub.TabStop = false;
-            this.gBTypeSub.Text = "ประเภทย่อย";
-            this.theme1.SetTheme(this.gBTypeSub, "(default)");
-            // 
-            // txtAccCode
-            // 
-            this.txtAccCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAccCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtAccCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtAccCode.Location = new System.Drawing.Point(129, 40);
-            this.txtAccCode.Name = "txtAccCode";
-            this.txtAccCode.Size = new System.Drawing.Size(245, 20);
-            this.txtAccCode.TabIndex = 487;
-            this.txtAccCode.Tag = null;
-            this.theme1.SetTheme(this.txtAccCode, "(default)");
-            this.txtAccCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label4.Location = new System.Drawing.Point(7, 42);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 16);
-            this.label4.TabIndex = 486;
-            this.label4.Text = "รหัสบัญชี :";
-            this.theme1.SetTheme(this.label4, "(default)");
-            // 
-            // chkTax53
-            // 
-            this.chkTax53.BackColor = System.Drawing.Color.Transparent;
-            this.chkTax53.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkTax53.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.chkTax53.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkTax53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkTax53.Location = new System.Drawing.Point(129, 96);
-            this.chkTax53.Name = "chkTax53";
-            this.chkTax53.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkTax53.Size = new System.Drawing.Size(153, 24);
-            this.chkTax53.TabIndex = 557;
-            this.chkTax53.Text = "ใช้ออกใบภาษี หัก ณ ที่จ่าย";
-            this.theme1.SetTheme(this.chkTax53, "(default)");
-            this.chkTax53.UseVisualStyleBackColor = true;
-            this.chkTax53.Value = null;
-            this.chkTax53.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // chkInv
-            // 
-            this.chkInv.BackColor = System.Drawing.Color.Transparent;
-            this.chkInv.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkInv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.chkInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkInv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkInv.Location = new System.Drawing.Point(129, 66);
-            this.chkInv.Name = "chkInv";
-            this.chkInv.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkInv.Size = new System.Drawing.Size(153, 24);
-            this.chkInv.TabIndex = 556;
-            this.chkInv.Text = "ใช้ออกใบกำกับภาษี";
-            this.theme1.SetTheme(this.chkInv, "(default)");
-            this.chkInv.UseVisualStyleBackColor = true;
-            this.chkInv.Value = null;
-            this.chkInv.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.groupBox1.Controls.Add(this.panel4);
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.groupBox1.Location = new System.Drawing.Point(10, 126);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(364, 100);
-            this.groupBox1.TabIndex = 558;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "ให้แสดงใน หน้าจอค่าใช้จ่าย";
-            this.theme1.SetTheme(this.groupBox1, "(default)");
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel4.Controls.Add(this.radioButton1);
-            this.panel4.Controls.Add(this.radioButton2);
-            this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel4.Location = new System.Drawing.Point(15, 19);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(332, 70);
-            this.panel4.TabIndex = 559;
-            this.theme1.SetTheme(this.panel4, "(default)");
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.radioButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.radioButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.radioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.radioButton1.Location = new System.Drawing.Point(7, 35);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(191, 17);
-            this.radioButton1.TabIndex = 121;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "เป็นรายจ่ายของบริษัท เก็บเงินลูกค้า";
-            this.theme1.SetTheme(this.radioButton1, "(default)");
-            this.radioButton1.UseVisualStyleBackColor = false;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.radioButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.radioButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.radioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.radioButton2.Location = new System.Drawing.Point(7, 12);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(204, 17);
-            this.radioButton2.TabIndex = 120;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "เป็นรายจ่ายของบริษัท ไม่เก็บเงินลูกค้า";
-            this.theme1.SetTheme(this.radioButton2, "(default)");
-            this.radioButton2.UseVisualStyleBackColor = false;
-            // 
             // FrmItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -640,6 +640,15 @@
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.gBTypeSub.ResumeLayout(false);
+            this.gBTypeSub.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboFMtp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkTax53)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkInv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAccCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboItmG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).EndInit();
@@ -653,15 +662,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboMtp)).EndInit();
-            this.gBTypeSub.ResumeLayout(false);
-            this.gBTypeSub.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAccCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkTax53)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkInv)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -694,7 +694,7 @@
         private C1.Win.C1Input.C1CheckBox chkVoid;
         private C1.Win.C1Input.C1ComboBox cboItmG;
         private System.Windows.Forms.Label label5;
-        private C1.Win.C1Input.C1ComboBox cboMtp;
+        private C1.Win.C1Input.C1ComboBox cboFMtp;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox gBTypeSub;
         private System.Windows.Forms.GroupBox groupBox1;

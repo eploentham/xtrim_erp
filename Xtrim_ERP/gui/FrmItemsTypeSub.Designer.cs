@@ -31,9 +31,10 @@
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.chkItmEdit = new C1.Win.C1Input.C1CheckBox();
             this.cboItmT = new C1.Win.C1Input.C1ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.cboMtp = new C1.Win.C1Input.C1ComboBox();
+            this.cboFMtp = new C1.Win.C1Input.C1ComboBox();
             this.label36 = new System.Windows.Forms.Label();
             this.txtAccCode = new C1.Win.C1Input.C1TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,12 +60,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.chkItmEdit = new C1.Win.C1Input.C1CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkItmEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboItmT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboMtp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboFMtp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAccCode)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -81,7 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkItmEdit)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -107,7 +107,7 @@
             this.panel3.Controls.Add(this.chkItmEdit);
             this.panel3.Controls.Add(this.cboItmT);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.cboMtp);
+            this.panel3.Controls.Add(this.cboFMtp);
             this.panel3.Controls.Add(this.label36);
             this.panel3.Controls.Add(this.txtAccCode);
             this.panel3.Controls.Add(this.label4);
@@ -134,6 +134,24 @@
             this.panel3.Size = new System.Drawing.Size(502, 550);
             this.panel3.TabIndex = 1;
             this.theme1.SetTheme(this.panel3, "(default)");
+            // 
+            // chkItmEdit
+            // 
+            this.chkItmEdit.BackColor = System.Drawing.Color.Transparent;
+            this.chkItmEdit.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkItmEdit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkItmEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkItmEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkItmEdit.Location = new System.Drawing.Point(127, 485);
+            this.chkItmEdit.Name = "chkItmEdit";
+            this.chkItmEdit.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkItmEdit.Size = new System.Drawing.Size(153, 24);
+            this.chkItmEdit.TabIndex = 564;
+            this.chkItmEdit.Text = "อนุญาตให้ item แก้ไข ได้";
+            this.theme1.SetTheme(this.chkItmEdit, "(default)");
+            this.chkItmEdit.UseVisualStyleBackColor = true;
+            this.chkItmEdit.Value = null;
+            this.chkItmEdit.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // cboItmT
             // 
@@ -169,26 +187,26 @@
             this.label5.Text = "ประเภทหลัก :";
             this.theme1.SetTheme(this.label5, "(default)");
             // 
-            // cboMtp
+            // cboFMtp
             // 
-            this.cboMtp.AllowSpinLoop = false;
-            this.cboMtp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboMtp.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboMtp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboMtp.GapHeight = 0;
-            this.cboMtp.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboMtp.ItemsDisplayMember = "";
-            this.cboMtp.ItemsValueMember = "";
-            this.cboMtp.Location = new System.Drawing.Point(127, 147);
-            this.cboMtp.Name = "cboMtp";
-            this.cboMtp.Size = new System.Drawing.Size(223, 20);
-            this.cboMtp.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboMtp.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboMtp.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboMtp.TabIndex = 560;
-            this.cboMtp.Tag = null;
-            this.theme1.SetTheme(this.cboMtp, "(default)");
-            this.cboMtp.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.cboFMtp.AllowSpinLoop = false;
+            this.cboFMtp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboFMtp.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboFMtp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboFMtp.GapHeight = 0;
+            this.cboFMtp.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboFMtp.ItemsDisplayMember = "";
+            this.cboFMtp.ItemsValueMember = "";
+            this.cboFMtp.Location = new System.Drawing.Point(127, 147);
+            this.cboFMtp.Name = "cboFMtp";
+            this.cboFMtp.Size = new System.Drawing.Size(223, 20);
+            this.cboFMtp.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboFMtp.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboFMtp.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboFMtp.TabIndex = 560;
+            this.cboFMtp.Tag = null;
+            this.theme1.SetTheme(this.cboFMtp, "(default)");
+            this.cboFMtp.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label36
             // 
@@ -532,24 +550,6 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // chkItmEdit
-            // 
-            this.chkItmEdit.BackColor = System.Drawing.Color.Transparent;
-            this.chkItmEdit.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkItmEdit.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.chkItmEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkItmEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkItmEdit.Location = new System.Drawing.Point(127, 485);
-            this.chkItmEdit.Name = "chkItmEdit";
-            this.chkItmEdit.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkItmEdit.Size = new System.Drawing.Size(153, 24);
-            this.chkItmEdit.TabIndex = 564;
-            this.chkItmEdit.Text = "อนุญาตให้ item แก้ไข ได้";
-            this.theme1.SetTheme(this.chkItmEdit, "(default)");
-            this.chkItmEdit.UseVisualStyleBackColor = true;
-            this.chkItmEdit.Value = null;
-            this.chkItmEdit.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmItemsTypeSub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -564,8 +564,9 @@
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkItmEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboItmT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboMtp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboFMtp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAccCode)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -584,7 +585,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkItmEdit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -619,7 +619,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private C1.Win.C1Input.C1TextBox txtAccCode;
         private System.Windows.Forms.Label label4;
-        private C1.Win.C1Input.C1ComboBox cboMtp;
+        private C1.Win.C1Input.C1ComboBox cboFMtp;
         private System.Windows.Forms.Label label36;
         private C1.Win.C1Input.C1ComboBox cboItmT;
         private System.Windows.Forms.Label label5;

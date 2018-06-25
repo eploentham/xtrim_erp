@@ -302,10 +302,23 @@ namespace Xtrim_ERP.objdb
             String sql = "select expC."+expnC.expenses_draw_id+","+expnC.expenses_draw_code+","+expnC.desc1+","+expnC.remark+","+expnC.amount+","+expnC.status_appv+ " " +
                 "From " + expnC.table + " expC " +
                 " " +
-                "Where expC." + expnC.active + " ='1' and " + expnC.year + "='" + year + "'";
+                "Where expC." + expnC.active + " ='1' and " + expnC.year + "='" + year + "' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
+        }
+        public DataSet selectAllFmtp(String year)
+        {
+            DataSet ds = new DataSet();
+            String sql = "select fmtp.f_method_payment_name_t,  itmts.item_type_sub_name_t, sum(edd.amount) as amt " +
+                    "from t_expenses_draw_detail edd " +
+                    "inner join b_items itm on edd.item_id = itm.item_id " +
+                    "inner join b_items_type_sub itmts on itm.item_type_sub_id = itmts.item_type_sub_id " +
+                    "inner join f_method_payment fmtp on itm.f_method_payment_id = fmtp.f_method_payment_id " +
+                    "group by itmts.item_type_sub_name_t, fmtp.f_method_payment_name_t ";
+            ds = conn.selectDataDS(conn.conn, sql);
+
+            return ds;
         }
         public DataTable selectByJobCode(String copId)
         {

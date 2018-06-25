@@ -46,7 +46,7 @@ namespace Xtrim_ERP.objdb
             itm.item_grp_id = "item_grp_id";
             itm.item_type_sub_id = "item_type_sub_id";
             itm.item_cat_id = "item_cat_id";
-            itm.method_payment_id = "method_payment_id";
+            itm.f_method_payment_id = "f_method_payment_id";
             itm.status_invoice = "status_invoice";
 
             itm.table = "b_items";
@@ -136,7 +136,7 @@ namespace Xtrim_ERP.objdb
             p.item_grp_id = int.TryParse(p.item_grp_id, out chk) ? chk.ToString() : "0";
             p.item_type_sub_id = int.TryParse(p.item_type_sub_id, out chk) ? chk.ToString() : "0";
             p.item_cat_id = int.TryParse(p.item_cat_id, out chk) ? chk.ToString() : "0";
-            p.method_payment_id = int.TryParse(p.method_payment_id, out chk) ? chk.ToString() : "0";
+            p.f_method_payment_id = int.TryParse(p.f_method_payment_id, out chk) ? chk.ToString() : "0";
         }
         public String insert(Items p, String userId)
         {
@@ -156,7 +156,7 @@ namespace Xtrim_ERP.objdb
                 itm.active + "," + itm.remark + ", " + itm.sort1 + "," +
                 itm.acc_code + "," + itm.status_tax53 + ", " + itm.item_grp_id + "," +
                 itm.item_type_sub_id + "," + itm.item_cat_id + ", " + itm.status_app + "," +
-                itm.method_payment_id + "," + itm.status_invoice + " " +
+                itm.f_method_payment_id + "," + itm.status_invoice + " " +
                 ") " +
                 "Values ('" + p.item_code + "','" + p.item_name_e.Replace("'", "''") + "','" + p.item_name_t.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
@@ -164,7 +164,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "'," +
                 "'" + p.acc_code + "','" + p.status_tax53.Replace("'", "''") + "','" + p.item_grp_id + "'," +
                 "'" + p.item_type_sub_id + "','" + p.item_cat_id.Replace("'", "''") + "','" + p.status_app + "'," +
-                "'" + p.method_payment_id + "','" + p.status_invoice.Replace("'", "''") + "' " +
+                "'" + p.f_method_payment_id + "','" + p.status_invoice.Replace("'", "''") + "' " +
                 ")";
             try
             {
@@ -198,7 +198,7 @@ namespace Xtrim_ERP.objdb
                 "," + itm.item_type_sub_id + " = '" + p.item_type_sub_id + "' " +
                 "," + itm.item_cat_id + " = '" + p.item_cat_id + "' " +
                 "," + itm.status_app + " = '" + p.status_app + "' " +
-                "," + itm.method_payment_id + " = '" + p.method_payment_id + "' " +
+                "," + itm.f_method_payment_id + " = '" + p.f_method_payment_id + "' " +
                 "," + itm.status_invoice + " = '" + p.status_invoice + "' " +
                 "Where " + itm.pkField + "='" + p.item_id + "'"
                 ;
@@ -295,7 +295,7 @@ namespace Xtrim_ERP.objdb
                 expn1.item_type_sub_id = dt.Rows[0][itm.item_type_sub_id].ToString();
                 expn1.item_cat_id = dt.Rows[0][itm.item_cat_id].ToString();
                 expn1.status_app = dt.Rows[0][itm.status_app].ToString();
-                expn1.method_payment_id = dt.Rows[0][itm.method_payment_id].ToString();
+                expn1.f_method_payment_id = dt.Rows[0][itm.f_method_payment_id].ToString();
                 expn1.status_invoice = dt.Rows[0][itm.status_invoice].ToString();
             }
 

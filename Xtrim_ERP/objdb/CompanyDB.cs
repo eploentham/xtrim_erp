@@ -320,7 +320,7 @@ namespace Xtrim_ERP.objdb
                 sql = "Update " + cop.table + " Set " +
                     " " + cop.year_curr + "='" + year + "' " +
                     ","+cop.cash_draw_doc+"=1 " +
-                    "Where "+cop.pkField+"='001'";
+                    "Where "+cop.pkField+"='"+cop1.comp_id+"'";
                 conn.ExecuteNonQuery(conn.conn, sql);
                 doc = "00001";
             }
@@ -336,7 +336,7 @@ namespace Xtrim_ERP.objdb
 
                     sql = "Update " + cop.table + " Set " +                    
                     "" + cop.cash_draw_doc + "="+chk +
-                    "Where " + cop.pkField + "='001'";
+                    " Where " + cop.pkField + "='"+ cop1.comp_id + "'";
                     conn.ExecuteNonQuery(conn.conn, sql);
                 }
             }
