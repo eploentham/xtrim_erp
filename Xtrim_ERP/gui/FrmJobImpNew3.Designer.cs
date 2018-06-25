@@ -857,9 +857,9 @@
             this.cDRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.cDRight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.cDRight.Id = 10;
-            this.cDRight.Location = new System.Drawing.Point(457, 0);
+            this.cDRight.Location = new System.Drawing.Point(898, 0);
             this.cDRight.Name = "cDRight";
-            this.cDRight.Size = new System.Drawing.Size(895, 673);
+            this.cDRight.Size = new System.Drawing.Size(454, 673);
             this.theme1.SetTheme(this.cDRight, "(default)");
             // 
             // tC2
@@ -881,7 +881,7 @@
             this.tC2.Location = new System.Drawing.Point(0, 0);
             this.tC2.Name = "tC2";
             this.tC2.ShowCaption = true;
-            this.tC2.Size = new System.Drawing.Size(895, 673);
+            this.tC2.Size = new System.Drawing.Size(454, 673);
             this.tC2.TabIndex = 0;
             this.tC2.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
             this.tC2.TabsShowFocusCues = false;
@@ -897,7 +897,7 @@
             this.c1DockingTabPage3.Image = global::Xtrim_ERP.Properties.Resources.FixErrors_small;
             this.c1DockingTabPage3.Location = new System.Drawing.Point(4, 1);
             this.c1DockingTabPage3.Name = "c1DockingTabPage3";
-            this.c1DockingTabPage3.Size = new System.Drawing.Size(866, 671);
+            this.c1DockingTabPage3.Size = new System.Drawing.Size(425, 671);
             this.c1DockingTabPage3.TabIndex = 0;
             this.c1DockingTabPage3.Text = "Entry info";
             // 
@@ -917,7 +917,7 @@
             this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel4.Location = new System.Drawing.Point(0, 22);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(866, 649);
+            this.panel4.Size = new System.Drawing.Size(425, 649);
             this.panel4.TabIndex = 0;
             this.theme1.SetTheme(this.panel4, "(default)");
             // 
@@ -1071,7 +1071,7 @@
             this.tabExpense.CaptionVisible = true;
             this.tabExpense.Location = new System.Drawing.Point(4, 1);
             this.tabExpense.Name = "tabExpense";
-            this.tabExpense.Size = new System.Drawing.Size(866, 671);
+            this.tabExpense.Size = new System.Drawing.Size(425, 671);
             this.tabExpense.TabIndex = 1;
             this.tabExpense.Text = "บันทึกค่าใช้จ่าย";
             // 
@@ -1081,7 +1081,7 @@
             this.tabDelivery.Controls.Add(this.panel14);
             this.tabDelivery.Location = new System.Drawing.Point(4, 1);
             this.tabDelivery.Name = "tabDelivery";
-            this.tabDelivery.Size = new System.Drawing.Size(866, 671);
+            this.tabDelivery.Size = new System.Drawing.Size(425, 671);
             this.tabDelivery.TabIndex = 2;
             this.tabDelivery.Text = "ใบส่งของ";
             // 
@@ -1111,7 +1111,7 @@
             this.panel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel14.Location = new System.Drawing.Point(0, 22);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(866, 649);
+            this.panel14.Size = new System.Drawing.Size(425, 649);
             this.panel14.TabIndex = 0;
             this.theme1.SetTheme(this.panel14, "(default)");
             // 
@@ -1211,7 +1211,7 @@
             this.panel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel16.Location = new System.Drawing.Point(0, 370);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(866, 279);
+            this.panel16.Size = new System.Drawing.Size(425, 279);
             this.panel16.TabIndex = 0;
             this.theme1.SetTheme(this.panel16, "(default)");
             // 
@@ -1606,7 +1606,7 @@
             this.tabCheckExam.Controls.Add(this.groupBox3);
             this.tabCheckExam.Location = new System.Drawing.Point(4, 1);
             this.tabCheckExam.Name = "tabCheckExam";
-            this.tabCheckExam.Size = new System.Drawing.Size(866, 671);
+            this.tabCheckExam.Size = new System.Drawing.Size(425, 671);
             this.tabCheckExam.TabIndex = 3;
             this.tabCheckExam.Text = "บันทึกข้อมูลตรวจปล่อย";
             // 
@@ -1617,7 +1617,7 @@
             this.panel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel12.Location = new System.Drawing.Point(0, 277);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(866, 256);
+            this.panel12.Size = new System.Drawing.Size(425, 256);
             this.panel12.TabIndex = 546;
             this.theme1.SetTheme(this.panel12, "(default)");
             // 
@@ -1651,7 +1651,7 @@
             this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.groupBox4.Location = new System.Drawing.Point(0, 74);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(866, 203);
+            this.groupBox4.Size = new System.Drawing.Size(425, 203);
             this.groupBox4.TabIndex = 453;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "สภาพหีบห่อสินค้า :";
@@ -2075,7 +2075,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.groupBox3.Location = new System.Drawing.Point(0, 22);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(866, 52);
+            this.groupBox3.Size = new System.Drawing.Size(425, 52);
             this.groupBox3.TabIndex = 452;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "เปิดสินค้าตรวจ :";
@@ -2200,7 +2200,7 @@
             this.tabCheckList.Controls.Add(this.panel11);
             this.tabCheckList.Location = new System.Drawing.Point(4, 1);
             this.tabCheckList.Name = "tabCheckList";
-            this.tabCheckList.Size = new System.Drawing.Size(866, 671);
+            this.tabCheckList.Size = new System.Drawing.Size(425, 671);
             this.tabCheckList.TabIndex = 4;
             this.tabCheckList.Text = "Check List";
             // 
@@ -2275,7 +2275,7 @@
             this.panel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel11.Location = new System.Drawing.Point(0, 22);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(866, 649);
+            this.panel11.Size = new System.Drawing.Size(425, 649);
             this.panel11.TabIndex = 0;
             this.theme1.SetTheme(this.panel11, "(default)");
             // 
@@ -3636,7 +3636,7 @@
             this.tabContainerYard.Controls.Add(this.panel17);
             this.tabContainerYard.Location = new System.Drawing.Point(4, 1);
             this.tabContainerYard.Name = "tabContainerYard";
-            this.tabContainerYard.Size = new System.Drawing.Size(866, 671);
+            this.tabContainerYard.Size = new System.Drawing.Size(425, 671);
             this.tabContainerYard.TabIndex = 5;
             this.tabContainerYard.Text = "ลานคืนตู้";
             // 
@@ -3653,7 +3653,7 @@
             this.panel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel17.Location = new System.Drawing.Point(0, 22);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(866, 649);
+            this.panel17.Size = new System.Drawing.Size(425, 649);
             this.panel17.TabIndex = 0;
             this.theme1.SetTheme(this.panel17, "(default)");
             // 

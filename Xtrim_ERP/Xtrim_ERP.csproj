@@ -161,6 +161,18 @@
     <Compile Include="gui\FrmBank.Designer.cs">
       <DependentUpon>FrmBank.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmBilling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmBilling.Designer.cs">
+      <DependentUpon>FrmBilling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmBillingView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmBillingView.Designer.cs">
+      <DependentUpon>FrmBillingView.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmCompany.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -725,6 +737,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmBank.resx">
       <DependentUpon>FrmBank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmBilling.resx">
+      <DependentUpon>FrmBilling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmBillingView.resx">
+      <DependentUpon>FrmBillingView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmCompany.resx">
       <DependentUpon>FrmCompany.cs</DependentUpon>
