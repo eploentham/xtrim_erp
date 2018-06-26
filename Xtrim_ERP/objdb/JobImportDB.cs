@@ -602,6 +602,28 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+        public DataTable selectJimJblByJobYear2(String cusid)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select jim.job_import_id, concat('IMP',jim.job_import_code), jim.remark1, cus.cust_name_t, imp.cust_name_t as imp_name_t, tmn.terminal_code, tmn.terminal_name_t, fwd.cust_name_t as forwarder_name_t " +
+                ", jbl.description " +
+                //", count(jie.job_import_expenses_id) as cntexpn " +
+                "From " + jim.table + " jim " +
+                "Left Join b_customer cus on jim.cust_id = cus.cust_id " +
+                "Left Join b_customer imp on jim.imp_id = imp.cust_id " +
+                "Left Join t_job_import_bl jbl on jim.job_import_id = jbl.job_import_id " +
+                "Left Join b_terminal tmn on jbl.terminal_id = tmn.terminal_id " +
+                "Left Join b_customer fwd on jbl.forwarder_id = fwd.cust_id " +
+                "Left Join t_job_import_inv jin on jim.job_import_id = jin.job_import_id " +
+                "Left Join t_job_import_expenses jie on jim.job_import_id = jie.job_import_id " +
+                "Where jim." + jim.active + " ='1' and cus." + jim.cust_id + "='" + cusid + "' " +
+                //"Group By jim.job_import_id, jim.job_import_code, jim.remark, cus.cust_name_t, imp.imp_name_t, tmn.terminal_code, tmn.terminal_name_t, fwd.forwarder_name_t, jbl.description " +
+                " " +
+                "Order By " + jim.job_import_code + " desc";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();

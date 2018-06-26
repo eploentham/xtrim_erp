@@ -58,6 +58,15 @@ namespace Xtrim_ERP.gui
             menuExpnDrawAppv.Click += MenuExpnDrawAppv_Click;
             menuExpnDrawPay.Click += MenuExpnDrawPay_Click;
             menuItmTypeSub.Click += MenuItmTypeSub_Click;
+            menuBilling.Click += MenuBilling_Click;
+        }
+
+        private void MenuBilling_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmBillingView frm = new FrmBillingView(xC, this);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "ทำใบวางบิล ");
         }
 
         private void MenuItmTypeSub_Click(object sender, EventArgs e)

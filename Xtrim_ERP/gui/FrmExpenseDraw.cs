@@ -72,6 +72,7 @@ namespace Xtrim_ERP.gui
             btnSave.Click += BtnSave_Click;
             btnDoc.Click += BtnDoc_Click;
             btnAppv.Click += BtnAppv_Click;
+            c1Button1.Click += C1Button1_Click;
 
             initGrfDept();
             initGrfDept1();
@@ -89,7 +90,13 @@ namespace Xtrim_ERP.gui
             sep = new C1SuperErrorProvider();
             stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
         }
-        
+
+        private void C1Button1_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            txtRemark.Value = xC.datetoDB(txtDrawDate.Text);
+        }
+
         private void TxtJobCode_KeyUp(object sender, KeyEventArgs e)
         {
             //throw new NotImplementedException();

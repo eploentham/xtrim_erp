@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtAppvAmt = new C1.Win.C1Input.C1TextBox();
             this.btnAppv = new C1.Win.C1Input.C1Button();
@@ -62,7 +63,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.c1Button1 = new C1.Win.C1Input.C1Button();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -85,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtExpndDrawDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).BeginInit();
             this.sB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -118,6 +120,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.Controls.Add(this.c1Button1);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.txtAppvAmt);
@@ -154,6 +157,19 @@
             this.panel2.Size = new System.Drawing.Size(1159, 252);
             this.panel2.TabIndex = 0;
             this.theme1.SetTheme(this.panel2, "(default)");
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label8.Location = new System.Drawing.Point(403, 23);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(17, 16);
+            this.label8.TabIndex = 497;
+            this.label8.Text = "...";
+            this.theme1.SetTheme(this.label8, "(default)");
             // 
             // label7
             // 
@@ -613,18 +629,19 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // label8
+            // c1Button1
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label8.Location = new System.Drawing.Point(403, 23);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(17, 16);
-            this.label8.TabIndex = 497;
-            this.label8.Text = "...";
-            this.theme1.SetTheme(this.label8, "(default)");
+            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
+            this.c1Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.c1Button1.Location = new System.Drawing.Point(426, 42);
+            this.c1Button1.Name = "c1Button1";
+            this.c1Button1.Size = new System.Drawing.Size(83, 39);
+            this.c1Button1.TabIndex = 498;
+            this.c1Button1.Text = "doc";
+            this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button1, "(default)");
+            this.c1Button1.UseVisualStyleBackColor = true;
+            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmExpenseDraw
             // 
@@ -660,6 +677,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -702,5 +720,6 @@
         private System.Windows.Forms.Label label7;
         private C1.Win.C1Input.C1TextBox txtAppvAmt;
         private System.Windows.Forms.Label label8;
+        private C1.Win.C1Input.C1Button c1Button1;
     }
 }

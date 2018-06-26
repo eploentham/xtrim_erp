@@ -31,10 +31,13 @@ namespace Xtrim_ERP.gui
         C1SuperErrorProvider sep;
         String userIdVoid = "";
 
-        public FrmBillingView(XtrimControl x)
+        MainMenu4 menu;
+
+        public FrmBillingView(XtrimControl x, MainMenu4 m)
         {
             InitializeComponent();
             xC = x;
+            menu = m;
             initConfig();
         }
         private void initConfig()
@@ -62,12 +65,15 @@ namespace Xtrim_ERP.gui
         {
             //throw new NotImplementedException();
             xC.drawID = "";
-            FrmExpenseDraw frm = new FrmExpenseDraw(xC, "", "new");
+            
+            FrmBilling frm = new FrmBilling(xC);
             //frm.drawId = "";
             //frm.flagForm = "new";
-            frm.ShowDialog(this);
-            frm.WindowState = FormWindowState.Normal;
-            frm.StartPosition = FormStartPosition.CenterScreen;
+            //frm.ShowDialog(this);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            menu.AddNewTab(frm, "ทำใบวางบิล");
+            //frm.WindowState = FormWindowState.Normal;
+            //frm.StartPosition = FormStartPosition.CenterScreen;
         }
         private void FrmBillingView_Load(object sender, EventArgs e)
         {

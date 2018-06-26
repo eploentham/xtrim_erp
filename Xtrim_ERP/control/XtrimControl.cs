@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
@@ -9,6 +10,7 @@ using System.Net.Mime;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Xtrim_ERP.objdb;
@@ -217,12 +219,52 @@ namespace Xtrim_ERP.control
         }
         public String datetoDB(String dt)
         {
+            DateTime dt1 = new DateTime();            
+            String re = "";
+            if (dt != null)
+            {
+                if (!dt.Equals(""))
+                {
+                    // Thread แบบนี้ ทำให้ โปรแกรม ที่ไปลงที Xtrim ไม่เอา date ผิด
+                    Thread.CurrentThread.CurrentCulture = new CultureInfo("en-us")
+                    {
+                        DateTimeFormat =
+                        {
+                            DateSeparator = "-"
+                        }
+                    };
+                    dt1 = DateTime.Parse(dt.ToString());
+                    re = dt1.Year.ToString() + "-" + dt1.ToString("MM-dd");
+                }
+            }
+            return re;
+        }
+        public String datetoDB1(String dt)
+        {
             DateTime dt1 = new DateTime();
             String re = "";
             if (dt != null)
             {
                 if (!dt.Equals(""))
                 {
+                    Thread.CurrentThread.CurrentCulture = new CultureInfo("en-us")
+                    {
+                        DateTimeFormat =
+                        {
+                            DateSeparator = "-"
+                        }
+                    };
+
+                    int chk = 0;
+                    if (int.TryParse(dt.Substring(4), out chk))// format year
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
+
                     dt1 = DateTime.Parse(dt.ToString());
                     re = dt1.Year.ToString() + "-" + dt1.ToString("MM-dd");
                 }
