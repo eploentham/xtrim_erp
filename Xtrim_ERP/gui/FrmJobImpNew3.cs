@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -3265,6 +3266,8 @@ namespace Xtrim_ERP.gui
             {
                 //Get Outlook COM objects
                 Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
+                Microsoft.Office.Interop.Outlook.NameSpace nameSpace = app.GetNamespace("MAPI");
+                nameSpace.Logon("eploentham@xtrim-logistics.com", "Ekartc2c5", Missing.Value, Missing.Value);
                 Microsoft.Office.Interop.Outlook.MailItem newMail = (Microsoft.Office.Interop.Outlook.MailItem)app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
 
                 //Parse 'sToAddress'

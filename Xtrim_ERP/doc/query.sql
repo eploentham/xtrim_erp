@@ -14,6 +14,10 @@ ALTER TABLE b_expenses_grp AUTO_INCREMENT = 1490000000;
 ALTER TABLE b_expenses_type AUTO_INCREMENT = 1480000000;
 ALTER TABLE f_item_group AUTO_INCREMENT = 1540000000;
 ALTER TABLE items_subtype AUTO_INCREMENT = 1550000000;
+ALTER TABLE f_method_payment AUTO_INCREMENT = 1560000000;
+ALTER TABLE b_bank_book AUTO_INCREMENT = 1570000000;
+ALTER TABLE t_reserve_pay AUTO_INCREMENT = 1580000000;
+
 
 
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ไม่ต้อง', 'ORIGIANL', '1', 'BL_TYPE');

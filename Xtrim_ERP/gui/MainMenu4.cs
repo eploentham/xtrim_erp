@@ -59,6 +59,15 @@ namespace Xtrim_ERP.gui
             menuExpnDrawPay.Click += MenuExpnDrawPay_Click;
             menuItmTypeSub.Click += MenuItmTypeSub_Click;
             menuBilling.Click += MenuBilling_Click;
+            menuRsp.Click += MenuRsp_Click;
+        }
+
+        private void MenuRsp_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmReservePay frm = new FrmReservePay(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "เบิกเงินสำรองจ่าย ");
         }
 
         private void MenuBilling_Click(object sender, EventArgs e)

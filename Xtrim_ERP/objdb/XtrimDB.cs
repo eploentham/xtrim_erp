@@ -69,6 +69,7 @@ namespace Xtrim_ERP.objdb
         public ExpensesDrawDetailDB expnddDB;
         public ExpensesDrawTypeDB expndtDB;
         public FMethodPaymentDB fmtpDB;
+        public ReservePayDB rspDB;
 
         public MeiosysDB mioDB;
 
@@ -141,6 +142,7 @@ namespace Xtrim_ERP.objdb
             expnddDB = new ExpensesDrawDetailDB(conn);
             expndtDB = new ExpensesDrawTypeDB(conn);
             fmtpDB = new FMethodPaymentDB(conn);
+            rspDB = new ReservePayDB(conn);
         }
     }
 }

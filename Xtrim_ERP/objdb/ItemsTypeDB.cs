@@ -143,13 +143,13 @@ namespace Xtrim_ERP.objdb
                 itmT.date_create + "," + itmT.date_modi + "," + itmT.date_cancel + "," +
                 itmT.user_create + "," + itmT.user_modi + "," + itmT.user_cancel + "," +
                 itmT.active + "," + itmT.remark + ", " + itmT.sort1 + ", " +
-                itmT.item_group_id + "," +
+                itmT.item_group_id + " " +
                 ") " +
                 "Values ('" + p.item_type_code + "','" + p.item_type_name_e.Replace("'", "''") + "','" + p.item_type_name_t.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "', " +
-                "'" + p.item_group_id + "','" +
+                "'" + p.item_group_id + "' " +
                 ")";
             try
             {

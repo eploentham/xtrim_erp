@@ -26,7 +26,10 @@ namespace Xtrim_ERP
             //        MessageBox.Show("11","2");
             //    }
             //}
-
+            //if (Process.GetProcessesByName("Xtrim_ERP").Count() > 0)
+            //{
+            //    String aaa = "";
+            //}
             FrmSplash spl = new FrmSplash();
             spl.Show();
             
