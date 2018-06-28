@@ -79,7 +79,7 @@ namespace Xtrim_ERP.objdb
                 stf1.staff_id = row[stf.staff_id].ToString();
                 stf1.staff_code = row[stf.staff_code].ToString();
                 stf1.staff_fname_t = row[stf.staff_fname_t].ToString();
-                stf1.staff_fname_e = row[stf.staff_fname_e].ToString();
+                stf1.staff_lname_t = row[stf.staff_lname_t].ToString();
                 //cus1.c = row[dept.dept_parent_id].ToString();
                 //cus1.remark = row[dept.remark].ToString();
                 //cus1.date_create = row[dept.date_create].ToString();
@@ -513,7 +513,7 @@ namespace Xtrim_ERP.objdb
             {
                 item = new ComboBoxItem();
                 item.Value = cus1.staff_id;
-                item.Text = cus1.staff_fname_t;
+                item.Text = cus1.staff_fname_t+" "+cus1.staff_lname_t;
                 c.Items.Add(item);
                 if (item.Value.Equals(selected))
                 {

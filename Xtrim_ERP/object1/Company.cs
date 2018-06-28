@@ -52,5 +52,6 @@ namespace Xtrim_ERP.object1
         public String eaddr4 { get; set; }
         public String year_curr { get; set; }
         public String cash_draw_doc { get; set; }
+        public String amount_reserve { get; set; }
     }
 }

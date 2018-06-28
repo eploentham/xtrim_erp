@@ -31,6 +31,7 @@
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkInsrEmail = new C1.Win.C1Input.C1CheckBox();
             this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
             this.chkVoid = new C1.Win.C1Input.C1CheckBox();
             this.btnVoid = new C1.Win.C1Input.C1Button();
@@ -65,9 +66,9 @@
             this.txtCopCode = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
-            this.chkInsrEmail = new C1.Win.C1Input.C1CheckBox();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkInsrEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVoid)).BeginInit();
@@ -87,7 +88,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCopCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkInsrEmail)).BeginInit();
             this.SuspendLayout();
             // 
             // sB
@@ -147,6 +147,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(758, 566);
             this.panel1.TabIndex = 2;
+            // 
+            // chkInsrEmail
+            // 
+            this.chkInsrEmail.BackColor = System.Drawing.Color.Transparent;
+            this.chkInsrEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkInsrEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkInsrEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkInsrEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkInsrEmail.Location = new System.Drawing.Point(326, 176);
+            this.chkInsrEmail.Name = "chkInsrEmail";
+            this.chkInsrEmail.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkInsrEmail.Size = new System.Drawing.Size(232, 24);
+            this.chkInsrEmail.TabIndex = 261;
+            this.chkInsrEmail.Text = "ต้องการใช้ Email ส่งบริษัทประกันภัย";
+            this.theme1.SetTheme(this.chkInsrEmail, "(default)");
+            this.chkInsrEmail.UseVisualStyleBackColor = true;
+            this.chkInsrEmail.Value = null;
+            this.chkInsrEmail.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtPasswordVoid
             // 
@@ -595,24 +613,6 @@
             // 
             this.theme1.Theme = "Office2013Red";
             // 
-            // chkInsrEmail
-            // 
-            this.chkInsrEmail.BackColor = System.Drawing.Color.Transparent;
-            this.chkInsrEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkInsrEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.chkInsrEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkInsrEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkInsrEmail.Location = new System.Drawing.Point(326, 176);
-            this.chkInsrEmail.Name = "chkInsrEmail";
-            this.chkInsrEmail.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.chkInsrEmail.Size = new System.Drawing.Size(232, 24);
-            this.chkInsrEmail.TabIndex = 261;
-            this.chkInsrEmail.Text = "ต้องการใช้ Email ส่งบริษัทประกันภัย";
-            this.theme1.SetTheme(this.chkInsrEmail, "(default)");
-            this.chkInsrEmail.UseVisualStyleBackColor = true;
-            this.chkInsrEmail.Value = null;
-            this.chkInsrEmail.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmContactAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -628,6 +628,7 @@
             this.sB.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkInsrEmail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnVoid)).EndInit();
@@ -647,7 +648,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCopCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkInsrEmail)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

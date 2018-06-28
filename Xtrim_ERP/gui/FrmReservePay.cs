@@ -20,7 +20,7 @@ namespace Xtrim_ERP.gui
     public partial class FrmReservePay : Form
     {
         XtrimControl xC;
-        ExpensesDraw expnD;
+        ReservePay rsp;
         Font fEdit, fEditB;
 
         Color bg, fc;
@@ -34,15 +34,16 @@ namespace Xtrim_ERP.gui
         String userIdVoid = "", jobId = "";
         public String drawId = "", flagForm = "";
 
-        public FrmReservePay(XtrimControl x)
+        public FrmReservePay(XtrimControl x, String flagform)
         {
             InitializeComponent();
             xC = x;
+            flagForm = flagform;
             initConfig();
         }
         private void initConfig()
         {
-            expnD = new ExpensesDraw();
+            rsp = new ReservePay();
             fEdit = new Font(xC.iniC.grdViewFontName, xC.grdViewFontSize, FontStyle.Regular);
             fEditB = new Font(xC.iniC.grdViewFontName, xC.grdViewFontSize, FontStyle.Bold);
 
@@ -68,6 +69,9 @@ namespace Xtrim_ERP.gui
             btnNew.Click += BtnNew_Click;
             btnEdit.Click += BtnEdit_Click;
             btnSave.Click += BtnSave_Click;
+            btnAppv.Click += BtnAppv_Click;
+            btnRsp.Click += BtnRsp_Click;
+
             xC.xtDB.stfDB.setCboStaff(cboStaff, "");
             initGrfDept();
             
@@ -84,6 +88,74 @@ namespace Xtrim_ERP.gui
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
             stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
+            if (flagForm.Equals("appv"))
+            {
+                btnNew.Hide();
+                btnEdit.Hide();
+                btnSave.Hide();
+                btnAppv.Show();
+                btnRsp.Hide();
+                flagEdit = false;
+                setControlEnable(flagEdit);
+            }
+            else if (flagForm.Equals("reserve"))
+            {
+                btnNew.Hide();
+                btnEdit.Hide();
+                btnSave.Hide();
+                btnAppv.Hide();
+                btnRsp.Show();
+            }
+            else if (flagForm.Equals("draw"))
+            {
+                btnNew.Show();
+                btnEdit.Show();
+                btnSave.Show();
+                btnAppv.Hide();
+                btnRsp.Hide();
+            }
+        }
+
+        private void BtnRsp_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ รับเงินเข้า เงินสำรองจ่าย ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                String re = xC.updateReserveAmt(txtID.Text, xC.user.staff_id);
+                int chk = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    btnSave.Image = Resources.accept_database24;
+                }
+                else
+                {
+                    btnSave.Image = Resources.accept_database24;
+                }
+                setGrfDeptH();
+                //setGrdView();
+                //this.Dispose();
+            }
+        }
+
+        private void BtnAppv_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ อนุมัติช้อมูล เงินสำรองจ่าย", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                String re = xC.xtDB.rspDB.updateAppv(txtID.Text, xC.user.staff_id);
+                int chk = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    btnSave.Image = Resources.accept_database24;
+                }
+                else
+                {
+                    btnSave.Image = Resources.accept_database24;
+                }
+                setGrfDeptH();
+                //setGrdView();
+                //this.Dispose();
+            }
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -91,20 +163,11 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                setExpensesDraw();
-                String re = xC.xtDB.expndDB.insertExpenseDraw(expnD, xC.user.staff_id);
+                setReservePay();
+                String re = xC.xtDB.rspDB.insertReservePay(rsp, xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
-                    if (flagForm.Equals("new"))
-                    {
-                        setExpensesDrawDetail(re);
-                    }
-                    else
-                    {
-                        setExpensesDrawDetail(txtID.Text);
-                    }
-
                     btnSave.Image = Resources.accept_database24;
                 }
                 else
@@ -127,7 +190,7 @@ namespace Xtrim_ERP.gui
         private void BtnNew_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            setControlCus("");
+            setControlRsp("");
             flagEdit = true;
             setControlEnable(flagEdit);
         }
@@ -162,7 +225,7 @@ namespace Xtrim_ERP.gui
             if (e.NewRange.Data == null) return;
             String cusId = "";
             cusId = grfExpnD[e.NewRange.r1, colID] != null ? grfExpnD[e.NewRange.r1, colID].ToString() : "";
-            setControlCus(cusId);
+            setControlRsp(cusId);
             setControlEnable(false);
         }
 
@@ -170,18 +233,10 @@ namespace Xtrim_ERP.gui
         {
             grfExpnD.Clear();
             //if (txtID.Text.Equals("")) return;
-            DataTable dt = new DataTable();
-            grfExpnD.Cols.Count = 7;
-            if (flagForm.Equals("new"))
-            {
-                grfExpnD.Rows.Count = 2;
-            }
-            else
-            {
-                dt = xC.xtDB.rspDB.selectAll1();
-                grfExpnD.Rows.Count = dt.Rows.Count + 1;
-                grfExpnD.Cols.Count = 6;
-            }
+               
+            grfExpnD.DataSource = xC.xtDB.rspDB.selectAll1();
+            
+
             //grfExpnD.Rows.Count = 2;
             C1TextBox txt = new C1TextBox();
             txt.DataType = txtID.DataType;
@@ -265,7 +320,7 @@ namespace Xtrim_ERP.gui
             this.txtAmt.Leave += new System.EventHandler(this.textBox_Leave);
             this.txtAmt.Enter += new System.EventHandler(this.textBox_Enter);            
         }
-        private void setControlCus(String rspid)
+        private void setControlRsp(String rspid)
         {
             if (!rspid.Equals(""))
             {
@@ -276,6 +331,20 @@ namespace Xtrim_ERP.gui
                 txtAmt.Value = rsp.amount_draw;
                 txtDateDraw.Value = rsp.date_draw;
                 xC.setC1Combo(cboStaff, rsp.staff_id);
+
+                Company cop = new Company();
+                cop = xC.xtDB.copDB.selectByCode1("001");
+                txtAmtReserve.Value = cop.amount_reserve;
+                txtRspWait.Value = xC.xtDB.rspDB.selectAppvWait();
+                if (rsp.status_appv.Equals("2"))
+                {
+                    btnAppv.Enabled = false;
+                    Decimal chk = 0;
+                    if(Decimal.TryParse(rsp.amount_reserve, out chk))
+                    {
+                        btnRsp.Enabled = false;
+                    }
+                }
             }
             else
             {
@@ -287,11 +356,48 @@ namespace Xtrim_ERP.gui
                 //txtDateDraw.Value = "";
                 xC.setC1Combo(cboStaff, "");
             }
-            
+            if (flagForm.Equals("appv"))
+            {
+                btnNew.Hide();
+                btnEdit.Hide();
+                btnSave.Hide();
+                btnAppv.Show();
+                btnRsp.Hide();
+                flagEdit = false;
+                setControlEnable(flagEdit);
+            }
+            else if (flagForm.Equals("reserve"))
+            {
+                btnNew.Hide();
+                btnEdit.Hide();
+                btnSave.Hide();
+                btnAppv.Hide();
+                btnRsp.Show();
+            }
+            else if (flagForm.Equals("draw"))
+            {
+                btnNew.Show();
+                btnEdit.Show();
+                btnSave.Show();
+                btnAppv.Hide();
+                btnRsp.Hide();
+            }
+        }
+        private void setReservePay()
+        {
+            rsp.reserve_pay_id = txtID.Text;
+            rsp.desc1 = txtDesc.Text;
+            rsp.amount_draw = txtAmt.Value.ToString();
+            rsp.date_draw = xC.datetoDB(txtDateDraw.Text);
+            rsp.staff_id = cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "";
+            rsp.status_appv = "1";
         }
         private void FrmReservePay_Load(object sender, EventArgs e)
         {
-
+            Company cop = new Company();
+            cop = xC.xtDB.copDB.selectByCode1("001");
+            txtAmtReserve.Value = cop.amount_reserve;
+            txtRspWait.Value = xC.xtDB.rspDB.selectAppvWait();
         }
     }
 }

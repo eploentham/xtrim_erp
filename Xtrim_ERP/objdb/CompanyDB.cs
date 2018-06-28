@@ -72,14 +72,15 @@ namespace Xtrim_ERP.objdb
             cop.eaddr4 = "eaddr4";
             cop.year_curr = "year_curr";
             cop.cash_draw_doc = "cash_draw_doc";
+            cop.amount_reserve = "amount_reserve";
 
             cop.table = "b_company";
             cop.pkField = "comp_id";
         }
-        public String insert(Company p)
+        private void chkNull(Company p)
         {
-            String re = "", sql = "";
-            p.active = "1";
+            int chk = 0;
+            Decimal chk1 = 0;
 
             p.date_modi = p.date_modi == null ? "" : p.date_modi;
             p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
@@ -106,6 +107,15 @@ namespace Xtrim_ERP.objdb
             p.district_id = p.district_id == null ? "" : p.district_id;
             p.province_id = p.province_id == null ? "" : p.province_id;
 
+            p.amount_reserve = Decimal.TryParse(p.amount_reserve, out chk1) ? chk1.ToString() : "0";
+        }
+        public String insert(Company p)
+        {
+            String re = "", sql = "";
+            p.active = "1";
+
+
+            chkNull(p);
             sql = "Insert Into " + cop.table + "(" + cop.comp_code + "," + cop.comp_name_t + "," + cop.comp_name_e + "," +
                 cop.comp_address_e + "," + cop.comp_address_t + ", " + cop.addr1 + ", " +
                 cop.addr2 + "," + cop.amphur_id + ", " + cop.district_id + ", " +
@@ -122,7 +132,7 @@ namespace Xtrim_ERP.objdb
                 cop.po_line1 + "," + cop.po_due_period + ", " + cop.active + ", " +
                 cop.taddr1 + "," + cop.taddr2 + ", " + cop.taddr3 + ", " +
                 cop.taddr4 + "," + cop.eaddr1 + ", " + cop.eaddr2 + ", " +
-                cop.eaddr3 + "," + cop.eaddr4 + " "  +
+                cop.eaddr3 + "," + cop.eaddr4 + ","  + cop.amount_reserve + " " +
                 ") " +
                 "Values ('" + p.comp_code + "','" + p.comp_name_t.Replace("'","''") + "','" + p.comp_name_e.Replace("'", "''") + "'," +
                 "'" + p.comp_address_e.Replace("'", "''") + "','" + p.comp_address_t.Replace("'", "''") + "','" + p.addr1.Replace("'", "''") + "'," +
@@ -140,7 +150,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.po_line1 + "','" + p.po_due_period + "','" + p.active + "', " +
                 "'" + p.taddr1 + "','" + p.taddr2 + "','" + p.taddr3 + "', " +
                 "'" + p.taddr4 + "','" + p.eaddr1 + "','" + p.eaddr2 + "', " +
-                "'" + p.eaddr3 + "','" + p.eaddr4 + "' " +
+                "'" + p.eaddr3 + "','" + p.eaddr4 + "','" + p.amount_reserve + "' " +
                 ")";
             try
             {
@@ -158,33 +168,7 @@ namespace Xtrim_ERP.objdb
         {
             String re = "", sql = "";
 
-            p.date_modi = p.date_modi == null ? "" : p.date_modi;
-            p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
-            p.user_create = p.user_create == null ? "" : p.user_create;
-            p.user_modi = p.user_modi == null ? "" : p.user_modi;
-            p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
-            p.qu_line1 = p.qu_line1 == null ? "" : p.qu_line1;
-            p.qu_line2 = p.qu_line2 == null ? "" : p.qu_line2;
-            p.qu_line3 = p.qu_line3 == null ? "" : p.qu_line3;
-            p.qu_line4 = p.qu_line4 == null ? "" : p.qu_line4;
-            p.qu_line5 = p.qu_line5 == null ? "" : p.qu_line5;
-            p.qu_line6 = p.qu_line6 == null ? "" : p.qu_line6;
-            p.inv_line1 = p.inv_line1 == null ? "" : p.inv_line1;
-            p.inv_line2 = p.inv_line2 == null ? "" : p.inv_line2;
-            p.inv_line4 = p.inv_line4 == null ? "" : p.inv_line4;
-            p.inv_line5 = p.inv_line5 == null ? "" : p.inv_line5;
-            p.inv_line6 = p.inv_line6 == null ? "" : p.inv_line6;
-            p.qu_line3 = p.inv_line3 == null ? "" : p.inv_line3;
-            p.po_line1 = p.po_line1 == null ? "" : p.po_line1;
-            p.po_due_period = p.po_due_period == null ? "" : p.po_due_period;
-            p.taddr1 = p.taddr1 == null ? "" : p.taddr1;
-            p.taddr2 = p.taddr2 == null ? "" : p.taddr2;
-            p.taddr3 = p.taddr3 == null ? "" : p.taddr3;
-            p.taddr4 = p.taddr4 == null ? "" : p.taddr4;
-            p.eaddr1 = p.eaddr1 == null ? "" : p.eaddr1;
-            p.eaddr2 = p.eaddr2 == null ? "" : p.eaddr2;
-            p.eaddr3 = p.eaddr3 == null ? "" : p.eaddr3;
-            p.eaddr4 = p.eaddr4 == null ? "" : p.eaddr4;
+            chkNull(p);
 
             sql = "Update " + cop.table + " Set " +
                 " " + cop.comp_code + "='"+p.comp_code + "' " +
@@ -343,6 +327,17 @@ namespace Xtrim_ERP.objdb
             doc = "CD"+year.Substring(year.Length-2,2) + doc;
             return doc;
         }
+        public String updateAmountReserve(String amt)
+        {
+            String sql = "",re="";
+            Company cop1 = new Company();
+            cop1 = selectByCode1("001");
+            sql = "Update " + cop.table + " Set " +
+                " " + cop.amount_reserve + "="+cop.amount_reserve + "+" + amt +
+            " Where " + cop.pkField + "='" + cop1.comp_id + "'";
+            re = conn.ExecuteNonQuery(conn.conn, sql);
+            return re;
+        }
         private Company setCompany(DataTable dt)
         {
             Company cop1 = new Company();
@@ -400,6 +395,7 @@ namespace Xtrim_ERP.objdb
                 cop1.eaddr4 = dt.Rows[0][cop.eaddr4].ToString();
                 cop1.year_curr = dt.Rows[0][cop.year_curr].ToString();
                 cop1.cash_draw_doc = dt.Rows[0][cop.cash_draw_doc].ToString();
+                cop1.amount_reserve = dt.Rows[0][cop.amount_reserve].ToString();
             }
             else
             {
@@ -455,6 +451,7 @@ namespace Xtrim_ERP.objdb
                 cop.eaddr4 = "";
                 cop.year_curr = "";
                 cop.cash_draw_doc = "";
+                cop.amount_reserve = "";
             }
 
             return cop1;

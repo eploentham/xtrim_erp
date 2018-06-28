@@ -55,17 +55,36 @@ namespace Xtrim_ERP.gui
             menuItmGrp.Click += MenuItmGrp_Click;
             menuMethodPay.Click += MenuMethodPay_Click;
             menuExpnDraw.Click += MenuExpnDraw_Click;
+            menuExpnDraw1.Click += MenuExpnDraw1_Click;
             menuExpnDrawAppv.Click += MenuExpnDrawAppv_Click;
             menuExpnDrawPay.Click += MenuExpnDrawPay_Click;
             menuItmTypeSub.Click += MenuItmTypeSub_Click;
             menuBilling.Click += MenuBilling_Click;
             menuRsp.Click += MenuRsp_Click;
+            menuRspAppv.Click += MenuRspAppv_Click;
+            menuRspReserve.Click += MenuRspReserve_Click;
+        }
+
+        private void MenuRspReserve_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmReservePay frm = new FrmReservePay(xC, "reserve");
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "รับเงิน เบิกเงินสำรองจ่าย ");
+        }
+
+        private void MenuRspAppv_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmReservePay frm = new FrmReservePay(xC, "appv");
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "อนุมัติ เบิกเงินสำรองจ่าย ");
         }
 
         private void MenuRsp_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmReservePay frm = new FrmReservePay(xC);
+            FrmReservePay frm = new FrmReservePay(xC, "draw");
             frm.FormBorderStyle = FormBorderStyle.None;
             AddNewTab(frm, "เบิกเงินสำรองจ่าย ");
         }
@@ -110,7 +129,14 @@ namespace Xtrim_ERP.gui
             frm.FormBorderStyle = FormBorderStyle.None;
             AddNewTab(frm, "เบิกเงิน ");
         }
-
+        private void MenuExpnDraw1_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            //FrmExpenseDraw frm = new FrmExpenseDraw(xC);
+            FrmExpenseDrawView frm = new FrmExpenseDrawView(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "เบิกเงิน ");
+        }
         private void MenuMethodPay_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();

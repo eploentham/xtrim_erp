@@ -555,5 +555,24 @@ namespace Xtrim_ERP.control
             re = xtDB.expndDB.updateSendToApprove(doc, id);
             return re;
         }
+        public String updateReserveAmt(String rspid, String userid)
+        {
+            String re = "";
+            ReservePay rsp = new ReservePay();
+            rsp = xtDB.rspDB.selectByPk1(rspid);
+            if (!rsp.reserve_pay_id.Equals(""))
+            {
+                re = xtDB.rspDB.updateReserve(rspid, userid);
+                int chk = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    re = xtDB.copDB.updateAmountReserve(rsp.amount_reserve);
+                }
+            }
+            
+                
+            //re = xtDB.expndDB.updateSendToApprove(doc, id);
+            return re;
+        }
     }
 }

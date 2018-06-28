@@ -128,9 +128,9 @@ namespace Xtrim_ERP.objdb
             p.date_reserve = p.date_reserve == null ? "" : p.date_reserve;
             p.staff_id = p.staff_id == null ? "0" : p.staff_id;
 
-            p.amount_draw = Decimal.TryParse(p.amount_draw, out chk1) ? chk.ToString() : "0";
-            p.amount_appv = Decimal.TryParse(p.amount_appv, out chk1) ? chk.ToString() : "0";
-            p.amount_reserve = Decimal.TryParse(p.amount_reserve, out chk1) ? chk.ToString() : "0";
+            p.amount_draw = Decimal.TryParse(p.amount_draw, out chk1) ? chk1.ToString() : "0";
+            p.amount_appv = Decimal.TryParse(p.amount_appv, out chk1) ? chk1.ToString() : "0";
+            p.amount_reserve = Decimal.TryParse(p.amount_reserve, out chk1) ? chk1.ToString() : "0";
         }
         public String insert(ReservePay p, String userId)
         {
@@ -155,7 +155,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.amount_reserve.Replace("'", "''") + "', " +
-                "'" + p.date_appv + "','" + p.date_draw.Replace("'", "''") + "','" + p.date_reserve.Replace("'", "''") + "' " +
+                "'" + p.date_appv + "','" + p.date_draw.Replace("'", "''") + "','" + p.date_reserve.Replace("'", "''") + "', " +
                 "'" + p.staff_id + "' " +
                 ")";
             try
@@ -197,22 +197,47 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String updateAppv(ReservePay p, String userId)
+        public String updateAppv(String id, String userId)
         {
             String re = "";
             String sql = "";
             int chk = 0;
 
-            chkNull(p);
+            //chkNull(p);
 
             sql = "Update " + rsp.table + " Set " +
-                " " + rsp.amount_appv + " = '" + p.amount_appv.Replace("'", "''") + "'" +
-                "," + rsp.date_draw + " = '" + p.date_draw.Replace("'", "''") + "'" +
+                " " + rsp.amount_appv + " = " + rsp.amount_draw + " " +
+                "," + rsp.date_appv + " = now() " +
                 "," + rsp.date_modi + " = now()" +
                 "," + rsp.user_modi + " = '" + userId + "' " +
-                "Where " + rsp.pkField + "='" + p.reserve_pay_id + "'"
-                ;
+                "," + rsp.status_appv + " = '2' " +
+                "Where " + rsp.pkField + "='" + id + "'";
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
 
+            return re;
+        }
+        public String updateReserve(String id, String userId)
+        {
+            String re = "";
+            String sql = "";
+            int chk = 0;
+
+            //chkNull(p);
+
+            sql = "Update " + rsp.table + " Set " +
+                " " + rsp.amount_reserve + " = " + rsp.amount_appv + " " +
+                "," + rsp.date_reserve + " = now() " +
+                "," + rsp.date_modi + " = now() " +
+                "," + rsp.user_modi + " = '" + userId + "' " +
+                "," + rsp.status_appv + " = '2' " +
+                "Where " + rsp.pkField + "='" + id + "'";
             try
             {
                 re = conn.ExecuteNonQuery(conn.conn, sql);
@@ -306,21 +331,21 @@ namespace Xtrim_ERP.objdb
         //    dt = conn.selectData(conn.conn, sql);
         //    return dt;
         //}
-        //public String selectByNameTLike(String copId)
-        //{
-        //    String currId = "";
-        //    DataTable dt = new DataTable();
-        //    String sql = "select expC.* " +
-        //        "From " + itmT.table + " expC " +
-        //        //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-        //        "Where expC." + itmT.item_type_name_t + " like '%" + copId.ToLower() + "%' ";
-        //    dt = conn.selectData(conn.conn, sql);
-        //    if (dt.Rows.Count == 1)
-        //    {
-        //        currId = dt.Rows[0][itmT.item_type_id].ToString();
-        //    }
-        //    return currId;
-        //}
+        public String selectAppvWait()
+        {
+            String currId = "";
+            DataTable dt = new DataTable();
+            String sql = "select sum(rsp."+rsp.amount_draw+") as amt " +
+                "From " + rsp.table + " rsp " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where rsp." + rsp.status_appv + " = '1' and "+ rsp.active+"='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            if (dt.Rows.Count == 1)
+            {
+                currId = dt.Rows[0]["amt"].ToString();
+            }
+            return currId;
+        }
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();
@@ -365,6 +390,7 @@ namespace Xtrim_ERP.objdb
                 curr1.date_draw = dt.Rows[0][rsp.date_draw].ToString();
                 curr1.date_reserve = dt.Rows[0][rsp.date_reserve].ToString();
                 curr1.staff_id = dt.Rows[0][rsp.staff_id].ToString();
+                curr1.status_appv = dt.Rows[0][rsp.status_appv].ToString();
             }
             else
             {
@@ -386,6 +412,8 @@ namespace Xtrim_ERP.objdb
                 curr1.date_draw = "";
                 curr1.date_reserve = "";
                 curr1.staff_id = "";
+                curr1.status_appv = "";
+                //curr1.amount_draw = "";
             }
 
             return curr1;
