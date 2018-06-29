@@ -47,6 +47,7 @@ namespace Xtrim_ERP.objdb
             expnC.appv_amount = "appv_amount";
             expnC.appv_desc = "appv_desc";
             expnC.status_pay = "status_pay";
+            expnC.status_pay_type = "status_pay_type";
 
 
             expnC.table = "t_expenses_draw";
@@ -129,13 +130,14 @@ namespace Xtrim_ERP.objdb
             p.remark = p.remark == null ? "" : p.remark;
             p.expenses_draw_code = p.expenses_draw_code == null ? "" : p.expenses_draw_code;
             p.desc1 = p.desc1 == null ? "" : p.desc1;
-            p.status_appv = p.status_appv == null ? "" : p.status_appv;
-            p.status_email = p.status_email == null ? "" : p.status_email;
-            p.status_pay = p.status_pay == null ? "" : p.status_pay;
+            p.status_appv = p.status_appv == null ? "0" : p.status_appv;
+            p.status_email = p.status_email == null ? "0" : p.status_email;
+            p.status_pay = p.status_pay == null ? "0" : p.status_pay;
 
             p.year = p.year == null ? "" : p.year;
             p.appv_desc = p.appv_desc == null ? "" : p.appv_desc;
-            
+            p.status_pay_type = p.status_pay_type == null ? "0" : p.status_pay_type;
+
 
             p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
             p.staff_id = int.TryParse(p.staff_id, out chk) ? chk.ToString() : "0";
@@ -164,7 +166,7 @@ namespace Xtrim_ERP.objdb
                 expnC.active + "," + expnC.remark + ", " + expnC.job_code + ", " +
                 expnC.draw_date + "," + expnC.staff_id + "," + expnC.desc1 + ", " +
                 expnC.status_email + "," + expnC.status_appv + "," + expnC.amount + ", " +
-                expnC.year + "," + expnC.status_pay + " " +
+                expnC.year + "," + expnC.status_pay + "," + expnC.status_pay_type + " " +
 
                 ") " +
                 "Values ('" + p.expenses_draw_date + "','" + p.expenses_draw_code.Replace("'", "''") + "','" + p.job_id.Replace("'", "''") + "'," +
@@ -173,8 +175,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.job_code + "', " +
                 "'" + p.draw_date + "','" + p.staff_id.Replace("'", "''") + "','" + p.desc1.Replace("'", "''") + "', " +
                 "'" + p.status_email + "','" + p.status_appv.Replace("'", "''") + "','" + p.amount + "', " +
-                "'" + p.year + "','" + p.status_pay + "' " +
-                
+                "'" + p.year + "','" + p.status_pay + "','" + p.status_pay_type + "' " +
+
                 ")";
             try
             {
@@ -211,6 +213,7 @@ namespace Xtrim_ERP.objdb
                 "," + expnC.amount + " = '" + p.amount + "' " +
                 "," + expnC.year + " = '" + p.year + "' " +
                 "," + expnC.status_pay + " = '" + p.status_pay + "' " +
+                "," + expnC.status_pay_type + " = '" + p.status_pay_type + "' " +
                 "Where " + expnC.pkField + "='" + p.expenses_draw_id + "'"
                 ;
 
@@ -299,7 +302,7 @@ namespace Xtrim_ERP.objdb
         public DataTable selectAll1(String year)
         {
             DataTable dt = new DataTable();
-            String sql = "select expC."+expnC.expenses_draw_id+","+expnC.expenses_draw_code+","+expnC.desc1+","+expnC.remark+","+expnC.amount+","+expnC.status_appv+ " " +
+            String sql = "select expC."+expnC.expenses_draw_id+","+expnC.expenses_draw_code+","+expnC.desc1+","+expnC.remark+","+expnC.amount+","+expnC.status_appv+ ","+expnC.status_pay_type+" " +
                 "From " + expnC.table + " expC " +
                 " " +
                 "Where expC." + expnC.active + " ='1' and " + expnC.year + "='" + year + "' ";
@@ -403,7 +406,7 @@ namespace Xtrim_ERP.objdb
                 curr1.amount = dt.Rows[0][expnC.amount].ToString();
                 curr1.year = dt.Rows[0][expnC.year].ToString();
                 curr1.status_pay = dt.Rows[0][expnC.status_pay].ToString();
-
+                curr1.status_pay_type = dt.Rows[0][expnC.status_pay_type].ToString();
             }
             else
             {
@@ -431,6 +434,7 @@ namespace Xtrim_ERP.objdb
                 curr1.appv_amount = "";
                 curr1.appv_desc = "";
                 curr1.status_pay = "";
+                curr1.status_pay_type = "";
             }
 
             return curr1;

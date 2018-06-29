@@ -18,6 +18,7 @@ namespace Xtrim_ERP.gui
     public partial class FrmExpenseDrawView : Form
     {
         XtrimControl xC;
+        MainMenu4 menu;
         ExpensesDraw expn;
         Font fEdit, fEditB;
 
@@ -29,12 +30,16 @@ namespace Xtrim_ERP.gui
         Boolean flagEdit = false;
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
-        String userIdVoid = "";
+        String userIdVoid = "", flagForm="";
+        public enum flagForm2 { Cash, Cheque };
+        flagForm2 flagfom2;
 
-        public FrmExpenseDrawView(XtrimControl x)
+        public FrmExpenseDrawView(XtrimControl x, MainMenu4 m, flagForm2 flagform)
         {
             InitializeComponent();
             xC = x;
+            menu = m;
+            flagfom2 = flagform;
             initConfig();
         }
         private void initConfig()
@@ -128,23 +133,43 @@ namespace Xtrim_ERP.gui
 
             String deptId = "";
             xC.drawID = grfExpn[grfExpn.Row, colID] != null ? grfExpn[grfExpn.Row, colID].ToString() : "";
-            FrmExpenseDraw frm = new FrmExpenseDraw(xC, xC.drawID, "view");
+            FrmExpenseDraw frm = new FrmExpenseDraw(xC, xC.drawID, (FrmExpenseDraw.flagForm2)flagfom2, FrmExpenseDraw.flagAction.draw);
             //frm.drawId = xC.drawID;
             //frm.flagForm = "view";
-            frm.ShowDialog(this);
-            frm.WindowState = FormWindowState.Normal;
-            frm.StartPosition = FormStartPosition.CenterScreen;
+            //frm.ShowDialog(this);
+            String txt = "";
+            if (flagfom2 == flagForm2.Cash)
+            {
+                txt = "ใบเบิกเงิน จ่ายพนักงาน(เงินสด) ป้อนใหม่";
+            }
+            else
+            {
+                txt = "ใบเบิกเงิน จ่ายพนักงาน(cheque) ป้อนใหม่";
+            }
+            frm.FormBorderStyle = FormBorderStyle.None;
+            menu.AddNewTab(frm, txt + xC.drawID);
         }
         private void BtnNew_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             xC.drawID = "";
-            FrmExpenseDraw frm = new FrmExpenseDraw(xC, "", "new");
+            FrmExpenseDraw frm = new FrmExpenseDraw(xC, "", (FrmExpenseDraw.flagForm2)flagfom2, FrmExpenseDraw.flagAction.draw);
             //frm.drawId = "";
             //frm.flagForm = "new";
-            frm.ShowDialog(this);
-            frm.WindowState = FormWindowState.Normal;
-            frm.StartPosition = FormStartPosition.CenterScreen;
+            //frm.ShowDialog(this);
+            //frm.WindowState = FormWindowState.Normal;
+            //frm.StartPosition = FormStartPosition.CenterScreen;
+            String txt = "";
+            if (flagfom2 == flagForm2.Cash)
+            {
+                txt = "ใบเบิกเงิน จ่ายพนักงาน(เงินสด) ป้อนใหม่";
+            }
+            else
+            {
+                txt = "ใบเบิกเงิน จ่ายพนักงาน(cheque) ป้อนใหม่";
+            }
+            frm.FormBorderStyle = FormBorderStyle.None;
+            menu.AddNewTab(frm, txt);
         }
         private void FrmExpenseDrawView_Load(object sender, EventArgs e)
         {

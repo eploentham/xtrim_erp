@@ -125,17 +125,17 @@ namespace Xtrim_ERP.gui
         {
             //throw new NotImplementedException();
             //FrmExpenseDraw frm = new FrmExpenseDraw(xC);
-            FrmExpenseDrawView frm = new FrmExpenseDrawView(xC);
+            FrmExpenseDrawView frm = new FrmExpenseDrawView(xC, this, FrmExpenseDrawView.flagForm2.Cash);
             frm.FormBorderStyle = FormBorderStyle.None;
-            AddNewTab(frm, "เบิกเงิน ");
+            AddNewTab(frm, "ใบเบิกเงิน จ่ายพนักงาน(เงินสด) ");
         }
         private void MenuExpnDraw1_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             //FrmExpenseDraw frm = new FrmExpenseDraw(xC);
-            FrmExpenseDrawView frm = new FrmExpenseDrawView(xC);
+            FrmExpenseDrawView frm = new FrmExpenseDrawView(xC, this,FrmExpenseDrawView.flagForm2.Cheque);
             frm.FormBorderStyle = FormBorderStyle.None;
-            AddNewTab(frm, "เบิกเงิน ");
+            AddNewTab(frm, "ใบเบิกเงิน จ่ายลูกค้า(Cheque,...) ");
         }
         private void MenuMethodPay_Click(object sender, EventArgs e)
         {

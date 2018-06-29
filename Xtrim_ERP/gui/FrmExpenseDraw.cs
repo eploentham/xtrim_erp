@@ -26,20 +26,31 @@ namespace Xtrim_ERP.gui
         Color bg, fc;
         Font ff, ffB;
         int colID = 1, colCode = 2, colDesc = 3, colAmt=4, colRemark = 5;
-        int colDid = 1, colDCode=2, colDdesc1 = 3, colDdesc2 = 4, colDamt = 5, colDremark = 6;
+        int colDid = 1, colDItemNamet = 2, colDQty = 3, colDUnitNameT = 4, colDPrice = 5, colDamt = 6, colDwatx1 = 7, colDwatx3 = 8, colDvat = 9;
+        int colDtotal = 10, colDremark=11, colDItemId=12, colDUnitId=13, colDpaytocusnamet=14, colDpaytocusaddr=15, colDapaytocustax=16, colDreceiptno=17, colDreceiptdate=18,colDpaytocusid=19 ;
         C1FlexGrid grfExpnD, grfExpnD1;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
         String userIdVoid = "", jobId="";
-        public String drawId="", flagForm="";
-        public FrmExpenseDraw(XtrimControl x, String drawid, String flagform)
+        public String drawId="", flagForm="", flagNew="";
+        int flagshow = 0;
+        public enum flagForm2 { Cash, Cheque };
+        flagForm2 flagfom2;
+        public enum flagAction { draw, appv, pay };
+        flagAction flagaction;
+        public FrmExpenseDraw(XtrimControl x, String drawid, flagForm2 flagform, flagAction flaga)
         {
             InitializeComponent();
             xC = x;
             drawId = drawid;
-            flagForm = flagform;
+            if (drawid.Equals(""))
+            {
+                flagNew = "new";
+            }
+            flagfom2 = flagform;
+            flagaction = flaga;
             initConfig();
         }
         private void initConfig()
@@ -151,19 +162,19 @@ namespace Xtrim_ERP.gui
         {
             //throw new NotImplementedException();
             if (e.Row <= 0) return;
-            if ((grfExpnD.Col == colDdesc1))
+            if ((grfExpnD.Col == colDQty))
             {
                 //grfExpnD. = colDdesc2;
             }
-            else if ((grfExpnD.Col == colDdesc2))
+            else if ((grfExpnD.Col == colDUnitNameT))
             {
 
             }
-            else if ((grfExpnD.Col == colDamt))
+            else if ((grfExpnD.Col == colDPrice))
             {
                 calAmount();
             }
-            if ((grfExpnD.Col == colDamt) && (grfExpnD.Rows.Count == (grfExpnD.Row + 1))) grfExpnD.Rows.Count++;
+            if ((grfExpnD.Col == colDPrice) && (grfExpnD.Rows.Count == (grfExpnD.Row + 1))) grfExpnD.Rows.Count++;
         }
 
         private void GrfExpnD1_RowColChange(object sender, EventArgs e)
@@ -178,8 +189,8 @@ namespace Xtrim_ERP.gui
             for(int i = 1; i < grfExpnD.Rows.Count; i++)
             {
                 Decimal amt1 = 0;
-                if (grfExpnD[i, colDamt] == null) continue;
-                if(Decimal.TryParse(grfExpnD[i, colDamt].ToString(), out amt1))
+                if (grfExpnD[i, colDPrice] == null) continue;
+                if(Decimal.TryParse(grfExpnD[i, colDPrice].ToString(), out amt1))
                 {
                     amt += amt1;
                 }
@@ -191,44 +202,100 @@ namespace Xtrim_ERP.gui
             grfExpnD.Clear();
             //if (txtID.Text.Equals("")) return;
             DataTable dt = new DataTable();
-            grfExpnD.Cols.Count = 7;
-            if (flagForm.Equals("new"))
+            
+            if (flagfom2 ==flagForm2.Cash)
             {
-                grfExpnD.Rows.Count = 2;
+                dt = xC.xtDB.expnddDB.selectCashByDrawId1(txtID.Text);
+                if (dt.Rows.Count <= 1) grfExpnD.Rows.Count = dt.Rows.Count + 2;
+                else grfExpnD.Rows.Count = dt.Rows.Count + 1;
+                grfExpnD.Cols.Count = dt.Columns.Count+1;
             }
             else
             {
-                dt = xC.xtDB.expnddDB.selectByDrawId1(txtID.Text);
-                grfExpnD.Rows.Count = dt.Rows.Count+1;
-                grfExpnD.Cols.Count = 7;
+                dt = xC.xtDB.expnddDB.selectChequeByDrawId1(txtID.Text);
+                if (dt.Rows.Count <= 1) grfExpnD.Rows.Count = dt.Rows.Count + 2;
+                else grfExpnD.Rows.Count = dt.Rows.Count+1;
+                grfExpnD.Cols.Count = dt.Columns.Count + 1;
             }
             //grfExpnD.Rows.Count = 2;
+            CellStyle cs = grfExpnD.Styles.Add("date");
+            cs.DataType = typeof(DateTime);
+            cs.Format = "dd-MM-yyyy";
+            //cs.ForeColor = Color.DarkGoldenrod;
+
             C1TextBox txt = new C1TextBox();
             txt.DataType = txtCode.DataType;
             C1TextBox txt1 = new C1TextBox();
             txt1.DataType = txtAmt.DataType;
             C1ComboBox cbo = new C1ComboBox();
             xC.xtDB.itmDB.setCboItem(cbo);
-            grfExpnD.Cols[colDCode].Editor = cbo;
-            grfExpnD.Cols[colDdesc1].Editor = txt;
-            grfExpnD.Cols[colDdesc2].Editor = txt;
-            grfExpnD.Cols[colDremark].Editor = txt;
+            C1ComboBox cbou = new C1ComboBox();
+            C1TextBox txt2 = new C1TextBox();
+            txt2.DataType = txtExpndDrawDate.DataType;
+            xC.xtDB.utpDB.setC1CboUtp(cbou,"");
+            grfExpnD.Cols[colDItemNamet].Editor = cbo;
+            grfExpnD.Cols[colDQty].Editor = txt1;
+            grfExpnD.Cols[colDUnitNameT].Editor = cbou;
             grfExpnD.Cols[colDamt].Editor = txt1;
+            grfExpnD.Cols[colDPrice].Editor = txt1;
+            grfExpnD.Cols[colDwatx1].Editor = txt1;
+            grfExpnD.Cols[colDwatx3].Editor = txt1;
+            grfExpnD.Cols[colDvat].Editor = txt1;
+            grfExpnD.Cols[colDtotal].Editor = txt1;
+            grfExpnD.Cols[colDremark].Editor = txt;
+            grfExpnD.Cols[colDItemId].Editor = txt;
+            grfExpnD.Cols[colDUnitId].Editor = txt;
+            if(flagfom2 == flagForm2.Cheque)
+            { 
+                grfExpnD.Cols[colDpaytocusnamet].Editor = txt;
+                grfExpnD.Cols[colDpaytocusaddr].Editor = txt;
+                grfExpnD.Cols[colDapaytocustax].Editor = txt;
+                grfExpnD.Cols[colDreceiptno].Editor = txt;
+                grfExpnD.Cols[colDreceiptdate].Style = cs;
+                grfExpnD.Cols[colDpaytocusid].Editor = txt;
+            }
 
-            grfExpnD.Cols[colDdesc1].Width = 200;
-            grfExpnD.Cols[colDdesc2].Width = 200;
-            grfExpnD.Cols[colDremark].Width = 100;
-            grfExpnD.Cols[colDamt].Width = 80;
-            grfExpnD.Cols[colDCode].Width = 200;
+            grfExpnD.Cols[colDQty].Width = 80;
+            grfExpnD.Cols[colDUnitNameT].Width = 140;
+            grfExpnD.Cols[colDamt].Width = 100;
+            grfExpnD.Cols[colDPrice].Width = 80;
+            grfExpnD.Cols[colDItemNamet].Width = 220;
+            grfExpnD.Cols[colDwatx1].Width = 80;
+            grfExpnD.Cols[colDwatx3].Width = 80;
+            grfExpnD.Cols[colDvat].Width = 80;
+            grfExpnD.Cols[colDtotal].Width = 100;
+            grfExpnD.Cols[colDremark].Width = 200;
+            if (flagfom2 == flagForm2.Cheque)
+            {
+                grfExpnD.Cols[colDpaytocusnamet].Width = 200;
+                grfExpnD.Cols[colDpaytocusaddr].Width = 200;
+                grfExpnD.Cols[colDapaytocustax].Width = 80;
+                grfExpnD.Cols[colDreceiptno].Width = 100;
+                grfExpnD.Cols[colDreceiptdate].Width = 100;
+            }
+            
 
             grfExpnD.ShowCursor = true;
-            //grdFlex.Cols[colID].Caption = "no";
-            //grfDept.Cols[colCode].Caption = "รหัส";
-            grfExpnD.Cols[colDCode].Caption = "รายการ";
-            grfExpnD.Cols[colDdesc1].Caption = "รายละเอียด 1";
-            grfExpnD.Cols[colDdesc2].Caption = "รายละเอียด 2";
+            grfExpnD.Cols[colDwatx1].Caption = "WTAX 1%";
+            grfExpnD.Cols[colDwatx3].Caption = "WTAX 3%";
+            grfExpnD.Cols[colDItemNamet].Caption = "รายการ";
+            grfExpnD.Cols[colDQty].Caption = "QTY";
+            grfExpnD.Cols[colDUnitNameT].Caption = "หน่วย";
+            grfExpnD.Cols[colDamt].Caption = "รวมราคา";
+            grfExpnD.Cols[colDPrice].Caption = "ราคา";
+            grfExpnD.Cols[colDvat].Caption = "VAT";
+            grfExpnD.Cols[colDtotal].Caption = "รวมทั้งหมด";
             grfExpnD.Cols[colDremark].Caption = "หมายเหตุ";
-            grfExpnD.Cols[colDamt].Caption = "ยอดเงินเบิก";
+            if (flagfom2 == flagForm2.Cheque)
+            {
+                grfExpnD.Cols[colDpaytocusnamet].Caption = "ชื่อลูกค้า";
+                grfExpnD.Cols[colDpaytocusaddr].Caption = "ที่อยู่ลูกค้า";
+                grfExpnD.Cols[colDapaytocustax].Caption = "tax id";
+                grfExpnD.Cols[colDreceiptno].Caption = "เลขที่ใบเสร็จ";
+                grfExpnD.Cols[colDreceiptdate].Caption = "วันที่ในใบเสร็จ";
+            }
+            
+            
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -236,18 +303,34 @@ namespace Xtrim_ERP.gui
                 if (i % 2 == 0)
                     grfExpnD.Rows[i].StyleNew.BackColor = color;
                 grfExpnD[i+1, colDid] = dt.Rows[i][xC.xtDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
-                grfExpnD[i + 1, colCode] = xC.xtDB.itmDB.getNameById(dt.Rows[i][xC.xtDB.expnddDB.expnC.item_id].ToString());
-                grfExpnD[i + 1, colDdesc1] = dt.Rows[i][xC.xtDB.expnddDB.expnC.desc1].ToString();
-                grfExpnD[i + 1, colDdesc2] = dt.Rows[i][xC.xtDB.expnddDB.expnC.desc2].ToString();
-                grfExpnD[i + 1, colDremark] = xC.xtDB.itmDB.getNameById(dt.Rows[i][xC.xtDB.expnddDB.expnC.remark].ToString());
+                grfExpnD[i + 1, colDItemNamet] = dt.Rows[i][xC.xtDB.expnddDB.expnC.item_name_t].ToString();
+                grfExpnD[i + 1, colDQty] = dt.Rows[i][xC.xtDB.expnddDB.expnC.qty].ToString();
+                grfExpnD[i + 1, colDUnitNameT] = dt.Rows[i][xC.xtDB.expnddDB.expnC.unit_name_t].ToString();
                 grfExpnD[i + 1, colDamt] = dt.Rows[i][xC.xtDB.expnddDB.expnC.amount].ToString();
+                grfExpnD[i + 1, colDPrice] = dt.Rows[i][xC.xtDB.expnddDB.expnC.price].ToString();
+                grfExpnD[i + 1, colDwatx1] = dt.Rows[i][xC.xtDB.expnddDB.expnC.wtax1].ToString();
+                grfExpnD[i + 1, colDwatx3] = dt.Rows[i][xC.xtDB.expnddDB.expnC.wtax3].ToString();
+                grfExpnD[i + 1, colDvat] = dt.Rows[i][xC.xtDB.expnddDB.expnC.vat].ToString();
+                grfExpnD[i + 1, colDtotal] = dt.Rows[i][xC.xtDB.expnddDB.expnC.total].ToString();
+                grfExpnD[i + 1, colDremark] = dt.Rows[i][xC.xtDB.expnddDB.expnC.remark].ToString();
+                grfExpnD[i + 1, colDItemId] = dt.Rows[i][xC.xtDB.expnddDB.expnC.item_id].ToString();
+                if (flagfom2 == flagForm2.Cheque)
+                {
+                    grfExpnD[i + 1, colDpaytocusnamet] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_to_cus_name_t].ToString();
+                    grfExpnD[i + 1, colDpaytocusaddr] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_to_cus_addr].ToString();
+                    grfExpnD[i + 1, colDapaytocustax] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_to_cus_tax].ToString();
+                    grfExpnD[i + 1, colDreceiptno] = dt.Rows[i][xC.xtDB.expnddDB.expnC.receipt_no].ToString();
+                    grfExpnD[i + 1, colDreceiptdate] = dt.Rows[i][xC.xtDB.expnddDB.expnC.receipt_date].ToString();
+                    grfExpnD[i + 1, colDpaytocusid] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_to_cus_id].ToString();
+                }
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
             //if (grfPic.Rows.Count == (grfPic.Row + 1)) grfPic.Rows.Count++;
             //grfExpnD.AfterRowColChange += GrfExpnD_AfterRowColChange;
-            //grfExpnD.RowColChange += GrfExpnD_RowColChange;
-            
+            grfExpnD.RowColChange += GrfExpnD_RowColChange;
+            //grfExpnD.KeyUpEdit += GrfExpnD_KeyUpEdit;
+            grfExpnD.KeyUp += GrfExpnD_KeyUp;
             if (flagForm.Equals("pay"))
             {
                 ContextMenu menuGw = new ContextMenu();
@@ -256,31 +339,70 @@ namespace Xtrim_ERP.gui
                 //menuGw.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Gw_Cancel));
                 grfExpnD.ContextMenu = menuGw;
             }
-            grfExpnD.Cols[colDid].Visible = false;            
+            grfExpnD.Cols[colDid].Visible = false;
+            grfExpnD.Cols[colDItemId].Visible = false;
+            grfExpnD.Cols[colDUnitId].Visible = false;
+            if (flagfom2 == flagForm2.Cheque)
+            {
+                grfExpnD.Cols[colDpaytocusid].Visible = false;
+            }
+        }
+
+        private void GrfExpnD_KeyUp(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (grfExpnD.Col == colDpaytocusnamet)
+            {
+                if (e.KeyCode == Keys.F4)
+                {
+                    flagshow++;
+                    if (flagshow > 1) return;
+                    int yy = grfExpnD.Rows[grfExpnD.Row].Height * grfExpnD.Rows.Count;
+                    Point pp = grfExpnD.Location;
+                    pp.Y = pp.Y + yy;
+                    pp.X = pp.X + 240;
+
+                    FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Customer, pp);
+                    frm.ShowDialog(this);
+                    grfExpnD[grfExpnD.Row, colDpaytocusnamet] = xC.sCus.cust_name_t;
+                    grfExpnD[grfExpnD.Row, colDpaytocusid] = xC.sCus.cust_id;
+                    grfExpnD[grfExpnD.Row, colDpaytocusaddr] = xC.sCus.taddr1;
+                }
+            }
+        }
+
+        private void GrfExpnD_KeyUpEdit(object sender, KeyEditEventArgs e)
+        {
+            //throw new NotImplementedException();
+            
         }
 
         private void GrfExpnD_RowColChange(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            if (grfExpnD.Col == colDCode)
+            flagshow = 0;
+            if (grfExpnD.Col == colDItemNamet)
             {
-                grfExpnD.Col = colDdesc1;
+                //grfExpnD.Col = colDQty;
             }
-            else if (grfExpnD.Col == colDamt)
+            else if (grfExpnD.Col == colDPrice)
             {
-                if (grfExpnD.Rows.Count == (grfExpnD.Row + 1)) grfExpnD.Rows.Count++;
+                if (grfExpnD.Rows.Count == (grfExpnD.Row)) grfExpnD.Rows.Count++;
+            }
+            else if (grfExpnD.Col == colDpaytocusnamet)
+            {
+                
             }
         }
 
         private void GrfExpnD_AfterRowColChange(object sender, RangeEventArgs e)
         {
             //throw new NotImplementedException();
-            if (e.OldRange.c1 == colDCode)
-            {
-                if (grfExpnD.Rows.Count == (grfExpnD.Row + 1)) grfExpnD.Rows.Count++;
-                grfExpnD.Col = colDdesc1;
-            }
-            
+            //if (e.OldRange.c1 == colDPrice)
+            //{
+            //    if (grfExpnD.Rows.Count == (grfExpnD.Row + 1)) grfExpnD.Rows.Count++;
+            //    grfExpnD.Col = colDQty;
+            //}
 
         }
 
@@ -394,6 +516,16 @@ namespace Xtrim_ERP.gui
                 label8.Text = "อนุมัติแล้ว";
                 label8.ForeColor = Color.Green;
             }
+            if (flagfom2 == flagForm2.Cash)
+            {
+                label9.Show();
+                txtAmtOnhand.Show();
+            }
+            else
+            {
+                label9.Hide();
+                txtAmtOnhand.Hide();
+            }
         }
         private void setControlEnable(Boolean flag)
         {
@@ -478,7 +610,15 @@ namespace Xtrim_ERP.gui
             {
                 expnD.status_appv = "2";
             }
-
+            if(flagfom2 == flagForm2.Cash)
+            {
+                expnD.status_pay_type = "1";
+            }
+            else
+            {
+                expnD.status_pay_type = "2";
+            }
+            
         }
         private void setExpensesDrawDetail(String expnid)
         {
@@ -488,12 +628,37 @@ namespace Xtrim_ERP.gui
                 ExpensesDrawDatail expndd = new ExpensesDrawDatail();
                 expndd.expense_draw_id = expnid;
                 expndd.expenses_draw_detail_id = grfExpnD[i, colDid] == null ? "" : grfExpnD[i, colDid].ToString();
-                expndd.desc1 = grfExpnD[i, colDdesc1] == null ? "" : grfExpnD[i, colDdesc1].ToString();
-                expndd.desc2 = grfExpnD[i, colDdesc2] == null ? "" : grfExpnD[i, colDdesc2].ToString();
-                expndd.amount = grfExpnD[i, colDamt] == null ? "" : grfExpnD[i, colDamt].ToString();
-                expndd.remark = grfExpnD[i, colDremark] == null ? "" : grfExpnD[i, colDremark].ToString();
-                expndd.item_id = grfExpnD[i, colCode] == null ? "" : xC.xtDB.itmDB.getIdByName(grfExpnD[i, colCode].ToString().Trim());
 
+                expndd.qty = grfExpnD[i, colDQty] == null ? "" : grfExpnD[i, colDQty].ToString();
+                expndd.unit_id = grfExpnD[i, colDUnitNameT] == null ? "" : xC.xtDB.utpDB.getIdByName(grfExpnD[i, colDUnitNameT].ToString().Trim());
+                expndd.unit_name_t = grfExpnD[i, colDUnitNameT] == null ? "" : grfExpnD[i, colDUnitNameT].ToString();
+                expndd.amount = grfExpnD[i, colDPrice] == null ? "" : grfExpnD[i, colDPrice].ToString();
+                expndd.remark = grfExpnD[i, colDamt] == null ? "" : grfExpnD[i, colDamt].ToString();
+                expndd.item_id = grfExpnD[i, colDItemNamet] == null ? "" : xC.xtDB.itmDB.getIdByName(grfExpnD[i, colDItemNamet].ToString().Trim());
+                expndd.item_name_t = grfExpnD[i, colDItemNamet] == null ? "" : grfExpnD[i, colDItemNamet].ToString();
+                expndd.price = grfExpnD[i, colDPrice] == null ? "" : grfExpnD[i, colDPrice].ToString();
+                expndd.wtax1 = grfExpnD[i, colDwatx1] == null ? "" : grfExpnD[i, colDwatx1].ToString();
+                expndd.wtax3 = grfExpnD[i, colDwatx3] == null ? "" : grfExpnD[i, colDwatx3].ToString();
+                expndd.vat = grfExpnD[i, colDvat] == null ? "" : grfExpnD[i, colDvat].ToString();
+                expndd.total = grfExpnD[i, colDtotal] == null ? "" : grfExpnD[i, colDtotal].ToString();
+                if (flagfom2 == flagForm2.Cheque)
+                {
+                    expndd.pay_to_cus_name_t = grfExpnD[i, colDpaytocusnamet] == null ? "" : grfExpnD[i, colDpaytocusnamet].ToString();
+                    expndd.pay_to_cus_addr = grfExpnD[i, colDpaytocusaddr] == null ? "" : grfExpnD[i, colDpaytocusaddr].ToString();
+                    expndd.pay_to_cus_tax = grfExpnD[i, colDapaytocustax] == null ? "" : grfExpnD[i, colDapaytocustax].ToString();
+                    expndd.receipt_no = grfExpnD[i, colDreceiptno] == null ? "" : grfExpnD[i, colDreceiptno].ToString();
+                    expndd.receipt_date = grfExpnD[i, colDreceiptdate] == null ? "" : grfExpnD[i, colDreceiptdate].ToString();
+                    expndd.pay_to_cus_id = grfExpnD[i, colDpaytocusid] == null ? "" : grfExpnD[i, colDpaytocusid].ToString();
+                }
+                if (flagForm.Equals("cash"))
+                {
+                    expndd.status_pay_type = "1";
+                }
+                else
+                {
+                    expndd.status_pay_type = "2";
+                }
+                
                 if (!expndd.amount.Equals(""))
                 {
                     xC.xtDB.expnddDB.insertExpenseDrawDetail(expndd, xC.userId);
@@ -589,7 +754,7 @@ namespace Xtrim_ERP.gui
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
-                    if (flagForm.Equals("new"))
+                    if (flagNew.Equals("new"))
                     {
                         setExpensesDrawDetail(re);
                     }

@@ -129,7 +129,17 @@ namespace Xtrim_ERP.gui
 
             String deptId = "";
             xC.drawID = grfExpn[grfExpn.Row, colID] != null ? grfExpn[grfExpn.Row, colID].ToString() : "";
-            FrmExpenseDraw frm = new FrmExpenseDraw(xC, xC.drawID, "pay");
+            ExpensesDraw expn = new ExpensesDraw();
+            FrmExpenseDraw frm;
+            expn = xC.xtDB.expndDB.selectByPk1(xC.drawID);
+            if (expn.status_pay_type.Equals("1"))
+            {
+                frm = new FrmExpenseDraw(xC, xC.drawID, FrmExpenseDraw.flagForm2.Cash, FrmExpenseDraw.flagAction.pay);
+            }
+            else
+            {
+                frm = new FrmExpenseDraw(xC, xC.drawID, FrmExpenseDraw.flagForm2.Cheque, FrmExpenseDraw.flagAction.pay);
+            }
             //frm.drawId = xC.drawID;
             //frm.flagForm = "appv";
             frm.WindowState = FormWindowState.Normal;

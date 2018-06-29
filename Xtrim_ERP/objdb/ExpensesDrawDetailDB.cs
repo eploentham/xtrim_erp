@@ -42,7 +42,7 @@ namespace Xtrim_ERP.objdb
             expnC.expense_type_id = "expenses_type_id";
 
             expnC.status_pay = "status_pay";
-            expnC.pay_type = "pay_type";
+            expnC.status_pay_type = "status_pay_type";
             expnC.pay_amount = "pay_amount";
             expnC.pay_date = "pay_date";
             expnC.pay_cheque_no = "pay_cheque_no";
@@ -52,6 +52,21 @@ namespace Xtrim_ERP.objdb
             expnC.pay_bank_date = "pay_bank_date";
             expnC.job_id = "job_id";
             expnC.job_code = "job_code";
+            expnC.qty = "qty";
+            expnC.price = "price";
+            expnC.unit_id = "unit_id";
+            expnC.wtax1 = "wtax1";
+            expnC.wtax3 = "wtax3";
+            expnC.vat = "vat";
+            expnC.total = "total";
+            expnC.item_name_t = "item_name_t";
+            expnC.unit_name_t = "unit_name_t";
+            expnC.pay_to_cus_id = "pay_to_cus_id";
+            expnC.pay_to_cus_name_t = "pay_to_cus_name_t";
+            expnC.pay_to_cus_addr = "pay_to_cus_addr";
+            expnC.pay_to_cus_tax = "pay_to_cus_tax";
+            expnC.receipt_no = "receipt_no";
+            expnC.receipt_date = "receipt_date";
 
             expnC.table = "t_expenses_draw_detail";
             expnC.pkField = "expenses_draw_detail_id";
@@ -133,11 +148,18 @@ namespace Xtrim_ERP.objdb
             p.remark = p.remark == null ? "" : p.remark;
             p.sort1 = p.sort1 == null ? "" : p.sort1;
             p.status_pay = p.status_pay == null ? "" : p.status_pay;
-            p.pay_type = p.pay_type == null ? "" : p.pay_type;
+            p.status_pay_type = p.status_pay_type == null ? "" : p.status_pay_type;
             p.pay_date = p.pay_date == null ? "" : p.pay_date;
             p.pay_cheque_no = p.pay_cheque_no == null ? "" : p.pay_cheque_no;
             p.pay_bank_date = p.pay_bank_date == null ? "" : p.pay_bank_date;
             p.job_code = p.job_code == null ? "" : p.job_code;
+            p.item_name_t = p.item_name_t == null ? "" : p.item_name_t;
+            p.unit_name_t = p.unit_name_t == null ? "" : p.unit_name_t;
+            p.pay_to_cus_name_t = p.pay_to_cus_name_t == null ? "" : p.pay_to_cus_name_t;
+            p.pay_to_cus_addr = p.pay_to_cus_addr == null ? "" : p.pay_to_cus_addr;
+            p.pay_to_cus_tax = p.pay_to_cus_tax == null ? "" : p.pay_to_cus_tax;
+            p.receipt_no = p.receipt_no == null ? "" : p.receipt_no;
+            p.receipt_date = p.receipt_date == null ? "" : p.receipt_date;
 
             p.expense_draw_id = int.TryParse(p.expense_draw_id, out chk) ? chk.ToString() : "0";
             p.expense_type_id = int.TryParse(p.expense_type_id, out chk) ? chk.ToString() : "0";
@@ -145,9 +167,17 @@ namespace Xtrim_ERP.objdb
             p.item_id = int.TryParse(p.item_id, out chk) ? chk.ToString() : "0";
             p.pay_staff_id = int.TryParse(p.pay_staff_id, out chk) ? chk.ToString() : "0";
             p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
+            p.unit_id = int.TryParse(p.unit_id, out chk) ? chk.ToString() : "0";
+            p.pay_to_cus_id = int.TryParse(p.pay_to_cus_id, out chk) ? chk.ToString() : "0";
 
             p.amount = Decimal.TryParse(p.amount, out chk1) ? chk1.ToString() : "0";
             p.pay_amount = Decimal.TryParse(p.pay_amount, out chk1) ? chk1.ToString() : "0";
+            p.qty = Decimal.TryParse(p.qty, out chk1) ? chk1.ToString() : "0";
+            p.price = Decimal.TryParse(p.price, out chk1) ? chk1.ToString() : "0";
+            p.wtax1 = Decimal.TryParse(p.wtax1, out chk1) ? chk1.ToString() : "0";
+            p.wtax3 = Decimal.TryParse(p.wtax3, out chk1) ? chk1.ToString() : "0";
+            p.vat = Decimal.TryParse(p.vat, out chk1) ? chk1.ToString() : "0";
+            p.total = Decimal.TryParse(p.total, out chk1) ? chk1.ToString() : "0";
         }
         public String insert(ExpensesDrawDatail p, String userId)
         {
@@ -166,20 +196,30 @@ namespace Xtrim_ERP.objdb
                 expnC.user_create + "," + expnC.user_modi + "," + expnC.user_cancel + "," +
                 expnC.active + "," + expnC.remark + ", " + expnC.sort1 + "," +
                 expnC.expense_draw_id + "," + expnC.expense_type_id + "," + expnC.status_pay + "," +
-                expnC.pay_type + "," + expnC.pay_amount + "," + expnC.pay_date + ", " +
+                expnC.status_pay_type + "," + expnC.pay_amount + "," + expnC.pay_date + ", " +
                 expnC.pay_cheque_no + "," + expnC.pay_cheque_bank_id + "," + expnC.pay_staff_id + ", " +
                 expnC.item_id + "," + expnC.pay_bank_date + "," + expnC.job_id + "," +
-                expnC.job_code + " " +
+                expnC.job_code + "," + expnC.qty + "," + expnC.price + "," +
+                expnC.unit_id + "," + expnC.wtax1 + "," + expnC.wtax3 + "," +
+                expnC.vat + "," + expnC.total + "," + expnC.item_name_t + "," +
+                expnC.unit_name_t + ", " +
+                expnC.pay_to_cus_id + "," + expnC.pay_to_cus_name_t + "," + expnC.pay_to_cus_addr + "," +
+                expnC.pay_to_cus_tax + "," + expnC.receipt_no + "," + expnC.receipt_date + " " +
                 ") " +
                 "Values ('" + p.desc1.Replace("'", "''") + "','" + p.desc2.Replace("'", "''") + "','" + p.amount + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "', " +
                 "'" + p.expense_draw_id + "','" + p.expense_type_id.Replace("'", "''") + "','" + p.status_pay + "'," +
-                "'" + p.pay_type + "','" + p.pay_amount.Replace("'", "''") + "','" + p.pay_date + "', " +
+                "'" + p.status_pay_type + "','" + p.pay_amount.Replace("'", "''") + "','" + p.pay_date + "', " +
                 "'" + p.pay_cheque_no + "','" + p.pay_cheque_bank_id.Replace("'", "''") + "','" + p.pay_staff_id + "', " +
                 "'" + p.item_id + "','" + p.pay_bank_date.Replace("'", "''") + "','" + p.job_id + "', " +
-                "'" + p.job_code + "' " +
+                "'" + p.job_code + "','" + p.qty + "','" + p.price + "'," +
+                "'" + p.unit_id + "','" + p.wtax1 + "','" + p.wtax3 + "'," +
+                "'" + p.vat + "','" + p.total + "','" + p.item_name_t + "'," +
+                "'" + p.unit_name_t + "'," +
+                "'" + p.pay_to_cus_id + "','" + p.pay_to_cus_name_t + "','" + p.pay_to_cus_addr + "'," +
+                "'" + p.pay_to_cus_tax + "','" + p.receipt_no + "','" + p.receipt_date + "' " +
                 ")";
             try
             {
@@ -212,6 +252,21 @@ namespace Xtrim_ERP.objdb
                 "," + expnC.expense_type_id + " = '" + p.expense_type_id + "' " +
                 "," + expnC.job_code + " = '" + p.job_code + "' " +
                 "," + expnC.job_id + " = '" + p.job_id + "' " +
+                "," + expnC.qty + " = '" + p.qty + "' " +
+                "," + expnC.price + " = '" + p.price + "' " +
+                "," + expnC.unit_id + " = '" + p.unit_id + "' " +
+                "," + expnC.wtax1 + " = '" + p.wtax1 + "' " +
+                "," + expnC.wtax3 + " = '" + p.wtax3 + "' " +
+                "," + expnC.vat + " = '" + p.vat + "' " +
+                "," + expnC.total + " = '" + p.total + "' " +
+                "," + expnC.item_name_t + " = '" + p.item_name_t + "' " +
+                "," + expnC.unit_name_t + " = '" + p.unit_name_t + "' " +
+                "," + expnC.pay_to_cus_id + " = '" + p.pay_to_cus_id + "' " +
+                "," + expnC.pay_to_cus_name_t + " = '" + p.pay_to_cus_name_t + "' " +
+                "," + expnC.pay_to_cus_addr + " = '" + p.pay_to_cus_addr + "' " +
+                "," + expnC.pay_to_cus_tax + " = '" + p.pay_to_cus_tax + "' " +
+                "," + expnC.receipt_no + " = '" + p.receipt_no + "' " +
+                "," + expnC.receipt_date + " = '" + p.receipt_date + "' " +
                 "Where " + expnC.pkField + "='" + p.expenses_draw_detail_id + "'"
                 ;
             try
@@ -234,7 +289,7 @@ namespace Xtrim_ERP.objdb
             chkNull(p);
 
             sql = "Update " + expnC.table + " Set " +
-                " " + expnC.pay_type + " = '" + p.pay_type + "'" +
+                //" " + expnC.status_pay_type + " = '" + p.status_pay_type + "'" +
                 "," + expnC.pay_amount + " = '" + p.pay_amount.Replace("'", "''") + "'" +
                 "," + expnC.pay_date + " = '" + p.pay_date.Replace("'", "''") + "'" +
                 "," + expnC.pay_cheque_no + " = '" + p.pay_cheque_no.Replace("'", "''") + "'" +
@@ -244,9 +299,8 @@ namespace Xtrim_ERP.objdb
                 "," + expnC.pay_staff_id + " = '" + p.pay_staff_id + "' " +
                 "," + expnC.item_id + " = '" + p.item_id + "' " +
                 "," + expnC.pay_bank_date + " = '" + p.pay_bank_date + "' " +
-
-                "Where " + expnC.pkField + "='" + p.expenses_draw_detail_id + "'"
-                ;
+                "," + expnC.status_pay + " = '2' " +
+                "Where " + expnC.pkField + "='" + p.expenses_draw_detail_id + "'";
 
             try
             {
@@ -256,7 +310,6 @@ namespace Xtrim_ERP.objdb
             {
                 sql = ex.Message + " " + ex.InnerException;
             }
-
             return re;
         }
         public String insertExpenseDrawDetail(ExpensesDrawDatail p, String userId)
@@ -314,11 +367,25 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);            
             return dt;
         }
-        public DataTable selectByDrawId1(String copId)
+        public DataTable selectChequeByDrawId1(String copId)
         {
             String currId = "";
             DataTable dt = new DataTable();
-            String sql = "select expC."+expnC.expenses_draw_detail_id+","+expnC.item_id+","+expnC.desc1+","+expnC.desc2+","+expnC.remark+","+expnC.amount+" " +
+            String sql = "select expC."+expnC.expenses_draw_detail_id+","+expnC.item_id+","+expnC.item_name_t+","+expnC.qty+","+expnC.unit_id+","+expnC.unit_name_t+","+expnC.price+
+                ","+expnC.amount+","+expnC.wtax1+","+expnC.wtax3+","+expnC.vat+","+expnC.remark+","+expnC.total+","+expnC.pay_to_cus_id+","+expnC.pay_to_cus_name_t+","+expnC.pay_to_cus_addr +
+                ","+expnC.pay_to_cus_tax+","+expnC.receipt_date+","+expnC.receipt_no+" "+
+                "From " + expnC.table + " expC " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where expC." + expnC.expense_draw_id + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
+        public DataTable selectCashByDrawId1(String copId)
+        {
+            String currId = "";
+            DataTable dt = new DataTable();
+            String sql = "select expC." + expnC.expenses_draw_detail_id + "," + expnC.item_id + "," + expnC.item_name_t + "," + expnC.qty + "," + expnC.unit_id + "," + expnC.unit_name_t + "," + expnC.price +
+                "," + expnC.amount + "," + expnC.wtax1 + "," + expnC.wtax3 + "," + expnC.vat + "," + expnC.remark + "," + expnC.total + " " + 
                 "From " + expnC.table + " expC " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where expC." + expnC.expense_draw_id + " ='" + copId + "' ";
@@ -384,7 +451,7 @@ namespace Xtrim_ERP.objdb
                 curr1.expense_type_id = dt.Rows[0][expnC.expense_type_id].ToString();
 
                 curr1.status_pay = dt.Rows[0][expnC.status_pay].ToString();
-                curr1.pay_type = dt.Rows[0][expnC.pay_type].ToString();
+                curr1.status_pay_type = dt.Rows[0][expnC.status_pay_type].ToString();
                 curr1.pay_amount = dt.Rows[0][expnC.pay_amount].ToString();
                 curr1.pay_date = dt.Rows[0][expnC.pay_date].ToString();
                 curr1.pay_cheque_no = dt.Rows[0][expnC.pay_cheque_no].ToString();
@@ -394,6 +461,21 @@ namespace Xtrim_ERP.objdb
                 curr1.pay_bank_date = dt.Rows[0][expnC.pay_bank_date].ToString();
                 curr1.job_id = dt.Rows[0][expnC.job_id].ToString();
                 curr1.job_code = dt.Rows[0][expnC.job_code].ToString();
+                curr1.qty = dt.Rows[0][expnC.qty].ToString();
+                curr1.price = dt.Rows[0][expnC.price].ToString();
+                curr1.unit_id = dt.Rows[0][expnC.unit_id].ToString();
+                curr1.wtax1 = dt.Rows[0][expnC.wtax1].ToString();
+                curr1.wtax3 = dt.Rows[0][expnC.wtax3].ToString();
+                curr1.vat = dt.Rows[0][expnC.vat].ToString();
+                curr1.total = dt.Rows[0][expnC.total].ToString();
+                curr1.item_name_t = dt.Rows[0][expnC.item_name_t].ToString();
+                curr1.unit_name_t = dt.Rows[0][expnC.unit_name_t].ToString();
+                curr1.pay_to_cus_id = dt.Rows[0][expnC.pay_to_cus_id].ToString();
+                curr1.pay_to_cus_name_t = dt.Rows[0][expnC.pay_to_cus_name_t].ToString();
+                curr1.pay_to_cus_addr = dt.Rows[0][expnC.pay_to_cus_addr].ToString();
+                curr1.pay_to_cus_tax = dt.Rows[0][expnC.pay_to_cus_tax].ToString();
+                curr1.receipt_no = dt.Rows[0][expnC.receipt_no].ToString();
+                curr1.receipt_date = dt.Rows[0][expnC.receipt_date].ToString();
             }
 
             return curr1;

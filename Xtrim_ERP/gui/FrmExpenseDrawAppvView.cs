@@ -23,7 +23,7 @@ namespace Xtrim_ERP.gui
 
         Color bg, fc;
         Font ff, ffB;
-        int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6;
+        int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6, colFlagForm=7;
         C1FlexGrid grfExpn;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
@@ -83,8 +83,11 @@ namespace Xtrim_ERP.gui
         private void setGrfDeptH()
         {
             //grfDept.Rows.Count = 7;
-            grfExpn.DataSource = xC.xtDB.expndDB.selectAll1(cboYear.Text);
-            grfExpn.Cols.Count = 7;
+            grfExpn.Clear();
+            DataTable dt = new DataTable();
+            dt = xC.xtDB.expndDB.selectAll1(cboYear.Text);
+            grfExpn.Cols.Count = 8;
+            grfExpn.Rows.Count = dt.Rows.Count+1;
             TextBox txt = new TextBox();
 
             grfExpn.Cols[colCode].Editor = txt;
@@ -96,6 +99,7 @@ namespace Xtrim_ERP.gui
             grfExpn.Cols[colRemark].Width = 200;
             grfExpn.Cols[colAmt].Width = 80;
             grfExpn.Cols[colStatus].Width = 80;
+            grfExpn.Cols[colFlagForm].Width = 80;
 
             grfExpn.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
@@ -106,12 +110,46 @@ namespace Xtrim_ERP.gui
             grfExpn.Cols[colRemark].Caption = "หมายเหตุ";
             grfExpn.Cols[colStatus].Caption = "สถานะ";
             grfExpn.Cols[colAmt].Caption = "รวมเงิน";
+            grfExpn.Cols[colFlagForm].Caption = "การเบิก";
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
-            for (int i = 1; i < grfExpn.Rows.Count; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 grfExpn[i, 0] = i;
                 if (i % 2 == 0)
                     grfExpn.Rows[i].StyleNew.BackColor = color;
+                grfExpn[i + 1, colID] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_id].ToString();
+                grfExpn[i + 1, colCode] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_code].ToString();
+                grfExpn[i + 1, colDesc] = dt.Rows[i][xC.xtDB.expndDB.expnC.desc1].ToString();
+                grfExpn[i + 1, colRemark] = dt.Rows[i][xC.xtDB.expndDB.expnC.remark].ToString();
+                grfExpn[i + 1, colAmt] = dt.Rows[i][xC.xtDB.expndDB.expnC.amount].ToString();
+                if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("1"))
+                {
+                    grfExpn[i + 1, colStatus] = "รอออนุมัติ";
+                }
+                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("2"))
+                {
+                    grfExpn[i + 1, colStatus] = "อนุมัติแล้ว";
+                }
+                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("0"))
+                {
+                    grfExpn[i + 1, colStatus] = "ป้อนใหม่";
+                }
+                else
+                {
+                    grfExpn[i + 1, colStatus] = "-";
+                }
+                if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay_type].ToString().Equals("1"))
+                {
+                    grfExpn[i, colFlagForm] = "Cash";
+                }
+                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay_type].ToString().Equals("2"))
+                {
+                    grfExpn[i, colFlagForm] = "Cheque";
+                }
+                else
+                {
+                    grfExpn[i, colFlagForm] = "-";
+                }
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
@@ -129,7 +167,17 @@ namespace Xtrim_ERP.gui
             
             String deptId = "";
             xC.drawID = grfExpn[grfExpn.Row, colID] != null ? grfExpn[grfExpn.Row, colID].ToString() : "";
-            FrmExpenseDraw frm = new FrmExpenseDraw(xC, xC.drawID, "appv");
+            ExpensesDraw expn = new ExpensesDraw();
+            FrmExpenseDraw frm;
+            expn = xC.xtDB.expndDB.selectByPk1(xC.drawID);
+            if (expn.status_pay_type.Equals("1"))
+            {
+                frm = new FrmExpenseDraw(xC, xC.drawID, FrmExpenseDraw.flagForm2.Cash, FrmExpenseDraw.flagAction.appv);
+            }
+            else
+            {
+                frm = new FrmExpenseDraw(xC, xC.drawID, FrmExpenseDraw.flagForm2.Cheque, FrmExpenseDraw.flagAction.appv);
+            }
             //frm.drawId = xC.drawID;
             //frm.flagForm = "appv";
             frm.WindowState = FormWindowState.Normal;

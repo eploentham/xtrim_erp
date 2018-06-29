@@ -31,6 +31,6 @@ namespace Xtrim_ERP.object1
         public String appv_amount { get; set; }
         public String appv_desc { get; set; }
         public String status_pay { get; set; }
-
+        public String status_pay_type { get; set; }
     }
 }

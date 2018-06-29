@@ -26,7 +26,7 @@ namespace Xtrim_ERP.object1
         public String expense_draw_id { get; set; }
 
         public String status_pay { get; set; }
-        public String pay_type { get; set; }
+        public String status_pay_type { get; set; }
         public String pay_amount { get; set; }
         public String pay_date { get; set; }
         public String pay_cheque_no { get; set; }
@@ -36,5 +36,21 @@ namespace Xtrim_ERP.object1
         public String pay_bank_date { get; set; }
         public String job_id { get; set; }
         public String job_code { get; set; }
+        public String qty { get; set; }
+        public String price { get; set; }
+        public String unit_id { get; set; }
+        public String wtax1 { get; set; }
+        public String wtax3 { get; set; }
+        public String vat { get; set; }
+        public String total { get; set; }
+        public String item_name_t { get; set; }
+        public String unit_name_t { get; set; }
+        public String pay_to_cus_id { get; set; }
+        public String pay_to_cus_name_t { get; set; }
+        public String pay_to_cus_addr { get; set; }
+        public String pay_to_cus_tax { get; set; }
+        public String receipt_no { get; set; }
+        public String receipt_date { get; set; }
+        
     }
 }

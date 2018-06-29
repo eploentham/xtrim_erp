@@ -32,6 +32,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtImpAddr = new C1.Win.C1Input.C1TextBox();
+            this.txtImpNameT = new C1.Win.C1Input.C1TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.c1Button1 = new C1.Win.C1Input.C1Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -64,12 +67,13 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtImpAddr = new C1.Win.C1Input.C1TextBox();
-            this.txtImpNameT = new C1.Win.C1Input.C1TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtAmtOnhand = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtImpAddr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtImpNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAppvAmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAppv)).BeginInit();
@@ -90,8 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtExpndDrawDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtImpAddr)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtImpNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmtOnhand)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -125,6 +128,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.txtAmtOnhand);
             this.panel2.Controls.Add(this.txtImpAddr);
             this.panel2.Controls.Add(this.txtImpNameT);
             this.panel2.Controls.Add(this.label10);
@@ -166,13 +171,53 @@
             this.panel2.TabIndex = 0;
             this.theme1.SetTheme(this.panel2, "(default)");
             // 
+            // txtImpAddr
+            // 
+            this.txtImpAddr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtImpAddr.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtImpAddr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtImpAddr.Location = new System.Drawing.Point(121, 142);
+            this.txtImpAddr.Multiline = true;
+            this.txtImpAddr.Name = "txtImpAddr";
+            this.txtImpAddr.Size = new System.Drawing.Size(297, 102);
+            this.txtImpAddr.TabIndex = 501;
+            this.txtImpAddr.Tag = null;
+            this.theme1.SetTheme(this.txtImpAddr, "(default)");
+            this.txtImpAddr.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtImpNameT
+            // 
+            this.txtImpNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtImpNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtImpNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtImpNameT.Location = new System.Drawing.Point(121, 116);
+            this.txtImpNameT.Name = "txtImpNameT";
+            this.txtImpNameT.Size = new System.Drawing.Size(297, 20);
+            this.txtImpNameT.TabIndex = 499;
+            this.txtImpNameT.Tag = null;
+            this.theme1.SetTheme(this.txtImpNameT, "(default)");
+            this.txtImpNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label10.Location = new System.Drawing.Point(10, 118);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(68, 16);
+            this.label10.TabIndex = 500;
+            this.label10.Text = "*Importer :";
+            this.theme1.SetTheme(this.label10, "(default)");
+            // 
             // c1Button1
             // 
             this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
             this.c1Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.c1Button1.Location = new System.Drawing.Point(450, 27);
             this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(62, 24);
+            this.c1Button1.Size = new System.Drawing.Size(62, 30);
             this.c1Button1.TabIndex = 498;
             this.c1Button1.Text = "test";
             this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -232,7 +277,7 @@
             this.btnAppv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAppv.Location = new System.Drawing.Point(649, 97);
             this.btnAppv.Name = "btnAppv";
-            this.btnAppv.Size = new System.Drawing.Size(83, 39);
+            this.btnAppv.Size = new System.Drawing.Size(83, 32);
             this.btnAppv.TabIndex = 494;
             this.btnAppv.Text = "Approve";
             this.btnAppv.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -319,7 +364,7 @@
             this.btnDoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDoc.Location = new System.Drawing.Point(530, 12);
             this.btnDoc.Name = "btnDoc";
-            this.btnDoc.Size = new System.Drawing.Size(83, 39);
+            this.btnDoc.Size = new System.Drawing.Size(83, 32);
             this.btnDoc.TabIndex = 488;
             this.btnDoc.Text = "doc";
             this.btnDoc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -366,7 +411,7 @@
             this.btnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVoid.Location = new System.Drawing.Point(649, 137);
             this.btnVoid.Name = "btnVoid";
-            this.btnVoid.Size = new System.Drawing.Size(83, 39);
+            this.btnVoid.Size = new System.Drawing.Size(83, 32);
             this.btnVoid.TabIndex = 485;
             this.btnVoid.Text = "ยกเลิกช้อมูล";
             this.btnVoid.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -380,7 +425,7 @@
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(649, 181);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(83, 39);
+            this.btnSave.Size = new System.Drawing.Size(83, 32);
             this.btnSave.TabIndex = 484;
             this.btnSave.Text = "บันทึกช้อมูล";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -394,7 +439,7 @@
             this.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNew.Location = new System.Drawing.Point(649, 12);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(83, 39);
+            this.btnNew.Size = new System.Drawing.Size(83, 32);
             this.btnNew.TabIndex = 483;
             this.btnNew.Text = "เพิ่มช้อมูล";
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -408,7 +453,7 @@
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit.Location = new System.Drawing.Point(649, 57);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(83, 39);
+            this.btnEdit.Size = new System.Drawing.Size(83, 32);
             this.btnEdit.TabIndex = 482;
             this.btnEdit.Text = "แก้ไขช้อมูล";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -651,45 +696,38 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // txtImpAddr
+            // label9
             // 
-            this.txtImpAddr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtImpAddr.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtImpAddr.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtImpAddr.Location = new System.Drawing.Point(121, 142);
-            this.txtImpAddr.Multiline = true;
-            this.txtImpAddr.Name = "txtImpAddr";
-            this.txtImpAddr.Size = new System.Drawing.Size(297, 102);
-            this.txtImpAddr.TabIndex = 501;
-            this.txtImpAddr.Tag = null;
-            this.theme1.SetTheme(this.txtImpAddr, "(default)");
-            this.txtImpAddr.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label9.Location = new System.Drawing.Point(418, 118);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(80, 16);
+            this.label9.TabIndex = 503;
+            this.label9.Text = "ยอดเงินคงค้าง :";
+            this.theme1.SetTheme(this.label9, "(default)");
             // 
-            // txtImpNameT
+            // txtAmtOnhand
             // 
-            this.txtImpNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtImpNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtImpNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtImpNameT.Location = new System.Drawing.Point(121, 116);
-            this.txtImpNameT.Name = "txtImpNameT";
-            this.txtImpNameT.Size = new System.Drawing.Size(297, 20);
-            this.txtImpNameT.TabIndex = 499;
-            this.txtImpNameT.Tag = null;
-            this.theme1.SetTheme(this.txtImpNameT, "(default)");
-            this.txtImpNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label10.Location = new System.Drawing.Point(10, 118);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 16);
-            this.label10.TabIndex = 500;
-            this.label10.Text = "*Importer :";
-            this.theme1.SetTheme(this.label10, "(default)");
+            this.txtAmtOnhand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAmtOnhand.DataType = typeof(decimal);
+            this.txtAmtOnhand.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtAmtOnhand.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtAmtOnhand.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
+            this.txtAmtOnhand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtAmtOnhand.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtAmtOnhand.Location = new System.Drawing.Point(504, 115);
+            this.txtAmtOnhand.Name = "txtAmtOnhand";
+            this.txtAmtOnhand.Size = new System.Drawing.Size(139, 24);
+            this.txtAmtOnhand.TabIndex = 502;
+            this.txtAmtOnhand.Tag = null;
+            this.theme1.SetTheme(this.txtAmtOnhand, "(default)");
+            this.txtAmtOnhand.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmExpenseDraw
             // 
@@ -705,6 +743,8 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtImpAddr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtImpNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAppvAmt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAppv)).EndInit();
@@ -726,8 +766,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtImpAddr)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtImpNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmtOnhand)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -774,5 +813,7 @@
         private C1.Win.C1Input.C1TextBox txtImpAddr;
         private C1.Win.C1Input.C1TextBox txtImpNameT;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private C1.Win.C1Input.C1TextBox txtAmtOnhand;
     }
 }
