@@ -30,5 +30,11 @@ namespace Xtrim_ERP.object1
         public String item_cat_id { get; set; }
         public String f_method_payment_id { get; set; }
         public String status_invoice { get; set; }
+        public String price1 { get; set; }
+        public String price2 { get; set; }
+        public String price3 { get; set; }
+        public String price4 { get; set; }
+        public String price5 { get; set; }
+
     }
 }

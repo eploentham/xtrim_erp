@@ -88,7 +88,11 @@ namespace Xtrim_ERP.gui
         private void setGrfDeptH()
         {
             //grfDept.Rows.Count = 7;
-            grfExpn.DataSource = xC.xtDB.expndDB.selectAll1(cboYear.Text);
+            grfExpn.Clear();
+            DataTable dt = new DataTable();
+            dt = xC.xtDB.expndDB.selectAll1(cboYear.Text);
+            //grfExpn.DataSource = xC.xtDB.expndDB.selectAll1(cboYear.Text);
+            grfExpn.Rows.Count = dt.Rows.Count + 1;
             grfExpn.Cols.Count = 7;
             TextBox txt = new TextBox();
 
@@ -112,11 +116,32 @@ namespace Xtrim_ERP.gui
             grfExpn.Cols[colStatus].Caption = "สถานะ";
             grfExpn.Cols[colAmt].Caption = "รวมเงิน";
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
-            for (int i = 1; i < grfExpn.Rows.Count; i++)
+            for (int i = 1; i < dt.Rows.Count; i++)
             {
                 grfExpn[i, 0] = i;
                 if (i % 2 == 0)
                     grfExpn.Rows[i].StyleNew.BackColor = color;
+                grfExpn[i + 1, colID] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_id].ToString();
+                grfExpn[i + 1, colCode] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_code].ToString();
+                grfExpn[i + 1, colDesc] = dt.Rows[i][xC.xtDB.expndDB.expnC.desc1].ToString();
+                grfExpn[i + 1, colRemark] = dt.Rows[i][xC.xtDB.expndDB.expnC.remark].ToString();
+                grfExpn[i + 1, colAmt] = dt.Rows[i][xC.xtDB.expndDB.expnC.amount].ToString();
+                if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("1"))
+                {
+                    grfExpn[i + 1, colStatus] = "รอออนุมัติ";
+                }
+                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("2"))
+                {
+                    grfExpn[i + 1, colStatus] = "อนุมัติแล้ว";
+                }
+                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("0"))
+                {
+                    grfExpn[i + 1, colStatus] = "ป้อนใหม่";
+                }
+                else
+                {
+                    grfExpn[i + 1, colStatus] = "-";
+                }
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];

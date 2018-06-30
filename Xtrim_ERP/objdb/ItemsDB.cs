@@ -48,6 +48,11 @@ namespace Xtrim_ERP.objdb
             itm.item_cat_id = "item_cat_id";
             itm.f_method_payment_id = "f_method_payment_id";
             itm.status_invoice = "status_invoice";
+            itm.price1 = "price1";
+            itm.price2 = "price2";
+            itm.price3 = "price3";
+            itm.price4 = "price4";
+            itm.price5 = "price5";
 
             itm.table = "b_items";
             itm.pkField = "item_id";
@@ -137,6 +142,12 @@ namespace Xtrim_ERP.objdb
             p.item_type_sub_id = int.TryParse(p.item_type_sub_id, out chk) ? chk.ToString() : "0";
             p.item_cat_id = int.TryParse(p.item_cat_id, out chk) ? chk.ToString() : "0";
             p.f_method_payment_id = int.TryParse(p.f_method_payment_id, out chk) ? chk.ToString() : "0";
+
+            p.price1 = Decimal.TryParse(p.price1, out chk1) ? chk1.ToString() : "0";
+            p.price2 = Decimal.TryParse(p.price2, out chk1) ? chk1.ToString() : "0";
+            p.price3 = Decimal.TryParse(p.price3, out chk1) ? chk1.ToString() : "0";
+            p.price4 = Decimal.TryParse(p.price4, out chk1) ? chk1.ToString() : "0";
+            p.price5 = Decimal.TryParse(p.price5, out chk1) ? chk1.ToString() : "0";
         }
         public String insert(Items p, String userId)
         {
@@ -156,7 +167,9 @@ namespace Xtrim_ERP.objdb
                 itm.active + "," + itm.remark + ", " + itm.sort1 + "," +
                 itm.acc_code + "," + itm.status_tax53 + ", " + itm.item_grp_id + "," +
                 itm.item_type_sub_id + "," + itm.item_cat_id + ", " + itm.status_app + "," +
-                itm.f_method_payment_id + "," + itm.status_invoice + " " +
+                itm.f_method_payment_id + "," + itm.status_invoice + "," +
+                itm.price1 + "," + itm.price2 + ", " + itm.price3 + ", " +
+                itm.price4 + "," + itm.price5 + " " +
                 ") " +
                 "Values ('" + p.item_code + "','" + p.item_name_e.Replace("'", "''") + "','" + p.item_name_t.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
@@ -164,7 +177,9 @@ namespace Xtrim_ERP.objdb
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "'," +
                 "'" + p.acc_code + "','" + p.status_tax53.Replace("'", "''") + "','" + p.item_grp_id + "'," +
                 "'" + p.item_type_sub_id + "','" + p.item_cat_id.Replace("'", "''") + "','" + p.status_app + "'," +
-                "'" + p.f_method_payment_id + "','" + p.status_invoice.Replace("'", "''") + "' " +
+                "'" + p.f_method_payment_id + "','" + p.status_invoice.Replace("'", "''") + "'," +
+                "'" + p.price1 + "','" + p.price2.Replace("'", "''") + "','" + p.price3 + "'," +
+                "'" + p.price4 + "','" + p.price5.Replace("'", "''") + "' " + 
                 ")";
             try
             {
@@ -200,6 +215,11 @@ namespace Xtrim_ERP.objdb
                 "," + itm.status_app + " = '" + p.status_app + "' " +
                 "," + itm.f_method_payment_id + " = '" + p.f_method_payment_id + "' " +
                 "," + itm.status_invoice + " = '" + p.status_invoice + "' " +
+                "," + itm.price1 + " = '" + p.price1 + "' " +
+                "," + itm.price2 + " = '" + p.price2 + "' " +
+                "," + itm.price3 + " = '" + p.price3 + "' " +
+                "," + itm.price4 + " = '" + p.price4 + "' " +
+                "," + itm.price5 + " = '" + p.price5 + "' " +
                 "Where " + itm.pkField + "='" + p.item_id + "'"
                 ;
 
@@ -297,6 +317,11 @@ namespace Xtrim_ERP.objdb
                 expn1.status_app = dt.Rows[0][itm.status_app].ToString();
                 expn1.f_method_payment_id = dt.Rows[0][itm.f_method_payment_id].ToString();
                 expn1.status_invoice = dt.Rows[0][itm.status_invoice].ToString();
+                expn1.price1 = dt.Rows[0][itm.price1].ToString();
+                expn1.price2 = dt.Rows[0][itm.price2].ToString();
+                expn1.price3 = dt.Rows[0][itm.price3].ToString();
+                expn1.price4 = dt.Rows[0][itm.price4].ToString();
+                expn1.price5 = dt.Rows[0][itm.price5].ToString();
             }
 
             return expn1;

@@ -394,6 +394,13 @@ ALTER TABLE `xtrim_erp`.`b_company`
 ADD COLUMN `cash_draw_doc` INT NULL AFTER `eaddr4`,
 ADD COLUMN `year_curr` VARCHAR(255) NULL AFTER `cash_draw_doc`;
 
+61-06-30
+ALTER TABLE `xtrim_erp`.`b_items` 
+ADD COLUMN `price1` DECIMAL(17,2) NULL AFTER `status_invoice`,
+ADD COLUMN `price2` DECIMAL(17,2) NULL AFTER `price1`,
+ADD COLUMN `price3` DECIMAL(17,2) NULL AFTER `price2`,
+ADD COLUMN `price4` DECIMAL(17,2) NULL AFTER `price3`,
+ADD COLUMN `price5` DECIMAL(17,2) NULL AFTER `price4`;
 
 
 

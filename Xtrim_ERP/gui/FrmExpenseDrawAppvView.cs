@@ -140,15 +140,15 @@ namespace Xtrim_ERP.gui
                 }
                 if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay_type].ToString().Equals("1"))
                 {
-                    grfExpn[i, colFlagForm] = "Cash";
+                    grfExpn[i + 1, colFlagForm] = "Cash";
                 }
                 else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay_type].ToString().Equals("2"))
                 {
-                    grfExpn[i, colFlagForm] = "Cheque";
+                    grfExpn[i + 1, colFlagForm] = "Cheque";
                 }
                 else
                 {
-                    grfExpn[i, colFlagForm] = "-";
+                    grfExpn[i + 1, colFlagForm] = "-";
                 }
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);

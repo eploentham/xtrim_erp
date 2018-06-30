@@ -152,6 +152,24 @@ namespace Xtrim_ERP.gui
 
             this.txtRemark.Leave += new System.EventHandler(this.textBox_Leave);
             this.txtRemark.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtPrice1.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtPrice1.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtPrice2.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtPrice2.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtPrice3.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtPrice3.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtPrice4.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtPrice4.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtPrice5.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtPrice5.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtAccCode.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtAccCode.Enter += new System.EventHandler(this.textBox_Enter);
         }
         private void setControl(String deptId)
         {
@@ -179,14 +197,11 @@ namespace Xtrim_ERP.gui
             {
                 gBTypeSub.Enabled = false;
             }
-            //if (txtID.Text.Equals(""))
-            //{
-
-            //}
-            //else
-            //{
-
-            //}
+            txtPrice1.Value = itm.price1;
+            txtPrice2.Value = itm.price2;
+            txtPrice3.Value = itm.price3;
+            txtPrice4.Value = itm.price4;
+            txtPrice5.Value = itm.price5;
 
         }
         private void setControlEnable(Boolean flag)
@@ -196,6 +211,15 @@ namespace Xtrim_ERP.gui
             txtNameT.Enabled = flag;
             txtRemark.Enabled = flag;
             chkVoid.Enabled = flag;
+            txtPrice1.Enabled = flag;
+            txtPrice2.Enabled = flag;
+            txtPrice3.Enabled = flag;
+            txtPrice4.Enabled = flag;
+            txtPrice5.Enabled = flag;
+            cboItmC.Enabled = flag;
+            cboItmG.Enabled = flag;
+            cboItmts.Enabled = flag;
+
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
         private void setItem()
@@ -211,6 +235,11 @@ namespace Xtrim_ERP.gui
             itm.status_tax53 = chkTax53.Checked ? "1" : "0";
             itm.acc_code = txtAccCode.Text;
             itm.f_method_payment_id = cboFMtp.SelectedItem != null ? ((ComboBoxItem)(cboFMtp.SelectedItem)).Value : "";
+            itm.price1 = txtPrice1.Text;
+            itm.price2 = txtPrice2.Text;
+            itm.price3 = txtPrice3.Text;
+            itm.price4 = txtPrice4.Text;
+            itm.price5 = txtPrice5.Text;
         }
         private void grfDept_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
         {
@@ -220,6 +249,7 @@ namespace Xtrim_ERP.gui
             String deptId = "";
             deptId = grfExpn[e.NewRange.r1, colID] != null ? grfExpn[e.NewRange.r1, colID].ToString() : "";
             setControl(deptId);
+            flagEdit = false;
             setControlEnable(false);
             //setControlAddr(addrId);
             //setControlAddrEnable(false);
@@ -299,6 +329,11 @@ namespace Xtrim_ERP.gui
             txtCode.Value = "";
             txtNameT.Value = "";
             txtRemark.Value = "";
+            txtPrice1.Value = "";
+            txtPrice2.Value = "";
+            txtPrice3.Value = "";
+            txtPrice4.Value = "";
+            txtPrice5.Value = "";
             chkVoid.Checked = false;
             btnVoid.Hide();
             setControlEnable(true);
