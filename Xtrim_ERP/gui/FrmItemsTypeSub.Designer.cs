@@ -60,6 +60,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.chkNotSendtoInv = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -97,7 +98,7 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1040, 550);
+            this.panel1.Size = new System.Drawing.Size(1040, 618);
             this.panel1.TabIndex = 5;
             this.theme1.SetTheme(this.panel1, "(default)");
             // 
@@ -131,7 +132,7 @@
             this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel3.Location = new System.Drawing.Point(538, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(502, 550);
+            this.panel3.Size = new System.Drawing.Size(502, 618);
             this.panel3.TabIndex = 1;
             this.theme1.SetTheme(this.panel3, "(default)");
             // 
@@ -142,7 +143,7 @@
             this.chkItmEdit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkItmEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkItmEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkItmEdit.Location = new System.Drawing.Point(127, 485);
+            this.chkItmEdit.Location = new System.Drawing.Point(127, 508);
             this.chkItmEdit.Name = "chkItmEdit";
             this.chkItmEdit.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkItmEdit.Size = new System.Drawing.Size(153, 24);
@@ -226,7 +227,7 @@
             this.txtAccCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAccCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtAccCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtAccCode.Location = new System.Drawing.Point(127, 388);
+            this.txtAccCode.Location = new System.Drawing.Point(127, 411);
             this.txtAccCode.Name = "txtAccCode";
             this.txtAccCode.Size = new System.Drawing.Size(245, 20);
             this.txtAccCode.TabIndex = 559;
@@ -240,7 +241,7 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label4.Location = new System.Drawing.Point(9, 390);
+            this.label4.Location = new System.Drawing.Point(9, 413);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 16);
             this.label4.TabIndex = 558;
@@ -254,7 +255,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.groupBox1.Location = new System.Drawing.Point(112, 262);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(364, 100);
+            this.groupBox1.Size = new System.Drawing.Size(364, 125);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ให้แสดงใน หน้าจอออกใบวางบิล";
@@ -263,12 +264,13 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel4.Controls.Add(this.chkNotSendtoInv);
             this.panel4.Controls.Add(this.radioButton1);
             this.panel4.Controls.Add(this.radioButton2);
             this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel4.Location = new System.Drawing.Point(15, 19);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(332, 70);
+            this.panel4.Size = new System.Drawing.Size(332, 88);
             this.panel4.TabIndex = 559;
             this.theme1.SetTheme(this.panel4, "(default)");
             // 
@@ -347,7 +349,7 @@
             this.txtPasswordVoid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPasswordVoid.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtPasswordVoid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtPasswordVoid.Location = new System.Drawing.Point(179, 447);
+            this.txtPasswordVoid.Location = new System.Drawing.Point(179, 470);
             this.txtPasswordVoid.Name = "txtPasswordVoid";
             this.txtPasswordVoid.PasswordChar = '*';
             this.txtPasswordVoid.Size = new System.Drawing.Size(78, 20);
@@ -378,7 +380,7 @@
             this.chkVoid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chkVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkVoid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkVoid.Location = new System.Drawing.Point(179, 418);
+            this.chkVoid.Location = new System.Drawing.Point(179, 441);
             this.chkVoid.Name = "chkVoid";
             this.chkVoid.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
             this.chkVoid.Size = new System.Drawing.Size(155, 24);
@@ -393,7 +395,7 @@
             // 
             this.btnVoid.Image = global::Xtrim_ERP.Properties.Resources.trash24;
             this.btnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVoid.Location = new System.Drawing.Point(376, 412);
+            this.btnVoid.Location = new System.Drawing.Point(376, 435);
             this.btnVoid.Name = "btnVoid";
             this.btnVoid.Size = new System.Drawing.Size(83, 39);
             this.btnVoid.TabIndex = 268;
@@ -421,7 +423,7 @@
             // 
             this.btnSave.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(376, 456);
+            this.btnSave.Location = new System.Drawing.Point(376, 479);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(83, 39);
             this.btnSave.TabIndex = 266;
@@ -530,7 +532,7 @@
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(538, 550);
+            this.panel2.Size = new System.Drawing.Size(538, 618);
             this.panel2.TabIndex = 2;
             this.theme1.SetTheme(this.panel2, "(default)");
             // 
@@ -538,7 +540,7 @@
             // 
             this.sB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sB1});
-            this.sB.Location = new System.Drawing.Point(0, 550);
+            this.sB.Location = new System.Drawing.Point(0, 618);
             this.sB.Name = "sB";
             this.sB.Size = new System.Drawing.Size(1040, 22);
             this.sB.TabIndex = 4;
@@ -550,11 +552,28 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
+            // chkNotSendtoInv
+            // 
+            this.chkNotSendtoInv.AutoSize = true;
+            this.chkNotSendtoInv.BackColor = System.Drawing.Color.Transparent;
+            this.chkNotSendtoInv.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkNotSendtoInv.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkNotSendtoInv.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkNotSendtoInv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkNotSendtoInv.Location = new System.Drawing.Point(7, 58);
+            this.chkNotSendtoInv.Name = "chkNotSendtoInv";
+            this.chkNotSendtoInv.Size = new System.Drawing.Size(141, 17);
+            this.chkNotSendtoInv.TabIndex = 122;
+            this.chkNotSendtoInv.TabStop = true;
+            this.chkNotSendtoInv.Text = "ไม่ต้องส่งข้อมูลไปการเงิน";
+            this.theme1.SetTheme(this.chkNotSendtoInv, "(default)");
+            this.chkNotSendtoInv.UseVisualStyleBackColor = false;
+            // 
             // FrmItemsTypeSub
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 572);
+            this.ClientSize = new System.Drawing.Size(1040, 640);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sB);
             this.Name = "FrmItemsTypeSub";
@@ -624,5 +643,6 @@
         private C1.Win.C1Input.C1ComboBox cboItmT;
         private System.Windows.Forms.Label label5;
         private C1.Win.C1Input.C1CheckBox chkItmEdit;
+        private System.Windows.Forms.RadioButton chkNotSendtoInv;
     }
 }

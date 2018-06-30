@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Xtrim_ERP.object1;
 
 namespace Xtrim_ERP.objdb
@@ -326,7 +327,36 @@ namespace Xtrim_ERP.objdb
 
             return expn1;
         }
-        public C1ComboBox setCboItem(C1ComboBox c)
+        public C1ComboBox setC1CboItem(C1ComboBox c)
+        {
+            lexpn.Clear();
+            ComboBoxItem item = new ComboBoxItem();
+            DataTable dt = selectAll();
+            //String aaa = "";
+            ComboBoxItem item1 = new ComboBoxItem();
+            item1.Text = "";
+            item1.Value = "000";
+            c.Items.Clear();
+            c.Items.Add(item1);
+            //for (int i = 0; i < dt.Rows.Count; i++)
+            foreach (DataRow row in dt.Rows)
+            {
+                item = new ComboBoxItem();
+                item.Text = row[itm.item_name_t].ToString();
+                item.Value = row[itm.item_id].ToString();
+                c.Items.Add(item);
+
+                Items expn1 = new Items();
+                expn1.item_id = row[itm.item_id].ToString();
+                expn1.item_code = row[itm.item_code].ToString();
+                expn1.item_name_e = row[itm.item_name_e].ToString();
+                expn1.item_name_t = row[itm.item_name_t].ToString();
+
+                lexpn.Add(expn1);
+            }
+            return c;
+        }
+        public ComboBox setCboItem(ComboBox c)
         {
             lexpn.Clear();
             ComboBoxItem item = new ComboBoxItem();

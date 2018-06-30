@@ -396,7 +396,7 @@ namespace Xtrim_ERP.gui
                     menuInit.Enabled = true;
                 }
             }
-            this.Text = "Last Update 2018-06-25";
+            this.Text = "Last Update 2018-06-30";
         }
     }
 }

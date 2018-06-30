@@ -236,6 +236,12 @@
     <Compile Include="gui\FrmDepartmentS.Designer.cs">
       <DependentUpon>FrmDepartmentS.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmExpenseDrawD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmExpenseDrawD.Designer.cs">
+      <DependentUpon>FrmExpenseDrawD.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmExpenseDrawPayView1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -788,6 +794,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmDepartmentS.resx">
       <DependentUpon>FrmDepartmentS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmExpenseDrawD.resx">
+      <DependentUpon>FrmExpenseDrawD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmExpenseDrawPayView1.resx">
       <DependentUpon>FrmExpenseDrawPayView1.cs</DependentUpon>

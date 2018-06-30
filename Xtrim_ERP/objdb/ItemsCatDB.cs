@@ -87,7 +87,7 @@ namespace Xtrim_ERP.objdb
             }
             return id;
         }
-        public void setC1CboExpnC(C1ComboBox c, String selected)
+        public void setC1CboItmC(C1ComboBox c, String selected)
         {
             ComboBoxItem item = new ComboBoxItem();
             if (lexpnC.Count <= 0) getlexpnC();

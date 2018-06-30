@@ -63,7 +63,7 @@ namespace Xtrim_ERP.gui
             btnSave.Click += BtnSave_Click;
             cboItmts.SelectedItemChanged += CboItmts_SelectedItemChanged;
 
-            xC.xtDB.itmcDB.setC1CboExpnC(cboItmC, "");
+            xC.xtDB.itmcDB.setC1CboItmC(cboItmC, "");
             xC.xtDB.itmtsDB.setC1CboItmTypeSub(cboItmts, "");
             xC.xtDB.itmgDB.setC1CboExpnG(cboItmG, "");
             xC.xtDB.fmtpDB.setC1CboMtp(cboFMtp, "");
