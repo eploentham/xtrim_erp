@@ -313,10 +313,11 @@ namespace Xtrim_ERP.objdb
         public DataTable selectAll1()
         {
             DataTable dt = new DataTable();
-            String sql = "select expC."+rsp.reserve_pay_id+","+rsp.amount_draw+","+rsp.date_draw+","+rsp.status_appv+","+rsp.desc1+" " +
-                "From " + rsp.table + " expC " +
+            String sql = "select rsp." + rsp.reserve_pay_id+","+rsp.amount_draw+","+rsp.date_draw+","+rsp.status_appv+","+rsp.desc1+" " +
+                "From " + rsp.table + " rsp " +
                 " " +
-                "Where expC." + rsp.active + " ='1' ";
+                "Where rsp." + rsp.active + " ='1' " +
+                "Order By "+rsp.reserve_pay_id+" desc";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;

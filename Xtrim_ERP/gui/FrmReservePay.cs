@@ -260,18 +260,31 @@ namespace Xtrim_ERP.gui
             grfExpnD.Cols[colDesc].Caption = "รายละเอียด";
             
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
-            //for (int i = 0; i < dt.Rows.Count; i++)
-            //{
-            //    grfExpnD[i + 1, 0] = i;
-            //    if (i % 2 == 0)
-            //        grfExpnD.Rows[i].StyleNew.BackColor = color;
-            //    grfExpnD[i + 1, colDid] = dt.Rows[i][xC.xtDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
-            //    grfExpnD[i + 1, colAmt] = xC.xtDB.itmDB.getNameById(dt.Rows[i][xC.xtDB.expnddDB.expnC.item_id].ToString());
-            //    grfExpnD[i + 1, colDdesc1] = dt.Rows[i][xC.xtDB.expnddDB.expnC.desc1].ToString();
-            //    grfExpnD[i + 1, colDdesc2] = dt.Rows[i][xC.xtDB.expnddDB.expnC.desc2].ToString();
-            //    grfExpnD[i + 1, colDremark] = xC.xtDB.itmDB.getNameById(dt.Rows[i][xC.xtDB.expnddDB.expnC.remark].ToString());
-            //    grfExpnD[i + 1, colDamt] = dt.Rows[i][xC.xtDB.expnddDB.expnC.amount].ToString();
-            //}
+            for (int i = 1; i < grfExpnD.Rows.Count; i++)
+            {
+                grfExpnD[i, 0] = i;
+                if(grfExpnD[i, colStatus].ToString().Equals("1"))
+                {
+                    grfExpnD[i, colStatus] = "ขออนุมัติ";
+                }
+                else if (grfExpnD[i, colStatus].ToString().Equals("2"))
+                {
+                    grfExpnD[i, colStatus] = "อนุมัติ";
+                }
+                else
+                {
+                    grfExpnD[i, colStatus] = "-";
+                }
+                
+                if (i % 2 == 0)
+                    grfExpnD.Rows[i].StyleNew.BackColor = color;
+                //    grfExpnD[i + 1, colDid] = dt.Rows[i][xC.xtDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
+                //    grfExpnD[i + 1, colAmt] = xC.xtDB.itmDB.getNameById(dt.Rows[i][xC.xtDB.expnddDB.expnC.item_id].ToString());
+                //    grfExpnD[i + 1, colDdesc1] = dt.Rows[i][xC.xtDB.expnddDB.expnC.desc1].ToString();
+                //    grfExpnD[i + 1, colDdesc2] = dt.Rows[i][xC.xtDB.expnddDB.expnC.desc2].ToString();
+                //    grfExpnD[i + 1, colDremark] = xC.xtDB.itmDB.getNameById(dt.Rows[i][xC.xtDB.expnddDB.expnC.remark].ToString());
+                //    grfExpnD[i + 1, colDamt] = dt.Rows[i][xC.xtDB.expnddDB.expnC.amount].ToString();
+            }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
             //if (grfPic.Rows.Count == (grfPic.Row + 1)) grfPic.Rows.Count++;
@@ -294,6 +307,8 @@ namespace Xtrim_ERP.gui
             txtDateDraw.Enabled = flag;
             txtDesc.Enabled = flag;
             txtAmt.Enabled = flag;
+            txtAmtReserve.Enabled = flag;
+            txtRspWait.Enabled = flag;
             chkVoid.Enabled = flag;
             cboStaff.Enabled = flag;
             
@@ -318,7 +333,13 @@ namespace Xtrim_ERP.gui
             this.txtDesc.Enter += new System.EventHandler(this.textBox_Enter);
 
             this.txtAmt.Leave += new System.EventHandler(this.textBox_Leave);
-            this.txtAmt.Enter += new System.EventHandler(this.textBox_Enter);            
+            this.txtAmt.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtAmtReserve.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtAmtReserve.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtRspWait.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtRspWait.Enter += new System.EventHandler(this.textBox_Enter);
         }
         private void setControlRsp(String rspid)
         {

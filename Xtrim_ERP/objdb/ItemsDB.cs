@@ -261,10 +261,23 @@ namespace Xtrim_ERP.objdb
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
-            String sql = "select expn.*  " +
-                "From " + itm.table + " expn " +
+            String sql = "select itm.*  " +
+                "From " + itm.table + " itm " +
                 " " +
-                "Where expn." + itm.active + " ='1' ";
+                "Where itm." + itm.active + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectAll1()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select itm."+itm.item_id+","+itm.item_code+","+itm.item_name_t+","+itm.price1+","+itm.price2+","+itm.price3+ ",itmts.item_type_sub_name_t " +
+                "From " + itm.table + " itm " +
+                "Left join b_items_type_sub itmts On itmts."+itm.item_type_sub_id+"=itm."+itm.item_type_sub_id+" " +
+                " " +
+                "Where itm." + itm.active + " ='1' " +
+                "Order By itm."+itm.item_name_t;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -283,10 +296,10 @@ namespace Xtrim_ERP.objdb
         {
             Items cop1 = new Items();
             DataTable dt = new DataTable();
-            String sql = "select expn.* " +
-                "From " + itm.table + " expn " +
+            String sql = "select itm.* " +
+                "From " + itm.table + " itm " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where expn." + itm.pkField + " ='" + copId + "' ";
+                "Where itm." + itm.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setItem(dt);
             return cop1;
