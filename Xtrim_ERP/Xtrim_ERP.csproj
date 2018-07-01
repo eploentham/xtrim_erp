@@ -522,6 +522,7 @@
     <Compile Include="objdb\AddressTypeDB.cs" />
     <Compile Include="objdb\BankDB.cs" />
     <Compile Include="objdb\CheckExamDB.cs" />
+    <Compile Include="objdb\CompanyBankDB.cs" />
     <Compile Include="objdb\CountryDB.cs" />
     <Compile Include="objdb\CustomerRemarkDB.cs" />
     <Compile Include="objdb\CustomerTaxInvoiceDB.cs" />
@@ -580,6 +581,7 @@
     <Compile Include="object1\AddressType1.cs" />
     <Compile Include="object1\Bank.cs" />
     <Compile Include="object1\CheckExam.cs" />
+    <Compile Include="object1\CompanyBank.cs" />
     <Compile Include="object1\Country.cs" />
     <Compile Include="object1\CustomerRemark.cs" />
     <Compile Include="object1\CustomerTaxInvoice.cs" />

@@ -405,7 +405,8 @@ ADD COLUMN `price5` DECIMAL(17,2) NULL AFTER `price4`;
 61-07-01
 ALTER TABLE `xtrim_erp`.`b_items` 
 ADD COLUMN `unit_id` INT NULL AFTER `price5`;
-
+ALTER TABLE `xtrim_erp`.`b_company_bank` 
+ADD COLUMN `bank_id` INT NULL AFTER `active`;
 
 
 

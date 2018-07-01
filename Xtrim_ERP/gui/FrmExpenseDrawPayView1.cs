@@ -27,12 +27,13 @@ namespace Xtrim_ERP.gui
         int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6;
         int colCID = 1, colCSubNameT = 2, colCMtp = 3, colCItmNameT = 4, colCDrawDate = 5, colCAmt = 6, colCBank=7, colCChequeNo=8, colChequeDate=9, colCChequepayname=10;
         int colBID = 1, colBNameT = 2, colBAmt = 3;
-        C1FlexGrid grfView, grfChequeView, grfChequePre, grfChequeMake, grfChequeBnk;
+        C1FlexGrid grfView, grfChequeView, grfChequePre, grfChequeMake, grfChequeBnk, grfChequeView1;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
         String userIdVoid = "";
+        
 
         public FrmExpenseDrawPayView1(XtrimControl x)
         {
@@ -52,12 +53,14 @@ namespace Xtrim_ERP.gui
             sB1.Text = "";
 
             btnChequeAdd.Click += BtnChequeAdd_Click;
+            btnChequeDel.Click += BtnChequeDel_Click;
             btnChequeOk.Click += BtnChequeOk_Click;
             chkViewFmtp.Click += ChkViewFmtp_Click;
             chkViewDraw.Click += ChkViewDraw_Click;
             chkAppvWait.Click += ChkAppvWait_Click;
             chkViewAll.Click += ChkViewAll_Click;
             chkAppvOk.Click += ChkAppvOk_Click;
+            btnChequeSave.Click += BtnChequeSave_Click;
 
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
@@ -198,17 +201,29 @@ namespace Xtrim_ERP.gui
             //FilterRow fr = new FilterRow(grfView);            
 
             gbChequeView.Controls.Add(grfChequeView);
-            ContextMenu menuGw = new ContextMenu();            
+            ContextMenu menuGw = new ContextMenu();
             //menuGw.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Gw_Cancel));
             grfChequeView.ContextMenu = menuGw;
 
             theme1.SetTheme(grfChequeView, "Office2013Red");
+
+            grfChequeView1 = new C1FlexGrid();
+            grfChequeView1.Font = fEdit;
+            grfChequeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfChequeView1.Location = new System.Drawing.Point(0, 0);
+            gbChequeView.Controls.Add(grfChequeView1);
+            //FilterRow fr = new FilterRow(grfView);            
+
+
         }
         private void setGrfChequeView()
         {
             //grfDept.Rows.Count = 7;
-            grfChequeView.DataSource = xC.xtDB.expnddDB.selectByChequeAppv("2");
-            grfChequeView.Cols.Count = 7;
+            DataTable dt = new DataTable();
+            dt = xC.xtDB.expnddDB.selectByChequeAppv("2");
+            grfChequeView1.DataSource = dt;
+            grfChequeView.Cols.Count = dt.Columns.Count+1;
+            grfChequeView.Rows.Count = dt.Rows.Count + 1;
             TextBox txt = new TextBox();
 
             grfChequeView.Cols[colCode].Editor = txt;
@@ -231,11 +246,16 @@ namespace Xtrim_ERP.gui
             grfChequeView.Cols[colCDrawDate].Caption = "วันที่";
             grfChequeView.Cols[colCAmt].Caption = "รวมเงิน";
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
-            for (int i = 1; i < grfChequeView.Rows.Count; i++)
+            for (int i = 0; i < grfChequeView.Rows.Count-1; i++)
             {
-                grfChequeView[i, 0] = i;
+                grfChequeView[i+1, 0] = i;
                 if (i % 2 == 0)
-                    grfChequeView.Rows[i].StyleNew.BackColor = color;
+                    grfChequeView.Rows[i + 1].StyleNew.BackColor = color;
+                grfChequeView[i + 1, colCID] = dt.Rows[i][colCID-1].ToString();
+                grfChequeView[i + 1, colCSubNameT] = dt.Rows[i][colCSubNameT - 1].ToString();
+                grfChequeView[i + 1, colCMtp] = dt.Rows[i][colCMtp - 1].ToString();
+                grfChequeView[i + 1, colCItmNameT] = dt.Rows[i][colCItmNameT - 1].ToString();
+                grfChequeView[i + 1, colCAmt] = dt.Rows[i][colCAmt - 1].ToString();
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
@@ -414,15 +434,47 @@ namespace Xtrim_ERP.gui
         private void BtnChequeAdd_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            int row = grfChequePre.Rows.Count++;
-            grfChequePre[row, 0] = row;
-            grfChequePre[row, colCID] = grfChequeView[grfChequeView.Row, colCID];
-            grfChequePre[row, colCSubNameT] = grfChequeView[grfChequeView.Row, colCSubNameT];
-            grfChequePre[row, colCMtp] = grfChequeView[grfChequeView.Row, colCMtp];
-            grfChequePre[row, colCItmNameT] = grfChequeView[grfChequeView.Row, colCItmNameT];
-            grfChequePre[row, colCDrawDate] = grfChequeView[grfChequeView.Row, colCDrawDate];
-            grfChequePre[row, colCAmt] = grfChequeView[grfChequeView.Row, colCAmt];
+            int row = grfChequeView.Row;
+            //int row = grfChequePre.Rows.Count++;
+            //Row rr = grfChequeView.Rows[grfChequeView.Row];
+            Row rrr = grfChequePre.Rows.Add();
+            rrr[colCID] = grfChequeView[row, colCID].ToString();
+            rrr[colCSubNameT] = grfChequeView[row, colCSubNameT].ToString();
+            rrr[colCMtp] = grfChequeView[row, colCMtp].ToString();
+            rrr[colCItmNameT] = grfChequeView[row, colCItmNameT].ToString();
+            rrr[colCAmt] = grfChequeView[row, colCAmt].ToString();
+
+            //grfChequePre[row, 0] = row;
+            //grfChequePre[row, colCID] = grfChequeView1[row1,colCID].ToString();
+            //grfChequePre[row, colCSubNameT] = grfChequeView1[row1, colCSubNameT].ToString();
+            //grfChequePre[row, colCMtp] = grfChequeView1[row1, colCMtp].ToString();
+            //grfChequePre[row, colCItmNameT] = grfChequeView1[row1, colCItmNameT].ToString();
+            //grfChequePre[row, colCDrawDate] = grfChequeView1[row1, colCDrawDate].ToString();
+            //grfChequePre[row, colCAmt] = grfChequeView1[row1, colCAmt].ToString();
+
+            grfChequeView.Rows.Remove(grfChequeView.Row);
         }
+        private void BtnChequeDel_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            int row = 0;
+            row = grfChequePre.Row;
+            Row rrr = grfChequeView.Rows.Add();
+            rrr[colCID] = grfChequePre[row, colCID].ToString();
+            rrr[colCSubNameT] = grfChequePre[row, colCSubNameT].ToString();
+            rrr[colCMtp] = grfChequePre[row, colCMtp].ToString();
+            rrr[colCItmNameT] = grfChequePre[row, colCItmNameT].ToString();
+            rrr[colCAmt] = grfChequePre[row, colCAmt].ToString();
+
+            grfChequePre.Rows.Remove(row);
+
+            //grfChequeView[grfChequePre.Row, colCID] = dt.Rows[grfChequePre.Row-1][colCID - 1].ToString();
+            //grfChequeView[grfChequePre.Row, colCSubNameT] = dt.Rows[grfChequePre.Row - 1][colCSubNameT - 1].ToString();
+            //grfChequeView[grfChequePre.Row, colCMtp] = dt.Rows[grfChequePre.Row - 1][colCMtp - 1].ToString();
+            //grfChequeView[grfChequePre.Row, colCItmNameT] = dt.Rows[grfChequePre.Row - 1][colCItmNameT - 1].ToString();
+            //grfChequeView[grfChequePre.Row, colCAmt] = dt.Rows[grfChequePre.Row - 1][colCAmt - 1].ToString();
+        }
+
         private void BtnChequeOk_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -438,6 +490,11 @@ namespace Xtrim_ERP.gui
                 grfChequeMake[row, colCDrawDate] = grfChequePre[row, colCDrawDate];
                 grfChequeMake[row, colCAmt] = grfChequePre[row, colCAmt];
             }
+        }
+        private void BtnChequeSave_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+
         }
         private void setChkView()
         {

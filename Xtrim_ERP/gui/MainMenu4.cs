@@ -63,6 +63,15 @@ namespace Xtrim_ERP.gui
             menuRsp.Click += MenuRsp_Click;
             menuRspAppv.Click += MenuRspAppv_Click;
             menuRspReserve.Click += MenuRspReserve_Click;
+            menuCop.Click += MenuCop_Click;
+        }
+
+        private void MenuCop_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmCompany frm = new FrmCompany(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "บริษัท ");
         }
 
         private void MenuRspReserve_Click(object sender, EventArgs e)

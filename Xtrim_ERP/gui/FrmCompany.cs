@@ -24,7 +24,7 @@ namespace Xtrim_ERP.gui
         Color bg, fc;
         Font ff, ffB;
 
-        int colID = 0, colE = 1, colS = 2, colCode = 3, colNameT = 4, colNameE = 5, colRemark = 6, coledit = 7;
+        int colID = 1, colE = 1, colS = 2, colCode = 3, colNameT = 4, colNameE = 5, colRemark = 6, coledit = 7;
         int colCnt = 8;
 
         C1FlexGrid grfCop;
@@ -86,13 +86,13 @@ namespace Xtrim_ERP.gui
 
             String addrId = "";
             addrId = grfCop[e.NewRange.r1, colID] != null ? grfCop[e.NewRange.r1, colID].ToString() : "";
-            //setControlAddr(addrId);
+            setControl(addrId);
             //setControlAddrEnable(false);
         }
         private void grfCus_DoubleClick(object sender, EventArgs e)
         {
-            String addrId = "";
-            addrId = grfCop[grfCop.Row, colID].ToString();
+            //String addrId = "";
+            //addrId = grfCop[grfCop.Row, colID].ToString();
         }
         //private void grdView_CellDoubleClick(object sender, FarPoint.Win.Spread.CellClickEventArgs e)
         //{
@@ -131,17 +131,17 @@ namespace Xtrim_ERP.gui
 
             grfCop.ShowCursor = true;
 
-            grfCop.Cols[colE].Caption = "edit";
-            grfCop.Cols[colS].Caption = "save";
-            grfCop.Cols[colCode].Caption = "รหัส";
-            grfCop.Cols[colNameT].Caption = "ชื่อไทย";
-            grfCop.Cols[colNameE].Caption = "name eng";
-            grfCop.Cols[colRemark].Caption = "หมายเหตุ";
+            //grfCop.Cols[colE].Caption = "edit";
+            //grfCop.Cols[colS].Caption = "save";
             //grfCop.Cols[colCode].Caption = "รหัส";
-            //grfCop.Cols[colCode].Caption = "รหัส";
+            //grfCop.Cols[colNameT].Caption = "ชื่อไทย";
+            //grfCop.Cols[colNameE].Caption = "name eng";
+            //grfCop.Cols[colRemark].Caption = "หมายเหตุ";
+            ////grfCop.Cols[colCode].Caption = "รหัส";
+            ////grfCop.Cols[colCode].Caption = "รหัส";
 
-            grfCop.Cols[colID].Visible = false;
-            grfCop.Cols[coledit].Visible = false;
+            //grfCop.Cols[colID].Visible = false;
+            //grfCop.Cols[coledit].Visible = false;
         }
         private void setGrfCop()
         {
@@ -480,9 +480,10 @@ namespace Xtrim_ERP.gui
             a.ForeColor = fc;
             a.Font = new Font(ff, FontStyle.Regular);
         }
-        private void setControl()
+        private void setControl(String copid)
         {
-            //cop = xC.xtDB.copDB.selectByPk1(xC.copID);
+            if (copid.Equals("")) return;
+            cop = xC.xtDB.copDB.selectByPk1(copid);
             txtID.Value = cop.comp_id;
             txtCopCode.Value = cop.comp_code;
             txtCopNameE.Value = cop.comp_name_e;
