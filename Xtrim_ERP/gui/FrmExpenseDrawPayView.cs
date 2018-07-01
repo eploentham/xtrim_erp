@@ -83,7 +83,7 @@ namespace Xtrim_ERP.gui
         private void setGrfDeptH()
         {
             //grfDept.Rows.Count = 7;
-            grfExpn.DataSource = xC.xtDB.expndDB.selectAll1(cboYear.Text);
+            grfExpn.DataSource = xC.xtDB.expndDB.selectAll1(cboYear.Text,objdb.ExpensesDrawDB.StatusPay.waitappv);
             grfExpn.Cols.Count = 7;
             TextBox txt = new TextBox();
 

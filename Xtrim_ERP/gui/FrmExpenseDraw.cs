@@ -86,6 +86,7 @@ namespace Xtrim_ERP.gui
             c1Button1.Click += C1Button1_Click;
             btnDNew.Click += BtnDNew_Click;
             btnDEdit.Click += BtnDEdit_Click;
+            cboStaff.DropDownClosed += CboStaff_DropDownClosed;
 
             initGrfDept();
             initGrfDept1();
@@ -104,11 +105,24 @@ namespace Xtrim_ERP.gui
             stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
         }
 
+        private void CboStaff_DropDownClosed(object sender, DropDownClosedEventArgs e)
+        {
+            //throw new NotImplementedException();
+            setAmtOnhand();
+        }
+        private void setAmtOnhand()
+        {
+            String stfid = "";
+            stfid = cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "";
+
+        }
+
         private void BtnDEdit_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             FrmExpenseDrawD frm = new FrmExpenseDrawD(xC, "");
             frm.ShowDialog(this);
+            setExpnDD();
         }
 
         private void BtnDNew_Click(object sender, EventArgs e)
@@ -116,8 +130,34 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             FrmExpenseDrawD frm = new FrmExpenseDrawD(xC,"");
             frm.ShowDialog(this);
+            setExpnDD();
         }
-
+        private void setExpnDD()
+        {
+            if (!xC.sItm.item_id.Equals(""))
+            {
+                int row = grfExpnD.Rows.Count++;
+                grfExpnD[row, colID] = xC.sItm.item_id;
+                grfExpnD[row, colDItemId] = xC.sItm.item_id;
+                grfExpnD[row, colDItemNamet] = xC.sItm.item_name_t;
+                grfExpnD[row, colDQty] = xC.sItm.qty;
+                grfExpnD[row, colDUnitNameT] = xC.sItm.unit_name_t;
+                grfExpnD[row, colDPrice] = xC.sItm.price1;
+                grfExpnD[row, colDamt] = xC.sItm.amt;
+                grfExpnD[row, colDwatx1] = xC.sItm.wtax1;
+                grfExpnD[row, colDwatx3] = xC.sItm.wtax3;
+                grfExpnD[row, colDvat] = xC.sItm.vat;
+                grfExpnD[row, colDUnitId] = xC.sItm.unit_id;
+                grfExpnD[row, colDtotal] = xC.sItm.total;
+                grfExpnD[row, colDpaytocusnamet] = xC.sItm.cust_name_t;
+                grfExpnD[row, colDpaytocusaddr] = xC.sItm.cust_addr;
+                grfExpnD[row, colDapaytocustax] = xC.sItm.cust_tax;
+                grfExpnD[row, colDreceiptno] = xC.sItm.receipt_no;
+                grfExpnD[row, colDreceiptdate] = xC.sItm.receipt_date;
+                grfExpnD[row, colDpaytocusid] = xC.sItm.cust_id;
+                grfExpnD[row, colDremark] = xC.sItm.vat;
+            }
+        }
         private void C1Button1_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -158,9 +198,22 @@ namespace Xtrim_ERP.gui
             //grfExpnD.KeyUpEdit += GrfExpnD_KeyUpEdit;
             grfExpnD.KeyUp += GrfExpnD_KeyUp;
 
+            ContextMenu menuGw = new ContextMenu();
+            menuGw.MenuItems.Add("&ยกเลิก รายการ", new EventHandler(ContextMenu_cancel));
+            grfExpnD.ContextMenu = menuGw;
+
             panel4.Controls.Add(grfExpnD);
 
             theme1.SetTheme(grfExpnD, "Office2013Red");            
+        }
+        private void ContextMenu_cancel(object sender, System.EventArgs e)
+        {
+            String chk = "";
+            chk = grfExpnD[grfExpnD.Row, colDItemNamet] != null ? grfExpnD[grfExpnD.Row, colDItemNamet].ToString() : "";
+            if (MessageBox.Show("ต้องการ ยกเลิกรายการ  \n  " + chk, "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                grfExpnD.Rows.Remove(grfExpnD.Row);
+            }
         }
         private void initGrfDept1()
         {

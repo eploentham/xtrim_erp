@@ -54,13 +54,17 @@ namespace Xtrim_ERP.gui
             btnChequeAdd.Click += BtnChequeAdd_Click;
             btnChequeOk.Click += BtnChequeOk_Click;
             chkViewFmtp.Click += ChkViewFmtp_Click;
+            chkViewDraw.Click += ChkViewDraw_Click;
+            chkAppvWait.Click += ChkAppvWait_Click;
+            chkViewAll.Click += ChkViewAll_Click;
+            chkAppvOk.Click += ChkAppvOk_Click;
 
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
             stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
             chkViewDraw.Checked = true;
 
-            chkAll.Checked = true;
+            chkViewAll.Checked = true;
             xC.setCboYear(cboYear);
             initGrfView();
             setGrfView();
@@ -74,7 +78,7 @@ namespace Xtrim_ERP.gui
             setGrfChequeBnk();
             tC1.SelectedTab = tabCheque;
         }
-
+        
         private void initGrfView()
         {
             grfView = new C1FlexGrid();
@@ -100,7 +104,7 @@ namespace Xtrim_ERP.gui
         private void setGrfView()
         {
             //grfDept.Rows.Count = 7;
-            grfView.DataSource = xC.xtDB.expndDB.selectAll1(cboYear.Text);
+            grfView.DataSource = xC.xtDB.expndDB.selectAll1(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all);
             grfView.Cols.Count = 7;
             TextBox txt = new TextBox();
 
@@ -139,7 +143,7 @@ namespace Xtrim_ERP.gui
             //grfDept.Rows.Count = 7;
             //grfView.Tree = 
             DataSet ds = new DataSet();
-            ds = xC.xtDB.expndDB.selectAllFmtp(cboYear.Text);
+            ds = xC.xtDB.expndDB.selectAllFmtp(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all);
             grfView.DataSource = ds.Tables[0];
             grfView.Cols.Count = 7;
             TextBox txt = new TextBox();
@@ -435,13 +439,41 @@ namespace Xtrim_ERP.gui
                 grfChequeMake[row, colCAmt] = grfChequePre[row, colCAmt];
             }
         }
-        private void ChkViewFmtp_Click(object sender, EventArgs e)
+        private void setChkView()
         {
-            //throw new NotImplementedException();
             if (chkViewFmtp.Checked)
             {
                 setGrfViewFmtp();
             }
+            else if (chkViewDraw.Checked)
+            {
+                setGrfView();
+            }
+        }
+        private void ChkViewFmtp_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            setChkView();
+        }
+        private void ChkViewDraw_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            setChkView();
+        }
+        private void ChkAppvWait_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            setChkView();
+        }
+        private void ChkViewAll_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            setChkView();
+        }
+        private void ChkAppvOk_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            setChkView();
         }
         private void FrmExpenseDrawPayView1_Load(object sender, EventArgs e)
         {

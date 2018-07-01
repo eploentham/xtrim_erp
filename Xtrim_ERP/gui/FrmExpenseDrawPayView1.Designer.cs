@@ -81,7 +81,7 @@
             this.panel20 = new System.Windows.Forms.Panel();
             this.chkViewFmtp = new System.Windows.Forms.RadioButton();
             this.chkViewDraw = new System.Windows.Forms.RadioButton();
-            this.chkAll = new System.Windows.Forms.RadioButton();
+            this.chkViewAll = new System.Windows.Forms.RadioButton();
             this.chkAppvOk = new System.Windows.Forms.RadioButton();
             this.chkAppvWait = new System.Windows.Forms.RadioButton();
             this.cboYear = new C1.Win.C1Input.C1ComboBox();
@@ -767,7 +767,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panel3.Controls.Add(this.panel20);
-            this.panel3.Controls.Add(this.chkAll);
+            this.panel3.Controls.Add(this.chkViewAll);
             this.panel3.Controls.Add(this.chkAppvOk);
             this.panel3.Controls.Add(this.chkAppvWait);
             this.panel3.Controls.Add(this.cboYear);
@@ -826,22 +826,22 @@
             this.theme1.SetTheme(this.chkViewDraw, "(default)");
             this.chkViewDraw.UseVisualStyleBackColor = false;
             // 
-            // chkAll
+            // chkViewAll
             // 
-            this.chkAll.AutoSize = true;
-            this.chkAll.BackColor = System.Drawing.Color.Transparent;
-            this.chkAll.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.chkAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.chkAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkAll.Location = new System.Drawing.Point(342, 15);
-            this.chkAll.Name = "chkAll";
-            this.chkAll.Size = new System.Drawing.Size(58, 17);
-            this.chkAll.TabIndex = 496;
-            this.chkAll.TabStop = true;
-            this.chkAll.Text = "ทั้งหมด";
-            this.theme1.SetTheme(this.chkAll, "(default)");
-            this.chkAll.UseVisualStyleBackColor = false;
+            this.chkViewAll.AutoSize = true;
+            this.chkViewAll.BackColor = System.Drawing.Color.Transparent;
+            this.chkViewAll.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkViewAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkViewAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkViewAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkViewAll.Location = new System.Drawing.Point(342, 15);
+            this.chkViewAll.Name = "chkViewAll";
+            this.chkViewAll.Size = new System.Drawing.Size(58, 17);
+            this.chkViewAll.TabIndex = 496;
+            this.chkViewAll.TabStop = true;
+            this.chkViewAll.Text = "ทั้งหมด";
+            this.theme1.SetTheme(this.chkViewAll, "(default)");
+            this.chkViewAll.UseVisualStyleBackColor = false;
             // 
             // chkAppvOk
             // 
@@ -1008,7 +1008,7 @@
         private C1.Win.C1Command.C1DockingTabPage tabCash;
         private C1.Win.C1Command.C1DockingTabPage tabTransfer;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RadioButton chkAll;
+        private System.Windows.Forms.RadioButton chkViewAll;
         private System.Windows.Forms.RadioButton chkAppvOk;
         private System.Windows.Forms.RadioButton chkAppvWait;
         private C1.Win.C1Input.C1ComboBox cboYear;

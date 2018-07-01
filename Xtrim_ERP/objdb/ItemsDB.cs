@@ -54,6 +54,20 @@ namespace Xtrim_ERP.objdb
             itm.price3 = "price3";
             itm.price4 = "price4";
             itm.price5 = "price5";
+            itm.unit_id = "unit_id";
+                        
+            itm.qty = "";
+            itm.cust_addr = "";
+            itm.cust_id = "";
+            itm.cust_name_t = "";
+            itm.cust_tax = "";
+            itm.unit_name_t = "";
+            itm.wtax1 = "";
+            itm.wtax3 = "";
+            itm.vat = "";
+            itm.receipt_date = "";
+            itm.receipt_no = "";
+            itm.total = "";
 
             itm.table = "b_items";
             itm.pkField = "item_id";
@@ -143,6 +157,7 @@ namespace Xtrim_ERP.objdb
             p.item_type_sub_id = int.TryParse(p.item_type_sub_id, out chk) ? chk.ToString() : "0";
             p.item_cat_id = int.TryParse(p.item_cat_id, out chk) ? chk.ToString() : "0";
             p.f_method_payment_id = int.TryParse(p.f_method_payment_id, out chk) ? chk.ToString() : "0";
+            p.unit_id = int.TryParse(p.unit_id, out chk) ? chk.ToString() : "0";
 
             p.price1 = Decimal.TryParse(p.price1, out chk1) ? chk1.ToString() : "0";
             p.price2 = Decimal.TryParse(p.price2, out chk1) ? chk1.ToString() : "0";
@@ -168,7 +183,7 @@ namespace Xtrim_ERP.objdb
                 itm.active + "," + itm.remark + ", " + itm.sort1 + "," +
                 itm.acc_code + "," + itm.status_tax53 + ", " + itm.item_grp_id + "," +
                 itm.item_type_sub_id + "," + itm.item_cat_id + ", " + itm.status_app + "," +
-                itm.f_method_payment_id + "," + itm.status_invoice + "," +
+                itm.f_method_payment_id + "," + itm.status_invoice + "," + itm.unit_id + "," +
                 itm.price1 + "," + itm.price2 + ", " + itm.price3 + ", " +
                 itm.price4 + "," + itm.price5 + " " +
                 ") " +
@@ -178,7 +193,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "'," +
                 "'" + p.acc_code + "','" + p.status_tax53.Replace("'", "''") + "','" + p.item_grp_id + "'," +
                 "'" + p.item_type_sub_id + "','" + p.item_cat_id.Replace("'", "''") + "','" + p.status_app + "'," +
-                "'" + p.f_method_payment_id + "','" + p.status_invoice.Replace("'", "''") + "'," +
+                "'" + p.f_method_payment_id + "','" + p.status_invoice.Replace("'", "''") + "'," + p.unit_id + "'," +
                 "'" + p.price1 + "','" + p.price2.Replace("'", "''") + "','" + p.price3 + "'," +
                 "'" + p.price4 + "','" + p.price5.Replace("'", "''") + "' " + 
                 ")";
@@ -221,6 +236,7 @@ namespace Xtrim_ERP.objdb
                 "," + itm.price3 + " = '" + p.price3 + "' " +
                 "," + itm.price4 + " = '" + p.price4 + "' " +
                 "," + itm.price5 + " = '" + p.price5 + "' " +
+                "," + itm.unit_id + " = '" + p.unit_id + "' " +
                 "Where " + itm.pkField + "='" + p.item_id + "'"
                 ;
 
@@ -306,39 +322,86 @@ namespace Xtrim_ERP.objdb
         }
         public Items setItem(DataTable dt)
         {
-            Items expn1 = new Items();
+            Items itm1 = new Items();
             if (dt.Rows.Count > 0)
             {
-                expn1.item_id = dt.Rows[0][itm.item_id].ToString();
-                expn1.item_code = dt.Rows[0][itm.item_code].ToString();
-                expn1.item_name_e = dt.Rows[0][itm.item_name_e].ToString();
-                expn1.item_name_t = dt.Rows[0][itm.item_name_t].ToString();
-                expn1.active = dt.Rows[0][itm.active].ToString();
-                expn1.date_cancel = dt.Rows[0][itm.date_cancel].ToString();
-                expn1.date_create = dt.Rows[0][itm.date_create].ToString();
-                expn1.date_modi = dt.Rows[0][itm.date_modi].ToString();
-                expn1.user_cancel = dt.Rows[0][itm.user_cancel].ToString();
-                expn1.user_create = dt.Rows[0][itm.user_create].ToString();
-                expn1.user_modi = dt.Rows[0][itm.user_modi].ToString();
+                itm1.item_id = dt.Rows[0][itm.item_id].ToString();
+                itm1.item_code = dt.Rows[0][itm.item_code].ToString();
+                itm1.item_name_e = dt.Rows[0][itm.item_name_e].ToString();
+                itm1.item_name_t = dt.Rows[0][itm.item_name_t].ToString();
+                itm1.active = dt.Rows[0][itm.active].ToString();
+                itm1.date_cancel = dt.Rows[0][itm.date_cancel].ToString();
+                itm1.date_create = dt.Rows[0][itm.date_create].ToString();
+                itm1.date_modi = dt.Rows[0][itm.date_modi].ToString();
+                itm1.user_cancel = dt.Rows[0][itm.user_cancel].ToString();
+                itm1.user_create = dt.Rows[0][itm.user_create].ToString();
+                itm1.user_modi = dt.Rows[0][itm.user_modi].ToString();
                 //pti1.status_app = dt.Rows[0][tmn.status_app].ToString();
-                expn1.remark = dt.Rows[0][itm.remark].ToString();
-                expn1.sort1 = dt.Rows[0][itm.sort1].ToString();
-                expn1.acc_code = dt.Rows[0][itm.acc_code].ToString();
-                expn1.status_tax53 = dt.Rows[0][itm.status_tax53].ToString();
-                expn1.item_grp_id = dt.Rows[0][itm.item_grp_id].ToString();
-                expn1.item_type_sub_id = dt.Rows[0][itm.item_type_sub_id].ToString();
-                expn1.item_cat_id = dt.Rows[0][itm.item_cat_id].ToString();
-                expn1.status_app = dt.Rows[0][itm.status_app].ToString();
-                expn1.f_method_payment_id = dt.Rows[0][itm.f_method_payment_id].ToString();
-                expn1.status_invoice = dt.Rows[0][itm.status_invoice].ToString();
-                expn1.price1 = dt.Rows[0][itm.price1].ToString();
-                expn1.price2 = dt.Rows[0][itm.price2].ToString();
-                expn1.price3 = dt.Rows[0][itm.price3].ToString();
-                expn1.price4 = dt.Rows[0][itm.price4].ToString();
-                expn1.price5 = dt.Rows[0][itm.price5].ToString();
+                itm1.remark = dt.Rows[0][itm.remark].ToString();
+                itm1.sort1 = dt.Rows[0][itm.sort1].ToString();
+                itm1.acc_code = dt.Rows[0][itm.acc_code].ToString();
+                itm1.status_tax53 = dt.Rows[0][itm.status_tax53].ToString();
+                itm1.item_grp_id = dt.Rows[0][itm.item_grp_id].ToString();
+                itm1.item_type_sub_id = dt.Rows[0][itm.item_type_sub_id].ToString();
+                itm1.item_cat_id = dt.Rows[0][itm.item_cat_id].ToString();
+                itm1.status_app = dt.Rows[0][itm.status_app].ToString();
+                itm1.f_method_payment_id = dt.Rows[0][itm.f_method_payment_id].ToString();
+                itm1.status_invoice = dt.Rows[0][itm.status_invoice].ToString();
+                itm1.price1 = dt.Rows[0][itm.price1].ToString();
+                itm1.price2 = dt.Rows[0][itm.price2].ToString();
+                itm1.price3 = dt.Rows[0][itm.price3].ToString();
+                itm1.price4 = dt.Rows[0][itm.price4].ToString();
+                itm1.price5 = dt.Rows[0][itm.price5].ToString();
+                itm1.unit_id = dt.Rows[0][itm.unit_id].ToString();
+            }
+            else
+            {
+                itm1.item_id = "";
+                itm1.item_code = "";
+                itm1.item_name_e = "";
+                itm1.item_name_t = "";
+                itm1.status_app = "";
+                itm1.sort1 = "";
+
+                itm1.active = "";
+                itm1.date_create = "";
+                itm1.date_modi = "";
+                itm1.date_cancel = "";
+                itm1.user_create = "";
+                itm1.user_modi = "";
+                itm1.user_cancel = "";
+                //tmn.status_app = "status_app";
+                itm1.remark = "";
+
+                itm1.acc_code = "";
+                itm1.status_tax53 = "";
+                itm1.item_grp_id = "";
+                itm1.item_type_sub_id = "";
+                itm1.item_cat_id = "";
+                itm1.f_method_payment_id = "";
+                itm1.status_invoice = "";
+                itm1.price1 = "";
+                itm1.price2 = "";
+                itm1.price3 = "";
+                itm1.price4 = "";
+                itm1.price5 = "";
+                itm1.qty = "";
+                itm1.cust_addr = "";
+                itm1.cust_id = "";
+                itm1.cust_name_t = "";
+                itm1.cust_tax = "";
+                itm1.unit_id = "";
+                itm1.unit_name_t = "";
+                itm1.wtax1 = "";
+                itm1.wtax3 = "";
+                itm1.vat = "";
+                itm1.receipt_date = "";
+                itm1.receipt_no = "";
+                itm1.total = "";
+
             }
 
-            return expn1;
+            return itm1;
         }
         public C1ComboBox setC1CboItem(C1ComboBox c)
         {

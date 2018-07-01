@@ -90,6 +90,10 @@ namespace Xtrim_ERP.objdb
             ComboBoxItem item = new ComboBoxItem();
             //DataTable dt = selectWard();
             if (lUtp.Count <= 0) getlPol();
+            item = new ComboBoxItem();
+            item.Value = "";
+            item.Text = "";
+            c.Items.Add(item);
             foreach (UnitPackage cus1 in lUtp)
             {
                 item = new ComboBoxItem();

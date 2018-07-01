@@ -51,6 +51,7 @@ namespace Xtrim_ERP.control
         public Currency sCurr;
         public Truck sTrk;
         public Address sAddr;
+        public Items sItm;
 
         public Terminal sTmn;
         public LogFile lf;
@@ -115,6 +116,7 @@ namespace Xtrim_ERP.control
             sTrkCop = new Customer();
             sAddr = new Address();
             sConY = new Customer();
+            sItm = new Items();
 
             cTxtFocus = ColorTranslator.FromHtml(iniC.txtFocus);
             regEmail = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");

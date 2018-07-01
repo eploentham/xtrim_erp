@@ -67,6 +67,7 @@ namespace Xtrim_ERP.gui
             xC.xtDB.itmtsDB.setC1CboItmTypeSub(cboItmts, "");
             xC.xtDB.itmgDB.setC1CboExpnG(cboItmG, "");
             xC.xtDB.fmtpDB.setC1CboMtp(cboFMtp, "");
+            xC.xtDB.utpDB.setC1CboUtp(cboUtp, "");
             initGrfDept();
             setGrfDeptH();
             setControlEnable(false);
@@ -182,6 +183,7 @@ namespace Xtrim_ERP.gui
             xC.setC1Combo(cboItmG, itm.item_grp_id);
             xC.setC1Combo(cboItmts, itm.item_type_sub_id);
             xC.setC1Combo(cboFMtp, itm.f_method_payment_id);
+            xC.setC1Combo(cboUtp, itm.unit_id);
 
             txtAccCode.Value = itm.acc_code;
             chkInv.Checked = itm.status_invoice.Equals("1") ? true : false;
@@ -219,6 +221,7 @@ namespace Xtrim_ERP.gui
             cboItmC.Enabled = flag;
             cboItmG.Enabled = flag;
             cboItmts.Enabled = flag;
+            cboUtp.Enabled = flag;
 
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
@@ -240,6 +243,7 @@ namespace Xtrim_ERP.gui
             itm.price3 = txtPrice3.Text;
             itm.price4 = txtPrice4.Text;
             itm.price5 = txtPrice5.Text;
+            itm.unit_id = cboUtp.SelectedItem != null ? ((ComboBoxItem)(cboUtp.SelectedItem)).Value : "";
         }
         private void grfDept_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
         {

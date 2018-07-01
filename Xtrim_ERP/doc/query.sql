@@ -402,6 +402,9 @@ ADD COLUMN `price3` DECIMAL(17,2) NULL AFTER `price2`,
 ADD COLUMN `price4` DECIMAL(17,2) NULL AFTER `price3`,
 ADD COLUMN `price5` DECIMAL(17,2) NULL AFTER `price4`;
 
+61-07-01
+ALTER TABLE `xtrim_erp`.`b_items` 
+ADD COLUMN `unit_id` INT NULL AFTER `price5`;
 
 
 

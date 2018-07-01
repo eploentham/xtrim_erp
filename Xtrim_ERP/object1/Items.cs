@@ -35,6 +35,21 @@ namespace Xtrim_ERP.object1
         public String price3 { get; set; }
         public String price4 { get; set; }
         public String price5 { get; set; }
+        public String unit_id { get; set; }
+
+        public String qty { get; set; }
+        public String amt { get; set; }
+        public String wtax1 { get; set; }
+        public String wtax3 { get; set; }
+        public String vat { get; set; }
+        public String total { get; set; }
+        public String unit_name_t { get; set; }
+        public String cust_name_t { get; set; }
+        public String cust_addr { get; set; }
+        public String cust_id { get; set; }
+        public String cust_tax { get; set; }
+        public String receipt_no { get; set; }
+        public String receipt_date { get; set; }
 
     }
 }

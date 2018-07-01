@@ -15,6 +15,7 @@ namespace Xtrim_ERP.objdb
         ConnectDB conn;
 
         public List<ExpensesDraw> lexpnC;
+        public enum StatusPay {waitappv, appv, all };
         public ExpensesDrawDB(ConnectDB c)
         {
             conn = c;
@@ -299,25 +300,53 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
-        public DataTable selectAll1(String year)
+        public DataTable selectAll1(String year, StatusPay spay)
         {
             DataTable dt = new DataTable();
+            String wherestatuspay = "";
+            if (spay == StatusPay.waitappv)
+            {
+                wherestatuspay = " and "+expnC.status_appv+"='1'";
+            }
+            else if (spay == StatusPay.appv)
+            {
+                wherestatuspay = " and " + expnC.status_appv + "='2'";
+            }
+            else if (spay == StatusPay.all)
+            {
+                wherestatuspay = "";
+            }
             String sql = "select expC."+expnC.expenses_draw_id+","+expnC.expenses_draw_code+","+expnC.desc1+","+expnC.remark+","+expnC.amount+","+expnC.status_appv+ ","+expnC.status_pay_type+" " +
                 "From " + expnC.table + " expC " +
                 " " +
-                "Where expC." + expnC.active + " ='1' and " + expnC.year + "='" + year + "' ";
+                "Where expC." + expnC.active + " ='1' and " + expnC.year + "='" + year + "' "+ wherestatuspay;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
         }
-        public DataSet selectAllFmtp(String year)
+        public DataSet selectAllFmtp(String year, StatusPay spay)
         {
             DataSet ds = new DataSet();
+            String wherestatuspay = "";
+            if (spay == StatusPay.waitappv)
+            {
+                wherestatuspay = " and ed." + expnC.status_appv + "='1'";
+            }
+            else if (spay == StatusPay.appv)
+            {
+                wherestatuspay = " and ed." + expnC.status_appv + "='2'";
+            }
+            else if (spay == StatusPay.all)
+            {
+                wherestatuspay = "";
+            }
             String sql = "select fmtp.f_method_payment_name_t,  itmts.item_type_sub_name_t, sum(edd.amount) as amt " +
                     "from t_expenses_draw_detail edd " +
+                    "inner join t_expenses_draw ed on edd.expenses_draw_id = ed.expenses_draw_id " +
                     "inner join b_items itm on edd.item_id = itm.item_id " +
                     "inner join b_items_type_sub itmts on itm.item_type_sub_id = itmts.item_type_sub_id " +
                     "inner join f_method_payment fmtp on itm.f_method_payment_id = fmtp.f_method_payment_id " +
+                    "Where edd." + expnC.active + " ='1' and ed." + expnC.year + "='" + year + "' " + wherestatuspay+" "+
                     "group by itmts.item_type_sub_name_t, fmtp.f_method_payment_name_t ";
             ds = conn.selectDataDS(conn.conn, sql);
 

@@ -30,9 +30,7 @@
         {
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.label6 = new System.Windows.Forms.Label();
-            
             this.label31 = new System.Windows.Forms.Label();
-            
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -99,7 +97,6 @@
             this.label6.Size = new System.Drawing.Size(49, 16);
             this.label6.TabIndex = 498;
             this.theme1.SetTheme(this.label6, "(default)");
-            
             // 
             // label31
             // 
@@ -112,7 +109,6 @@
             this.label31.Size = new System.Drawing.Size(71, 16);
             this.label31.TabIndex = 493;
             this.theme1.SetTheme(this.label31, "(default)");
-            
             // 
             // splitContainer1
             // 

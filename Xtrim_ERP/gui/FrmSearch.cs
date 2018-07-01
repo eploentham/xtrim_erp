@@ -49,14 +49,12 @@ namespace Xtrim_ERP.object1
         //private CellStyle _style;
         //private int _row = -1;          // index of filter row (-1 if none)
         //private int _col = -1;			// index of filter row cell being edited (-1 if none)
-
-
+        
         Font fEdit, fEditB;
         int colNo = 0, colID = 1, colNameT = 2, colNameE = 3, colRemark = 4, coledit = 5;
         int colCnt = 6;
         String txtS = "", flagAddr="";
-
-
+        
         public FrmSearch(XtrimControl x, Search f)
         {
             xC = x;
@@ -298,8 +296,7 @@ namespace Xtrim_ERP.object1
                 grfAddr.Dock = DockStyle.Fill;
                 grfAddr.Location = new System.Drawing.Point(0, 0);
                 panel2.Controls.Add(grfAddr);
-
-
+                
             }
             else
             {

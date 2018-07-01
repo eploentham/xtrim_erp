@@ -51,12 +51,102 @@ namespace Xtrim_ERP.gui
             bg = txtQty.BackColor;
             fc = txtQty.ForeColor;
             ff = txtQty.Font;
+            txtQty.KeyPress += TxtQty_KeyPress;
+            btnSave.Click += BtnSave_Click;
 
-            xC.xtDB.itmDB.setC1CboItem(cboItm);
+            //xC.xtDB.itmDB.setC1CboItem(cboItm);
             xC.xtDB.utpDB.setC1CboUtp(cboUtp, "");
+            setFocusColor();
             initGrfDept();
             setGrfDeptH();
         }
+        private void textBox_Enter(object sender, EventArgs e)
+        {
+            C1TextBox a = (C1TextBox)sender;
+            a.BackColor = xC.cTxtFocus;
+            a.Font = new Font(ff, FontStyle.Bold);
+        }
+        private void textBox_Leave(object sender, EventArgs e)
+        {
+            C1TextBox a = (C1TextBox)sender;
+            a.BackColor = bg;
+            a.ForeColor = fc;
+            a.Font = new Font(ff, FontStyle.Regular);
+        }
+        private void setFocusColor()
+        {
+            this.txtItmNameT.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtItmNameT.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtAmt.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtAmt.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtQty.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtQty.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtPrice.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtPrice.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtWtax1.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtWtax1.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtWtax3.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtWtax3.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtVat.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtVat.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtCusNameT.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtCusNameT.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtCusAddr.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtCusAddr.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtCusTax.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtCusTax.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtReceipt.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtReceipt.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtRemark.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtRemark.Enter += new System.EventHandler(this.textBox_Enter);
+        }
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            Items itm = new Items();
+            itm = xC.xtDB.itmDB.selectByPk1(txtID.Text);
+            xC.sItm = itm;
+            xC.sItm.qty = txtQty.Text;
+            xC.sItm.item_name_t = txtItmNameT.Text;
+            xC.sItm.unit_id = cboUtp.SelectedItem != null ? ((ComboBoxItem)(cboUtp.SelectedItem)).Value : "";
+            xC.sItm.unit_name_t = cboUtp.Text;
+            xC.sItm.price1 = txtPrice.Text;
+            xC.sItm.amt = txtAmt.Text;
+            xC.sItm.wtax1 = txtWtax1.Text;
+            xC.sItm.wtax3 = txtWtax3.Text;
+            xC.sItm.vat = txtVat.Text;
+            xC.sItm.cust_addr = txtCusAddr.Text;
+            xC.sItm.cust_id = txtCusId.Text;
+            xC.sItm.cust_name_t = txtCusNameT.Text;
+            xC.sItm.cust_tax = txtCusTax.Text;
+            xC.sItm.receipt_date = xC.datetoDB(txtReceiptDate.Text);
+            xC.sItm.receipt_no = txtReceipt.Text;
+            xC.sItm.remark = txtRemark.Text;
+
+            Close();
+        }
+
+        private void TxtQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //throw new NotImplementedException();
+            Decimal qty = 0;
+            if(Decimal.TryParse(txtQty.Text, out qty))
+            {
+                calAmt();
+            }
+        }
+
         private void initGrfDept()
         {
             grfExpnD = new C1FlexGrid();
@@ -78,9 +168,36 @@ namespace Xtrim_ERP.gui
         private void GrfExpnD_AfterRowColChange(object sender, RangeEventArgs e)
         {
             //throw new NotImplementedException();
-
+            if (e.NewRange.r1 < 0) return;
+            if (e.NewRange.Data == null) return;
+            String cusId = "";
+            cusId = grfExpnD[e.NewRange.r1, colID] != null ? grfExpnD[e.NewRange.r1, colID].ToString() : "";
+            setControl(cusId);
         }
-
+        private void setControl(String rspid)
+        {
+            if (rspid.Equals("")) return;
+            Items itm = new Items();
+            itm = xC.xtDB.itmDB.selectByPk1(rspid);
+            txtID.Value = itm.item_id;
+            txtItmNameT.Value = itm.item_name_t;
+            txtQty.Value = "1";
+            txtPrice.Value = itm.price1;
+            txtRemark.Value = txtRemark.Text;
+            xC.setC1Combo(cboUtp, itm.unit_id);
+            calAmt();
+        }
+        private void calAmt()
+        {
+            Decimal price = 0, qty = 0, amt = 0;
+            if (Decimal.TryParse(txtPrice.Value.ToString(), out price))
+            {
+                if (Decimal.TryParse(txtQty.Value.ToString(), out qty))
+                {
+                    txtAmt.Value = price * qty;
+                }
+            }
+        }
         private void setGrfDeptH()
         {
             grfExpnD.Clear();
@@ -126,3 +243,4 @@ namespace Xtrim_ERP.gui
         }
     }
 }
+

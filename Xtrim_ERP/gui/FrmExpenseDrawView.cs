@@ -90,7 +90,7 @@ namespace Xtrim_ERP.gui
             //grfDept.Rows.Count = 7;
             grfExpn.Clear();
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expndDB.selectAll1(cboYear.Text);
+            dt = xC.xtDB.expndDB.selectAll1(cboYear.Text,objdb.ExpensesDrawDB.StatusPay.waitappv);
             //grfExpn.DataSource = xC.xtDB.expndDB.selectAll1(cboYear.Text);
             grfExpn.Rows.Count = dt.Rows.Count + 1;
             grfExpn.Cols.Count = 7;

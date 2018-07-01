@@ -32,8 +32,11 @@
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtCusId = new C1.Win.C1Input.C1TextBox();
+            this.txtItmNameT = new C1.Win.C1Input.C1TextBox();
             this.btnSave = new C1.Win.C1Input.C1Button();
             this.txtID = new C1.Win.C1Input.C1TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -61,13 +64,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtQty = new C1.Win.C1Input.C1TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cboItm = new C1.Win.C1Input.C1ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.txtRemark = new C1.Win.C1Input.C1TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCusId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItmNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -83,18 +92,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUtp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQty)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboItm)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).BeginInit();
             this.SuspendLayout();
             // 
             // sB
             // 
             this.sB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sB1});
-            this.sB.Location = new System.Drawing.Point(0, 412);
+            this.sB.Location = new System.Drawing.Point(0, 464);
             this.sB.Name = "sB";
             this.sB.Size = new System.Drawing.Size(724, 22);
             this.sB.TabIndex = 7;
@@ -118,9 +123,35 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(724, 412);
+            this.panel1.Size = new System.Drawing.Size(724, 464);
             this.panel1.TabIndex = 8;
             this.theme1.SetTheme(this.panel1, "(default)");
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.splitContainer1.Panel1.Controls.Add(this.panel2);
+            this.splitContainer1.Panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.theme1.SetTheme(this.splitContainer1.Panel1, "(default)");
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.splitContainer1.Panel2.Controls.Add(this.panel3);
+            this.splitContainer1.Panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.theme1.SetTheme(this.splitContainer1.Panel2, "(default)");
+            this.splitContainer1.Size = new System.Drawing.Size(724, 464);
+            this.splitContainer1.SplitterDistance = 296;
+            this.splitContainer1.TabIndex = 595;
+            this.theme1.SetTheme(this.splitContainer1, "(default)");
             // 
             // panel2
             // 
@@ -129,13 +160,17 @@
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(296, 412);
+            this.panel2.Size = new System.Drawing.Size(296, 464);
             this.panel2.TabIndex = 593;
             this.theme1.SetTheme(this.panel2, "(default)");
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel3.Controls.Add(this.txtRemark);
+            this.panel3.Controls.Add(this.label13);
+            this.panel3.Controls.Add(this.txtCusId);
+            this.panel3.Controls.Add(this.txtItmNameT);
             this.panel3.Controls.Add(this.btnSave);
             this.panel3.Controls.Add(this.txtID);
             this.panel3.Controls.Add(this.groupBox1);
@@ -159,15 +194,41 @@
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.txtQty);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.cboItm);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(424, 412);
+            this.panel3.Size = new System.Drawing.Size(424, 464);
             this.panel3.TabIndex = 594;
             this.theme1.SetTheme(this.panel3, "(default)");
+            // 
+            // txtCusId
+            // 
+            this.txtCusId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCusId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtCusId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtCusId.Location = new System.Drawing.Point(104, 252);
+            this.txtCusId.Name = "txtCusId";
+            this.txtCusId.Size = new System.Drawing.Size(24, 20);
+            this.txtCusId.TabIndex = 619;
+            this.txtCusId.Tag = null;
+            this.theme1.SetTheme(this.txtCusId, "(default)");
+            this.txtCusId.Visible = false;
+            this.txtCusId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtItmNameT
+            // 
+            this.txtItmNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtItmNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtItmNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtItmNameT.Location = new System.Drawing.Point(134, 11);
+            this.txtItmNameT.Name = "txtItmNameT";
+            this.txtItmNameT.Size = new System.Drawing.Size(245, 20);
+            this.txtItmNameT.TabIndex = 618;
+            this.txtItmNameT.Tag = null;
+            this.theme1.SetTheme(this.txtItmNameT, "(default)");
+            this.txtItmNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // btnSave
             // 
@@ -560,28 +621,6 @@
             this.label7.Text = "QTY :";
             this.theme1.SetTheme(this.label7, "(default)");
             // 
-            // cboItm
-            // 
-            this.cboItm.AllowSpinLoop = false;
-            this.cboItm.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cboItm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboItm.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboItm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboItm.GapHeight = 0;
-            this.cboItm.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboItm.ItemsDisplayMember = "";
-            this.cboItm.ItemsValueMember = "";
-            this.cboItm.Location = new System.Drawing.Point(134, 9);
-            this.cboItm.Name = "cboItm";
-            this.cboItm.Size = new System.Drawing.Size(262, 20);
-            this.cboItm.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboItm.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboItm.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboItm.TabIndex = 593;
-            this.cboItm.Tag = null;
-            this.theme1.SetTheme(this.cboItm, "(default)");
-            this.cboItm.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -595,37 +634,37 @@
             this.label3.Text = "รายการ :";
             this.theme1.SetTheme(this.label3, "(default)");
             // 
-            // splitContainer1
+            // txtRemark
             // 
-            this.splitContainer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
+            this.txtRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRemark.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtRemark.Location = new System.Drawing.Point(134, 415);
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Size = new System.Drawing.Size(245, 20);
+            this.txtRemark.TabIndex = 621;
+            this.txtRemark.Tag = null;
+            this.theme1.SetTheme(this.txtRemark, "(default)");
+            this.txtRemark.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // splitContainer1.Panel1
+            // label13
             // 
-            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.splitContainer1.Panel1.Controls.Add(this.panel2);
-            this.splitContainer1.Panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.theme1.SetTheme(this.splitContainer1.Panel1, "(default)");
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.splitContainer1.Panel2.Controls.Add(this.panel3);
-            this.splitContainer1.Panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.theme1.SetTheme(this.splitContainer1.Panel2, "(default)");
-            this.splitContainer1.Size = new System.Drawing.Size(724, 412);
-            this.splitContainer1.SplitterDistance = 296;
-            this.splitContainer1.TabIndex = 595;
-            this.theme1.SetTheme(this.splitContainer1, "(default)");
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label13.Location = new System.Drawing.Point(12, 417);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(55, 16);
+            this.label13.TabIndex = 620;
+            this.label13.Text = "หมายเหตุ:";
+            this.theme1.SetTheme(this.label13, "(default)");
             // 
             // FrmExpenseDrawD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 434);
+            this.ClientSize = new System.Drawing.Size(724, 486);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sB);
             this.Name = "FrmExpenseDrawD";
@@ -636,8 +675,14 @@
             this.sB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCusId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItmNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -654,11 +699,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUtp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQty)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboItm)).EndInit();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -699,8 +740,11 @@
         private System.Windows.Forms.Label label1;
         private C1.Win.C1Input.C1TextBox txtQty;
         private System.Windows.Forms.Label label7;
-        private C1.Win.C1Input.C1ComboBox cboItm;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private C1.Win.C1Input.C1TextBox txtItmNameT;
+        private C1.Win.C1Input.C1TextBox txtCusId;
+        private C1.Win.C1Input.C1TextBox txtRemark;
+        private System.Windows.Forms.Label label13;
     }
 }

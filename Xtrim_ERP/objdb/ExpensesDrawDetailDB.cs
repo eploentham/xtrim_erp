@@ -190,6 +190,7 @@ namespace Xtrim_ERP.objdb
             chkNull(p);
             //p.prefix_id = int.TryParse(p.prefix_id, out chk) ? chk.ToString() : "0";
             //p.dept_id = int.TryParse(p.dept_id, out chk) ? chk.ToString() : "0";
+            p.status_pay = "1";
 
             sql = "Insert Into " + expnC.table + "(" + expnC.desc1 + "," + expnC.desc2 + "," + expnC.amount + "," +
                 expnC.date_create + "," + expnC.date_modi + "," + expnC.date_cancel + "," +
