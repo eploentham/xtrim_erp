@@ -527,6 +527,8 @@
     <Compile Include="objdb\CustomerRemarkDB.cs" />
     <Compile Include="objdb\CustomerTaxInvoiceDB.cs" />
     <Compile Include="objdb\DocTypeDB.cs" />
+    <Compile Include="objdb\ExpensesPayDB.cs" />
+    <Compile Include="objdb\ExpensesPayDetailDB.cs" />
     <Compile Include="objdb\FMethodPaymentDB.cs" />
     <Compile Include="objdb\ItemGroupDB.cs" />
     <Compile Include="objdb\ItemsCatDB.cs" />
@@ -586,6 +588,8 @@
     <Compile Include="object1\CustomerRemark.cs" />
     <Compile Include="object1\CustomerTaxInvoice.cs" />
     <Compile Include="object1\DocType.cs" />
+    <Compile Include="object1\ExpensesPay.cs" />
+    <Compile Include="object1\ExpensesPayDetail.cs" />
     <Compile Include="object1\FMethodPayment.cs" />
     <Compile Include="object1\ItemGroup.cs" />
     <Compile Include="object1\ItemsCat.cs" />

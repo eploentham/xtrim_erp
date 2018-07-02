@@ -41,48 +41,85 @@ namespace Xtrim_ERP.objdb
 
             lexpn = new List<Bank>();
         }
-        public String insert(Bank p)
+        public String getIdByName(String name)
+        {
+            String id = "";
+            foreach (Bank utp1 in lexpn)
+            {
+                if (name.Trim().Equals(utp1.bank_name_t))
+                {
+                    id = utp1.bank_id;
+                    break;
+                }
+            }
+            return id;
+        }
+        private void chkNull(Bank p)
+        {
+            int chk = 0;
+            Decimal chk1 = 0;
+
+            p.date_modi = p.date_modi == null ? "" : p.date_modi;
+            p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
+            p.user_create = p.user_create == null ? "" : p.user_create;
+            p.user_modi = p.user_modi == null ? "" : p.user_modi;
+            p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
+            p.bank_code = p.bank_code == null ? "" : p.bank_code;
+            p.bank_name_t = p.bank_name_t == null ? "" : p.bank_name_t;
+            p.bank_name_e = p.bank_name_e == null ? "" : p.bank_name_e;
+            p.remark = p.remark == null ? "" : p.remark;
+            
+
+            //p.amount_reserve = Decimal.TryParse(p.amount_reserve, out chk1) ? chk1.ToString() : "0";
+        }
+        public String insert(Bank p, String userId)
         {
             String re = "", sql="";            
             p.active = "1";
             //p.ssdata_id = "";
+            chkNull(p);
             sql = "Insert Into " + bnk.table + "(" + bnk.bank_code + "," + bnk.bank_name_t + "," + bnk.bank_name_e + "," +
-                bnk.active + "," + bnk.remark + ", " + bnk.date_create + " " +
+                bnk.active + "," + bnk.remark + ", " + 
+                bnk.date_create + ", " + bnk.date_modi + ", " + bnk.date_cancel + ", " +
+                bnk.user_create + ", " + bnk.user_modi + ", " + bnk.user_cancel + " " +
                 ") " +
                 "Values ('" + p.bank_code + "','" + p.bank_name_t + "','" + p.bank_name_e + "'," +
-                "'" + p.active + "','" + p.remark + "', now() " +
+                "'" + p.active + "','" + p.remark + "', " +
+                "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
+                "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "' " +
                 ")";
             re = conn.ExecuteNonQuery(conn.conn, sql);
 
             return re;
         }
-        public String update(Bank p)
+        public String update(Bank p, String userId)
         {
             String re = "", sql="";
-
+            chkNull(p);
             sql = "Update "+bnk.table + " Set " +
                 " "+bnk.bank_code +"='"+p.bank_code+"' " +
                 ","+bnk.bank_name_e + "='" + p.bank_name_e.Replace("'", "''") + "' " +
                 "," + bnk.bank_name_t + "='" + p.bank_name_t.Replace("'", "''") + "' " +
                 "," + bnk.remark + "='" + p.remark.Replace("'","''") + "' " +
                 "," + bnk.date_modi + "=now() " +
+                "," + bnk.user_modi + "='" + userId.Replace("'", "''") + "' " +
                 "Where " +bnk.bank_id +"='"+p.bank_id+"'"
                 ;
             re = conn.ExecuteNonQuery(conn.conn, sql);
 
             return re;
         }
-        public String insertBank(Bank p)
+        public String insertBank(Bank p, String userId)
         {
             String re = "";
 
             if (p.bank_id.Equals(""))
             {
-                re = insert(p);
+                re = insert(p, userId);
             }
             else
             {
-                re = update(p);
+                re = update(p, userId);
             }
             return re;
         }
@@ -122,7 +159,7 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
-        public C1ComboBox setCboItem(C1ComboBox c)
+        public C1ComboBox setC1CboItem(C1ComboBox c)
         {
             lexpn.Clear();
             ComboBoxItem item = new ComboBoxItem();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using C1.Win.C1Input;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace Xtrim_ERP.objdb
     {
         public CompanyBank copB;
         ConnectDB conn;
+
+        public List<CompanyBank> lexpn;
         public CompanyBankDB(ConnectDB c)
         {
             conn = c;
@@ -35,6 +38,53 @@ namespace Xtrim_ERP.objdb
             copB.user_cancel = "user_cancel";
             copB.active = "active";
             copB.bank_id = "bank_id";
+
+            copB.table = "b_company_bank";
+            copB.pkField = "comp_bank_id";
+
+            lexpn = new List<CompanyBank>();
+        }
+        public String getIdByName(String name)
+        {
+            String id = "";
+            foreach (CompanyBank utp1 in lexpn)
+            {
+                if (name.Trim().Equals(utp1.comp_bank_name_t+" "+ utp1.comp_bank_branch + " " + utp1.acc_number))
+                {
+                    id = utp1.bank_id;
+                    break;
+                }
+            }
+            return id;
+        }
+        public C1ComboBox setC1CboItem(C1ComboBox c)
+        {
+            lexpn.Clear();
+            ComboBoxItem item = new ComboBoxItem();
+            DataTable dt = selectAll();
+            //String aaa = "";
+            ComboBoxItem item1 = new ComboBoxItem();
+            item1.Text = "";
+            item1.Value = "000";
+            c.Items.Clear();
+            c.Items.Add(item1);
+            //for (int i = 0; i < dt.Rows.Count; i++)
+            foreach (DataRow row in dt.Rows)
+            {
+                item = new ComboBoxItem();
+                item.Text = row[copB.comp_bank_name_t].ToString()+" "+ row[copB.comp_bank_branch].ToString() + " " + row[copB.acc_number].ToString();
+                item.Value = row[copB.comp_bank_id].ToString();
+                c.Items.Add(item);
+
+                CompanyBank expn1 = new CompanyBank();
+                expn1.comp_bank_id = row[copB.bank_id].ToString();
+                expn1.comp_bank_name_t = row[copB.comp_bank_name_t].ToString();
+                expn1.comp_bank_branch = row[copB.comp_bank_branch].ToString();
+                expn1.acc_number = row[copB.acc_number].ToString();
+
+                lexpn.Add(expn1);
+            }
+            return c;
         }
         private void chkNull(CompanyBank p)
         {
@@ -74,7 +124,7 @@ namespace Xtrim_ERP.objdb
                 ") " +
                 "Values ('" + p.comp_id + "','" + p.comp_bank_name_t.Replace("'", "''") + "','" + p.comp_bank_branch.Replace("'", "''") + "'," +
                 "'" + p.comp_bank_active.Replace("'", "''") + "','" + p.acc_number.Replace("'", "''") + "','" + p.remark.Replace("'", "''") + "'," +
-                "'" + p.date_create.Replace("'", "''") + "','" + p.date_modi + "','" + p.date_cancel + "'," +
+                "now(),'" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.bank_id + "' " + 
                 ")";
@@ -141,6 +191,17 @@ namespace Xtrim_ERP.objdb
                 "From " + copB.table + " copB " +
                 " " +
                 "Where copB." + copB.active + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectBankByCop(String copid)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select copB.*  " +
+                "From " + copB.table + " copB " +
+                " " +
+                "Where copB." + copB.active + " ='1' and "+copB.comp_id+"='"+copid+"'";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;

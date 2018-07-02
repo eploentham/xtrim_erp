@@ -109,7 +109,7 @@ namespace Xtrim_ERP.objdb
 
             p.amount_reserve = Decimal.TryParse(p.amount_reserve, out chk1) ? chk1.ToString() : "0";
         }
-        public String insert(Company p)
+        public String insert(Company p, String userId)
         {
             String re = "", sql = "";
             p.active = "1";
@@ -141,7 +141,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.fax + "','" + p.email + "','" + p.website + "'," +
                 "'" + p.logo + "','" + p.tax_id + "','" + p.vat + "'," +
                 "'" + p.spec1 + "',now(),'" + p.date_modi + "'," +
-                "'" + p.date_cancel + "','" + p.user_create + "','" + p.user_modi + "'," +
+                "'" + p.date_cancel + "','" + userId + "','" + p.user_modi + "'," +
                 "'" + p.user_cancel + "','" + p.remark.Replace("'", "''") + "'," +
                 "'" + p.qu_line1 + "','" + p.qu_line2 + "','" + p.qu_line3 + "'," +
                 "'" + p.qu_line4 + "','" + p.qu_line5 + "','" + p.qu_line6 + "'," +
@@ -164,7 +164,7 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String update(Company p)
+        public String update(Company p, String userId)
         {
             String re = "", sql = "";
 
@@ -194,7 +194,7 @@ namespace Xtrim_ERP.objdb
                 "," + cop.date_modi+ "= now() " +
                 //"," + cop.date_cancel+ "='"+p.date_cancel+ "' " +
                 //"," + cop.user_create+ "='"+p.user_create+ "' " +
-                "," + cop.user_modi+ "='"+p.user_modi+ "' " +
+                "," + cop.user_modi+ "='"+ userId + "' " +
                 //"," + cop.user_cancel+ "='"+p.user_cancel+ "' " +
                 "," + cop.qu_line1+ "='"+p.qu_line1+ "' " +
                 "," + cop.qu_line2+ "='"+p.qu_line2+ "' " +
@@ -233,17 +233,17 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String insertCompany(Company p)
+        public String insertCompany(Company p, String userId)
         {
             String re = "";
 
             if (p.comp_id.Equals(""))
             {
-                re = insert(p);
+                re = insert(p, userId);
             }
             else
             {
-                re = update(p);
+                re = update(p, userId);
             }
 
             return re;

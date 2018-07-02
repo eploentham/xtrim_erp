@@ -26,8 +26,9 @@ namespace Xtrim_ERP.gui
 
         int colID = 1, colE = 1, colS = 2, colCode = 3, colNameT = 4, colNameE = 5, colRemark = 6, coledit = 7;
         int colCnt = 8;
+        int colBID = 1, colBBnkNameT = 2, colBBnkBranch = 3, colBaccnumber = 4, colBRemark = 5, colBedit=6;
 
-        C1FlexGrid grfCop;
+        C1FlexGrid grfCop, grfCopBnk;
 
         public FrmCompany(XtrimControl x)
         {
@@ -49,6 +50,7 @@ namespace Xtrim_ERP.gui
             //grdView.ContextMenu = custommenu;
             setFocusColor();
             initGrfInvH();
+            initGrfCopBnk();
             setGrfCopH();
             //setGrfCop();
             setFocus();
@@ -66,19 +68,39 @@ namespace Xtrim_ERP.gui
             FilterRow fr = new FilterRow(grfCop);
 
             grfCop.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfCus_AfterRowColChange);
-            grfCop.DoubleClick += new System.EventHandler(this.grfCus_DoubleClick);
+            //grfCop.DoubleClick += new System.EventHandler(this.grfCus_DoubleClick);
 
             panel1.Controls.Add(this.grfCop);
-            //theme1.SetTheme(sB, "BeigeOne");
-            //C1Theme theme = C1ThemeController.GetThemeByName("Office2013Red", false);
-            //C1ThemeController.ApplyThemeToObject(grfCop, theme);
-            //foreach(Control c in groupBox1.Controls)
-            //{
-            //    //C1ThemeController.ApplyThemeToObject(c, theme);
-            //    theme1.SetTheme(c, theme.Name);
-            //}
-
         }
+        private void initGrfCopBnk()
+        {
+            grfCopBnk = new C1FlexGrid();
+            grfCopBnk.Font = fEdit;
+            grfCopBnk.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfCopBnk.Location = new System.Drawing.Point(0, 0);
+
+            //FilterRow fr = new FilterRow(grfCopBnk);
+
+            grfCopBnk.AfterRowColChange += GrfCopBnk_AfterRowColChange;
+            //grfCopBnk.DoubleClick += new System.EventHandler(this.grfCus_DoubleClick);
+
+            panel2.Controls.Add(this.grfCopBnk);
+        }
+
+        private void GrfCopBnk_AfterRowColChange(object sender, RangeEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (e.OldRange.c1 == colBaccnumber)
+            {
+                grfCopBnk[grfCopBnk.Row, colBedit] = "1";
+                grfCopBnk.Rows.Count++;
+            }
+            //else if (e.OldRange.c1 == colBaccnumber)
+            //{
+
+            //}
+        }
+
         private void grfCus_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
         {
             if (e.NewRange.r1 < 0) return;
@@ -111,7 +133,27 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล " , "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setCompany();
-                xC.xtDB.copDB.insertCompany(cop);
+                String re = xC.xtDB.copDB.insertCompany(cop, xC.userId);
+                int chk = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    for (int i = 1; i < grfCopBnk.Rows.Count; i++)
+                    {
+                        if (grfCopBnk[i, colBedit].ToString().Equals("1"))
+                        {
+                            CompanyBank copb = new CompanyBank();
+                            copb.comp_bank_id = grfCopBnk[i, colBID] != null ? grfCopBnk[i, colBID].ToString() : "";
+                            copb.comp_bank_name_t = grfCopBnk[i, colBBnkNameT] != null ? grfCopBnk[i, colBBnkNameT].ToString() : "";
+                            copb.comp_bank_branch = grfCopBnk[i, colBBnkBranch] != null ? grfCopBnk[i, colBBnkBranch].ToString() : "";
+                            copb.acc_number = grfCopBnk[i, colBaccnumber] != null ? grfCopBnk[i, colBaccnumber].ToString() : "";
+                            copb.remark = grfCopBnk[i, colBRemark] != null ? grfCopBnk[i, colBRemark].ToString() : "";
+                            copb.bank_id = xC.xtDB.bnkDB.getIdByName(copb.comp_bank_name_t);
+                            copb.comp_id = txtID.Text;
+                            xC.xtDB.copbDB.insertCompany(copb, xC.userId);
+                        }
+                    }
+                }
+                
                 //setGrdView();
             }
         }
@@ -146,6 +188,52 @@ namespace Xtrim_ERP.gui
         private void setGrfCop()
         {
             grfCop.DataSource = xC.xtDB.copDB.selectAll();
+        }
+        private void setGrfCopBnk(String copid)
+        {
+            grfCopBnk.Clear();
+            DataTable dt = new DataTable();
+            dt = xC.xtDB.copbDB.selectBankByCop(copid);
+            grfCopBnk.Cols.Count = 7;
+            grfCopBnk.Rows.Count = dt.Rows.Count + 2;
+
+            C1TextBox txt = new C1TextBox();
+            txt.DataType = txtCopCode.DataType;
+            C1ComboBox cbo = new C1ComboBox();
+            xC.xtDB.bnkDB.setC1CboItem(cbo);
+
+            grfCopBnk.Cols[colBBnkNameT].Editor = cbo;
+            grfCopBnk.Cols[colBBnkBranch].Editor = txt;
+            grfCopBnk.Cols[colBaccnumber].Editor = txt;
+            grfCopBnk.Cols[colBRemark].Editor = txt;
+
+            grfCopBnk.Cols[colBBnkNameT].Caption = "ธนาคาร";
+            grfCopBnk.Cols[colBBnkBranch].Caption = "สาขา";
+            grfCopBnk.Cols[colBaccnumber].Caption = "เลขที่บัญชี";
+            grfCopBnk.Cols[colBRemark].Caption = "หมยาเหตุ";
+
+            grfCopBnk.Cols[colBID].Width = 60;
+            grfCopBnk.Cols[colBBnkNameT].Width = 150;
+            grfCopBnk.Cols[colBBnkBranch].Width = 150;
+            grfCopBnk.Cols[colBaccnumber].Width = 100;
+            grfCopBnk.Cols[colBRemark].Width = 200;
+
+            //grfCopBnk.DataSource = dt;
+            Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                grfCopBnk[i+1, 0] = i+1;
+                if (i % 2 == 0)
+                    grfCopBnk.Rows[i+1].StyleNew.BackColor = color;
+                grfCopBnk[i + 1, colBID] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_id].ToString();
+                grfCopBnk[i + 1, colBBnkNameT] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_name_t].ToString();
+                grfCopBnk[i + 1, colBBnkBranch] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_branch].ToString();
+                grfCopBnk[i + 1, colBaccnumber] = dt.Rows[i][xC.xtDB.copbDB.copB.acc_number].ToString();
+                grfCopBnk[i + 1, colBRemark] = dt.Rows[i][xC.xtDB.copbDB.copB.remark].ToString();
+                grfCopBnk[i + 1, colBedit] = "";
+            }
+            grfCopBnk.Cols[colBID].Visible = false;
+            grfCopBnk.Cols[colBedit].Visible = false;
         }
         //private void ContextMenu_void(object sender, System.EventArgs e)
         //{
@@ -511,8 +599,8 @@ namespace Xtrim_ERP.gui
             txtTaxId.Value = cop.tax_id;
             txtZipCode.Value = cop.zipcode;
             //txtTAddr1.Value = cop.comp_id;
-            txtCopAddressT.Value = cop.comp_address_t;            
-            
+            txtCopAddressT.Value = cop.comp_address_t;
+            setGrfCopBnk(txtID.Text);
             //txtCopCode.Value = cop.comp_id;
         }
         private void setCompany()

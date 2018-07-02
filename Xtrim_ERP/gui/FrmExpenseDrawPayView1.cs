@@ -13,20 +13,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Xtrim_ERP.control;
 using Xtrim_ERP.object1;
+using Xtrim_ERP.Properties;
 
 namespace Xtrim_ERP.gui
 {
     public partial class FrmExpenseDrawPayView1 : Form
     {
         XtrimControl xC;
-        ExpensesDraw expn;
+        ExpensesPay expnp;
         Font fEdit, fEditB;
 
         Color bg, fc;
         Font ff, ffB;
         int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6;
-        int colCID = 1, colCSubNameT = 2, colCMtp = 3, colCItmNameT = 4, colCDrawDate = 5, colCAmt = 6, colCBank=7, colCChequeNo=8, colChequeDate=9, colCChequepayname=10;
-        int colBID = 1, colBNameT = 2, colBAmt = 3;
+        int colCID = 1, colCSubNameT = 2, colCMtp = 3, colCItmNameT = 4, colCDrawDate = 5, colCAmt = 6, colCBank=7, colCChequeNo=8, colChequeDate=9, colCChequepayname=10, colCpayID=11;
+        int colBID = 1, colBNameT = 2, colBbranch=3, colBaccnumber=4, colBAmt = 5;
         C1FlexGrid grfView, grfChequeView, grfChequePre, grfChequeMake, grfChequeBnk, grfChequeView1;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
@@ -49,6 +50,9 @@ namespace Xtrim_ERP.gui
             C1ThemeController.ApplicationTheme = xC.iniC.themeApplication;
             theme1.Theme = C1ThemeController.ApplicationTheme;
             theme1.SetTheme(sB, "BeigeOne");
+            expnp = new ExpensesPay();
+            DateTime jobDate = DateTime.Now;
+            txtDate.Value = jobDate.Year.ToString() + "-" + jobDate.ToString("MM-dd");
 
             sB1.Text = "";
 
@@ -332,10 +336,10 @@ namespace Xtrim_ERP.gui
         {
             grfChequeMake.Rows.Count = 1;
             //grfChequeMake.DataSource = xC.xtDB.expnddDB.selectByChequeAppv("2");
-            grfChequeMake.Cols.Count = 11;
+            grfChequeMake.Cols.Count = 12;
             TextBox txt = new TextBox();
             C1ComboBox cbo = new C1ComboBox();
-            xC.xtDB.bnkDB.setCboItem(cbo);
+            xC.xtDB.copbDB.setC1CboItem(cbo);
             //C1DateEdit dtpDate = new C1DateEdit();
             txtDate.Value = DateTime.Now;
             //dtpDate.EditFormat = FormatInfo. 
@@ -383,6 +387,7 @@ namespace Xtrim_ERP.gui
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
             grfChequeMake.Cols[colCID].Visible = false;
+            grfChequeMake.Cols[colCpayID].Visible = false;
         }
         private void initGrfChequeBnk()
         {
@@ -401,17 +406,26 @@ namespace Xtrim_ERP.gui
         }
         private void setGrfChequeBnk()
         {
-            grfChequeBnk.Rows.Count = 1;
-            grfChequeBnk.DataSource = xC.xtDB.bnkDB.selectAll1();
+            Company cop = new Company();
+            cop = xC.xtDB.copDB.selectByCode1("001");
+            DataTable dt = new DataTable();
+            dt = xC.xtDB.copbDB.selectBankByCop(cop.comp_id);
+
+            grfChequeBnk.Cols.Count = 6;
+            grfChequeBnk.Rows.Count = dt.Rows.Count + 2;
             //grfChequeBnk.Cols.Count = 7;
             TextBox txt = new TextBox();
 
             grfChequeBnk.Cols[colBID].Editor = txt;
             grfChequeBnk.Cols[colBNameT].Editor = txt;
             grfChequeBnk.Cols[colBAmt].Editor = txt;
+            grfChequeBnk.Cols[colBbranch].Editor = txt;
+            grfChequeBnk.Cols[colBaccnumber].Editor = txt;
 
             grfChequeBnk.Cols[colBNameT].Width = 220;
-            grfChequeBnk.Cols[colBAmt].Width = 80;            
+            grfChequeBnk.Cols[colBAmt].Width = 80;
+            grfChequeBnk.Cols[colBbranch].Width = 150;
+            grfChequeBnk.Cols[colBaccnumber].Width = 100;
 
             grfChequeBnk.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
@@ -419,7 +433,17 @@ namespace Xtrim_ERP.gui
 
             grfChequeBnk.Cols[colBNameT].Caption = "ธนาคาร";
             grfChequeBnk.Cols[colBAmt].Caption = "จำนวนเงิน";
-            
+            grfChequeBnk.Cols[colBbranch].Caption = "สาขา";
+            grfChequeBnk.Cols[colBaccnumber].Caption = "เลขที่บัญชี";
+
+            for(int i = 0; i < dt.Rows.Count; i++)
+            {
+                grfChequeBnk[i + 1, colBID] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_id].ToString();
+                grfChequeBnk[i + 1, colBNameT] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_name_t].ToString();
+                grfChequeBnk[i + 1, colBbranch] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_branch].ToString();
+                grfChequeBnk[i + 1, colBaccnumber] = dt.Rows[i][xC.xtDB.copbDB.copB.acc_number].ToString();
+                grfChequeBnk[i + 1, colBAmt] = "0.00";
+            }
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
             for (int i = 1; i < grfChequeBnk.Rows.Count; i++)
             {
@@ -434,7 +458,9 @@ namespace Xtrim_ERP.gui
         private void BtnChequeAdd_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+
             int row = grfChequeView.Row;
+            if (row < 1) return;
             //int row = grfChequePre.Rows.Count++;
             //Row rr = grfChequeView.Rows[grfChequeView.Row];
             Row rrr = grfChequePre.Rows.Add();
@@ -494,7 +520,77 @@ namespace Xtrim_ERP.gui
         private void BtnChequeSave_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                setExpensesPay();
+                String re = xC.xtDB.expnpDB.insertExpensesPay(expnp, xC.user.staff_id);
+                int chk = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    txtExpnpID.Value = re;
+                    for (int i = 1; i < grfChequeMake.Rows.Count; i++)
+                    {
+                        ExpensesPayDetail expnPd = new ExpensesPayDetail();
+                        ExpensesDrawDatail expndd = new ExpensesDrawDatail();
+                        String expnddid = "";
+                        expnddid = grfChequeMake[i, colCID].ToString();
+                        expndd = xC.xtDB.expnddDB.selectByPk1(expnddid);
 
+                        expnPd.expenses_pay_detail_id = grfChequeMake[colCpayID, 0] != null ? grfChequeMake[colCpayID, 0].ToString() : "";
+                        expnPd.expenses_pay_id = txtExpnpID.Text;
+                        expnPd.item_id = expndd.item_id;
+                        expnPd.status_pay_type = "2";
+                        expnPd.active = "1";
+                        expnPd.remark = "";
+                        expnPd.user_cancel = "";
+                        expnPd.user_create = "";
+                        expnPd.user_modi = "";
+                        expnPd.date_cancel = "";
+                        expnPd.date_create = "";
+                        expnPd.date_modi = "";
+
+                        expnPd.item_name_t = expndd.item_name_t;
+                        expnPd.job_id = expndd.job_id;
+                        expnPd.pay_amount = expndd.pay_amount;
+                        expnPd.pay_to_cus_id = expndd.pay_to_cus_id;
+                        expnPd.pay_to_cus_name_t = expndd.pay_to_cus_name_t;
+                        expnPd.pay_to_cus_addr = expndd.pay_to_cus_addr;
+                        expnPd.pay_to_cus_tax = expndd.pay_to_cus_tax;
+                        expnPd.pay_cheque_no = grfChequeMake[i, colCChequeNo].ToString();
+                        expnPd.pay_cheque_bank_id = xC.xtDB.copbDB.getIdByName(grfChequeMake[i, colCChequeNo].ToString());
+                        expnPd.pay_staff_id = xC.userId;
+                        expnPd.pay_date = xC.datetoDB(txtDate.Text);
+                        expnPd.comp_bank_id = grfChequeMake[i, colCBank].ToString(); ;
+                        expnPd.pay_bank_date = xC.datetoDB(grfChequeMake[i, colChequeDate].ToString());
+
+                        xC.xtDB.expnpdDB.insertExpensesPayDetail(expnPd, xC.userId);
+                    }
+
+                    btnChequeSave.Image = Resources.accept_database24;
+                }
+                else
+                {
+                    btnChequeSave.Image = Resources.accept_database24;
+                }
+                
+                //setGrdView();
+                //this.Dispose();
+            }
+        }
+        private void setExpensesPay()
+        {
+            expnp.expenses_pay_id = txtExpnpID.Text;
+            expnp.expenses_pay_code = "expenses_pay_code";
+            expnp.expenses_pay_date = xC.datetoDB(txtDate.Text);
+            expnp.status_pay_type = "2";//1=cash;2=cheque
+            expnp.active = "1";
+            expnp.remark = txtRemark.Text;
+            expnp.user_cancel = "";
+            expnp.user_create = "";
+            expnp.user_modi = "";
+            expnp.date_cancel = "";
+            expnp.date_create = "";
+            expnp.date_modi = "";
         }
         private void setChkView()
         {

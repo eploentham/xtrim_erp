@@ -88,6 +88,9 @@
             this.label36 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txtExpnpID = new C1.Win.C1Input.C1TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtRemark = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tC1)).BeginInit();
@@ -136,6 +139,8 @@
             this.panel20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboYear)).BeginInit();
             this.sB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtExpnpID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -413,13 +418,16 @@
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel15.Controls.Add(this.label5);
+            this.panel15.Controls.Add(this.txtExpnpID);
+            this.panel15.Controls.Add(this.txtRemark);
             this.panel15.Controls.Add(this.btnChequeSave);
             this.panel15.Controls.Add(this.txtDate);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel15.Location = new System.Drawing.Point(515, 0);
+            this.panel15.Location = new System.Drawing.Point(617, 0);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(222, 169);
+            this.panel15.Size = new System.Drawing.Size(120, 169);
             this.panel15.TabIndex = 0;
             this.theme1.SetTheme(this.panel15, "(default)");
             // 
@@ -479,7 +487,7 @@
             this.panel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel14.Location = new System.Drawing.Point(0, 0);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(515, 169);
+            this.panel14.Size = new System.Drawing.Size(617, 169);
             this.panel14.TabIndex = 0;
             this.theme1.SetTheme(this.panel14, "(default)");
             // 
@@ -490,7 +498,7 @@
             this.tabChequePrint.Name = "tabChequePrint";
             this.tabChequePrint.Size = new System.Drawing.Size(737, 677);
             this.tabChequePrint.TabIndex = 2;
-            this.tabChequePrint.Text = "พิพม์ Cheque";
+            this.tabChequePrint.Text = "พิมพ์ Cheque";
             // 
             // panel8
             // 
@@ -927,6 +935,46 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
+            // txtExpnpID
+            // 
+            this.txtExpnpID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtExpnpID.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtExpnpID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtExpnpID.Location = new System.Drawing.Point(19, 100);
+            this.txtExpnpID.Name = "txtExpnpID";
+            this.txtExpnpID.Size = new System.Drawing.Size(24, 20);
+            this.txtExpnpID.TabIndex = 486;
+            this.txtExpnpID.Tag = null;
+            this.theme1.SetTheme(this.txtExpnpID, "(default)");
+            this.txtExpnpID.Visible = false;
+            this.txtExpnpID.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label5.Location = new System.Drawing.Point(14, 145);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 16);
+            this.label5.TabIndex = 438;
+            this.label5.Text = "หมายเหตุ :";
+            this.theme1.SetTheme(this.label5, "(default)");
+            // 
+            // txtRemark
+            // 
+            this.txtRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRemark.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtRemark.Location = new System.Drawing.Point(78, 143);
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Size = new System.Drawing.Size(292, 20);
+            this.txtRemark.TabIndex = 437;
+            this.txtRemark.Tag = null;
+            this.theme1.SetTheme(this.txtRemark, "(default)");
+            this.txtRemark.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // FrmExpenseDrawPayView1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -959,6 +1007,7 @@
             this.panel7.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnChequeSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDate)).EndInit();
             this.tabChequePrint.ResumeLayout(false);
@@ -988,6 +1037,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboYear)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtExpnpID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1055,5 +1106,8 @@
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.RadioButton chkViewFmtp;
         private System.Windows.Forms.RadioButton chkViewDraw;
+        private C1.Win.C1Input.C1TextBox txtExpnpID;
+        private System.Windows.Forms.Label label5;
+        private C1.Win.C1Input.C1TextBox txtRemark;
     }
 }
