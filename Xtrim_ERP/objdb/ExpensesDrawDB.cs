@@ -49,6 +49,7 @@ namespace Xtrim_ERP.objdb
             expnC.appv_desc = "appv_desc";
             expnC.status_pay = "status_pay";
             expnC.status_pay_type = "status_pay_type";
+            expnC.payer_id = "payer_id";
 
 
             expnC.table = "t_expenses_draw";
@@ -142,8 +143,8 @@ namespace Xtrim_ERP.objdb
 
             p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
             p.staff_id = int.TryParse(p.staff_id, out chk) ? chk.ToString() : "0";
-            //p.job_code = int.TryParse(p.job_code, out chk) ? chk.ToString() : "0";
-            
+            p.payer_id = int.TryParse(p.payer_id, out chk) ? chk.ToString() : "0";
+
 
             p.amount = Decimal.TryParse(p.amount, out chk1) ? chk1.ToString() : "0";
             p.appv_amount = Decimal.TryParse(p.appv_amount, out chk1) ? chk1.ToString() : "0";
@@ -167,17 +168,18 @@ namespace Xtrim_ERP.objdb
                 expnC.active + "," + expnC.remark + ", " + expnC.job_code + ", " +
                 expnC.draw_date + "," + expnC.staff_id + "," + expnC.desc1 + ", " +
                 expnC.status_email + "," + expnC.status_appv + "," + expnC.amount + ", " +
-                expnC.year + "," + expnC.status_pay + "," + expnC.status_pay_type + " " +
+                expnC.year + "," + expnC.status_pay + "," + expnC.status_pay_type + "," +
+                expnC.payer_id + " " +
 
                 ") " +
                 "Values ('" + p.expenses_draw_date + "','" + p.expenses_draw_code.Replace("'", "''") + "','" + p.job_id.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
-                "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.job_code + "', " +
-                "'" + p.draw_date + "','" + p.staff_id.Replace("'", "''") + "','" + p.desc1.Replace("'", "''") + "', " +
-                "'" + p.status_email + "','" + p.status_appv.Replace("'", "''") + "','" + p.amount + "', " +
-                "'" + p.year + "','" + p.status_pay + "','" + p.status_pay_type + "' " +
-
+                "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.job_code + "'," +
+                "'" + p.draw_date + "','" + p.staff_id.Replace("'", "''") + "','" + p.desc1.Replace("'", "''") + "'," +
+                "'" + p.status_email + "','" + p.status_appv.Replace("'", "''") + "','" + p.amount + "'," +
+                "'" + p.year + "','" + p.status_pay + "','" + p.status_pay_type + "'," +
+                "'" + p.payer_id + "' " +
                 ")";
             try
             {
@@ -215,6 +217,7 @@ namespace Xtrim_ERP.objdb
                 "," + expnC.year + " = '" + p.year + "' " +
                 "," + expnC.status_pay + " = '" + p.status_pay + "' " +
                 "," + expnC.status_pay_type + " = '" + p.status_pay_type + "' " +
+                "," + expnC.payer_id + " = '" + p.payer_id + "' " +
                 "Where " + expnC.pkField + "='" + p.expenses_draw_id + "'"
                 ;
 
@@ -278,6 +281,18 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
+        public String updateStatusPay(String id)
+        {
+            DataTable dt = new DataTable();
+            String re = "", sql = "";
+
+            sql = "update " + expnC.table + " Set " +
+                "" + expnC.status_pay + "='2' " +
+                "Where " + expnC.pkField + "='" + id + "'";
+            re = conn.ExecuteNonQuery(conn.conn, sql);
+
+            return re;
+        }
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
@@ -306,7 +321,7 @@ namespace Xtrim_ERP.objdb
             String wherestatuspay = "";
             if (spay == StatusPay.waitappv)
             {
-                wherestatuspay = " and "+expnC.status_appv+"='1'";
+                wherestatuspay = " and "+expnC.status_appv+" in ('1','0')";
             }
             else if (spay == StatusPay.appv)
             {
@@ -436,6 +451,7 @@ namespace Xtrim_ERP.objdb
                 curr1.year = dt.Rows[0][expnC.year].ToString();
                 curr1.status_pay = dt.Rows[0][expnC.status_pay].ToString();
                 curr1.status_pay_type = dt.Rows[0][expnC.status_pay_type].ToString();
+                curr1.payer_id = dt.Rows[0][expnC.payer_id].ToString();
             }
             else
             {
@@ -464,6 +480,7 @@ namespace Xtrim_ERP.objdb
                 curr1.appv_desc = "";
                 curr1.status_pay = "";
                 curr1.status_pay_type = "";
+                curr1.payer_id = "";
             }
 
             return curr1;

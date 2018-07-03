@@ -52,6 +52,9 @@ namespace Xtrim_ERP.gui
             theme1.SetTheme(sB, "BeigeOne");
 
             btnNew.Click += BtnNew_Click;
+            chkAll.Click += ChkAll_Click;
+            chkAppvOk.Click += ChkAppvOk_Click;
+            chkAppvWait.Click += ChkAppvWait_Click;
 
             sB1.Text = "";
 
@@ -64,6 +67,25 @@ namespace Xtrim_ERP.gui
             initGrfDept();
             setGrfDeptH();
         }
+
+        private void ChkAppvWait_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            setGrfDeptH();
+        }
+
+        private void ChkAppvOk_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            setGrfDeptH();
+        }
+
+        private void ChkAll_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            setGrfDeptH();
+        }
+
         private void initGrfDept()
         {
             grfExpn = new C1FlexGrid();
@@ -90,7 +112,18 @@ namespace Xtrim_ERP.gui
             //grfDept.Rows.Count = 7;
             grfExpn.Clear();
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expndDB.selectAll1(cboYear.Text,objdb.ExpensesDrawDB.StatusPay.waitappv);
+            if (chkAll.Checked)
+            {
+                dt = xC.xtDB.expndDB.selectAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.all);
+            }
+            else if (chkAppvWait.Checked)
+            {
+                dt = xC.xtDB.expndDB.selectAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.waitappv);
+            }
+            else if (chkAppvOk.Checked)
+            {
+                dt = xC.xtDB.expndDB.selectAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.appv);
+            }
             //grfExpn.DataSource = xC.xtDB.expndDB.selectAll1(cboYear.Text);
             grfExpn.Rows.Count = dt.Rows.Count + 1;
             grfExpn.Cols.Count = 7;
@@ -116,7 +149,7 @@ namespace Xtrim_ERP.gui
             grfExpn.Cols[colStatus].Caption = "สถานะ";
             grfExpn.Cols[colAmt].Caption = "รวมเงิน";
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
-            for (int i = 1; i < dt.Rows.Count; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 grfExpn[i, 0] = i;
                 if (i % 2 == 0)

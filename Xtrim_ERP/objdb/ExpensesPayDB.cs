@@ -38,7 +38,7 @@ namespace Xtrim_ERP.objdb
             expnP.date_create = "date_create";
             expnP.date_modi = "date_modi";
 
-            expnP.table = "b_expenses_pay";
+            expnP.table = "t_expenses_pay";
             expnP.pkField = "expenses_pay_id";
 
             lexpn = new List<ExpensesPay>();

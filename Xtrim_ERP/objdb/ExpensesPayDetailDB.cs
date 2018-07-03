@@ -49,8 +49,9 @@ namespace Xtrim_ERP.objdb
             expnP.pay_date= "pay_date";
             expnP.comp_bank_id= "comp_bank_id";
             expnP.pay_bank_date= "pay_bank_date";
+            expnP.expenses_draw_detail_id = "expenses_draw_detail_id";
 
-            expnP.table = "b_expenses_pay_detail";
+            expnP.table = "t_expenses_pay_detail";
             expnP.pkField = "expenses_pay_detail_id";
 
             lexpn = new List<ExpensesPayDetail>();
@@ -68,11 +69,51 @@ namespace Xtrim_ERP.objdb
             }
             return id;
         }
+        private void chkNull(ExpensesPayDetail p)
+        {
+            int chk = 0;
+            Decimal chk1 = 0;
+
+            p.date_modi = p.date_modi == null ? "" : p.date_modi;
+            p.date_cancel = p.date_cancel == null ? "" : p.date_cancel;
+            p.user_create = p.user_create == null ? "" : p.user_create;
+            p.user_modi = p.user_modi == null ? "" : p.user_modi;
+            p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
+
+            p.expenses_pay_id = p.expenses_pay_id == null ? "" : p.expenses_pay_id;
+            p.item_id = p.item_id == null ? "" : p.item_id;
+            p.status_pay_type = p.status_pay_type == null ? "0" : p.status_pay_type;
+            p.remark = p.remark == null ? "" : p.remark;
+            p.item_name_t = p.item_name_t == null ? "" : p.item_name_t;
+            //p.job_id = p.job_id == null ? "" : p.job_id;
+            //p.pay_amount = p.pay_amount == null ? "" : p.pay_amount;
+            //p.pay_to_cus_id = p.pay_to_cus_id == null ? "" : p.pay_to_cus_id;
+            p.pay_to_cus_name_t = p.pay_to_cus_name_t == null ? "" : p.pay_to_cus_name_t;
+            p.pay_to_cus_addr = p.pay_to_cus_addr == null ? "" : p.pay_to_cus_addr;
+            p.pay_to_cus_tax = p.pay_to_cus_tax == null ? "" : p.pay_to_cus_tax;
+            p.pay_cheque_no = p.pay_cheque_no == null ? "" : p.pay_cheque_no;
+            //p.pay_cheque_bank_id = p.pay_cheque_bank_id == null ? "" : p.pay_cheque_bank_id;
+            //p.remark1 = p.remark1 == null ? "" : p.remark1;
+            //p.remark1 = p.remark1 == null ? "" : p.remark1;
+
+            p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
+            p.pay_to_cus_id = int.TryParse(p.pay_to_cus_id, out chk) ? chk.ToString() : "0";
+            p.pay_cheque_bank_id = int.TryParse(p.pay_cheque_bank_id, out chk) ? chk.ToString() : "0";
+            p.pay_staff_id = int.TryParse(p.pay_staff_id, out chk) ? chk.ToString() : "0";
+            p.comp_bank_id = int.TryParse(p.comp_bank_id, out chk) ? chk.ToString() : "0";
+            p.expenses_draw_detail_id = int.TryParse(p.expenses_draw_detail_id, out chk) ? chk.ToString() : "0";
+
+            p.pay_amount = Decimal.TryParse(p.pay_amount, out chk1) ? chk1.ToString() : "0";
+            //p.amount_reserve = Decimal.TryParse(p.amount_reserve, out chk1) ? chk1.ToString() : "0";
+            //p.amount_reserve = Decimal.TryParse(p.amount_reserve, out chk1) ? chk1.ToString() : "0";
+        }
         public String insert(ExpensesPayDetail p, String userId)
         {
             String re = "", sql = "";
             p.active = "1";
             //p.ssdata_id = "";
+
+            chkNull(p);
             sql = "Insert Into " + expnP.table + "(" + expnP.expenses_pay_id + "," + expnP.item_id + "," + expnP.status_pay_type + "," +
                 expnP.active + "," + expnP.remark + ", " + 
                 expnP.date_create + ", " + expnP.date_modi + ", " + expnP.date_cancel + "," +
@@ -81,17 +122,17 @@ namespace Xtrim_ERP.objdb
                 expnP.pay_to_cus_id + ", " + expnP.pay_to_cus_name_t + ", " + expnP.pay_to_cus_addr + ", " +
                 expnP.pay_to_cus_tax + ", " + expnP.pay_cheque_no + ", " + expnP.pay_cheque_bank_id + ", " +
                 expnP.pay_staff_id + ", " + expnP.pay_date + ", " + expnP.comp_bank_id + ", " +
-                expnP.pay_bank_date + ", " +
+                expnP.pay_bank_date + "," + expnP.expenses_draw_detail_id + " " +
                 ") " +
                 "Values ('" + p.expenses_pay_id + "','" + p.item_id + "','" + p.status_pay_type + "'," +
                 "'" + p.active + "','" + p.remark + "', " +
-                "now() " + p.date_modi + "','" + p.date_cancel + "', " +
-                "'" + p.user_create + "','" + p.user_modi + "', " + p.user_cancel + "', " +
-                "'" + p.item_name_t + "','" + p.job_id + "', " + p.pay_amount + "', " +
-                "'" + p.pay_to_cus_id + "','" + p.pay_to_cus_name_t + "', " + p.pay_to_cus_addr + "', " +
-                "'" + p.pay_to_cus_tax + "','" + p.pay_cheque_no + "', " + p.pay_cheque_bank_id + "', " +
-                "'" + p.pay_staff_id + "','" + p.pay_date + "', " + p.comp_bank_id + "', " +
-                "'" + p.pay_bank_date + "' " +
+                "now() ,'" + p.date_modi + "','" + p.date_cancel + "', " +
+                "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "'," +
+                "'" + p.item_name_t + "','" + p.job_id + "','" + p.pay_amount + "'," +
+                "'" + p.pay_to_cus_id + "','" + p.pay_to_cus_name_t + "','" + p.pay_to_cus_addr + "'," +
+                "'" + p.pay_to_cus_tax + "','" + p.pay_cheque_no + "','" + p.pay_cheque_bank_id + "'," +
+                "'" + p.pay_staff_id + "','" + p.pay_date + "','" + p.comp_bank_id + "'," +
+                "'" + p.pay_bank_date + "','" + p.expenses_draw_detail_id + "' " +
                 ")";            
             try
             {
@@ -107,6 +148,7 @@ namespace Xtrim_ERP.objdb
         {
             String re = "", sql = "";
 
+            chkNull(p);
             sql = "Update " + expnP.table + " Set " +
                 " " + expnP.expenses_pay_id + "='" + p.expenses_pay_id + "' " +
                 "," + expnP.status_pay_type + "='" + p.status_pay_type.Replace("'", "''") + "' " +
@@ -170,10 +212,10 @@ namespace Xtrim_ERP.objdb
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
-            String sql = "select ban.*  " +
-                "From " + expnP.table + " ban " +
+            String sql = "select expnP.*  " +
+                "From " + expnP.table + " expnP " +
                 " " +
-                "Where ban." + expnP.active + " ='1' ";
+                "Where expnP." + expnP.active + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -181,10 +223,25 @@ namespace Xtrim_ERP.objdb
         public DataTable selectAll1()
         {
             DataTable dt = new DataTable();
-            String sql = "select ban." + expnP.expenses_pay_detail_id + "," + expnP.item_id + "," + expnP.remark + " " +
-                "From " + expnP.table + " ban " +
+            String sql = "select expnP." + expnP.expenses_pay_detail_id + "," + expnP.item_id + "," + expnP.remark + " " +
+                "From " + expnP.table + " expnP " +
                 " " +
-                "Where ban." + expnP.active + " ='1' ";
+                "Where expnP." + expnP.active + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectPrintCheque(String expndid)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select expnP." + expnP.pay_cheque_no + ",expnP." + expnP.pay_to_cus_name_t + "," +
+                "sum(expnP." + expnP.pay_amount + ") as "+ expnP.pay_amount + ",expnP." + expnP.pay_bank_date + ",expnP." + expnP.comp_bank_id + "," +
+                "copb.comp_bank_name_t,copb.comp_bank_branch,copb.acc_number " + " " +
+                "From " + expnP.table + " expnP " +
+                "inner join b_company_bank copb on copb.comp_bank_id = expnP.comp_bank_id " +
+                //"Where expnP." + expnP.active + " ='1' and expnP."+ expnP.status_pay_type+ "='2' and expnP." + expnP.expenses_pay_id+"='"+ expndid+"' " +
+                "Where expnP." + expnP.active + " ='1' and expnP." + expnP.expenses_pay_id + "='" + expndid + "' " +
+                "Group By expnP." + expnP.pay_cheque_no;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;

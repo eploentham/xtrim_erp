@@ -26,17 +26,25 @@ namespace Xtrim_ERP.gui
 
         String drawdId = "";
         C1FlexGrid grfExpnD;
-        int colID = 1, colCode = 2, colNameT = 3, colPrice1 = 4, colPrice2 = 5, colPrice3 = 6, colTypeSub = 7;
+        int colID = 1, colCode = 2, colNameT = 3, colPrice1 = 4, colPrice2 = 5, colPrice3 = 6, colTypeSub = 7, colFmp=8;
+        String cusId = "", cusNameT = "", cusAddr = "", cusTax = "";
+        Boolean flagPage = false;
 
-        public FrmExpenseDrawD(XtrimControl x, String id)
+        public FrmExpenseDrawD(XtrimControl x, String id, String cusid, String cusnamet, String cusaddr, String custax)
         {
             InitializeComponent();
             xC = x;
             drawdId = id;
+            cusId = cusid;
+            cusNameT = cusnamet;
+            cusAddr = cusaddr;
+            cusTax = custax;
             initConfig();
         }
         private void initConfig()
         {
+            flagPage = true;
+            xC.sItm = new Items();
             fEdit = new Font(xC.iniC.grdViewFontName, xC.grdViewFontSize, FontStyle.Regular);
             fEditB = new Font(xC.iniC.grdViewFontName, xC.grdViewFontSize, FontStyle.Bold);
 
@@ -52,14 +60,29 @@ namespace Xtrim_ERP.gui
             fc = txtQty.ForeColor;
             ff = txtQty.Font;
             txtQty.KeyPress += TxtQty_KeyPress;
+            txtQty.KeyUp += TxtQty_KeyUp;
             btnSave.Click += BtnSave_Click;
 
             //xC.xtDB.itmDB.setC1CboItem(cboItm);
             xC.xtDB.utpDB.setC1CboUtp(cboUtp, "");
+
+            setControlD();
             setFocusColor();
             initGrfDept();
             setGrfDeptH();
+            flagPage = false;
         }
+
+        private void TxtQty_KeyUp(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            Decimal qty = 0;
+            if (Decimal.TryParse(txtQty.Text, out qty))
+            {
+                calAmt();
+            }
+        }
+
         private void textBox_Enter(object sender, EventArgs e)
         {
             C1TextBox a = (C1TextBox)sender;
@@ -140,11 +163,12 @@ namespace Xtrim_ERP.gui
         private void TxtQty_KeyPress(object sender, KeyPressEventArgs e)
         {
             //throw new NotImplementedException();
-            Decimal qty = 0;
-            if(Decimal.TryParse(txtQty.Text, out qty))
-            {
-                calAmt();
-            }
+            //Decimal qty = 0;
+            //txtQty.
+            //if (Decimal.TryParse(txtQty.Text, out qty))
+            //{
+            //    calAmt();
+            //}
         }
 
         private void initGrfDept()
@@ -170,9 +194,32 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             if (e.NewRange.r1 < 0) return;
             if (e.NewRange.Data == null) return;
+            if (flagPage) return;
             String cusId = "";
             cusId = grfExpnD[e.NewRange.r1, colID] != null ? grfExpnD[e.NewRange.r1, colID].ToString() : "";
             setControl(cusId);
+        }
+        private void setControlD()
+        {
+            if (drawdId.Equals("")) return;
+            expnDd = xC.xtDB.expnddDB.selectByPk1(drawdId);
+            txtID.Value = expnDd.item_id;
+            txtItmNameT.Value = expnDd.item_name_t;
+            txtQty.Value = expnDd.qty;
+            txtPrice.Value = expnDd.price;
+            txtRemark.Value = expnDd.remark;
+            txtCusId.Value = expnDd.pay_to_cus_id;
+            txtCusNameT.Value = expnDd.pay_to_cus_name_t;
+            txtCusAddr.Value = expnDd.pay_to_cus_addr;
+            txtCusTax.Value = expnDd.pay_to_cus_tax;
+            xC.setC1Combo(cboUtp, expnDd.unit_id);
+
+            txtWtax1.Value = expnDd.wtax1;
+            txtWtax3.Value = expnDd.wtax3;
+            txtVat.Value = expnDd.vat;
+            txtReceipt.Value = expnDd.receipt_no;
+            txtReceiptDate.Value = expnDd.receipt_date;
+            calAmt();
         }
         private void setControl(String rspid)
         {
@@ -183,16 +230,21 @@ namespace Xtrim_ERP.gui
             txtItmNameT.Value = itm.item_name_t;
             txtQty.Value = "1";
             txtPrice.Value = itm.price1;
-            txtRemark.Value = txtRemark.Text;
+            txtRemark.Value = itm.remark;
+            txtCusId.Value = cusId;
+            txtCusNameT.Value = cusNameT;
+            txtCusAddr.Value = cusAddr;
+            txtCusTax.Value = cusTax;
             xC.setC1Combo(cboUtp, itm.unit_id);
+            label14.Text = itm.f_method_payment_id.Equals("1560000000") ? "cheque" : itm.f_method_payment_id.Equals("1560000001") ? "cash" : "-";
             calAmt();
         }
         private void calAmt()
         {
             Decimal price = 0, qty = 0, amt = 0;
-            if (Decimal.TryParse(txtPrice.Value.ToString(), out price))
+            if (Decimal.TryParse(txtPrice.Text.ToString(), out price))
             {
-                if (Decimal.TryParse(txtQty.Value.ToString(), out qty))
+                if (Decimal.TryParse(txtQty.Text.ToString(), out qty))
                 {
                     txtAmt.Value = price * qty;
                 }
