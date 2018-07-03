@@ -105,7 +105,7 @@ namespace Xtrim_ERP.gui
             //grfDept.Rows.Count = 7;
             grfExpn.Clear();
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expndDB.selectAll1(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all);
+            dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all, objdb.ExpensesDrawDB.StatusPayType.all);
             grfExpn.Cols.Count = 8;
             grfExpn.Rows.Count = dt.Rows.Count+1;
             TextBox txt = new TextBox();

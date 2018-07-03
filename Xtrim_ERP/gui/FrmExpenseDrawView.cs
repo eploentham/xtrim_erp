@@ -114,15 +114,38 @@ namespace Xtrim_ERP.gui
             DataTable dt = new DataTable();
             if (chkAll.Checked)
             {
-                dt = xC.xtDB.expndDB.selectAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.all);
+                if(flagfom2 == flagForm2.Cash)
+                {
+                    dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.all, objdb.ExpensesDrawDB.StatusPayType.Cash);
+                }
+                else
+                {
+                    dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.all, objdb.ExpensesDrawDB.StatusPayType.Cheque);
+                }
+                
             }
             else if (chkAppvWait.Checked)
             {
-                dt = xC.xtDB.expndDB.selectAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.waitappv);
+                if (flagfom2 == flagForm2.Cash)
+                {
+                    dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.waitappv, objdb.ExpensesDrawDB.StatusPayType.Cash);
+                }
+                else
+                {
+                    dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.waitappv, objdb.ExpensesDrawDB.StatusPayType.Cheque);
+                }
+                    
             }
             else if (chkAppvOk.Checked)
             {
-                dt = xC.xtDB.expndDB.selectAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.appv);
+                if (flagfom2 == flagForm2.Cash)
+                {
+                    dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.appv, objdb.ExpensesDrawDB.StatusPayType.Cash);
+                }
+                else
+                {
+                    dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.appv, objdb.ExpensesDrawDB.StatusPayType.Cheque);
+                }
             }
             //grfExpn.DataSource = xC.xtDB.expndDB.selectAll1(cboYear.Text);
             grfExpn.Rows.Count = dt.Rows.Count + 1;

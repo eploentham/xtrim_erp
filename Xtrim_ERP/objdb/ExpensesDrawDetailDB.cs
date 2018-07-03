@@ -427,7 +427,7 @@ namespace Xtrim_ERP.objdb
                 "inner join b_items itm on edd.item_id = itm.item_id " +
                 "inner join b_items_type_sub itmts on itm.item_type_sub_id = itmts.item_type_sub_id " +
                 "inner join f_method_payment fmtp on itm.f_method_payment_id = fmtp.f_method_payment_id " +
-                "where fmtp.f_method_payment_id = '1560000000' and ed.status_appv = '"+ copId + "' " +
+                "where fmtp.f_method_payment_id = '1560000000' and ed.status_appv = '"+ copId + "' and edd.status_pay <> '2' " +
                 "Order By edd.expenses_draw_detail_id ";
             dt = conn.selectData(conn.conn, sql);
             return dt;

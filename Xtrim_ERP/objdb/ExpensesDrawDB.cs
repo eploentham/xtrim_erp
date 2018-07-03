@@ -16,6 +16,7 @@ namespace Xtrim_ERP.objdb
 
         public List<ExpensesDraw> lexpnC;
         public enum StatusPay {waitappv, appv, all };
+        public enum StatusPayType {Cash, Cheque, all};
         public ExpensesDrawDB(ConnectDB c)
         {
             conn = c;
@@ -315,26 +316,38 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
-        public DataTable selectAll1(String year, StatusPay spay)
+        public DataTable selectToPayAll1(String year, StatusPay spay, StatusPayType spaytype)
         {
             DataTable dt = new DataTable();
-            String wherestatuspay = "";
+            String wherestatuspay = "", wherestatuspaytype="";
             if (spay == StatusPay.waitappv)
             {
-                wherestatuspay = " and "+expnC.status_appv+" in ('1','0')";
+                wherestatuspay = " and "+expnC.status_appv+" in ('1','0') and "+expnC.status_pay + "='1'";
             }
             else if (spay == StatusPay.appv)
             {
-                wherestatuspay = " and " + expnC.status_appv + "='2'";
+                wherestatuspay = " and " + expnC.status_appv + "='2' and " + expnC.status_pay + "='1'";
             }
             else if (spay == StatusPay.all)
             {
                 wherestatuspay = "";
             }
-            String sql = "select expC."+expnC.expenses_draw_id+","+expnC.expenses_draw_code+","+expnC.desc1+","+expnC.remark+","+expnC.amount+","+expnC.status_appv+ ","+expnC.status_pay_type+" " +
+            if(spaytype== StatusPayType.Cash)
+            {
+                wherestatuspaytype = " and "+expnC.status_pay_type+" ='1' ";
+            }
+            else if (spaytype == StatusPayType.Cheque)
+            {
+                wherestatuspaytype = " and " + expnC.status_pay_type + " ='2' ";
+            }
+            else if (spaytype == StatusPayType.all)
+            {
+                wherestatuspaytype = " and " + expnC.status_pay_type + " in ('1','2') ";
+            }
+                String sql = "select expC."+expnC.expenses_draw_id+","+expnC.expenses_draw_code+","+expnC.desc1+","+expnC.remark+","+expnC.amount+","+expnC.status_appv+ ","+expnC.status_pay_type + "," + expnC.status_pay + " " +
                 "From " + expnC.table + " expC " +
                 " " +
-                "Where expC." + expnC.active + " ='1' and " + expnC.year + "='" + year + "' "+ wherestatuspay;
+                "Where expC." + expnC.active + " ='1' and " + expnC.year + "='" + year + "' "+ wherestatuspay + wherestatuspaytype;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;

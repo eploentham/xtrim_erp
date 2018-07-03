@@ -785,7 +785,7 @@ namespace Xtrim_ERP.gui
                 }
                 txtAppvAmt.Show();
                 setControlEnable(true);
-                txtAppvAmt.Value = txtAmt.Text.Replace("$","");
+                txtAppvAmt.Value = txtAmt.Text.Replace("$","").Replace(",", "");
             }
             else if (flagaction == flagAction.pay)
             {

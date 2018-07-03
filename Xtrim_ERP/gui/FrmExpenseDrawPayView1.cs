@@ -25,11 +25,11 @@ namespace Xtrim_ERP.gui
 
         Color bg, fc;
         Font ff, ffB;
-        int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6;
+        int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6, colStatusPay = 7;
         int colCID = 1, colCSubNameT = 2, colCMtp = 3, colCItmNameT = 4, colCDrawDate = 5, colCAmt = 6, colCBank=7, colCChequeNo=8, colChequeDate=9, colCChequepayname=10, colCpayID=11;
         int colBID = 1, colBNameT = 2, colBbranch=3, colBaccnumber=4, colBAmt = 5;
         int colPID = 1, colPNameT = 2, colPbranch = 3, colPaccnumber = 4, colPAmt = 5, colPchequeNo=6, colPchequeDate=7, colPchequePayName=8, colPstatuschequeaccPay=9;
-        C1FlexGrid grfView, grfChequeView, grfChequePre, grfChequeMake, grfChequeBnk, grfChequeView1, grfChequePrn;
+        C1FlexGrid grfView, grfChequeView, grfChequePre, grfChequeMake, grfChequeBnk, /*grfChequeView1,*/ grfChequePrn;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
         C1SuperTooltip stt;
@@ -113,8 +113,10 @@ namespace Xtrim_ERP.gui
         private void setGrfView()
         {
             //grfDept.Rows.Count = 7;
-            grfView.DataSource = xC.xtDB.expndDB.selectAll1(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all);
-            grfView.Cols.Count = 7;
+            DataTable dt = new DataTable();
+            dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all, objdb.ExpensesDrawDB.StatusPayType.all);
+            grfView.Cols.Count = dt.Columns.Count;
+            grfView.Rows.Count = dt.Rows.Count + 2;
             TextBox txt = new TextBox();
 
             grfView.Cols[colCode].Editor = txt;
@@ -126,7 +128,7 @@ namespace Xtrim_ERP.gui
             grfView.Cols[colRemark].Width = 200;
             grfView.Cols[colAmt].Width = 80;
             grfView.Cols[colStatus].Width = 80;
-
+            grfView.Cols[colStatusPay].Width = 80;
             grfView.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
             //grfDept.Cols[colCode].Caption = "รหัส";
@@ -135,13 +137,44 @@ namespace Xtrim_ERP.gui
             grfView.Cols[colDesc].Caption = "รายละเอียดใบเบิก";
             grfView.Cols[colRemark].Caption = "หมายเหตุ";
             grfView.Cols[colStatus].Caption = "สถานะ";
+            grfView.Cols[colStatusPay].Caption = "สถานะ";
             grfView.Cols[colAmt].Caption = "รวมเงิน";
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
-            for (int i = 1; i < grfView.Rows.Count; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                grfView[i, 0] = i;
+                grfView[i+2, 0] = i+1;
                 if (i % 2 == 0)
                     grfView.Rows[i].StyleNew.BackColor = color;
+                grfView[i + 2, colID] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_id].ToString();
+                grfView[i + 2, colCode] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_code].ToString();
+                grfView[i + 2, colDesc] = dt.Rows[i][xC.xtDB.expndDB.expnC.desc1].ToString();
+                grfView[i +2, colRemark] = dt.Rows[i][xC.xtDB.expndDB.expnC.remark].ToString();
+                grfView[i + 2, colAmt] = dt.Rows[i][xC.xtDB.expndDB.expnC.amount].ToString();
+                grfView[i + 2, colAmt] = dt.Rows[i][xC.xtDB.expndDB.expnC.amount].ToString();
+                if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("2"))
+                {
+                    grfView[i + 2, colStatus] = "อนุมัติแล้ว";
+                }
+                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("1"))
+                {
+                    grfView[i + 2, colStatus] = "รออนุมัติ";
+                }
+                else
+                {
+                    grfView[i + 2, colStatusPay] = dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString();
+                }
+                if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay].ToString().Equals("2"))
+                {
+                    grfView[i + 2, colStatusPay] = "จ่ายแล้ว";
+                }
+                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay].ToString().Equals("1"))
+                {
+                    grfView[i + 2, colStatusPay] = "รอจ่าย";
+                }
+                else
+                {
+                    grfView[i + 2, colStatusPay] = dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay].ToString();
+                }
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
@@ -213,11 +246,11 @@ namespace Xtrim_ERP.gui
 
             theme1.SetTheme(grfChequeView, "Office2013Red");
 
-            grfChequeView1 = new C1FlexGrid();
-            grfChequeView1.Font = fEdit;
-            grfChequeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            grfChequeView1.Location = new System.Drawing.Point(0, 0);
-            gbChequeView.Controls.Add(grfChequeView1);
+            //grfChequeView1 = new C1FlexGrid();
+            //grfChequeView1.Font = fEdit;
+            //grfChequeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            //grfChequeView1.Location = new System.Drawing.Point(0, 0);
+            //gbChequeView.Controls.Add(grfChequeView1);
             //FilterRow fr = new FilterRow(grfView);
 
         }
@@ -226,7 +259,7 @@ namespace Xtrim_ERP.gui
             //grfDept.Rows.Count = 7;
             DataTable dt = new DataTable();
             dt = xC.xtDB.expnddDB.selectByChequeAppv("2");
-            grfChequeView1.DataSource = dt;
+            //grfChequeView1.DataSource = dt;
             grfChequeView.Cols.Count = dt.Columns.Count+1;
             grfChequeView.Rows.Count = dt.Rows.Count + 1;
             TextBox txt = new TextBox();
