@@ -61,19 +61,29 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.tabCash = new C1.Win.C1Command.C1DockingTabPage();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.c1DockingTab2 = new C1.Win.C1Command.C1DockingTab();
+            this.tabCash1 = new C1.Win.C1Command.C1DockingTab();
             this.tabCashView = new C1.Win.C1Command.C1DockingTabPage();
             this.panel19 = new System.Windows.Forms.Panel();
-            this.gbCashMake = new System.Windows.Forms.GroupBox();
+            this.gbCashPre = new System.Windows.Forms.GroupBox();
             this.panel18 = new System.Windows.Forms.Panel();
             this.c1Button1 = new C1.Win.C1Input.C1Button();
             this.c1Button2 = new C1.Win.C1Input.C1Button();
-            this.c1Button3 = new C1.Win.C1Input.C1Button();
-            this.c1Button4 = new C1.Win.C1Input.C1Button();
-            this.c1Button7 = new C1.Win.C1Input.C1Button();
+            this.btnCashOk = new C1.Win.C1Input.C1Button();
+            this.btnCashDel = new C1.Win.C1Input.C1Button();
+            this.btnCashAdd = new C1.Win.C1Input.C1Button();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.gbCashPre = new System.Windows.Forms.GroupBox();
+            this.gbCashView = new System.Windows.Forms.GroupBox();
             this.tabCashMake = new C1.Win.C1Command.C1DockingTabPage();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.btnCashSave = new C1.Win.C1Input.C1Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtOnhand = new C1.Win.C1Input.C1TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtDraw = new C1.Win.C1Input.C1TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtAmtReserve = new C1.Win.C1Input.C1TextBox();
             this.tabTransfer = new C1.Win.C1Command.C1DockingTabPage();
             this.cdLeft = new C1.Win.C1Command.C1CommandDock();
             this.c1DockingTab1 = new C1.Win.C1Command.C1DockingTab();
@@ -120,17 +130,24 @@
             this.tabChequePrint.SuspendLayout();
             this.tabCash.SuspendLayout();
             this.panel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab2)).BeginInit();
-            this.c1DockingTab2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabCash1)).BeginInit();
+            this.tabCash1.SuspendLayout();
             this.tabCashView.SuspendLayout();
             this.panel19.SuspendLayout();
             this.panel18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCashOk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCashDel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCashAdd)).BeginInit();
             this.panel17.SuspendLayout();
+            this.tabCashMake.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCashSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOnhand)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDraw)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmtReserve)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cdLeft)).BeginInit();
             this.cdLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).BeginInit();
@@ -156,7 +173,7 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1382, 727);
+            this.panel1.Size = new System.Drawing.Size(1628, 727);
             this.panel1.TabIndex = 11;
             this.theme1.SetTheme(this.panel1, "(default)");
             // 
@@ -172,7 +189,7 @@
             this.tC1.Location = new System.Drawing.Point(641, 0);
             this.tC1.Name = "tC1";
             this.tC1.SelectedIndex = 2;
-            this.tC1.Size = new System.Drawing.Size(741, 727);
+            this.tC1.Size = new System.Drawing.Size(987, 727);
             this.tC1.TabIndex = 1;
             this.tC1.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
             this.tC1.TabsShowFocusCues = false;
@@ -185,7 +202,7 @@
             this.tabCheque.Controls.Add(this.panel5);
             this.tabCheque.Location = new System.Drawing.Point(1, 24);
             this.tabCheque.Name = "tabCheque";
-            this.tabCheque.Size = new System.Drawing.Size(739, 702);
+            this.tabCheque.Size = new System.Drawing.Size(985, 702);
             this.tabCheque.TabIndex = 0;
             this.tabCheque.Text = "จ่าย Cheque";
             // 
@@ -197,7 +214,7 @@
             this.panel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(739, 702);
+            this.panel5.Size = new System.Drawing.Size(985, 702);
             this.panel5.TabIndex = 0;
             this.theme1.SetTheme(this.panel5, "(default)");
             // 
@@ -212,7 +229,7 @@
             this.tCCheque.HotTrack = true;
             this.tCCheque.Location = new System.Drawing.Point(0, 0);
             this.tCCheque.Name = "tCCheque";
-            this.tCCheque.Size = new System.Drawing.Size(739, 702);
+            this.tCCheque.Size = new System.Drawing.Size(985, 702);
             this.tCCheque.TabIndex = 0;
             this.tCCheque.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
             this.tCCheque.TabsShowFocusCues = false;
@@ -225,7 +242,7 @@
             this.tabChequeView.Controls.Add(this.panel6);
             this.tabChequeView.Location = new System.Drawing.Point(1, 24);
             this.tabChequeView.Name = "tabChequeView";
-            this.tabChequeView.Size = new System.Drawing.Size(737, 677);
+            this.tabChequeView.Size = new System.Drawing.Size(983, 677);
             this.tabChequeView.TabIndex = 0;
             this.tabChequeView.Text = "เตรียมข้อมูลจ่าย Cheque";
             // 
@@ -239,7 +256,7 @@
             this.panel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(737, 677);
+            this.panel6.Size = new System.Drawing.Size(983, 677);
             this.panel6.TabIndex = 0;
             this.theme1.SetTheme(this.panel6, "(default)");
             // 
@@ -251,7 +268,7 @@
             this.panel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel11.Location = new System.Drawing.Point(640, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(97, 677);
+            this.panel11.Size = new System.Drawing.Size(343, 677);
             this.panel11.TabIndex = 0;
             this.theme1.SetTheme(this.panel11, "(default)");
             // 
@@ -262,7 +279,7 @@
             this.gBChequeMake.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.gBChequeMake.Location = new System.Drawing.Point(0, 0);
             this.gBChequeMake.Name = "gBChequeMake";
-            this.gBChequeMake.Size = new System.Drawing.Size(97, 677);
+            this.gBChequeMake.Size = new System.Drawing.Size(343, 677);
             this.gBChequeMake.TabIndex = 1;
             this.gBChequeMake.TabStop = false;
             this.gBChequeMake.Text = "Cheque ทำจ่าย";
@@ -374,7 +391,7 @@
             this.tabChequeMake.Controls.Add(this.panel7);
             this.tabChequeMake.Location = new System.Drawing.Point(1, 24);
             this.tabChequeMake.Name = "tabChequeMake";
-            this.tabChequeMake.Size = new System.Drawing.Size(737, 677);
+            this.tabChequeMake.Size = new System.Drawing.Size(983, 677);
             this.tabChequeMake.TabIndex = 1;
             this.tabChequeMake.Text = "ทำ Cheque";
             // 
@@ -387,7 +404,7 @@
             this.panel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(737, 677);
+            this.panel7.Size = new System.Drawing.Size(983, 677);
             this.panel7.TabIndex = 0;
             this.theme1.SetTheme(this.panel7, "(default)");
             // 
@@ -398,7 +415,7 @@
             this.panel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel13.Location = new System.Drawing.Point(0, 169);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(737, 508);
+            this.panel13.Size = new System.Drawing.Size(983, 508);
             this.panel13.TabIndex = 0;
             this.theme1.SetTheme(this.panel13, "(default)");
             // 
@@ -411,7 +428,7 @@
             this.panel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel12.Location = new System.Drawing.Point(0, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(737, 169);
+            this.panel12.Size = new System.Drawing.Size(983, 169);
             this.panel12.TabIndex = 0;
             this.theme1.SetTheme(this.panel12, "(default)");
             // 
@@ -427,7 +444,7 @@
             this.panel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel15.Location = new System.Drawing.Point(617, 0);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(120, 169);
+            this.panel15.Size = new System.Drawing.Size(366, 169);
             this.panel15.TabIndex = 0;
             this.theme1.SetTheme(this.panel15, "(default)");
             // 
@@ -536,7 +553,7 @@
             this.tabChequePrint.Controls.Add(this.panel8);
             this.tabChequePrint.Location = new System.Drawing.Point(1, 24);
             this.tabChequePrint.Name = "tabChequePrint";
-            this.tabChequePrint.Size = new System.Drawing.Size(737, 677);
+            this.tabChequePrint.Size = new System.Drawing.Size(983, 677);
             this.tabChequePrint.TabIndex = 2;
             this.tabChequePrint.Text = "พิมพ์ Cheque";
             // 
@@ -547,7 +564,7 @@
             this.panel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(737, 677);
+            this.panel8.Size = new System.Drawing.Size(983, 677);
             this.panel8.TabIndex = 0;
             this.theme1.SetTheme(this.panel8, "(default)");
             // 
@@ -556,40 +573,40 @@
             this.tabCash.Controls.Add(this.panel16);
             this.tabCash.Location = new System.Drawing.Point(1, 24);
             this.tabCash.Name = "tabCash";
-            this.tabCash.Size = new System.Drawing.Size(739, 702);
+            this.tabCash.Size = new System.Drawing.Size(985, 702);
             this.tabCash.TabIndex = 1;
             this.tabCash.Text = "จ่าย เงินสด";
             // 
             // panel16
             // 
             this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel16.Controls.Add(this.c1DockingTab2);
+            this.panel16.Controls.Add(this.tabCash1);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel16.Location = new System.Drawing.Point(0, 0);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(739, 702);
+            this.panel16.Size = new System.Drawing.Size(985, 702);
             this.panel16.TabIndex = 0;
             this.theme1.SetTheme(this.panel16, "(default)");
             // 
-            // c1DockingTab2
+            // tabCash1
             // 
-            this.c1DockingTab2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DockingTab2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DockingTab2.Controls.Add(this.tabCashView);
-            this.c1DockingTab2.Controls.Add(this.tabCashMake);
-            this.c1DockingTab2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.c1DockingTab2.HotTrack = true;
-            this.c1DockingTab2.Location = new System.Drawing.Point(0, 0);
-            this.c1DockingTab2.Name = "c1DockingTab2";
-            this.c1DockingTab2.SelectedIndex = 1;
-            this.c1DockingTab2.Size = new System.Drawing.Size(739, 702);
-            this.c1DockingTab2.TabIndex = 0;
-            this.c1DockingTab2.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
-            this.c1DockingTab2.TabsShowFocusCues = false;
-            this.c1DockingTab2.TabsSpacing = 2;
-            this.c1DockingTab2.TabStyle = C1.Win.C1Command.TabStyleEnum.Office2007;
-            this.theme1.SetTheme(this.c1DockingTab2, "(default)");
+            this.tabCash1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.tabCash1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabCash1.Controls.Add(this.tabCashView);
+            this.tabCash1.Controls.Add(this.tabCashMake);
+            this.tabCash1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabCash1.HotTrack = true;
+            this.tabCash1.Location = new System.Drawing.Point(0, 0);
+            this.tabCash1.Name = "tabCash1";
+            this.tabCash1.SelectedIndex = 1;
+            this.tabCash1.Size = new System.Drawing.Size(985, 702);
+            this.tabCash1.TabIndex = 0;
+            this.tabCash1.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
+            this.tabCash1.TabsShowFocusCues = false;
+            this.tabCash1.TabsSpacing = 2;
+            this.tabCash1.TabStyle = C1.Win.C1Command.TabStyleEnum.Office2007;
+            this.theme1.SetTheme(this.tabCash1, "(default)");
             // 
             // tabCashView
             // 
@@ -598,43 +615,43 @@
             this.tabCashView.Controls.Add(this.panel17);
             this.tabCashView.Location = new System.Drawing.Point(1, 24);
             this.tabCashView.Name = "tabCashView";
-            this.tabCashView.Size = new System.Drawing.Size(737, 677);
+            this.tabCashView.Size = new System.Drawing.Size(983, 677);
             this.tabCashView.TabIndex = 0;
             this.tabCashView.Text = "เตรียมข้อมูลจ่าย เงินสด";
             // 
             // panel19
             // 
             this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel19.Controls.Add(this.gbCashMake);
+            this.panel19.Controls.Add(this.gbCashPre);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel19.Location = new System.Drawing.Point(598, 0);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(139, 677);
+            this.panel19.Size = new System.Drawing.Size(385, 677);
             this.panel19.TabIndex = 2;
             this.theme1.SetTheme(this.panel19, "(default)");
             // 
-            // gbCashMake
+            // gbCashPre
             // 
-            this.gbCashMake.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.gbCashMake.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbCashMake.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.gbCashMake.Location = new System.Drawing.Point(0, 0);
-            this.gbCashMake.Name = "gbCashMake";
-            this.gbCashMake.Size = new System.Drawing.Size(139, 677);
-            this.gbCashMake.TabIndex = 0;
-            this.gbCashMake.TabStop = false;
-            this.gbCashMake.Text = "ทำจ่ายเงินสด";
-            this.theme1.SetTheme(this.gbCashMake, "(default)");
+            this.gbCashPre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.gbCashPre.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbCashPre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.gbCashPre.Location = new System.Drawing.Point(0, 0);
+            this.gbCashPre.Name = "gbCashPre";
+            this.gbCashPre.Size = new System.Drawing.Size(385, 677);
+            this.gbCashPre.TabIndex = 0;
+            this.gbCashPre.TabStop = false;
+            this.gbCashPre.Text = "ทำจ่ายเงินสด";
+            this.theme1.SetTheme(this.gbCashPre, "(default)");
             // 
             // panel18
             // 
             this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panel18.Controls.Add(this.c1Button1);
             this.panel18.Controls.Add(this.c1Button2);
-            this.panel18.Controls.Add(this.c1Button3);
-            this.panel18.Controls.Add(this.c1Button4);
-            this.panel18.Controls.Add(this.c1Button7);
+            this.panel18.Controls.Add(this.btnCashOk);
+            this.panel18.Controls.Add(this.btnCashDel);
+            this.panel18.Controls.Add(this.btnCashAdd);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel18.Location = new System.Drawing.Point(552, 0);
@@ -667,46 +684,46 @@
             this.c1Button2.UseVisualStyleBackColor = true;
             this.c1Button2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1Button3
+            // btnCashOk
             // 
-            this.c1Button3.Image = global::Xtrim_ERP.Properties.Resources.Open_folder_accept;
-            this.c1Button3.Location = new System.Drawing.Point(7, 578);
-            this.c1Button3.Name = "c1Button3";
-            this.c1Button3.Size = new System.Drawing.Size(32, 32);
-            this.c1Button3.TabIndex = 437;
-            this.c1Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button3, "(default)");
-            this.c1Button3.UseVisualStyleBackColor = true;
-            this.c1Button3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnCashOk.Image = global::Xtrim_ERP.Properties.Resources.Open_folder_accept;
+            this.btnCashOk.Location = new System.Drawing.Point(7, 578);
+            this.btnCashOk.Name = "btnCashOk";
+            this.btnCashOk.Size = new System.Drawing.Size(32, 32);
+            this.btnCashOk.TabIndex = 437;
+            this.btnCashOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnCashOk, "(default)");
+            this.btnCashOk.UseVisualStyleBackColor = true;
+            this.btnCashOk.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1Button4
+            // btnCashDel
             // 
-            this.c1Button4.Image = global::Xtrim_ERP.Properties.Resources.Navigate_left;
-            this.c1Button4.Location = new System.Drawing.Point(7, 244);
-            this.c1Button4.Name = "c1Button4";
-            this.c1Button4.Size = new System.Drawing.Size(32, 32);
-            this.c1Button4.TabIndex = 436;
-            this.c1Button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button4, "(default)");
-            this.c1Button4.UseVisualStyleBackColor = true;
-            this.c1Button4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnCashDel.Image = global::Xtrim_ERP.Properties.Resources.Navigate_left;
+            this.btnCashDel.Location = new System.Drawing.Point(7, 244);
+            this.btnCashDel.Name = "btnCashDel";
+            this.btnCashDel.Size = new System.Drawing.Size(32, 32);
+            this.btnCashDel.TabIndex = 436;
+            this.btnCashDel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnCashDel, "(default)");
+            this.btnCashDel.UseVisualStyleBackColor = true;
+            this.btnCashDel.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1Button7
+            // btnCashAdd
             // 
-            this.c1Button7.Image = global::Xtrim_ERP.Properties.Resources.Navigate_right;
-            this.c1Button7.Location = new System.Drawing.Point(7, 180);
-            this.c1Button7.Name = "c1Button7";
-            this.c1Button7.Size = new System.Drawing.Size(32, 32);
-            this.c1Button7.TabIndex = 435;
-            this.c1Button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button7, "(default)");
-            this.c1Button7.UseVisualStyleBackColor = true;
-            this.c1Button7.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnCashAdd.Image = global::Xtrim_ERP.Properties.Resources.Navigate_right;
+            this.btnCashAdd.Location = new System.Drawing.Point(7, 180);
+            this.btnCashAdd.Name = "btnCashAdd";
+            this.btnCashAdd.Size = new System.Drawing.Size(32, 32);
+            this.btnCashAdd.TabIndex = 435;
+            this.btnCashAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnCashAdd, "(default)");
+            this.btnCashAdd.UseVisualStyleBackColor = true;
+            this.btnCashAdd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // panel17
             // 
             this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel17.Controls.Add(this.gbCashPre);
+            this.panel17.Controls.Add(this.gbCashView);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel17.Location = new System.Drawing.Point(0, 0);
@@ -715,32 +732,188 @@
             this.panel17.TabIndex = 0;
             this.theme1.SetTheme(this.panel17, "(default)");
             // 
-            // gbCashPre
+            // gbCashView
             // 
-            this.gbCashPre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.gbCashPre.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbCashPre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.gbCashPre.Location = new System.Drawing.Point(0, 0);
-            this.gbCashPre.Name = "gbCashPre";
-            this.gbCashPre.Size = new System.Drawing.Size(552, 677);
-            this.gbCashPre.TabIndex = 1;
-            this.gbCashPre.TabStop = false;
-            this.gbCashPre.Text = "รายการ เงินสด รอจ่าย";
-            this.theme1.SetTheme(this.gbCashPre, "(default)");
+            this.gbCashView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.gbCashView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbCashView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.gbCashView.Location = new System.Drawing.Point(0, 0);
+            this.gbCashView.Name = "gbCashView";
+            this.gbCashView.Size = new System.Drawing.Size(552, 677);
+            this.gbCashView.TabIndex = 1;
+            this.gbCashView.TabStop = false;
+            this.gbCashView.Text = "รายการ เงินสด รอจ่าย";
+            this.theme1.SetTheme(this.gbCashView, "(default)");
             // 
             // tabCashMake
             // 
+            this.tabCashMake.Controls.Add(this.panel21);
             this.tabCashMake.Location = new System.Drawing.Point(1, 24);
             this.tabCashMake.Name = "tabCashMake";
-            this.tabCashMake.Size = new System.Drawing.Size(737, 677);
+            this.tabCashMake.Size = new System.Drawing.Size(983, 677);
             this.tabCashMake.TabIndex = 1;
             this.tabCashMake.Text = "ทำจ่าย เงินสด";
+            // 
+            // panel21
+            // 
+            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel21.Controls.Add(this.panel23);
+            this.panel21.Controls.Add(this.panel22);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel21.Location = new System.Drawing.Point(0, 0);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(983, 677);
+            this.panel21.TabIndex = 0;
+            this.theme1.SetTheme(this.panel21, "(default)");
+            // 
+            // panel23
+            // 
+            this.panel23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel23.Location = new System.Drawing.Point(0, 50);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(983, 627);
+            this.panel23.TabIndex = 0;
+            this.theme1.SetTheme(this.panel23, "(default)");
+            // 
+            // panel22
+            // 
+            this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel22.Controls.Add(this.btnCashSave);
+            this.panel22.Controls.Add(this.label3);
+            this.panel22.Controls.Add(this.txtOnhand);
+            this.panel22.Controls.Add(this.label2);
+            this.panel22.Controls.Add(this.txtDraw);
+            this.panel22.Controls.Add(this.label1);
+            this.panel22.Controls.Add(this.txtAmtReserve);
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel22.Location = new System.Drawing.Point(0, 0);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(983, 50);
+            this.panel22.TabIndex = 0;
+            this.theme1.SetTheme(this.panel22, "(default)");
+            // 
+            // btnCashSave
+            // 
+            this.btnCashSave.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
+            this.btnCashSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCashSave.Location = new System.Drawing.Point(752, 5);
+            this.btnCashSave.Name = "btnCashSave";
+            this.btnCashSave.Size = new System.Drawing.Size(83, 39);
+            this.btnCashSave.TabIndex = 540;
+            this.btnCashSave.Text = "บันทึกช้อมูล";
+            this.btnCashSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnCashSave, "(default)");
+            this.btnCashSave.UseVisualStyleBackColor = true;
+            this.btnCashSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label3.Location = new System.Drawing.Point(537, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 16);
+            this.label3.TabIndex = 539;
+            this.label3.Text = "คงเหลือ  :";
+            this.theme1.SetTheme(this.label3, "(default)");
+            // 
+            // txtOnhand
+            // 
+            this.txtOnhand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtOnhand.DataType = typeof(decimal);
+            this.txtOnhand.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtOnhand.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtOnhand.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
+            this.txtOnhand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtOnhand.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtOnhand.Location = new System.Drawing.Point(596, 20);
+            this.txtOnhand.Name = "txtOnhand";
+            this.txtOnhand.Size = new System.Drawing.Size(150, 24);
+            this.txtOnhand.TabIndex = 538;
+            this.txtOnhand.Tag = null;
+            this.theme1.SetTheme(this.txtOnhand, "(default)");
+            this.txtOnhand.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label2.Location = new System.Drawing.Point(317, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 16);
+            this.label2.TabIndex = 537;
+            this.label2.Text = "จ่าย  :";
+            this.theme1.SetTheme(this.label2, "(default)");
+            // 
+            // txtDraw
+            // 
+            this.txtDraw.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDraw.DataType = typeof(decimal);
+            this.txtDraw.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtDraw.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtDraw.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
+            this.txtDraw.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtDraw.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtDraw.Location = new System.Drawing.Point(357, 20);
+            this.txtDraw.Name = "txtDraw";
+            this.txtDraw.Size = new System.Drawing.Size(150, 24);
+            this.txtDraw.TabIndex = 536;
+            this.txtDraw.Tag = null;
+            this.theme1.SetTheme(this.txtDraw, "(default)");
+            this.txtDraw.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label1.Location = new System.Drawing.Point(11, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 16);
+            this.label1.TabIndex = 535;
+            this.label1.Text = "เงินสำรองจ่าย คงเหลือ :";
+            this.theme1.SetTheme(this.label1, "(default)");
+            // 
+            // txtAmtReserve
+            // 
+            this.txtAmtReserve.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAmtReserve.DataType = typeof(decimal);
+            this.txtAmtReserve.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtAmtReserve.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtAmtReserve.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
+            this.txtAmtReserve.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtAmtReserve.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtAmtReserve.Location = new System.Drawing.Point(145, 20);
+            this.txtAmtReserve.Name = "txtAmtReserve";
+            this.txtAmtReserve.Size = new System.Drawing.Size(150, 24);
+            this.txtAmtReserve.TabIndex = 534;
+            this.txtAmtReserve.Tag = null;
+            this.theme1.SetTheme(this.txtAmtReserve, "(default)");
+            this.txtAmtReserve.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // tabTransfer
             // 
             this.tabTransfer.Location = new System.Drawing.Point(1, 24);
             this.tabTransfer.Name = "tabTransfer";
-            this.tabTransfer.Size = new System.Drawing.Size(739, 702);
+            this.tabTransfer.Size = new System.Drawing.Size(985, 702);
             this.tabTransfer.TabIndex = 2;
             this.tabTransfer.Text = "จ่าย เงินโอน";
             // 
@@ -965,7 +1138,7 @@
             this.sB1});
             this.sB.Location = new System.Drawing.Point(0, 727);
             this.sB.Name = "sB";
-            this.sB.Size = new System.Drawing.Size(1382, 22);
+            this.sB.Size = new System.Drawing.Size(1628, 22);
             this.sB.TabIndex = 10;
             this.sB.Text = "statusStrip1";
             // 
@@ -979,7 +1152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1382, 749);
+            this.ClientSize = new System.Drawing.Size(1628, 749);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sB);
             this.Name = "FrmExpenseDrawPayView1";
@@ -1015,17 +1188,25 @@
             this.tabChequePrint.ResumeLayout(false);
             this.tabCash.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab2)).EndInit();
-            this.c1DockingTab2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tabCash1)).EndInit();
+            this.tabCash1.ResumeLayout(false);
             this.tabCashView.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCashOk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCashDel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCashAdd)).EndInit();
             this.panel17.ResumeLayout(false);
+            this.tabCashMake.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCashSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOnhand)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDraw)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmtReserve)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cdLeft)).EndInit();
             this.cdLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).EndInit();
@@ -1090,24 +1271,34 @@
         private C1.Win.Calendar.C1DateEdit txtDate;
         private C1.Win.C1Input.C1Button btnChequeSave;
         private System.Windows.Forms.Panel panel16;
-        private C1.Win.C1Command.C1DockingTab c1DockingTab2;
+        private C1.Win.C1Command.C1DockingTab tabCash1;
         private C1.Win.C1Command.C1DockingTabPage tabCashView;
         private System.Windows.Forms.Panel panel18;
         private C1.Win.C1Input.C1Button c1Button1;
         private C1.Win.C1Input.C1Button c1Button2;
-        private C1.Win.C1Input.C1Button c1Button3;
-        private C1.Win.C1Input.C1Button c1Button4;
-        private C1.Win.C1Input.C1Button c1Button7;
+        private C1.Win.C1Input.C1Button btnCashOk;
+        private C1.Win.C1Input.C1Button btnCashDel;
+        private C1.Win.C1Input.C1Button btnCashAdd;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.GroupBox gbCashPre;
+        private System.Windows.Forms.GroupBox gbCashView;
         private C1.Win.C1Command.C1DockingTabPage tabCashMake;
         private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.GroupBox gbCashMake;
+        private System.Windows.Forms.GroupBox gbCashPre;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.RadioButton chkViewFmtp;
         private System.Windows.Forms.RadioButton chkViewDraw;
         private C1.Win.C1Input.C1TextBox txtExpnpID;
         private System.Windows.Forms.Label label5;
         private C1.Win.C1Input.C1TextBox txtRemark;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Label label1;
+        private C1.Win.C1Input.C1TextBox txtAmtReserve;
+        private System.Windows.Forms.Label label2;
+        private C1.Win.C1Input.C1TextBox txtDraw;
+        private System.Windows.Forms.Label label3;
+        private C1.Win.C1Input.C1TextBox txtOnhand;
+        private C1.Win.C1Input.C1Button btnCashSave;
     }
 }

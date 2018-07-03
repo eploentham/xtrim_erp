@@ -25,11 +25,11 @@ namespace Xtrim_ERP.gui
 
         Color bg, fc;
         Font ff, ffB;
-        int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6, colStatusPay = 7;
+        int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6, colFlagForm = 7, colStatusPay = 8;
         int colCID = 1, colCSubNameT = 2, colCMtp = 3, colCItmNameT = 4, colCDrawDate = 5, colCAmt = 6, colCBank=7, colCChequeNo=8, colChequeDate=9, colCChequepayname=10, colCpayID=11;
         int colBID = 1, colBNameT = 2, colBbranch=3, colBaccnumber=4, colBAmt = 5;
         int colPID = 1, colPNameT = 2, colPbranch = 3, colPaccnumber = 4, colPAmt = 5, colPchequeNo=6, colPchequeDate=7, colPchequePayName=8, colPstatuschequeaccPay=9;
-        C1FlexGrid grfView, grfChequeView, grfChequePre, grfChequeMake, grfChequeBnk, /*grfChequeView1,*/ grfChequePrn;
+        C1FlexGrid grfView, grfChequeView, grfChequePre, grfChequeMake, grfChequeBnk, /*grfChequeView1,*/ grfChequePrn, grfCashView, grfCashPre, grfCashMake;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
         C1SuperTooltip stt;
@@ -60,12 +60,18 @@ namespace Xtrim_ERP.gui
             btnChequeAdd.Click += BtnChequeAdd_Click;
             btnChequeDel.Click += BtnChequeDel_Click;
             btnChequeOk.Click += BtnChequeOk_Click;
+            btnCashAdd.Click += BtnCashAdd_Click;
+            btnCashDel.Click += BtnCashDel_Click;
+            btnCashOk.Click += BtnCashOk_Click;
+            btnCashSave.Click += BtnCashSave_Click;
+
             chkViewFmtp.Click += ChkViewFmtp_Click;
             chkViewDraw.Click += ChkViewDraw_Click;
             chkAppvWait.Click += ChkAppvWait_Click;
             chkViewAll.Click += ChkViewAll_Click;
             chkAppvOk.Click += ChkAppvOk_Click;
             btnChequeSave.Click += BtnChequeSave_Click;
+            tabCash.TabClick += TabCash_TabClick;
 
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
@@ -85,7 +91,19 @@ namespace Xtrim_ERP.gui
             initGrfChequeBnk();
             setGrfChequeBnk();
             initGrfChequePrn();
+            initGrfCashView();
+            setGrfCashView();
+            initGrfCashPre();
+            setGrfCashPre();
+            initGrfCashMake();
+            setGrfCashMake();
             tC1.SelectedTab = tabCheque;
+        }
+        
+        private void TabCash_TabClick(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            tabCash1.SelectedTab = tabCashView;
         }
         
         private void initGrfView()
@@ -115,7 +133,7 @@ namespace Xtrim_ERP.gui
             //grfDept.Rows.Count = 7;
             DataTable dt = new DataTable();
             dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all, objdb.ExpensesDrawDB.StatusPayType.all);
-            grfView.Cols.Count = dt.Columns.Count;
+            grfView.Cols.Count = dt.Columns.Count+1;
             grfView.Rows.Count = dt.Rows.Count + 2;
             TextBox txt = new TextBox();
 
@@ -137,7 +155,8 @@ namespace Xtrim_ERP.gui
             grfView.Cols[colDesc].Caption = "รายละเอียดใบเบิก";
             grfView.Cols[colRemark].Caption = "หมายเหตุ";
             grfView.Cols[colStatus].Caption = "สถานะ";
-            grfView.Cols[colStatusPay].Caption = "สถานะ";
+            grfView.Cols[colStatusPay].Caption = "การจ่าย";
+            grfView.Cols[colFlagForm].Caption = "การเบิก";
             grfView.Cols[colAmt].Caption = "รวมเงิน";
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -174,6 +193,18 @@ namespace Xtrim_ERP.gui
                 else
                 {
                     grfView[i + 2, colStatusPay] = dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay].ToString();
+                }
+                if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay_type].ToString().Equals("1"))
+                {
+                    grfView[i + 2, colFlagForm] = "Cash";
+                }
+                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay_type].ToString().Equals("2"))
+                {
+                    grfView[i + 2, colFlagForm] = "Cheque";
+                }
+                else
+                {
+                    grfView[i + 2, colFlagForm] = "-";
                 }
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
@@ -505,6 +536,198 @@ namespace Xtrim_ERP.gui
 
             theme1.SetTheme(grfChequePrn, "Office2016Colorful");
         }
+        private void initGrfCashView()
+        {
+            grfCashView = new C1FlexGrid();
+            grfCashView.Font = fEdit;
+            grfCashView.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfCashView.Location = new System.Drawing.Point(0, 0);
+            //FilterRow fr = new FilterRow(grfView);            
+
+            gbCashView.Controls.Add(grfCashView);
+            ContextMenu menuGw = new ContextMenu();
+            //menuGw.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Gw_Cancel));
+            grfCashView.ContextMenu = menuGw;
+
+            theme1.SetTheme(grfCashView, "Office2010Green");
+
+            //grfChequeView1 = new C1FlexGrid();
+            //grfChequeView1.Font = fEdit;
+            //grfChequeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            //grfChequeView1.Location = new System.Drawing.Point(0, 0);
+            //gbChequeView.Controls.Add(grfChequeView1);
+            //FilterRow fr = new FilterRow(grfView);
+
+        }
+        private void setGrfCashView()
+        {
+            //grfDept.Rows.Count = 7;
+            DataTable dt = new DataTable();
+            dt = xC.xtDB.expnddDB.selectByCashAppv("2");
+            //grfChequeView1.DataSource = dt;
+            grfCashView.Cols.Count = dt.Columns.Count + 1;
+            grfCashView.Rows.Count = dt.Rows.Count + 1;
+            TextBox txt = new TextBox();
+
+            grfCashView.Cols[colCode].Editor = txt;
+            grfCashView.Cols[colDesc].Editor = txt;
+            grfCashView.Cols[colRemark].Editor = txt;
+
+            grfCashView.Cols[colCSubNameT].Width = 220;
+            grfCashView.Cols[colCMtp].Width = 80;
+            grfCashView.Cols[colCItmNameT].Width = 220;
+            grfCashView.Cols[colCDrawDate].Width = 100;
+            grfCashView.Cols[colCAmt].Width = 100;
+
+            grfCashView.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            //grfDept.Cols[colCode].Caption = "รหัส";
+
+            grfCashView.Cols[colCSubNameT].Caption = "ประเภทย่อย";
+            grfCashView.Cols[colCMtp].Caption = "วิธีการจ่าย";
+            grfCashView.Cols[colCItmNameT].Caption = "รายการ";
+            grfCashView.Cols[colCDrawDate].Caption = "วันที่";
+            grfCashView.Cols[colCAmt].Caption = "รวมเงิน";
+            Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                grfCashView[i + 1, 0] = i+1;
+                if (i % 2 == 0)
+                    grfCashView.Rows[i + 1].StyleNew.BackColor = color;
+                grfCashView[i + 1, colCID] = dt.Rows[i][colCID - 1].ToString();
+                grfCashView[i + 1, colCSubNameT] = dt.Rows[i][colCSubNameT - 1].ToString();
+                grfCashView[i + 1, colCMtp] = dt.Rows[i][colCMtp - 1].ToString();
+                grfCashView[i + 1, colCItmNameT] = dt.Rows[i][colCItmNameT - 1].ToString();
+                grfCashView[i + 1, colCAmt] = dt.Rows[i][colCAmt - 1].ToString();
+            }
+            //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
+            //rg1.Style = grfBank.Styles["date"];
+            grfCashView.Cols[colCID].Visible = false;
+        }
+        private void initGrfCashPre()
+        {
+            grfCashPre = new C1FlexGrid();
+            grfCashPre.Font = fEdit;
+            grfCashPre.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfCashPre.Location = new System.Drawing.Point(0, 0);
+            //FilterRow fr = new FilterRow(grfView);            
+
+            gbCashPre.Controls.Add(grfCashPre);
+            ContextMenu menuGw = new ContextMenu();
+            //menuGw.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Gw_Cancel));
+            grfCashPre.ContextMenu = menuGw;
+
+            theme1.SetTheme(grfCashPre, "Office2010Barbie");
+        }
+        private void setGrfCashPre()
+        {
+            grfCashPre.Rows.Count = 1;
+            //grfChequeMake.DataSource = xC.xtDB.expnddDB.selectByChequeAppv("2");
+            grfCashPre.Cols.Count = 7;
+            TextBox txt = new TextBox();
+
+            grfCashPre.Cols[colCode].Editor = txt;
+            grfCashPre.Cols[colDesc].Editor = txt;
+            grfCashPre.Cols[colRemark].Editor = txt;
+
+            grfCashPre.Cols[colCSubNameT].Width = 220;
+            grfCashPre.Cols[colCMtp].Width = 80;
+            grfCashPre.Cols[colCItmNameT].Width = 220;
+            grfCashPre.Cols[colCDrawDate].Width = 100;
+            grfCashPre.Cols[colCAmt].Width = 100;
+
+            grfCashPre.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            //grfDept.Cols[colCode].Caption = "รหัส";
+
+            grfCashPre.Cols[colCSubNameT].Caption = "ประเภทย่อย";
+            grfCashPre.Cols[colCMtp].Caption = "วิธีการจ่าย";
+            grfCashPre.Cols[colCItmNameT].Caption = "รายการ";
+            grfCashPre.Cols[colCDrawDate].Caption = "วันที่";
+            grfCashPre.Cols[colCAmt].Caption = "ยอดเงิน";
+            Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
+            for (int i = 1; i < grfCashPre.Rows.Count; i++)
+            {
+                grfCashPre[i, 0] = i;
+                if (i % 2 == 0)
+                    grfCashPre.Rows[i].StyleNew.BackColor = color;
+            }
+            //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
+            //rg1.Style = grfBank.Styles["date"];
+            grfCashPre.Cols[colCID].Visible = false;
+        }
+        private void initGrfCashMake()
+        {
+            grfCashMake = new C1FlexGrid();
+            grfCashMake.Font = fEdit;
+            grfCashMake.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfCashMake.Location = new System.Drawing.Point(0, 0);
+            //FilterRow fr = new FilterRow(grfView);            
+
+            panel23.Controls.Add(grfCashMake);
+            ContextMenu menuGw = new ContextMenu();
+            //menuGw.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Gw_Cancel));
+            grfCashMake.ContextMenu = menuGw;
+
+            theme1.SetTheme(grfCashMake, "Office2010Red");
+        }
+        private void setGrfCashMake()
+        {
+            grfCashMake.Rows.Count = 1;
+            //grfChequeMake.DataSource = xC.xtDB.expnddDB.selectByChequeAppv("2");
+            grfCashMake.Cols.Count = 12;
+            TextBox txt = new TextBox();
+            C1ComboBox cbo = new C1ComboBox();
+            xC.xtDB.copbDB.setC1CboItem(cbo);
+            //C1DateEdit dtpDate = new C1DateEdit();
+            txtDate.Value = DateTime.Now;
+            //dtpDate.EditFormat = FormatInfo. 
+
+            grfCashMake.Cols[colCSubNameT].Editor = txt;
+            grfCashMake.Cols[colCMtp].Editor = txt;
+            grfCashMake.Cols[colCItmNameT].Editor = txt;
+            grfCashMake.Cols[colCDrawDate].Editor = txt;
+            grfCashMake.Cols[colCAmt].Editor = txt;
+            grfCashMake.Cols[colCChequeNo].Editor = txt;
+            grfCashMake.Cols[colCChequepayname].Editor = txt;
+            grfCashMake.Cols[colCBank].Editor = cbo;
+            grfCashMake.Cols[colChequeDate].Editor = txtDate;
+
+            grfCashMake.Cols[colCSubNameT].Width = 220;
+            grfCashMake.Cols[colCMtp].Width = 80;
+            grfCashMake.Cols[colCItmNameT].Width = 220;
+            grfCashMake.Cols[colCDrawDate].Width = 100;
+            grfCashMake.Cols[colCAmt].Width = 100;
+            grfCashMake.Cols[colCChequeNo].Width = 100;
+            grfCashMake.Cols[colCChequepayname].Width = 200;
+            grfCashMake.Cols[colCBank].Width = 140;
+            grfCashMake.Cols[colChequeDate].Width = 100;
+
+            grfCashMake.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            //grfDept.Cols[colCode].Caption = "รหัส";
+
+            grfCashMake.Cols[colCSubNameT].Caption = "ประเภทย่อย";
+            grfCashMake.Cols[colCMtp].Caption = "วิธีการจ่าย";
+            grfCashMake.Cols[colCItmNameT].Caption = "รายการ";
+            grfCashMake.Cols[colCDrawDate].Caption = "วันที่";
+            grfCashMake.Cols[colCAmt].Caption = "ยอดเงิน";
+            grfCashMake.Cols[colCBank].Caption = "ธนาคาร";
+            grfCashMake.Cols[colCChequeNo].Caption = "เช๊คเลขที่";
+            grfCashMake.Cols[colChequeDate].Caption = "เช็ควันที่";
+            grfCashMake.Cols[colCChequepayname].Caption = "ชื่อผู้รับเงิน";
+            Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
+            for (int i = 1; i < grfCashMake.Rows.Count; i++)
+            {
+                grfCashMake[i, 0] = i;
+                if (i % 2 == 0)
+                    grfCashMake.Rows[i].StyleNew.BackColor = color;
+            }
+            //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
+            //rg1.Style = grfBank.Styles["date"];
+            grfCashMake.Cols[colCID].Visible = false;
+            grfCashMake.Cols[colCpayID].Visible = false;
+        }
         private void ContextMenu_grfChequePrn_Print(object sender, System.EventArgs e)
         {
             String chk = "", name="", no="";
@@ -582,6 +805,67 @@ namespace Xtrim_ERP.gui
             //rg1.Style = grfBank.Styles["date"];
             grfChequePrn.Cols[colPID].Visible = false;
         }
+        private void BtnCashAdd_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            int row = grfCashView.Row;
+            if (row < 1) return;
+            //int row = grfChequePre.Rows.Count++;
+            //Row rr = grfChequeView.Rows[grfChequeView.Row];
+            Row rrr = grfCashPre.Rows.Add();
+            rrr[colCID] = grfCashView[row, colCID].ToString();
+            rrr[colCSubNameT] = grfCashView[row, colCSubNameT].ToString();
+            rrr[colCMtp] = grfCashView[row, colCMtp].ToString();
+            rrr[colCItmNameT] = grfCashView[row, colCItmNameT].ToString();
+            rrr[colCAmt] = grfCashView[row, colCAmt].ToString();
+
+            grfCashView.Rows.Remove(grfCashView.Row);
+        }
+        private void BtnCashDel_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            int row = 0;
+            row = grfCashPre.Row;
+            Row rrr = grfCashView.Rows.Add();
+            rrr[colCID] = grfCashPre[row, colCID].ToString();
+            rrr[colCSubNameT] = grfCashPre[row, colCSubNameT].ToString();
+            rrr[colCMtp] = grfCashPre[row, colCMtp].ToString();
+            rrr[colCItmNameT] = grfCashPre[row, colCItmNameT].ToString();
+            rrr[colCAmt] = grfCashPre[row, colCAmt].ToString();
+
+            grfCashPre.Rows.Remove(row);
+        }
+        private void BtnCashOk_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            Company cop = new Company();
+            Decimal draw = 0, reserve=0;
+            cop = xC.xtDB.copDB.selectByCode1("001");
+            Decimal.TryParse(cop.amount_reserve, out reserve);
+            txtAmtReserve.Value = reserve;
+            tabCash1.SelectedTab = tabCashMake;
+            grfCashMake.Rows.Count = grfCashPre.Rows.Count;
+            for (int row = 1; row < grfCashPre.Rows.Count; row++)
+            {
+                String id = "";
+                id = grfCashPre[row, colCID] != null ? grfCashPre[row, colCID].ToString() : "";
+                ExpensesDrawDatail dd = new ExpensesDrawDatail();
+                dd = xC.xtDB.expnddDB.selectByPk1(id);
+                grfCashMake[row, 0] = row;
+                grfCashMake[row, colCID] = id;
+                grfCashMake[row, colCSubNameT] = grfCashPre[row, colCSubNameT];
+                grfCashMake[row, colCMtp] = grfCashPre[row, colCMtp];
+                grfCashMake[row, colCItmNameT] = grfCashPre[row, colCItmNameT];
+                grfCashMake[row, colCDrawDate] = grfCashPre[row, colCDrawDate];
+                grfCashMake[row, colCAmt] = grfCashPre[row, colCAmt];
+                grfCashMake[row, colCChequepayname] = dd.pay_to_cus_name_t;
+                Decimal amt = 0;
+                Decimal.TryParse(grfCashPre[row, colCAmt].ToString(), out amt);
+                draw += amt;
+            }
+            txtDraw.Value = draw;
+            txtOnhand.Value = reserve - draw;
+        }
         private void BtnChequeAdd_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -654,7 +938,7 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                setExpensesPay();
+                setExpensesPay("2");
                 String re = xC.xtDB.expnpDB.insertExpensesPay(expnp, xC.user.staff_id);
                 int chk = 0, chkD=0;
                 if (int.TryParse(re, out chk))
@@ -730,12 +1014,93 @@ namespace Xtrim_ERP.gui
                 //this.Dispose();
             }
         }
-        private void setExpensesPay()
+        private void BtnCashSave_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                setExpensesPay("1");
+                String re = xC.xtDB.expnpDB.insertExpensesPay(expnp, xC.user.staff_id);
+                int chk = 0, chkD = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    txtExpnpID.Value = re;
+                    for (int i = 1; i < grfCashMake.Rows.Count; i++)
+                    {
+                        ExpensesPayDetail expnPd = new ExpensesPayDetail();
+                        ExpensesDrawDatail expndd = new ExpensesDrawDatail();
+                        String expnddid = "";
+                        expnddid = grfCashMake[i, colCID].ToString();
+                        expndd = xC.xtDB.expnddDB.selectByPk1(expnddid);
+
+                        expnPd.expenses_pay_detail_id = grfCashMake[i, colCpayID] != null ? grfCashMake[i, colCpayID].ToString() : "";//colCChequeNo
+                        expnPd.expenses_pay_id = txtExpnpID.Text;
+                        expnPd.item_id = expndd.item_id;
+                        expnPd.status_pay_type = "1";
+                        expnPd.active = "1";
+                        expnPd.remark = "";
+                        expnPd.user_cancel = "";
+                        expnPd.user_create = "";
+                        expnPd.user_modi = "";
+                        expnPd.date_cancel = "";
+                        expnPd.date_create = "";
+                        expnPd.date_modi = "";
+
+                        expnPd.item_name_t = expndd.item_name_t;
+                        expnPd.job_id = expndd.job_id;
+                        expnPd.pay_amount = expndd.amount;
+                        expnPd.pay_to_cus_id = expndd.pay_to_cus_id;
+                        expnPd.pay_to_cus_name_t = grfCashMake[i, colCChequepayname] != null ? grfCashMake[i, colCChequepayname].ToString() : "";
+                        expnPd.pay_to_cus_addr = expndd.pay_to_cus_addr;
+                        expnPd.pay_to_cus_tax = expndd.pay_to_cus_tax;
+                        expnPd.pay_cheque_no = grfCashMake[i, colCChequeNo] != null ? grfCashMake[i, colCChequeNo].ToString() : "";
+                        expnPd.pay_cheque_bank_id = grfCashMake[i, colCBank] != null ? xC.xtDB.copbDB.getIdByName(grfCashMake[i, colCBank].ToString()) : "";
+                        expnPd.pay_staff_id = xC.userId;
+                        expnPd.pay_date = xC.datetoDB(txtDate.Text);
+                        expnPd.comp_bank_id = grfCashMake[i, colCBank] != null ? xC.xtDB.copbDB.getIdByName(grfCashMake[i, colCBank].ToString()) : "";
+                        expnPd.pay_bank_date = grfCashMake[i, colChequeDate] != null ? xC.datetoDB(grfCashMake[i, colChequeDate].ToString()) : "";
+                        expnPd.expenses_draw_detail_id = expndd.expenses_draw_detail_id;
+
+                        expndd.status_pay_type = "2";
+                        expndd.pay_amount = expnPd.pay_amount;
+                        expndd.pay_date = expnPd.pay_date;
+                        expndd.pay_cheque_no = expnPd.pay_cheque_no;
+                        expndd.comp_bank_id = expnPd.comp_bank_id;
+                        expndd.pay_staff_id = expnPd.pay_staff_id;
+                        expndd.pay_bank_date = expnPd.pay_bank_date;
+
+                        String re1 = xC.xtDB.expnpdDB.insertExpensesPayDetail(expnPd, xC.userId);
+                        expndd.expenses_pay_detail_id = re1;
+                        String re2 = xC.xtDB.expnddDB.updatePay(expndd, xC.userId);
+                        xC.updateStatusPay(expndd.expense_draw_id);
+                        if (int.TryParse(re1, out chk))
+                        {
+                            chkD++;
+                        }
+                    }
+                    if (chkD == (grfChequeMake.Rows.Count - 1))
+                    {
+                        btnCashSave.Image = Resources.accept_database24;
+                        //tCCheque.SelectedTab = tabChequePrint;
+
+                        //setGrfChequePrn(txtExpnpID.Text);
+                    }
+                }
+                else
+                {
+                    btnCashSave.Image = Resources.accept_database24;
+                }
+
+                //setGrdView();
+                //this.Dispose();
+            }
+        }
+        private void setExpensesPay(String paytype)
         {
             expnp.expenses_pay_id = txtExpnpID.Text;
-            expnp.expenses_pay_code = "expenses_pay_code";
+            expnp.expenses_pay_code = "";
             expnp.expenses_pay_date = xC.datetoDB(txtDate.Text);
-            expnp.status_pay_type = "2";//1=cash;2=cheque
+            expnp.status_pay_type = paytype;//1=cash;2=cheque
             expnp.active = "1";
             expnp.remark = txtRemark.Text;
             expnp.user_cancel = "";

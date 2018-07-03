@@ -23,7 +23,7 @@ namespace Xtrim_ERP.gui
 
         Color bg, fc;
         Font ff, ffB;
-        int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6, colFlagForm=7;
+        int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6, colFlagForm=7, colStatusPay=8;
         C1FlexGrid grfExpn;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
@@ -106,7 +106,7 @@ namespace Xtrim_ERP.gui
             grfExpn.Clear();
             DataTable dt = new DataTable();
             dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all, objdb.ExpensesDrawDB.StatusPayType.all);
-            grfExpn.Cols.Count = 8;
+            grfExpn.Cols.Count = 9;
             grfExpn.Rows.Count = dt.Rows.Count+1;
             TextBox txt = new TextBox();
 
@@ -120,6 +120,7 @@ namespace Xtrim_ERP.gui
             grfExpn.Cols[colAmt].Width = 80;
             grfExpn.Cols[colStatus].Width = 80;
             grfExpn.Cols[colFlagForm].Width = 80;
+            grfExpn.Cols[colStatusPay].Width = 80;
 
             grfExpn.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
@@ -131,6 +132,7 @@ namespace Xtrim_ERP.gui
             grfExpn.Cols[colStatus].Caption = "สถานะ";
             grfExpn.Cols[colAmt].Caption = "รวมเงิน";
             grfExpn.Cols[colFlagForm].Caption = "การเบิก";
+            grfExpn.Cols[colStatusPay].Caption = "การจ่าย";
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -169,6 +171,18 @@ namespace Xtrim_ERP.gui
                 else
                 {
                     grfExpn[i + 1, colFlagForm] = "-";
+                }
+                if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay].ToString().Equals("1"))
+                {
+                    grfExpn[i + 1, colStatusPay] = "รอจ่าย";
+                }
+                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay].ToString().Equals("2"))
+                {
+                    grfExpn[i + 1, colStatusPay] = "จ่ายแล้ว";
+                }
+                else
+                {
+                    grfExpn[i + 1, colStatusPay] = "-";
                 }
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
