@@ -51,7 +51,7 @@ namespace Xtrim_ERP.objdb
             {
                 if (name.Trim().Equals(utp1.comp_bank_name_t+" "+ utp1.comp_bank_branch + " " + utp1.acc_number))
                 {
-                    id = utp1.bank_id;
+                    id = utp1.comp_bank_id;
                     break;
                 }
             }
@@ -77,7 +77,7 @@ namespace Xtrim_ERP.objdb
                 c.Items.Add(item);
 
                 CompanyBank expn1 = new CompanyBank();
-                expn1.comp_bank_id = row[copB.bank_id].ToString();
+                expn1.comp_bank_id = row[copB.comp_bank_id].ToString();
                 expn1.comp_bank_name_t = row[copB.comp_bank_name_t].ToString();
                 expn1.comp_bank_branch = row[copB.comp_bank_branch].ToString();
                 expn1.acc_number = row[copB.acc_number].ToString();

@@ -579,6 +579,21 @@ namespace Xtrim_ERP.objdb
             String sql = "select cus.* " +
                 "From " + cus.table + " cus " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where cus." + cus.cust_name_t + " like '" + copId.Trim() + "%' and " + cus.status_imp + "='1' and active = '1' ";
+            dt = conn.selectData(conn.conn, sql);
+            if (dt.Rows.Count == 1)
+            {
+                cusId = dt.Rows[0][cus.cust_id].ToString();
+            }
+            return cusId;
+        }
+        public String selectIdByNameTLike(String copId)
+        {
+            DataTable dt = new DataTable();
+            String cusId = "";
+            String sql = "select cus.* " +
+                "From " + cus.table + " cus " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where cus." + cus.cust_name_t + " like '" + copId.Trim() + "%' and " + cus.status_imp + "='1' ";
             dt = conn.selectData(conn.conn, sql);
             if (dt.Rows.Count == 1)

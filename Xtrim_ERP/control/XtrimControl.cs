@@ -576,5 +576,18 @@ namespace Xtrim_ERP.control
             //re = xtDB.expndDB.updateSendToApprove(doc, id);
             return re;
         }
+        public String updateStatusPay(String id)
+        {
+            
+            String re = "", sql = "";
+            re = xtDB.expnddDB.selectStatusPayByDrawId(id);
+
+            if (re.Equals("0"))
+            {
+                re = xtDB.expndDB.updateStatusPay(id);
+            }
+
+            return re;
+        }
     }
 }

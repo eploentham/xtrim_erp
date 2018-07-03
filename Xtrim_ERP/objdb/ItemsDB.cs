@@ -288,10 +288,11 @@ namespace Xtrim_ERP.objdb
         public DataTable selectAll1()
         {
             DataTable dt = new DataTable();
-            String sql = "select itm."+itm.item_id+","+itm.item_code+","+itm.item_name_t+","+itm.price1+","+itm.price2+","+itm.price3+ ",itmts.item_type_sub_name_t " +
+            String sql = "select itm."+itm.item_id+","+itm.item_code+","+itm.item_name_t+","+itm.price1+","+itm.price2+","+itm.price3 + 
+                ",itmts.item_type_sub_name_t,fmp.f_method_payment_name_t " +
                 "From " + itm.table + " itm " +
                 "Left join b_items_type_sub itmts On itmts."+itm.item_type_sub_id+"=itm."+itm.item_type_sub_id+" " +
-                " " +
+                "Left Join f_method_payment fmp On itm."+itm.f_method_payment_id+ " = fmp.f_method_payment_id " +
                 "Where itm." + itm.active + " ='1' " +
                 "Order By itm."+itm.item_name_t;
             dt = conn.selectData(conn.conn, sql);

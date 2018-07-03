@@ -47,6 +47,9 @@ namespace Xtrim_ERP.gui
             theme1.SetTheme(sB, "BeigeOne");
                         
             sB1.Text = "";
+            chkAll.Click += ChkAll_Click;
+            chkAppvOk.Click += ChkAppvOk_Click;
+            chkAppvWait.Click += ChkAppvWait_Click;
 
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
@@ -55,6 +58,23 @@ namespace Xtrim_ERP.gui
             chkAll.Checked = true;
             xC.setCboYear(cboYear);
             initGrfDept();
+            setGrfDeptH();
+        }
+        private void ChkAppvWait_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            setGrfDeptH();
+        }
+
+        private void ChkAppvOk_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            setGrfDeptH();
+        }
+
+        private void ChkAll_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
             setGrfDeptH();
         }
         private void initGrfDept()
