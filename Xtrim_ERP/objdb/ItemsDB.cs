@@ -55,7 +55,8 @@ namespace Xtrim_ERP.objdb
             itm.price4 = "price4";
             itm.price5 = "price5";
             itm.unit_id = "unit_id";
-                        
+            itm.item_group_id = "item_group_id";
+
             itm.qty = "";
             itm.cust_addr = "";
             itm.cust_id = "";
@@ -158,6 +159,7 @@ namespace Xtrim_ERP.objdb
             p.item_cat_id = int.TryParse(p.item_cat_id, out chk) ? chk.ToString() : "0";
             p.f_method_payment_id = int.TryParse(p.f_method_payment_id, out chk) ? chk.ToString() : "0";
             p.unit_id = int.TryParse(p.unit_id, out chk) ? chk.ToString() : "0";
+            p.item_group_id = int.TryParse(p.item_group_id, out chk) ? chk.ToString() : "0";
 
             p.price1 = Decimal.TryParse(p.price1, out chk1) ? chk1.ToString() : "0";
             p.price2 = Decimal.TryParse(p.price2, out chk1) ? chk1.ToString() : "0";
@@ -185,7 +187,7 @@ namespace Xtrim_ERP.objdb
                 itm.item_type_sub_id + "," + itm.item_cat_id + ", " + itm.status_app + "," +
                 itm.f_method_payment_id + "," + itm.status_invoice + "," + itm.unit_id + "," +
                 itm.price1 + "," + itm.price2 + ", " + itm.price3 + ", " +
-                itm.price4 + "," + itm.price5 + " " +
+                itm.price4 + "," + itm.price5 + "," + itm.item_group_id + " " +
                 ") " +
                 "Values ('" + p.item_code + "','" + p.item_name_e.Replace("'", "''") + "','" + p.item_name_t.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
@@ -195,7 +197,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.item_type_sub_id + "','" + p.item_cat_id.Replace("'", "''") + "','" + p.status_app + "'," +
                 "'" + p.f_method_payment_id + "','" + p.status_invoice.Replace("'", "''") + "'," + p.unit_id + "'," +
                 "'" + p.price1 + "','" + p.price2.Replace("'", "''") + "','" + p.price3 + "'," +
-                "'" + p.price4 + "','" + p.price5.Replace("'", "''") + "' " + 
+                "'" + p.price4 + "','" + p.price5.Replace("'", "''") + "','" + p.item_group_id.Replace("'", "''") + "' " +
                 ")";
             try
             {
@@ -237,6 +239,7 @@ namespace Xtrim_ERP.objdb
                 "," + itm.price4 + " = '" + p.price4 + "' " +
                 "," + itm.price5 + " = '" + p.price5 + "' " +
                 "," + itm.unit_id + " = '" + p.unit_id + "' " +
+                "," + itm.item_group_id + " = '" + p.item_group_id + "' " +
                 "Where " + itm.pkField + "='" + p.item_id + "'"
                 ;
 
@@ -354,6 +357,7 @@ namespace Xtrim_ERP.objdb
                 itm1.price4 = dt.Rows[0][itm.price4].ToString();
                 itm1.price5 = dt.Rows[0][itm.price5].ToString();
                 itm1.unit_id = dt.Rows[0][itm.unit_id].ToString();
+                itm1.item_group_id = dt.Rows[0][itm.item_group_id].ToString();
             }
             else
             {
@@ -399,7 +403,7 @@ namespace Xtrim_ERP.objdb
                 itm1.receipt_date = "";
                 itm1.receipt_no = "";
                 itm1.total = "";
-
+                itm1.item_group_id = "";
             }
 
             return itm1;

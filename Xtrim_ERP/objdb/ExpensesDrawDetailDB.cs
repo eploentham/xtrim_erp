@@ -446,6 +446,21 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
+        public DataTable selectAllAppvByJobId(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select edd.expenses_draw_detail_id, itmts.item_type_sub_name_t, fmtp.f_method_payment_name_t, itm.item_name_t, ed.draw_date , edd.pay_amount " +
+                "from t_expenses_draw_detail edd " +
+                "inner join t_expenses_draw ed on ed.expenses_draw_id = edd.expenses_draw_id " +
+                "inner join b_items itm on edd.item_id = itm.item_id " +
+                "inner join b_items_type_sub itmts on itm.item_type_sub_id = itmts.item_type_sub_id " +
+                "inner join f_method_payment fmtp on itm.f_method_payment_id = fmtp.f_method_payment_id " +
+                "inner join t_job_import jim on jim.job_import_id = ed.job_id " +
+                "where ed.status_appv = '2' and edd.status_pay = '2' and jim.job_import_id ='"+ copId + "'" +
+                "Order By edd.expenses_draw_detail_id ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
         public ExpensesDrawDatail selectByPk1(String copId)
         {
             ExpensesDrawDatail cop1 = new ExpensesDrawDatail();

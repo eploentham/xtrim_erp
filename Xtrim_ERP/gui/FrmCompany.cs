@@ -139,6 +139,7 @@ namespace Xtrim_ERP.gui
                 {
                     for (int i = 1; i < grfCopBnk.Rows.Count; i++)
                     {
+                        if (grfCopBnk[i, colBedit] == null) continue;
                         if (grfCopBnk[i, colBedit].ToString().Equals("1"))
                         {
                             CompanyBank copb = new CompanyBank();

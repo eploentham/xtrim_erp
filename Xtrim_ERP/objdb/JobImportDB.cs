@@ -605,7 +605,7 @@ namespace Xtrim_ERP.objdb
         public DataTable selectJimJblByJobYear2(String cusid)
         {
             DataTable dt = new DataTable();
-            String sql = "select jim.job_import_id, concat('IMP',jim.job_import_code), jim.remark1, cus.cust_name_t, imp.cust_name_t as imp_name_t, tmn.terminal_code, tmn.terminal_name_t, fwd.cust_name_t as forwarder_name_t " +
+            String sql = "select jim.job_import_id, concat('IMP',jim.job_import_code) as job_import_code, jim.remark1, cus.cust_name_t, imp.cust_name_t as imp_name_t, tmn.terminal_code, tmn.terminal_name_t, fwd.cust_name_t as forwarder_name_t " +
                 ", jbl.description " +
                 //", count(jie.job_import_expenses_id) as cntexpn " +
                 "From " + jim.table + " jim " +

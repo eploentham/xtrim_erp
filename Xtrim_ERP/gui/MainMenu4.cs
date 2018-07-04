@@ -348,7 +348,8 @@ namespace Xtrim_ERP.gui
             tab.Refresh();
             tab.Text = label;
             tC1.SelectedTab = tab;
-
+            c1ThemeController1.SetTheme(tC1, "Office2010Blue");
+            //theme1.SetTheme(tC1, "Office2010Green");
         }
         
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -405,7 +406,7 @@ namespace Xtrim_ERP.gui
                     menuInit.Enabled = true;
                 }
             }
-            this.Text = "Last Update 2018-06-30";
+            this.Text = "Last Update 2018-07-04";
         }
     }
 }

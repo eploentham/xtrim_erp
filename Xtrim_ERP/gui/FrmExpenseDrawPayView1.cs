@@ -98,6 +98,8 @@ namespace Xtrim_ERP.gui
             initGrfCashMake();
             setGrfCashMake();
             tC1.SelectedTab = tabCheque;
+            theme1.SetTheme(tC1, "Office2010Black");
+            theme1.SetTheme(tabCash1, "Office2010Blue");
         }
         
         private void TabCash_TabClick(object sender, EventArgs e)
@@ -295,9 +297,9 @@ namespace Xtrim_ERP.gui
             grfChequeView.Rows.Count = dt.Rows.Count + 1;
             TextBox txt = new TextBox();
 
-            grfChequeView.Cols[colCode].Editor = txt;
-            grfChequeView.Cols[colDesc].Editor = txt;
-            grfChequeView.Cols[colRemark].Editor = txt;
+            grfChequeView.Cols[colCSubNameT].Editor = txt;
+            grfChequeView.Cols[colCMtp].Editor = txt;
+            grfChequeView.Cols[colCItmNameT].Editor = txt;
 
             grfChequeView.Cols[colCSubNameT].Width = 220;
             grfChequeView.Cols[colCMtp].Width = 80;
@@ -317,7 +319,7 @@ namespace Xtrim_ERP.gui
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
             for (int i = 0; i < grfChequeView.Rows.Count-1; i++)
             {
-                grfChequeView[i+1, 0] = i;
+                grfChequeView[i+1, 0] = i+1;
                 if (i % 2 == 0)
                     grfChequeView.Rows[i + 1].StyleNew.BackColor = color;
                 grfChequeView[i + 1, colCID] = dt.Rows[i][colCID-1].ToString();

@@ -176,6 +176,7 @@ namespace Xtrim_ERP.gui
         {
             itm = xC.xtDB.itmDB.selectByPk1(deptId);
             txtID.Value = itm.item_id;
+            txtItmGroupId.Value = itm.item_group_id;
             txtCode.Value = itm.item_code;
             txtNameT.Value = itm.item_name_t;
             txtRemark.Value = itm.remark;
@@ -244,6 +245,15 @@ namespace Xtrim_ERP.gui
             itm.price4 = txtPrice4.Text;
             itm.price5 = txtPrice5.Text;
             itm.unit_id = cboUtp.SelectedItem != null ? ((ComboBoxItem)(cboUtp.SelectedItem)).Value : "";
+            itm.item_group_id = txtItmGroupId.Text;
+            if (itm.item_group_id.Equals(""))
+            {
+                ItemsTypeSub itmts = new ItemsTypeSub();
+                ItemsType itmt = new ItemsType();
+                itmts = xC.xtDB.itmtsDB.selectByPk1(itm.item_type_sub_id);
+                itmt = xC.xtDB.itmtDB.selectByPk1(itmts.item_type_id);
+                itm.item_group_id = itmt.item_group_id;
+            }
         }
         private void grfDept_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
         {

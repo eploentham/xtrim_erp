@@ -19,12 +19,16 @@ namespace Xtrim_ERP.gui
     {
         XtrimControl xC;
         ExpensesDraw expn;
+        Company cop;
         Font fEdit, fEditB;
 
         Color bg, fc;
         Font ff, ffB;
         int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6;
-        C1FlexGrid grfJob, grfBill;
+        int colCID = 1, colCChk=2, colCSubNameT = 3, colCMtp = 4, colCItmNameT = 5, colCDrawDate = 6, colCAmt = 7, colCBank = 8, colCChequeNo = 9, colChequeDate = 10, colCChequepayname = 11, colCpayID = 12;
+        int colBID = 1, colBItmNameT = 2, colBExpn=3,colBimcome=4,colBitmId=5, colBexpnddId=6;
+
+        C1FlexGrid grfJob, grfBill, grfDraw;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
         C1SuperTooltip stt;
@@ -45,22 +49,102 @@ namespace Xtrim_ERP.gui
             C1ThemeController.ApplicationTheme = xC.iniC.themeApplication;
             theme1.Theme = C1ThemeController.ApplicationTheme;
             theme1.SetTheme(sB, "BeigeOne");
+            theme1.SetTheme(tC1, "Office2010Green");
 
             //btnNew.Click += BtnNew_Click;
             txtCusNameT1.KeyUp += TxtCusNameT1_KeyUp;
+            btnCashOk.Click += BtnCashOk_Click;
+            btnBNew.Click += BtnBNew_Click;
 
             sB1.Text = "";
-
+            cop = new Company();
+            cop = xC.xtDB.copDB.selectByCode1("001");
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
+            txtBIvat.Value = cop.vat;
+            txtBEvat.Value = cop.vat;
+            txtEvat.Value = cop.vat;
+
             stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
 
             //chkAll.Checked = true;
             //xC.setCboYear(cboYear);
             initGrfJob();
+            initGrfDrawView();
             initGrfBill();
+            tC1.SelectedTab = tabMake;
+            tC2.SelectedTab = tabDraw;
             //setGrfDeptH();
         }
+
+        private void BtnBNew_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmExpenseDrawD frm = new FrmExpenseDrawD(xC, "", "", "", "", "");
+            frm.ShowDialog(this);
+            setRowGrfBill(xC.sItm);
+            calAmtGrfBill();
+            //setExpnDD(0, "");
+        }
+
+        private void BtnCashOk_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            grfBill.Clear();
+            grfBill.Rows.Count = 1;
+            grfBill.Cols[colBItmNameT].Width = 220;
+            grfBill.Cols[colBExpn].Width = 100;
+            grfBill.Cols[colBimcome].Width = 100;
+            //grfBill.Cols[colCDrawDate].Width = 100;
+            //grfBill.Cols[colCAmt].Width = 100;
+            grfBill.Cols[colBItmNameT].Caption = "รายการ";
+            grfBill.Cols[colBExpn].Caption = "ค่าใช้จ่าย";
+            grfBill.Cols[colBimcome].Caption = "รายได้";
+            grfBill.Cols[colBID].Visible = false;
+            foreach ( Row rowD in grfDraw.Rows)
+            {
+                if (rowD[colCChk] == null) continue;
+                if ((Boolean)rowD[colCChk])
+                {
+                    String ddid = "";
+                    ExpensesDrawDatail expndd = new ExpensesDrawDatail();
+                    Items itm = new Items();
+                    ItemsType itmt = new ItemsType();
+                    ItemsTypeSub itmts = new ItemsTypeSub();
+                    ddid = rowD[colCID].ToString();
+                    expndd = xC.xtDB.expnddDB.selectByPk1(ddid);
+                    itm = xC.xtDB.itmDB.selectByPk1(expndd.item_id);
+                    if (itm.item_group_id.Equals(""))
+                    {
+                        itmts = xC.xtDB.itmtsDB.selectByPk1(itm.item_type_sub_id);
+                        itmt = xC.xtDB.itmtDB.selectByPk1(itmts.item_type_id);
+                        itm.item_group_id = itmt.item_group_id;
+                    }
+                    itm.item_name_t = rowD[colCItmNameT].ToString();
+                    itm.amt = rowD[colCAmt].ToString();
+                    setRowGrfBill(itm);
+
+                }
+            }
+            calAmtGrfBill();
+            tC2.SelectedTab = tabBill;
+        }
+        private void setRowGrfBill(Items itm)
+        {
+            if (itm.item_name_t == null) return;
+            Row rowB = grfBill.Rows.Add();
+            rowB[colBID] = "";
+            rowB[colBItmNameT] = itm.item_name_t;
+            if (itm.item_group_id.Equals("1540000001"))
+            {
+                rowB[colBExpn] = itm.amt;
+            }
+            else if (itm.item_group_id.Equals("1540000000"))
+            {
+                rowB[colBimcome] = itm.amt;
+            }
+        }
+
         private void initGrfJob()
         {
             grfJob = new C1FlexGrid();
@@ -70,23 +154,40 @@ namespace Xtrim_ERP.gui
 
             //FilterRow fr = new FilterRow(grfExpnD);
 
-            grfJob.AfterRowColChange += GrfJob_AfterRowColChange;
+            //grfJob.AfterRowColChange += GrfJob_AfterRowColChange;
+            grfJob.DoubleClick += GrfJob_DoubleClick;
             //grfExpnC.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfDept_CellButtonClick);
             //grfExpnC.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfDept_CellChanged);
             //grfJob.CellChanged += GrfExpnD_CellChanged;
             panel4.Controls.Add(grfJob);
+            grfJob.Clear();
+            grfJob.Rows.Count = 2;
+            grfJob.Cols.Count = 6;
+            grfJob.Cols[colAmt].Width = 80;
+            grfJob.Cols[colCode].Width = 100;
+            grfJob.Cols[colDesc].Width = 200;
+            grfJob.Cols[colRemark].Width = 100;
+            grfJob.Cols[colAmt].Caption = "ยอดเงิน";
+            grfJob.Cols[colCode].Caption = "เลขที่  job no";
+            grfJob.Cols[colDesc].Caption = "รายละเอียด";
+            grfJob.Cols[colRemark].Caption = "หมายเหตุ";
+            grfJob.Cols[colID].Visible = false;
 
             theme1.SetTheme(grfJob, "Office2013Red");
         }
-        private void setGrfJob()
+        private void setGrfJob(String cusid)
         {
             grfJob.DataSource = null;
             grfJob.Rows.Count = 2;
             grfJob.Clear();
-            if (cusId.Equals("")) return;
-            grfJob.DataSource = xC.xtDB.jimDB.selectJimJblByJobYear2(cusId);
+            if (cusid.Equals("")) return;
+            DataTable dt = new DataTable();
+            dt = xC.xtDB.jimDB.selectJimJblByJobYear2(cusid);
+            //grfJob.DataSource = xC.xtDB.jimDB.selectJimJblByJobYear2(cusid);
+            //grfJob.Cols.Count = dt.Columns.Count;
+            grfJob.Rows.Count = dt.Rows.Count+1;
 
-            grfJob.Cols.Count = 9;
+            grfJob.Cols.Count = 6;
             TextBox txt = new TextBox();
 
             grfJob.Cols[colCode].Editor = txt;
@@ -95,7 +196,7 @@ namespace Xtrim_ERP.gui
             grfJob.Cols[colAmt].Editor = txt;
 
             grfJob.Cols[colAmt].Width = 80;
-            grfJob.Cols[colCode].Width = 60;
+            grfJob.Cols[colCode].Width = 100;
             grfJob.Cols[colDesc].Width = 200;
             grfJob.Cols[colRemark].Width = 100;
 
@@ -103,15 +204,20 @@ namespace Xtrim_ERP.gui
             //grdFlex.Cols[colID].Caption = "no";
             //grfDept.Cols[colCode].Caption = "รหัส";
             grfJob.Cols[colAmt].Caption = "ยอดเงิน";
-            grfJob.Cols[colCode].Caption = "เลขที่ใบเบิก";
+            grfJob.Cols[colCode].Caption = "เลขที่ job no";
             grfJob.Cols[colDesc].Caption = "รายละเอียด";
             grfJob.Cols[colRemark].Caption = "หมายเหตุ";
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
-            for (int i = 1; i < grfJob.Rows.Count; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                grfJob[i, 0] = i;
+                grfJob[i+1, 0] = i;
                 if (i % 2 == 0)
                     grfJob.Rows[i].StyleNew.BackColor = color;
+                grfJob[i + 1, colID] = dt.Rows[i][xC.xtDB.jimDB.jim.job_import_id].ToString();
+                grfJob[i + 1, colCode] = dt.Rows[i][xC.xtDB.jimDB.jim.job_import_code].ToString();
+                grfJob[i + 1, colDesc] = dt.Rows[i][xC.xtDB.jblDB.jbl.description].ToString();
+                grfJob[i + 1, colRemark] = dt.Rows[i][xC.xtDB.jimDB.jim.remark1].ToString();
+                //grfJob[i + 1, colAmt] = dt.Rows[i][xC.xtDB.jimDB.jim.job_import_id].ToString();
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
@@ -124,28 +230,160 @@ namespace Xtrim_ERP.gui
             grfBill.Font = fEdit;
             grfBill.Dock = System.Windows.Forms.DockStyle.Fill;
             grfBill.Location = new System.Drawing.Point(0, 0);
+            grfBill.Rows.Count = 1;
+            grfBill.Cols[colBItmNameT].Width = 220;
+            grfBill.Cols[colBExpn].Width = 100;
+            grfBill.Cols[colBimcome].Width = 100;
+            //grfBill.Cols[colCDrawDate].Width = 100;
+            //grfBill.Cols[colCAmt].Width = 100;
+            grfBill.Cols[colBItmNameT].Caption = "รายการ";
+            grfBill.Cols[colBExpn].Caption = "ค่าใช้จ่าย";
+            grfBill.Cols[colBimcome].Caption = "รายได้";
+            //grfBill.Cols[colCDrawDate].Caption = "วันที่";
+            //grfBill.Cols[colCAmt].Caption = "รวมเงิน";
 
-            //FilterRow fr = new FilterRow(grfExpnD);
-
-            //grfBill.AfterRowColChange += GrfJob_AfterRowColChange;
-            //grfExpnC.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfDept_CellButtonClick);
-            //grfExpnC.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfDept_CellChanged);
-            //grfJob.CellChanged += GrfExpnD_CellChanged;
-            grfJob.DoubleClick += GrfJob_DoubleClick;
-            panel6.Controls.Add(grfBill);
+            panel12.Controls.Add(grfBill);
 
             theme1.SetTheme(grfBill, "VS2013Red");
+            grfBill.Cols[colBID].Visible = false;
+        }
+        private void initGrfDrawView()
+        {
+            grfDraw = new C1FlexGrid();
+            grfDraw.Font = fEdit;
+            grfDraw.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfDraw.Location = new System.Drawing.Point(0, 0);
+            //FilterRow fr = new FilterRow(grfView);            
+            grfDraw.Rows.Count = 2;
+            grfDraw.Cols[colCChk].Width = 50;
+            grfDraw.Cols[colCSubNameT].Width = 220;
+            grfDraw.Cols[colCMtp].Width = 80;
+            grfDraw.Cols[colCItmNameT].Width = 220;
+            grfDraw.Cols[colCDrawDate].Width = 100;
+            grfDraw.Cols[colCAmt].Width = 100;
+            grfDraw.Cols[colCSubNameT].Caption = "ประเภทย่อย";
+            grfDraw.Cols[colCMtp].Caption = "วิธีการจ่าย";
+            grfDraw.Cols[colCItmNameT].Caption = "รายการ";
+            grfDraw.Cols[colCDrawDate].Caption = "วันที่";
+            grfDraw.Cols[colCAmt].Caption = "รวมเงิน";
+
+            grfDraw.CellChecked += GrfDraw_CellChecked;
+
+            panel9.Controls.Add(grfDraw);
+            ContextMenu menuGw = new ContextMenu();
+            //menuGw.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Gw_Cancel));
+            grfDraw.ContextMenu = menuGw;
+
+            theme1.SetTheme(grfDraw, "Office2013Red");
+
         }
 
+        private void GrfDraw_CellChecked(object sender, RowColEventArgs e)
+        {
+            //throw new NotImplementedException();
+            calAmtGrfDraw();
+        }
+        private void calAmtGrfDraw()
+        {
+            Decimal amtE = 0, amtI = 0;
+            foreach (Row rowD in grfDraw.Rows)
+            {
+                Decimal amt = 0;
+                if (rowD[colCChk] == null) continue;
+                if ((Boolean)rowD[colCChk])
+                {
+                    Decimal.TryParse(rowD[colCAmt].ToString(), out amt);
+                    amtE += amt;
+                }
+            }
+            txtEamt.Value = amtE;
+        }
+        private void calAmtGrfBill()
+        {
+            Decimal amtE = 0, amtI = 0;
+            foreach (Row rowB in grfBill.Rows)
+            {
+                Decimal amt = 0, amt1=0;
+                
+                if (rowB[colBExpn] != null)
+                {
+                    Decimal.TryParse(rowB[colBExpn].ToString(), out amt);
+                    amtE += amt;
+                }
+                if (rowB[colBimcome] != null)
+                {
+                    Decimal.TryParse(rowB[colBimcome].ToString(), out amt1);
+                    amtI += amt1;
+                }
+            }
+            txtBEamt.Value = amtE;
+            txtBIamt.Value = amtI;
+            txtBInettotal.Value = amtI * (Decimal.Parse(txtBIvat.Value.ToString()) / 100);
+        }
+
+        private void setGrfDrawView(String jimId)
+        {
+            //grfDept.Rows.Count = 7;
+            DataTable dt = new DataTable();
+            dt = xC.xtDB.expnddDB.selectAllAppvByJobId(jimId);
+            //grfChequeView1.DataSource = dt;
+            grfDraw.Cols.Count = dt.Columns.Count + 2;
+            grfDraw.Rows.Count = dt.Rows.Count + 1;
+            TextBox txt = new TextBox();
+            //CheckBox chk = new CheckBox();
+            CellStyle chk;
+            chk = grfDraw.Styles.Add("bool");
+            chk.DataType = typeof(bool);
+            chk.TextAlign = TextAlignEnum.LeftCenter;
+            chk.UserData = "เลือก";
+
+            grfDraw.Cols[colCChk].Style = chk;
+            grfDraw.Cols[colCSubNameT].Editor = txt;
+            grfDraw.Cols[colCMtp].Editor = txt;
+            grfDraw.Cols[colCItmNameT].Editor = txt;
+
+            grfDraw.Cols[colCSubNameT].Width = 220;
+            grfDraw.Cols[colCMtp].Width = 80;
+            grfDraw.Cols[colCItmNameT].Width = 220;
+            grfDraw.Cols[colCDrawDate].Width = 100;
+            grfDraw.Cols[colCAmt].Width = 100;
+
+            grfDraw.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            //grfDept.Cols[colCode].Caption = "รหัส";
+
+            grfDraw.Cols[colCSubNameT].Caption = "ประเภทย่อย";
+            grfDraw.Cols[colCMtp].Caption = "วิธีการจ่าย";
+            grfDraw.Cols[colCItmNameT].Caption = "รายการ";
+            grfDraw.Cols[colCDrawDate].Caption = "วันที่";
+            grfDraw.Cols[colCAmt].Caption = "รวมเงิน";
+            Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
+            for (int i = 0; i < grfDraw.Rows.Count - 1; i++)
+            {
+                grfDraw[i + 1, 0] = i+1;
+                if (i % 2 == 0)
+                    grfDraw.Rows[i + 1].StyleNew.BackColor = color;
+                grfDraw[i + 1, colCID] = dt.Rows[i][xC.xtDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
+                grfDraw[i + 1, colCChk] = "เลือก";
+                grfDraw[i + 1, colCSubNameT] = dt.Rows[i][xC.xtDB.itmtsDB.itmtS.item_type_sub_name_t].ToString();
+                grfDraw[i + 1, colCMtp] = dt.Rows[i][xC.xtDB.fmtpDB.fmtp.method_payment_name_t].ToString();
+                grfDraw[i + 1, colCItmNameT] = dt.Rows[i][xC.xtDB.itmDB.itm.item_name_t].ToString();
+                grfDraw[i + 1, colCAmt] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_amount].ToString();
+            }
+            //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
+            //rg1.Style = grfBank.Styles["date"];
+            grfDraw.Cols[colCID].Visible = false;
+        }
         private void GrfJob_DoubleClick(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             Customer cus = xC.sCus;
             JobImport jim = new JobImport();
-            jim = xC.xtDB.jimDB.selectByPk1(grfJob[grfJob.Row, grfJob.Col].ToString());
+            jim = xC.xtDB.jimDB.selectByPk1(grfJob[grfJob.Row, colID].ToString());
             txtCusNameT.Value = cus.cust_name_t;
             txtJobCode.Value = jim.job_import_code;
-
+            tC2.SelectedTab = tabDraw;
+            setGrfDrawView(jim.job_import_id);
         }
 
         private void GrfJob_AfterRowColChange(object sender, RangeEventArgs e)
@@ -177,7 +415,7 @@ namespace Xtrim_ERP.gui
                 {
                     //setKeyUpF2Cus();
                     setKeyUpF2Cus();
-                    setGrfJob();
+                    setGrfJob(cusId);
                 }
             }
         }
