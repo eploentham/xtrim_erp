@@ -12,13 +12,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Xtrim_ERP.control;
 using Xtrim_ERP.object1;
+using Xtrim_ERP.Properties;
 
 namespace Xtrim_ERP.gui
 {
     public partial class FrmBilling : Form
     {
         XtrimControl xC;
-        ExpensesDraw expn;
+        Billing bll;
         Company cop;
         Font fEdit, fEditB;
 
@@ -55,10 +56,12 @@ namespace Xtrim_ERP.gui
             txtCusNameT1.KeyUp += TxtCusNameT1_KeyUp;
             btnCashOk.Click += BtnCashOk_Click;
             btnBNew.Click += BtnBNew_Click;
+            btnBSave.Click += BtnBSave_Click;
 
             sB1.Text = "";
             cop = new Company();
             cop = xC.xtDB.copDB.selectByCode1("001");
+            bll = new Billing();
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
             txtBIvat.Value = cop.vat;
@@ -75,6 +78,70 @@ namespace Xtrim_ERP.gui
             tC1.SelectedTab = tabMake;
             tC2.SelectedTab = tabDraw;
             //setGrfDeptH();
+        }
+        private void setBilling()
+        {
+            bll.billing_id = "";
+            bll.billing_code = "";
+            bll.billing_date = xC.datetoDB(txtBillDate.Text);
+            bll.job_id = txtJobId.Text;
+            bll.job_code = txtJobCode.Text;
+            bll.amount = "";
+            bll.active = "";
+            bll.remark = txtRemark.Text;
+            bll.date_create = "";
+            bll.date_modi = "";
+            bll.date_cancel = "";
+            bll.user_create = "";
+            bll.user_modi = "";
+            bll.user_cancel = "";
+        }
+        private void BtnBSave_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                setBilling();
+                String re = xC.xtDB.bllDB.insertBilling(bll, xC.userId);
+                int chk = 0, chkD=0;
+                if (int.TryParse(re, out chk))
+                {
+                    foreach(Row rowB in grfBill.Rows)
+                    {
+                        BillingDetail blld = new BillingDetail();
+                        blld.billing_id = re;
+                        blld.billing_detail_id = "";
+                        blld.expenses_draw_detail_id = rowB[colBexpnddId].ToString();
+                        blld.item_id = rowB[colBitmId].ToString();
+                        blld.item_name_t = rowB[colBItmNameT].ToString();
+                        blld.amount_draw = rowB[colBExpn] != null ? rowB[colBExpn].ToString() : "0";
+                        blld.active = "";
+                        blld.remark = "";
+                        blld.date_create = "";
+                        blld.date_modi = "";
+                        blld.date_cancel = "";
+                        blld.user_create = "";
+                        blld.user_modi = "";
+                        blld.user_cancel = "";
+                        blld.amount_income = rowB[colBimcome] != null ? rowB[colBimcome].ToString() : "0";
+                        String re1 = "";
+                        re1 = xC.xtDB.blldDB.insertBillingDetail(blld, xC.userId);
+                        if (int.TryParse(re1, out chk))
+                        {
+                            chkD++;
+                        }
+                    }
+                    if (chkD == (grfBill.Rows.Count-1))
+                    {
+                        btnBSave.Image = Resources.accept_database24;
+                    }
+                }
+                else
+                {
+                    btnBSave.Image = Resources.accept_database24;
+                }
+                
+            }
         }
 
         private void BtnBNew_Click(object sender, EventArgs e)
@@ -122,6 +189,7 @@ namespace Xtrim_ERP.gui
                     }
                     itm.item_name_t = rowD[colCItmNameT].ToString();
                     itm.amt = rowD[colCAmt].ToString();
+                    itm.cust_id = expndd.expenses_draw_detail_id;       //ฝาก 
                     setRowGrfBill(itm);
 
                 }
@@ -134,7 +202,9 @@ namespace Xtrim_ERP.gui
             if (itm.item_name_t == null) return;
             Row rowB = grfBill.Rows.Add();
             rowB[colBID] = "";
+            rowB[colBitmId] = itm.item_id;
             rowB[colBItmNameT] = itm.item_name_t;
+            rowB[colBexpnddId] = itm.cust_id;
             if (itm.item_group_id.Equals("1540000001"))
             {
                 rowB[colBExpn] = itm.amt;
@@ -318,7 +388,7 @@ namespace Xtrim_ERP.gui
             }
             txtBEamt.Value = amtE;
             txtBIamt.Value = amtI;
-            txtBInettotal.Value = amtI * (Decimal.Parse(txtBIvat.Value.ToString()) / 100);
+            txtBInettotal.Value = amtI + (amtI * (Decimal.Parse(txtBIvat.Value.ToString()) / 100));
         }
 
         private void setGrfDrawView(String jimId)
@@ -380,6 +450,7 @@ namespace Xtrim_ERP.gui
             Customer cus = xC.sCus;
             JobImport jim = new JobImport();
             jim = xC.xtDB.jimDB.selectByPk1(grfJob[grfJob.Row, colID].ToString());
+            txtJobId.Text = jim.job_import_id;
             txtCusNameT.Value = cus.cust_name_t;
             txtJobCode.Value = jim.job_import_code;
             tC2.SelectedTab = tabDraw;

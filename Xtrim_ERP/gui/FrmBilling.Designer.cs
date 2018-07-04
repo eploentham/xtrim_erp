@@ -40,10 +40,28 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnCashOk = new C1.Win.C1Input.C1Button();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.txtEamt = new C1.Win.C1Input.C1TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtEvat = new C1.Win.C1Input.C1TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtEnettotal = new C1.Win.C1Input.C1TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.tabBill = new C1.Win.C1Command.C1DockingTabPage();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.txtBEamt = new C1.Win.C1Input.C1TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtBEvat = new C1.Win.C1Input.C1TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtBEnettotal = new C1.Win.C1Input.C1TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtBIamt = new C1.Win.C1Input.C1TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtBIvat = new C1.Win.C1Input.C1TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtBInettotal = new C1.Win.C1Input.C1TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.btnBSave = new C1.Win.C1Input.C1Button();
             this.btnBEdit = new C1.Win.C1Input.C1Button();
             this.btnBNew = new C1.Win.C1Input.C1Button();
@@ -53,7 +71,7 @@
             this.cboChkExam = new C1.Win.C1Input.C1ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.txtJobDate = new C1.Win.Calendar.C1DateEdit();
+            this.txtBillDate = new C1.Win.Calendar.C1DateEdit();
             this.txtCusNameT = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabCover = new C1.Win.C1Command.C1DockingTabPage();
@@ -73,24 +91,9 @@
             this.btnCusSF2 = new C1.Win.C1Input.C1Button();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtEamt = new C1.Win.C1Input.C1TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtEvat = new C1.Win.C1Input.C1TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtEnettotal = new C1.Win.C1Input.C1TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtBEamt = new C1.Win.C1Input.C1TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtBEvat = new C1.Win.C1Input.C1TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtBEnettotal = new C1.Win.C1Input.C1TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtBIamt = new C1.Win.C1Input.C1TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtBIvat = new C1.Win.C1Input.C1TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtBInettotal = new C1.Win.C1Input.C1TextBox();
-            this.label15 = new System.Windows.Forms.Label();
+            this.txtRemark = new C1.Win.C1Input.C1TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtJobId = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -104,16 +107,25 @@
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCashOk)).BeginInit();
             this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEamt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEvat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEnettotal)).BeginInit();
             this.tabBill.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBEamt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBEvat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBEnettotal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBIamt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBIvat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBInettotal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBNew)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboChkExam)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtJobDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT)).BeginInit();
             this.tabCover.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -128,15 +140,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEamt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEvat)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEnettotal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBEamt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBEvat)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBEnettotal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBIamt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBIvat)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBInettotal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJobId)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -290,6 +295,84 @@
             this.panel10.TabIndex = 0;
             this.theme1.SetTheme(this.panel10, "(default)");
             // 
+            // txtEamt
+            // 
+            this.txtEamt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEamt.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtEamt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtEamt.Location = new System.Drawing.Point(89, 32);
+            this.txtEamt.Name = "txtEamt";
+            this.txtEamt.Size = new System.Drawing.Size(131, 20);
+            this.txtEamt.TabIndex = 133;
+            this.txtEamt.Tag = null;
+            this.theme1.SetTheme(this.txtEamt, "(default)");
+            this.txtEamt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label9.Location = new System.Drawing.Point(4, 34);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(69, 16);
+            this.label9.TabIndex = 134;
+            this.label9.Text = "รวมทั้งหมด :";
+            this.theme1.SetTheme(this.label9, "(default)");
+            // 
+            // txtEvat
+            // 
+            this.txtEvat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEvat.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtEvat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtEvat.Location = new System.Drawing.Point(89, 58);
+            this.txtEvat.Name = "txtEvat";
+            this.txtEvat.Size = new System.Drawing.Size(131, 20);
+            this.txtEvat.TabIndex = 131;
+            this.txtEvat.Tag = null;
+            this.theme1.SetTheme(this.txtEvat, "(default)");
+            this.txtEvat.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label10.Location = new System.Drawing.Point(4, 60);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 16);
+            this.label10.TabIndex = 132;
+            this.label10.Text = "VAT :";
+            this.theme1.SetTheme(this.label10, "(default)");
+            // 
+            // txtEnettotal
+            // 
+            this.txtEnettotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEnettotal.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtEnettotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtEnettotal.Location = new System.Drawing.Point(89, 84);
+            this.txtEnettotal.Name = "txtEnettotal";
+            this.txtEnettotal.Size = new System.Drawing.Size(131, 20);
+            this.txtEnettotal.TabIndex = 129;
+            this.txtEnettotal.Tag = null;
+            this.theme1.SetTheme(this.txtEnettotal, "(default)");
+            this.txtEnettotal.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label11.Location = new System.Drawing.Point(4, 86);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(66, 16);
+            this.label11.TabIndex = 130;
+            this.label11.Text = "NetTotal :";
+            this.theme1.SetTheme(this.label11, "(default)");
+            // 
             // tabBill
             // 
             this.tabBill.Controls.Add(this.panel12);
@@ -349,6 +432,162 @@
             this.panel13.TabIndex = 509;
             this.theme1.SetTheme(this.panel13, "(default)");
             // 
+            // txtBEamt
+            // 
+            this.txtBEamt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBEamt.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBEamt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBEamt.Location = new System.Drawing.Point(92, 41);
+            this.txtBEamt.Name = "txtBEamt";
+            this.txtBEamt.Size = new System.Drawing.Size(131, 20);
+            this.txtBEamt.TabIndex = 145;
+            this.txtBEamt.Tag = null;
+            this.theme1.SetTheme(this.txtBEamt, "(default)");
+            this.txtBEamt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label4.Location = new System.Drawing.Point(7, 43);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 16);
+            this.label4.TabIndex = 146;
+            this.label4.Text = "รวมทั้งหมด :";
+            this.theme1.SetTheme(this.label4, "(default)");
+            // 
+            // txtBEvat
+            // 
+            this.txtBEvat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBEvat.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBEvat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBEvat.Location = new System.Drawing.Point(92, 67);
+            this.txtBEvat.Name = "txtBEvat";
+            this.txtBEvat.Size = new System.Drawing.Size(131, 20);
+            this.txtBEvat.TabIndex = 143;
+            this.txtBEvat.Tag = null;
+            this.theme1.SetTheme(this.txtBEvat, "(default)");
+            this.txtBEvat.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label8.Location = new System.Drawing.Point(7, 69);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 16);
+            this.label8.TabIndex = 144;
+            this.label8.Text = "VAT :";
+            this.theme1.SetTheme(this.label8, "(default)");
+            // 
+            // txtBEnettotal
+            // 
+            this.txtBEnettotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBEnettotal.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBEnettotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBEnettotal.Location = new System.Drawing.Point(92, 93);
+            this.txtBEnettotal.Name = "txtBEnettotal";
+            this.txtBEnettotal.Size = new System.Drawing.Size(131, 20);
+            this.txtBEnettotal.TabIndex = 141;
+            this.txtBEnettotal.Tag = null;
+            this.theme1.SetTheme(this.txtBEnettotal, "(default)");
+            this.txtBEnettotal.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label12.Location = new System.Drawing.Point(7, 95);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(66, 16);
+            this.label12.TabIndex = 142;
+            this.label12.Text = "NetTotal :";
+            this.theme1.SetTheme(this.label12, "(default)");
+            // 
+            // txtBIamt
+            // 
+            this.txtBIamt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBIamt.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBIamt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBIamt.Location = new System.Drawing.Point(327, 41);
+            this.txtBIamt.Name = "txtBIamt";
+            this.txtBIamt.Size = new System.Drawing.Size(131, 20);
+            this.txtBIamt.TabIndex = 139;
+            this.txtBIamt.Tag = null;
+            this.theme1.SetTheme(this.txtBIamt, "(default)");
+            this.txtBIamt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label13.Location = new System.Drawing.Point(242, 43);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(69, 16);
+            this.label13.TabIndex = 140;
+            this.label13.Text = "รวมทั้งหมด :";
+            this.theme1.SetTheme(this.label13, "(default)");
+            // 
+            // txtBIvat
+            // 
+            this.txtBIvat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBIvat.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBIvat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBIvat.Location = new System.Drawing.Point(327, 67);
+            this.txtBIvat.Name = "txtBIvat";
+            this.txtBIvat.Size = new System.Drawing.Size(131, 20);
+            this.txtBIvat.TabIndex = 137;
+            this.txtBIvat.Tag = null;
+            this.theme1.SetTheme(this.txtBIvat, "(default)");
+            this.txtBIvat.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label14.Location = new System.Drawing.Point(242, 69);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 16);
+            this.label14.TabIndex = 138;
+            this.label14.Text = "VAT :";
+            this.theme1.SetTheme(this.label14, "(default)");
+            // 
+            // txtBInettotal
+            // 
+            this.txtBInettotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBInettotal.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBInettotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBInettotal.Location = new System.Drawing.Point(327, 93);
+            this.txtBInettotal.Name = "txtBInettotal";
+            this.txtBInettotal.Size = new System.Drawing.Size(131, 20);
+            this.txtBInettotal.TabIndex = 135;
+            this.txtBInettotal.Tag = null;
+            this.theme1.SetTheme(this.txtBInettotal, "(default)");
+            this.txtBInettotal.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label15.Location = new System.Drawing.Point(242, 95);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(66, 16);
+            this.label15.TabIndex = 136;
+            this.label15.Text = "NetTotal :";
+            this.theme1.SetTheme(this.label15, "(default)");
+            // 
             // btnBSave
             // 
             this.btnBSave.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
@@ -394,12 +633,15 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel5.Controls.Add(this.txtJobId);
+            this.panel5.Controls.Add(this.txtRemark);
+            this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.txtJobCode);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.cboChkExam);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.label31);
-            this.panel5.Controls.Add(this.txtJobDate);
+            this.panel5.Controls.Add(this.txtBillDate);
             this.panel5.Controls.Add(this.txtCusNameT);
             this.panel5.Controls.Add(this.label1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
@@ -483,39 +725,39 @@
             this.label31.Text = "วันที่วางบิล :";
             this.theme1.SetTheme(this.label31, "(default)");
             // 
-            // txtJobDate
+            // txtBillDate
             // 
-            this.txtJobDate.AllowSpinLoop = false;
-            this.txtJobDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtJobDate.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.txtJobDate.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.txtJobDate.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.txtJobDate.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.txtJobDate.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.txtJobDate.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.txtJobDate.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.txtJobDate.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.txtJobDate.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.txtJobDate.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.txtJobDate.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtJobDate.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.txtJobDate.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtJobDate.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.txtJobDate.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtBillDate.AllowSpinLoop = false;
+            this.txtBillDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBillDate.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtBillDate.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtBillDate.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtBillDate.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtBillDate.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtBillDate.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtBillDate.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtBillDate.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtBillDate.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtBillDate.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtBillDate.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBillDate.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtBillDate.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBillDate.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtBillDate.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.txtJobDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJobDate.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.txtJobDate.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.txtJobDate.Location = new System.Drawing.Point(91, 68);
-            this.txtJobDate.Name = "txtJobDate";
-            this.txtJobDate.Size = new System.Drawing.Size(118, 20);
-            this.txtJobDate.TabIndex = 433;
-            this.txtJobDate.Tag = null;
-            this.theme1.SetTheme(this.txtJobDate, "(default)");
-            this.txtJobDate.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtBillDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBillDate.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtBillDate.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtBillDate.Location = new System.Drawing.Point(91, 68);
+            this.txtBillDate.Name = "txtBillDate";
+            this.txtBillDate.Size = new System.Drawing.Size(118, 20);
+            this.txtBillDate.TabIndex = 433;
+            this.txtBillDate.Tag = null;
+            this.theme1.SetTheme(this.txtBillDate, "(default)");
+            this.txtBillDate.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtCusNameT
             // 
@@ -761,239 +1003,45 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // txtEamt
+            // txtRemark
             // 
-            this.txtEamt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEamt.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtEamt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtEamt.Location = new System.Drawing.Point(89, 32);
-            this.txtEamt.Name = "txtEamt";
-            this.txtEamt.Size = new System.Drawing.Size(131, 20);
-            this.txtEamt.TabIndex = 133;
-            this.txtEamt.Tag = null;
-            this.theme1.SetTheme(this.txtEamt, "(default)");
-            this.txtEamt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRemark.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtRemark.Location = new System.Drawing.Point(328, 68);
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Size = new System.Drawing.Size(458, 20);
+            this.txtRemark.TabIndex = 469;
+            this.txtRemark.Tag = null;
+            this.theme1.SetTheme(this.txtRemark, "(default)");
+            this.txtRemark.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // label9
+            // label5
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label9.Location = new System.Drawing.Point(4, 34);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(69, 16);
-            this.label9.TabIndex = 134;
-            this.label9.Text = "รวมทั้งหมด :";
-            this.theme1.SetTheme(this.label9, "(default)");
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label5.Location = new System.Drawing.Point(242, 70);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 16);
+            this.label5.TabIndex = 470;
+            this.label5.Text = "หมายเหตุ :";
+            this.theme1.SetTheme(this.label5, "(default)");
             // 
-            // txtEvat
+            // txtJobId
             // 
-            this.txtEvat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEvat.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtEvat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtEvat.Location = new System.Drawing.Point(89, 58);
-            this.txtEvat.Name = "txtEvat";
-            this.txtEvat.Size = new System.Drawing.Size(131, 20);
-            this.txtEvat.TabIndex = 131;
-            this.txtEvat.Tag = null;
-            this.theme1.SetTheme(this.txtEvat, "(default)");
-            this.txtEvat.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label10.Location = new System.Drawing.Point(4, 60);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 16);
-            this.label10.TabIndex = 132;
-            this.label10.Text = "VAT :";
-            this.theme1.SetTheme(this.label10, "(default)");
-            // 
-            // txtEnettotal
-            // 
-            this.txtEnettotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEnettotal.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtEnettotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtEnettotal.Location = new System.Drawing.Point(89, 84);
-            this.txtEnettotal.Name = "txtEnettotal";
-            this.txtEnettotal.Size = new System.Drawing.Size(131, 20);
-            this.txtEnettotal.TabIndex = 129;
-            this.txtEnettotal.Tag = null;
-            this.theme1.SetTheme(this.txtEnettotal, "(default)");
-            this.txtEnettotal.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label11.Location = new System.Drawing.Point(4, 86);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(66, 16);
-            this.label11.TabIndex = 130;
-            this.label11.Text = "NetTotal :";
-            this.theme1.SetTheme(this.label11, "(default)");
-            // 
-            // txtBEamt
-            // 
-            this.txtBEamt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBEamt.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtBEamt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtBEamt.Location = new System.Drawing.Point(92, 41);
-            this.txtBEamt.Name = "txtBEamt";
-            this.txtBEamt.Size = new System.Drawing.Size(131, 20);
-            this.txtBEamt.TabIndex = 145;
-            this.txtBEamt.Tag = null;
-            this.theme1.SetTheme(this.txtBEamt, "(default)");
-            this.txtBEamt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label4.Location = new System.Drawing.Point(7, 43);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 16);
-            this.label4.TabIndex = 146;
-            this.label4.Text = "รวมทั้งหมด :";
-            this.theme1.SetTheme(this.label4, "(default)");
-            // 
-            // txtBEvat
-            // 
-            this.txtBEvat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBEvat.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtBEvat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtBEvat.Location = new System.Drawing.Point(92, 67);
-            this.txtBEvat.Name = "txtBEvat";
-            this.txtBEvat.Size = new System.Drawing.Size(131, 20);
-            this.txtBEvat.TabIndex = 143;
-            this.txtBEvat.Tag = null;
-            this.theme1.SetTheme(this.txtBEvat, "(default)");
-            this.txtBEvat.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label8.Location = new System.Drawing.Point(7, 69);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 16);
-            this.label8.TabIndex = 144;
-            this.label8.Text = "VAT :";
-            this.theme1.SetTheme(this.label8, "(default)");
-            // 
-            // txtBEnettotal
-            // 
-            this.txtBEnettotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBEnettotal.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtBEnettotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtBEnettotal.Location = new System.Drawing.Point(92, 93);
-            this.txtBEnettotal.Name = "txtBEnettotal";
-            this.txtBEnettotal.Size = new System.Drawing.Size(131, 20);
-            this.txtBEnettotal.TabIndex = 141;
-            this.txtBEnettotal.Tag = null;
-            this.theme1.SetTheme(this.txtBEnettotal, "(default)");
-            this.txtBEnettotal.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label12.Location = new System.Drawing.Point(7, 95);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(66, 16);
-            this.label12.TabIndex = 142;
-            this.label12.Text = "NetTotal :";
-            this.theme1.SetTheme(this.label12, "(default)");
-            // 
-            // txtBIamt
-            // 
-            this.txtBIamt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBIamt.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtBIamt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtBIamt.Location = new System.Drawing.Point(327, 41);
-            this.txtBIamt.Name = "txtBIamt";
-            this.txtBIamt.Size = new System.Drawing.Size(131, 20);
-            this.txtBIamt.TabIndex = 139;
-            this.txtBIamt.Tag = null;
-            this.theme1.SetTheme(this.txtBIamt, "(default)");
-            this.txtBIamt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label13.Location = new System.Drawing.Point(242, 43);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(69, 16);
-            this.label13.TabIndex = 140;
-            this.label13.Text = "รวมทั้งหมด :";
-            this.theme1.SetTheme(this.label13, "(default)");
-            // 
-            // txtBIvat
-            // 
-            this.txtBIvat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBIvat.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtBIvat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtBIvat.Location = new System.Drawing.Point(327, 67);
-            this.txtBIvat.Name = "txtBIvat";
-            this.txtBIvat.Size = new System.Drawing.Size(131, 20);
-            this.txtBIvat.TabIndex = 137;
-            this.txtBIvat.Tag = null;
-            this.theme1.SetTheme(this.txtBIvat, "(default)");
-            this.txtBIvat.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label14.Location = new System.Drawing.Point(242, 69);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(41, 16);
-            this.label14.TabIndex = 138;
-            this.label14.Text = "VAT :";
-            this.theme1.SetTheme(this.label14, "(default)");
-            // 
-            // txtBInettotal
-            // 
-            this.txtBInettotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBInettotal.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtBInettotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtBInettotal.Location = new System.Drawing.Point(327, 93);
-            this.txtBInettotal.Name = "txtBInettotal";
-            this.txtBInettotal.Size = new System.Drawing.Size(131, 20);
-            this.txtBInettotal.TabIndex = 135;
-            this.txtBInettotal.Tag = null;
-            this.theme1.SetTheme(this.txtBInettotal, "(default)");
-            this.txtBInettotal.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label15.Location = new System.Drawing.Point(242, 95);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(66, 16);
-            this.label15.TabIndex = 136;
-            this.label15.Text = "NetTotal :";
-            this.theme1.SetTheme(this.label15, "(default)");
+            this.txtJobId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJobId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJobId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtJobId.Location = new System.Drawing.Point(467, 12);
+            this.txtJobId.Name = "txtJobId";
+            this.txtJobId.Size = new System.Drawing.Size(30, 20);
+            this.txtJobId.TabIndex = 471;
+            this.txtJobId.Tag = null;
+            this.theme1.SetTheme(this.txtJobId, "(default)");
+            this.txtJobId.Visible = false;
+            this.txtJobId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmBilling
             // 
@@ -1019,10 +1067,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCashOk)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEamt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEvat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEnettotal)).EndInit();
             this.tabBill.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBEamt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBEvat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBEnettotal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBIamt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBIvat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBInettotal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBNew)).EndInit();
@@ -1030,7 +1087,7 @@
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboChkExam)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtJobDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBillDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT)).EndInit();
             this.tabCover.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
@@ -1047,15 +1104,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEamt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEvat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEnettotal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBEamt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBEvat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBEnettotal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBIamt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBIvat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBInettotal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJobId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1083,7 +1133,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label31;
-        private C1.Win.Calendar.C1DateEdit txtJobDate;
+        private C1.Win.Calendar.C1DateEdit txtBillDate;
         private C1.Win.C1Input.C1ComboBox cboChkExam;
         private C1.Win.C1Input.C1TextBox txtJobCode;
         private System.Windows.Forms.Label label3;
@@ -1126,5 +1176,8 @@
         private System.Windows.Forms.Label label14;
         private C1.Win.C1Input.C1TextBox txtBInettotal;
         private System.Windows.Forms.Label label15;
+        private C1.Win.C1Input.C1TextBox txtRemark;
+        private System.Windows.Forms.Label label5;
+        private C1.Win.C1Input.C1TextBox txtJobId;
     }
 }

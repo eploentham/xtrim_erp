@@ -73,6 +73,8 @@ namespace Xtrim_ERP.objdb
         public CompanyBankDB copbDB;
         public ExpensesPayDB expnpDB;
         public ExpensesPayDetailDB expnpdDB;
+        public BillingDB bllDB;
+        public BillingDetailDB blldDB;
 
         public MeiosysDB mioDB;
 
@@ -149,6 +151,8 @@ namespace Xtrim_ERP.objdb
             copbDB = new CompanyBankDB(conn);
             expnpDB = new ExpensesPayDB(conn);
             expnpdDB = new ExpensesPayDetailDB(conn);
+            bllDB = new BillingDB(conn);
+            blldDB = new BillingDetailDB(conn);
         }
     }
 }

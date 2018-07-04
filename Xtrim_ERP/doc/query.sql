@@ -19,6 +19,8 @@ ALTER TABLE b_bank_book AUTO_INCREMENT = 1570000000;
 ALTER TABLE t_reserve_pay AUTO_INCREMENT = 1580000000;
 ALTER TABLE t_expenses_pay AUTO_INCREMENT = 1590000000;
 ALTER TABLE t_expenses_pay_detail AUTO_INCREMENT = 1600000000;
+ALTER TABLE t_billing AUTO_INCREMENT = 1610000000;
+ALTER TABLE t_billing_detail AUTO_INCREMENT = 1620000000;
 
 
 
@@ -409,6 +411,67 @@ ALTER TABLE `xtrim_erp`.`b_items`
 ADD COLUMN `unit_id` INT NULL AFTER `price5`;
 ALTER TABLE `xtrim_erp`.`b_company_bank` 
 ADD COLUMN `bank_id` INT NULL AFTER `active`;
+
+
+61-07-04
+CREATE TABLE `t_billing` (
+  `billing_id` int(11) NOT NULL AUTO_INCREMENT,
+  `billing_code` varchar(255) DEFAULT NULL,
+  `billing_date` varchar(255) DEFAULT NULL,
+  `job_id` int(11) NOT NULL,
+  `job_code` varchar(255) DEFAULT NULL,
+  `amount` decimal(17,2) DEFAULT NULL,
+  `active` varchar(255) DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `date_create` varchar(255) DEFAULT NULL,
+  `date_modi` varchar(255) DEFAULT NULL,
+  `date_cancel` varchar(255) DEFAULT NULL,
+  `user_create` varchar(255) DEFAULT NULL,
+  `user_modi` varchar(255) DEFAULT NULL,
+  `user_cancel` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`billing_id`,`job_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='id=161';
+
+CREATE TABLE `xtrim_erp`.`t_billing_detail` (
+  `billing_detail_id` INT NOT NULL,
+  `billing_id` INT NULL,
+  `expenses_draw_detail_id` INT NULL,
+  `item_id` INT NULL,
+  `item_name_t` VARCHAR(255) NULL,
+  `amount_draw` DECIMAL(17,2) NULL,
+  `amount_income` DECIMAL(17,2) NULL,
+  `active` VARCHAR(255) NULL,
+  `remark` VARCHAR(255) NULL,
+  `date_create` VARCHAR(255) NULL,
+  `date_modi` VARCHAR(255) NULL,
+  `date_cancel` VARCHAR(255) NULL,
+  `user_create` VARCHAR(255) NULL,
+  `user_modi` VARCHAR(255) NULL,
+  `user_cancel` VARCHAR(255) NULL,
+  PRIMARY KEY (`billing_detail_id`))
+ENGINE = MyISAM
+COMMENT = 'id=162';
+
+CREATE TABLE `xtrim_erp`.`t_debtor` (
+  `debtor_id` INT NOT NULL AUTO_INCREMENT,
+  `cus_id` INT NULL,
+  `amount` DECIMAL(17,2) NULL,
+  `active` VARCHAR(255) NULL,
+  `remark` VARCHAR(255) NULL,
+  `date_create` VARCHAR(255) NULL,
+  `date_modi` VARCHAR(255) NULL,
+  `date_cancel` VARCHAR(255) NULL,
+  `user_crate` VARCHAR(255) NULL,
+  `user_modi` VARCHAR(255) NULL,
+  `user_cancel` VARCHAR(255) NULL,
+  PRIMARY KEY (`debtor_id`))
+ENGINE = MyISAM
+COMMENT = 'id=163';
+
+ALTER TABLE `xtrim_erp`.`t_debtor` 
+CHANGE COLUMN `amount` `amount` DECIMAL(17,2) NULL DEFAULT NULL COMMENT 'ยอดตั้งหนี้ ให้ลงเป็นบวก\nถ้ายอดเคลีร์หนี้ ให้ลงเป็นลบ' ,
+ADD COLUMN `billing_id` INT NULL COMMENT 'แจ้งหนี้' AFTER `user_cancel`,
+ADD COLUMN `payment_id` INT NULL COMMENT 'รับชำระหนี้' AFTER `billing_id`;
 
 
 
