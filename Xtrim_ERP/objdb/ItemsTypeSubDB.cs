@@ -43,6 +43,7 @@ namespace Xtrim_ERP.objdb
             itmtS.acc_code = "acc_code";
             itmtS.sort1 = "sort1";
             itmtS.status_item_edit = "status_item_edit";
+            itmtS.tax_id = "tax_id";
 
             itmtS.table = "b_items_type_sub";
             itmtS.pkField = "item_type_sub_id";
@@ -156,6 +157,7 @@ namespace Xtrim_ERP.objdb
 
             p.item_type_id = int.TryParse(p.item_type_id, out chk) ? chk.ToString() : "0";
             p.f_method_payment_id = int.TryParse(p.f_method_payment_id, out chk) ? chk.ToString() : "0";
+            p.tax_id = int.TryParse(p.tax_id, out chk) ? chk.ToString() : "0";
         }
         public String insert(ItemsTypeSub p, String userId)
         {
@@ -174,7 +176,8 @@ namespace Xtrim_ERP.objdb
                 itmtS.user_create + "," + itmtS.user_modi + "," + itmtS.user_cancel + "," +
                 itmtS.active + "," + itmtS.remark + ", " + itmtS.sort1 + ", " +
                 itmtS.item_type_sub_name_e + "," + itmtS.f_method_payment_id + ", " + itmtS.status_invoice + ", " +
-                itmtS.status_tax53 + "," + itmtS.acc_code + "," + itmtS.status_item_edit + " " +
+                itmtS.status_tax53 + "," + itmtS.acc_code + "," + itmtS.status_item_edit + "," +
+                itmtS.tax_id + "," +
                 ") " +
                 "Values ('" + p.item_type_id + "','" + p.item_type_sub_code.Replace("'", "''") + "','" + p.item_type_sub_name_t.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
@@ -182,6 +185,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "'," +
                 "'" + p.item_type_sub_name_e + "','" + p.f_method_payment_id.Replace("'", "''") + "','" + p.status_invoice + "'," +
                 "'" + p.status_tax53 + "','" + p.acc_code.Replace("'", "''") + "','" + p.status_item_edit.Replace("'", "''") + "' " +
+                "'" + p.tax_id + "' " +
                 ")";
             try
             {
@@ -216,6 +220,7 @@ namespace Xtrim_ERP.objdb
                 "," + itmtS.status_tax53 + " = '" + p.status_tax53 + "' " +
                 "," + itmtS.acc_code + " = '" + p.acc_code + "' " +
                 "," + itmtS.status_item_edit + " = '" + p.status_item_edit + "' " +
+                "," + itmtS.tax_id + " = '" + p.tax_id + "' " +
                 "Where " + itmtS.pkField + "='" + p.item_type_sub_id + "'"
                 ;
 
@@ -316,6 +321,7 @@ namespace Xtrim_ERP.objdb
                 curr1.status_tax53 = dt.Rows[0][itmtS.status_tax53].ToString();
                 curr1.acc_code = dt.Rows[0][itmtS.acc_code].ToString();
                 curr1.status_item_edit = dt.Rows[0][itmtS.status_item_edit].ToString();
+                curr1.tax_id = dt.Rows[0][itmtS.tax_id].ToString();
             }
             else
             {
@@ -338,6 +344,7 @@ namespace Xtrim_ERP.objdb
                 curr1.acc_code = "";
                 curr1.sort1 = "";
                 curr1.status_item_edit = "";
+                curr1.tax_id = "";
             }
 
             return curr1;

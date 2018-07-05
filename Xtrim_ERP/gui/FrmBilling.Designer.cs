@@ -66,6 +66,9 @@
             this.btnBEdit = new C1.Win.C1Input.C1Button();
             this.btnBNew = new C1.Win.C1Input.C1Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txtJobId = new C1.Win.C1Input.C1TextBox();
+            this.txtRemark = new C1.Win.C1Input.C1TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtJobCode = new C1.Win.C1Input.C1TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cboChkExam = new C1.Win.C1Input.C1ComboBox();
@@ -77,7 +80,7 @@
             this.tabCover = new C1.Win.C1Command.C1DockingTabPage();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.c1Button1 = new C1.Win.C1Input.C1Button();
+            this.btnPrnCover = new C1.Win.C1Input.C1Button();
             this.cdLeft = new C1.Win.C1Command.C1CommandDock();
             this.c1DockingTab1 = new C1.Win.C1Command.C1DockingTab();
             this.tabJob = new C1.Win.C1Command.C1DockingTabPage();
@@ -91,9 +94,9 @@
             this.btnCusSF2 = new C1.Win.C1Input.C1Button();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtRemark = new C1.Win.C1Input.C1TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtJobId = new C1.Win.C1Input.C1TextBox();
+            this.txtBllCode = new C1.Win.C1Input.C1TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnPrnRcp = new C1.Win.C1Input.C1Button();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -123,13 +126,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnBEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBNew)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJobId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboChkExam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBillDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT)).BeginInit();
             this.tabCover.SuspendLayout();
             this.panel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrnCover)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cdLeft)).BeginInit();
             this.cdLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).BeginInit();
@@ -140,8 +145,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtJobId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBllCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrnRcp)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -397,6 +402,7 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel11.Controls.Add(this.btnPrnRcp);
             this.panel11.Controls.Add(this.panel13);
             this.panel11.Controls.Add(this.btnBSave);
             this.panel11.Controls.Add(this.btnBEdit);
@@ -592,11 +598,11 @@
             // 
             this.btnBSave.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
             this.btnBSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBSave.Location = new System.Drawing.Point(170, 12);
+            this.btnBSave.Location = new System.Drawing.Point(8, 15);
             this.btnBSave.Name = "btnBSave";
-            this.btnBSave.Size = new System.Drawing.Size(83, 32);
+            this.btnBSave.Size = new System.Drawing.Size(139, 32);
             this.btnBSave.TabIndex = 508;
-            this.btnBSave.Text = "บันทึกช้อมูล";
+            this.btnBSave.Text = "บันทึกช้อมูล ใบวางบิล";
             this.btnBSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.btnBSave, "(default)");
             this.btnBSave.UseVisualStyleBackColor = true;
@@ -633,6 +639,8 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel5.Controls.Add(this.txtBllCode);
+            this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.txtJobId);
             this.panel5.Controls.Add(this.txtRemark);
             this.panel5.Controls.Add(this.label5);
@@ -651,6 +659,46 @@
             this.panel5.Size = new System.Drawing.Size(797, 100);
             this.panel5.TabIndex = 1;
             this.theme1.SetTheme(this.panel5, "(default)");
+            // 
+            // txtJobId
+            // 
+            this.txtJobId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJobId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJobId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtJobId.Location = new System.Drawing.Point(467, 12);
+            this.txtJobId.Name = "txtJobId";
+            this.txtJobId.Size = new System.Drawing.Size(30, 20);
+            this.txtJobId.TabIndex = 471;
+            this.txtJobId.Tag = null;
+            this.theme1.SetTheme(this.txtJobId, "(default)");
+            this.txtJobId.Visible = false;
+            this.txtJobId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtRemark
+            // 
+            this.txtRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRemark.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtRemark.Location = new System.Drawing.Point(328, 68);
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Size = new System.Drawing.Size(458, 20);
+            this.txtRemark.TabIndex = 469;
+            this.txtRemark.Tag = null;
+            this.theme1.SetTheme(this.txtRemark, "(default)");
+            this.txtRemark.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label5.Location = new System.Drawing.Point(242, 70);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 16);
+            this.label5.TabIndex = 470;
+            this.label5.Text = "หมายเหตุ :";
+            this.theme1.SetTheme(this.label5, "(default)");
             // 
             // txtJobCode
             // 
@@ -809,7 +857,7 @@
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel14.Controls.Add(this.c1Button1);
+            this.panel14.Controls.Add(this.btnPrnCover);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel14.Location = new System.Drawing.Point(0, 0);
@@ -818,19 +866,19 @@
             this.panel14.TabIndex = 0;
             this.theme1.SetTheme(this.panel14, "(default)");
             // 
-            // c1Button1
+            // btnPrnCover
             // 
-            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
-            this.c1Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1Button1.Location = new System.Drawing.Point(87, 16);
-            this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(83, 32);
-            this.c1Button1.TabIndex = 509;
-            this.c1Button1.Text = "บันทึกช้อมูล";
-            this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button1, "(default)");
-            this.c1Button1.UseVisualStyleBackColor = true;
-            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnPrnCover.Image = global::Xtrim_ERP.Properties.Resources.printer_blue24;
+            this.btnPrnCover.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrnCover.Location = new System.Drawing.Point(87, 16);
+            this.btnPrnCover.Name = "btnPrnCover";
+            this.btnPrnCover.Size = new System.Drawing.Size(134, 32);
+            this.btnPrnCover.TabIndex = 509;
+            this.btnPrnCover.Text = "พิมพ์ ใบปะหน้า";
+            this.btnPrnCover.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnPrnCover, "(default)");
+            this.btnPrnCover.UseVisualStyleBackColor = true;
+            this.btnPrnCover.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // cdLeft
             // 
@@ -1003,45 +1051,45 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // txtRemark
+            // txtBllCode
             // 
-            this.txtRemark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRemark.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtRemark.Location = new System.Drawing.Point(328, 68);
-            this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(458, 20);
-            this.txtRemark.TabIndex = 469;
-            this.txtRemark.Tag = null;
-            this.theme1.SetTheme(this.txtRemark, "(default)");
-            this.txtRemark.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtBllCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBllCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBllCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBllCode.Location = new System.Drawing.Point(503, 38);
+            this.txtBllCode.Name = "txtBllCode";
+            this.txtBllCode.Size = new System.Drawing.Size(169, 20);
+            this.txtBllCode.TabIndex = 472;
+            this.txtBllCode.Tag = null;
+            this.theme1.SetTheme(this.txtBllCode, "(default)");
+            this.txtBllCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // label5
+            // label6
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label5.Location = new System.Drawing.Point(242, 70);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 16);
-            this.label5.TabIndex = 470;
-            this.label5.Text = "หมายเหตุ :";
-            this.theme1.SetTheme(this.label5, "(default)");
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label6.Location = new System.Drawing.Point(417, 40);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(80, 16);
+            this.label6.TabIndex = 473;
+            this.label6.Text = "เลขที่ใบวางบิล :";
+            this.theme1.SetTheme(this.label6, "(default)");
             // 
-            // txtJobId
+            // btnPrnRcp
             // 
-            this.txtJobId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtJobId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtJobId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtJobId.Location = new System.Drawing.Point(467, 12);
-            this.txtJobId.Name = "txtJobId";
-            this.txtJobId.Size = new System.Drawing.Size(30, 20);
-            this.txtJobId.TabIndex = 471;
-            this.txtJobId.Tag = null;
-            this.theme1.SetTheme(this.txtJobId, "(default)");
-            this.txtJobId.Visible = false;
-            this.txtJobId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnPrnRcp.Image = global::Xtrim_ERP.Properties.Resources.printer_blue24;
+            this.btnPrnRcp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrnRcp.Location = new System.Drawing.Point(182, 15);
+            this.btnPrnRcp.Name = "btnPrnRcp";
+            this.btnPrnRcp.Size = new System.Drawing.Size(139, 32);
+            this.btnPrnRcp.TabIndex = 510;
+            this.btnPrnRcp.Text = "พิมพ์ ใบเสร็จรับเงิน";
+            this.btnPrnRcp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnPrnRcp, "(default)");
+            this.btnPrnRcp.UseVisualStyleBackColor = true;
+            this.btnPrnRcp.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmBilling
             // 
@@ -1085,13 +1133,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnBNew)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJobId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboChkExam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBillDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT)).EndInit();
             this.tabCover.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrnCover)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cdLeft)).EndInit();
             this.cdLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).EndInit();
@@ -1104,8 +1154,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtJobId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBllCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrnRcp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1157,7 +1207,7 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel panel14;
-        private C1.Win.C1Input.C1Button c1Button1;
+        private C1.Win.C1Input.C1Button btnPrnCover;
         private C1.Win.C1Input.C1TextBox txtEamt;
         private System.Windows.Forms.Label label9;
         private C1.Win.C1Input.C1TextBox txtEvat;
@@ -1179,5 +1229,8 @@
         private C1.Win.C1Input.C1TextBox txtRemark;
         private System.Windows.Forms.Label label5;
         private C1.Win.C1Input.C1TextBox txtJobId;
+        private C1.Win.C1Input.C1TextBox txtBllCode;
+        private System.Windows.Forms.Label label6;
+        private C1.Win.C1Input.C1Button btnPrnRcp;
     }
 }

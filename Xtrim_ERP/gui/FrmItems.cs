@@ -62,12 +62,14 @@ namespace Xtrim_ERP.gui
             btnEdit.Click += BtnEdit_Click;
             btnSave.Click += BtnSave_Click;
             cboItmts.SelectedItemChanged += CboItmts_SelectedItemChanged;
+            chkTax53.Click += ChkTax53_Click;
 
             xC.xtDB.itmcDB.setC1CboItmC(cboItmC, "");
             xC.xtDB.itmtsDB.setC1CboItmTypeSub(cboItmts, "");
             xC.xtDB.itmgDB.setC1CboExpnG(cboItmG, "");
             xC.xtDB.fmtpDB.setC1CboMtp(cboFMtp, "");
             xC.xtDB.utpDB.setC1CboUtp(cboUtp, "");
+            xC.xtDB.taxDB.setC1CboItem(cboTax);
             initGrfDept();
             setGrfDeptH();
             setControlEnable(false);
@@ -78,8 +80,22 @@ namespace Xtrim_ERP.gui
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
             stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
+            cboTax.Hide();
         }
-        
+
+        private void ChkTax53_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (chkTax53.Checked)
+            {
+                cboTax.Show();
+            }
+            else
+            {
+                cboTax.Hide();
+            }
+        }
+
         private void initGrfDept()
         {
             grfExpn = new C1FlexGrid();
@@ -185,10 +201,19 @@ namespace Xtrim_ERP.gui
             xC.setC1Combo(cboItmts, itm.item_type_sub_id);
             xC.setC1Combo(cboFMtp, itm.f_method_payment_id);
             xC.setC1Combo(cboUtp, itm.unit_id);
+            xC.setC1Combo(cboTax, itm.tax_id);
 
             txtAccCode.Value = itm.acc_code;
-            chkInv.Checked = itm.status_invoice.Equals("1") ? true : false;
+            chkVat.Checked = itm.status_invoice.Equals("1") ? true : false;
             chkTax53.Checked = itm.status_tax53.Equals("1") ? true : false;
+            if (chkTax53.Checked)
+            {
+                cboTax.Show();
+            }
+            else
+            {
+                cboTax.Hide();
+            }
 
             ItemsTypeSub itmts = new ItemsTypeSub();
             itmts = xC.xtDB.itmtsDB.selectByPk1(itm.item_type_sub_id);
@@ -199,6 +224,14 @@ namespace Xtrim_ERP.gui
             else
             {
                 gBTypeSub.Enabled = false;
+            }
+            if (itm.tax_id.Equals("0") || itm.tax_id.Equals(""))
+            {
+                if (!itmts.tax_id.Equals(""))
+                {
+                    itm.tax_id = itmts.tax_id;
+                }
+                xC.setC1Combo(cboTax, itm.tax_id);
             }
             txtPrice1.Value = itm.price1;
             txtPrice2.Value = itm.price2;
@@ -235,7 +268,7 @@ namespace Xtrim_ERP.gui
             itm.item_type_sub_id = cboItmts.SelectedItem != null ? ((ComboBoxItem)(cboItmts.SelectedItem)).Value : "";
             itm.item_cat_id = cboItmC.SelectedItem != null ? ((ComboBoxItem)(cboItmC.SelectedItem)).Value : "";
             itm.item_grp_id = cboItmG.SelectedItem != null ? ((ComboBoxItem)(cboItmG.SelectedItem)).Value : "";
-            itm.status_invoice = chkInv.Checked ? "1" : "0";
+            itm.status_invoice = chkVat.Checked ? "1" : "0";
             itm.status_tax53 = chkTax53.Checked ? "1" : "0";
             itm.acc_code = txtAccCode.Text;
             itm.f_method_payment_id = cboFMtp.SelectedItem != null ? ((ComboBoxItem)(cboFMtp.SelectedItem)).Value : "";
@@ -254,6 +287,7 @@ namespace Xtrim_ERP.gui
                 itmt = xC.xtDB.itmtDB.selectByPk1(itmts.item_type_id);
                 itm.item_group_id = itmt.item_group_id;
             }
+            itm.tax_id = cboTax.SelectedItem != null ? ((ComboBoxItem)(cboTax.SelectedItem)).Value : "";
         }
         private void grfDept_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
         {
@@ -303,7 +337,7 @@ namespace Xtrim_ERP.gui
                 gBTypeSub.Enabled = false;
             }
             txtAccCode.Value = itmts.acc_code;
-            chkInv.Checked = itmts.status_invoice.Equals("1") ? true : false;
+            chkVat.Checked = itmts.status_invoice.Equals("1") ? true : false;
             chkTax53.Checked = itmts.status_tax53.Equals("1") ? true : false;
             xC.setC1Combo(cboFMtp, itmts.f_method_payment_id);
         }

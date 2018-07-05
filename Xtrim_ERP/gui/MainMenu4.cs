@@ -64,6 +64,24 @@ namespace Xtrim_ERP.gui
             menuRspAppv.Click += MenuRspAppv_Click;
             menuRspReserve.Click += MenuRspReserve_Click;
             menuCop.Click += MenuCop_Click;
+            menuDebtor.Click += MenuDebtor_Click;
+            menuPayment.Click += MenuPayment_Click;
+        }
+
+        private void MenuPayment_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmPaymentView frm = new FrmPaymentView(xC, this);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, menuPayment.Text +" ");
+        }
+
+        private void MenuDebtor_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmDebtor frm = new FrmDebtor(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, "ลูกหนี้ ");
         }
 
         private void MenuCop_Click(object sender, EventArgs e)
@@ -406,7 +424,7 @@ namespace Xtrim_ERP.gui
                     menuInit.Enabled = true;
                 }
             }
-            this.Text = "Last Update 2018-07-04";
+            this.Text = "Last Update 2018-07-05";
         }
     }
 }

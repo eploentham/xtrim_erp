@@ -915,7 +915,7 @@
             this.tabTransfer.Name = "tabTransfer";
             this.tabTransfer.Size = new System.Drawing.Size(985, 702);
             this.tabTransfer.TabIndex = 2;
-            this.tabTransfer.Text = "จ่าย เงินโอน";
+            this.tabTransfer.Text = "พิมพ์ ใบหัก ณ ที่จ่าย";
             // 
             // cdLeft
             // 

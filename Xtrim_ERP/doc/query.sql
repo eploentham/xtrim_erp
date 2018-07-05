@@ -21,7 +21,8 @@ ALTER TABLE t_expenses_pay AUTO_INCREMENT = 1590000000;
 ALTER TABLE t_expenses_pay_detail AUTO_INCREMENT = 1600000000;
 ALTER TABLE t_billing AUTO_INCREMENT = 1610000000;
 ALTER TABLE t_billing_detail AUTO_INCREMENT = 1620000000;
-
+ALTER TABLE t_debtor AUTO_INCREMENT = 1630000000;
+ALTER TABLE b_tax AUTO_INCREMENT = 1640000000;
 
 
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ไม่ต้อง', 'ORIGIANL', '1', 'BL_TYPE');
@@ -431,6 +432,11 @@ CREATE TABLE `t_billing` (
   `user_cancel` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`billing_id`,`job_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='id=161';
+ALTER TABLE `xtrim_erp`.`t_billing_detail` 
+CHANGE COLUMN `billing_detail_id` `billing_detail_id` INT(11) NOT NULL AUTO_INCREMENT ;
+
+
+
 
 CREATE TABLE `xtrim_erp`.`t_billing_detail` (
   `billing_detail_id` INT NOT NULL,

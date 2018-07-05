@@ -73,6 +73,7 @@ namespace Xtrim_ERP.objdb
             cop.year_curr = "year_curr";
             cop.cash_draw_doc = "cash_draw_doc";
             cop.amount_reserve = "amount_reserve";
+            cop.billing_doc = "billing_doc";
 
             cop.table = "b_company";
             cop.pkField = "comp_id";
@@ -108,6 +109,7 @@ namespace Xtrim_ERP.objdb
             p.province_id = p.province_id == null ? "" : p.province_id;
 
             p.amount_reserve = Decimal.TryParse(p.amount_reserve, out chk1) ? chk1.ToString() : "0";
+            p.billing_doc = int.TryParse(p.billing_doc, out chk) ? chk.ToString() : "0";
         }
         public String insert(Company p, String userId)
         {
@@ -327,6 +329,40 @@ namespace Xtrim_ERP.objdb
             doc = "CD"+year.Substring(year.Length-2,2) + doc;
             return doc;
         }
+        public String genBillingDoc()
+        {
+            String doc = "", year = "", sql = "";
+            Company cop1 = new Company();
+            cop1 = selectByCode1("001");
+            year = DateTime.Now.ToString("yyyy");
+            if (!year.Equals(cop1.year_curr))
+            {
+                sql = "Update " + cop.table + " Set " +
+                    " " + cop.year_curr + "='" + year + "' " +
+                    "," + cop.billing_doc + "=1 " +
+                    "Where " + cop.pkField + "='" + cop1.comp_id + "'";
+                conn.ExecuteNonQuery(conn.conn, sql);
+                doc = "00001";
+            }
+            else
+            {
+                int chk = 0;
+                if (int.TryParse(cop1.billing_doc, out chk))
+                {
+                    chk++;
+                    doc = "00000" + chk;
+                    doc = doc.Substring(doc.Length - 5, 5);
+                    year = cop1.year_curr;
+
+                    sql = "Update " + cop.table + " Set " +
+                    "" + cop.billing_doc + "=" + chk +
+                    " Where " + cop.pkField + "='" + cop1.comp_id + "'";
+                    conn.ExecuteNonQuery(conn.conn, sql);
+                }
+            }
+            doc = "BI" + year.Substring(year.Length - 2, 2) + doc;
+            return doc;
+        }
         public String updateAmountReserve(String amt)
         {
             String sql = "",re="";
@@ -396,6 +432,7 @@ namespace Xtrim_ERP.objdb
                 cop1.year_curr = dt.Rows[0][cop.year_curr].ToString();
                 cop1.cash_draw_doc = dt.Rows[0][cop.cash_draw_doc].ToString();
                 cop1.amount_reserve = dt.Rows[0][cop.amount_reserve].ToString();
+                cop1.billing_doc = dt.Rows[0][cop.billing_doc].ToString();
             }
             else
             {
@@ -452,6 +489,7 @@ namespace Xtrim_ERP.objdb
                 cop1.year_curr = "";
                 cop1.cash_draw_doc = "";
                 cop1.amount_reserve = "";
+                cop1.billing_doc = "";
             }
 
             return cop1;

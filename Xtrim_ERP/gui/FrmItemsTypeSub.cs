@@ -61,9 +61,11 @@ namespace Xtrim_ERP.gui
             btnNew.Click += BtnNew_Click;
             btnEdit.Click += BtnEdit_Click;
             btnSave.Click += BtnSave_Click;
+            chkTax53.Click += ChkTax53_Click;
 
             xC.xtDB.itmtDB.setC1CboItemsT(cboItmT, "");
             xC.xtDB.fmtpDB.setC1CboMtp(cboFMtp, "");
+            xC.xtDB.taxDB.setC1CboItem(cboTax);
 
             initGrfDept();
             setGrfDeptH();
@@ -75,6 +77,20 @@ namespace Xtrim_ERP.gui
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
             stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
+            cboTax.Hide();
+        }
+
+        private void ChkTax53_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (chkTax53.Checked)
+            {
+                cboTax.Show();
+            }
+            else
+            {
+                cboTax.Hide();
+            }
         }
 
         private void initGrfDept()
@@ -160,10 +176,19 @@ namespace Xtrim_ERP.gui
             txtRemark.Value = itmtS.remark;
             xC.setC1Combo(cboItmT, itmtS.item_type_id);
             xC.setC1Combo(cboFMtp, itmtS.f_method_payment_id);
+            xC.setC1Combo(cboTax, itmtS.tax_id);
             chkItmEdit.Checked = itmtS.status_item_edit.Equals("1") ? true : false;
             chkInv.Checked = itmtS.status_invoice.Equals("1") ? true : false;
             chkTax53.Checked = itmtS.status_tax53.Equals("1") ? true : false;
             txtAccCode.Value = itmtS.acc_code;
+            if (chkTax53.Checked)
+            {
+                cboTax.Show();
+            }
+            else
+            {
+                cboTax.Hide();
+            }
         }
         private void setControlEnable(Boolean flag)
         {
@@ -186,6 +211,7 @@ namespace Xtrim_ERP.gui
             itmtS.status_invoice = chkInv.Checked ? "1" : "0";
             itmtS.status_tax53 = chkTax53.Checked ? "1" : "0";
             itmtS.acc_code = txtAccCode.Text;
+            itmtS.tax_id = cboTax.SelectedItem != null ? ((ComboBoxItem)(cboTax.SelectedItem)).Value : "";
         }
         private void grfDept_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
         {

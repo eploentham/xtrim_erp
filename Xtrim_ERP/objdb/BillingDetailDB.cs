@@ -37,8 +37,8 @@ namespace Xtrim_ERP.objdb
             blld.user_cancel = "user_cancel";
             blld.amount_income = "amount_income";
 
-            blld.table = "t_billing";
-            blld.pkField = "billing_id";
+            blld.table = "t_billing_detail";
+            blld.pkField = "billing_detail_id";
 
             lexpn = new List<BillingDetail>();
         }
@@ -99,8 +99,15 @@ namespace Xtrim_ERP.objdb
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.amount_draw + "','" + p.amount_income + "' " +
                 ")";
-            re = conn.ExecuteNonQuery(conn.conn, sql);
-
+            
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
             return re;
         }
         public String update(BillingDetail p, String userId)
@@ -119,8 +126,15 @@ namespace Xtrim_ERP.objdb
                 "," + blld.amount_income + "='" + p.amount_income.Replace("'", "''") + "' " +
                 "Where " + blld.pkField + "='" + p.billing_detail_id + "'"
                 ;
-            re = conn.ExecuteNonQuery(conn.conn, sql);
-
+            
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
             return re;
         }
         public String insertBillingDetail(BillingDetail p, String userId)
@@ -150,13 +164,23 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
+        public DataTable selectByBillId(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select blld.* " +
+                "From " + blld.table + " blld " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where blld." + blld.billing_id + " ='" + copId + "' and "+blld.active+"='1'";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select bill.* " +
-                "From " + blld.table + " bill " +
+            String sql = "select blld.* " +
+                "From " + blld.table + " blld " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where ett." + blld.pkField + " ='" + copId + "' ";
+                "Where blld." + blld.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -164,10 +188,10 @@ namespace Xtrim_ERP.objdb
         {
             BillingDetail cop1 = new BillingDetail();
             DataTable dt = new DataTable();
-            String sql = "select bill.* " +
-                "From " + blld.table + " bill " +
+            String sql = "select blld.* " +
+                "From " + blld.table + " blld " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where bill." + blld.pkField + " ='" + copId + "' ";
+                "Where blld." + blld.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setBillingDetail(dt);
             return cop1;

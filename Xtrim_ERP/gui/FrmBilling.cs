@@ -21,6 +21,8 @@ namespace Xtrim_ERP.gui
         XtrimControl xC;
         Billing bll;
         Company cop;
+        Customer cus;
+        JobImport jim;
         Font fEdit, fEditB;
 
         Color bg, fc;
@@ -28,8 +30,9 @@ namespace Xtrim_ERP.gui
         int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6;
         int colCID = 1, colCChk=2, colCSubNameT = 3, colCMtp = 4, colCItmNameT = 5, colCDrawDate = 6, colCAmt = 7, colCBank = 8, colCChequeNo = 9, colChequeDate = 10, colCChequepayname = 11, colCpayID = 12;
         int colBID = 1, colBItmNameT = 2, colBExpn=3,colBimcome=4,colBitmId=5, colBexpnddId=6;
+        int colVBllDoc = 1, colVJobNo = 2, colVAmt = 3;
 
-        C1FlexGrid grfJob, grfBill, grfDraw;
+        C1FlexGrid grfJob, grfBill, grfDraw, grfCover;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
         C1SuperTooltip stt;
@@ -58,10 +61,15 @@ namespace Xtrim_ERP.gui
             btnBNew.Click += BtnBNew_Click;
             btnBSave.Click += BtnBSave_Click;
 
+            DateTime billDate = DateTime.Now;
+            txtBillDate.Value = billDate.Year.ToString() + "-" + billDate.ToString("MM-dd");
+
             sB1.Text = "";
             cop = new Company();
             cop = xC.xtDB.copDB.selectByCode1("001");
             bll = new Billing();
+            cus = new Customer();
+            jim = new JobImport();
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
             txtBIvat.Value = cop.vat;
@@ -75,18 +83,23 @@ namespace Xtrim_ERP.gui
             initGrfJob();
             initGrfDrawView();
             initGrfBill();
+            initGrfCover();
             tC1.SelectedTab = tabMake;
             tC2.SelectedTab = tabDraw;
             //setGrfDeptH();
         }
         private void setBilling()
         {
+            Decimal amtE = 0, amtI = 0, amt=0;
+            Decimal.TryParse(txtBEamt.Text.Replace("$", "").Replace(",", ""), out amtE);
+            Decimal.TryParse(txtBIamt.Text.Replace("$", "").Replace(",", ""), out amtI);
+            amt = amtE + amtI;
             bll.billing_id = "";
-            bll.billing_code = "";
+            bll.billing_code = xC.xtDB.copDB.genBillingDoc();
             bll.billing_date = xC.datetoDB(txtBillDate.Text);
             bll.job_id = txtJobId.Text;
             bll.job_code = txtJobCode.Text;
-            bll.amount = "";
+            bll.amount = amt.ToString();
             bll.active = "";
             bll.remark = txtRemark.Text;
             bll.date_create = "";
@@ -108,10 +121,11 @@ namespace Xtrim_ERP.gui
                 {
                     foreach(Row rowB in grfBill.Rows)
                     {
+                        if (rowB[colBitmId] == null) continue;
                         BillingDetail blld = new BillingDetail();
                         blld.billing_id = re;
                         blld.billing_detail_id = "";
-                        blld.expenses_draw_detail_id = rowB[colBexpnddId].ToString();
+                        blld.expenses_draw_detail_id = rowB[colBexpnddId] != null ? rowB[colBexpnddId].ToString() : "";
                         blld.item_id = rowB[colBitmId].ToString();
                         blld.item_name_t = rowB[colBItmNameT].ToString();
                         blld.amount_draw = rowB[colBExpn] != null ? rowB[colBExpn].ToString() : "0";
@@ -129,10 +143,40 @@ namespace Xtrim_ERP.gui
                         if (int.TryParse(re1, out chk))
                         {
                             chkD++;
+
+                            Debtor dtr = new Debtor();
+                            dtr.debtor_id = "";
+                            dtr.cus_id = cus.cust_id;
+                            if (!blld.amount_income.Equals("0"))
+                            {
+                                dtr.amount = blld.amount_income;
+                            }
+                            else if (!blld.amount_draw.Equals("0"))
+                            {
+                                dtr.amount = blld.amount_draw;
+                            }
+                            else
+                            {
+                                dtr.amount = "0";
+                            }
+                            
+                            dtr.billing_detail_id = re1;
+                            dtr.payment_detail_id = "";
+                            dtr.job_id = jim.job_import_id;
+                            dtr.remark = "";
+                            dtr.status_debtor = "1";
+                            dtr.comp_id = cop.comp_id;
+                            xC.xtDB.dtrDB.insertBillingDetail(dtr, xC.userId);
                         }
                     }
                     if (chkD == (grfBill.Rows.Count-1))
                     {
+                        txtBllCode.Value = bll.billing_code;
+                        Row row = grfCover.Rows.Add();
+                        row[colVBllDoc] = bll.billing_code;
+                        row[colVJobNo] = bll.job_code;
+                        row[colVAmt] = bll.amount;
+
                         btnBSave.Image = Resources.accept_database24;
                     }
                 }
@@ -347,7 +391,30 @@ namespace Xtrim_ERP.gui
             theme1.SetTheme(grfDraw, "Office2013Red");
 
         }
+        private void initGrfCover()
+        {
+            grfCover = new C1FlexGrid();
+            grfCover.Font = fEdit;
+            grfCover.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfCover.Location = new System.Drawing.Point(0, 0);
+            grfCover.Rows.Count = 1;
+            grfCover.Cols.Count = 4;
+            grfCover.Cols[colVBllDoc].Width = 220;
+            grfCover.Cols[colVJobNo].Width = 100;
+            grfCover.Cols[colVAmt].Width = 100;
+            //grfBill.Cols[colCDrawDate].Width = 100;
+            //grfBill.Cols[colCAmt].Width = 100;
+            grfCover.Cols[colVBllDoc].Caption = "เลขที่ใบวางบิล";
+            grfCover.Cols[colVJobNo].Caption = "job no";
+            grfCover.Cols[colVAmt].Caption = "จำนวนเงิน";
+            //grfBill.Cols[colCDrawDate].Caption = "วันที่";
+            //grfBill.Cols[colCAmt].Caption = "รวมเงิน";
 
+            panel15.Controls.Add(grfCover);
+
+            theme1.SetTheme(grfCover, "Windows8Blue");
+            //grfCover.Cols[colBID].Visible = false;
+        }
         private void GrfDraw_CellChecked(object sender, RowColEventArgs e)
         {
             //throw new NotImplementedException();
@@ -447,10 +514,10 @@ namespace Xtrim_ERP.gui
         private void GrfJob_DoubleClick(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            Customer cus = xC.sCus;
-            JobImport jim = new JobImport();
+            cus = xC.sCus;
+            jim = new JobImport();
             jim = xC.xtDB.jimDB.selectByPk1(grfJob[grfJob.Row, colID].ToString());
-            txtJobId.Text = jim.job_import_id;
+            txtJobId.Value = jim.job_import_id;
             txtCusNameT.Value = cus.cust_name_t;
             txtJobCode.Value = jim.job_import_code;
             tC2.SelectedTab = tabDraw;

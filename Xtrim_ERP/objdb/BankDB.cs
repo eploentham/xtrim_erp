@@ -88,8 +88,15 @@ namespace Xtrim_ERP.objdb
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "' " +
                 ")";
-            re = conn.ExecuteNonQuery(conn.conn, sql);
-
+            
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
             return re;
         }
         public String update(Bank p, String userId)
@@ -105,8 +112,15 @@ namespace Xtrim_ERP.objdb
                 "," + bnk.user_modi + "='" + userId.Replace("'", "''") + "' " +
                 "Where " +bnk.bank_id +"='"+p.bank_id+"'"
                 ;
-            re = conn.ExecuteNonQuery(conn.conn, sql);
-
+            
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
             return re;
         }
         public String insertBank(Bank p, String userId)

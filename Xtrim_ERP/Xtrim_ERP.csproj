@@ -221,6 +221,12 @@
     <Compile Include="gui\FrmCusTaxInvoice.Designer.cs">
       <DependentUpon>FrmCusTaxInvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmDebtor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmDebtor.Designer.cs">
+      <DependentUpon>FrmDebtor.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -419,6 +425,30 @@
     <Compile Include="gui\FrmPasswordConfirm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="gui\FrmPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmPayment.Designer.cs">
+      <DependentUpon>FrmPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmPayment1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmPayment1.Designer.cs">
+      <DependentUpon>FrmPayment1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmPayment2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmPayment2.Designer.cs">
+      <DependentUpon>FrmPayment2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmPaymentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmPaymentView.Designer.cs">
+      <DependentUpon>FrmPaymentView.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmPosition.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -528,6 +558,7 @@
     <Compile Include="objdb\CountryDB.cs" />
     <Compile Include="objdb\CustomerRemarkDB.cs" />
     <Compile Include="objdb\CustomerTaxInvoiceDB.cs" />
+    <Compile Include="objdb\DebtorDB.cs" />
     <Compile Include="objdb\DocTypeDB.cs" />
     <Compile Include="objdb\ExpensesPayDB.cs" />
     <Compile Include="objdb\ExpensesPayDetailDB.cs" />
@@ -556,6 +587,7 @@
     <Compile Include="objdb\PrefixDB.cs" />
     <Compile Include="objdb\PrivilegeDB.cs" />
     <Compile Include="objdb\ReservePayDB.cs" />
+    <Compile Include="objdb\TaxDB.cs" />
     <Compile Include="objdb\TermPaymentDB.cs" />
     <Compile Include="objdb\ConsigneeDB.cs" />
     <Compile Include="objdb\ContactDB.cs" />
@@ -591,6 +623,7 @@
     <Compile Include="object1\Country.cs" />
     <Compile Include="object1\CustomerRemark.cs" />
     <Compile Include="object1\CustomerTaxInvoice.cs" />
+    <Compile Include="object1\Debtor.cs" />
     <Compile Include="object1\DocType.cs" />
     <Compile Include="object1\ExpensesPay.cs" />
     <Compile Include="object1\ExpensesPayDetail.cs" />
@@ -625,6 +658,7 @@
     <Compile Include="object1\CusRemark.cs" />
     <Compile Include="object1\ReservePay.cs" />
     <Compile Include="object1\StringSOAP.cs" />
+    <Compile Include="object1\Tax.cs" />
     <Compile Include="object1\TermPayment.cs" />
     <Compile Include="object1\Consignee.cs" />
     <Compile Include="object1\Contact.cs" />
@@ -799,6 +833,9 @@
     <EmbeddedResource Include="gui\FrmCusTaxInvoice.resx">
       <DependentUpon>FrmCusTaxInvoice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmDebtor.resx">
+      <DependentUpon>FrmDebtor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmDepartment1.resx">
       <DependentUpon>FrmDepartment1.cs</DependentUpon>
     </EmbeddedResource>
@@ -894,6 +931,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmMethodPayment.resx">
       <DependentUpon>FrmMethodPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmPayment.resx">
+      <DependentUpon>FrmPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmPayment1.resx">
+      <DependentUpon>FrmPayment1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmPayment2.resx">
+      <DependentUpon>FrmPayment2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmPaymentView.resx">
+      <DependentUpon>FrmPaymentView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmPosition.resx">
       <DependentUpon>FrmPosition.cs</DependentUpon>

@@ -40,6 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.chkNotSendtoInv = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.chkTax53 = new C1.Win.C1Input.C1CheckBox();
@@ -60,7 +61,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.chkNotSendtoInv = new System.Windows.Forms.RadioButton();
+            this.cboTax = new C1.Win.C1Input.C1ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -83,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).BeginInit();
             this.sB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboTax)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -105,6 +107,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel3.Controls.Add(this.cboTax);
             this.panel3.Controls.Add(this.chkItmEdit);
             this.panel3.Controls.Add(this.cboItmT);
             this.panel3.Controls.Add(this.label5);
@@ -273,6 +276,23 @@
             this.panel4.Size = new System.Drawing.Size(332, 88);
             this.panel4.TabIndex = 559;
             this.theme1.SetTheme(this.panel4, "(default)");
+            // 
+            // chkNotSendtoInv
+            // 
+            this.chkNotSendtoInv.AutoSize = true;
+            this.chkNotSendtoInv.BackColor = System.Drawing.Color.Transparent;
+            this.chkNotSendtoInv.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkNotSendtoInv.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkNotSendtoInv.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkNotSendtoInv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkNotSendtoInv.Location = new System.Drawing.Point(7, 58);
+            this.chkNotSendtoInv.Name = "chkNotSendtoInv";
+            this.chkNotSendtoInv.Size = new System.Drawing.Size(141, 17);
+            this.chkNotSendtoInv.TabIndex = 122;
+            this.chkNotSendtoInv.TabStop = true;
+            this.chkNotSendtoInv.Text = "ไม่ต้องส่งข้อมูลไปการเงิน";
+            this.theme1.SetTheme(this.chkNotSendtoInv, "(default)");
+            this.chkNotSendtoInv.UseVisualStyleBackColor = false;
             // 
             // radioButton1
             // 
@@ -552,22 +572,26 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // chkNotSendtoInv
+            // cboTax
             // 
-            this.chkNotSendtoInv.AutoSize = true;
-            this.chkNotSendtoInv.BackColor = System.Drawing.Color.Transparent;
-            this.chkNotSendtoInv.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.chkNotSendtoInv.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.chkNotSendtoInv.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
-            this.chkNotSendtoInv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.chkNotSendtoInv.Location = new System.Drawing.Point(7, 58);
-            this.chkNotSendtoInv.Name = "chkNotSendtoInv";
-            this.chkNotSendtoInv.Size = new System.Drawing.Size(141, 17);
-            this.chkNotSendtoInv.TabIndex = 122;
-            this.chkNotSendtoInv.TabStop = true;
-            this.chkNotSendtoInv.Text = "ไม่ต้องส่งข้อมูลไปการเงิน";
-            this.theme1.SetTheme(this.chkNotSendtoInv, "(default)");
-            this.chkNotSendtoInv.UseVisualStyleBackColor = false;
+            this.cboTax.AllowSpinLoop = false;
+            this.cboTax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboTax.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboTax.GapHeight = 0;
+            this.cboTax.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboTax.ItemsDisplayMember = "";
+            this.cboTax.ItemsValueMember = "";
+            this.cboTax.Location = new System.Drawing.Point(286, 236);
+            this.cboTax.Name = "cboTax";
+            this.cboTax.Size = new System.Drawing.Size(177, 20);
+            this.cboTax.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboTax.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboTax.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboTax.TabIndex = 562;
+            this.cboTax.Tag = null;
+            this.theme1.SetTheme(this.cboTax, "(default)");
+            this.cboTax.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmItemsTypeSub
             // 
@@ -604,6 +628,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboTax)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -644,5 +669,6 @@
         private System.Windows.Forms.Label label5;
         private C1.Win.C1Input.C1CheckBox chkItmEdit;
         private System.Windows.Forms.RadioButton chkNotSendtoInv;
+        private C1.Win.C1Input.C1ComboBox cboTax;
     }
 }
