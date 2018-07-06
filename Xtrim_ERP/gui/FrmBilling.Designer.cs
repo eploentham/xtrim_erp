@@ -49,6 +49,7 @@
             this.tabBill = new C1.Win.C1Command.C1DockingTabPage();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.btnPrnRcp = new C1.Win.C1Input.C1Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.txtBEamt = new C1.Win.C1Input.C1TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,6 +67,8 @@
             this.btnBEdit = new C1.Win.C1Input.C1Button();
             this.btnBNew = new C1.Win.C1Input.C1Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txtBllCode = new C1.Win.C1Input.C1TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtJobId = new C1.Win.C1Input.C1TextBox();
             this.txtRemark = new C1.Win.C1Input.C1TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -94,9 +97,6 @@
             this.btnCusSF2 = new C1.Win.C1Input.C1Button();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtBllCode = new C1.Win.C1Input.C1TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnPrnRcp = new C1.Win.C1Input.C1Button();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -115,6 +115,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEnettotal)).BeginInit();
             this.tabBill.SuspendLayout();
             this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrnRcp)).BeginInit();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBEamt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBEvat)).BeginInit();
@@ -126,6 +127,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnBEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBNew)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBllCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).BeginInit();
@@ -145,8 +147,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBllCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPrnRcp)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -205,7 +205,7 @@
             this.tabMake.Name = "tabMake";
             this.tabMake.Size = new System.Drawing.Size(797, 643);
             this.tabMake.TabIndex = 0;
-            this.tabMake.Text = "ใบวางบิล";
+            this.tabMake.Text = "ใบแจ้งหนี้/invoice";
             // 
             // panel6
             // 
@@ -386,7 +386,7 @@
             this.tabBill.Name = "tabBill";
             this.tabBill.Size = new System.Drawing.Size(795, 518);
             this.tabBill.TabIndex = 1;
-            this.tabBill.Text = "ทำใบวางบิล";
+            this.tabBill.Text = "ทำใบแจ้งหนี้/invoice";
             // 
             // panel12
             // 
@@ -414,6 +414,20 @@
             this.panel11.Size = new System.Drawing.Size(795, 119);
             this.panel11.TabIndex = 0;
             this.theme1.SetTheme(this.panel11, "(default)");
+            // 
+            // btnPrnRcp
+            // 
+            this.btnPrnRcp.Image = global::Xtrim_ERP.Properties.Resources.printer_blue24;
+            this.btnPrnRcp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrnRcp.Location = new System.Drawing.Point(182, 15);
+            this.btnPrnRcp.Name = "btnPrnRcp";
+            this.btnPrnRcp.Size = new System.Drawing.Size(139, 32);
+            this.btnPrnRcp.TabIndex = 510;
+            this.btnPrnRcp.Text = "พิมพ์ ใบเสร็จรับเงิน";
+            this.btnPrnRcp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnPrnRcp, "(default)");
+            this.btnPrnRcp.UseVisualStyleBackColor = true;
+            this.btnPrnRcp.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // panel13
             // 
@@ -602,7 +616,7 @@
             this.btnBSave.Name = "btnBSave";
             this.btnBSave.Size = new System.Drawing.Size(139, 32);
             this.btnBSave.TabIndex = 508;
-            this.btnBSave.Text = "บันทึกช้อมูล ใบวางบิล";
+            this.btnBSave.Text = "บันทึกช้อมูล ใบแจ้งหนี้";
             this.btnBSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.btnBSave, "(default)");
             this.btnBSave.UseVisualStyleBackColor = true;
@@ -659,6 +673,32 @@
             this.panel5.Size = new System.Drawing.Size(797, 100);
             this.panel5.TabIndex = 1;
             this.theme1.SetTheme(this.panel5, "(default)");
+            // 
+            // txtBllCode
+            // 
+            this.txtBllCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBllCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBllCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBllCode.Location = new System.Drawing.Point(503, 38);
+            this.txtBllCode.Name = "txtBllCode";
+            this.txtBllCode.Size = new System.Drawing.Size(169, 20);
+            this.txtBllCode.TabIndex = 472;
+            this.txtBllCode.Tag = null;
+            this.theme1.SetTheme(this.txtBllCode, "(default)");
+            this.txtBllCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label6.Location = new System.Drawing.Point(417, 40);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(80, 16);
+            this.label6.TabIndex = 473;
+            this.label6.Text = "เลขที่ใบวางบิล :";
+            this.theme1.SetTheme(this.label6, "(default)");
             // 
             // txtJobId
             // 
@@ -841,7 +881,7 @@
             this.tabCover.Name = "tabCover";
             this.tabCover.Size = new System.Drawing.Size(797, 643);
             this.tabCover.TabIndex = 1;
-            this.tabCover.Text = "ใบปะหน้า";
+            this.tabCover.Text = "ใบวางบิล";
             // 
             // panel15
             // 
@@ -1051,46 +1091,6 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // txtBllCode
-            // 
-            this.txtBllCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBllCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtBllCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtBllCode.Location = new System.Drawing.Point(503, 38);
-            this.txtBllCode.Name = "txtBllCode";
-            this.txtBllCode.Size = new System.Drawing.Size(169, 20);
-            this.txtBllCode.TabIndex = 472;
-            this.txtBllCode.Tag = null;
-            this.theme1.SetTheme(this.txtBllCode, "(default)");
-            this.txtBllCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label6.Location = new System.Drawing.Point(417, 40);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 16);
-            this.label6.TabIndex = 473;
-            this.label6.Text = "เลขที่ใบวางบิล :";
-            this.theme1.SetTheme(this.label6, "(default)");
-            // 
-            // btnPrnRcp
-            // 
-            this.btnPrnRcp.Image = global::Xtrim_ERP.Properties.Resources.printer_blue24;
-            this.btnPrnRcp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrnRcp.Location = new System.Drawing.Point(182, 15);
-            this.btnPrnRcp.Name = "btnPrnRcp";
-            this.btnPrnRcp.Size = new System.Drawing.Size(139, 32);
-            this.btnPrnRcp.TabIndex = 510;
-            this.btnPrnRcp.Text = "พิมพ์ ใบเสร็จรับเงิน";
-            this.btnPrnRcp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnPrnRcp, "(default)");
-            this.btnPrnRcp.UseVisualStyleBackColor = true;
-            this.btnPrnRcp.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmBilling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1120,6 +1120,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtEnettotal)).EndInit();
             this.tabBill.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrnRcp)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtBEamt)).EndInit();
@@ -1133,6 +1134,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnBNew)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBllCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRemark)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).EndInit();
@@ -1154,8 +1156,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBllCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnPrnRcp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

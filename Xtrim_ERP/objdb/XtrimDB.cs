@@ -77,6 +77,10 @@ namespace Xtrim_ERP.objdb
         public BillingDetailDB blldDB;
         public DebtorDB dtrDB;
         public TaxDB taxDB;
+        public PaymentDB pytDB;
+        public PaymentDetailDB pytdDB;
+        public ReceiptDB rcpDB;
+        public ReceiptDetailDB rcpdDB;
 
         public MeiosysDB mioDB;
 
@@ -157,6 +161,10 @@ namespace Xtrim_ERP.objdb
             blldDB = new BillingDetailDB(conn);
             dtrDB = new DebtorDB(conn);
             taxDB = new TaxDB(conn);
+            pytDB = new PaymentDB(conn);
+            pytdDB = new PaymentDetailDB(conn);
+            rcpDB = new ReceiptDB(conn);
+            rcpdDB = new ReceiptDetailDB(conn);
         }
     }
 }

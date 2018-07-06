@@ -108,6 +108,7 @@ namespace Xtrim_ERP.gui
             bll.user_create = "";
             bll.user_modi = "";
             bll.user_cancel = "";
+            bll.cust_id = cus.cust_id;
         }
         private void BtnBSave_Click(object sender, EventArgs e)
         {
@@ -166,7 +167,7 @@ namespace Xtrim_ERP.gui
                             dtr.remark = "";
                             dtr.status_debtor = "1";
                             dtr.comp_id = cop.comp_id;
-                            xC.xtDB.dtrDB.insertBillingDetail(dtr, xC.userId);
+                            xC.xtDB.dtrDB.insertDebtor(dtr, xC.userId);
                         }
                     }
                     if (chkD == (grfBill.Rows.Count-1))

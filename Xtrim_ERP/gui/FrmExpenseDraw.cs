@@ -836,7 +836,7 @@ namespace Xtrim_ERP.gui
             }
             expnD.status_pay = "1";
         }
-        private void setExpensesDrawDetail(String expnid)
+        private void setExpensesDrawDetail(String expnid, String cusid)
         {
             for (int i = 1; i < grfExpnD.Rows.Count; i++)
             {
@@ -876,7 +876,8 @@ namespace Xtrim_ERP.gui
                 {
                     expndd.status_pay_type = "2";
                 }
-                
+                expndd.job_id = jobId;
+                expndd.cust_id = cusid;
                 if (!expndd.amount.Equals(""))
                 {
                     xC.xtDB.expnddDB.insertExpenseDrawDetail(expndd, xC.userId);
@@ -978,13 +979,15 @@ namespace Xtrim_ERP.gui
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
+                    JobImport jim = new JobImport();
+                    jim = xC.xtDB.jimDB.selectByPk1(jobId);
                     if (flagNew.Equals("new"))
                     {
-                        setExpensesDrawDetail(re);
+                        setExpensesDrawDetail(re, jim.cust_id);
                     }
                     else
                     {
-                        setExpensesDrawDetail(txtID.Text);
+                        setExpensesDrawDetail(txtID.Text, jim.cust_id);
                     }
                     
                     btnSave.Image = Resources.accept_database24;

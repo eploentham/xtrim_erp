@@ -583,6 +583,11 @@
     <Compile Include="objdb\JobImportImageDB.cs" />
     <Compile Include="objdb\MeiosysDB.cs" />
     <Compile Include="objdb\MethodPaymentDB.cs" />
+    <Compile Include="objdb\PaymentDB.cs" />
+    <Compile Include="objdb\ReceiptDB.cs" />
+    <Compile Include="objdb\ReceiptDetailDB.cs" />
+    <Compile Include="object1\PaymentDetail.cs" />
+    <Compile Include="objdb\PaymentDetailDB.cs" />
     <Compile Include="objdb\PositionDB.cs" />
     <Compile Include="objdb\PrefixDB.cs" />
     <Compile Include="objdb\PrivilegeDB.cs" />
@@ -652,10 +657,13 @@
     <Compile Include="object1\JobImportImage.cs" />
     <Compile Include="object1\LogFile.cs" />
     <Compile Include="object1\MethodPayment.cs" />
+    <Compile Include="object1\Payment.cs" />
     <Compile Include="object1\Position.cs" />
     <Compile Include="object1\Prefix.cs" />
     <Compile Include="object1\Privilege.cs" />
     <Compile Include="object1\CusRemark.cs" />
+    <Compile Include="object1\Receipt.cs" />
+    <Compile Include="object1\ReceiptDetail.cs" />
     <Compile Include="object1\ReservePay.cs" />
     <Compile Include="object1\StringSOAP.cs" />
     <Compile Include="object1\Tax.cs" />

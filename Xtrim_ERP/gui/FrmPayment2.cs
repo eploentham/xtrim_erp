@@ -24,18 +24,20 @@ namespace Xtrim_ERP.gui
         Customer cus;
         JobImport jim;
         Billing bll;
+        Payment pyt;
         Font fEdit, fEditB;
 
         int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6;
         int colBID = 1, colBDocNo = 2, colBAmt = 3, colBBillDate = 4, colBremark = 5;
         int colBdID = 1, colBdNameT = 2, colBdAmtD = 3, colBdAmtI = 4;
-        int colPdID = 1, colPdJobNo=2, colPdBillDoc = 3, colPdItmNameT = 4, colPdAmtE = 5, colPdAmtI=6, colPdDbID=7, colPdJobId=8, colPdItmId=9;
+        int colPdID = 1, colPdJobNo=2, colPdBillDoc = 3, colPdItmNameT = 4, colPdAmtE = 5, colPdAmtI=6, colPdDbID=7, colPdJobId=8, colPdItmId=9, colPdBllId=10, colPdBlldId=11;
         Color bg, fc;
         Font ff, ffB;
 
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
         String userIdVoid = "", cusId = "";
+        enum flagModule {Job, Cus };
 
         public FrmPayment2(XtrimControl x)
         {
@@ -52,6 +54,11 @@ namespace Xtrim_ERP.gui
             theme1.Theme = C1ThemeController.ApplicationTheme;
             theme1.SetTheme(sB, "BeigeOne");
 
+            DateTime pytDate = DateTime.Now;
+            txtPytDate.Value = pytDate.Year.ToString() + "-" + pytDate.ToString("MM-dd");
+
+            btnSave.Click += BtnSave_Click;
+
             sB1.Text = "";
             cop = new Company();
             cop = xC.xtDB.copDB.selectByCode1("001");
@@ -59,6 +66,7 @@ namespace Xtrim_ERP.gui
             cus = new Customer();
             jim = new JobImport();
             bll = new Billing();
+            pyt = new Payment();
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
 
@@ -68,6 +76,102 @@ namespace Xtrim_ERP.gui
             initGrfBill();
             initGrfBillD();
             initGrfPay();
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            Boolean chk1 = setPayment();
+            if(chk1 == false)
+            {
+                MessageBox.Show("", "Error");
+                return;
+            }
+            if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                String re = "";
+                re = xC.xtDB.pytDB.insertPayment(pyt, xC.userId);
+                int chk = 0, chkD = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    foreach (Row rowB in grfPay.Rows)
+                    {
+                        if (rowB[colPdID] == null) continue;
+                        Decimal amtE = 0, amtI = 0;
+                        PaymentDetail pytd = new PaymentDetail();
+                        Decimal.TryParse(rowB[colPdAmtE].ToString(), out amtE);
+                        Decimal.TryParse(rowB[colPdAmtI].ToString(), out amtI);
+                        amtE += amtI;
+                        pytd.payment_detail_id = "";
+                        pytd.payment_id = re;
+                        pytd.billing_id = rowB[colPdBllId].ToString();
+                        pytd.job_id = rowB[colPdJobId].ToString();
+                        pytd.job_code = rowB[colPdJobNo].ToString();
+                        pytd.amount = amtE.ToString();
+                        pytd.active = "1";
+                        pytd.remark = "";
+                        pytd.date_create = "";
+                        pytd.date_modi = "";
+                        pytd.date_cancel = "";
+                        pytd.user_create = "";
+                        pytd.user_modi = "";
+                        pytd.user_cancel = "";
+                        pytd.billing_detail_id = rowB[colPdBlldId].ToString();
+                        String re1 = "";
+                        re1 = xC.xtDB.pytdDB.insertPaymentDetail(pytd, xC.userId);
+                        if (int.TryParse(re1, out chk))
+                        {
+                            chkD++;
+                            Debtor dtr = new Debtor();
+                            dtr.debtor_id = "";
+                            dtr.cus_id = cus.cust_id;
+                            if (!pytd.amount.Equals("0"))
+                            {
+                                dtr.amount = pytd.amount;
+                            }
+                            else
+                            {
+                                dtr.amount = "0";
+                            }
+
+                            dtr.billing_detail_id = "";
+                            dtr.payment_detail_id = re1;
+                            dtr.job_id = pytd.job_id;
+                            dtr.remark = "";
+                            dtr.status_debtor = "2";        // รับชำระ
+                            dtr.comp_id = cop.comp_id;
+                            xC.xtDB.dtrDB.insertDebtor(dtr, xC.userId);
+                        }
+                    }
+                }
+            }
+            
+        }
+        private Boolean setPayment()
+        {
+            Boolean chk = true;
+            pyt.payment_id = "";
+            pyt.payment_code = "";
+            pyt.payment_date = xC.datetoDB(txtPytDate.Text);
+            pyt.job_id = "";
+            pyt.job_code = "";
+            pyt.amount = txtAmt.Text.Replace("$","").Replace(",","");
+            pyt.active = "1";
+            pyt.remark = txtRemark.Text;
+            pyt.date_create = "";
+            pyt.date_modi = "";
+            pyt.date_cancel = "";
+            pyt.user_create = "";
+            pyt.user_modi = "";
+            pyt.user_cancel = "";
+            pyt.status_pay_type = "";
+            pyt.cust_id = cus.cust_id;
+
+            if (pyt.cust_id == null || pyt.cust_id.Equals(""))
+            {
+                chk = false;
+            }
+            return chk;
         }
         private void initGrfJob()
         {
@@ -158,7 +262,7 @@ namespace Xtrim_ERP.gui
             //txtCusNameT.Value = cus.cust_name_t;
             txtJobCode.Value = jim.job_import_code;
 
-            setGrfBillView(jim.job_import_id);
+            setGrfBillView(jim.job_import_id, flagModule.Job);
         }
         private void initGrfBill()
         {
@@ -185,7 +289,7 @@ namespace Xtrim_ERP.gui
             theme1.SetTheme(grfBill, "VS2013Green");
             grfBill.Cols[colBID].Visible = false;
         }
-        private void setGrfBillView(String jimId)
+        private void setGrfBillView(String jimId, flagModule flag)
         {
             grfBill.Clear();
             grfBill.Cols[colBDocNo].Width = 100;
@@ -200,7 +304,15 @@ namespace Xtrim_ERP.gui
             grfBill.Cols[colBID].Visible = false;
 
             DataTable dt = new DataTable();
-            dt = xC.xtDB.bllDB.selectByJobId(jimId);
+            if (flag == flagModule.Job)
+            {
+                dt = xC.xtDB.bllDB.selectByJobId(jimId);
+            }
+            else
+            {
+                dt = xC.xtDB.bllDB.selectByJobId(jimId);
+            }
+            
             //grfChequeView1.DataSource = dt;
             grfBill.Cols.Count = 6;
             grfBill.Rows.Count = dt.Rows.Count + 1;
@@ -313,6 +425,7 @@ namespace Xtrim_ERP.gui
                     //setKeyUpF2Cus();
                     setKeyUpF2Cus();
                     setGrfJob(cusId);
+                    setGrfBillView(cusId, flagModule.Cus);
                 }
             }
         }
@@ -348,7 +461,7 @@ namespace Xtrim_ERP.gui
             panelPay.Controls.Add(grfPay);
             grfPay.Clear();
             grfPay.Rows.Count = 1;
-            grfPay.Cols.Count = 10;
+            grfPay.Cols.Count = 12;
             grfPay.Cols[colPdJobNo].Width = 80;
             grfPay.Cols[colPdBillDoc].Width = 100;
             grfPay.Cols[colPdItmNameT].Width = 250;
@@ -363,6 +476,8 @@ namespace Xtrim_ERP.gui
             grfPay.Cols[colPdDbID].Visible = false;
             grfPay.Cols[colPdJobId].Visible = false;
             grfPay.Cols[colPdItmId].Visible = false;
+            //grfPay.Cols[colPdBlldId].Visible = false;
+            //grfPay.Cols[colPdBllId].Visible = false;
 
             theme1.SetTheme(grfPay, "ShinyBlue");
         }
@@ -393,6 +508,8 @@ namespace Xtrim_ERP.gui
             rowB[colPdAmtE] = blld.amount_draw;
             rowB[colPdBillDoc] = bll.billing_code;
             rowB[colPdAmtI] = blld.amount_income;
+            rowB[colPdBlldId] = blld.billing_detail_id;
+            rowB[colPdBllId] = blld.billing_id;
             calAmt();
         }
         private void calAmt()

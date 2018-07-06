@@ -54,5 +54,6 @@ namespace Xtrim_ERP.object1
         public String cash_draw_doc { get; set; }
         public String amount_reserve { get; set; }
         public String billing_doc { get; set; }
+        public String receipt_doc { get; set; }
     }
 }

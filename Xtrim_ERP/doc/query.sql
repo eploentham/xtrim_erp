@@ -23,6 +23,8 @@ ALTER TABLE t_billing AUTO_INCREMENT = 1610000000;
 ALTER TABLE t_billing_detail AUTO_INCREMENT = 1620000000;
 ALTER TABLE t_debtor AUTO_INCREMENT = 1630000000;
 ALTER TABLE b_tax AUTO_INCREMENT = 1640000000;
+ALTER TABLE t_payment AUTO_INCREMENT = 1650000000;
+ALTER TABLE t_payment_detail AUTO_INCREMENT = 1660000000;
 
 
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ไม่ต้อง', 'ORIGIANL', '1', 'BL_TYPE');

@@ -52,5 +52,6 @@ namespace Xtrim_ERP.object1
         public String receipt_no { get; set; }
         public String receipt_date { get; set; }
         public String expenses_pay_detail_id { get; set; }
+        //public String cust_id { get; set; }
     }
 }

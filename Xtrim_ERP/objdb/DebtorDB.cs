@@ -89,6 +89,10 @@ namespace Xtrim_ERP.objdb
             p.active = "1";
             //p.ssdata_id = "";
             chkNull(p);
+            if (p.status_debtor.Equals("2"))
+            {
+                p.amount = "-"+p.amount;
+            }
             sql = "Insert Into " + dtr.table + "(" + dtr.amount + "," + dtr.cus_id + "," + dtr.payment_detail_id + "," +
                 dtr.active + "," + dtr.remark + ", " + dtr.billing_detail_id + ", " +
                 dtr.date_create + ", " + dtr.date_modi + ", " + dtr.date_cancel + ", " +
@@ -139,7 +143,7 @@ namespace Xtrim_ERP.objdb
             }
             return re;
         }
-        public String insertBillingDetail(Debtor p, String userId)
+        public String insertDebtor(Debtor p, String userId)
         {
             String re = "";
 

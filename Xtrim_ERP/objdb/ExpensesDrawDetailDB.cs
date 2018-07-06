@@ -67,7 +67,7 @@ namespace Xtrim_ERP.objdb
             expnC.pay_to_cus_tax = "pay_to_cus_tax";
             expnC.receipt_no = "receipt_no";
             expnC.receipt_date = "receipt_date";
-            expnC.expenses_pay_detail_id = "expenses_pay_detail_id";
+            expnC.expenses_pay_detail_id = "expenses_pay_detail_id";            
 
             expnC.table = "t_expenses_draw_detail";
             expnC.pkField = "expenses_draw_detail_id";
@@ -171,6 +171,7 @@ namespace Xtrim_ERP.objdb
             p.unit_id = int.TryParse(p.unit_id, out chk) ? chk.ToString() : "0";
             p.pay_to_cus_id = int.TryParse(p.pay_to_cus_id, out chk) ? chk.ToString() : "0";
             p.expenses_pay_detail_id = int.TryParse(p.expenses_pay_detail_id, out chk) ? chk.ToString() : "0";
+            
 
             p.amount = Decimal.TryParse(p.amount, out chk1) ? chk1.ToString() : "0";
             p.pay_amount = Decimal.TryParse(p.pay_amount, out chk1) ? chk1.ToString() : "0";
@@ -208,21 +209,23 @@ namespace Xtrim_ERP.objdb
                 expnC.unit_name_t + ", " + expnC.expenses_pay_detail_id + ", " +
                 expnC.pay_to_cus_id + "," + expnC.pay_to_cus_name_t + "," + expnC.pay_to_cus_addr + "," +
                 expnC.pay_to_cus_tax + "," + expnC.receipt_no + "," + expnC.receipt_date + " " +
+                
                 ") " +
                 "Values ('" + p.desc1.Replace("'", "''") + "','" + p.desc2.Replace("'", "''") + "','" + p.amount + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "', " +
                 "'" + p.expense_draw_id + "','" + p.expense_type_id.Replace("'", "''") + "','" + p.status_pay + "'," +
-                "'" + p.status_pay_type + "','" + p.pay_amount.Replace("'", "''") + "','" + p.pay_date + "', " +
-                "'" + p.pay_cheque_no + "','" + p.comp_bank_id.Replace("'", "''") + "','" + p.pay_staff_id + "', " +
-                "'" + p.item_id + "','" + p.pay_bank_date.Replace("'", "''") + "','" + p.job_id + "', " +
+                "'" + p.status_pay_type + "','" + p.pay_amount.Replace("'", "''") + "','" + p.pay_date + "'," +
+                "'" + p.pay_cheque_no + "','" + p.comp_bank_id.Replace("'", "''") + "','" + p.pay_staff_id + "'," +
+                "'" + p.item_id + "','" + p.pay_bank_date.Replace("'", "''") + "','" + p.job_id + "'," +
                 "'" + p.job_code + "','" + p.qty + "','" + p.price + "'," +
                 "'" + p.unit_id + "','" + p.wtax1 + "','" + p.wtax3 + "'," +
                 "'" + p.vat + "','" + p.total + "','" + p.item_name_t + "'," +
                 "'" + p.unit_name_t + "','" + p.expenses_pay_detail_id + "'," +
                 "'" + p.pay_to_cus_id + "','" + p.pay_to_cus_name_t + "','" + p.pay_to_cus_addr + "'," +
                 "'" + p.pay_to_cus_tax + "','" + p.receipt_no + "','" + p.receipt_date + "' " +
+                
                 ")";
             try
             {
@@ -270,6 +273,7 @@ namespace Xtrim_ERP.objdb
                 "," + expnC.pay_to_cus_tax + " = '" + p.pay_to_cus_tax + "' " +
                 "," + expnC.receipt_no + " = '" + p.receipt_no + "' " +
                 "," + expnC.receipt_date + " = '" + p.receipt_date + "' " +
+                
                 "Where " + expnC.pkField + "='" + p.expenses_draw_detail_id + "'"
                 ;
             try
@@ -521,6 +525,7 @@ namespace Xtrim_ERP.objdb
                 curr1.pay_to_cus_tax = dt.Rows[0][expnC.pay_to_cus_tax].ToString();
                 curr1.receipt_no = dt.Rows[0][expnC.receipt_no].ToString();
                 curr1.receipt_date = dt.Rows[0][expnC.receipt_date].ToString();
+                
             }
             else
             {
@@ -568,6 +573,7 @@ namespace Xtrim_ERP.objdb
                 curr1.pay_to_cus_tax = "";
                 curr1.receipt_no = "";
                 curr1.receipt_date = "";
+                
             }
 
             return curr1;

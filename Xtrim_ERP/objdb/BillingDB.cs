@@ -36,6 +36,7 @@ namespace Xtrim_ERP.objdb
             bll.user_create = "user_create";
             bll.user_modi = "user_modi";
             bll.user_cancel = "user_cancel";
+            bll.cust_id = "cust_id";
 
             bll.table = "t_billing";
             bll.pkField = "billing_id";
@@ -70,7 +71,9 @@ namespace Xtrim_ERP.objdb
             p.job_code = p.job_code == null ? "" : p.job_code;
             p.remark = p.remark == null ? "" : p.remark;
 
+            p.cust_id = int.TryParse(p.cust_id, out chk) ? chk.ToString() : "0";
             p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
+
             p.amount = Decimal.TryParse(p.amount, out chk1) ? chk1.ToString() : "0";
         }
         public String insert(Billing p, String userId)
@@ -83,13 +86,13 @@ namespace Xtrim_ERP.objdb
                 bll.active + "," + bll.remark + ", " + bll.job_id + ", " +
                 bll.date_create + ", " + bll.date_modi + ", " + bll.date_cancel + ", " +
                 bll.user_create + ", " + bll.user_modi + ", " + bll.user_cancel + "," +
-                bll.amount + " " +
+                bll.amount + "," + bll.cust_id + " " +
                 ") " +
                 "Values ('" + p.billing_date + "','" + p.billing_code + "','" + p.job_code + "'," +
                 "'" + p.active + "','" + p.remark + "','" + p.job_id + "', " +
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
-                "'" + p.amount + "' " +
+                "'" + p.amount + "','" + p.cust_id + "' " +
                 ")";
             
             try
@@ -115,6 +118,7 @@ namespace Xtrim_ERP.objdb
                 "," + bll.user_modi + "='" + userId.Replace("'", "''") + "' " +
                 "," + bll.job_id + "='" + p.job_id.Replace("'", "''") + "' " +
                 "," + bll.amount + "='" + p.amount.Replace("'", "''") + "' " +
+                "," + bll.cust_id + "='" + p.cust_id.Replace("'", "''") + "' " +
                 "Where " + bll.pkField + "='" + p.billing_id + "'"
                 ;
             
@@ -155,6 +159,16 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
+        public DataTable selectByCusId(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select bll.* " +
+                "From " + bll.table + " bll " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where bll." + bll.cust_id + " ='" + copId + "' and " + bll.active + "='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
         public DataTable selectByJobId(String copId)
         {
             DataTable dt = new DataTable();
@@ -189,26 +203,45 @@ namespace Xtrim_ERP.objdb
         }
         public Billing setBilling(DataTable dt)
         {
-            Billing bill1 = new Billing();
+            Billing bll1 = new Billing();
             if (dt.Rows.Count > 0)
             {
-                bill1.billing_id = dt.Rows[0][bll.billing_id].ToString();
-                bill1.billing_code = dt.Rows[0][bll.billing_code].ToString();
-                bill1.billing_date = dt.Rows[0][bll.billing_date].ToString();
-                bill1.job_id = dt.Rows[0][bll.job_id].ToString();
-                bill1.active = dt.Rows[0][bll.active].ToString();
-                bill1.date_cancel = dt.Rows[0][bll.date_cancel].ToString();
-                bill1.date_create = dt.Rows[0][bll.date_create].ToString();
-                bill1.date_modi = dt.Rows[0][bll.date_modi].ToString();
-                bill1.user_cancel = dt.Rows[0][bll.user_cancel].ToString();
-                bill1.user_create = dt.Rows[0][bll.user_create].ToString();
-                bill1.user_modi = dt.Rows[0][bll.user_modi].ToString();
-                bill1.job_code = dt.Rows[0][bll.job_code].ToString();
-                bill1.remark = dt.Rows[0][bll.remark].ToString();
-                bill1.amount = dt.Rows[0][bll.amount].ToString();
+                bll1.billing_id = dt.Rows[0][bll.billing_id].ToString();
+                bll1.billing_code = dt.Rows[0][bll.billing_code].ToString();
+                bll1.billing_date = dt.Rows[0][bll.billing_date].ToString();
+                bll1.job_id = dt.Rows[0][bll.job_id].ToString();
+                bll1.active = dt.Rows[0][bll.active].ToString();
+                bll1.date_cancel = dt.Rows[0][bll.date_cancel].ToString();
+                bll1.date_create = dt.Rows[0][bll.date_create].ToString();
+                bll1.date_modi = dt.Rows[0][bll.date_modi].ToString();
+                bll1.user_cancel = dt.Rows[0][bll.user_cancel].ToString();
+                bll1.user_create = dt.Rows[0][bll.user_create].ToString();
+                bll1.user_modi = dt.Rows[0][bll.user_modi].ToString();
+                bll1.job_code = dt.Rows[0][bll.job_code].ToString();
+                bll1.remark = dt.Rows[0][bll.remark].ToString();
+                bll1.amount = dt.Rows[0][bll.amount].ToString();
+                bll1.cust_id = dt.Rows[0][bll.cust_id].ToString();
+            }
+            else
+            {
+                bll1.billing_id = "";
+                bll1.billing_code = "";
+                bll1.billing_date = "";
+                bll1.job_id = "";
+                bll1.job_code = "";
+                bll1.amount = "";
+                bll1.active = "";
+                bll1.remark = "";
+                bll1.date_create = "";
+                bll1.date_modi = "";
+                bll1.date_cancel = "";
+                bll1.user_create = "";
+                bll1.user_modi = "";
+                bll1.user_cancel = "";
+                bll1.cust_id = "";
             }
 
-            return bill1;
+            return bll1;
         }
     }
 }

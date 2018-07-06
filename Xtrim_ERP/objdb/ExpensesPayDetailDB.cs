@@ -50,6 +50,7 @@ namespace Xtrim_ERP.objdb
             expnP.comp_bank_id= "comp_bank_id";
             expnP.pay_bank_date= "pay_bank_date";
             expnP.expenses_draw_detail_id = "expenses_draw_detail_id";
+            //expnP.cust_id = "cust_id";
 
             expnP.table = "t_expenses_pay_detail";
             expnP.pkField = "expenses_pay_detail_id";
@@ -96,6 +97,7 @@ namespace Xtrim_ERP.objdb
             //p.remark1 = p.remark1 == null ? "" : p.remark1;
             //p.remark1 = p.remark1 == null ? "" : p.remark1;
 
+            //p.cust_id = int.TryParse(p.cust_id, out chk) ? chk.ToString() : "0";
             p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
             p.pay_to_cus_id = int.TryParse(p.pay_to_cus_id, out chk) ? chk.ToString() : "0";
             p.pay_cheque_bank_id = int.TryParse(p.pay_cheque_bank_id, out chk) ? chk.ToString() : "0";
@@ -125,8 +127,8 @@ namespace Xtrim_ERP.objdb
                 expnP.pay_bank_date + "," + expnP.expenses_draw_detail_id + " " +
                 ") " +
                 "Values ('" + p.expenses_pay_id + "','" + p.item_id + "','" + p.status_pay_type + "'," +
-                "'" + p.active + "','" + p.remark + "', " +
-                "now() ,'" + p.date_modi + "','" + p.date_cancel + "', " +
+                "'" + p.active + "','" + p.remark + "'," +
+                "now() ,'" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.item_name_t + "','" + p.job_id + "','" + p.pay_amount + "'," +
                 "'" + p.pay_to_cus_id + "','" + p.pay_to_cus_name_t + "','" + p.pay_to_cus_addr + "'," +
@@ -169,6 +171,7 @@ namespace Xtrim_ERP.objdb
                 "," + expnP.pay_date + "='" + p.pay_date.Replace("'", "''") + "' " +
                 "," + expnP.comp_bank_id + "='" + p.comp_bank_id.Replace("'", "''") + "' " +
                 "," + expnP.pay_bank_date + "='" + p.pay_bank_date.Replace("'", "''") + "' " +
+                
                 "Where " + expnP.expenses_pay_detail_id + "='" + p.expenses_pay_detail_id + "'"
                 ;
             try
