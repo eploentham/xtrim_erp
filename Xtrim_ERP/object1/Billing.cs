@@ -23,5 +23,6 @@ namespace Xtrim_ERP.object1
         public String user_modi { get; set; }
         public String user_cancel { get; set; }
         public String cust_id { get; set; }
+        public String billing_cover_id { get; set; }
     }
 }

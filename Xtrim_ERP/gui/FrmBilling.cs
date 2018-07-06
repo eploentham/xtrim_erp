@@ -20,6 +20,8 @@ namespace Xtrim_ERP.gui
     {
         XtrimControl xC;
         Billing bll;
+        Receipt rcp;
+        BillingCover bllC;
         Company cop;
         Customer cus;
         JobImport jim;
@@ -30,7 +32,7 @@ namespace Xtrim_ERP.gui
         int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6;
         int colCID = 1, colCChk=2, colCSubNameT = 3, colCMtp = 4, colCItmNameT = 5, colCDrawDate = 6, colCAmt = 7, colCBank = 8, colCChequeNo = 9, colChequeDate = 10, colCChequepayname = 11, colCpayID = 12;
         int colBID = 1, colBItmNameT = 2, colBExpn=3,colBimcome=4,colBitmId=5, colBexpnddId=6;
-        int colVBllDoc = 1, colVJobNo = 2, colVAmt = 3;
+        int colVBllDoc = 1, colVJobNo = 2, colVAmt = 3, colVbllId=4;
 
         C1FlexGrid grfJob, grfBill, grfDraw, grfCover;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
@@ -60,6 +62,8 @@ namespace Xtrim_ERP.gui
             btnCashOk.Click += BtnCashOk_Click;
             btnBNew.Click += BtnBNew_Click;
             btnBSave.Click += BtnBSave_Click;
+            btnPrnRcp.Click += BtnPrnRcp_Click;
+            btnPrnCover.Click += BtnPrnCover_Click;
 
             DateTime billDate = DateTime.Now;
             txtBillDate.Value = billDate.Year.ToString() + "-" + billDate.ToString("MM-dd");
@@ -70,6 +74,7 @@ namespace Xtrim_ERP.gui
             bll = new Billing();
             cus = new Customer();
             jim = new JobImport();
+            bllC = new BillingCover();
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
             txtBIvat.Value = cop.vat;
@@ -88,8 +93,10 @@ namespace Xtrim_ERP.gui
             tC2.SelectedTab = tabDraw;
             //setGrfDeptH();
         }
+        
         private void setBilling()
         {
+            bll = new Billing();
             Decimal amtE = 0, amtI = 0, amt=0;
             Decimal.TryParse(txtBEamt.Text.Replace("$", "").Replace(",", ""), out amtE);
             Decimal.TryParse(txtBIamt.Text.Replace("$", "").Replace(",", ""), out amtI);
@@ -110,6 +117,132 @@ namespace Xtrim_ERP.gui
             bll.user_cancel = "";
             bll.cust_id = cus.cust_id;
         }
+        private void setReceipt()
+        {
+            rcp = new Receipt();
+            Decimal amtE = 0, amtI = 0, amt = 0;
+            Decimal.TryParse(txtBEamt.Text.Replace("$", "").Replace(",", ""), out amtE);
+            Decimal.TryParse(txtBIamt.Text.Replace("$", "").Replace(",", ""), out amtI);
+            amt = amtE + amtI;
+
+            rcp.receipt_id = "";
+            rcp.receipt_code = xC.xtDB.copDB.genReceiptDoc();
+            rcp.receipt_date = xC.datetoDB(txtBillDate.Text);
+            rcp.job_id = txtJobId.Text;
+            rcp.job_code = txtJobCode.Text;
+            rcp.billing_id = txtBllId.Text;
+            rcp.active = "1";
+            rcp.remark = "";
+            rcp.date_create = "";
+            rcp.date_modi = "";
+            rcp.date_cancel = "";
+            rcp.user_create = "";
+            rcp.user_modi = "";
+            rcp.user_cancel = "";
+            rcp.payment_id = "";
+            rcp.payment_detail_id = "";
+        }
+        private void setBillingCover()
+        {
+            bllC = new BillingCover();
+            bllC.billing_cover_id = "";
+            bllC.billing_cover_code = xC.xtDB.copDB.genBillingCoverDoc();
+            bllC.remark1 = txtRemark1.Text;
+            bllC.remark2 = txtRemark2.Text;
+            bllC.active = "1";
+            bllC.remark = "";
+            bllC.date_create = "";
+            bllC.date_modi = "";
+            bllC.date_cancel = "";
+            bllC.user_create = "";
+            bllC.user_modi = "";
+            bllC.user_cancel = "";
+            bllC.job_id = txtJobId.Text;
+            bllC.cust_id = cus.cust_id;
+        }
+        private void BtnPrnCover_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                setBillingCover();
+                String re = xC.xtDB.bllcDB.insertBillingCover(bllC, xC.userId);
+                int chk = 0, chkD = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    foreach (Row rowV in grfCover.Rows)
+                    {
+                        if (rowV[colVbllId] == null) continue;
+                        String bllId = "";
+                        bllId = rowV[colVbllId].ToString();
+                        String re1 = "";
+                        re1 = xC.xtDB.bllDB.updateBillingCover(bllId, bllC.billing_cover_code);
+                        if (int.TryParse(re1, out chk))
+                        {
+                            chkD++;
+                        }
+                    }
+                    if (chkD == (grfCover.Rows.Count - 1))
+                    {
+                        txtBllCover.Value = bllC.billing_cover_code;
+                        btnPrnCover.Image = Resources.accept_database24;
+                    }
+                }
+            }
+        }
+        private void BtnPrnRcp_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                setReceipt();
+                String re = xC.xtDB.rcpDB.insertReceipt(rcp, xC.userId);
+                int chk = 0, chkD = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    foreach (Row rowB in grfBill.Rows)
+                    {
+                        if (rowB[colBitmId] == null) continue;
+                        
+                        Decimal amtE = 0, amtI = 0;
+                        ReceiptDetail rcpD = new ReceiptDetail();
+                        Decimal.TryParse(rowB[colBExpn] != null ? rowB[colBExpn].ToString() : "0", out amtE);
+                        Decimal.TryParse(rowB[colBimcome] != null ? rowB[colBimcome].ToString() : "0", out amtI);
+                        amtE += amtI;
+
+                        rcpD.receipt_detail_id = "";
+                        rcpD.receipt_id = rcp.receipt_id;
+                        rcpD.item_id = rowB[colBitmId].ToString();
+                        rcpD.job_id = jim.job_import_id;
+                        rcpD.job_code = "";
+                        rcpD.amount = amtE.ToString();
+                        rcpD.active = "1";
+                        rcpD.remark = "";
+                        rcpD.date_create = "";
+                        rcpD.date_modi = "";
+                        rcpD.date_cancel = "";
+                        rcpD.user_create = "";
+                        rcpD.user_modi = "";
+                        rcpD.user_cancel = "";
+                        rcpD.item_name_t = rowB[colBItmNameT].ToString();
+                        rcpD.qty = "0";
+                        rcpD.price = "0";
+                        rcpD.billing_detail_id = "";
+                        String re1 = "";
+                        re1 = xC.xtDB.rcpdDB.insertReceiptDetail(rcpD, xC.userId);
+                        if (int.TryParse(re1, out chk))
+                        {
+                            chkD++;
+                        }
+                    }
+                    if (chkD == (grfBill.Rows.Count - 1))
+                    {
+                        txtRcpCode.Value = rcp.receipt_code;
+                        btnPrnRcp.Image = Resources.accept_database24;
+                    }
+                }
+            }
+        }
         private void BtnBSave_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -120,6 +253,7 @@ namespace Xtrim_ERP.gui
                 int chk = 0, chkD=0;
                 if (int.TryParse(re, out chk))
                 {
+                    txtBllId.Value = re;
                     foreach(Row rowB in grfBill.Rows)
                     {
                         if (rowB[colBitmId] == null) continue;
@@ -177,6 +311,7 @@ namespace Xtrim_ERP.gui
                         row[colVBllDoc] = bll.billing_code;
                         row[colVJobNo] = bll.job_code;
                         row[colVAmt] = bll.amount;
+                        row[colVbllId] = txtBllId.Value;
 
                         btnBSave.Image = Resources.accept_database24;
                     }
@@ -399,7 +534,7 @@ namespace Xtrim_ERP.gui
             grfCover.Dock = System.Windows.Forms.DockStyle.Fill;
             grfCover.Location = new System.Drawing.Point(0, 0);
             grfCover.Rows.Count = 1;
-            grfCover.Cols.Count = 4;
+            grfCover.Cols.Count = 5;
             grfCover.Cols[colVBllDoc].Width = 220;
             grfCover.Cols[colVJobNo].Width = 100;
             grfCover.Cols[colVAmt].Width = 100;

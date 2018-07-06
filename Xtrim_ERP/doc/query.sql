@@ -25,6 +25,7 @@ ALTER TABLE t_debtor AUTO_INCREMENT = 1630000000;
 ALTER TABLE b_tax AUTO_INCREMENT = 1640000000;
 ALTER TABLE t_payment AUTO_INCREMENT = 1650000000;
 ALTER TABLE t_payment_detail AUTO_INCREMENT = 1660000000;
+ALTER TABLE t_billing_cover AUTO_INCREMENT = 1670000000;
 
 
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ไม่ต้อง', 'ORIGIANL', '1', 'BL_TYPE');
@@ -480,6 +481,29 @@ ALTER TABLE `xtrim_erp`.`t_debtor`
 CHANGE COLUMN `amount` `amount` DECIMAL(17,2) NULL DEFAULT NULL COMMENT 'ยอดตั้งหนี้ ให้ลงเป็นบวก\nถ้ายอดเคลีร์หนี้ ให้ลงเป็นลบ' ,
 ADD COLUMN `billing_id` INT NULL COMMENT 'แจ้งหนี้' AFTER `user_cancel`,
 ADD COLUMN `payment_id` INT NULL COMMENT 'รับชำระหนี้' AFTER `billing_id`;
+
+ALTER TABLE `xtrim_erp`.`b_company` 
+ADD COLUMN `billing_cover_doc` INT NULL AFTER `vat_doc`;
+
+CREATE TABLE `xtrim_erp`.`t_billing_cover` (
+  `billing_cover_id` INT NOT NULL AUTO_INCREMENT,
+  `billing_cover_code` VARCHAR(255) NULL,
+  `remark1` VARCHAR(255) NULL,
+  `remark2` VARCHAR(255) NULL,
+  `active` VARCHAR(255) NULL,
+  `remark` VARCHAR(255) NULL,
+  `date_create` VARCHAR(255) NULL,
+  `date_modi` VARCHAR(255) NULL,
+  `date_cancel` VARCHAR(255) NULL,
+  `user_create` VARCHAR(255) NULL,
+  `user_modi` VARCHAR(255) NULL,
+  `user_cancel` VARCHAR(255) NULL,
+  PRIMARY KEY (`billing_cover_id`))
+ENGINE = MyISAM
+COMMENT = 'id=167';
+ALTER TABLE `xtrim_erp`.`t_billing_cover` 
+ADD COLUMN `job_id` INT NULL AFTER `user_cancel`,
+ADD COLUMN `cust_id` INT NULL AFTER `job_id`;
 
 
 

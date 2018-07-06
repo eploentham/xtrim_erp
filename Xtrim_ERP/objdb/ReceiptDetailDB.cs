@@ -94,15 +94,15 @@ namespace Xtrim_ERP.objdb
                 rcpD.active + "," + rcpD.remark + ", " + rcpD.job_id + ", " +
                 rcpD.date_create + ", " + rcpD.date_modi + ", " + rcpD.date_cancel + ", " +
                 rcpD.user_create + ", " + rcpD.user_modi + ", " + rcpD.user_cancel + "," +
-                rcpD.amount + "," + rcpD.item_name_t + "," + rcpD.item_name_t + "," +
+                rcpD.amount + "," + rcpD.item_name_t + "," +
                 rcpD.qty + "," + rcpD.price + "," + rcpD.billing_detail_id + " " +
                 ") " +
                 "Values ('" + p.item_id + "','" + p.receipt_id + "','" + p.job_code + "'," +
                 "'" + p.active + "','" + p.remark + "','" + p.job_id + "', " +
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
-                "'" + p.amount + "','" + p.item_name_t + "','" + p.item_name_t + "', " +
-                "'" + p.qty + "','" + p.price + "','" + p.billing_detail_id + "', " +
+                "'" + p.amount + "','" + p.item_name_t + "'," +
+                "'" + p.qty + "','" + p.price + "','" + p.billing_detail_id + "' " +
                 ")";
 
             try

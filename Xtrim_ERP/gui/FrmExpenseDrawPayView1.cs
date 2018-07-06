@@ -951,8 +951,8 @@ namespace Xtrim_ERP.gui
                         ExpensesPayDetail expnPd = new ExpensesPayDetail();
                         ExpensesDrawDatail expndd = new ExpensesDrawDatail();
                         String expnddid = "";
-                        JobImport jim = new JobImport();
-                        jim = xC.xtDB.jimDB.selectByPk1(jobId);
+                        //JobImport jim = new JobImport();
+                        //jim = xC.xtDB.jimDB.selectByPk1(jobId);
                         expnddid = grfChequeMake[i, colCID].ToString();
                         expndd = xC.xtDB.expnddDB.selectByPk1(expnddid);
 

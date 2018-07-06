@@ -37,6 +37,7 @@ namespace Xtrim_ERP.objdb
             bll.user_modi = "user_modi";
             bll.user_cancel = "user_cancel";
             bll.cust_id = "cust_id";
+            bll.billing_cover_id = "billing_cover_id";
 
             bll.table = "t_billing";
             bll.pkField = "billing_id";
@@ -73,6 +74,7 @@ namespace Xtrim_ERP.objdb
 
             p.cust_id = int.TryParse(p.cust_id, out chk) ? chk.ToString() : "0";
             p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
+            p.billing_cover_id = int.TryParse(p.billing_cover_id, out chk) ? chk.ToString() : "0";
 
             p.amount = Decimal.TryParse(p.amount, out chk1) ? chk1.ToString() : "0";
         }
@@ -86,13 +88,13 @@ namespace Xtrim_ERP.objdb
                 bll.active + "," + bll.remark + ", " + bll.job_id + ", " +
                 bll.date_create + ", " + bll.date_modi + ", " + bll.date_cancel + ", " +
                 bll.user_create + ", " + bll.user_modi + ", " + bll.user_cancel + "," +
-                bll.amount + "," + bll.cust_id + " " +
+                bll.amount + "," + bll.cust_id + "," + bll.billing_cover_id + " " +
                 ") " +
                 "Values ('" + p.billing_date + "','" + p.billing_code + "','" + p.job_code + "'," +
                 "'" + p.active + "','" + p.remark + "','" + p.job_id + "', " +
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
-                "'" + p.amount + "','" + p.cust_id + "' " +
+                "'" + p.amount + "','" + p.cust_id + "','" + p.billing_cover_id + "' " +
                 ")";
             
             try
@@ -119,6 +121,7 @@ namespace Xtrim_ERP.objdb
                 "," + bll.job_id + "='" + p.job_id.Replace("'", "''") + "' " +
                 "," + bll.amount + "='" + p.amount.Replace("'", "''") + "' " +
                 "," + bll.cust_id + "='" + p.cust_id.Replace("'", "''") + "' " +
+                "," + bll.billing_cover_id + "='" + p.billing_cover_id.Replace("'", "''") + "' " +
                 "Where " + bll.pkField + "='" + p.billing_id + "'"
                 ;
             
@@ -149,12 +152,20 @@ namespace Xtrim_ERP.objdb
         public String voidBilling(String id)
         {
             String re = "", sql = "";
-
             sql = "Update " + bll.table + " Set " +
                 " " + bll.active + "='3' " +
                 "," + bll.date_cancel + "=now() " +
-                "Where " + bll.billing_id + "='" + id + "'"
-                ;
+                "Where " + bll.billing_id + "='" + id + "'";
+            re = conn.ExecuteNonQuery(conn.conn, sql);
+
+            return re;
+        }
+        public String updateBillingCover(String id, String coverid)
+        {
+            String re = "", sql = "";
+            sql = "Update " + bll.table + " Set " +
+                " " + bll.billing_cover_id + "='"+ coverid + "' " +
+                "Where " + bll.billing_id + "='" + id + "'";
             re = conn.ExecuteNonQuery(conn.conn, sql);
 
             return re;
@@ -221,6 +232,7 @@ namespace Xtrim_ERP.objdb
                 bll1.remark = dt.Rows[0][bll.remark].ToString();
                 bll1.amount = dt.Rows[0][bll.amount].ToString();
                 bll1.cust_id = dt.Rows[0][bll.cust_id].ToString();
+                bll1.billing_cover_id = dt.Rows[0][bll.billing_cover_id].ToString();
             }
             else
             {
@@ -239,6 +251,7 @@ namespace Xtrim_ERP.objdb
                 bll1.user_modi = "";
                 bll1.user_cancel = "";
                 bll1.cust_id = "";
+                bll1.billing_cover_id = "";
             }
 
             return bll1;

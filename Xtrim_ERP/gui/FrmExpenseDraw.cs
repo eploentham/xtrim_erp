@@ -877,7 +877,7 @@ namespace Xtrim_ERP.gui
                     expndd.status_pay_type = "2";
                 }
                 expndd.job_id = jobId;
-                expndd.cust_id = cusid;
+                //expndd.cust_id = cusid;
                 if (!expndd.amount.Equals(""))
                 {
                     xC.xtDB.expnddDB.insertExpenseDrawDetail(expndd, xC.userId);

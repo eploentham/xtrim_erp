@@ -551,6 +551,7 @@
     <Compile Include="objdb\AddressDB.cs" />
     <Compile Include="objdb\AddressTypeDB.cs" />
     <Compile Include="objdb\BankDB.cs" />
+    <Compile Include="objdb\BillingCoverDB.cs" />
     <Compile Include="objdb\BillingDB.cs" />
     <Compile Include="objdb\BillingDetailDB.cs" />
     <Compile Include="objdb\CheckExamDB.cs" />
@@ -586,6 +587,7 @@
     <Compile Include="objdb\PaymentDB.cs" />
     <Compile Include="objdb\ReceiptDB.cs" />
     <Compile Include="objdb\ReceiptDetailDB.cs" />
+    <Compile Include="object1\BillingCover.cs" />
     <Compile Include="object1\PaymentDetail.cs" />
     <Compile Include="objdb\PaymentDetailDB.cs" />
     <Compile Include="objdb\PositionDB.cs" />
