@@ -28,6 +28,7 @@ ALTER TABLE t_payment_detail AUTO_INCREMENT = 1660000000;
 ALTER TABLE t_billing_cover AUTO_INCREMENT = 1670000000;
 ALTER TABLE t_receipt AUTO_INCREMENT = 1680000000;
 ALTER TABLE t_receipt_detail AUTO_INCREMENT = 1690000000;
+ALTER TABLE t_tax AUTO_INCREMENT = 1700000000;
 
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ไม่ต้อง', 'ORIGIANL', '1', 'BL_TYPE');
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ต้อง', 'TELEX RELEASE', '1', 'BL_TYPE');

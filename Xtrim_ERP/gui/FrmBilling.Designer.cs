@@ -106,6 +106,7 @@
             this.btnCusSF2 = new C1.Win.C1Input.C1Button();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.c1Button1 = new C1.Win.C1Input.C1Button();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -161,6 +162,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).BeginInit();
             this.sB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -416,6 +418,7 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel11.Controls.Add(this.c1Button1);
             this.panel11.Controls.Add(this.txtBllId);
             this.panel11.Controls.Add(this.btnPrnRcp);
             this.panel11.Controls.Add(this.panel13);
@@ -1232,6 +1235,20 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
+            // c1Button1
+            // 
+            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
+            this.c1Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.c1Button1.Location = new System.Drawing.Point(182, 50);
+            this.c1Button1.Name = "c1Button1";
+            this.c1Button1.Size = new System.Drawing.Size(139, 32);
+            this.c1Button1.TabIndex = 512;
+            this.c1Button1.Text = "พิมพ์ ใบกำกับภาษี";
+            this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button1, "(default)");
+            this.c1Button1.UseVisualStyleBackColor = true;
+            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // FrmBilling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1303,6 +1320,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCusSF2)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1388,5 +1406,6 @@
         private System.Windows.Forms.Label label18;
         private C1.Win.C1Input.C1TextBox txtRemark1;
         private System.Windows.Forms.Label label17;
+        private C1.Win.C1Input.C1Button c1Button1;
     }
 }

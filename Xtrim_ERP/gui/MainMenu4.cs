@@ -59,7 +59,7 @@ namespace Xtrim_ERP.gui
             menuExpnDrawAppv.Click += MenuExpnDrawAppv_Click;
             menuExpnDrawPay.Click += MenuExpnDrawPay_Click;
             menuItmTypeSub.Click += MenuItmTypeSub_Click;
-            menuBilling.Click += MenuBilling_Click;
+            menuBilling1.Click += MenuBilling_Click;
             menuRsp.Click += MenuRsp_Click;
             menuRspAppv.Click += MenuRspAppv_Click;
             menuRspReserve.Click += MenuRspReserve_Click;
@@ -424,7 +424,7 @@ namespace Xtrim_ERP.gui
                     menuInit.Enabled = true;
                 }
             }
-            this.Text = "Last Update 2018-07-05";
+            this.Text = "Last Update 2018-07-07";
         }
     }
 }

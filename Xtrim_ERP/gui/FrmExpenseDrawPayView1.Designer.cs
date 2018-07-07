@@ -84,7 +84,6 @@
             this.txtDraw = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAmtReserve = new C1.Win.C1Input.C1TextBox();
-            this.tabTax = new C1.Win.C1Command.C1DockingTabPage();
             this.cdLeft = new C1.Win.C1Command.C1CommandDock();
             this.c1DockingTab1 = new C1.Win.C1Command.C1DockingTab();
             this.c1DockingTabPage1 = new C1.Win.C1Command.C1DockingTabPage();
@@ -101,7 +100,10 @@
             this.label36 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.panel24 = new System.Windows.Forms.Panel();
+            this.tabChequeTax = new C1.Win.C1Command.C1DockingTabPage();
+            this.tabCashTax = new C1.Win.C1Command.C1DockingTabPage();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.panel26 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tC1)).BeginInit();
@@ -149,7 +151,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtOnhand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDraw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmtReserve)).BeginInit();
-            this.tabTax.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cdLeft)).BeginInit();
             this.cdLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).BeginInit();
@@ -160,6 +161,8 @@
             this.panel20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboYear)).BeginInit();
             this.sB.SuspendLayout();
+            this.tabChequeTax.SuspendLayout();
+            this.tabCashTax.SuspendLayout();
             this.SuspendLayout();
             // 
             // theme1
@@ -185,7 +188,6 @@
             this.tC1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tC1.Controls.Add(this.tabCheque);
             this.tC1.Controls.Add(this.tabCash);
-            this.tC1.Controls.Add(this.tabTax);
             this.tC1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tC1.HotTrack = true;
             this.tC1.Location = new System.Drawing.Point(641, 0);
@@ -227,10 +229,12 @@
             this.tCCheque.Controls.Add(this.tabChequeView);
             this.tCCheque.Controls.Add(this.tabChequeMake);
             this.tCCheque.Controls.Add(this.tabChequePrint);
+            this.tCCheque.Controls.Add(this.tabChequeTax);
             this.tCCheque.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tCCheque.HotTrack = true;
             this.tCCheque.Location = new System.Drawing.Point(0, 0);
             this.tCCheque.Name = "tCCheque";
+            this.tCCheque.SelectedIndex = 3;
             this.tCCheque.Size = new System.Drawing.Size(985, 702);
             this.tCCheque.TabIndex = 0;
             this.tCCheque.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
@@ -597,11 +601,12 @@
             this.tabCash1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabCash1.Controls.Add(this.tabCashView);
             this.tabCash1.Controls.Add(this.tabCashMake);
+            this.tabCash1.Controls.Add(this.tabCashTax);
             this.tabCash1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabCash1.HotTrack = true;
             this.tabCash1.Location = new System.Drawing.Point(0, 0);
             this.tabCash1.Name = "tabCash1";
-            this.tabCash1.SelectedIndex = 1;
+            this.tabCash1.SelectedIndex = 2;
             this.tabCash1.Size = new System.Drawing.Size(985, 702);
             this.tabCash1.TabIndex = 0;
             this.tabCash1.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
@@ -911,15 +916,6 @@
             this.theme1.SetTheme(this.txtAmtReserve, "(default)");
             this.txtAmtReserve.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // tabTax
-            // 
-            this.tabTax.Controls.Add(this.panel24);
-            this.tabTax.Location = new System.Drawing.Point(1, 24);
-            this.tabTax.Name = "tabTax";
-            this.tabTax.Size = new System.Drawing.Size(985, 702);
-            this.tabTax.TabIndex = 2;
-            this.tabTax.Text = "พิมพ์ ใบหัก ณ ที่จ่าย";
-            // 
             // cdLeft
             // 
             this.cdLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -1151,16 +1147,45 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // panel24
+            // tabChequeTax
             // 
-            this.panel24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel24.Location = new System.Drawing.Point(0, 0);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(985, 702);
-            this.panel24.TabIndex = 0;
-            this.theme1.SetTheme(this.panel24, "(default)");
+            this.tabChequeTax.Controls.Add(this.panel26);
+            this.tabChequeTax.Location = new System.Drawing.Point(1, 24);
+            this.tabChequeTax.Name = "tabChequeTax";
+            this.tabChequeTax.Size = new System.Drawing.Size(983, 677);
+            this.tabChequeTax.TabIndex = 3;
+            this.tabChequeTax.Text = "พิมพ์ ใบหัก ณ ที่จ่าย";
+            // 
+            // tabCashTax
+            // 
+            this.tabCashTax.Controls.Add(this.panel25);
+            this.tabCashTax.Location = new System.Drawing.Point(1, 24);
+            this.tabCashTax.Name = "tabCashTax";
+            this.tabCashTax.Size = new System.Drawing.Size(983, 677);
+            this.tabCashTax.TabIndex = 2;
+            this.tabCashTax.Text = "พิมพ์ ใบหัก ณ ที่จ่าย";
+            // 
+            // panel25
+            // 
+            this.panel25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel25.Location = new System.Drawing.Point(0, 0);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(983, 677);
+            this.panel25.TabIndex = 0;
+            this.theme1.SetTheme(this.panel25, "(default)");
+            // 
+            // panel26
+            // 
+            this.panel26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel26.Location = new System.Drawing.Point(0, 0);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(983, 677);
+            this.panel26.TabIndex = 0;
+            this.theme1.SetTheme(this.panel26, "(default)");
             // 
             // FrmExpenseDrawPayView1
             // 
@@ -1221,7 +1246,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtOnhand)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDraw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmtReserve)).EndInit();
-            this.tabTax.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cdLeft)).EndInit();
             this.cdLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).EndInit();
@@ -1235,6 +1259,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboYear)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
+            this.tabChequeTax.ResumeLayout(false);
+            this.tabCashTax.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1253,7 +1279,6 @@
         private C1.Win.C1Command.C1DockingTab tC1;
         private C1.Win.C1Command.C1DockingTabPage tabCheque;
         private C1.Win.C1Command.C1DockingTabPage tabCash;
-        private C1.Win.C1Command.C1DockingTabPage tabTax;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RadioButton chkViewAll;
         private System.Windows.Forms.RadioButton chkAppvOk;
@@ -1315,6 +1340,9 @@
         private System.Windows.Forms.Label label3;
         private C1.Win.C1Input.C1TextBox txtOnhand;
         private C1.Win.C1Input.C1Button btnCashSave;
-        private System.Windows.Forms.Panel panel24;
+        private C1.Win.C1Command.C1DockingTabPage tabChequeTax;
+        private C1.Win.C1Command.C1DockingTabPage tabCashTax;
+        private System.Windows.Forms.Panel panel26;
+        private System.Windows.Forms.Panel panel25;
     }
 }

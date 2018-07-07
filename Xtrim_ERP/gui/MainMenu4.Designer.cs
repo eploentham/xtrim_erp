@@ -54,7 +54,8 @@
             this.menuExpnDrawAppv = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExpnDrawPay = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuBilling = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBilling1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuPayment = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.menuDebtor = new System.Windows.Forms.ToolStripMenuItem();
             this.menuInit = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,7 +89,10 @@
             this.tCC1 = new C1.Win.C1Command.C1CommandDock();
             this.tC1 = new C1.Win.C1Command.C1DockingTab();
             this.PageS = new C1.Win.C1Command.C1DockingTabPage();
-            this.menuPayment = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBillingPlus = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBillingMinus = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBilling = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tCC1)).BeginInit();
@@ -219,7 +223,7 @@
             this.menuExpnDrawAppv,
             this.menuExpnDrawPay,
             this.toolStripSeparator4,
-            this.menuBilling,
+            this.menuBilling1,
             this.menuPayment,
             this.toolStripSeparator5,
             this.menuDebtor});
@@ -240,19 +244,19 @@
             // menuRsp
             // 
             this.menuRsp.Name = "menuRsp";
-            this.menuRsp.Size = new System.Drawing.Size(163, 22);
+            this.menuRsp.Size = new System.Drawing.Size(180, 22);
             this.menuRsp.Text = "เบิกเงินสำรองจ่าย";
             // 
             // menuRspAppv
             // 
             this.menuRspAppv.Name = "menuRspAppv";
-            this.menuRspAppv.Size = new System.Drawing.Size(163, 22);
+            this.menuRspAppv.Size = new System.Drawing.Size(180, 22);
             this.menuRspAppv.Text = "อนุมัติ เงินสำรองจ่าย";
             // 
             // menuRspReserve
             // 
             this.menuRspReserve.Name = "menuRspReserve";
-            this.menuRspReserve.Size = new System.Drawing.Size(163, 22);
+            this.menuRspReserve.Size = new System.Drawing.Size(180, 22);
             this.menuRspReserve.Text = "รับเงิน เงินสำรองจ่าย";
             // 
             // menuExpnDraw0
@@ -293,11 +297,22 @@
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
-            // menuBilling
+            // menuBilling1
             // 
-            this.menuBilling.Name = "menuBilling";
-            this.menuBilling.Size = new System.Drawing.Size(180, 22);
-            this.menuBilling.Text = "ทำใบวางบิล";
+            this.menuBilling1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuBilling,
+            this.toolStripSeparator6,
+            this.menuBillingPlus,
+            this.menuBillingMinus});
+            this.menuBilling1.Name = "menuBilling1";
+            this.menuBilling1.Size = new System.Drawing.Size(180, 22);
+            this.menuBilling1.Text = "ใบวางบิล";
+            // 
+            // menuPayment
+            // 
+            this.menuPayment.Name = "menuPayment";
+            this.menuPayment.Size = new System.Drawing.Size(180, 22);
+            this.menuPayment.Text = "รับชำระ";
             // 
             // toolStripSeparator5
             // 
@@ -548,11 +563,28 @@
             this.PageS.TabIndex = 0;
             this.PageS.Text = "Start Page";
             // 
-            // menuPayment
+            // menuBillingPlus
             // 
-            this.menuPayment.Name = "menuPayment";
-            this.menuPayment.Size = new System.Drawing.Size(180, 22);
-            this.menuPayment.Text = "รับชำระ";
+            this.menuBillingPlus.Name = "menuBillingPlus";
+            this.menuBillingPlus.Size = new System.Drawing.Size(180, 22);
+            this.menuBillingPlus.Text = "เพิ่มหนี้";
+            // 
+            // menuBillingMinus
+            // 
+            this.menuBillingMinus.Name = "menuBillingMinus";
+            this.menuBillingMinus.Size = new System.Drawing.Size(180, 22);
+            this.menuBillingMinus.Text = "ลดหนี้";
+            // 
+            // menuBilling
+            // 
+            this.menuBilling.Name = "menuBilling";
+            this.menuBilling.Size = new System.Drawing.Size(180, 22);
+            this.menuBilling.Text = "ทำใบวางบิล";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
             // 
             // MainMenu4
             // 
@@ -628,7 +660,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuExpnView;
         private System.Windows.Forms.ToolStripMenuItem menuItmTypeSub;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem menuBilling;
+        private System.Windows.Forms.ToolStripMenuItem menuBilling1;
         private System.Windows.Forms.ToolStripMenuItem เบกเงนสำรองจายToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem menuRsp;
@@ -640,5 +672,9 @@
         private System.Windows.Forms.ToolStripMenuItem menuExpnDrawPay;
         private System.Windows.Forms.ToolStripMenuItem menuDebtor;
         private System.Windows.Forms.ToolStripMenuItem menuPayment;
+        private System.Windows.Forms.ToolStripMenuItem menuBilling;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem menuBillingPlus;
+        private System.Windows.Forms.ToolStripMenuItem menuBillingMinus;
     }
 }
