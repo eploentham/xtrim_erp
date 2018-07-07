@@ -310,7 +310,7 @@ namespace Xtrim_ERP.gui
             }
             else
             {
-                dt = xC.xtDB.bllDB.selectByJobId(jimId);
+                dt = xC.xtDB.bllDB.selectByCusId(jimId);
             }
             
             //grfChequeView1.DataSource = dt;

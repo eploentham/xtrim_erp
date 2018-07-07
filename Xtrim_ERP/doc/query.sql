@@ -26,7 +26,8 @@ ALTER TABLE b_tax AUTO_INCREMENT = 1640000000;
 ALTER TABLE t_payment AUTO_INCREMENT = 1650000000;
 ALTER TABLE t_payment_detail AUTO_INCREMENT = 1660000000;
 ALTER TABLE t_billing_cover AUTO_INCREMENT = 1670000000;
-
+ALTER TABLE t_receipt AUTO_INCREMENT = 1680000000;
+ALTER TABLE t_receipt_detail AUTO_INCREMENT = 1690000000;
 
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ไม่ต้อง', 'ORIGIANL', '1', 'BL_TYPE');
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ต้อง', 'TELEX RELEASE', '1', 'BL_TYPE');
@@ -504,6 +505,24 @@ COMMENT = 'id=167';
 ALTER TABLE `xtrim_erp`.`t_billing_cover` 
 ADD COLUMN `job_id` INT NULL AFTER `user_cancel`,
 ADD COLUMN `cust_id` INT NULL AFTER `job_id`;
+
+CREATE TABLE `t_tax` (
+  `tax_id` int(11) NOT NULL AUTO_INCREMENT,
+  `tax_code` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `tax_date` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `job_id` int(11) DEFAULT NULL,
+  `job_code` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `expenses_pay_detail_id` int(11) DEFAULT NULL ,
+  `active` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `remark` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`tax_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=170';
 
 
 

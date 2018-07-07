@@ -84,7 +84,7 @@
             this.txtDraw = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAmtReserve = new C1.Win.C1Input.C1TextBox();
-            this.tabTransfer = new C1.Win.C1Command.C1DockingTabPage();
+            this.tabTax = new C1.Win.C1Command.C1DockingTabPage();
             this.cdLeft = new C1.Win.C1Command.C1CommandDock();
             this.c1DockingTab1 = new C1.Win.C1Command.C1DockingTab();
             this.c1DockingTabPage1 = new C1.Win.C1Command.C1DockingTabPage();
@@ -101,6 +101,7 @@
             this.label36 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.panel24 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tC1)).BeginInit();
@@ -148,6 +149,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtOnhand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDraw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmtReserve)).BeginInit();
+            this.tabTax.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cdLeft)).BeginInit();
             this.cdLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).BeginInit();
@@ -183,7 +185,7 @@
             this.tC1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tC1.Controls.Add(this.tabCheque);
             this.tC1.Controls.Add(this.tabCash);
-            this.tC1.Controls.Add(this.tabTransfer);
+            this.tC1.Controls.Add(this.tabTax);
             this.tC1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tC1.HotTrack = true;
             this.tC1.Location = new System.Drawing.Point(641, 0);
@@ -909,13 +911,14 @@
             this.theme1.SetTheme(this.txtAmtReserve, "(default)");
             this.txtAmtReserve.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // tabTransfer
+            // tabTax
             // 
-            this.tabTransfer.Location = new System.Drawing.Point(1, 24);
-            this.tabTransfer.Name = "tabTransfer";
-            this.tabTransfer.Size = new System.Drawing.Size(985, 702);
-            this.tabTransfer.TabIndex = 2;
-            this.tabTransfer.Text = "พิมพ์ ใบหัก ณ ที่จ่าย";
+            this.tabTax.Controls.Add(this.panel24);
+            this.tabTax.Location = new System.Drawing.Point(1, 24);
+            this.tabTax.Name = "tabTax";
+            this.tabTax.Size = new System.Drawing.Size(985, 702);
+            this.tabTax.TabIndex = 2;
+            this.tabTax.Text = "พิมพ์ ใบหัก ณ ที่จ่าย";
             // 
             // cdLeft
             // 
@@ -1148,6 +1151,17 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
+            // panel24
+            // 
+            this.panel24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel24.Location = new System.Drawing.Point(0, 0);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(985, 702);
+            this.panel24.TabIndex = 0;
+            this.theme1.SetTheme(this.panel24, "(default)");
+            // 
             // FrmExpenseDrawPayView1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1207,6 +1221,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtOnhand)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDraw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmtReserve)).EndInit();
+            this.tabTax.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cdLeft)).EndInit();
             this.cdLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1DockingTab1)).EndInit();
@@ -1238,7 +1253,7 @@
         private C1.Win.C1Command.C1DockingTab tC1;
         private C1.Win.C1Command.C1DockingTabPage tabCheque;
         private C1.Win.C1Command.C1DockingTabPage tabCash;
-        private C1.Win.C1Command.C1DockingTabPage tabTransfer;
+        private C1.Win.C1Command.C1DockingTabPage tabTax;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RadioButton chkViewAll;
         private System.Windows.Forms.RadioButton chkAppvOk;
@@ -1300,5 +1315,6 @@
         private System.Windows.Forms.Label label3;
         private C1.Win.C1Input.C1TextBox txtOnhand;
         private C1.Win.C1Input.C1Button btnCashSave;
+        private System.Windows.Forms.Panel panel24;
     }
 }
