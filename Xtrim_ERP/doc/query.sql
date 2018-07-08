@@ -29,6 +29,7 @@ ALTER TABLE t_billing_cover AUTO_INCREMENT = 1670000000;
 ALTER TABLE t_receipt AUTO_INCREMENT = 1680000000;
 ALTER TABLE t_receipt_detail AUTO_INCREMENT = 1690000000;
 ALTER TABLE t_tax AUTO_INCREMENT = 1700000000;
+ALTER TABLE f_tax_type AUTO_INCREMENT = 1710000000;
 
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ไม่ต้อง', 'ORIGIANL', '1', 'BL_TYPE');
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ต้อง', 'TELEX RELEASE', '1', 'BL_TYPE');
@@ -440,9 +441,6 @@ CREATE TABLE `t_billing` (
 ALTER TABLE `xtrim_erp`.`t_billing_detail` 
 CHANGE COLUMN `billing_detail_id` `billing_detail_id` INT(11) NOT NULL AUTO_INCREMENT ;
 
-
-
-
 CREATE TABLE `xtrim_erp`.`t_billing_detail` (
   `billing_detail_id` INT NOT NULL,
   `billing_id` INT NULL,
@@ -523,7 +521,37 @@ CREATE TABLE `t_tax` (
   `user_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   `user_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`tax_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=170';
+) ENGINE=MyISAM AUTO_INCREMENT=1700000000 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=170';
+
+
+61-07-08
+CREATE TABLE `xtrim_erp`.`f_tax_type` (
+  `f_tax_type_id` INT NOT NULL,
+  `f_tax_type_code` VARCHAR(255) NULL,
+  `f_tax_type_name_t` VARCHAR(255) NULL,
+  PRIMARY KEY (`f_tax_type_id`))
+ENGINE = MyISAM AUTO_INCREMENT=1700000000 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT = 'id=171';
+ALTER TABLE `xtrim_erp`.`f_tax_type` 
+CHANGE COLUMN `f_tax_type_id` `f_tax_type_id` INT(11) NOT NULL AUTO_INCREMENT ;
+
+UPDATE `xtrim_erp`.`b_tax` SET `tax_code` = '01' WHERE (`tax_id` = '1640000000');
+UPDATE `xtrim_erp`.`b_tax` SET `tax_code` = '02' WHERE (`tax_id` = '1640000001');
+UPDATE `xtrim_erp`.`b_tax` SET `tax_code` = '03' WHERE (`tax_id` = '1640000002');
+UPDATE `xtrim_erp`.`b_tax` SET `tax_code` = '04' WHERE (`tax_id` = '1640000003');
+
+ALTER TABLE `xtrim_erp`.`f_tax_type` 
+CHANGE COLUMN `f_tax_type_id` `f_tax_type_id` INT(11) NOT NULL AUTO_INCREMENT ;
+
+INSERT INTO `xtrim_erp`.`f_tax_type` (`f_tax_type_code`, `f_tax_type_name_t`) VALUES ('1', 'เงินเดือน ค่าจ้าง มาตรา40(1)');
+INSERT INTO `xtrim_erp`.`f_tax_type` (`f_tax_type_code`, `f_tax_type_name_t`) VALUES ('2', 'ค่าธรรมเนียม ค่านายหน้า มาตรา40(2)');
+INSERT INTO `xtrim_erp`.`f_tax_type` (`f_tax_type_code`, `f_tax_type_name_t`) VALUES ('3', 'ค่าแห่งลิขสิทธ์ มาตรา40(3)');
+INSERT INTO `xtrim_erp`.`f_tax_type` (`f_tax_type_code`, `f_tax_type_name_t`) VALUES ('41', 'ค่าดอกเบี้ย มาตรา40(4)(ก)');
+INSERT INTO `xtrim_erp`.`f_tax_type` (`f_tax_type_code`, `f_tax_type_name_t`) VALUES ('42', 'ค่าเงินปันผล มาตรา40(4)(ข)');
+INSERT INTO `xtrim_erp`.`f_tax_type` (`f_tax_type_code`, `f_tax_type_name_t`) VALUES ('5', 'การจ่ายเงินได้ที่ต้องหักภาษี ณ ที่จ่าย');
+INSERT INTO `xtrim_erp`.`f_tax_type` (`f_tax_type_code`, `f_tax_type_name_t`) VALUES ('6', 'อื่นๆ');
+
+ALTER TABLE `xtrim_erp`.`f_tax_type` 
+CHARACTER SET = utf8 ;
 
 
 

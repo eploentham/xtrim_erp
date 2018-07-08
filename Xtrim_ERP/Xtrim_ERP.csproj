@@ -497,6 +497,12 @@
     <Compile Include="gui\FrmStaff.Designer.cs">
       <DependentUpon>FrmStaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmTax.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmTax.Designer.cs">
+      <DependentUpon>FrmTax.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -564,6 +570,7 @@
     <Compile Include="objdb\ExpensesPayDB.cs" />
     <Compile Include="objdb\ExpensesPayDetailDB.cs" />
     <Compile Include="objdb\FMethodPaymentDB.cs" />
+    <Compile Include="objdb\FTaxTypeDB.cs" />
     <Compile Include="objdb\ItemGroupDB.cs" />
     <Compile Include="objdb\ItemsCatDB.cs" />
     <Compile Include="objdb\ItemsDB.cs" />
@@ -588,6 +595,7 @@
     <Compile Include="objdb\ReceiptDB.cs" />
     <Compile Include="objdb\ReceiptDetailDB.cs" />
     <Compile Include="object1\BillingCover.cs" />
+    <Compile Include="object1\FTaxType.cs" />
     <Compile Include="object1\PaymentDetail.cs" />
     <Compile Include="objdb\PaymentDetailDB.cs" />
     <Compile Include="objdb\PositionDB.cs" />
@@ -980,6 +988,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmStaff.resx">
       <DependentUpon>FrmStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmTax.resx">
+      <DependentUpon>FrmTax.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

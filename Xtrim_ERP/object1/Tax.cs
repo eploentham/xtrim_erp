@@ -21,5 +21,6 @@ namespace Xtrim_ERP.object1
         public String user_modi { get; set; }
         public String user_cancel { get; set; }
         public String rate1 { get; set; }
+        public String f_tax_type_id { get; set; }
     }
 }

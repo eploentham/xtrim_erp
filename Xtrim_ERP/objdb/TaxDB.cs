@@ -37,7 +37,7 @@ namespace Xtrim_ERP.objdb
             tax.user_modi = "user_modi";
             tax.user_cancel = "user_cancel";
             tax.rate1 = "rate1";
-            //tax.comp_id = "comp_id";
+            tax.f_tax_type_id = "f_tax_type_id";
 
             tax.table = "b_tax";
             tax.pkField = "tax_id";
@@ -75,7 +75,7 @@ namespace Xtrim_ERP.objdb
             p.tax_name_e = p.tax_name_e == null ? "" : p.tax_name_e;
             //p.remark = p.remark == null ? "" : p.remark;
 
-            //p.tax_name_e = int.TryParse(p.tax_name_e, out chk) ? chk.ToString() : "0";
+            p.f_tax_type_id = int.TryParse(p.f_tax_type_id, out chk) ? chk.ToString() : "0";
             //p.payment_detail_id = int.TryParse(p.payment_detail_id, out chk) ? chk.ToString() : "0";
             //p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
             //p.tax_code = int.TryParse(p.tax_code, out chk) ? chk.ToString() : "0";
@@ -94,13 +94,13 @@ namespace Xtrim_ERP.objdb
                 tax.active + "," + tax.remark + ", " + tax.tax_name_e + ", " +
                 tax.date_create + ", " + tax.date_modi + ", " + tax.date_cancel + ", " +
                 tax.user_create + ", " + tax.user_modi + ", " + tax.user_cancel + "," +
-                tax.rate1 + " " +
+                tax.rate1 + "," + tax.f_tax_type_id + " " +
                 ") " +
                 "Values ('" + p.tax_name_t.Replace("'", "''") + "','" + p.tax_code + "','" + p.rate1.Replace("'", "''") + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.tax_name_e + "', " +
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
-                "'" + p.rate1 + "' " +
+                "'" + p.rate1 + "','" + p.f_tax_type_id + "' " +
                 ")";
 
             try
@@ -127,6 +127,7 @@ namespace Xtrim_ERP.objdb
                 "," + tax.tax_name_e + "='" + p.tax_name_e.Replace("'", "''") + "' " +
                 "," + tax.tax_code + "='" + p.tax_code.Replace("'", "''") + "' " +
                 "," + tax.rate1 + "='" + p.rate1.Replace("'", "''") + "' " +
+                "," + tax.f_tax_type_id + "='" + p.f_tax_type_id.Replace("'", "''") + "' " +
                 "Where " + tax.pkField + "='" + p.tax_id + "'";
 
             try
@@ -227,7 +228,7 @@ namespace Xtrim_ERP.objdb
                 tax1.user_modi = dt.Rows[0][tax.user_modi].ToString();
                 
                 tax1.remark = dt.Rows[0][tax.remark].ToString();
-                
+                tax1.f_tax_type_id = dt.Rows[0][tax.f_tax_type_id].ToString();
                 tax1.rate1 = dt.Rows[0][tax.rate1].ToString();
                 
             }
@@ -247,7 +248,7 @@ namespace Xtrim_ERP.objdb
                 tax1.user_modi = "";
                 tax1.user_cancel = "";
                 tax1.rate1 = "";
-                
+                tax1.f_tax_type_id = "";
             }
 
             return tax1;

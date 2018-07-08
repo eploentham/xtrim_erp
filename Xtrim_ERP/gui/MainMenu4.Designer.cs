@@ -55,6 +55,10 @@
             this.menuExpnDrawPay = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.menuBilling1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBilling = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuBillingPlus = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBillingMinus = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPayment = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.menuDebtor = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,10 +93,7 @@
             this.tCC1 = new C1.Win.C1Command.C1CommandDock();
             this.tC1 = new C1.Win.C1Command.C1DockingTab();
             this.PageS = new C1.Win.C1Command.C1DockingTabPage();
-            this.menuBillingPlus = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuBillingMinus = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuBilling = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuTax = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.c1ThemeController1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tCC1)).BeginInit();
@@ -244,19 +245,19 @@
             // menuRsp
             // 
             this.menuRsp.Name = "menuRsp";
-            this.menuRsp.Size = new System.Drawing.Size(180, 22);
+            this.menuRsp.Size = new System.Drawing.Size(163, 22);
             this.menuRsp.Text = "เบิกเงินสำรองจ่าย";
             // 
             // menuRspAppv
             // 
             this.menuRspAppv.Name = "menuRspAppv";
-            this.menuRspAppv.Size = new System.Drawing.Size(180, 22);
+            this.menuRspAppv.Size = new System.Drawing.Size(163, 22);
             this.menuRspAppv.Text = "อนุมัติ เงินสำรองจ่าย";
             // 
             // menuRspReserve
             // 
             this.menuRspReserve.Name = "menuRspReserve";
-            this.menuRspReserve.Size = new System.Drawing.Size(180, 22);
+            this.menuRspReserve.Size = new System.Drawing.Size(163, 22);
             this.menuRspReserve.Text = "รับเงิน เงินสำรองจ่าย";
             // 
             // menuExpnDraw0
@@ -307,6 +308,29 @@
             this.menuBilling1.Name = "menuBilling1";
             this.menuBilling1.Size = new System.Drawing.Size(180, 22);
             this.menuBilling1.Text = "ใบวางบิล";
+            // 
+            // menuBilling
+            // 
+            this.menuBilling.Name = "menuBilling";
+            this.menuBilling.Size = new System.Drawing.Size(126, 22);
+            this.menuBilling.Text = "ทำใบวางบิล";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(123, 6);
+            // 
+            // menuBillingPlus
+            // 
+            this.menuBillingPlus.Name = "menuBillingPlus";
+            this.menuBillingPlus.Size = new System.Drawing.Size(126, 22);
+            this.menuBillingPlus.Text = "เพิ่มหนี้";
+            // 
+            // menuBillingMinus
+            // 
+            this.menuBillingMinus.Name = "menuBillingMinus";
+            this.menuBillingMinus.Size = new System.Drawing.Size(126, 22);
+            this.menuBillingMinus.Text = "ลดหนี้";
             // 
             // menuPayment
             // 
@@ -461,7 +485,8 @@
             this.menuItmCat,
             this.menuItmGrp,
             this.menuMethodPay,
-            this.menuItems});
+            this.menuItems,
+            this.menuTax});
             this.ขอมลคาใชจายToolStripMenuItem.Name = "ขอมลคาใชจายToolStripMenuItem";
             this.ขอมลคาใชจายToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.ขอมลคาใชจายToolStripMenuItem.Text = "ข้อมูลการเงิน";
@@ -469,37 +494,37 @@
             // menuItmType
             // 
             this.menuItmType.Name = "menuItmType";
-            this.menuItmType.Size = new System.Drawing.Size(160, 22);
+            this.menuItmType.Size = new System.Drawing.Size(180, 22);
             this.menuItmType.Text = "ประเภท การเงิน";
             // 
             // menuItmTypeSub
             // 
             this.menuItmTypeSub.Name = "menuItmTypeSub";
-            this.menuItmTypeSub.Size = new System.Drawing.Size(160, 22);
+            this.menuItmTypeSub.Size = new System.Drawing.Size(180, 22);
             this.menuItmTypeSub.Text = "ประเภทย่อย การเงิน";
             // 
             // menuItmCat
             // 
             this.menuItmCat.Name = "menuItmCat";
-            this.menuItmCat.Size = new System.Drawing.Size(160, 22);
+            this.menuItmCat.Size = new System.Drawing.Size(180, 22);
             this.menuItmCat.Text = "หมวด การเงิน";
             // 
             // menuItmGrp
             // 
             this.menuItmGrp.Name = "menuItmGrp";
-            this.menuItmGrp.Size = new System.Drawing.Size(160, 22);
+            this.menuItmGrp.Size = new System.Drawing.Size(180, 22);
             this.menuItmGrp.Text = "กลุ่ม การเงิน";
             // 
             // menuMethodPay
             // 
             this.menuMethodPay.Name = "menuMethodPay";
-            this.menuMethodPay.Size = new System.Drawing.Size(160, 22);
+            this.menuMethodPay.Size = new System.Drawing.Size(180, 22);
             this.menuMethodPay.Text = "วิธีการจ่ายเงิน";
             // 
             // menuItems
             // 
             this.menuItems.Name = "menuItems";
-            this.menuItems.Size = new System.Drawing.Size(160, 22);
+            this.menuItems.Size = new System.Drawing.Size(180, 22);
             this.menuItems.Text = "รายการ การเงิน";
             // 
             // toolStripSeparator3
@@ -563,28 +588,11 @@
             this.PageS.TabIndex = 0;
             this.PageS.Text = "Start Page";
             // 
-            // menuBillingPlus
+            // menuTax
             // 
-            this.menuBillingPlus.Name = "menuBillingPlus";
-            this.menuBillingPlus.Size = new System.Drawing.Size(180, 22);
-            this.menuBillingPlus.Text = "เพิ่มหนี้";
-            // 
-            // menuBillingMinus
-            // 
-            this.menuBillingMinus.Name = "menuBillingMinus";
-            this.menuBillingMinus.Size = new System.Drawing.Size(180, 22);
-            this.menuBillingMinus.Text = "ลดหนี้";
-            // 
-            // menuBilling
-            // 
-            this.menuBilling.Name = "menuBilling";
-            this.menuBilling.Size = new System.Drawing.Size(180, 22);
-            this.menuBilling.Text = "ทำใบวางบิล";
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
+            this.menuTax.Name = "menuTax";
+            this.menuTax.Size = new System.Drawing.Size(180, 22);
+            this.menuTax.Text = "รายการภาษี";
             // 
             // MainMenu4
             // 
@@ -676,5 +684,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem menuBillingPlus;
         private System.Windows.Forms.ToolStripMenuItem menuBillingMinus;
+        private System.Windows.Forms.ToolStripMenuItem menuTax;
     }
 }

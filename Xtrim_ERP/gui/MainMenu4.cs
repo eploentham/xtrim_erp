@@ -59,13 +59,22 @@ namespace Xtrim_ERP.gui
             menuExpnDrawAppv.Click += MenuExpnDrawAppv_Click;
             menuExpnDrawPay.Click += MenuExpnDrawPay_Click;
             menuItmTypeSub.Click += MenuItmTypeSub_Click;
-            menuBilling1.Click += MenuBilling_Click;
+            menuBilling.Click += MenuBilling_Click;
             menuRsp.Click += MenuRsp_Click;
             menuRspAppv.Click += MenuRspAppv_Click;
             menuRspReserve.Click += MenuRspReserve_Click;
             menuCop.Click += MenuCop_Click;
             menuDebtor.Click += MenuDebtor_Click;
             menuPayment.Click += MenuPayment_Click;
+            menuTax.Click += MenuTax_Click;
+        }
+
+        private void MenuTax_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmTax frm = new FrmTax(xC, this);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, menuPayment.Text + " ");
         }
 
         private void MenuPayment_Click(object sender, EventArgs e)
