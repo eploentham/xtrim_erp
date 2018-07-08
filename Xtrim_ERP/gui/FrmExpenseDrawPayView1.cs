@@ -29,6 +29,7 @@ namespace Xtrim_ERP.gui
         int colCID = 1, colCSubNameT = 2, colCMtp = 3, colCItmNameT = 4, colCDrawDate = 5, colCAmt = 6, colCBank=7, colCChequeNo=8, colChequeDate=9, colCChequepayname=10, colCpayID=11;
         int colBID = 1, colBNameT = 2, colBbranch=3, colBaccnumber=4, colBAmt = 5;
         int colPID = 1, colPNameT = 2, colPbranch = 3, colPaccnumber = 4, colPAmt = 5, colPchequeNo=6, colPchequeDate=7, colPchequePayName=8, colPstatuschequeaccPay=9;
+        int colTID = 1, colTItemNameT = 2, colTtaxdate = 3, colTAmt = 4, colTtaxamt = 5, colTitemid = 6, colTbtaxid = 7;
         C1FlexGrid grfView, grfChequeView, grfChequePre, grfChequeMake, grfChequeBnk, grfTax, grfChequePrn, grfCashView, grfCashPre, grfCashMake;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
@@ -101,6 +102,7 @@ namespace Xtrim_ERP.gui
             initGrfCashMake();
             setGrfCashMake();
             initGrfTax();
+            setGrfTax("");
             tC1.SelectedTab = tabCheque;
             tCCheque.SelectedTab = tabChequeView;
             theme1.SetTheme(tC1, "Office2010Black");
@@ -843,13 +845,122 @@ namespace Xtrim_ERP.gui
             grfTax.Dock = System.Windows.Forms.DockStyle.Fill;
             grfTax.Location = new System.Drawing.Point(0, 0);
             //FilterRow fr = new FilterRow(grfView);            
-
+            grfTax.LeaveCell += GrfTax_LeaveCell;
+            grfTax.AfterEdit += GrfTax_AfterEdit;
             panel28.Controls.Add(grfTax);
             ContextMenu menuGw = new ContextMenu();
             //menuGw.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Gw_Cancel));
             grfTax.ContextMenu = menuGw;
 
             theme1.SetTheme(grfTax, "Office2010Green");
+        }
+
+        private void GrfTax_AfterEdit(object sender, RowColEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (e.Col == colTAmt)
+            {
+                Decimal amt = 0, amttax = 0,rate=3;
+                if (Decimal.TryParse(grfTax[e.Row, e.Col] != null ? grfTax[e.Row, e.Col].ToString() : "0", out amt))
+                {
+                    grfTax[e.Row, colTtaxamt] = (amt * (rate / 100));
+                    if (grfTax.Rows.Count == e.Row + 1)
+                    {
+                        if (grfTax[e.Row, colTItemNameT] != null) grfTax.Rows.Add();
+                    }                        
+                }                
+            }
+        }
+
+        private void GrfTax_LeaveCell(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            //if(grfTax.Col == colTAmt)
+            //{
+            //    Decimal amt = 0, amttax = 0;
+            //    if (Decimal.TryParse(grfTax[grfTax.Row, grfTax.Col] != null ?  grfTax[grfTax.Row, grfTax.Col].ToString() : "0", out amt))
+            //    {
+            //        grfTax[grfTax.Row, colTtaxamt] = (amt * (3/100));
+            //        if (grfTax.Rows.Count == grfTax.Row)
+            //        {
+            //            grfTax.Rows.Add();
+            //        }
+            //    }
+            //}
+        }
+
+        private void setGrfTax(String expnpdid)
+        {
+            Company cop = new Company();
+            cop = xC.xtDB.copDB.selectByCode1("001");
+            DataTable dt = new DataTable();
+            dt = xC.xtDB.expnpdDB.selectPrintCheque(expnpdid);
+            grfTax.Clear();
+            grfTax.Cols.Count = 8;
+            if (dt.Rows.Count > 0)
+            {
+                grfTax.Rows.Count = dt.Rows.Count + 1;
+            }
+            else
+            {
+                grfTax.Rows.Count = 2;
+            }
+            //grfChequeBnk.Cols.Count = 7;
+            CellStyle cs = grfTax.Styles.Add("date");
+            cs.DataType = typeof(DateTime);
+            cs.Format = "dd-MM-yyyy";
+
+            C1TextBox txt = new C1TextBox();
+            txt.DataType = txtCusTaxNameT.DataType;
+            C1TextBox txt1 = new C1TextBox();
+            txt1.DataType = txtAmt.DataType;
+            C1ComboBox cbo = new C1ComboBox();
+            xC.xtDB.itmDB.setC1CboItem(cbo);
+            C1TextBox txt2 = new C1TextBox();
+            txt2.DataType = txtTaxDate.DataType;
+
+            grfTax.Cols[colTItemNameT].Editor = cbo;
+            grfTax.Cols[colTtaxdate].Style = cs;
+            grfTax.Cols[colTAmt].Editor = txt1;
+            grfTax.Cols[colTtaxamt].Editor = txt1;
+
+            grfTax.Cols[colTItemNameT].Width = 240;
+            grfTax.Cols[colTtaxdate].Width = 100;
+            grfTax.Cols[colTAmt].Width = 100;
+            grfTax.Cols[colTtaxamt].Width = 100;
+
+            grfTax.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            //grfDept.Cols[colCode].Caption = "รหัส";
+
+            grfTax.Cols[colTItemNameT].Caption = "รายการ";
+            grfTax.Cols[colTtaxdate].Caption = "วันที่จ่ายเงิน";
+            grfTax.Cols[colTAmt].Caption = "ยอดเงินที่จ่าย";
+            grfTax.Cols[colTtaxamt].Caption = "ภาษีหัก ณ ที่จ่าย";
+            
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                grfTax[i + 1, colTItemNameT] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_to_cus_name_t].ToString();
+                grfTax[i + 1, colTtaxdate] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_bank_date].ToString();
+                grfTax[i + 1, colTAmt] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_name_t].ToString();
+                grfTax[i + 1, colTtaxamt] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_branch].ToString();
+                grfTax[i + 1, colTID] = dt.Rows[i][xC.xtDB.copbDB.copB.acc_number].ToString();
+                grfTax[i + 1, colTitemid] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_amount].ToString();
+                grfTax[i + 1, colTbtaxid] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_amount].ToString();
+            }
+            Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
+            for (int i = 1; i < grfTax.Rows.Count; i++)
+            {
+                grfTax[i, 0] = i;
+                if (i % 2 == 0)
+                    grfTax.Rows[i].StyleNew.BackColor = color;
+            }
+            //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
+            //rg1.Style = grfBank.Styles["date"];
+            grfTax.Cols[colPID].Visible = false;
+            grfTax.Cols[colTitemid].Visible = false;
+            grfTax.Cols[colTbtaxid].Visible = false;
         }
         private void ContextMenu_grfChequePrn_Print(object sender, System.EventArgs e)
         {

@@ -38,7 +38,7 @@ namespace Xtrim_ERP.objdb
             taxD.item_name_t = "item_name_t";
             taxD.rate1 = "rate1";
             taxD.tax_date = "tax_date";
-            taxD.amount = "amount";
+            //taxD.amount = "amount";
             taxD.tax_amount = "tax_amount";
 
             taxD.table = "t_billing";
@@ -69,16 +69,22 @@ namespace Xtrim_ERP.objdb
             p.user_create = p.user_create == null ? "" : p.user_create;
             p.user_modi = p.user_modi == null ? "" : p.user_modi;
             p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
-            p.item_id = p.item_id == null ? "" : p.item_id;
-            p.tax_id = p.tax_id == null ? "" : p.tax_id;
+            //p.item_id = p.item_id == null ? "" : p.item_id;
+            //p.tax_id = p.tax_id == null ? "" : p.tax_id;
             p.b_tax_name_t = p.b_tax_name_t == null ? "" : p.b_tax_name_t;
             p.remark = p.remark == null ? "" : p.remark;
+            p.item_name_t = p.item_name_t == null ? "" : p.item_name_t;
+            p.tax_date = p.tax_date == null ? "" : p.tax_date;
+            //p.item_name_t = p.item_name_t == null ? "" : p.item_name_t;
 
-            p.item_name_t = int.TryParse(p.item_name_t, out chk) ? chk.ToString() : "0";
+            p.item_id = int.TryParse(p.item_id, out chk) ? chk.ToString() : "0";
             p.b_tax_id = int.TryParse(p.b_tax_id, out chk) ? chk.ToString() : "0";
-            p.billing_cover_id = int.TryParse(p.billing_cover_id, out chk) ? chk.ToString() : "0";
+            p.tax_id = int.TryParse(p.tax_id, out chk) ? chk.ToString() : "0";
 
+            //p.amount = Decimal.TryParse(p.amount, out chk1) ? chk1.ToString() : "0";
             p.amount = Decimal.TryParse(p.amount, out chk1) ? chk1.ToString() : "0";
+            p.rate1 = Decimal.TryParse(p.rate1, out chk1) ? chk1.ToString() : "0";
+            p.tax_amount = Decimal.TryParse(p.tax_amount, out chk1) ? chk1.ToString() : "0";
         }
         public String insert(TaxDetail p, String userId)
         {
@@ -90,13 +96,15 @@ namespace Xtrim_ERP.objdb
                 taxD.active + "," + taxD.remark + ", " + taxD.b_tax_id + ", " +
                 taxD.date_create + ", " + taxD.date_modi + ", " + taxD.date_cancel + ", " +
                 taxD.user_create + ", " + taxD.user_modi + ", " + taxD.user_cancel + "," +
-                taxD.amount + "," + taxD.item_name_t + "," + taxD.billing_cover_id + " " +
+                taxD.amount + "," + taxD.item_name_t + "," + taxD.rate1 + "," +
+                taxD.amount + "," + taxD.tax_date + "," + taxD.tax_amount + " " +
                 ") " +
                 "Values ('" + p.item_id + "','" + p.tax_id + "','" + p.b_tax_name_t + "'," +
                 "'" + p.active + "','" + p.remark + "','" + p.b_tax_id + "', " +
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
-                "'" + p.amount + "','" + p.item_name_t + "','" + p.billing_cover_id + "' " +
+                "'" + p.amount + "','" + p.item_name_t + "','" + p.rate1 + "'," +
+                "'" + p.amount + "','" + p.tax_date + "','" + p.tax_amount + "' " +
                 ")";
 
             try
@@ -123,7 +131,7 @@ namespace Xtrim_ERP.objdb
                 "," + taxD.b_tax_id + "='" + p.b_tax_id.Replace("'", "''") + "' " +
                 "," + taxD.amount + "='" + p.amount.Replace("'", "''") + "' " +
                 "," + taxD.item_name_t + "='" + p.item_name_t.Replace("'", "''") + "' " +
-                "," + taxD.billing_cover_id + "='" + p.billing_cover_id.Replace("'", "''") + "' " +
+                //"," + taxD.billing_cover_id + "='" + p.billing_cover_id.Replace("'", "''") + "' " +
                 "Where " + taxD.pkField + "='" + p.tax_detail_id + "'"
                 ;
 
@@ -137,7 +145,7 @@ namespace Xtrim_ERP.objdb
             }
             return re;
         }
-        public String insertBilling(TaxDetail p, String userId)
+        public String insertTaxDetail(TaxDetail p, String userId)
         {
             String re = "";
 
@@ -151,7 +159,7 @@ namespace Xtrim_ERP.objdb
             }
             return re;
         }
-        public String voidBilling(String id)
+        public String voidTaxDetail(String id)
         {
             String re = "", sql = "";
             sql = "Update " + taxD.table + " Set " +
@@ -162,16 +170,16 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String updateBillingCover(String id, String coverid)
-        {
-            String re = "", sql = "";
-            sql = "Update " + taxD.table + " Set " +
-                " " + taxD.billing_cover_id + "='" + coverid + "' " +
-                "Where " + taxD.tax_detail_id + "='" + id + "'";
-            re = conn.ExecuteNonQuery(conn.conn, sql);
+        //public String updateBillingCover(String id, String coverid)
+        //{
+        //    String re = "", sql = "";
+        //    sql = "Update " + taxD.table + " Set " +
+        //        " " + taxD.billing_cover_id + "='" + coverid + "' " +
+        //        "Where " + taxD.tax_detail_id + "='" + id + "'";
+        //    re = conn.ExecuteNonQuery(conn.conn, sql);
 
-            return re;
-        }
+        //    return re;
+        //}
         public DataTable selectByCusId(String copId)
         {
             DataTable dt = new DataTable();
@@ -211,10 +219,10 @@ namespace Xtrim_ERP.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where bll." + taxD.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setBilling(dt);
+            cop1 = setTaxDetail(dt);
             return cop1;
         }
-        public TaxDetail setBilling(DataTable dt)
+        public TaxDetail setTaxDetail(DataTable dt)
         {
             TaxDetail bll1 = new TaxDetail();
             if (dt.Rows.Count > 0)
@@ -234,7 +242,8 @@ namespace Xtrim_ERP.objdb
                 bll1.remark = dt.Rows[0][taxD.remark].ToString();
                 bll1.amount = dt.Rows[0][taxD.amount].ToString();
                 bll1.item_name_t = dt.Rows[0][taxD.item_name_t].ToString();
-                bll1.billing_cover_id = dt.Rows[0][taxD.billing_cover_id].ToString();
+                bll1.rate1 = dt.Rows[0][taxD.rate1].ToString();
+                bll1.tax_date = dt.Rows[0][taxD.tax_date].ToString();
             }
             else
             {
@@ -253,7 +262,8 @@ namespace Xtrim_ERP.objdb
                 bll1.user_modi = "";
                 bll1.user_cancel = "";
                 bll1.item_name_t = "";
-                bll1.billing_cover_id = "";
+                bll1.rate1 = "";
+                bll1.tax_date = "";
             }
 
             return bll1;

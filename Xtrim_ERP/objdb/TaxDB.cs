@@ -373,47 +373,161 @@ namespace Xtrim_ERP.objdb
         }
         public Tax setTax(DataTable dt)
         {
-            Tax bll1 = new Tax();
+            Tax tax1 = new Tax();
             if (dt.Rows.Count > 0)
             {
-                bll1.tax_id = dt.Rows[0][tax.tax_id].ToString();
-                bll1.tax_code = dt.Rows[0][tax.tax_code].ToString();
-                bll1.tax_date = dt.Rows[0][tax.tax_date].ToString();
-                bll1.job_id = dt.Rows[0][tax.job_id].ToString();
-                bll1.active = dt.Rows[0][tax.active].ToString();
-                bll1.date_cancel = dt.Rows[0][tax.date_cancel].ToString();
-                bll1.date_create = dt.Rows[0][tax.date_create].ToString();
-                bll1.date_modi = dt.Rows[0][tax.date_modi].ToString();
-                bll1.user_cancel = dt.Rows[0][tax.user_cancel].ToString();
-                bll1.user_create = dt.Rows[0][tax.user_create].ToString();
-                bll1.user_modi = dt.Rows[0][tax.user_modi].ToString();
-                bll1.job_code = dt.Rows[0][tax.job_code].ToString();
-                bll1.remark = dt.Rows[0][tax.remark].ToString();
-                bll1.expenses_pay_detail_id = dt.Rows[0][tax.expenses_pay_detail_id].ToString();
-                bll1.cust_id = dt.Rows[0][tax.cust_id].ToString();
-                bll1.year_id = dt.Rows[0][tax.year_id].ToString();
+                tax1.tax_id = dt.Rows[0][tax.tax_id].ToString();
+                tax1.tax_code = dt.Rows[0][tax.tax_code].ToString();
+                tax1.tax_date = dt.Rows[0][tax.tax_date].ToString();
+                tax1.job_id = dt.Rows[0][tax.job_id].ToString();
+                tax1.job_code = dt.Rows[0][tax.job_code].ToString();
+                tax1.expenses_pay_detail_id = dt.Rows[0][tax.expenses_pay_detail_id].ToString();
+                tax1.active = dt.Rows[0][tax.active].ToString();
+                tax1.remark = dt.Rows[0][tax.remark].ToString();
+                tax1.date_create = dt.Rows[0][tax.date_create].ToString();
+                tax1.date_modi = dt.Rows[0][tax.date_modi].ToString();
+                tax1.date_cancel = dt.Rows[0][tax.date_cancel].ToString();
+                tax1.user_create = dt.Rows[0][tax.user_create].ToString();
+                tax1.user_modi = dt.Rows[0][tax.user_modi].ToString();
+                tax1.user_cancel = dt.Rows[0][tax.user_cancel].ToString();
+                tax1.cust_id = dt.Rows[0][tax.cust_id].ToString();
+                tax1.year_id = dt.Rows[0][tax.year_id].ToString();
+
+                tax1.cust_name_t = dt.Rows[0][tax.cust_name_t].ToString();
+                tax1.cust_addr = dt.Rows[0][tax.cust_addr].ToString();
+                tax1.cust_tele = dt.Rows[0][tax.cust_tele].ToString();
+                tax1.agent_id = dt.Rows[0][tax.agent_id].ToString();
+                tax1.agent_name_t = dt.Rows[0][tax.agent_name_t].ToString();
+                tax1.agent_addr = dt.Rows[0][tax.agent_addr].ToString();
+                tax1.agent_tele = dt.Rows[0][tax.agent_tele].ToString();
+                tax1.payer_id = dt.Rows[0][tax.payer_id].ToString();
+                tax1.payer_name_t = dt.Rows[0][tax.payer_name_t].ToString();
+                tax1.payer_addr = dt.Rows[0][tax.payer_addr].ToString();
+
+                tax1.payer_tele = dt.Rows[0][tax.payer_tele].ToString();
+                tax1.status_tax_type = dt.Rows[0][tax.status_tax_type].ToString();
+                tax1.row_no = dt.Rows[0][tax.row_no].ToString();
+                tax1.status_payer = dt.Rows[0][tax.status_payer].ToString();
+                tax1.payer_other = dt.Rows[0][tax.payer_other].ToString();
+                tax1.status_tax_normal = dt.Rows[0][tax.status_tax_normal].ToString();
+                tax1.tax_add_no = dt.Rows[0][tax.tax_add_no].ToString();
+                tax1.ref1 = dt.Rows[0][tax.ref1].ToString();
+                tax1.line1_date = dt.Rows[0][tax.line1_date].ToString();
+                tax1.line1_amount = dt.Rows[0][tax.line1_amount].ToString();
+
+                tax1.line1_tax = dt.Rows[0][tax.line1_tax].ToString();
+                tax1.line2_date = dt.Rows[0][tax.line2_date].ToString();
+                tax1.line2_amount = dt.Rows[0][tax.line2_amount].ToString();
+                tax1.line2_tax = dt.Rows[0][tax.line2_tax].ToString();
+                tax1.line3_date = dt.Rows[0][tax.line3_date].ToString();
+                tax1.line3_amount = dt.Rows[0][tax.line3_amount].ToString();
+                tax1.line3_tax = dt.Rows[0][tax.line3_tax].ToString();
+                tax1.line41_date = dt.Rows[0][tax.line41_date].ToString();
+                tax1.line41_amount = dt.Rows[0][tax.line41_amount].ToString();
+                tax1.line41_tax = dt.Rows[0][tax.line41_tax].ToString();
+
+                tax1.line41_text = dt.Rows[0][tax.line41_text].ToString();
+                tax1.line421_date = dt.Rows[0][tax.line421_date].ToString();
+                tax1.line421_amount = dt.Rows[0][tax.line421_amount].ToString();
+                tax1.line421_tax = dt.Rows[0][tax.line421_tax].ToString();
+                tax1.line421_text = dt.Rows[0][tax.line421_text].ToString();
+                tax1.line422_date = dt.Rows[0][tax.line422_date].ToString();
+                tax1.line422_amount = dt.Rows[0][tax.line422_amount].ToString();
+                tax1.line422_tax = dt.Rows[0][tax.line422_tax].ToString();
+                tax1.line422_text = dt.Rows[0][tax.line422_text].ToString();
+                tax1.line423_date = dt.Rows[0][tax.line423_date].ToString();
+
+                tax1.line423_amount = dt.Rows[0][tax.line423_amount].ToString();
+                tax1.line423_tax = dt.Rows[0][tax.line423_tax].ToString();
+                tax1.line423_text = dt.Rows[0][tax.line423_text].ToString();
+                tax1.line5_date = dt.Rows[0][tax.line5_date].ToString();
+                tax1.line5_amount = dt.Rows[0][tax.line5_amount].ToString();
+                tax1.line5_tax = dt.Rows[0][tax.line5_tax].ToString();
+                tax1.line5_text = dt.Rows[0][tax.line5_text].ToString();
+                tax1.line6_date = dt.Rows[0][tax.line6_date].ToString();
+                tax1.line6_amount = dt.Rows[0][tax.line6_amount].ToString();
+                tax1.line6_tax = dt.Rows[0][tax.line6_tax].ToString();
+                tax1.line6_text = dt.Rows[0][tax.line6_text].ToString();
+                tax1.status_page = dt.Rows[0][tax.status_page].ToString();
             }
             else
             {
-                bll1.tax_id = "";
-                bll1.tax_code = "";
-                bll1.tax_date = "";
-                bll1.job_id = "";
-                bll1.job_code = "";
-                bll1.expenses_pay_detail_id = "";
-                bll1.active = "";
-                bll1.remark = "";
-                bll1.date_create = "";
-                bll1.date_modi = "";
-                bll1.date_cancel = "";
-                bll1.user_create = "";
-                bll1.user_modi = "";
-                bll1.user_cancel = "";
-                bll1.cust_id = "";
-                bll1.year_id = "";
+                tax1.tax_id = "";
+                tax1.tax_code = "";
+                tax1.tax_date = "";
+                tax1.job_id = "";
+                tax1.job_code = "";
+                tax1.expenses_pay_detail_id = "";
+                tax1.active = "";
+                tax1.remark = "";
+                tax1.date_create = "";
+                tax1.date_modi = "";
+                tax1.date_cancel = "";
+                tax1.user_create = "";
+                tax1.user_modi = "";
+                tax1.user_cancel = "";
+                tax1.cust_id = "";
+                tax1.year_id = "";
+
+                tax1.cust_name_t = "";
+                tax1.cust_addr = "";
+                tax1.cust_tele = "";
+                tax1.agent_id = "";
+                tax1.agent_name_t = "";
+                tax1.agent_addr = "";
+                tax1.agent_tele = "";
+                tax1.payer_id = "";
+                tax1.payer_name_t = "";
+                tax1.payer_addr = "";
+
+                tax1.payer_tele = "";
+                tax1.status_tax_type = "";
+                tax1.row_no = "";
+                tax1.status_payer = "";
+                tax1.payer_other = "";
+                tax1.status_tax_normal = "";
+                tax1.tax_add_no = "";
+                tax1.ref1 = "";
+                tax1.line1_date = "";
+                tax1.line1_amount = "";
+
+                tax1.line1_tax = "";
+                tax1.line2_date = "";
+                tax1.line2_amount = "";
+                tax1.line2_tax = "";
+                tax1.line3_date = "";
+                tax1.line3_amount = "";
+                tax1.line3_tax = "";
+                tax1.line41_date = "";
+                tax1.line41_amount = "";
+                tax1.line41_tax = "";
+
+                tax1.line41_text = "";
+                tax1.line421_date = "";
+                tax1.line421_amount = "";
+                tax1.line421_tax = "";
+                tax1.line421_text = "";
+                tax1.line422_date = "";
+                tax1.line422_amount = "";
+                tax1.line422_tax = "";
+                tax1.line422_text = "";
+                tax1.line423_date = "";
+
+                tax1.line423_amount = "";
+                tax1.line423_tax = "";
+                tax1.line423_text = "";
+                tax1.line5_date = "";
+                tax1.line5_amount = "";
+                tax1.line5_tax = "";
+                tax1.line5_text = "";
+                tax1.line6_date = "";
+                tax1.line6_amount = "";
+                tax1.line6_tax = "";
+                tax1.line6_text = "";
+                tax1.status_page = "";
             }
 
-            return bll1;
+            return tax1;
         }
     }
 }

@@ -227,6 +227,18 @@
     <Compile Include="gui\FrmDebtor.Designer.cs">
       <DependentUpon>FrmDebtor.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmDebtorAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmDebtorAdd.Designer.cs">
+      <DependentUpon>FrmDebtorAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmDebtorDeduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmDebtorDeduct.Designer.cs">
+      <DependentUpon>FrmDebtorDeduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -857,6 +869,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmDebtor.resx">
       <DependentUpon>FrmDebtor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmDebtorAdd.resx">
+      <DependentUpon>FrmDebtorAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmDebtorDeduct.resx">
+      <DependentUpon>FrmDebtorDeduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmDepartment1.resx">
       <DependentUpon>FrmDepartment1.cs</DependentUpon>
