@@ -65,7 +65,7 @@ namespace Xtrim_ERP.gui
 
             xC.xtDB.itmtDB.setC1CboItemsT(cboItmT, "");
             xC.xtDB.fmtpDB.setC1CboMtp(cboFMtp, "");
-            xC.xtDB.taxDB.setC1CboItem(cboTax);
+            xC.xtDB.btaxDB.setC1CboItem(cboTax);
 
             initGrfDept();
             setGrfDeptH();
@@ -221,9 +221,8 @@ namespace Xtrim_ERP.gui
             String deptId = "";
             deptId = grfItmtS[e.NewRange.r1, colID] != null ? grfItmtS[e.NewRange.r1, colID].ToString() : "";
             setControl(deptId);
-            setControlEnable(false);
-            //setControlAddr(addrId);
-            //setControlAddrEnable(false);
+            flagEdit = false;
+            setControlEnable(flagEdit);
         }
         private void TxtPasswordVoid_KeyUp(object sender, KeyEventArgs e)
         {
@@ -281,7 +280,8 @@ namespace Xtrim_ERP.gui
             txtRemark.Value = "";
             chkVoid.Checked = false;
             btnVoid.Hide();
-            setControlEnable(true);
+            flagEdit = true;
+            setControlEnable(flagEdit);
         }
 
         private void FrmExpenseType_Load(object sender, EventArgs e)

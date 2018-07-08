@@ -69,7 +69,7 @@ namespace Xtrim_ERP.gui
             xC.xtDB.itmgDB.setC1CboExpnG(cboItmG, "");
             xC.xtDB.fmtpDB.setC1CboMtp(cboFMtp, "");
             xC.xtDB.utpDB.setC1CboUtp(cboUtp, "");
-            xC.xtDB.taxDB.setC1CboItem(cboTax);
+            xC.xtDB.btaxDB.setC1CboItem(cboTax);
             initGrfDept();
             setGrfDeptH();
             setControlEnable(false);

@@ -63,7 +63,7 @@
             this.c1CheckBox4 = new C1.Win.C1Input.C1CheckBox();
             this.chkContainerYard = new C1.Win.C1Input.C1CheckBox();
             this.chkPlaceAddr = new C1.Win.C1Input.C1CheckBox();
-            this.c1CheckBox1 = new C1.Win.C1Input.C1CheckBox();
+            this.chkTax = new C1.Win.C1Input.C1CheckBox();
             this.chkAddrDefaultCus = new C1.Win.C1Input.C1CheckBox();
             this.chkVoid = new C1.Win.C1Input.C1CheckBox();
             this.btnEdit = new C1.Win.C1Input.C1Button();
@@ -132,7 +132,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkContainerYard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkPlaceAddr)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkTax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkAddrDefaultCus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
@@ -200,7 +200,7 @@
             this.panel1.Controls.Add(this.c1CheckBox4);
             this.panel1.Controls.Add(this.chkContainerYard);
             this.panel1.Controls.Add(this.chkPlaceAddr);
-            this.panel1.Controls.Add(this.c1CheckBox1);
+            this.panel1.Controls.Add(this.chkTax);
             this.panel1.Controls.Add(this.chkAddrDefaultCus);
             this.panel1.Controls.Add(this.chkVoid);
             this.panel1.Controls.Add(this.btnEdit);
@@ -701,23 +701,23 @@
             this.chkPlaceAddr.Value = null;
             this.chkPlaceAddr.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1CheckBox1
+            // chkTax
             // 
-            this.c1CheckBox1.BackColor = System.Drawing.Color.Transparent;
-            this.c1CheckBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.c1CheckBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.c1CheckBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.c1CheckBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1CheckBox1.Location = new System.Drawing.Point(295, 477);
-            this.c1CheckBox1.Name = "c1CheckBox1";
-            this.c1CheckBox1.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
-            this.c1CheckBox1.Size = new System.Drawing.Size(155, 24);
-            this.c1CheckBox1.TabIndex = 27;
-            this.c1CheckBox1.Text = "ใช่เป็นที่อยู่ ออกใบกำกับภาษี";
-            this.theme1.SetTheme(this.c1CheckBox1, "(default)");
-            this.c1CheckBox1.UseVisualStyleBackColor = true;
-            this.c1CheckBox1.Value = null;
-            this.c1CheckBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.chkTax.BackColor = System.Drawing.Color.Transparent;
+            this.chkTax.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkTax.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkTax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkTax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkTax.Location = new System.Drawing.Point(295, 477);
+            this.chkTax.Name = "chkTax";
+            this.chkTax.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkTax.Size = new System.Drawing.Size(155, 24);
+            this.chkTax.TabIndex = 27;
+            this.chkTax.Text = "ใช่เป็นที่อยู่ ออกใบกำกับภาษี";
+            this.theme1.SetTheme(this.chkTax, "(default)");
+            this.chkTax.UseVisualStyleBackColor = true;
+            this.chkTax.Value = null;
+            this.chkTax.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // chkAddrDefaultCus
             // 
@@ -1325,7 +1325,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkContainerYard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkPlaceAddr)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1CheckBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkTax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkAddrDefaultCus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
@@ -1404,7 +1404,7 @@
         private C1.Win.C1Input.C1Button btnVoid;
         private C1.Win.C1Input.C1CheckBox chkVoid;
         private C1.Win.C1Input.C1CheckBox chkAddrDefaultCus;
-        private C1.Win.C1Input.C1CheckBox c1CheckBox1;
+        private C1.Win.C1Input.C1CheckBox chkTax;
         private C1.Win.C1Input.C1CheckBox c1CheckBox4;
         private C1.Win.C1Input.C1CheckBox chkContainerYard;
         private C1.Win.C1Input.C1CheckBox chkPlaceAddr;

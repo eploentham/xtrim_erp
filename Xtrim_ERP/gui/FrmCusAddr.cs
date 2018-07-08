@@ -343,6 +343,7 @@ namespace Xtrim_ERP.gui
             chkVoid.Enabled = flag;
             chkContainerYard.Enabled = flag;
             chkPlaceAddr.Enabled = flag;
+            chkTax.Enabled = flag;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
         private void setControl()
@@ -382,6 +383,7 @@ namespace Xtrim_ERP.gui
             txtTimeOpenOverTime.Value = addr.time_open_close_over_time;
             chkPlaceAddr.Checked = addr.status_place_addr.Equals("1") ? true : false;
             chkContainerYard.Checked = addr.status_container_yard.Equals("1") ? true : false;
+            chkTax.Checked = addr.status_tax.Equals("1") ? true : false;
         }
         private void setAddress()
         {
@@ -436,6 +438,7 @@ namespace Xtrim_ERP.gui
             addr.rate_over_time = txtRateOverTime.Text;
             addr.status_container_yard = chkContainerYard.Checked ? "1" : "0";
             addr.status_place_addr = chkPlaceAddr.Checked ? "1" : "0";
+            addr.status_tax = chkTax.Checked ? "1" : "0";
         }
         private void ChkVoid_Click(object sender, EventArgs e)
         {

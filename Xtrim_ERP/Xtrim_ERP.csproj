@@ -497,11 +497,11 @@
     <Compile Include="gui\FrmStaff.Designer.cs">
       <DependentUpon>FrmStaff.cs</DependentUpon>
     </Compile>
-    <Compile Include="gui\FrmTax.cs">
+    <Compile Include="gui\FrmBTax.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gui\FrmTax.Designer.cs">
-      <DependentUpon>FrmTax.cs</DependentUpon>
+    <Compile Include="gui\FrmBTax.Designer.cs">
+      <DependentUpon>FrmBTax.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\Login.cs">
       <SubType>Form</SubType>
@@ -594,6 +594,8 @@
     <Compile Include="objdb\PaymentDB.cs" />
     <Compile Include="objdb\ReceiptDB.cs" />
     <Compile Include="objdb\ReceiptDetailDB.cs" />
+    <Compile Include="objdb\TaxDB.cs" />
+    <Compile Include="objdb\TaxDetailDB.cs" />
     <Compile Include="object1\BillingCover.cs" />
     <Compile Include="object1\FTaxType.cs" />
     <Compile Include="object1\PaymentDetail.cs" />
@@ -602,7 +604,7 @@
     <Compile Include="objdb\PrefixDB.cs" />
     <Compile Include="objdb\PrivilegeDB.cs" />
     <Compile Include="objdb\ReservePayDB.cs" />
-    <Compile Include="objdb\TaxDB.cs" />
+    <Compile Include="objdb\BTaxDB.cs" />
     <Compile Include="objdb\TermPaymentDB.cs" />
     <Compile Include="objdb\ConsigneeDB.cs" />
     <Compile Include="objdb\ContactDB.cs" />
@@ -676,7 +678,9 @@
     <Compile Include="object1\ReceiptDetail.cs" />
     <Compile Include="object1\ReservePay.cs" />
     <Compile Include="object1\StringSOAP.cs" />
+    <Compile Include="object1\BTax.cs" />
     <Compile Include="object1\Tax.cs" />
+    <Compile Include="object1\TaxDetail.cs" />
     <Compile Include="object1\TermPayment.cs" />
     <Compile Include="object1\Consignee.cs" />
     <Compile Include="object1\Contact.cs" />
@@ -989,8 +993,8 @@
     <EmbeddedResource Include="gui\FrmStaff.resx">
       <DependentUpon>FrmStaff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gui\FrmTax.resx">
-      <DependentUpon>FrmTax.cs</DependentUpon>
+    <EmbeddedResource Include="gui\FrmBTax.resx">
+      <DependentUpon>FrmBTax.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

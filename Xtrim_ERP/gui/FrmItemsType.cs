@@ -183,9 +183,8 @@ namespace Xtrim_ERP.gui
             String deptId = "";
             deptId = grfItemT[e.NewRange.r1, colID] != null ? grfItemT[e.NewRange.r1, colID].ToString() : "";
             setControl(deptId);
-            setControlEnable(false);
-            //setControlAddr(addrId);
-            //setControlAddrEnable(false);
+            flagEdit = true;
+            setControlEnable(flagEdit);
         }
         private void TxtPasswordVoid_KeyUp(object sender, KeyEventArgs e)
         {
@@ -243,7 +242,8 @@ namespace Xtrim_ERP.gui
             txtRemark.Value = "";
             chkVoid.Checked = false;
             btnVoid.Hide();
-            setControlEnable(true);
+            flagEdit = true;
+            setControlEnable(flagEdit);
         }
         private void FrmItemsType_Load(object sender, EventArgs e)
         {

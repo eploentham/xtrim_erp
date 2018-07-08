@@ -76,6 +76,7 @@ namespace Xtrim_ERP.objdb
             addr.map_pic_path = "map_pic_path";
             addr.status_container_yard = "status_container_yard";
             addr.status_place_addr = "status_place_addr";
+            addr.status_tax = "status_tax";
 
             addr.table = "b_address";
             addr.pkField = "address_id";
@@ -222,6 +223,7 @@ namespace Xtrim_ERP.objdb
             p.map_pic_path = p.map_pic_path == null ? "" : p.map_pic_path;
             p.status_place_addr = p.status_place_addr == null ? "0" : p.status_place_addr;
             p.status_container_yard = p.status_container_yard == null ? "0" : p.status_container_yard;
+            p.status_tax = p.status_tax == null ? "0" : p.status_tax;
 
             p.amphur_id = int.TryParse(p.amphur_id, out chk) ? chk.ToString() : "0";
             p.district_id = int.TryParse(p.district_id, out chk) ? chk.ToString() : "0";
@@ -255,7 +257,8 @@ namespace Xtrim_ERP.objdb
                 addr.google_map + "," + addr.status_defalut_customer + ", " + addr.remark2 + ", " +
                 addr.time_open_close + "," + addr.time_open_close_over_time + ", " + addr.contact_id2 + ", " +
                 addr.web_site3 + "," + addr.over_time + ", " + addr.rate_over_time + ", " +
-                addr.map_pic_path + ", " + addr.status_container_yard + ", " + addr.status_place_addr + " " +
+                addr.map_pic_path + ", " + addr.status_container_yard + ", " + addr.status_place_addr + "," + 
+                addr.status_tax + ", " +
                 ") " +
                 "Values ('" + p.address_code + "','" + p.line_t1.Replace("'", "''") + "','" + p.line_t2.Replace("'", "''") + "'," +
                 "'" + p.line_t3 + "','" + p.line_t4.Replace("'", "''") + "','" + p.line_e1.Replace("'", "''") + "'," +
@@ -272,7 +275,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.google_map + "','" + p.status_defalut_customer + "','" + p.remark2.Replace("'", "''") + "', " +
                 "'" + p.time_open_close + "','" + p.time_open_close_over_time + "','" + p.contact_id2.Replace("'", "''") + "'," +
                 "'" + p.web_site3 + "','" + p.over_time + "','" + p.rate_over_time.Replace("'", "''") + "'," +
-                "'" + p.map_pic_path + "','"+ p.status_container_yard + "','" + p.status_place_addr + "' " +
+                "'" + p.map_pic_path + "','"+ p.status_container_yard + "','" + p.status_place_addr + "'," +
+                "'" + p.status_tax + "' " +
                 ")";
             try
             {
@@ -335,6 +339,7 @@ namespace Xtrim_ERP.objdb
                 "," + addr.map_pic_path + " = '" + p.map_pic_path + "' " +
                 "," + addr.status_place_addr + " = '" + p.status_place_addr + "' " +
                 "," + addr.status_container_yard + " = '" + p.status_container_yard + "' " +
+                "," + addr.status_tax + " = '" + p.status_tax + "' " +
                 "Where " + addr.pkField + "='" + p.address_id + "'" ;
 
             try
@@ -476,6 +481,18 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
+        public Address selectStatusTaxByCusId1(String copId)
+        {
+            Address cop1 = new Address();
+            DataTable dt = new DataTable();
+            String sql = "select addr.address_id, addr.address_name, addr.line_t1, addr.line_t2, addr.line_t3, addr.line_t4, addr.email, addr.email2, addr.tele, addr.mobile, addr.remark, addr.remark2 " +
+                "From " + addr.table + " addr " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where addr." + addr.table_id + " ='" + copId + "' and addr." + addr.active + "='1' and "+addr.status_tax + "='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            cop1 = setAddress(dt);
+            return cop1;
+        }
         public Address selectByPk1(String copId)
         {
             Address cop1 = new Address();
@@ -554,6 +571,7 @@ namespace Xtrim_ERP.objdb
                 addr1.map_pic_path = dt.Rows[0][addr.map_pic_path].ToString();
                 addr1.status_container_yard = dt.Rows[0][addr.status_container_yard].ToString();
                 addr1.status_place_addr = dt.Rows[0][addr.status_place_addr].ToString();
+                addr1.status_tax = dt.Rows[0][addr.status_tax].ToString();
             }
 
             return addr1;

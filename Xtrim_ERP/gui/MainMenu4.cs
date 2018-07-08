@@ -72,7 +72,7 @@ namespace Xtrim_ERP.gui
         private void MenuTax_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmTax frm = new FrmTax(xC, this);
+            FrmBTax frm = new FrmBTax(xC, this);
             frm.FormBorderStyle = FormBorderStyle.None;
             AddNewTab(frm, menuPayment.Text + " ");
         }

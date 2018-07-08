@@ -29,7 +29,7 @@ namespace Xtrim_ERP.gui
         int colCID = 1, colCSubNameT = 2, colCMtp = 3, colCItmNameT = 4, colCDrawDate = 5, colCAmt = 6, colCBank=7, colCChequeNo=8, colChequeDate=9, colCChequepayname=10, colCpayID=11;
         int colBID = 1, colBNameT = 2, colBbranch=3, colBaccnumber=4, colBAmt = 5;
         int colPID = 1, colPNameT = 2, colPbranch = 3, colPaccnumber = 4, colPAmt = 5, colPchequeNo=6, colPchequeDate=7, colPchequePayName=8, colPstatuschequeaccPay=9;
-        C1FlexGrid grfView, grfChequeView, grfChequePre, grfChequeMake, grfChequeBnk, /*grfChequeView1,*/ grfChequePrn, grfCashView, grfCashPre, grfCashMake;
+        C1FlexGrid grfView, grfChequeView, grfChequePre, grfChequeMake, grfChequeBnk, grfTax, grfChequePrn, grfCashView, grfCashPre, grfCashMake;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
         C1SuperTooltip stt;
@@ -72,6 +72,9 @@ namespace Xtrim_ERP.gui
             chkAppvOk.Click += ChkAppvOk_Click;
             btnChequeSave.Click += BtnChequeSave_Click;
             tabCash.TabClick += TabCash_TabClick;
+            txtCusTaxNameT.KeyUp += TxtCusTaxNameT_KeyUp;
+            txtPayerTaxNameT.KeyUp += TxtCusTaxNameT_KeyUp;
+
 
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
@@ -97,11 +100,113 @@ namespace Xtrim_ERP.gui
             setGrfCashPre();
             initGrfCashMake();
             setGrfCashMake();
+            initGrfTax();
             tC1.SelectedTab = tabCheque;
+            tCCheque.SelectedTab = tabChequeView;
             theme1.SetTheme(tC1, "Office2010Black");
             theme1.SetTheme(tabCash1, "Office2010Blue");
+            theme1.SetTheme(panel28, "Office2010Green");
+            theme1.SetTheme(panel24, "Office2010Green");
+            theme1.SetTheme(groupBox1, "Office2010Green");
+            theme1.SetTheme(groupBox2, "Office2010Green");
+            theme1.SetTheme(groupBox3, "Office2010Green");
+            theme1.SetTheme(groupBox4, "Office2010Green");
+            foreach (Control con in panel24.Controls)
+            {
+                theme1.SetTheme(con, "Office2010Green");
+                if(con is GroupBox)
+                {
+                    foreach (Control con1 in con.Controls)
+                    {
+                        theme1.SetTheme(con1, "Office2010Green");
+                        if (con1 is Panel)
+                        {
+                            foreach (Control con2 in con1.Controls)
+                            {
+                                theme1.SetTheme(con2, "Office2010Green");
+                            }
+                        }
+                    }
+                }
+                else if (con is Panel)
+                {
+                    
+                }
+            }
+            //foreach (Control con in groupBox1.Controls)
+            //{
+            //    theme1.SetTheme(con, "Office2010Green");
+            //}
+            //foreach (Control con in groupBox2.Controls)
+            //{
+            //    theme1.SetTheme(con, "Office2010Green");
+            //}
+            //foreach (Control con in groupBox3.Controls)
+            //{
+            //    theme1.SetTheme(con, "Office2010Green");
+            //}
+            //foreach (Control con in groupBox4.Controls)
+            //{
+            //    theme1.SetTheme(con, "Office2010Green");
+            //}
         }
-        
+
+        private void TxtCusTaxNameT_KeyUp(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (e.KeyCode == Keys.F2)
+            {
+                if (sender.Equals(txtCusTaxNameT))
+                {
+                    //setKeyUpF2Cus();
+                    setKeyUpF2Cus();
+                    //setGrfJob(cusId);
+                }
+                else if (sender.Equals(txtPayerTaxNameT))
+                {
+                    setKeyUpF2Payer();
+                }
+            }
+        }
+        private void setKeyUpF2Cus()
+        {
+            Point pp = txtCusTaxNameT.Location;
+            pp.Y = pp.Y + 120 + 20;
+            pp.X = pp.X - 20 + panel4.Left;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Customer, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2Cus1(xC.sCus);
+        }
+        private void setKeyUpF2Payer()
+        {
+            Point pp = txtCusTaxNameT.Location;
+            pp.Y = pp.Y + 120 + 20;
+            pp.X = pp.X - 20 + panel4.Left;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Customer, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2Payer1(xC.sCus);
+        }
+        private void setKeyUpF2Cus1(Customer cus)
+        {
+            Company cop = new Company();
+            cop = xC.xtDB.copDB.selectByCode1("001");
+            txtCusTaxNameT.Value = cus.cust_name_t;
+            txtCusTaxId.Value = cus.cust_id;
+            txtAgentTaxId.Value = cop.comp_id;
+            txtAgentTaxNameT.Value = cop.comp_name_t;
+        }
+        private void setKeyUpF2Payer1(Customer cus)
+        {
+            Address addr = new Address();
+            addr = xC.xtDB.addrDB.selectStatusTaxByCusId1(cus.cust_id);
+            txtPayerTaxId.Value = cus.cust_id;
+            txtPayerTaxNameT.Value = cus.cust_name_t;
+            txtPayerTaxAddr.Value = addr.line_t1;
+            txtPayerTaxTele.Value = cus.tele;
+            txtPayerTaxTaxid.Value = cus.tax_id;
+        }
         private void TabCash_TabClick(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -523,6 +628,7 @@ namespace Xtrim_ERP.gui
             //rg1.Style = grfBank.Styles["date"];
             grfChequeBnk.Cols[colBID].Visible = false;
         }
+        
         private void initGrfChequePrn()
         {
             grfChequePrn = new C1FlexGrid();
@@ -729,6 +835,21 @@ namespace Xtrim_ERP.gui
             //rg1.Style = grfBank.Styles["date"];
             grfCashMake.Cols[colCID].Visible = false;
             grfCashMake.Cols[colCpayID].Visible = false;
+        }
+        private void initGrfTax()
+        {
+            grfTax = new C1FlexGrid();
+            grfTax.Font = fEdit;
+            grfTax.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfTax.Location = new System.Drawing.Point(0, 0);
+            //FilterRow fr = new FilterRow(grfView);            
+
+            panel28.Controls.Add(grfTax);
+            ContextMenu menuGw = new ContextMenu();
+            //menuGw.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Gw_Cancel));
+            grfTax.ContextMenu = menuGw;
+
+            theme1.SetTheme(grfTax, "Office2010Green");
         }
         private void ContextMenu_grfChequePrn_Print(object sender, System.EventArgs e)
         {
