@@ -82,5 +82,8 @@ namespace Xtrim_ERP.object1
 
         public String line6_text { get; set; }
         public String status_page { get; set; }
+        public String cust_tax_id { get; set; }
+        public String agent_tax_id { get; set; }
+        public String payer_tax_id { get; set; }
     }
 }

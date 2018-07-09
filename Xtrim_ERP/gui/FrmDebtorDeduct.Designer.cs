@@ -63,6 +63,7 @@
             this.Controls.Add(this.sB);
             this.Name = "FrmDebtorDeduct";
             this.Text = "FrmDebtorDeduct";
+            this.Load += new System.EventHandler(this.FrmDebtorDeduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();

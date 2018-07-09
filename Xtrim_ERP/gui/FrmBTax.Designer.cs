@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
-            this.sB = new System.Windows.Forms.StatusStrip();
-            this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cboFTax = new C1.Win.C1Input.C1ComboBox();
@@ -49,8 +47,11 @@
             this.txtCode = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.sB = new System.Windows.Forms.StatusStrip();
+            this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txtRate1 = new C1.Win.C1Input.C1TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
-            this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboFTax)).BeginInit();
@@ -64,27 +65,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).BeginInit();
+            this.sB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRate1)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
             // 
             this.theme1.Theme = "Office2013Red";
-            // 
-            // sB
-            // 
-            this.sB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sB1});
-            this.sB.Location = new System.Drawing.Point(0, 625);
-            this.sB.Name = "sB";
-            this.sB.Size = new System.Drawing.Size(1088, 22);
-            this.sB.TabIndex = 5;
-            this.sB.Text = "statusStrip1";
-            // 
-            // sB1
-            // 
-            this.sB1.Name = "sB1";
-            this.sB1.Size = new System.Drawing.Size(118, 17);
-            this.sB1.Text = "toolStripStatusLabel1";
             // 
             // panel1
             // 
@@ -102,6 +89,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel3.Controls.Add(this.txtRate1);
+            this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.cboFTax);
             this.panel3.Controls.Add(this.label36);
             this.panel3.Controls.Add(this.txtPasswordVoid);
@@ -351,19 +340,60 @@
             this.panel2.TabIndex = 0;
             this.theme1.SetTheme(this.panel2, "(default)");
             // 
-            // FrmTax
+            // sB
+            // 
+            this.sB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sB1});
+            this.sB.Location = new System.Drawing.Point(0, 625);
+            this.sB.Name = "sB";
+            this.sB.Size = new System.Drawing.Size(1088, 22);
+            this.sB.TabIndex = 5;
+            this.sB.Text = "statusStrip1";
+            // 
+            // sB1
+            // 
+            this.sB1.Name = "sB1";
+            this.sB1.Size = new System.Drawing.Size(118, 17);
+            this.sB1.Text = "toolStripStatusLabel1";
+            // 
+            // txtRate1
+            // 
+            this.txtRate1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRate1.DataType = typeof(decimal);
+            this.txtRate1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtRate1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtRate1.Location = new System.Drawing.Point(158, 116);
+            this.txtRate1.Name = "txtRate1";
+            this.txtRate1.Size = new System.Drawing.Size(133, 20);
+            this.txtRate1.TabIndex = 565;
+            this.txtRate1.Tag = null;
+            this.theme1.SetTheme(this.txtRate1, "(default)");
+            this.txtRate1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label4.Location = new System.Drawing.Point(26, 118);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 16);
+            this.label4.TabIndex = 564;
+            this.label4.Text = "อัตราภาษี :";
+            this.theme1.SetTheme(this.label4, "(default)");
+            // 
+            // FrmBTax
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1088, 647);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sB);
-            this.Name = "FrmTax";
+            this.Name = "FrmBTax";
             this.Text = "FrmTax";
             this.Load += new System.EventHandler(this.FrmBTax_Load);
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
-            this.sB.ResumeLayout(false);
-            this.sB.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -378,6 +408,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).EndInit();
+            this.sB.ResumeLayout(false);
+            this.sB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRate1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,5 +439,7 @@
         private C1.Win.C1Input.C1TextBox txtCode;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
+        private C1.Win.C1Input.C1TextBox txtRate1;
+        private System.Windows.Forms.Label label4;
     }
 }

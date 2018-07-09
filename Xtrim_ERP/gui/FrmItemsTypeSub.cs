@@ -176,6 +176,7 @@ namespace Xtrim_ERP.gui
             txtRemark.Value = itmtS.remark;
             xC.setC1Combo(cboItmT, itmtS.item_type_id);
             xC.setC1Combo(cboFMtp, itmtS.f_method_payment_id);
+            cboTax.SelectedIndex = 0;
             xC.setC1Combo(cboTax, itmtS.tax_id);
             chkItmEdit.Checked = itmtS.status_item_edit.Equals("1") ? true : false;
             chkInv.Checked = itmtS.status_invoice.Equals("1") ? true : false;

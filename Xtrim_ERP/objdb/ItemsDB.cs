@@ -329,6 +329,18 @@ namespace Xtrim_ERP.objdb
             cop1 = setItem(dt);
             return cop1;
         }
+        public Items selectByNameT1(String copId)
+        {
+            Items cop1 = new Items();
+            DataTable dt = new DataTable();
+            String sql = "select itm.* " +
+                "From " + itm.table + " itm " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where itm." + itm.item_name_t + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            cop1 = setItem(dt);
+            return cop1;
+        }
         public Items setItem(DataTable dt)
         {
             Items itm1 = new Items();

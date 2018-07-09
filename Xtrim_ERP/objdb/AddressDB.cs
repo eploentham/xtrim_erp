@@ -485,12 +485,33 @@ namespace Xtrim_ERP.objdb
         {
             Address cop1 = new Address();
             DataTable dt = new DataTable();
-            String sql = "select addr.address_id, addr.address_name, addr.line_t1, addr.line_t2, addr.line_t3, addr.line_t4, addr.email, addr.email2, addr.tele, addr.mobile, addr.remark, addr.remark2 " +
+            String sql = "select addr.address_id, addr.address_name, addr.line_t1, addr.line_t2, addr.line_t3, addr.line_t4, addr.email, addr.email2, addr.tele" +
+                ", addr.mobile, addr.remark, addr.remark2 " +
                 "From " + addr.table + " addr " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where addr." + addr.table_id + " ='" + copId + "' and addr." + addr.active + "='1' and "+addr.status_tax + "='1' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setAddress(dt);
+            //cop1 = setAddress(dt);
+            if (dt.Rows.Count > 0)
+            {
+                cop1.address_id = dt.Rows[0][addr.address_id].ToString();
+
+                cop1.line_t1 = dt.Rows[0][addr.line_t1].ToString();
+                cop1.line_t2 = dt.Rows[0][addr.line_t2].ToString();
+                cop1.line_t3 = dt.Rows[0][addr.line_t3].ToString();
+
+                cop1.line_t4 = dt.Rows[0][addr.line_t4].ToString();
+                cop1.line_e1 = dt.Rows[0][addr.address_name].ToString();
+
+                cop1.email = dt.Rows[0][addr.email].ToString();
+
+                cop1.email2 = dt.Rows[0][addr.email2].ToString();
+                cop1.tele = dt.Rows[0][addr.tele].ToString();
+                cop1.mobile = dt.Rows[0][addr.mobile].ToString();
+
+                cop1.remark = dt.Rows[0][addr.remark].ToString();
+
+            }
             return cop1;
         }
         public Address selectByPk1(String copId)

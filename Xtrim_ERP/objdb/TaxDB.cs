@@ -13,6 +13,7 @@ namespace Xtrim_ERP.objdb
         public Tax tax;
         ConnectDB conn;
         public List<Tax> lexpn;
+        public enum StatusPage {Tax, Cheque, Cash, Job };
         public TaxDB(ConnectDB c)
         {
             conn = c;
@@ -94,8 +95,10 @@ namespace Xtrim_ERP.objdb
             tax.line6_tax = "line6_tax";
             tax.line6_text = "line6_text";
             tax.status_page = "status_page";
-            //tax.year_id1 = "year_id";
-            
+            tax.cust_tax_id = "cust_tax_id";
+            tax.payer_tax_id = "payer_tax_id";
+            tax.agent_tax_id = "agent_tax_id";
+
             tax.table = "t_tax";
             tax.pkField = "tax_id";
 
@@ -161,7 +164,9 @@ namespace Xtrim_ERP.objdb
             p.line6_date = p.line6_date == null ? "" : p.line6_date;
             p.line6_text = p.line6_text == null ? "" : p.line6_text;
             p.status_page = p.status_page == null ? "" : p.status_page;
-            //p.year_id1 = p.year_id1 == null ? "" : p.year_id1;
+            p.payer_tax_id = p.payer_tax_id == null ? "" : p.payer_tax_id;
+            p.cust_tax_id = p.cust_tax_id == null ? "" : p.cust_tax_id;
+            p.agent_tax_id = p.agent_tax_id == null ? "" : p.agent_tax_id;
 
             p.cust_id = int.TryParse(p.cust_id, out chk) ? chk.ToString() : "0";
             p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
@@ -229,31 +234,33 @@ namespace Xtrim_ERP.objdb
                 tax.line423_text + "," + tax.line5_date + "," + tax.line5_amount + "," +
                 tax.line5_tax + "," + tax.line5_text + "," + tax.line6_date + "," +
                 tax.line6_amount + "," + tax.line6_tax + "," + tax.line6_text + "," +
-                tax.status_page + " " +
+                tax.status_page + "," +
+                tax.cust_tax_id + "," + tax.payer_tax_id + "," + tax.agent_tax_id + " " +
                 ") " +
                 "Values ('" + p.tax_date + "','" + p.tax_code + "','" + p.job_code + "'," +
                 "'" + p.active + "','" + p.remark + "','" + p.job_id + "', " +
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
-                "'" + p.expenses_pay_detail_id + "','" + p.cust_id + "','" + p.year_id + "','" +
-                "'" + p.cust_name_t + "','" + p.cust_addr + "','" + p.cust_tele + "','" +
-                "'" + p.agent_id + "','" + p.agent_name_t + "','" + p.agent_addr + "','" +
-                "'" + p.agent_tele + "','" + p.payer_id + "','" + p.payer_name_t + "','" +
-                "'" + p.payer_addr + "','" + p.payer_tele + "','" + p.status_tax_type + "','" +
-                "'" + p.row_no + "','" + p.status_payer + "','" + p.payer_other + "','" +
-                "'" + p.status_tax_normal + "','" + p.tax_add_no + "','" + p.ref1 + "','" +
-                "'" + p.line1_date + "','" + p.line1_amount + "','" + p.line1_tax + "','" +
-                "'" + p.line2_date + "','" + p.line2_amount + "','" + p.line2_tax + "','" +
-                "'" + p.line3_date + "','" + p.line3_amount + "','" + p.line3_tax + "','" +
-                "'" + p.line41_date + "','" + p.line41_amount + "','" + p.line41_tax + "','" +
-                "'" + p.line41_text + "','" + p.line421_date + "','" + p.line421_amount + "','" +
-                "'" + p.line421_tax + "','" + p.line421_text + "','" + p.line422_date + "','" +
-                "'" + p.line422_amount + "','" + p.line422_tax + "','" + p.line422_text + "','" +
-                "'" + p.line423_date + "','" + p.line423_amount + "','" + p.line423_tax + "','" +
-                "'" + p.line423_text + "','" + p.line5_date + "','" + p.line5_amount + "','" +
-                "'" + p.line5_tax + "','" + p.line5_text + "','" + p.line6_date + "','" +
-                "'" + p.line6_amount + "','" + p.line6_tax + "','" + p.line6_text + "','" +
-                "'" + p.status_page + "' " +
+                "'" + p.expenses_pay_detail_id + "','" + p.cust_id + "','" + p.year_id + "'," +
+                "'" + p.cust_name_t + "','" + p.cust_addr + "','" + p.cust_tele + "'," +
+                "'" + p.agent_id + "','" + p.agent_name_t + "','" + p.agent_addr + "'," +
+                "'" + p.agent_tele + "','" + p.payer_id + "','" + p.payer_name_t + "'," +
+                "'" + p.payer_addr + "','" + p.payer_tele + "','" + p.status_tax_type + "'," +
+                "'" + p.row_no + "','" + p.status_payer + "','" + p.payer_other + "'," +
+                "'" + p.status_tax_normal + "','" + p.tax_add_no + "','" + p.ref1 + "'," +
+                "'" + p.line1_date + "','" + p.line1_amount + "','" + p.line1_tax + "'," +
+                "'" + p.line2_date + "','" + p.line2_amount + "','" + p.line2_tax + "'," +
+                "'" + p.line3_date + "','" + p.line3_amount + "','" + p.line3_tax + "'," +
+                "'" + p.line41_date + "','" + p.line41_amount + "','" + p.line41_tax + "'," +
+                "'" + p.line41_text + "','" + p.line421_date + "','" + p.line421_amount + "'," +
+                "'" + p.line421_tax + "','" + p.line421_text + "','" + p.line422_date + "'," +
+                "'" + p.line422_amount + "','" + p.line422_tax + "','" + p.line422_text + "'," +
+                "'" + p.line423_date + "','" + p.line423_amount + "','" + p.line423_tax + "'," +
+                "'" + p.line423_text + "','" + p.line5_date + "','" + p.line5_amount + "'," +
+                "'" + p.line5_tax + "','" + p.line5_text + "','" + p.line6_date + "'," +
+                "'" + p.line6_amount + "','" + p.line6_tax + "','" + p.line6_text + "'," +
+                "'" + p.status_page + "'," +
+                "'" + p.cust_tax_id + "','" + p.payer_tax_id + "','" + p.agent_tax_id + "' " +
                 ")";
 
             try
@@ -449,6 +456,9 @@ namespace Xtrim_ERP.objdb
                 tax1.line6_tax = dt.Rows[0][tax.line6_tax].ToString();
                 tax1.line6_text = dt.Rows[0][tax.line6_text].ToString();
                 tax1.status_page = dt.Rows[0][tax.status_page].ToString();
+                tax1.cust_tax_id = dt.Rows[0][tax.cust_tax_id].ToString();
+                tax1.payer_tax_id = dt.Rows[0][tax.payer_tax_id].ToString();
+                tax1.agent_tax_id = dt.Rows[0][tax.agent_tax_id].ToString();
             }
             else
             {
@@ -525,6 +535,9 @@ namespace Xtrim_ERP.objdb
                 tax1.line6_tax = "";
                 tax1.line6_text = "";
                 tax1.status_page = "";
+                tax1.cust_tax_id = "";
+                tax1.agent_tax_id = "";
+                tax1.payer_tax_id = "";
             }
 
             return tax1;

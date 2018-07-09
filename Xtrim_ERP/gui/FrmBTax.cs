@@ -172,6 +172,7 @@ namespace Xtrim_ERP.gui
             txtCode.Value = tax.b_tax_code;
             txtNameT.Value = tax.b_tax_name_t;
             txtRemark.Value = tax.remark;
+            txtRate1.Value = tax.rate1;
             xC.setC1Combo(cboFTax, tax.f_tax_type_id);
         }
         private void setControlEnable(Boolean flag)
@@ -182,6 +183,7 @@ namespace Xtrim_ERP.gui
             txtRemark.Enabled = flag;
             chkVoid.Enabled = flag;
             cboFTax.Enabled = flag;
+            txtRate1.Enabled = flag;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
         private void setTax()
@@ -190,6 +192,7 @@ namespace Xtrim_ERP.gui
             tax.b_tax_code = txtCode.Text;
             tax.b_tax_name_t = txtNameT.Text;
             tax.remark = txtRemark.Text;
+            tax.rate1 = txtRate1.Text;
             tax.f_tax_type_id = cboFTax.SelectedItem != null ? ((ComboBoxItem)(cboFTax.SelectedItem)).Value : "";
         }
         private void TxtPasswordVoid_KeyUp(object sender, KeyEventArgs e)

@@ -40,7 +40,7 @@ namespace Xtrim_ERP.objdb
             btax.f_tax_type_id = "f_tax_type_id";
 
             btax.table = "b_tax";
-            btax.pkField = "tax_id";
+            btax.pkField = "b_tax_id";
 
             lexpn = new List<BTax>();
         }
@@ -170,10 +170,10 @@ namespace Xtrim_ERP.objdb
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
-            String sql = "select tax.*  " +
-                "From " + btax.table + " tax " +
+            String sql = "select btax.*  " +
+                "From " + btax.table + " btax " +
                 " " +
-                "Where tax." + btax.active + " ='1' ";
+                "Where btax." + btax.active + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -181,10 +181,10 @@ namespace Xtrim_ERP.objdb
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select tax.* " +
-                "From " + btax.table + " tax " +
+            String sql = "select btax.* " +
+                "From " + btax.table + " btax " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where tax." + btax.pkField + " ='" + copId + "' ";
+                "Where btax." + btax.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -192,10 +192,10 @@ namespace Xtrim_ERP.objdb
         {
             BTax cop1 = new BTax();
             DataTable dt = new DataTable();
-            String sql = "select tax.* " +
-                "From " + btax.table + " tax " +
+            String sql = "select btax.* " +
+                "From " + btax.table + " btax " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where tax." + btax.pkField + " ='" + copId + "' ";
+                "Where btax." + btax.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setBTax(dt);
             return cop1;

@@ -21,6 +21,7 @@ namespace Xtrim_ERP.gui
     {
         XtrimControl xC;
         ExpensesPay expnp;
+        Tax tax;
         Font fEdit, fEditB;
 
         Color bg, fc;
@@ -29,8 +30,8 @@ namespace Xtrim_ERP.gui
         int colCID = 1, colCSubNameT = 2, colCMtp = 3, colCItmNameT = 4, colCDrawDate = 5, colCAmt = 6, colCBank=7, colCChequeNo=8, colChequeDate=9, colCChequepayname=10, colCpayID=11;
         int colBID = 1, colBNameT = 2, colBbranch=3, colBaccnumber=4, colBAmt = 5;
         int colPID = 1, colPNameT = 2, colPbranch = 3, colPaccnumber = 4, colPAmt = 5, colPchequeNo=6, colPchequeDate=7, colPchequePayName=8, colPstatuschequeaccPay=9;
-        int colTID = 1, colTItemNameT = 2, colTtaxdate = 3, colTAmt = 4, colTtaxamt = 5, colTitemid = 6, colTbtaxid = 7;
-        C1FlexGrid grfView, grfChequeView, grfChequePre, grfChequeMake, grfChequeBnk, grfTax, grfChequePrn, grfCashView, grfCashPre, grfCashMake;
+        int colTID = 1, colTItemNameT = 2, colTtaxdate = 3, colTAmt = 4, colTtaxamt = 5, colTitemid = 6, colTbtaxid = 7, colTbtaxnamet = 8;
+        C1FlexGrid grfView, grfChequeView, grfChequePre, grfChequeMake, grfChequeBnk, grfTax, grfChequePrn, grfCashView, grfCashPre, grfCashMake, grfTaxView;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
         C1SuperTooltip stt;
@@ -53,8 +54,11 @@ namespace Xtrim_ERP.gui
             theme1.Theme = C1ThemeController.ApplicationTheme;
             theme1.SetTheme(sB, "BeigeOne");
             expnp = new ExpensesPay();
+            tax = new Tax();
             DateTime jobDate = DateTime.Now;
             txtDate.Value = jobDate.Year.ToString() + "-" + jobDate.ToString("MM-dd");
+            txtTaxDate.Value = jobDate.Year.ToString() + "-" + jobDate.ToString("MM-dd");
+            txtPayerTaxDate.Value = jobDate.Year.ToString() + "-" + jobDate.ToString("MM-dd");
 
             sB1.Text = "";
 
@@ -65,6 +69,7 @@ namespace Xtrim_ERP.gui
             btnCashDel.Click += BtnCashDel_Click;
             btnCashOk.Click += BtnCashOk_Click;
             btnCashSave.Click += BtnCashSave_Click;
+            btnTaxSave.Click += BtnTaxSave_Click;
 
             chkViewFmtp.Click += ChkViewFmtp_Click;
             chkViewDraw.Click += ChkViewDraw_Click;
@@ -75,14 +80,17 @@ namespace Xtrim_ERP.gui
             tabCash.TabClick += TabCash_TabClick;
             txtCusTaxNameT.KeyUp += TxtCusTaxNameT_KeyUp;
             txtPayerTaxNameT.KeyUp += TxtCusTaxNameT_KeyUp;
+            chkTax.Click += ChkTax_Click;
+            chkItem.Click += ChkItem_Click;
 
 
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
             stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
             chkViewDraw.Checked = true;
-
+            chkItem.Checked = true;
             chkViewAll.Checked = true;
+
             xC.setCboYear(cboYear);
             initGrfView();
             setGrfView();
@@ -151,6 +159,19 @@ namespace Xtrim_ERP.gui
             //{
             //    theme1.SetTheme(con, "Office2010Green");
             //}
+        }
+
+        private void ChkItem_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            grfTaxView.Hide();
+            grfTax.Show();
+        }
+
+        private void ChkTax_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            showGrfTaxView();
         }
 
         private void TxtCusTaxNameT_KeyUp(object sender, KeyEventArgs e)
@@ -844,13 +865,21 @@ namespace Xtrim_ERP.gui
             grfTax.Font = fEdit;
             grfTax.Dock = System.Windows.Forms.DockStyle.Fill;
             grfTax.Location = new System.Drawing.Point(0, 0);
+
+            grfTaxView = new C1FlexGrid();
+            grfTaxView.Font = fEdit;
+            grfTaxView.Dock = System.Windows.Forms.DockStyle.Fill;
+            grfTax.Location = new System.Drawing.Point(0, 0);
+
             //FilterRow fr = new FilterRow(grfView);            
-            grfTax.LeaveCell += GrfTax_LeaveCell;
+            //grfTax.LeaveCell += GrfTax_LeaveCell;
             grfTax.AfterEdit += GrfTax_AfterEdit;
             panel28.Controls.Add(grfTax);
+            panel28.Controls.Add(grfTaxView);
             ContextMenu menuGw = new ContextMenu();
             //menuGw.MenuItems.Add("&ยกเลิก", new EventHandler(ContextMenu_Gw_Cancel));
             grfTax.ContextMenu = menuGw;
+            grfTaxView.Hide();
 
             theme1.SetTheme(grfTax, "Office2010Green");
         }
@@ -863,12 +892,35 @@ namespace Xtrim_ERP.gui
                 Decimal amt = 0, amttax = 0,rate=3;
                 if (Decimal.TryParse(grfTax[e.Row, e.Col] != null ? grfTax[e.Row, e.Col].ToString() : "0", out amt))
                 {
+                    String item = "", bname="";
+                    item = grfTax[e.Row, colBNameT].ToString();
+                    Items itm = new Items();
+                    BTax btax = new BTax();
+                    itm = xC.xtDB.itmDB.selectByNameT1(item);
+                    if (!itm.tax_id.Equals(""))
+                    {
+                        btax = xC.xtDB.btaxDB.selectByPk1(itm.tax_id);
+                        bname = btax.b_tax_name_t;
+                        if (!Decimal.TryParse(btax.rate1, out rate))
+                        {
+                            MessageBox.Show("ไม่พบ อัตราภาษี", "Error");
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("ไม่พบ ข้อมูลภาษี", "Error");
+                        if (itm.tax_id.Equals("")) return;
+                    }
+
                     grfTax[e.Row, colTtaxamt] = (amt * (rate / 100));
+                    grfTax[e.Row, colTbtaxid] = itm.tax_id;
+                    grfTax[e.Row, colTbtaxnamet] = bname;
                     if (grfTax.Rows.Count == e.Row + 1)
                     {
                         if (grfTax[e.Row, colTItemNameT] != null) grfTax.Rows.Add();
-                    }                        
-                }                
+                    }
+                }
             }
         }
 
@@ -896,7 +948,7 @@ namespace Xtrim_ERP.gui
             DataTable dt = new DataTable();
             dt = xC.xtDB.expnpdDB.selectPrintCheque(expnpdid);
             grfTax.Clear();
-            grfTax.Cols.Count = 8;
+            grfTax.Cols.Count = 9;
             if (dt.Rows.Count > 0)
             {
                 grfTax.Rows.Count = dt.Rows.Count + 1;
@@ -961,6 +1013,46 @@ namespace Xtrim_ERP.gui
             grfTax.Cols[colPID].Visible = false;
             grfTax.Cols[colTitemid].Visible = false;
             grfTax.Cols[colTbtaxid].Visible = false;
+        }
+        private void setGrfTaxView()
+        {
+            CellStyle cs = grfTaxView.Styles.Add("date");
+            cs.DataType = typeof(DateTime);
+            cs.Format = "dd-MM-yyyy";
+
+            C1TextBox txt = new C1TextBox();
+            txt.DataType = txtCusTaxNameT.DataType;
+            C1TextBox txt1 = new C1TextBox();
+            txt1.DataType = txtAmt.DataType;
+            C1ComboBox cbo = new C1ComboBox();
+            xC.xtDB.itmDB.setC1CboItem(cbo);
+            C1TextBox txt2 = new C1TextBox();
+            txt2.DataType = txtTaxDate.DataType;
+            grfTaxView.Cols.Count = 9;
+            grfTaxView.Rows.Count = 1;
+
+            grfTaxView.Cols[colTItemNameT].Editor = txt;
+            grfTaxView.Cols[colTtaxdate].Editor = txt;
+            grfTaxView.Cols[colTAmt].Editor = txt;
+            grfTaxView.Cols[colTtaxamt].Editor = txt;
+
+            grfTaxView.Cols[colTItemNameT].Width = 240;
+            grfTaxView.Cols[colTtaxdate].Width = 100;
+            grfTaxView.Cols[colTAmt].Width = 100;
+            grfTaxView.Cols[colTtaxamt].Width = 100;
+
+            grfTaxView.ShowCursor = true;
+            //grdFlex.Cols[colID].Caption = "no";
+            //grfDept.Cols[colCode].Caption = "รหัส";
+
+            grfTaxView.Cols[colTItemNameT].Caption = "รายการ";
+            grfTaxView.Cols[colTtaxdate].Caption = "วันที่จ่ายเงิน";
+            grfTaxView.Cols[colTAmt].Caption = "ยอดเงินที่จ่าย";
+            grfTaxView.Cols[colTtaxamt].Caption = "ภาษีหัก ณ ที่จ่าย";
+            grfTaxView.Cols[colPID].Visible = false;
+            grfTaxView.Cols[colTitemid].Visible = false;
+            grfTaxView.Cols[colTbtaxid].Visible = false;
+            grfTaxView.Cols[colTbtaxnamet].Visible = false;
         }
         private void ContextMenu_grfChequePrn_Print(object sender, System.EventArgs e)
         {
@@ -1038,6 +1130,67 @@ namespace Xtrim_ERP.gui
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
             grfChequePrn.Cols[colPID].Visible = false;
+        }
+        private void showGrfTaxView()
+        {
+            grfTaxView.Clear();
+            setGrfTaxView();
+            foreach(Row row in grfTax.Rows)
+            {
+                String btaxid = "";
+                Boolean chk = false;
+                btaxid = row[colTbtaxid] != null ? row[colTbtaxid].ToString() : "";
+                if (btaxid.Equals("")) continue;
+                foreach (Row rowT in grfTaxView.Rows)
+                {
+                    String btaxidT = "";
+                    btaxidT = rowT[colTbtaxid] != null ? rowT[colTbtaxid].ToString() : "";
+                    if (btaxid.Equals(btaxidT))
+                    {
+                        chk = true;
+                    }
+                }
+                if (!chk)
+                {
+                    BTax btax = new BTax();
+                    btax = xC.xtDB.btaxDB.selectByPk1(btaxid);
+                    Row rowA = grfTaxView.Rows.Add();
+                    rowA[colTItemNameT] = btax.b_tax_name_t;
+                    rowA[colTtaxdate] = row[colTtaxdate];
+                    rowA[colTbtaxid] = row[colTbtaxid];
+                    //rowA[colTAmt] = btax.b_tax_name_t;
+                }
+            }
+            foreach (Row rowT in grfTaxView.Rows)
+            {
+                String btaxidT = "";
+                Boolean chk = false;
+                btaxidT = rowT[colTbtaxid] != null ? rowT[colTbtaxid].ToString() : "";
+                if (btaxidT.Equals("")) continue;
+                Decimal amt = 0, tax=0;
+                foreach (Row row in grfTax.Rows)
+                {
+                    String btaxid = "";
+                    Decimal amt1 = 0, tax1=0;
+                    btaxid = row[colTbtaxid] != null ? row[colTbtaxid].ToString() : "";
+                    if (btaxid.Equals(btaxidT))
+                    {
+                        rowT[colTtaxdate] = row[colTtaxdate];
+                        if (Decimal.TryParse(row[colTAmt] != null ? row[colTAmt].ToString() : "0", out amt1))
+                        {
+                            amt += amt1;
+                        }
+                        if (Decimal.TryParse(row[colTtaxamt] != null ? row[colTtaxamt].ToString() : "0", out tax1))
+                        {
+                            tax += tax1;
+                        }
+                    }
+                }
+                rowT[colTAmt] = amt;
+                rowT[colTtaxamt] = tax;
+            }
+            grfTaxView.Show();
+            grfTax.Hide();
         }
         private void BtnCashAdd_Click(object sender, EventArgs e)
         {
@@ -1165,6 +1318,131 @@ namespace Xtrim_ERP.gui
                 grfChequeMake[row, colCDrawDate] = grfChequePre[row, colCDrawDate];
                 grfChequeMake[row, colCAmt] = grfChequePre[row, colCAmt];
                 grfChequeMake[row, colCChequepayname] = dd.pay_to_cus_name_t;
+            }
+        }
+        private Boolean setTax()
+        {
+            Boolean chk = true;
+            String re = "";
+
+            Customer cus = new Customer();
+            Address addr = new Address();
+            Customer agent = new Customer();
+            Address agentaddr = new Address();
+            Customer payer = new Customer();
+            Address payeraddr = new Address();
+
+            tax.tax_id = "";
+            tax.tax_code = xC.xtDB.copDB.genTaxDoc();
+            tax.tax_date = xC.datetoDB(txtTaxDate.Text);
+            tax.job_id = "";
+            tax.job_code = "";
+            tax.expenses_pay_detail_id = "";
+            tax.active = "1";
+            tax.remark = "";
+            tax.date_create = "";
+            tax.date_modi = "";
+            tax.date_cancel = "";
+            tax.user_create = "";
+            tax.user_modi = "";
+            tax.user_cancel = "";
+            tax.cust_id = txtCusTaxId.Text;
+            cus = xC.xtDB.cusDB.selectByPk1(tax.cust_id);
+            addr = xC.xtDB.addrDB.selectStatusTaxByCusId1(cus.cust_id);
+            tax.year_id = "";
+
+            tax.cust_name_t = txtCusTaxNameT.Text;
+            tax.cust_addr = addr.line_t1;
+            tax.cust_tele = cus.tele;
+            tax.cust_tax_id = cus.tax_id;
+
+            tax.agent_id = txtAgentTaxId.Text;
+            agent = xC.xtDB.cusDB.selectByPk1(tax.agent_id);
+            agentaddr = xC.xtDB.addrDB.selectStatusTaxByCusId1(agent.cust_id);
+            tax.agent_name_t = txtAgentTaxNameT.Text;
+            tax.agent_addr = agentaddr.line_t1;
+            tax.agent_tele = agent.tele;
+            tax.agent_tax_id = agent.tax_id;
+
+            tax.payer_id = txtPayerTaxId.Text;
+            payer = xC.xtDB.cusDB.selectByPk1(tax.agent_id);
+            payeraddr = xC.xtDB.addrDB.selectStatusTaxByCusId1(payer.cust_id);
+            tax.payer_name_t = txtPayerTaxNameT.Text;
+            tax.payer_addr = payeraddr.line_t1;
+            tax.payer_tax_id = payer.tax_id;
+
+            tax.payer_tele = payer.tele;
+
+            tax.status_tax_type = chkTax3.Checked ? "1" : chkTax53.Checked ? "2" : chkTax1.Checked ? "3" : "0";
+            if (tax.status_tax_type.Equals("0"))
+            {
+                MessageBox.Show("ไม่พบ แบบยื่นภาษี", "error");
+            }
+            tax.row_no = txtRowNo.Text;
+            tax.status_payer = chkStatusTax1.Checked ? "1" : chkStatusTax2.Checked ? "2" : chkStatusTax3.Checked ? "3" : chkStatusTax4.Checked ? "4" : "0";
+            if (tax.status_payer.Equals("0"))
+            {
+                MessageBox.Show("ไม่พบ ผู้จ่ายเงิน", "error");
+            }
+            tax.payer_other = txtPayerOther.Text;
+            tax.status_tax_normal = chkStatusTaxNormal.Checked ? "1" : chkStatusTaxAdd.Checked ? "2" : "0";
+            if (tax.status_tax_normal.Equals("0"))
+            {
+                MessageBox.Show("ไม่พบ แบบยื่นภาษี กรณี", "error");
+            }
+            tax.tax_add_no = txtStatusTaxAdd.Text;
+            tax.ref1 = txtReceiptDoc.Text;
+            tax.line1_date = "";
+            tax.line1_amount = "";
+
+            tax.line1_tax = "";
+            tax.line2_date = "";
+            tax.line2_amount = "";
+            tax.line2_tax = "";
+            tax.line3_date = "";
+            tax.line3_amount = "";
+            tax.line3_tax = "";
+            tax.line41_date = "";
+            tax.line41_amount = "";
+            tax.line41_tax = "";
+
+            tax.line41_text = "";
+            tax.line421_date = "";
+            tax.line421_amount = "";
+            tax.line421_tax = "";
+            tax.line421_text = "";
+            tax.line422_date = "";
+            tax.line422_amount = "";
+            tax.line422_tax = "";
+            tax.line422_text = "";
+            tax.line423_date = "";
+
+            tax.line423_amount = "";
+            tax.line423_tax = "";
+            tax.line423_text = "";
+            tax.line5_date = "";
+            tax.line5_amount = "";
+            tax.line5_tax = "";
+            tax.line5_text = "";
+            tax.line6_date = "";
+            tax.line6_amount = "";
+            tax.line6_tax = "";
+            tax.line6_text = "";
+            tax.status_page = "1";
+            return chk;
+        }
+        private void BtnTaxSave_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                setTax();
+                String re = xC.xtDB.taxDB.insertTax(tax, xC.user.staff_id);
+                int chk = 0, chkD = 0;
+                if (int.TryParse(re, out chk))
+                {
+                    btnChequeSave.Image = Resources.accept_database24;
+                }
             }
         }
         private void BtnChequeSave_Click(object sender, EventArgs e)

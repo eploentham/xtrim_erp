@@ -67,6 +67,24 @@ namespace Xtrim_ERP.gui
             menuDebtor.Click += MenuDebtor_Click;
             menuPayment.Click += MenuPayment_Click;
             menuTax.Click += MenuTax_Click;
+            menuBillingPlus.Click += MenuBillingPlus_Click;
+            menuBillingMinus.Click += MenuBillingMinus_Click;
+        }
+
+        private void MenuBillingMinus_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmDebtorView frm = new FrmDebtorView(xC, this, FrmDebtorView.flagForm2.DebtorMinus);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, menuPayment.Text + " ");
+        }
+
+        private void MenuBillingPlus_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmDebtorView frm = new FrmDebtorView(xC, this, FrmDebtorView.flagForm2.DebtorAdd);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, menuPayment.Text + " ");
         }
 
         private void MenuTax_Click(object sender, EventArgs e)
@@ -74,7 +92,7 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             FrmBTax frm = new FrmBTax(xC, this);
             frm.FormBorderStyle = FormBorderStyle.None;
-            AddNewTab(frm, menuPayment.Text + " ");
+            AddNewTab(frm, menuTax.Text + " ");
         }
 
         private void MenuPayment_Click(object sender, EventArgs e)
@@ -433,7 +451,7 @@ namespace Xtrim_ERP.gui
                     menuInit.Enabled = true;
                 }
             }
-            this.Text = "Last Update 2018-07-07";
+            this.Text = "Last Update 2018-07-09";
         }
     }
 }

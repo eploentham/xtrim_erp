@@ -201,6 +201,7 @@ namespace Xtrim_ERP.gui
             xC.setC1Combo(cboItmts, itm.item_type_sub_id);
             xC.setC1Combo(cboFMtp, itm.f_method_payment_id);
             xC.setC1Combo(cboUtp, itm.unit_id);
+            cboTax.SelectedIndex = 0;
             xC.setC1Combo(cboTax, itm.tax_id);
 
             txtAccCode.Value = itm.acc_code;

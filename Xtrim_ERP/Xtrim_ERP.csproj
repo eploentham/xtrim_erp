@@ -239,6 +239,12 @@
     <Compile Include="gui\FrmDebtorDeduct.Designer.cs">
       <DependentUpon>FrmDebtorDeduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmDebtorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmDebtorView.Designer.cs">
+      <DependentUpon>FrmDebtorView.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -875,6 +881,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmDebtorDeduct.resx">
       <DependentUpon>FrmDebtorDeduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmDebtorView.resx">
+      <DependentUpon>FrmDebtorView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmDepartment1.resx">
       <DependentUpon>FrmDepartment1.cs</DependentUpon>

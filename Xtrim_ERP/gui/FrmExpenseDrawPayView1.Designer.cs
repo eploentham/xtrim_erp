@@ -90,6 +90,7 @@
             this.panel25 = new System.Windows.Forms.Panel();
             this.tabTax = new C1.Win.C1Command.C1DockingTabPage();
             this.panel24 = new System.Windows.Forms.Panel();
+            this.txtAmt = new C1.Win.C1Input.C1TextBox();
             this.btnBNew = new C1.Win.C1Input.C1Button();
             this.panel31 = new System.Windows.Forms.Panel();
             this.chkTax = new System.Windows.Forms.RadioButton();
@@ -97,7 +98,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txtTaxCode = new C1.Win.C1Input.C1TextBox();
             this.btnPrn = new C1.Win.C1Input.C1Button();
-            this.btnSave = new C1.Win.C1Input.C1Button();
+            this.btnTaxSave = new C1.Win.C1Input.C1Button();
             this.btnNew = new C1.Win.C1Input.C1Button();
             this.txtAgentTaxId = new C1.Win.C1Input.C1TextBox();
             this.txtCusTaxId = new C1.Win.C1Input.C1TextBox();
@@ -161,7 +162,6 @@
             this.label36 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtAmt = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tC1)).BeginInit();
@@ -213,11 +213,12 @@
             this.tabCashTax.SuspendLayout();
             this.tabTax.SuspendLayout();
             this.panel24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBNew)).BeginInit();
             this.panel31.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTaxCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnTaxSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAgentTaxId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCusTaxId)).BeginInit();
@@ -253,7 +254,6 @@
             this.panel20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboYear)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAmt)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -1066,7 +1066,7 @@
             this.panel24.Controls.Add(this.label16);
             this.panel24.Controls.Add(this.txtTaxCode);
             this.panel24.Controls.Add(this.btnPrn);
-            this.panel24.Controls.Add(this.btnSave);
+            this.panel24.Controls.Add(this.btnTaxSave);
             this.panel24.Controls.Add(this.btnNew);
             this.panel24.Controls.Add(this.txtAgentTaxId);
             this.panel24.Controls.Add(this.txtCusTaxId);
@@ -1096,6 +1096,27 @@
             this.panel24.Size = new System.Drawing.Size(985, 702);
             this.panel24.TabIndex = 0;
             this.theme1.SetTheme(this.panel24, "(default)");
+            // 
+            // txtAmt
+            // 
+            this.txtAmt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAmt.DataType = typeof(decimal);
+            this.txtAmt.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtAmt.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtAmt.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
+            this.txtAmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtAmt.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtAmt.Location = new System.Drawing.Point(487, 188);
+            this.txtAmt.Name = "txtAmt";
+            this.txtAmt.Size = new System.Drawing.Size(36, 24);
+            this.txtAmt.TabIndex = 529;
+            this.txtAmt.Tag = null;
+            this.theme1.SetTheme(this.txtAmt, "(default)");
+            this.txtAmt.Visible = false;
+            this.txtAmt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // btnBNew
             // 
@@ -1133,10 +1154,10 @@
             this.chkTax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.chkTax.Location = new System.Drawing.Point(125, 5);
             this.chkTax.Name = "chkTax";
-            this.chkTax.Size = new System.Drawing.Size(85, 17);
+            this.chkTax.Size = new System.Drawing.Size(73, 17);
             this.chkTax.TabIndex = 496;
             this.chkTax.TabStop = true;
-            this.chkTax.Text = "ดึงข้อมูล ภาษี";
+            this.chkTax.Text = "ข้อมูล ภาษี";
             this.theme1.SetTheme(this.chkTax, "(default)");
             this.chkTax.UseVisualStyleBackColor = false;
             // 
@@ -1150,10 +1171,10 @@
             this.chkItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.chkItem.Location = new System.Drawing.Point(13, 5);
             this.chkItem.Name = "chkItem";
-            this.chkItem.Size = new System.Drawing.Size(101, 17);
+            this.chkItem.Size = new System.Drawing.Size(89, 17);
             this.chkItem.TabIndex = 495;
             this.chkItem.TabStop = true;
-            this.chkItem.Text = "ดึงข้อมูล รายการ";
+            this.chkItem.Text = "ข้อมูล รายการ";
             this.theme1.SetTheme(this.chkItem, "(default)");
             this.chkItem.UseVisualStyleBackColor = false;
             // 
@@ -1197,19 +1218,19 @@
             this.btnPrn.UseVisualStyleBackColor = true;
             this.btnPrn.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // btnSave
+            // btnTaxSave
             // 
-            this.btnSave.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(667, 191);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(68, 34);
-            this.btnSave.TabIndex = 523;
-            this.btnSave.Text = "บันทึก";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnSave, "(default)");
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnTaxSave.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
+            this.btnTaxSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTaxSave.Location = new System.Drawing.Point(667, 191);
+            this.btnTaxSave.Name = "btnTaxSave";
+            this.btnTaxSave.Size = new System.Drawing.Size(68, 34);
+            this.btnTaxSave.TabIndex = 523;
+            this.btnTaxSave.Text = "บันทึก";
+            this.btnTaxSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnTaxSave, "(default)");
+            this.btnTaxSave.UseVisualStyleBackColor = true;
+            this.btnTaxSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // btnNew
             // 
@@ -1729,6 +1750,8 @@
             this.groupBox1.Controls.Add(this.txtPayerTaxTaxid);
             this.groupBox1.Controls.Add(this.txtPayerTaxTele);
             this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.groupBox1.Location = new System.Drawing.Point(7, 61);
             this.groupBox1.Name = "groupBox1";
@@ -2165,27 +2188,6 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // txtAmt
-            // 
-            this.txtAmt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAmt.DataType = typeof(decimal);
-            this.txtAmt.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtAmt.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
-            this.txtAmt.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
-            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
-            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
-            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.txtAmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtAmt.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
-            this.txtAmt.Location = new System.Drawing.Point(487, 188);
-            this.txtAmt.Name = "txtAmt";
-            this.txtAmt.Size = new System.Drawing.Size(36, 24);
-            this.txtAmt.TabIndex = 529;
-            this.txtAmt.Tag = null;
-            this.theme1.SetTheme(this.txtAmt, "(default)");
-            this.txtAmt.Visible = false;
-            this.txtAmt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmExpenseDrawPayView1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2250,12 +2252,13 @@
             this.tabTax.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBNew)).EndInit();
             this.panel31.ResumeLayout(false);
             this.panel31.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTaxCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnTaxSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAgentTaxId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCusTaxId)).EndInit();
@@ -2298,7 +2301,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboYear)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAmt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2431,7 +2433,7 @@
         private C1.Win.C1Input.C1TextBox txtCusTaxId;
         private C1.Win.C1Input.C1TextBox txtPayerTaxId;
         private C1.Win.C1Input.C1Button btnNew;
-        private C1.Win.C1Input.C1Button btnSave;
+        private C1.Win.C1Input.C1Button btnTaxSave;
         private C1.Win.C1Input.C1Button btnPrn;
         private System.Windows.Forms.Label label16;
         private C1.Win.C1Input.C1TextBox txtTaxCode;
