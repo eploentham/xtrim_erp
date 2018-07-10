@@ -190,6 +190,18 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
+        public Billing selectByBillCode1(String copId)
+        {
+            Billing cop1 = new Billing();
+            DataTable dt = new DataTable();
+            String sql = "select bll.* " +
+                "From " + bll.table + " bll " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where bll." + bll.billing_code + " ='" + copId + "' and " + bll.active + "='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            cop1 = setBilling(dt);
+            return cop1;
+        }
         public DataTable selectByPk(String copId)
         {
             DataTable dt = new DataTable();

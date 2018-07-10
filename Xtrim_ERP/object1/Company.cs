@@ -57,5 +57,12 @@ namespace Xtrim_ERP.object1
         public String receipt_doc { get; set; }
         public String billing_cover_doc { get; set; }
         public String tax_doc { get; set; }
+        public String month_curr { get; set; }
+        public String prefix_cash_draw_doc { get; set; }
+        public String prefix_billing_doc { get; set; }
+        public String prefix_receipt_doc { get; set; }
+        public String prefix_billing_cover_doc { get; set; }
+        public String prefix_tax_doc { get; set; }
+        //public String tax_doc { get; set; }
     }
 }

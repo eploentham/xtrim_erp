@@ -555,6 +555,25 @@ INSERT INTO `xtrim_erp`.`f_tax_type` (`f_tax_type_code`, `f_tax_type_name_t`) VA
 ALTER TABLE `xtrim_erp`.`f_tax_type` 
 CHARACTER SET = utf8 ;
 
+61-07-09
+ALTER TABLE `xtrim_erp`.`b_company` 
+ADD COLUMN `month_curr` VARCHAR(255) NULL AFTER `tax_doc`;
+
+ALTER TABLE `xtrim_erp`.`b_company` 
+ADD COLUMN `prefix_cash_draw_doc` VARCHAR(255) NULL AFTER `month_curr`,
+ADD COLUMN `prefix_billing_doc` VARCHAR(255) NULL AFTER `prefix_cash_draw_doc`,
+ADD COLUMN `prefix_receipt_doc` VARCHAR(255) NULL AFTER `prefix_billing_doc`,
+ADD COLUMN `prefix_billing_cover_doc` VARCHAR(255) NULL AFTER `prefix_receipt_doc`,
+ADD COLUMN `prefix_tax_doc` VARCHAR(255) NULL AFTER `prefix_billing_cover_doc`;
+
+ALTER TABLE `xtrim_erp`.`t_billing` 
+CHANGE COLUMN `cust_ip` `cust_id` INT(11) NULL DEFAULT NULL ;
+
+ALTER TABLE `xtrim_erp`.`t_billing` 
+ADD COLUMN `billing_cover_id` INT NULL AFTER `cust_id`;
+
+
+
 
 
 select  itmts.item_type_sub_name_t, mtp.method_payment_name_t, sum(edd.amount) as amt

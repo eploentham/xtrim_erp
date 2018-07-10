@@ -52,8 +52,10 @@ namespace Xtrim_ERP.gui
             theme1.SetTheme(sB, "BeigeOne");
 
             //btnNew.Click += BtnNew_Click;
-            txtCusNameT.KeyUp += TxtCusNameT1_KeyUp;
+            txtCusNameT.KeyUp += TxtCusNameT_KeyUp;
             txtBllCode.KeyUp += TxtBllCode_KeyUp;
+            btnBNew.Click += BtnBNew_Click;
+            
             //btnCashOk.Click += BtnCashOk_Click;
             //btnBNew.Click += BtnBNew_Click;
             //btnBSave.Click += BtnBSave_Click;
@@ -86,12 +88,36 @@ namespace Xtrim_ERP.gui
             //setGrfDeptH();
         }
 
-        private void TxtBllCode_KeyUp(object sender, KeyEventArgs e)
+        private void BtnBNew_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-
+            FrmExpenseDrawD frm = new FrmExpenseDrawD(xC, "", "", "", "", "");
+            frm.ShowDialog(this);
+            setRowGrfAdd(xC.sItm);
+            calAmtGrfBill();
         }
+        private void calAmtGrfBill()
+        {
+            Decimal amtE = 0, amtI = 0;
+            foreach (Row rowB in grfBill.Rows)
+            {
+                Decimal amt = 0, amt1 = 0;
 
+                if (rowB[colExpn] != null)
+                {
+                    Decimal.TryParse(rowB[colExpn].ToString(), out amt);
+                    amtE += amt;
+                }
+                if (rowB[colimcome] != null)
+                {
+                    Decimal.TryParse(rowB[colimcome].ToString(), out amt1);
+                    amtI += amt1;
+                }
+            }
+            //txtAmt.Value = amtE;
+            //txtBIamt.Value = amtI;
+            //txtBInettotal.Value = amtI + (amtI * (Decimal.Parse(txtBIvat.Value.ToString()) / 100));
+        }
         private void initGrfBill()
         {
             grfBill = new C1FlexGrid();
@@ -142,6 +168,60 @@ namespace Xtrim_ERP.gui
             grfAdd.Cols[colID].Visible = false;
             grfAdd.Cols[colItemId].Visible = false;
         }
+        private void setGrfBill(String bllId)
+        {
+            grfBill.Clear();
+            DataTable dt = new DataTable();
+            dt = xC.xtDB.blldDB.selectByBllId(bllId);
+            //grfChequeView1.DataSource = dt;
+            grfBill.Cols.Count = 6;
+            grfBill.Rows.Count = dt.Rows.Count + 1;
+            TextBox txt = new TextBox();
+
+            grfBill.Cols[colItemNameT].Editor = txt;
+            grfBill.Cols[colExpn].Editor = txt;
+            grfBill.Cols[colimcome].Editor = txt;
+
+            grfBill.Cols[colItemNameT].Width = 240;
+            grfBill.Cols[colExpn].Width = 80;
+            grfBill.Cols[colimcome].Width = 80;
+
+            grfBill.ShowCursor = true;
+            grfBill.Cols[colItemNameT].Caption = "รายการ";
+            grfBill.Cols[colExpn].Caption = "ค่าใช้จ่าย";
+            grfBill.Cols[colimcome].Caption = "รายได้";
+            Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
+            for (int i = 0; i < dt.Rows.Count - 1; i++)
+            {
+                grfBill[i + 1, 0] = i + 1;
+                if (i % 2 == 0)
+                    grfBill.Rows[i + 1].StyleNew.BackColor = color;
+                grfBill[i + 1, colID] = dt.Rows[i][xC.xtDB.blldDB.blld.billing_detail_id].ToString();
+                grfBill[i + 1, colItemNameT] = dt.Rows[i][xC.xtDB.blldDB.blld.item_name_t].ToString();
+                grfBill[i + 1, colExpn] = dt.Rows[i][xC.xtDB.blldDB.blld.amount_draw].ToString();
+                grfBill[i + 1, colimcome] = dt.Rows[i][xC.xtDB.blldDB.blld.amount_income].ToString();
+                grfBill[i + 1, colItemId] = dt.Rows[i][xC.xtDB.blldDB.blld.item_id].ToString();
+            }
+            grfBill.Cols[colID].Visible = false;
+            grfBill.Cols[colItemId].Visible = false;
+        }
+        private void setRowGrfAdd(Items itm)
+        {
+            if (itm.item_name_t == null) return;
+            Row rowB = grfAdd.Rows.Add();
+            rowB[colID] = "";
+            rowB[colItemId] = itm.item_id;
+            rowB[colItemNameT] = itm.item_name_t;
+            //rowB[colBexpnddId] = itm.cust_id;
+            if (itm.item_group_id.Equals("1540000001"))
+            {
+                rowB[colExpn] = itm.amt;
+            }
+            else if (itm.item_group_id.Equals("1540000000"))
+            {
+                rowB[colimcome] = itm.amt;
+            }
+        }
         private void setKeyUpF2Cus()
         {
             Point pp = txtCusNameT.Location;
@@ -158,7 +238,7 @@ namespace Xtrim_ERP.gui
             txtCusNameT.Value = this.cus.cust_name_t;
             cusId = this.cus.cust_id;
         }
-        private void TxtCusNameT1_KeyUp(object sender, KeyEventArgs e)
+        private void TxtCusNameT_KeyUp(object sender, KeyEventArgs e)
         {
             //throw new NotImplementedException();
             if (e.KeyCode == Keys.F2)
@@ -169,6 +249,21 @@ namespace Xtrim_ERP.gui
                     setKeyUpF2Cus();
                     //setGrfJob(cusId);
                 }
+            }
+        }
+        private void TxtBllCode_KeyUp(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (e.KeyCode == Keys.F2)
+            {
+
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                bll = xC.xtDB.bllDB.selectByBillCode1(txtBllCode.Text);
+                txtBllID.Value = bll.billing_id;
+                txtJobCode.Value = xC.FixJobCode + bll.job_code;
+                setGrfBill(bll.billing_id);
             }
         }
         private void FrmDebtorAdd_Load(object sender, EventArgs e)

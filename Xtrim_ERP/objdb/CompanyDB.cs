@@ -77,6 +77,12 @@ namespace Xtrim_ERP.objdb
             cop.receipt_doc = "receipt_doc";
             cop.billing_cover_doc = "billing_cover_doc";
             cop.tax_doc = "tax_doc";
+            cop.month_curr = "month_curr";
+            cop.prefix_cash_draw_doc = "prefix_cash_draw_doc";
+            cop.prefix_billing_doc = "prefix_billing_doc";
+            cop.prefix_receipt_doc = "prefix_receipt_doc";
+            cop.prefix_billing_cover_doc = "prefix_billing_cover_doc";
+            cop.prefix_tax_doc = "prefix_tax_doc";
 
             cop.table = "b_company";
             cop.pkField = "comp_id";
@@ -109,7 +115,12 @@ namespace Xtrim_ERP.objdb
             p.addr2 = p.addr2 == null ? "" : p.addr2;
             p.amphur_id = p.amphur_id == null ? "" : p.amphur_id;
             p.district_id = p.district_id == null ? "" : p.district_id;
-            p.province_id = p.province_id == null ? "" : p.province_id;
+            p.month_curr = p.month_curr == null ? "" : p.month_curr;
+            p.prefix_cash_draw_doc = p.prefix_cash_draw_doc == null ? "" : p.prefix_cash_draw_doc;
+            p.prefix_billing_doc = p.prefix_billing_doc == null ? "" : p.prefix_billing_doc;
+            p.prefix_receipt_doc = p.prefix_receipt_doc == null ? "" : p.prefix_receipt_doc;
+            p.prefix_billing_cover_doc = p.prefix_billing_cover_doc == null ? "" : p.prefix_billing_cover_doc;
+            p.prefix_tax_doc = p.prefix_tax_doc == null ? "" : p.prefix_tax_doc;
 
             p.amount_reserve = Decimal.TryParse(p.amount_reserve, out chk1) ? chk1.ToString() : "0";
             p.billing_doc = int.TryParse(p.billing_doc, out chk) ? chk.ToString() : "0";
@@ -545,6 +556,12 @@ namespace Xtrim_ERP.objdb
                 cop1.receipt_doc = dt.Rows[0][cop.receipt_doc].ToString();
                 cop1.billing_cover_doc = dt.Rows[0][cop.billing_cover_doc].ToString();
                 cop1.tax_doc = dt.Rows[0][cop.tax_doc].ToString();
+                cop1.month_curr = dt.Rows[0][cop.month_curr].ToString();
+                cop1.prefix_cash_draw_doc = dt.Rows[0][cop.prefix_cash_draw_doc].ToString();
+                cop1.prefix_billing_doc = dt.Rows[0][cop.prefix_billing_doc].ToString();
+                cop1.prefix_receipt_doc = dt.Rows[0][cop.prefix_receipt_doc].ToString();
+                cop1.prefix_billing_cover_doc = dt.Rows[0][cop.prefix_billing_cover_doc].ToString();
+                cop1.prefix_tax_doc = dt.Rows[0][cop.prefix_tax_doc].ToString();
             }
             else
             {
@@ -605,6 +622,12 @@ namespace Xtrim_ERP.objdb
                 cop1.receipt_doc = "";
                 cop1.billing_cover_doc = "";
                 cop1.tax_doc = "";
+                cop1.month_curr = "";
+                cop1.prefix_cash_draw_doc = "";
+                cop1.prefix_billing_doc = "";
+                cop1.prefix_receipt_doc = "";
+                cop1.prefix_billing_cover_doc = "";
+                cop1.prefix_tax_doc = "";
             }
 
             return cop1;
