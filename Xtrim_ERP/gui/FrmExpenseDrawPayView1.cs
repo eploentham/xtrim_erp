@@ -30,7 +30,7 @@ namespace Xtrim_ERP.gui
         int colCID = 1, colCSubNameT = 2, colCMtp = 3, colCItmNameT = 4, colCDrawDate = 5, colCAmt = 6, colCBank=7, colCChequeNo=8, colChequeDate=9, colCChequepayname=10, colCpayID=11;
         int colBID = 1, colBNameT = 2, colBbranch=3, colBaccnumber=4, colBAmt = 5;
         int colPID = 1, colPNameT = 2, colPbranch = 3, colPaccnumber = 4, colPAmt = 5, colPchequeNo=6, colPchequeDate=7, colPchequePayName=8, colPstatuschequeaccPay=9;
-        int colTID = 1, colTItemNameT = 2, colTtaxdate = 3, colTAmt = 4, colTtaxamt = 5, colTitemid = 6, colTbtaxid = 7, colTbtaxnamet = 8;
+        int colTID = 1, colTItemNameT = 2, colTtaxdate = 3, colTAmt = 4, colTtaxamt = 5, colTitemid = 6, colTbtaxid = 7, colTbtaxnamet = 8, colTftaxid=9;
         C1FlexGrid grfView, grfChequeView, grfChequePre, grfChequeMake, grfChequeBnk, grfTax, grfChequePrn, grfCashView, grfCashPre, grfCashMake, grfTaxView;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
@@ -70,6 +70,7 @@ namespace Xtrim_ERP.gui
             btnCashOk.Click += BtnCashOk_Click;
             btnCashSave.Click += BtnCashSave_Click;
             btnTaxSave.Click += BtnTaxSave_Click;
+            btnTaxPrn.Click += BtnTaxPrn_Click;
 
             chkViewFmtp.Click += ChkViewFmtp_Click;
             chkViewDraw.Click += ChkViewDraw_Click;
@@ -160,7 +161,7 @@ namespace Xtrim_ERP.gui
             //    theme1.SetTheme(con, "Office2010Green");
             //}
         }
-
+        
         private void ChkItem_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -948,7 +949,7 @@ namespace Xtrim_ERP.gui
             DataTable dt = new DataTable();
             dt = xC.xtDB.expnpdDB.selectPrintCheque(expnpdid);
             grfTax.Clear();
-            grfTax.Cols.Count = 9;
+            grfTax.Cols.Count = 10;
             if (dt.Rows.Count > 0)
             {
                 grfTax.Rows.Count = dt.Rows.Count + 1;
@@ -1013,6 +1014,7 @@ namespace Xtrim_ERP.gui
             grfTax.Cols[colPID].Visible = false;
             grfTax.Cols[colTitemid].Visible = false;
             grfTax.Cols[colTbtaxid].Visible = false;
+            grfTax.Cols[colTftaxid].Visible = false;
         }
         private void setGrfTaxView()
         {
@@ -1028,7 +1030,7 @@ namespace Xtrim_ERP.gui
             xC.xtDB.itmDB.setC1CboItem(cbo);
             C1TextBox txt2 = new C1TextBox();
             txt2.DataType = txtTaxDate.DataType;
-            grfTaxView.Cols.Count = 9;
+            grfTaxView.Cols.Count = 10;
             grfTaxView.Rows.Count = 1;
 
             grfTaxView.Cols[colTItemNameT].Editor = txt;
@@ -1053,6 +1055,7 @@ namespace Xtrim_ERP.gui
             grfTaxView.Cols[colTitemid].Visible = false;
             grfTaxView.Cols[colTbtaxid].Visible = false;
             grfTaxView.Cols[colTbtaxnamet].Visible = false;
+            grfTaxView.Cols[colTftaxid].Visible = false;
         }
         private void ContextMenu_grfChequePrn_Print(object sender, System.EventArgs e)
         {
@@ -1158,7 +1161,7 @@ namespace Xtrim_ERP.gui
                     rowA[colTItemNameT] = btax.b_tax_name_t;
                     rowA[colTtaxdate] = row[colTtaxdate];
                     rowA[colTbtaxid] = row[colTbtaxid];
-                    //rowA[colTAmt] = btax.b_tax_name_t;
+                    rowA[colTftaxid] = btax.f_tax_type_id;
                 }
             }
             foreach (Row rowT in grfTaxView.Rows)
@@ -1332,8 +1335,11 @@ namespace Xtrim_ERP.gui
             Customer payer = new Customer();
             Address payeraddr = new Address();
 
+            showGrfTaxView();
+
             tax.tax_id = "";
             tax.tax_code = xC.xtDB.copDB.genTaxDoc();
+            txtTaxCode.Value = tax.tax_code;
             tax.tax_date = xC.datetoDB(txtTaxDate.Text);
             tax.job_id = "";
             tax.job_code = "";
@@ -1392,44 +1398,86 @@ namespace Xtrim_ERP.gui
             }
             tax.tax_add_no = txtStatusTaxAdd.Text;
             tax.ref1 = txtReceiptDoc.Text;
-            tax.line1_date = "";
-            tax.line1_amount = "";
 
-            tax.line1_tax = "";
-            tax.line2_date = "";
-            tax.line2_amount = "";
-            tax.line2_tax = "";
-            tax.line3_date = "";
-            tax.line3_amount = "";
-            tax.line3_tax = "";
-            tax.line41_date = "";
-            tax.line41_amount = "";
-            tax.line41_tax = "";
+            foreach(Row row in grfTax.Rows)
+            {
+                String ftaxid = "";
+                ftaxid = row[colTftaxid] != null ? row[colTftaxid].ToString() : "";
+                if (ftaxid.Equals("1700000000"))
+                {
+                    tax.line1_date = row[colTtaxdate] != null ? row[colTtaxdate].ToString() : "";
+                    tax.line1_amount = row[colTAmt] != null ? row[colTAmt].ToString() : "";
+                    tax.line1_tax = row[colTtaxamt] != null ? row[colTtaxamt].ToString() : "";
+                }
+                else if (ftaxid.Equals("1700000001"))
+                {
+                    tax.line2_date = row[colTtaxdate] != null ? row[colTtaxdate].ToString() : "";
+                    tax.line2_amount = row[colTAmt] != null ? row[colTAmt].ToString() : "";
+                    tax.line2_tax = row[colTtaxamt] != null ? row[colTtaxamt].ToString() : "";
+                }
+                else if (ftaxid.Equals("1700000002"))
+                {
+                    tax.line3_date = row[colTtaxdate] != null ? row[colTtaxdate].ToString() : "";
+                    tax.line3_amount = row[colTAmt] != null ? row[colTAmt].ToString() : "";
+                    tax.line3_tax = row[colTtaxamt] != null ? row[colTtaxamt].ToString() : "";
+                }
+                else if (ftaxid.Equals("1700000003"))
+                {
+                    tax.line41_date = row[colTtaxdate] != null ? row[colTtaxdate].ToString() : "";
+                    tax.line41_amount = row[colTAmt] != null ? row[colTAmt].ToString() : "";
+                    tax.line41_tax = row[colTtaxamt] != null ? row[colTtaxamt].ToString() : "";
+                    tax.line41_text = row[colTItemNameT] != null ? row[colTItemNameT].ToString() : "";
 
-            tax.line41_text = "";
-            tax.line421_date = "";
-            tax.line421_amount = "";
-            tax.line421_tax = "";
-            tax.line421_text = "";
-            tax.line422_date = "";
-            tax.line422_amount = "";
-            tax.line422_tax = "";
-            tax.line422_text = "";
-            tax.line423_date = "";
+                }
+                else if (ftaxid.Equals("1700000004"))
+                {
+                    tax.line421_date = row[colTtaxdate] != null ? row[colTtaxdate].ToString() : "";
+                    tax.line421_amount = row[colTAmt] != null ? row[colTAmt].ToString() : "";
+                    tax.line421_tax = row[colTtaxamt] != null ? row[colTtaxamt].ToString() : "";
+                    tax.line421_text = row[colTItemNameT] != null ? row[colTItemNameT].ToString() : "";
 
-            tax.line423_amount = "";
-            tax.line423_tax = "";
-            tax.line423_text = "";
-            tax.line5_date = "";
-            tax.line5_amount = "";
-            tax.line5_tax = "";
-            tax.line5_text = "";
-            tax.line6_date = "";
-            tax.line6_amount = "";
-            tax.line6_tax = "";
-            tax.line6_text = "";
+                    tax.line422_date = "";
+                    tax.line422_amount = "";
+                    tax.line422_tax = "";
+                    tax.line422_text = "";
+                    tax.line423_date = "";
+
+                    tax.line423_amount = "";
+                    tax.line423_tax = "";
+                    tax.line423_text = "";
+                }
+                else if (ftaxid.Equals("1700000005"))
+                {
+                    tax.line5_date = row[colTtaxdate] != null ? row[colTtaxdate].ToString() : "";
+                    tax.line5_amount = row[colTAmt] != null ? row[colTAmt].ToString() : "";
+                    tax.line5_tax = row[colTtaxamt] != null ? row[colTtaxamt].ToString() : "";
+                    tax.line5_text = row[colTItemNameT] != null ? row[colTItemNameT].ToString() : "";
+                }
+                else if (ftaxid.Equals("1700000006"))
+                {
+                    tax.line6_date = row[colTtaxdate] != null ? row[colTtaxdate].ToString() : "";
+                    tax.line6_amount = row[colTAmt] != null ? row[colTAmt].ToString() : "";
+                    tax.line6_tax = row[colTtaxamt] != null ? row[colTtaxamt].ToString() : "";
+                    tax.line6_text = row[colTItemNameT] != null ? row[colTItemNameT].ToString() : "";
+                }
+                else
+                {
+                    MessageBox.Show("มีรายการไม่ตรงกลุ่ม", "error");
+                }
+            }
+                       
             tax.status_page = "1";
             return chk;
+        }
+        private void BtnTaxPrn_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            DataTable dt = new DataTable();
+            dt = xC.xtDB.taxDB.selectByPk(txtTaxId.Text);
+            //dt = xC.xtDB.taxDB.selectByPk("1700000003");
+            FrmReport frm = new FrmReport(xC);
+            frm.setReportTax(dt);
+            frm.ShowDialog(this);
         }
         private void BtnTaxSave_Click(object sender, EventArgs e)
         {
@@ -1441,6 +1489,7 @@ namespace Xtrim_ERP.gui
                 int chk = 0, chkD = 0;
                 if (int.TryParse(re, out chk))
                 {
+                    txtTaxId.Value = re;
                     btnChequeSave.Image = Resources.accept_database24;
                 }
             }

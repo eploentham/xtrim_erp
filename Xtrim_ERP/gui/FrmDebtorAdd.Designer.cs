@@ -32,6 +32,7 @@
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtID = new C1.Win.C1Input.C1TextBox();
             this.c1Button1 = new C1.Win.C1Input.C1Button();
             this.btnPrnRcp = new C1.Win.C1Input.C1Button();
             this.btnBSave = new C1.Win.C1Input.C1Button();
@@ -50,6 +51,7 @@
             this.txtVat = new C1.Win.C1Input.C1TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtBllID = new C1.Win.C1Input.C1TextBox();
             this.txtJobCode = new C1.Win.C1Input.C1TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cboChkExam = new C1.Win.C1Input.C1ComboBox();
@@ -71,11 +73,10 @@
             this.txtBllCode = new C1.Win.C1Input.C1TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtBllID = new C1.Win.C1Input.C1TextBox();
-            this.txtID = new C1.Win.C1Input.C1TextBox();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrnRcp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBSave)).BeginInit();
@@ -88,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNettotal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtVat)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBllID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboChkExam)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -98,8 +100,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRcpCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBllCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBllID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             this.SuspendLayout();
             // 
             // sB
@@ -144,6 +144,20 @@
             this.panel1.Size = new System.Drawing.Size(1049, 207);
             this.panel1.TabIndex = 11;
             this.theme1.SetTheme(this.panel1, "(default)");
+            // 
+            // txtID
+            // 
+            this.txtID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtID.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtID.Location = new System.Drawing.Point(835, 14);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(30, 20);
+            this.txtID.TabIndex = 514;
+            this.txtID.Tag = null;
+            this.theme1.SetTheme(this.txtID, "(default)");
+            this.txtID.Visible = false;
+            this.txtID.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // c1Button1
             // 
@@ -422,6 +436,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ค้นหา";
             this.theme1.SetTheme(this.groupBox1, "(default)");
+            // 
+            // txtBllID
+            // 
+            this.txtBllID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBllID.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtBllID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtBllID.Location = new System.Drawing.Point(56, 97);
+            this.txtBllID.Name = "txtBllID";
+            this.txtBllID.Size = new System.Drawing.Size(30, 20);
+            this.txtBllID.TabIndex = 490;
+            this.txtBllID.Tag = null;
+            this.theme1.SetTheme(this.txtBllID, "(default)");
+            this.txtBllID.Visible = false;
+            this.txtBllID.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtJobCode
             // 
@@ -711,7 +739,7 @@
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel2.Location = new System.Drawing.Point(0, 207);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(581, 406);
+            this.panel2.Size = new System.Drawing.Size(629, 406);
             this.panel2.TabIndex = 12;
             this.theme1.SetTheme(this.panel2, "(default)");
             // 
@@ -720,39 +748,11 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel3.Location = new System.Drawing.Point(581, 207);
+            this.panel3.Location = new System.Drawing.Point(629, 207);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(468, 406);
+            this.panel3.Size = new System.Drawing.Size(420, 406);
             this.panel3.TabIndex = 13;
             this.theme1.SetTheme(this.panel3, "(default)");
-            // 
-            // txtBllID
-            // 
-            this.txtBllID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBllID.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtBllID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtBllID.Location = new System.Drawing.Point(56, 97);
-            this.txtBllID.Name = "txtBllID";
-            this.txtBllID.Size = new System.Drawing.Size(30, 20);
-            this.txtBllID.TabIndex = 490;
-            this.txtBllID.Tag = null;
-            this.theme1.SetTheme(this.txtBllID, "(default)");
-            this.txtBllID.Visible = false;
-            this.txtBllID.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtID
-            // 
-            this.txtID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtID.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtID.Location = new System.Drawing.Point(835, 14);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(30, 20);
-            this.txtID.TabIndex = 514;
-            this.txtID.Tag = null;
-            this.theme1.SetTheme(this.txtID, "(default)");
-            this.txtID.Visible = false;
-            this.txtID.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmDebtorAdd
             // 
@@ -771,6 +771,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrnRcp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBSave)).EndInit();
@@ -785,6 +786,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtVat)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBllID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboChkExam)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -796,8 +798,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCusNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRcpCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBllCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBllID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

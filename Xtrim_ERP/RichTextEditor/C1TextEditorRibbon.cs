@@ -121,8 +121,8 @@ namespace Xtrim_ERP.RichTextEditor
             // save settings (even when canceled closing, just to be safe...)
             Settings settings = Settings.Default;
             settings.QatBelowRibbon = Qat.BelowRibbon;
-            settings.OpenedFiles = _mruOpened.RecentDocuments;
-            settings.SavedFiles = _mruSaved.RecentDocuments;
+            //settings.OpenedFiles = _mruOpened.RecentDocuments;
+            //settings.SavedFiles = _mruSaved.RecentDocuments;
             settings.ShowErrors = ShowErrors;
             settings.Dictionary = Dictionary;
             settings.Save();
@@ -743,8 +743,8 @@ namespace Xtrim_ERP.RichTextEditor
             items.Add(new RibbonSeparator());
             items.Add(CreateButton("Exit"));
 
-            _mruOpened = new RecentDocumentList(Settings.Default.OpenedFiles);
-            _mruSaved = new RecentDocumentList(Settings.Default.SavedFiles);
+            //_mruOpened = new RecentDocumentList(Settings.Default.OpenedFiles);
+            //_mruSaved = new RecentDocumentList(Settings.Default.SavedFiles);
         }
 
         // initialize quick access toolbar

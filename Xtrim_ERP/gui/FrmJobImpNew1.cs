@@ -212,7 +212,7 @@ namespace Xtrim_ERP.gui
         private void BtnPrint_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmReport frm = new FrmReport();
+            FrmReport frm = new FrmReport(xC);
             frm.Show(this);
         }
 

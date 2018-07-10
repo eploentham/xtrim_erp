@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using Xtrim_ERP.RichTextEditor;
-
 namespace Xtrim_ERP.Properties {
     
     
@@ -83,32 +81,38 @@ namespace Xtrim_ERP.Properties {
                 this["ShowErrors1"] = value;
             }
         }
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsSerializeAs(global::System.Configuration.SettingsSerializeAs.Binary)]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public System.Collections.Generic.List<RecentDocumentItem> OpenedFiles
-        {
-            get
-            {
-                return this["OpenedFiles"] as System.Collections.Generic.List<RecentDocumentItem>;
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;password=Ekartc2c5;persistsecurityinfo=True;databas" +
+            "e=xtrim_erp")]
+        public string xtrim_erpConnectionString {
+            get {
+                return ((string)(this["xtrim_erpConnectionString"]));
             }
-            set
-            {
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string OpenedFiles {
+            get {
+                return ((string)(this["OpenedFiles"]));
+            }
+            set {
                 this["OpenedFiles"] = value;
             }
         }
-
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsSerializeAs(global::System.Configuration.SettingsSerializeAs.Binary)]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public System.Collections.Generic.List<RecentDocumentItem> SavedFiles
-        {
-            get
-            {
-                return this["SavedFiles"] as System.Collections.Generic.List<RecentDocumentItem>;
+        public string SavedFiles {
+            get {
+                return ((string)(this["SavedFiles"]));
             }
-            set
-            {
+            set {
                 this["SavedFiles"] = value;
             }
         }
