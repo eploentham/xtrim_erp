@@ -45,7 +45,7 @@ namespace Xtrim_ERP.gui
             menuCust.Click += MenuCust_Click;
             menuDept.Click += MenuDept_Click;
             menuPosi.Click += MenuPosi_Click;
-            menuJobTax.Click += MenuEmail_Click;
+            
             menuTest.Click += MenuTest_Click;
             menuConvertData.Click += MenuConvertData_Click;
             menuImpJobView.Click += MenuImpJobView_Click;

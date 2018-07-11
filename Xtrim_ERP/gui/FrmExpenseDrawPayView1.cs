@@ -1496,7 +1496,7 @@ namespace Xtrim_ERP.gui
                 if (int.TryParse(re, out chk))
                 {
                     txtTaxId.Value = re;
-                    btnChequeSave.Image = Resources.accept_database24;
+                    btnTaxSave.Image = Resources.accept_database24;
                 }
             }
         }
