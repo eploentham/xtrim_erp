@@ -572,6 +572,9 @@ CHANGE COLUMN `cust_ip` `cust_id` INT(11) NULL DEFAULT NULL ;
 ALTER TABLE `xtrim_erp`.`t_billing` 
 ADD COLUMN `billing_cover_id` INT NULL AFTER `cust_id`;
 
+61-07-10
+ALTER TABLE `xtrim_erp`.`t_expenses_draw_detail` 
+CHANGE COLUMN `receipt_no` `receipt_no` VARCHAR(255) NULL DEFAULT NULL COMMENT 'เลขที่ใบเสร็จ จากการป้อนclear ค่าใช้จ่าย' ;
 
 
 

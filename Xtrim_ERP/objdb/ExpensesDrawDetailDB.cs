@@ -375,6 +375,19 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);            
             return dt;
         }
+        public DataTable selectByJobId(String copId)
+        {
+            String currId = "";
+            DataTable dt = new DataTable();
+            String sql = "select expC." + expnC.expenses_draw_detail_id + "," + expnC.item_id + "," + expnC.item_name_t + "," + expnC.qty + "," + expnC.unit_id + "," + expnC.unit_name_t + "," + expnC.price +
+                "," + expnC.amount + "," + expnC.wtax1 + "," + expnC.wtax3 + "," + expnC.vat + "," + expnC.remark + "," + expnC.total + "," + expnC.pay_to_cus_id + "," + expnC.pay_to_cus_name_t + "," + expnC.pay_to_cus_addr +
+                "," + expnC.pay_to_cus_tax + "," + expnC.receipt_date + "," + expnC.receipt_no + " " +
+                "From " + expnC.table + " expC " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where expC." + expnC.job_id + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
         public DataTable selectChequeByDrawId1(String copId)
         {
             String currId = "";

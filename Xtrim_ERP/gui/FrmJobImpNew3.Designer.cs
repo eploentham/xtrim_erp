@@ -51,6 +51,14 @@
             this.label27 = new System.Windows.Forms.Label();
             this.txtEttNameT1 = new C1.Win.C1Input.C1TextBox();
             this.tabExpense = new C1.Win.C1Command.C1DockingTabPage();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.label106 = new System.Windows.Forms.Label();
+            this.txtAmt = new C1.Win.C1Input.C1TextBox();
+            this.btnDNew = new C1.Win.C1Input.C1Button();
+            this.cboStaff = new C1.Win.C1Input.C1ComboBox();
+            this.label105 = new System.Windows.Forms.Label();
             this.tabDelivery = new C1.Win.C1Command.C1DockingTabPage();
             this.panel14 = new System.Windows.Forms.Panel();
             this.c1Button23 = new C1.Win.C1Input.C1Button();
@@ -418,6 +426,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cDMain = new C1.Win.C1Command.C1CommandDock();
+            this.btnDSave = new C1.Win.C1Input.C1Button();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -437,6 +446,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboTaxMethod)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT1)).BeginInit();
+            this.tabExpense.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDNew)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboStaff)).BeginInit();
             this.tabDelivery.SuspendLayout();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button23)).BeginInit();
@@ -681,6 +696,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJinId)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDSave)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -857,9 +873,9 @@
             this.cDRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.cDRight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.cDRight.Id = 10;
-            this.cDRight.Location = new System.Drawing.Point(1086, 0);
+            this.cDRight.Location = new System.Drawing.Point(644, 0);
             this.cDRight.Name = "cDRight";
-            this.cDRight.Size = new System.Drawing.Size(266, 673);
+            this.cDRight.Size = new System.Drawing.Size(708, 673);
             this.theme1.SetTheme(this.cDRight, "(default)");
             // 
             // tC2
@@ -881,7 +897,7 @@
             this.tC2.Location = new System.Drawing.Point(0, 0);
             this.tC2.Name = "tC2";
             this.tC2.ShowCaption = true;
-            this.tC2.Size = new System.Drawing.Size(266, 673);
+            this.tC2.Size = new System.Drawing.Size(703, 673);
             this.tC2.TabIndex = 0;
             this.tC2.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
             this.tC2.TabsShowFocusCues = false;
@@ -897,7 +913,7 @@
             this.c1DockingTabPage3.Image = global::Xtrim_ERP.Properties.Resources.FixErrors_small;
             this.c1DockingTabPage3.Location = new System.Drawing.Point(4, 1);
             this.c1DockingTabPage3.Name = "c1DockingTabPage3";
-            this.c1DockingTabPage3.Size = new System.Drawing.Size(237, 671);
+            this.c1DockingTabPage3.Size = new System.Drawing.Size(671, 671);
             this.c1DockingTabPage3.TabIndex = 0;
             this.c1DockingTabPage3.Text = "Entry info";
             // 
@@ -917,7 +933,7 @@
             this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel4.Location = new System.Drawing.Point(0, 22);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(237, 649);
+            this.panel4.Size = new System.Drawing.Size(671, 649);
             this.panel4.TabIndex = 0;
             this.theme1.SetTheme(this.panel4, "(default)");
             // 
@@ -1069,11 +1085,134 @@
             // tabExpense
             // 
             this.tabExpense.CaptionVisible = true;
+            this.tabExpense.Controls.Add(this.panel18);
             this.tabExpense.Location = new System.Drawing.Point(4, 1);
             this.tabExpense.Name = "tabExpense";
-            this.tabExpense.Size = new System.Drawing.Size(237, 671);
+            this.tabExpense.Size = new System.Drawing.Size(671, 671);
             this.tabExpense.TabIndex = 1;
             this.tabExpense.Text = "บันทึกค่าใช้จ่าย";
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel18.Controls.Add(this.panel20);
+            this.panel18.Controls.Add(this.panel19);
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel18.Location = new System.Drawing.Point(0, 22);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(671, 649);
+            this.panel18.TabIndex = 6;
+            this.theme1.SetTheme(this.panel18, "(default)");
+            // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel20.Location = new System.Drawing.Point(0, 36);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(671, 613);
+            this.panel20.TabIndex = 484;
+            this.theme1.SetTheme(this.panel20, "(default)");
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel19.Controls.Add(this.btnDSave);
+            this.panel19.Controls.Add(this.label106);
+            this.panel19.Controls.Add(this.txtAmt);
+            this.panel19.Controls.Add(this.btnDNew);
+            this.panel19.Controls.Add(this.cboStaff);
+            this.panel19.Controls.Add(this.label105);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel19.Location = new System.Drawing.Point(0, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(671, 36);
+            this.panel19.TabIndex = 6;
+            this.theme1.SetTheme(this.panel19, "(default)");
+            // 
+            // label106
+            // 
+            this.label106.AutoSize = true;
+            this.label106.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label106.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label106.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label106.Location = new System.Drawing.Point(383, 9);
+            this.label106.Name = "label106";
+            this.label106.Size = new System.Drawing.Size(49, 16);
+            this.label106.TabIndex = 509;
+            this.label106.Text = "รวมเงิน :";
+            this.theme1.SetTheme(this.label106, "(default)");
+            // 
+            // txtAmt
+            // 
+            this.txtAmt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAmt.DataType = typeof(decimal);
+            this.txtAmt.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtAmt.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtAmt.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
+            this.txtAmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtAmt.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtAmt.Location = new System.Drawing.Point(438, 6);
+            this.txtAmt.Name = "txtAmt";
+            this.txtAmt.Size = new System.Drawing.Size(116, 24);
+            this.txtAmt.TabIndex = 508;
+            this.txtAmt.Tag = null;
+            this.theme1.SetTheme(this.txtAmt, "(default)");
+            this.txtAmt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnDNew
+            // 
+            this.btnDNew.Image = global::Xtrim_ERP.Properties.Resources.ClearFormatting_small;
+            this.btnDNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDNew.Location = new System.Drawing.Point(250, 3);
+            this.btnDNew.Name = "btnDNew";
+            this.btnDNew.Size = new System.Drawing.Size(50, 25);
+            this.btnDNew.TabIndex = 507;
+            this.btnDNew.Text = "เพิ่ม";
+            this.btnDNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnDNew, "(default)");
+            this.btnDNew.UseVisualStyleBackColor = true;
+            this.btnDNew.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // cboStaff
+            // 
+            this.cboStaff.AllowSpinLoop = false;
+            this.cboStaff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboStaff.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboStaff.GapHeight = 0;
+            this.cboStaff.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboStaff.ItemsDisplayMember = "";
+            this.cboStaff.ItemsValueMember = "";
+            this.cboStaff.Location = new System.Drawing.Point(65, 5);
+            this.cboStaff.Name = "cboStaff";
+            this.cboStaff.Size = new System.Drawing.Size(169, 20);
+            this.cboStaff.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboStaff.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboStaff.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboStaff.TabIndex = 482;
+            this.cboStaff.Tag = null;
+            this.theme1.SetTheme(this.cboStaff, "(default)");
+            this.cboStaff.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label105
+            // 
+            this.label105.AutoSize = true;
+            this.label105.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label105.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label105.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label105.Location = new System.Drawing.Point(9, 7);
+            this.label105.Name = "label105";
+            this.label105.Size = new System.Drawing.Size(50, 16);
+            this.label105.TabIndex = 483;
+            this.label105.Text = "ผู้ขอเบิก :";
+            this.theme1.SetTheme(this.label105, "(default)");
             // 
             // tabDelivery
             // 
@@ -1081,7 +1220,7 @@
             this.tabDelivery.Controls.Add(this.panel14);
             this.tabDelivery.Location = new System.Drawing.Point(4, 1);
             this.tabDelivery.Name = "tabDelivery";
-            this.tabDelivery.Size = new System.Drawing.Size(237, 671);
+            this.tabDelivery.Size = new System.Drawing.Size(671, 671);
             this.tabDelivery.TabIndex = 2;
             this.tabDelivery.Text = "ใบส่งของ";
             // 
@@ -1111,7 +1250,7 @@
             this.panel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel14.Location = new System.Drawing.Point(0, 22);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(237, 649);
+            this.panel14.Size = new System.Drawing.Size(671, 649);
             this.panel14.TabIndex = 0;
             this.theme1.SetTheme(this.panel14, "(default)");
             // 
@@ -1211,7 +1350,7 @@
             this.panel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel16.Location = new System.Drawing.Point(0, 370);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(237, 279);
+            this.panel16.Size = new System.Drawing.Size(671, 279);
             this.panel16.TabIndex = 0;
             this.theme1.SetTheme(this.panel16, "(default)");
             // 
@@ -1606,7 +1745,7 @@
             this.tabCheckExam.Controls.Add(this.groupBox3);
             this.tabCheckExam.Location = new System.Drawing.Point(4, 1);
             this.tabCheckExam.Name = "tabCheckExam";
-            this.tabCheckExam.Size = new System.Drawing.Size(237, 671);
+            this.tabCheckExam.Size = new System.Drawing.Size(671, 671);
             this.tabCheckExam.TabIndex = 3;
             this.tabCheckExam.Text = "บันทึกข้อมูลตรวจปล่อย";
             // 
@@ -1617,7 +1756,7 @@
             this.panel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel12.Location = new System.Drawing.Point(0, 277);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(237, 256);
+            this.panel12.Size = new System.Drawing.Size(671, 256);
             this.panel12.TabIndex = 546;
             this.theme1.SetTheme(this.panel12, "(default)");
             // 
@@ -1651,7 +1790,7 @@
             this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.groupBox4.Location = new System.Drawing.Point(0, 74);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(237, 203);
+            this.groupBox4.Size = new System.Drawing.Size(671, 203);
             this.groupBox4.TabIndex = 453;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "สภาพหีบห่อสินค้า :";
@@ -2075,7 +2214,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.groupBox3.Location = new System.Drawing.Point(0, 22);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(237, 52);
+            this.groupBox3.Size = new System.Drawing.Size(671, 52);
             this.groupBox3.TabIndex = 452;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "เปิดสินค้าตรวจ :";
@@ -2200,7 +2339,7 @@
             this.tabCheckList.Controls.Add(this.panel11);
             this.tabCheckList.Location = new System.Drawing.Point(4, 1);
             this.tabCheckList.Name = "tabCheckList";
-            this.tabCheckList.Size = new System.Drawing.Size(237, 671);
+            this.tabCheckList.Size = new System.Drawing.Size(671, 671);
             this.tabCheckList.TabIndex = 4;
             this.tabCheckList.Text = "Check List";
             // 
@@ -2275,7 +2414,7 @@
             this.panel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel11.Location = new System.Drawing.Point(0, 22);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(237, 649);
+            this.panel11.Size = new System.Drawing.Size(671, 649);
             this.panel11.TabIndex = 0;
             this.theme1.SetTheme(this.panel11, "(default)");
             // 
@@ -3636,7 +3775,7 @@
             this.tabContainerYard.Controls.Add(this.panel17);
             this.tabContainerYard.Location = new System.Drawing.Point(4, 1);
             this.tabContainerYard.Name = "tabContainerYard";
-            this.tabContainerYard.Size = new System.Drawing.Size(237, 671);
+            this.tabContainerYard.Size = new System.Drawing.Size(671, 671);
             this.tabContainerYard.TabIndex = 5;
             this.tabContainerYard.Text = "ลานคืนตู้";
             // 
@@ -3653,7 +3792,7 @@
             this.panel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel17.Location = new System.Drawing.Point(0, 22);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(237, 649);
+            this.panel17.Size = new System.Drawing.Size(671, 649);
             this.panel17.TabIndex = 0;
             this.theme1.SetTheme(this.panel17, "(default)");
             // 
@@ -6958,6 +7097,20 @@
             this.cDMain.Size = new System.Drawing.Size(267, 718);
             this.theme1.SetTheme(this.cDMain, "(default)");
             // 
+            // btnDSave
+            // 
+            this.btnDSave.Image = global::Xtrim_ERP.Properties.Resources.Clear_small;
+            this.btnDSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDSave.Location = new System.Drawing.Point(579, 5);
+            this.btnDSave.Name = "btnDSave";
+            this.btnDSave.Size = new System.Drawing.Size(50, 25);
+            this.btnDSave.TabIndex = 510;
+            this.btnDSave.Text = "บันทึก";
+            this.btnDSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnDSave, "(default)");
+            this.btnDSave.UseVisualStyleBackColor = true;
+            this.btnDSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // FrmJobImpNew3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6990,6 +7143,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboTaxMethod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT1)).EndInit();
+            this.tabExpense.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDNew)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboStaff)).EndInit();
             this.tabDelivery.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
@@ -7250,6 +7410,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJinId)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDSave)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -7646,5 +7807,14 @@
         private C1.Win.C1Input.C1CheckBox chkConY3Tax;
         private C1.Win.C1Input.C1CheckBox chkConY2Tax;
         private C1.Win.C1Input.C1CheckBox chkConY1Tax;
+        private System.Windows.Forms.Panel panel18;
+        private C1.Win.C1Input.C1ComboBox cboStaff;
+        private System.Windows.Forms.Label label105;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Panel panel19;
+        private C1.Win.C1Input.C1Button btnDNew;
+        private System.Windows.Forms.Label label106;
+        private C1.Win.C1Input.C1TextBox txtAmt;
+        private C1.Win.C1Input.C1Button btnDSave;
     }
 }
