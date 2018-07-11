@@ -17,6 +17,7 @@ namespace Xtrim_ERP.objdb
         public List<ExpensesDraw> lexpnC;
         public enum StatusPay {waitappv, appv, all };
         public enum StatusPayType {Cash, Cheque, all};
+        public enum StatusPage { AppvPay, SaveViewOnly };
         public ExpensesDrawDB(ConnectDB c)
         {
             conn = c;
@@ -51,7 +52,7 @@ namespace Xtrim_ERP.objdb
             expnC.status_pay = "status_pay";
             expnC.status_pay_type = "status_pay_type";
             expnC.payer_id = "payer_id";
-
+            expnC.status_page = "status_page";
 
             expnC.table = "t_expenses_draw";
             expnC.pkField = "expenses_draw_id";
@@ -140,6 +141,7 @@ namespace Xtrim_ERP.objdb
             p.year = p.year == null ? "" : p.year;
             p.appv_desc = p.appv_desc == null ? "" : p.appv_desc;
             p.status_pay_type = p.status_pay_type == null ? "0" : p.status_pay_type;
+            p.status_page = p.status_page == null ? "0" : p.status_page;
 
 
             p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
@@ -170,7 +172,7 @@ namespace Xtrim_ERP.objdb
                 expnC.draw_date + "," + expnC.staff_id + "," + expnC.desc1 + ", " +
                 expnC.status_email + "," + expnC.status_appv + "," + expnC.amount + ", " +
                 expnC.year + "," + expnC.status_pay + "," + expnC.status_pay_type + "," +
-                expnC.payer_id + " " +
+                expnC.payer_id + "," + expnC.status_page + " " +
 
                 ") " +
                 "Values ('" + p.expenses_draw_date + "','" + p.expenses_draw_code.Replace("'", "''") + "','" + p.job_id.Replace("'", "''") + "'," +
@@ -180,7 +182,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.draw_date + "','" + p.staff_id.Replace("'", "''") + "','" + p.desc1.Replace("'", "''") + "'," +
                 "'" + p.status_email + "','" + p.status_appv.Replace("'", "''") + "','" + p.amount + "'," +
                 "'" + p.year + "','" + p.status_pay + "','" + p.status_pay_type + "'," +
-                "'" + p.payer_id + "' " +
+                "'" + p.payer_id + "','" + p.status_page + "' " +
                 ")";
             try
             {
@@ -219,6 +221,7 @@ namespace Xtrim_ERP.objdb
                 "," + expnC.status_pay + " = '" + p.status_pay + "' " +
                 "," + expnC.status_pay_type + " = '" + p.status_pay_type + "' " +
                 "," + expnC.payer_id + " = '" + p.payer_id + "' " +
+                "," + expnC.status_page + " = '" + p.status_page + "' " +
                 "Where " + expnC.pkField + "='" + p.expenses_draw_id + "'"
                 ;
 
@@ -319,7 +322,7 @@ namespace Xtrim_ERP.objdb
         public DataTable selectToPayAll1(String year, StatusPay spay, StatusPayType spaytype)
         {
             DataTable dt = new DataTable();
-            String wherestatuspay = "", wherestatuspaytype="";
+            String wherestatuspay = "", wherestatuspaytype="", wherestatuspage="";
             if (spay == StatusPay.waitappv)
             {
                 wherestatuspay = " and "+expnC.status_appv+" in ('1','0') and "+expnC.status_pay + "='1'";
@@ -344,10 +347,11 @@ namespace Xtrim_ERP.objdb
             {
                 wherestatuspaytype = " and " + expnC.status_pay_type + " in ('1','2') ";
             }
-                String sql = "select expC."+expnC.expenses_draw_id+","+expnC.expenses_draw_code+","+expnC.desc1+","+expnC.remark+","+expnC.amount+","+expnC.status_appv+ ","+expnC.status_pay_type + "," + expnC.status_pay + " " +
+            wherestatuspage = " and "+expnC.status_page +"='1' ";
+            String sql = "select expC."+expnC.expenses_draw_id+","+expnC.expenses_draw_code+","+expnC.desc1+","+expnC.remark+","+expnC.amount+","+expnC.status_appv+ ","+expnC.status_pay_type + "," + expnC.status_pay + " " +
                 "From " + expnC.table + " expC " +
                 " " +
-                "Where expC." + expnC.active + " ='1' and " + expnC.year + "='" + year + "' "+ wherestatuspay + wherestatuspaytype;
+                "Where expC." + expnC.active + " ='1' and " + expnC.year + "='" + year + "' "+ wherestatuspay + wherestatuspaytype+ wherestatuspage;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -379,6 +383,34 @@ namespace Xtrim_ERP.objdb
             ds = conn.selectDataDS(conn.conn, sql);
 
             return ds;
+        }
+        public DataTable selectAllFmtp1(String year, StatusPay spay)
+        {
+            DataTable dt = new DataTable();
+            String wherestatuspay = "";
+            if (spay == StatusPay.waitappv)
+            {
+                wherestatuspay = " and ed." + expnC.status_appv + "='1'";
+            }
+            else if (spay == StatusPay.appv)
+            {
+                wherestatuspay = " and ed." + expnC.status_appv + "='2'";
+            }
+            else if (spay == StatusPay.all)
+            {
+                wherestatuspay = "";
+            }
+            String sql = "select fmtp.f_method_payment_name_t,  itmts.item_type_sub_name_t, sum(edd.amount) as amt " +
+                    "from t_expenses_draw_detail edd " +
+                    "inner join t_expenses_draw ed on edd.expenses_draw_id = ed.expenses_draw_id " +
+                    "inner join b_items itm on edd.item_id = itm.item_id " +
+                    "inner join b_items_type_sub itmts on itm.item_type_sub_id = itmts.item_type_sub_id " +
+                    "inner join f_method_payment fmtp on itm.f_method_payment_id = fmtp.f_method_payment_id " +
+                    "Where edd." + expnC.active + " ='1' and ed." + expnC.year + "='" + year + "' " + wherestatuspay + " " +
+                    "group by itmts.item_type_sub_name_t, fmtp.f_method_payment_name_t ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
         }
         public DataTable selectByJobCode(String copId)
         {
@@ -465,6 +497,7 @@ namespace Xtrim_ERP.objdb
                 curr1.status_pay = dt.Rows[0][expnC.status_pay].ToString();
                 curr1.status_pay_type = dt.Rows[0][expnC.status_pay_type].ToString();
                 curr1.payer_id = dt.Rows[0][expnC.payer_id].ToString();
+                curr1.status_page = dt.Rows[0][expnC.status_page].ToString();
             }
             else
             {
@@ -494,6 +527,7 @@ namespace Xtrim_ERP.objdb
                 curr1.status_pay = "";
                 curr1.status_pay_type = "";
                 curr1.payer_id = "";
+                curr1.status_page = "";
             }
 
             return curr1;

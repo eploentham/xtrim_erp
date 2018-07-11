@@ -39,21 +39,22 @@
             this.txtBlId = new C1.Win.C1Input.C1TextBox();
             this.cDRight = new C1.Win.C1Command.C1CommandDock();
             this.tC2 = new C1.Win.C1Command.C1DockingTab();
-            this.c1DockingTabPage3 = new C1.Win.C1Command.C1DockingTabPage();
+            this.tabExpenseServ = new C1.Win.C1Command.C1DockingTabPage();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label29 = new System.Windows.Forms.Label();
-            this.c1DateEdit3 = new C1.Win.Calendar.C1DateEdit();
-            this.c1TextBox9 = new C1.Win.C1Input.C1TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.cboTaxMethod = new C1.Win.C1Input.C1ComboBox();
-            this.c1Button9 = new C1.Win.C1Input.C1Button();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.c1TextBox5 = new C1.Win.C1Input.C1TextBox();
+            this.c1TextBox3 = new C1.Win.C1Input.C1TextBox();
+            this.btnSSave = new C1.Win.C1Input.C1Button();
             this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.txtEttNameT1 = new C1.Win.C1Input.C1TextBox();
+            this.c1TextBox4 = new C1.Win.C1Input.C1TextBox();
+            this.btnSNew = new C1.Win.C1Input.C1Button();
             this.tabExpense = new C1.Win.C1Command.C1DockingTabPage();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel20 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
+            this.txtddAmt1 = new C1.Win.C1Input.C1TextBox();
+            this.btnDSave = new C1.Win.C1Input.C1Button();
             this.label106 = new System.Windows.Forms.Label();
             this.txtAmt = new C1.Win.C1Input.C1TextBox();
             this.btnDNew = new C1.Win.C1Input.C1Button();
@@ -426,7 +427,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cDMain = new C1.Win.C1Command.C1CommandDock();
-            this.btnDSave = new C1.Win.C1Input.C1Button();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -439,16 +439,19 @@
             this.cDRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tC2)).BeginInit();
             this.tC2.SuspendLayout();
-            this.c1DockingTabPage3.SuspendLayout();
+            this.tabExpenseServ.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboTaxMethod)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT1)).BeginInit();
+            this.panel21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSNew)).BeginInit();
             this.tabExpense.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtddAmt1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboStaff)).BeginInit();
@@ -696,7 +699,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJinId)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDSave)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -887,7 +889,7 @@
             this.tC2.CanAutoHide = true;
             this.tC2.CanCloseTabs = true;
             this.tC2.CanMoveTabs = true;
-            this.tC2.Controls.Add(this.c1DockingTabPage3);
+            this.tC2.Controls.Add(this.tabExpenseServ);
             this.tC2.Controls.Add(this.tabExpense);
             this.tC2.Controls.Add(this.tabDelivery);
             this.tC2.Controls.Add(this.tabCheckExam);
@@ -905,30 +907,23 @@
             this.tC2.TabStyle = C1.Win.C1Command.TabStyleEnum.Office2007;
             this.theme1.SetTheme(this.tC2, "(default)");
             // 
-            // c1DockingTabPage3
+            // tabExpenseServ
             // 
-            this.c1DockingTabPage3.AllowDrop = true;
-            this.c1DockingTabPage3.CaptionVisible = true;
-            this.c1DockingTabPage3.Controls.Add(this.panel4);
-            this.c1DockingTabPage3.Image = global::Xtrim_ERP.Properties.Resources.FixErrors_small;
-            this.c1DockingTabPage3.Location = new System.Drawing.Point(4, 1);
-            this.c1DockingTabPage3.Name = "c1DockingTabPage3";
-            this.c1DockingTabPage3.Size = new System.Drawing.Size(671, 671);
-            this.c1DockingTabPage3.TabIndex = 0;
-            this.c1DockingTabPage3.Text = "Entry info";
+            this.tabExpenseServ.AllowDrop = true;
+            this.tabExpenseServ.CaptionVisible = true;
+            this.tabExpenseServ.Controls.Add(this.panel4);
+            this.tabExpenseServ.Image = global::Xtrim_ERP.Properties.Resources.FixErrors_small;
+            this.tabExpenseServ.Location = new System.Drawing.Point(4, 1);
+            this.tabExpenseServ.Name = "tabExpenseServ";
+            this.tabExpenseServ.Size = new System.Drawing.Size(671, 671);
+            this.tabExpenseServ.TabIndex = 0;
+            this.tabExpenseServ.Text = "บันทึกค่าบริการ";
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel4.Controls.Add(this.label29);
-            this.panel4.Controls.Add(this.c1DateEdit3);
-            this.panel4.Controls.Add(this.c1TextBox9);
-            this.panel4.Controls.Add(this.label28);
-            this.panel4.Controls.Add(this.cboTaxMethod);
-            this.panel4.Controls.Add(this.c1Button9);
-            this.panel4.Controls.Add(this.label26);
-            this.panel4.Controls.Add(this.label27);
-            this.panel4.Controls.Add(this.txtEttNameT1);
+            this.panel4.Controls.Add(this.panel22);
+            this.panel4.Controls.Add(this.panel21);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel4.Location = new System.Drawing.Point(0, 22);
@@ -937,111 +932,87 @@
             this.panel4.TabIndex = 0;
             this.theme1.SetTheme(this.panel4, "(default)");
             // 
-            // label29
+            // panel22
             // 
-            this.label29.AutoSize = true;
-            this.label29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label29.Location = new System.Drawing.Point(5, 44);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(97, 16);
-            this.label29.TabIndex = 409;
-            this.label29.Text = "วันที่ในเลขที่ใบขน :";
-            this.theme1.SetTheme(this.label29, "(default)");
+            this.panel22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel22.Location = new System.Drawing.Point(0, 36);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(671, 613);
+            this.panel22.TabIndex = 485;
+            this.theme1.SetTheme(this.panel22, "(default)");
             // 
-            // c1DateEdit3
+            // panel21
             // 
-            this.c1DateEdit3.AllowSpinLoop = false;
-            this.c1DateEdit3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1DateEdit3.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit3.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit3.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit3.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit3.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.c1DateEdit3.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.c1DateEdit3.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.c1DateEdit3.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.c1DateEdit3.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.c1DateEdit3.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.c1DateEdit3.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit3.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.c1DateEdit3.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1DateEdit3.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit3.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
-            | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
+            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel21.Controls.Add(this.c1TextBox5);
+            this.panel21.Controls.Add(this.c1TextBox3);
+            this.panel21.Controls.Add(this.btnSSave);
+            this.panel21.Controls.Add(this.label26);
+            this.panel21.Controls.Add(this.c1TextBox4);
+            this.panel21.Controls.Add(this.btnSNew);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel21.Location = new System.Drawing.Point(0, 0);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(671, 36);
+            this.panel21.TabIndex = 7;
+            this.theme1.SetTheme(this.panel21, "(default)");
+            // 
+            // c1TextBox5
+            // 
+            this.c1TextBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1TextBox5.DataType = typeof(decimal);
+            this.c1TextBox5.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.c1TextBox5.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.c1TextBox5.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1DateEdit3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.c1DateEdit3.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.c1DateEdit3.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.c1DateEdit3.Location = new System.Drawing.Point(130, 42);
-            this.c1DateEdit3.Name = "c1DateEdit3";
-            this.c1DateEdit3.Size = new System.Drawing.Size(118, 20);
-            this.c1DateEdit3.TabIndex = 408;
-            this.c1DateEdit3.Tag = null;
-            this.theme1.SetTheme(this.c1DateEdit3, "(default)");
-            this.c1DateEdit3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.c1TextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1TextBox5.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.c1TextBox5.Location = new System.Drawing.Point(486, 6);
+            this.c1TextBox5.Name = "c1TextBox5";
+            this.c1TextBox5.Size = new System.Drawing.Size(116, 24);
+            this.c1TextBox5.TabIndex = 512;
+            this.c1TextBox5.Tag = null;
+            this.theme1.SetTheme(this.c1TextBox5, "(default)");
+            this.c1TextBox5.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1TextBox9
+            // c1TextBox3
             // 
-            this.c1TextBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox9.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox9.Location = new System.Drawing.Point(130, 16);
-            this.c1TextBox9.Name = "c1TextBox9";
-            this.c1TextBox9.Size = new System.Drawing.Size(250, 20);
-            this.c1TextBox9.TabIndex = 406;
-            this.c1TextBox9.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox9, "(default)");
-            this.c1TextBox9.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.c1TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1TextBox3.DataType = typeof(decimal);
+            this.c1TextBox3.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.c1TextBox3.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.c1TextBox3.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
+            this.c1TextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1TextBox3.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.c1TextBox3.Location = new System.Drawing.Point(364, 6);
+            this.c1TextBox3.Name = "c1TextBox3";
+            this.c1TextBox3.Size = new System.Drawing.Size(116, 24);
+            this.c1TextBox3.TabIndex = 511;
+            this.c1TextBox3.Tag = null;
+            this.theme1.SetTheme(this.c1TextBox3, "(default)");
+            this.c1TextBox3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // label28
+            // btnSSave
             // 
-            this.label28.AutoSize = true;
-            this.label28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label28.Location = new System.Drawing.Point(5, 18);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(64, 16);
-            this.label28.TabIndex = 407;
-            this.label28.Text = "เลขที่ใบขน :";
-            this.theme1.SetTheme(this.label28, "(default)");
-            // 
-            // cboTaxMethod
-            // 
-            this.cboTaxMethod.AllowSpinLoop = false;
-            this.cboTaxMethod.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboTaxMethod.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboTaxMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboTaxMethod.GapHeight = 0;
-            this.cboTaxMethod.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboTaxMethod.ItemsDisplayMember = "";
-            this.cboTaxMethod.ItemsValueMember = "";
-            this.cboTaxMethod.Location = new System.Drawing.Point(130, 68);
-            this.cboTaxMethod.Name = "cboTaxMethod";
-            this.cboTaxMethod.Size = new System.Drawing.Size(223, 20);
-            this.cboTaxMethod.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboTaxMethod.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboTaxMethod.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboTaxMethod.TabIndex = 410;
-            this.cboTaxMethod.Tag = null;
-            this.theme1.SetTheme(this.cboTaxMethod, "(default)");
-            this.cboTaxMethod.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button9
-            // 
-            this.c1Button9.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button9.Location = new System.Drawing.Point(386, 15);
-            this.c1Button9.Name = "c1Button9";
-            this.c1Button9.Size = new System.Drawing.Size(22, 22);
-            this.c1Button9.TabIndex = 414;
-            this.c1Button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button9, "(default)");
-            this.c1Button9.UseVisualStyleBackColor = true;
-            this.c1Button9.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnSSave.Image = global::Xtrim_ERP.Properties.Resources.Clear_small;
+            this.btnSSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSSave.Location = new System.Drawing.Point(613, 5);
+            this.btnSSave.Name = "btnSSave";
+            this.btnSSave.Size = new System.Drawing.Size(50, 25);
+            this.btnSSave.TabIndex = 510;
+            this.btnSSave.Text = "บันทึก";
+            this.btnSSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnSSave, "(default)");
+            this.btnSSave.UseVisualStyleBackColor = true;
+            this.btnSSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label26
             // 
@@ -1049,38 +1020,46 @@
             this.label26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label26.Location = new System.Drawing.Point(5, 68);
+            this.label26.Location = new System.Drawing.Point(187, 9);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(69, 16);
-            this.label26.TabIndex = 411;
-            this.label26.Text = "วิธีชำระภาษี :";
+            this.label26.Size = new System.Drawing.Size(49, 16);
+            this.label26.TabIndex = 509;
+            this.label26.Text = "รวมเงิน :";
             this.theme1.SetTheme(this.label26, "(default)");
             // 
-            // label27
+            // c1TextBox4
             // 
-            this.label27.AutoSize = true;
-            this.label27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label27.Location = new System.Drawing.Point(5, 96);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(79, 16);
-            this.label27.TabIndex = 413;
-            this.label27.Text = "Entry Type :";
-            this.theme1.SetTheme(this.label27, "(default)");
+            this.c1TextBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.c1TextBox4.DataType = typeof(decimal);
+            this.c1TextBox4.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.c1TextBox4.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.c1TextBox4.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
+            this.c1TextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.c1TextBox4.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.c1TextBox4.Location = new System.Drawing.Point(242, 6);
+            this.c1TextBox4.Name = "c1TextBox4";
+            this.c1TextBox4.Size = new System.Drawing.Size(116, 24);
+            this.c1TextBox4.TabIndex = 508;
+            this.c1TextBox4.Tag = null;
+            this.theme1.SetTheme(this.c1TextBox4, "(default)");
+            this.c1TextBox4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // txtEttNameT1
+            // btnSNew
             // 
-            this.txtEttNameT1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEttNameT1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtEttNameT1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtEttNameT1.Location = new System.Drawing.Point(130, 94);
-            this.txtEttNameT1.Name = "txtEttNameT1";
-            this.txtEttNameT1.Size = new System.Drawing.Size(250, 20);
-            this.txtEttNameT1.TabIndex = 412;
-            this.txtEttNameT1.Tag = null;
-            this.theme1.SetTheme(this.txtEttNameT1, "(default)");
-            this.txtEttNameT1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnSNew.Image = global::Xtrim_ERP.Properties.Resources.ClearFormatting_small;
+            this.btnSNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSNew.Location = new System.Drawing.Point(123, 5);
+            this.btnSNew.Name = "btnSNew";
+            this.btnSNew.Size = new System.Drawing.Size(50, 25);
+            this.btnSNew.TabIndex = 507;
+            this.btnSNew.Text = "เพิ่ม";
+            this.btnSNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnSNew, "(default)");
+            this.btnSNew.UseVisualStyleBackColor = true;
+            this.btnSNew.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // tabExpense
             // 
@@ -1119,6 +1098,7 @@
             // panel19
             // 
             this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel19.Controls.Add(this.txtddAmt1);
             this.panel19.Controls.Add(this.btnDSave);
             this.panel19.Controls.Add(this.label106);
             this.panel19.Controls.Add(this.txtAmt);
@@ -1133,13 +1113,47 @@
             this.panel19.TabIndex = 6;
             this.theme1.SetTheme(this.panel19, "(default)");
             // 
+            // txtddAmt1
+            // 
+            this.txtddAmt1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtddAmt1.DataType = typeof(decimal);
+            this.txtddAmt1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtddAmt1.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtddAmt1.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
+            this.txtddAmt1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtddAmt1.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtddAmt1.Location = new System.Drawing.Point(491, 6);
+            this.txtddAmt1.Name = "txtddAmt1";
+            this.txtddAmt1.Size = new System.Drawing.Size(116, 24);
+            this.txtddAmt1.TabIndex = 511;
+            this.txtddAmt1.Tag = null;
+            this.theme1.SetTheme(this.txtddAmt1, "(default)");
+            this.txtddAmt1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnDSave
+            // 
+            this.btnDSave.Image = global::Xtrim_ERP.Properties.Resources.Clear_small;
+            this.btnDSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDSave.Location = new System.Drawing.Point(613, 5);
+            this.btnDSave.Name = "btnDSave";
+            this.btnDSave.Size = new System.Drawing.Size(50, 25);
+            this.btnDSave.TabIndex = 510;
+            this.btnDSave.Text = "บันทึก";
+            this.btnDSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnDSave, "(default)");
+            this.btnDSave.UseVisualStyleBackColor = true;
+            this.btnDSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
             // label106
             // 
             this.label106.AutoSize = true;
             this.label106.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.label106.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label106.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label106.Location = new System.Drawing.Point(383, 9);
+            this.label106.Location = new System.Drawing.Point(314, 9);
             this.label106.Name = "label106";
             this.label106.Size = new System.Drawing.Size(49, 16);
             this.label106.TabIndex = 509;
@@ -1158,7 +1172,7 @@
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
             this.txtAmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtAmt.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
-            this.txtAmt.Location = new System.Drawing.Point(438, 6);
+            this.txtAmt.Location = new System.Drawing.Point(369, 6);
             this.txtAmt.Name = "txtAmt";
             this.txtAmt.Size = new System.Drawing.Size(116, 24);
             this.txtAmt.TabIndex = 508;
@@ -7097,20 +7111,6 @@
             this.cDMain.Size = new System.Drawing.Size(267, 718);
             this.theme1.SetTheme(this.cDMain, "(default)");
             // 
-            // btnDSave
-            // 
-            this.btnDSave.Image = global::Xtrim_ERP.Properties.Resources.Clear_small;
-            this.btnDSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDSave.Location = new System.Drawing.Point(579, 5);
-            this.btnDSave.Name = "btnDSave";
-            this.btnDSave.Size = new System.Drawing.Size(50, 25);
-            this.btnDSave.TabIndex = 510;
-            this.btnDSave.Text = "บันทึก";
-            this.btnDSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnDSave, "(default)");
-            this.btnDSave.UseVisualStyleBackColor = true;
-            this.btnDSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmJobImpNew3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7135,18 +7135,21 @@
             this.cDRight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tC2)).EndInit();
             this.tC2.ResumeLayout(false);
-            this.c1DockingTabPage3.ResumeLayout(false);
+            this.tabExpenseServ.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboTaxMethod)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEttNameT1)).EndInit();
+            this.panel21.ResumeLayout(false);
+            this.panel21.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSNew)).EndInit();
             this.tabExpense.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtddAmt1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboStaff)).EndInit();
@@ -7410,7 +7413,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJinId)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDSave)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -7430,7 +7432,7 @@
         private System.Windows.Forms.Panel panel2;
         private C1.Win.C1Command.C1CommandDock cDRight;
         private C1.Win.C1Command.C1DockingTab tC2;
-        private C1.Win.C1Command.C1DockingTabPage c1DockingTabPage3;
+        private C1.Win.C1Command.C1DockingTabPage tabExpenseServ;
         private C1.Win.C1Command.C1DockingTabPage tabExpense;
         private C1.Win.C1Command.C1DockingTabPage tabDelivery;
         private C1.Win.C1Command.C1DockingTabPage tabCheckExam;
@@ -7515,15 +7517,6 @@
         private C1.Win.C1Input.C1TextBox txtID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label29;
-        private C1.Win.Calendar.C1DateEdit c1DateEdit3;
-        private C1.Win.C1Input.C1TextBox c1TextBox9;
-        private System.Windows.Forms.Label label28;
-        private C1.Win.C1Input.C1ComboBox cboTaxMethod;
-        private C1.Win.C1Input.C1Button c1Button9;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private C1.Win.C1Input.C1TextBox txtEttNameT1;
         private C1.Win.C1Input.C1Button btnEdit;
         private C1.Win.C1Input.C1Button btnSave;
         private C1.Win.C1Input.C1TextBox txtConsignmnt;
@@ -7816,5 +7809,14 @@
         private System.Windows.Forms.Label label106;
         private C1.Win.C1Input.C1TextBox txtAmt;
         private C1.Win.C1Input.C1Button btnDSave;
+        private C1.Win.C1Input.C1TextBox txtddAmt1;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Panel panel21;
+        private C1.Win.C1Input.C1TextBox c1TextBox3;
+        private C1.Win.C1Input.C1Button btnSSave;
+        private System.Windows.Forms.Label label26;
+        private C1.Win.C1Input.C1TextBox c1TextBox4;
+        private C1.Win.C1Input.C1Button btnSNew;
+        private C1.Win.C1Input.C1TextBox c1TextBox5;
     }
 }

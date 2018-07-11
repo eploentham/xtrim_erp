@@ -142,7 +142,7 @@ namespace Xtrim_ERP.gui
         {
             //throw new NotImplementedException();
             if (grfExpnD[grfExpnD.Row, colDid] == null) return;
-            FrmExpenseDrawD frm = new FrmExpenseDrawD(xC, grfExpnD[grfExpnD.Row, colDid].ToString(), imp.cust_id, txtImpNameT.Text, imp.taddr1, imp.tax_id);
+            FrmExpenseDrawD frm = new FrmExpenseDrawD(xC, grfExpnD[grfExpnD.Row, colDid].ToString(), imp.cust_id, txtImpNameT.Text, imp.taddr1, imp.tax_id, FrmExpenseDrawD.StatusPage.AppvPay);
             frm.ShowDialog(this);
             setExpnDD(grfExpnD.Row, grfExpnD[grfExpnD.Row, colDid].ToString());
         }
@@ -150,7 +150,7 @@ namespace Xtrim_ERP.gui
         private void BtnDNew_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmExpenseDrawD frm = new FrmExpenseDrawD(xC,"", imp.cust_id, txtImpNameT.Text, imp.taddr1, imp.tax_id);
+            FrmExpenseDrawD frm = new FrmExpenseDrawD(xC,"", imp.cust_id, txtImpNameT.Text, imp.taddr1, imp.tax_id, FrmExpenseDrawD.StatusPage.AppvPay);
             frm.ShowDialog(this);
             setExpnDD(0,"");
         }
@@ -836,13 +836,14 @@ namespace Xtrim_ERP.gui
                 expnD.status_pay_type = "2";
             }
             expnD.status_pay = "1";
+            expnD.status_page = "1";
         }
         private void setExpensesDrawDetail(String expnid, String cusid)
         {
             for (int i = 1; i < grfExpnD.Rows.Count; i++)
             {
                 if (grfExpnD.Row <= 0) continue;
-                if (!grfExpnD[grfExpnD.Row, colDedit].ToString().Equals("1")) continue;
+                if (!grfExpnD[i, colDedit].ToString().Equals("1")) continue;
 
                 ExpensesDrawDatail expndd = new ExpensesDrawDatail();
                 expndd.expense_draw_id = expnid;
@@ -860,6 +861,8 @@ namespace Xtrim_ERP.gui
                 expndd.wtax3 = grfExpnD[i, colDwatx3] == null ? "" : grfExpnD[i, colDwatx3].ToString();
                 expndd.vat = grfExpnD[i, colDvat] == null ? "" : grfExpnD[i, colDvat].ToString();
                 expndd.total = grfExpnD[i, colDtotal] == null ? "" : grfExpnD[i, colDtotal].ToString();
+                expndd.job_code = txtJobCode.Text;
+                expndd.job_id = jobId;
                 if (flagfom2 == flagForm2.Cheque)
                 {
                     expndd.pay_to_cus_name_t = grfExpnD[i, colDpaytocusnamet] == null ? "" : grfExpnD[i, colDpaytocusnamet].ToString();
@@ -877,6 +880,8 @@ namespace Xtrim_ERP.gui
                 {
                     expndd.status_pay_type = "2";
                 }
+                expndd.status_page = "1";
+                expndd.status_hide = "1";
                 expndd.job_id = jobId;
                 //expndd.cust_id = cusid;
                 if (!expndd.amount.Equals(""))

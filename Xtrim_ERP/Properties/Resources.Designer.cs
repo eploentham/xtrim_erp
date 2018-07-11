@@ -1411,6 +1411,16 @@ namespace Xtrim_ERP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap printer_blue16 {
+            get {
+                object obj = ResourceManager.GetObject("printer_blue16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap printer_blue24 {
             get {
                 object obj = ResourceManager.GetObject("printer_blue24", resourceCulture);
@@ -1431,9 +1441,39 @@ namespace Xtrim_ERP.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap printer_green16 {
+            get {
+                object obj = ResourceManager.GetObject("printer_green16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap printer_green48 {
             get {
                 object obj = ResourceManager.GetObject("printer_green48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap printer_orange16 {
+            get {
+                object obj = ResourceManager.GetObject("printer_orange16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap printer_orange24 {
+            get {
+                object obj = ResourceManager.GetObject("printer_orange24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

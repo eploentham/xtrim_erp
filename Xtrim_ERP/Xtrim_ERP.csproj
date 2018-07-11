@@ -272,6 +272,12 @@
     <Compile Include="gui\FrmExpenseDrawPayView1.Designer.cs">
       <DependentUpon>FrmExpenseDrawPayView1.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmExpenseReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmExpenseReceipt.Designer.cs">
+      <DependentUpon>FrmExpenseReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmItems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -427,6 +433,12 @@
     </Compile>
     <Compile Include="gui\FrmJobImpView1.Designer.cs">
       <DependentUpon>FrmJobImpView1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmJobTax.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmJobTax.Designer.cs">
+      <DependentUpon>FrmJobTax.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmMain.cs">
       <SubType>Form</SubType>
@@ -905,6 +917,9 @@
     <EmbeddedResource Include="gui\FrmExpenseDrawPayView1.resx">
       <DependentUpon>FrmExpenseDrawPayView1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmExpenseReceipt.resx">
+      <DependentUpon>FrmExpenseReceipt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmItems.resx">
       <DependentUpon>FrmItems.cs</DependentUpon>
     </EmbeddedResource>
@@ -982,6 +997,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmJobImpView1.resx">
       <DependentUpon>FrmJobImpView1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmJobTax.resx">
+      <DependentUpon>FrmJobTax.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -1303,6 +1321,10 @@
     <None Include="Resources\SortAscending_small.png" />
     <None Include="Resources\save1.png" />
     <None Include="Resources\redo1.png" />
+    <None Include="Resources\printer-orange24.png" />
+    <None Include="Resources\printer-blue16.png" />
+    <None Include="Resources\printer-green16.png" />
+    <None Include="Resources\printer-orange16.png" />
     <Content Include="Resources\Steel_Header.png" />
     <Content Include="Resources\Steel_HeaderSelected.png" />
     <None Include="Resources\users24.png" />

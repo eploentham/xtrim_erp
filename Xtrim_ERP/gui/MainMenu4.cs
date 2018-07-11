@@ -45,7 +45,7 @@ namespace Xtrim_ERP.gui
             menuCust.Click += MenuCust_Click;
             menuDept.Click += MenuDept_Click;
             menuPosi.Click += MenuPosi_Click;
-            menuEmail.Click += MenuEmail_Click;
+            menuJobTax.Click += MenuEmail_Click;
             menuTest.Click += MenuTest_Click;
             menuConvertData.Click += MenuConvertData_Click;
             menuImpJobView.Click += MenuImpJobView_Click;
@@ -69,6 +69,24 @@ namespace Xtrim_ERP.gui
             menuTax.Click += MenuTax_Click;
             menuBillingPlus.Click += MenuBillingPlus_Click;
             menuBillingMinus.Click += MenuBillingMinus_Click;
+            menuExpnReceipt.Click += MenuExpnReceipt_Click;
+            menuJobTax.Click += MenuJobTax_Click;
+        }
+
+        private void MenuJobTax_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmJobTax frm = new FrmJobTax(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, menuJobTax.Text + " ");
+        }
+
+        private void MenuExpnReceipt_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmExpenseReceipt frm = new FrmExpenseReceipt(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, menuExpnReceipt.Text + " ");
         }
 
         private void MenuBillingMinus_Click(object sender, EventArgs e)
@@ -451,7 +469,7 @@ namespace Xtrim_ERP.gui
                     menuInit.Enabled = true;
                 }
             }
-            this.Text = "Last Update 2018-07-10";
+            this.Text = "Last Update 2018-07-11";
         }
     }
 }

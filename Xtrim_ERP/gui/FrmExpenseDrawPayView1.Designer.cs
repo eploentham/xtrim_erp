@@ -90,6 +90,7 @@
             this.panel25 = new System.Windows.Forms.Panel();
             this.tabTax = new C1.Win.C1Command.C1DockingTabPage();
             this.panel24 = new System.Windows.Forms.Panel();
+            this.txtTaxId = new C1.Win.C1Input.C1TextBox();
             this.txtAmt = new C1.Win.C1Input.C1TextBox();
             this.btnBNew = new C1.Win.C1Input.C1Button();
             this.panel31 = new System.Windows.Forms.Panel();
@@ -162,7 +163,6 @@
             this.label36 = new System.Windows.Forms.Label();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtTaxId = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tC1)).BeginInit();
@@ -214,6 +214,7 @@
             this.tabCashTax.SuspendLayout();
             this.tabTax.SuspendLayout();
             this.panel24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTaxId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBNew)).BeginInit();
             this.panel31.SuspendLayout();
@@ -255,7 +256,6 @@
             this.panel20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboYear)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTaxId)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -1099,6 +1099,20 @@
             this.panel24.Size = new System.Drawing.Size(985, 702);
             this.panel24.TabIndex = 0;
             this.theme1.SetTheme(this.panel24, "(default)");
+            // 
+            // txtTaxId
+            // 
+            this.txtTaxId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTaxId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtTaxId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtTaxId.Location = new System.Drawing.Point(587, 13);
+            this.txtTaxId.Name = "txtTaxId";
+            this.txtTaxId.Size = new System.Drawing.Size(24, 20);
+            this.txtTaxId.TabIndex = 530;
+            this.txtTaxId.Tag = null;
+            this.theme1.SetTheme(this.txtTaxId, "(default)");
+            this.txtTaxId.Visible = false;
+            this.txtTaxId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtAmt
             // 
@@ -2191,20 +2205,6 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // txtTaxId
-            // 
-            this.txtTaxId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTaxId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtTaxId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtTaxId.Location = new System.Drawing.Point(587, 13);
-            this.txtTaxId.Name = "txtTaxId";
-            this.txtTaxId.Size = new System.Drawing.Size(24, 20);
-            this.txtTaxId.TabIndex = 530;
-            this.txtTaxId.Tag = null;
-            this.theme1.SetTheme(this.txtTaxId, "(default)");
-            this.txtTaxId.Visible = false;
-            this.txtTaxId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmExpenseDrawPayView1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2269,6 +2269,7 @@
             this.tabTax.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTaxId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBNew)).EndInit();
             this.panel31.ResumeLayout(false);
@@ -2318,7 +2319,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboYear)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTaxId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

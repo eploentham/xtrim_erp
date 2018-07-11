@@ -346,9 +346,10 @@ namespace Xtrim_ERP.gui
         {
             //grfDept.Rows.Count = 7;
             //grfView.Tree = 
-            DataSet ds = new DataSet();
-            ds = xC.xtDB.expndDB.selectAllFmtp(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all);
-            grfView.DataSource = ds.Tables[0];
+            DataTable dt = new DataTable();
+            dt = xC.xtDB.expndDB.selectAllFmtp1(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all);
+            //grfView.DataSource = ds.Tables[0];
+            grfView.Rows.Count = 1;
             grfView.Cols.Count = 7;
             TextBox txt = new TextBox();
 
@@ -372,11 +373,16 @@ namespace Xtrim_ERP.gui
             grfView.Cols[colStatus].Caption = "สถานะ";
             grfView.Cols[colAmt].Caption = "รวมเงิน";
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
-            for (int i = 1; i < grfView.Rows.Count; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                grfView[i, 0] = i;
+                grfView[i, 0] = i+1;
+                Row row = grfView.Rows.Add();
                 if (i % 2 == 0)
                     grfView.Rows[i].StyleNew.BackColor = color;
+                row[1] = dt.Rows[i]["f_method_payment_name_t"].ToString();
+                row[2] = dt.Rows[i]["item_type_sub_name_t"].ToString();
+                row[3] = dt.Rows[i]["amt"].ToString();
+                //row[1] = dt.Rows[i]["f_method_payment_name_t"].ToString();
             }
             updateDataTree();
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
@@ -894,7 +900,7 @@ namespace Xtrim_ERP.gui
                 if (Decimal.TryParse(grfTax[e.Row, e.Col] != null ? grfTax[e.Row, e.Col].ToString() : "0", out amt))
                 {
                     String item = "", bname="";
-                    item = grfTax[e.Row, colBNameT].ToString();
+                    item = grfTax[e.Row, colTItemNameT].ToString();
                     Items itm = new Items();
                     BTax btax = new BTax();
                     itm = xC.xtDB.itmDB.selectByNameT1(item);
@@ -1011,7 +1017,7 @@ namespace Xtrim_ERP.gui
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
-            grfTax.Cols[colPID].Visible = false;
+            grfTax.Cols[colTID].Visible = false;
             grfTax.Cols[colTitemid].Visible = false;
             grfTax.Cols[colTbtaxid].Visible = false;
             grfTax.Cols[colTftaxid].Visible = false;
@@ -1051,7 +1057,7 @@ namespace Xtrim_ERP.gui
             grfTaxView.Cols[colTtaxdate].Caption = "วันที่จ่ายเงิน";
             grfTaxView.Cols[colTAmt].Caption = "ยอดเงินที่จ่าย";
             grfTaxView.Cols[colTtaxamt].Caption = "ภาษีหัก ณ ที่จ่าย";
-            grfTaxView.Cols[colPID].Visible = false;
+            grfTaxView.Cols[colTID].Visible = false;
             grfTaxView.Cols[colTitemid].Visible = false;
             grfTaxView.Cols[colTbtaxid].Visible = false;
             grfTaxView.Cols[colTbtaxnamet].Visible = false;

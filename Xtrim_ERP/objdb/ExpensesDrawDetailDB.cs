@@ -67,7 +67,9 @@ namespace Xtrim_ERP.objdb
             expnC.pay_to_cus_tax = "pay_to_cus_tax";
             expnC.receipt_no = "receipt_no";
             expnC.receipt_date = "receipt_date";
-            expnC.expenses_pay_detail_id = "expenses_pay_detail_id";            
+            expnC.expenses_pay_detail_id = "expenses_pay_detail_id";
+            expnC.status_page = "status_page";
+            expnC.status_hide = "status_hide";
 
             expnC.table = "t_expenses_draw_detail";
             expnC.pkField = "expenses_draw_detail_id";
@@ -161,6 +163,8 @@ namespace Xtrim_ERP.objdb
             p.pay_to_cus_tax = p.pay_to_cus_tax == null ? "" : p.pay_to_cus_tax;
             p.receipt_no = p.receipt_no == null ? "" : p.receipt_no;
             p.receipt_date = p.receipt_date == null ? "" : p.receipt_date;
+            p.status_page = p.status_page == null ? "0" : p.status_page;
+            p.status_hide = p.status_hide == null ? "0" : p.status_hide;
 
             p.expense_draw_id = int.TryParse(p.expense_draw_id, out chk) ? chk.ToString() : "0";
             p.expense_type_id = int.TryParse(p.expense_type_id, out chk) ? chk.ToString() : "0";
@@ -172,6 +176,7 @@ namespace Xtrim_ERP.objdb
             p.pay_to_cus_id = int.TryParse(p.pay_to_cus_id, out chk) ? chk.ToString() : "0";
             p.expenses_pay_detail_id = int.TryParse(p.expenses_pay_detail_id, out chk) ? chk.ToString() : "0";
             
+
 
             p.amount = Decimal.TryParse(p.amount, out chk1) ? chk1.ToString() : "0";
             p.pay_amount = Decimal.TryParse(p.pay_amount, out chk1) ? chk1.ToString() : "0";
@@ -208,8 +213,9 @@ namespace Xtrim_ERP.objdb
                 expnC.vat + "," + expnC.total + "," + expnC.item_name_t + "," +
                 expnC.unit_name_t + ", " + expnC.expenses_pay_detail_id + ", " +
                 expnC.pay_to_cus_id + "," + expnC.pay_to_cus_name_t + "," + expnC.pay_to_cus_addr + "," +
-                expnC.pay_to_cus_tax + "," + expnC.receipt_no + "," + expnC.receipt_date + " " +
-                
+                expnC.pay_to_cus_tax + "," + expnC.receipt_no + "," + expnC.receipt_date + "," +
+                expnC.status_page + "," + expnC.status_hide + " " +
+
                 ") " +
                 "Values ('" + p.desc1.Replace("'", "''") + "','" + p.desc2.Replace("'", "''") + "','" + p.amount + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
@@ -224,8 +230,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.vat + "','" + p.total + "','" + p.item_name_t + "'," +
                 "'" + p.unit_name_t + "','" + p.expenses_pay_detail_id + "'," +
                 "'" + p.pay_to_cus_id + "','" + p.pay_to_cus_name_t + "','" + p.pay_to_cus_addr + "'," +
-                "'" + p.pay_to_cus_tax + "','" + p.receipt_no + "','" + p.receipt_date + "' " +
-                
+                "'" + p.pay_to_cus_tax + "','" + p.receipt_no + "','" + p.receipt_date + "', " +
+                "'" + p.status_page + "','" + p.status_hide + "' " +
                 ")";
             try
             {
@@ -273,7 +279,7 @@ namespace Xtrim_ERP.objdb
                 "," + expnC.pay_to_cus_tax + " = '" + p.pay_to_cus_tax + "' " +
                 "," + expnC.receipt_no + " = '" + p.receipt_no + "' " +
                 "," + expnC.receipt_date + " = '" + p.receipt_date + "' " +
-                
+                //"," + expnC.status_page + " = '" + p.status_page + "' " +
                 "Where " + expnC.pkField + "='" + p.expenses_draw_detail_id + "'"
                 ;
             try
@@ -381,7 +387,7 @@ namespace Xtrim_ERP.objdb
             DataTable dt = new DataTable();
             String sql = "select expC." + expnC.expenses_draw_detail_id + "," + expnC.item_id + "," + expnC.item_name_t + "," + expnC.qty + "," + expnC.unit_id + "," + expnC.unit_name_t + "," + expnC.price +
                 "," + expnC.amount + "," + expnC.wtax1 + "," + expnC.wtax3 + "," + expnC.vat + "," + expnC.remark + "," + expnC.total + "," + expnC.pay_to_cus_id + "," + expnC.pay_to_cus_name_t + "," + expnC.pay_to_cus_addr +
-                "," + expnC.pay_to_cus_tax + "," + expnC.receipt_date + "," + expnC.receipt_no + " " +
+                "," + expnC.pay_to_cus_tax + "," + expnC.receipt_date + "," + expnC.receipt_no + "," +expnC.status_page+","+ expnC.status_hide + " " +
                 "From " + expnC.table + " expC " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where expC." + expnC.job_id + " ='" + copId + "' ";
@@ -538,7 +544,8 @@ namespace Xtrim_ERP.objdb
                 curr1.pay_to_cus_tax = dt.Rows[0][expnC.pay_to_cus_tax].ToString();
                 curr1.receipt_no = dt.Rows[0][expnC.receipt_no].ToString();
                 curr1.receipt_date = dt.Rows[0][expnC.receipt_date].ToString();
-                
+                curr1.status_page = dt.Rows[0][expnC.status_page].ToString();
+                curr1.status_hide = dt.Rows[0][expnC.status_hide].ToString();
             }
             else
             {
@@ -586,7 +593,8 @@ namespace Xtrim_ERP.objdb
                 curr1.pay_to_cus_tax = "";
                 curr1.receipt_no = "";
                 curr1.receipt_date = "";
-                
+                curr1.status_page = "";
+                curr1.status_hide = "";
             }
 
             return curr1;

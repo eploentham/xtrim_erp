@@ -29,8 +29,9 @@ namespace Xtrim_ERP.gui
         int colID = 1, colCode = 2, colNameT = 3, colPrice1 = 4, colPrice2 = 5, colPrice3 = 6, colTypeSub = 7, colFmp=8;
         String cusId = "", cusNameT = "", cusAddr = "", cusTax = "";
         Boolean flagPage = false;
-
-        public FrmExpenseDrawD(XtrimControl x, String id, String cusid, String cusnamet, String cusaddr, String custax)
+        public enum StatusPage { AppvPay, SaveViewOnly };
+        StatusPage statusPage;
+        public FrmExpenseDrawD(XtrimControl x, String id, String cusid, String cusnamet, String cusaddr, String custax, StatusPage statuspage)
         {
             InitializeComponent();
             xC = x;
@@ -39,6 +40,7 @@ namespace Xtrim_ERP.gui
             cusNameT = cusnamet;
             cusAddr = cusaddr;
             cusTax = custax;
+            statusPage = statuspage;
             initConfig();
         }
         private void initConfig()
@@ -70,6 +72,14 @@ namespace Xtrim_ERP.gui
             setFocusColor();
             initGrfDept();
             setGrfDeptH();
+            if(statusPage == StatusPage.AppvPay)
+            {
+                label15.Text = "ป้อนค่าใช้จ่าย";
+            }
+            else
+            {
+                label15.Text = "ไม่มีการเบิกค่าใช้จ่าย ป้อนเพื่อเก็บข้อมูล";
+            }
             flagPage = false;
         }
 
