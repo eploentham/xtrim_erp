@@ -327,7 +327,7 @@ namespace Xtrim_ERP.gui
         private void BtnBNew_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmExpenseDrawD frm = new FrmExpenseDrawD(xC, "", "", "", "", "",FrmExpenseDrawD.StatusPage.AppvPay);
+            FrmExpenseDrawD frm = new FrmExpenseDrawD(xC, "", "", "", "", "",FrmExpenseDrawD.StatusPage.AppvPay,  FrmExpenseDrawD.StatusPayType.All);
             frm.ShowDialog(this);
             setRowGrfBill(xC.sItm);
             calAmtGrfBill();

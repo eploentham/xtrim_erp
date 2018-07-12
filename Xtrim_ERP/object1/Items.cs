@@ -52,6 +52,6 @@ namespace Xtrim_ERP.object1
         public String cust_tax { get; set; }
         public String receipt_no { get; set; }
         public String receipt_date { get; set; }
-
+        public String status_hide { get; set; }
     }
 }

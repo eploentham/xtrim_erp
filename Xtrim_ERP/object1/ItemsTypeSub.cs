@@ -28,5 +28,6 @@ namespace Xtrim_ERP.object1
         public String sort1 { get; set; }
         public String status_item_edit { get; set; }
         public String tax_id { get; set; }
+        public String status_hide { get; set; }
     }
 }

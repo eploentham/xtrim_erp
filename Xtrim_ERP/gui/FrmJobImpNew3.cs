@@ -408,7 +408,7 @@ namespace Xtrim_ERP.gui
         private void BtnSNew_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmExpenseDrawD frm = new FrmExpenseDrawD(xC, "", impId, txtImpNameT.Text, imp.taddr1, imp.tax_id, FrmExpenseDrawD.StatusPage.AppvPay);
+            FrmExpenseDrawD frm = new FrmExpenseDrawD(xC, "", impId, txtImpNameT.Text, imp.taddr1, imp.tax_id, FrmExpenseDrawD.StatusPage.AppvPay, FrmExpenseDrawD.StatusPayType.All);
             frm.ShowDialog(this);
             setExpnDS(0, "");
         }
@@ -462,7 +462,7 @@ namespace Xtrim_ERP.gui
         {
             //throw new NotImplementedException();
             
-            FrmExpenseDrawD frm = new FrmExpenseDrawD(xC, "", impId, txtImpNameT.Text, imp.taddr1, imp.tax_id, FrmExpenseDrawD.StatusPage.SaveViewOnly);
+            FrmExpenseDrawD frm = new FrmExpenseDrawD(xC, "", impId, txtImpNameT.Text, imp.taddr1, imp.tax_id, FrmExpenseDrawD.StatusPage.SaveViewOnly, FrmExpenseDrawD.StatusPayType.All);
             frm.ShowDialog(this);
             setExpnDD(0, "");
         }

@@ -16,7 +16,7 @@ namespace Xtrim_ERP.objdb
         ConnectDB conn;
 
         public List<Items> lexpn;
-
+        
         public ItemsDB(ConnectDB c)
         {
             conn = c;
@@ -57,6 +57,7 @@ namespace Xtrim_ERP.objdb
             itm.unit_id = "unit_id";
             itm.item_group_id = "item_group_id";
             itm.tax_id = "tax_id";
+            itm.status_hide = "status_hide";
 
             itm.qty = "";
             itm.cust_addr = "";
@@ -70,6 +71,7 @@ namespace Xtrim_ERP.objdb
             itm.receipt_date = "";
             itm.receipt_no = "";
             itm.total = "";
+
 
             itm.table = "b_items";
             itm.pkField = "item_id";
@@ -154,6 +156,7 @@ namespace Xtrim_ERP.objdb
             p.item_name_e = p.item_name_e == null ? "" : p.item_name_e;
             p.item_code = p.item_code == null ? "" : p.item_code;
             p.status_invoice = p.status_invoice == null ? "0" : p.status_invoice;
+            p.status_hide = p.status_hide == null ? "0" : p.status_hide;
 
             p.item_grp_id = int.TryParse(p.item_grp_id, out chk) ? chk.ToString() : "0";
             p.item_type_sub_id = int.TryParse(p.item_type_sub_id, out chk) ? chk.ToString() : "0";
@@ -190,7 +193,7 @@ namespace Xtrim_ERP.objdb
                 itm.f_method_payment_id + "," + itm.status_invoice + "," + itm.unit_id + "," +
                 itm.price1 + "," + itm.price2 + ", " + itm.price3 + ", " +
                 itm.price4 + "," + itm.price5 + "," + itm.item_group_id + "," +
-                itm.tax_id + "," +
+                itm.tax_id + "," + itm.status_hide + " " +
                 ") " +
                 "Values ('" + p.item_code + "','" + p.item_name_e.Replace("'", "''") + "','" + p.item_name_t.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
@@ -201,7 +204,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.f_method_payment_id + "','" + p.status_invoice.Replace("'", "''") + "'," + p.unit_id + "'," +
                 "'" + p.price1 + "','" + p.price2.Replace("'", "''") + "','" + p.price3 + "'," +
                 "'" + p.price4 + "','" + p.price5.Replace("'", "''") + "','" + p.item_group_id.Replace("'", "''") + "'," +
-                "'" + p.tax_id + "' " +
+                "'" + p.tax_id + "','" + p.status_hide + "' " +
                 ")";
             try
             {
@@ -245,6 +248,7 @@ namespace Xtrim_ERP.objdb
                 "," + itm.unit_id + " = '" + p.unit_id + "' " +
                 "," + itm.item_group_id + " = '" + p.item_group_id + "' " +
                 "," + itm.tax_id + " = '" + p.tax_id + "' " +
+                "," + itm.status_hide + " = '" + p.status_hide + "' " +
                 "Where " + itm.pkField + "='" + p.item_id + "'"
                 ;
 
@@ -293,16 +297,29 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
-        public DataTable selectAll1()
+        public DataTable selectAll1(String statuspaytype)
         {
+            String wherestatuspaytype = "", sql="";
             DataTable dt = new DataTable();
-            String sql = "select itm."+itm.item_id+","+itm.item_code+","+itm.item_name_t+","+itm.price1+","+itm.price2+","+itm.price3 + 
+            if (statuspaytype.Equals("1"))
+            {
+                wherestatuspaytype = " and itm.f_method_payment_id = '1560000001' and itm." + itm.status_hide + " = '0' ";
+            }
+            else if (statuspaytype.Equals("2"))
+            {
+                wherestatuspaytype = " and itm.f_method_payment_id = '1560000000' and itm." + itm.status_hide + " = '0' ";
+            }
+            else if (statuspaytype.Equals("9"))
+            {
+                wherestatuspaytype = " and itm."+itm.status_hide+" = '1' ";
+            }
+                sql = "select itm."+itm.item_id+","+itm.item_code+","+itm.item_name_t+","+itm.price1+","+itm.price2+","+itm.price3 + 
                 ",itmts.item_type_sub_name_t,fmp.f_method_payment_name_t " +
                 "From " + itm.table + " itm " +
                 "Left join b_items_type_sub itmts On itmts."+itm.item_type_sub_id+"=itm."+itm.item_type_sub_id+" " +
                 "Left Join f_method_payment fmp On itm."+itm.f_method_payment_id+ " = fmp.f_method_payment_id " +
-                "Where itm." + itm.active + " ='1' " +
-                "Order By itm."+itm.item_name_t;
+                "Where itm." + itm.active + " ='1' " + wherestatuspaytype+
+                "Order By itm." +itm.item_name_t;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -376,6 +393,7 @@ namespace Xtrim_ERP.objdb
                 itm1.unit_id = dt.Rows[0][itm.unit_id].ToString();
                 itm1.item_group_id = dt.Rows[0][itm.item_group_id].ToString();
                 itm1.tax_id = dt.Rows[0][itm.tax_id].ToString();
+                itm1.status_hide = dt.Rows[0][itm.status_hide].ToString();
             }
             else
             {
@@ -423,6 +441,7 @@ namespace Xtrim_ERP.objdb
                 itm1.total = "";
                 itm1.item_group_id = "";
                 itm1.tax_id = "";
+                itm1.status_hide = "";
             }
 
             return itm1;

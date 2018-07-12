@@ -73,7 +73,7 @@ namespace Xtrim_ERP.gui
             bg = txtCode.BackColor;
             fc = txtCode.ForeColor;
             ff = txtCode.Font;
-            xC.xtDB.stfDB.setCboStaff(cboStaff,"");
+            xC.xtDB.stfDB.setCboStaff(cboStaff,xC.userId);
             DateTime jobDate = DateTime.Now;
             txtExpndDrawDate.Value = jobDate.Year.ToString() + "-" + jobDate.ToString("MM-dd");
             jobDate = jobDate.AddDays(7);
@@ -111,6 +111,7 @@ namespace Xtrim_ERP.gui
             sep = new C1SuperErrorProvider();
             stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
             imp = new Customer();
+            txtAmtOnhand.Value = xC.xtDB.expnddDB.selectPayAmountByStf(xC.userId);
         }
 
         private void TxtImpNameT_KeyUp(object sender, KeyEventArgs e)
@@ -142,7 +143,9 @@ namespace Xtrim_ERP.gui
         {
             //throw new NotImplementedException();
             if (grfExpnD[grfExpnD.Row, colDid] == null) return;
-            FrmExpenseDrawD frm = new FrmExpenseDrawD(xC, grfExpnD[grfExpnD.Row, colDid].ToString(), imp.cust_id, txtImpNameT.Text, imp.taddr1, imp.tax_id, FrmExpenseDrawD.StatusPage.AppvPay);
+            String did = "";
+            did = grfExpnD[grfExpnD.Row, colDid]!= null ? grfExpnD[grfExpnD.Row, colDid].ToString() : "";
+            FrmExpenseDrawD frm = new FrmExpenseDrawD(xC, did, imp.cust_id, txtImpNameT.Text, imp.taddr1, imp.tax_id, FrmExpenseDrawD.StatusPage.AppvPay, FrmExpenseDrawD.StatusPayType.Cash);
             frm.ShowDialog(this);
             setExpnDD(grfExpnD.Row, grfExpnD[grfExpnD.Row, colDid].ToString());
         }
@@ -150,7 +153,16 @@ namespace Xtrim_ERP.gui
         private void BtnDNew_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmExpenseDrawD frm = new FrmExpenseDrawD(xC,"", imp.cust_id, txtImpNameT.Text, imp.taddr1, imp.tax_id, FrmExpenseDrawD.StatusPage.AppvPay);
+            FrmExpenseDrawD frm;
+            if(flagfom2 == flagForm2.Cash)
+            {
+                frm = new FrmExpenseDrawD(xC, "", imp.cust_id, txtImpNameT.Text, imp.taddr1, imp.tax_id, FrmExpenseDrawD.StatusPage.AppvPay, FrmExpenseDrawD.StatusPayType.Cash);
+            }
+            else
+            {
+                frm = new FrmExpenseDrawD(xC, "", imp.cust_id, txtImpNameT.Text, imp.taddr1, imp.tax_id, FrmExpenseDrawD.StatusPage.AppvPay, FrmExpenseDrawD.StatusPayType.Cheque);
+            }
+            
             frm.ShowDialog(this);
             setExpnDD(0,"");
         }
@@ -843,6 +855,7 @@ namespace Xtrim_ERP.gui
             for (int i = 1; i < grfExpnD.Rows.Count; i++)
             {
                 if (grfExpnD.Row <= 0) continue;
+                if (grfExpnD[i, colDedit] == null) continue;
                 if (!grfExpnD[i, colDedit].ToString().Equals("1")) continue;
 
                 ExpensesDrawDatail expndd = new ExpensesDrawDatail();
@@ -872,7 +885,7 @@ namespace Xtrim_ERP.gui
                     expndd.receipt_date = grfExpnD[i, colDreceiptdate] == null ? "" : grfExpnD[i, colDreceiptdate].ToString();
                     expndd.pay_to_cus_id = grfExpnD[i, colDpaytocusid] == null ? "" : grfExpnD[i, colDpaytocusid].ToString();
                 }
-                if (flagForm.Equals("cash"))
+                if (flagfom2==flagForm2.Cash)
                 {
                     expndd.status_pay_type = "1";
                 }

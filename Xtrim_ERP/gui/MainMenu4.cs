@@ -71,6 +71,15 @@ namespace Xtrim_ERP.gui
             menuBillingMinus.Click += MenuBillingMinus_Click;
             menuExpnReceipt.Click += MenuExpnReceipt_Click;
             menuJobTax.Click += MenuJobTax_Click;
+            menuRspCard.Click += MenuRspCard_Click;
+        }
+
+        private void MenuRspCard_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmReserveCash frm = new FrmReserveCash(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, menuRspCard.Text + " ");
         }
 
         private void MenuJobTax_Click(object sender, EventArgs e)

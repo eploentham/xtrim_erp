@@ -497,6 +497,12 @@
     <Compile Include="gui\FrmReport.Designer.cs">
       <DependentUpon>FrmReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmReserveCash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmReserveCash.Designer.cs">
+      <DependentUpon>FrmReserveCash.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmReservePay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -624,6 +630,7 @@
     <Compile Include="objdb\PaymentDB.cs" />
     <Compile Include="objdb\ReceiptDB.cs" />
     <Compile Include="objdb\ReceiptDetailDB.cs" />
+    <Compile Include="objdb\ReserveCashDB.cs" />
     <Compile Include="objdb\TaxDB.cs" />
     <Compile Include="objdb\TaxDetailDB.cs" />
     <Compile Include="object1\BillingCover.cs" />
@@ -706,6 +713,7 @@
     <Compile Include="object1\CusRemark.cs" />
     <Compile Include="object1\Receipt.cs" />
     <Compile Include="object1\ReceiptDetail.cs" />
+    <Compile Include="object1\ReserveCash.cs" />
     <Compile Include="object1\ReservePay.cs" />
     <Compile Include="object1\StringSOAP.cs" />
     <Compile Include="object1\BTax.cs" />
@@ -1027,6 +1035,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmReport.resx">
       <DependentUpon>FrmReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmReserveCash.resx">
+      <DependentUpon>FrmReserveCash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmReservePay.resx">
       <DependentUpon>FrmReservePay.cs</DependentUpon>

@@ -105,6 +105,7 @@ namespace Xtrim_ERP.gui
                 btnSave.Hide();
                 btnAppv.Hide();
                 btnRsp.Show();
+                btnRsp.Enabled = true;
             }
             else if (flagForm.Equals("draw"))
             {

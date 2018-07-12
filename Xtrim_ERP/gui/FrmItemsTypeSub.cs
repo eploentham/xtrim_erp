@@ -181,6 +181,7 @@ namespace Xtrim_ERP.gui
             chkItmEdit.Checked = itmtS.status_item_edit.Equals("1") ? true : false;
             chkInv.Checked = itmtS.status_invoice.Equals("1") ? true : false;
             chkTax53.Checked = itmtS.status_tax53.Equals("1") ? true : false;
+            chkStatusServ.Checked = itmtS.status_hide.Equals("1") ? true : false;
             txtAccCode.Value = itmtS.acc_code;
             if (chkTax53.Checked)
             {
@@ -213,6 +214,7 @@ namespace Xtrim_ERP.gui
             itmtS.status_tax53 = chkTax53.Checked ? "1" : "0";
             itmtS.acc_code = txtAccCode.Text;
             itmtS.tax_id = cboTax.SelectedItem != null ? ((ComboBoxItem)(cboTax.SelectedItem)).Value : "";
+            itmtS.status_hide = chkStatusServ.Checked ? "1" : "0";
         }
         private void grfDept_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
         {

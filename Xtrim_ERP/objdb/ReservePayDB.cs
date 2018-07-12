@@ -41,6 +41,7 @@ namespace Xtrim_ERP.objdb
             rsp.date_appv = "date_appv";
             rsp.date_reserve = "date_reserve";
             rsp.staff_id = "staff_id";
+            rsp.amount_onhand = "amount_onhand";
 
             rsp.table = "t_reserve_pay";
             rsp.pkField = "reserve_pay_id";
@@ -131,12 +132,14 @@ namespace Xtrim_ERP.objdb
             p.amount_draw = Decimal.TryParse(p.amount_draw, out chk1) ? chk1.ToString() : "0";
             p.amount_appv = Decimal.TryParse(p.amount_appv, out chk1) ? chk1.ToString() : "0";
             p.amount_reserve = Decimal.TryParse(p.amount_reserve, out chk1) ? chk1.ToString() : "0";
+            p.amount_onhand = Decimal.TryParse(p.amount_onhand, out chk1) ? chk1.ToString() : "0";
         }
         public String insert(ReservePay p, String userId)
         {
             String re = "";
             String sql = "";
             p.active = "1";
+            p.amount_onhand = "0";
             //p.ssdata_id = "";
             int chk = 0;
 
@@ -149,14 +152,14 @@ namespace Xtrim_ERP.objdb
                 rsp.user_create + "," + rsp.user_modi + "," + rsp.user_cancel + "," +
                 rsp.active + "," + rsp.remark + ", " + rsp.amount_reserve + ", " +
                 rsp.date_appv + "," + rsp.date_draw + ", " + rsp.date_reserve + ", " +
-                rsp.staff_id + " " +
+                rsp.staff_id + "," + rsp.amount_onhand + " " +
                 ") " +
                 "Values ('" + p.desc1.Replace("'", "''") + "','" + p.amount_draw.Replace("'", "''") + "','" + p.amount_appv.Replace("'", "''") + "', " +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.amount_reserve.Replace("'", "''") + "', " +
                 "'" + p.date_appv + "','" + p.date_draw.Replace("'", "''") + "','" + p.date_reserve.Replace("'", "''") + "', " +
-                "'" + p.staff_id + "' " +
+                "'" + p.staff_id + "','" + p.amount_onhand + "' " +
                 ")";
             try
             {
@@ -210,7 +213,7 @@ namespace Xtrim_ERP.objdb
                 "," + rsp.date_appv + " = now() " +
                 "," + rsp.date_modi + " = now()" +
                 "," + rsp.user_modi + " = '" + userId + "' " +
-                "," + rsp.status_appv + " = '2' " +
+                "," + rsp.status_appv + " = '2' " +                
                 "Where " + rsp.pkField + "='" + id + "'";
             try
             {
@@ -237,6 +240,7 @@ namespace Xtrim_ERP.objdb
                 "," + rsp.date_modi + " = now() " +
                 "," + rsp.user_modi + " = '" + userId + "' " +
                 "," + rsp.status_appv + " = '2' " +
+                "," + rsp.amount_onhand + " = " + rsp.amount_appv + " " +
                 "Where " + rsp.pkField + "='" + id + "'";
             try
             {
@@ -276,6 +280,7 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
+        
         public String insertReservePay(ReservePay p, String userId)
         {
             String re = "";
@@ -305,7 +310,8 @@ namespace Xtrim_ERP.objdb
             String sql = "select expC.*  " +
                 "From " + rsp.table + " expC " +
                 " " +
-                "Where expC." + rsp.active + " ='1' ";
+                "Where expC." + rsp.active + " ='1' " +
+                "Order By expC." + rsp.reserve_pay_id;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -357,6 +363,19 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
+        public ReservePay selectByOnhandOLD()
+        {
+            ReservePay cop1 = new ReservePay();
+            DataTable dt = new DataTable();
+            String sql = "select expC.* " +
+                "From " + rsp.table + " expC " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where expC." + rsp.amount_onhand + " >0 " +
+                "Order By "+rsp.pkField+" asc Limit 1";
+            dt = conn.selectData(conn.conn, sql);
+            cop1 = setReservePay(dt);
+            return cop1;
+        }
         public ReservePay selectByPk1(String copId)
         {
             ReservePay cop1 = new ReservePay();
@@ -392,6 +411,7 @@ namespace Xtrim_ERP.objdb
                 curr1.date_reserve = dt.Rows[0][rsp.date_reserve].ToString();
                 curr1.staff_id = dt.Rows[0][rsp.staff_id].ToString();
                 curr1.status_appv = dt.Rows[0][rsp.status_appv].ToString();
+                curr1.amount_onhand = dt.Rows[0][rsp.amount_onhand].ToString();
             }
             else
             {
@@ -407,14 +427,14 @@ namespace Xtrim_ERP.objdb
                 curr1.user_modi = "";
                 curr1.user_cancel = "";                
                 curr1.remark = "";
-                curr1.amount_appv = "";
+                curr1.amount_appv = "0";
                 curr1.amount_reserve = "";
                 curr1.date_appv = "";
                 curr1.date_draw = "";
                 curr1.date_reserve = "";
                 curr1.staff_id = "";
                 curr1.status_appv = "";
-                //curr1.amount_draw = "";
+                curr1.amount_onhand = "0";
             }
 
             return curr1;

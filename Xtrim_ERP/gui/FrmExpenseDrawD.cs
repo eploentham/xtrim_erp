@@ -31,7 +31,9 @@ namespace Xtrim_ERP.gui
         Boolean flagPage = false;
         public enum StatusPage { AppvPay, SaveViewOnly };
         StatusPage statusPage;
-        public FrmExpenseDrawD(XtrimControl x, String id, String cusid, String cusnamet, String cusaddr, String custax, StatusPage statuspage)
+        public enum StatusPayType { Cash, Cheque, All, ItmServe };
+        StatusPayType statuspaytype;
+        public FrmExpenseDrawD(XtrimControl x, String id, String cusid, String cusnamet, String cusaddr, String custax, StatusPage statuspage, StatusPayType statuspaytype)
         {
             InitializeComponent();
             xC = x;
@@ -40,7 +42,8 @@ namespace Xtrim_ERP.gui
             cusNameT = cusnamet;
             cusAddr = cusaddr;
             cusTax = custax;
-            statusPage = statuspage;
+            this.statusPage = statuspage;
+            this.statuspaytype = statuspaytype;
             initConfig();
         }
         private void initConfig()
@@ -63,15 +66,19 @@ namespace Xtrim_ERP.gui
             ff = txtQty.Font;
             txtQty.KeyPress += TxtQty_KeyPress;
             txtQty.KeyUp += TxtQty_KeyUp;
+            txtPrice.KeyUp += TxtPrice_KeyUp;
             btnSave.Click += BtnSave_Click;
+            chkAll.Click += ChkAll_Click;
+            chkCash.Click += ChkCash_Click;
+            chkCheque.Click += ChkCheque_Click;
+            chkItmServe.Click += ChkItmServe_Click;
 
             //xC.xtDB.itmDB.setC1CboItem(cboItm);
             xC.xtDB.utpDB.setC1CboUtp(cboUtp, "");
 
             setControlD();
             setFocusColor();
-            initGrfDept();
-            setGrfDeptH();
+            
             if(statusPage == StatusPage.AppvPay)
             {
                 label15.Text = "ป้อนค่าใช้จ่าย";
@@ -80,7 +87,47 @@ namespace Xtrim_ERP.gui
             {
                 label15.Text = "ไม่มีการเบิกค่าใช้จ่าย ป้อนเพื่อเก็บข้อมูล";
             }
+            chkAll.Checked = true;
+            if (statuspaytype == StatusPayType.Cash)
+            {
+                chkCash.Checked = true;
+            }else if(statuspaytype == StatusPayType.Cheque)
+            {
+                chkCheque.Checked = true;
+            }
+            initGrfDept();
+            setGrfDeptH();
             flagPage = false;
+        }
+
+        private void ChkItmServe_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            setGrfDeptH();
+        }
+
+        private void ChkCheque_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            setGrfDeptH();
+        }
+
+        private void ChkCash_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            setGrfDeptH();
+        }
+
+        private void ChkAll_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            setGrfDeptH();
+        }
+
+        private void TxtPrice_KeyUp(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            calAmt();
         }
 
         private void TxtQty_KeyUp(object sender, KeyEventArgs e)
@@ -194,7 +241,7 @@ namespace Xtrim_ERP.gui
             //grfExpnC.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfDept_CellButtonClick);
             //grfExpnC.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfDept_CellChanged);
             //grfExpnD.CellChanged += GrfExpnD_CellChanged;
-            panel2.Controls.Add(grfExpnD);
+            panel6.Controls.Add(grfExpnD);
 
             theme1.SetTheme(grfExpnD, "Office2013Red");
         }
@@ -265,7 +312,7 @@ namespace Xtrim_ERP.gui
             grfExpnD.Clear();
             //if (txtID.Text.Equals("")) return;
 
-            grfExpnD.DataSource = xC.xtDB.itmDB.selectAll1();
+            grfExpnD.DataSource = xC.xtDB.itmDB.selectAll1(chkCash.Checked ? "1" : chkCheque.Checked ? "2" : chkAll.Checked ? "" : chkItmServe.Checked ? "9" : "");
             C1TextBox txt = new C1TextBox();
             txt.DataType = txtID.DataType;
 
@@ -278,7 +325,7 @@ namespace Xtrim_ERP.gui
             grfExpnD.Cols[colTypeSub].Editor = txt;
 
             grfExpnD.Cols[colCode].Width = 80;
-            grfExpnD.Cols[colNameT].Width = 80;
+            grfExpnD.Cols[colNameT].Width = 200;
             grfExpnD.Cols[colPrice1].Width = 80;
             grfExpnD.Cols[colPrice2].Width = 80;
             grfExpnD.Cols[colPrice3].Width = 80;
@@ -298,6 +345,24 @@ namespace Xtrim_ERP.gui
                     grfExpnD.Rows[i].StyleNew.BackColor = color;
             }
             grfExpnD.Cols[colID].Visible = false;
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            // ...
+            if (keyData == (Keys.Escape))
+            {
+                Close();
+                //if (MessageBox.Show("ต้องการออกจากโปรแกรม1", "ออกจากโปรแกรม", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+                //{
+                //    Close();
+                //    return true;
+                //}
+            }
+            else
+            {
+                //keyData
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
         private void FrmExpenseDrawD_Load(object sender, EventArgs e)
         {

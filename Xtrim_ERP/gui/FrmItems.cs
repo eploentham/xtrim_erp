@@ -207,6 +207,7 @@ namespace Xtrim_ERP.gui
             txtAccCode.Value = itm.acc_code;
             chkVat.Checked = itm.status_invoice.Equals("1") ? true : false;
             chkTax53.Checked = itm.status_tax53.Equals("1") ? true : false;
+            chkStatusServ.Checked = itm.status_hide.Equals("1") ? true : false;
             if (chkTax53.Checked)
             {
                 cboTax.Show();
@@ -289,6 +290,7 @@ namespace Xtrim_ERP.gui
                 itm.item_group_id = itmt.item_group_id;
             }
             itm.tax_id = cboTax.SelectedItem != null ? ((ComboBoxItem)(cboTax.SelectedItem)).Value : "";
+            itm.status_hide = chkStatusServ.Checked ? "1" : "0";
         }
         private void grfDept_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
         {
@@ -340,6 +342,7 @@ namespace Xtrim_ERP.gui
             txtAccCode.Value = itmts.acc_code;
             chkVat.Checked = itmts.status_invoice.Equals("1") ? true : false;
             chkTax53.Checked = itmts.status_tax53.Equals("1") ? true : false;
+            chkStatusServ.Checked = itmts.status_hide.Equals("1") ? true : false;
             xC.setC1Combo(cboFMtp, itmts.f_method_payment_id);
         }
         private void BtnSave_Click(object sender, EventArgs e)

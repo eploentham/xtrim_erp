@@ -31,6 +31,7 @@ ALTER TABLE t_receipt_detail AUTO_INCREMENT = 1690000000;
 ALTER TABLE t_tax AUTO_INCREMENT = 1700000000;
 ALTER TABLE f_tax_type AUTO_INCREMENT = 1710000000;
 ALTER TABLE t_tax_detail AUTO_INCREMENT = 1720000000;
+ALTER TABLE t_reserve_cash AUTO_INCREMENT = 1730000000;
 
 
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ไม่ต้อง', 'ORIGIANL', '1', 'BL_TYPE');
@@ -678,3 +679,11 @@ drop table temp1;
 /*make class*/
 select concat('public class ',vClassName,'\r\n{', vClassCode,'\r\n}');
 END
+
+delete from t_expenses_draw;
+delete from t_expenses_draw_detail;
+delete from t_expenses_pay;
+delete from t_expenses_pay_detail;
+delete from t_reserve_cash;
+delete from t_reserve_pay;
+update b_company set amount_reserve =0 where comp_code = '001'

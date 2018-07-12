@@ -496,6 +496,18 @@ namespace Xtrim_ERP.objdb
             cop1 = setExpenseDrawDetail(dt);
             return cop1;
         }
+        public String selectPayAmountByStf(String copId)
+        {
+            DataTable dt = new DataTable();
+            String re = "";
+            String sql = "select sum(expC."+expnC.pay_amount+") as "+expnC.pay_amount+" " +
+                "From " + expnC.table + " expC " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where expC." + expnC.pay_staff_id + " ='" + copId + "' and expC." + expnC.status_page + "='1' and expC." + expnC.status_pay_type+ "='1' and expC." + expnC.status_pay + "='2' ";
+            dt = conn.selectData(conn.conn, sql);
+            re = dt.Rows[0][expnC.pay_amount].ToString();
+            return re;
+        }
         public ExpensesDrawDatail setExpenseDrawDetail(DataTable dt)
         {
             ExpensesDrawDatail curr1 = new ExpensesDrawDatail();

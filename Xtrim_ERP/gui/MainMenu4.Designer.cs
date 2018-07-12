@@ -48,6 +48,7 @@
             this.menuRsp = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRspAppv = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRspReserve = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuRspCard = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExpnDraw0 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExpnDraw = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExpnDraw1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -146,32 +147,32 @@
             // menuImpJobView
             // 
             this.menuImpJobView.Name = "menuImpJobView";
-            this.menuImpJobView.Size = new System.Drawing.Size(180, 22);
+            this.menuImpJobView.Size = new System.Drawing.Size(177, 22);
             this.menuImpJobView.Text = "Open Job Import";
             // 
             // menuImpJobAdd
             // 
             this.menuImpJobAdd.Name = "menuImpJobAdd";
-            this.menuImpJobAdd.Size = new System.Drawing.Size(180, 22);
+            this.menuImpJobAdd.Size = new System.Drawing.Size(177, 22);
             this.menuImpJobAdd.Text = "New Job Import";
             this.menuImpJobAdd.Click += new System.EventHandler(this.menuImpJobAdd_Click);
             // 
             // menuTest
             // 
             this.menuTest.Name = "menuTest";
-            this.menuTest.Size = new System.Drawing.Size(180, 22);
+            this.menuTest.Size = new System.Drawing.Size(177, 22);
             this.menuTest.Text = "TestMenu";
             // 
             // menuJobTax
             // 
             this.menuJobTax.Name = "menuJobTax";
-            this.menuJobTax.Size = new System.Drawing.Size(180, 22);
+            this.menuJobTax.Size = new System.Drawing.Size(177, 22);
             this.menuJobTax.Text = "ออกใบหักภาษี ณ ที่จ่าย";
             // 
             // menuExpnReceipt
             // 
             this.menuExpnReceipt.Name = "menuExpnReceipt";
-            this.menuExpnReceipt.Size = new System.Drawing.Size(180, 22);
+            this.menuExpnReceipt.Size = new System.Drawing.Size(177, 22);
             this.menuExpnReceipt.Text = "ป้อนใบเสร็จรับเงิน";
             // 
             // menuExpJob
@@ -237,28 +238,35 @@
             this.เบกเงนสำรองจายToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuRsp,
             this.menuRspAppv,
-            this.menuRspReserve});
+            this.menuRspReserve,
+            this.menuRspCard});
             this.เบกเงนสำรองจายToolStripMenuItem.Name = "เบกเงนสำรองจายToolStripMenuItem";
-            this.เบกเงนสำรองจายToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.เบกเงนสำรองจายToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.เบกเงนสำรองจายToolStripMenuItem.Text = "เบิกเงินสำรองจ่าย";
             // 
             // menuRsp
             // 
             this.menuRsp.Name = "menuRsp";
-            this.menuRsp.Size = new System.Drawing.Size(163, 22);
+            this.menuRsp.Size = new System.Drawing.Size(198, 22);
             this.menuRsp.Text = "เบิกเงินสำรองจ่าย";
             // 
             // menuRspAppv
             // 
             this.menuRspAppv.Name = "menuRspAppv";
-            this.menuRspAppv.Size = new System.Drawing.Size(163, 22);
+            this.menuRspAppv.Size = new System.Drawing.Size(198, 22);
             this.menuRspAppv.Text = "อนุมัติ เงินสำรองจ่าย";
             // 
             // menuRspReserve
             // 
             this.menuRspReserve.Name = "menuRspReserve";
-            this.menuRspReserve.Size = new System.Drawing.Size(163, 22);
+            this.menuRspReserve.Size = new System.Drawing.Size(198, 22);
             this.menuRspReserve.Text = "รับเงิน เงินสำรองจ่าย";
+            // 
+            // menuRspCard
+            // 
+            this.menuRspCard.Name = "menuRspCard";
+            this.menuRspCard.Size = new System.Drawing.Size(198, 22);
+            this.menuRspCard.Text = "ประวัติการจ่าย เงินสำรองจ่าย";
             // 
             // menuExpnDraw0
             // 
@@ -266,7 +274,7 @@
             this.menuExpnDraw,
             this.menuExpnDraw1});
             this.menuExpnDraw0.Name = "menuExpnDraw0";
-            this.menuExpnDraw0.Size = new System.Drawing.Size(150, 22);
+            this.menuExpnDraw0.Size = new System.Drawing.Size(180, 22);
             this.menuExpnDraw0.Text = "ใบเบิกเงิน";
             // 
             // menuExpnDraw
@@ -284,19 +292,19 @@
             // menuExpnDrawAppv
             // 
             this.menuExpnDrawAppv.Name = "menuExpnDrawAppv";
-            this.menuExpnDrawAppv.Size = new System.Drawing.Size(150, 22);
+            this.menuExpnDrawAppv.Size = new System.Drawing.Size(180, 22);
             this.menuExpnDrawAppv.Text = "อนุมัติ เบิกเงิน";
             // 
             // menuExpnDrawPay
             // 
             this.menuExpnDrawPay.Name = "menuExpnDrawPay";
-            this.menuExpnDrawPay.Size = new System.Drawing.Size(150, 22);
+            this.menuExpnDrawPay.Size = new System.Drawing.Size(180, 22);
             this.menuExpnDrawPay.Text = "จ่ายเงิน";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(147, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // menuBilling1
             // 
@@ -306,7 +314,7 @@
             this.menuBillingPlus,
             this.menuBillingMinus});
             this.menuBilling1.Name = "menuBilling1";
-            this.menuBilling1.Size = new System.Drawing.Size(150, 22);
+            this.menuBilling1.Size = new System.Drawing.Size(180, 22);
             this.menuBilling1.Text = "ใบวางบิล";
             // 
             // menuBilling
@@ -335,18 +343,18 @@
             // menuPayment
             // 
             this.menuPayment.Name = "menuPayment";
-            this.menuPayment.Size = new System.Drawing.Size(150, 22);
+            this.menuPayment.Size = new System.Drawing.Size(180, 22);
             this.menuPayment.Text = "รับชำระ";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(147, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // menuDebtor
             // 
             this.menuDebtor.Name = "menuDebtor";
-            this.menuDebtor.Size = new System.Drawing.Size(150, 22);
+            this.menuDebtor.Size = new System.Drawing.Size(180, 22);
             this.menuDebtor.Text = "ลูกหนี้";
             // 
             // menuInit
@@ -685,5 +693,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuBillingPlus;
         private System.Windows.Forms.ToolStripMenuItem menuBillingMinus;
         private System.Windows.Forms.ToolStripMenuItem menuTax;
+        private System.Windows.Forms.ToolStripMenuItem menuRspCard;
     }
 }

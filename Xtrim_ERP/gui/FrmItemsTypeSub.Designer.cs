@@ -31,6 +31,7 @@
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cboTax = new C1.Win.C1Input.C1ComboBox();
             this.chkItmEdit = new C1.Win.C1Input.C1CheckBox();
             this.cboItmT = new C1.Win.C1Input.C1ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -61,10 +62,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.cboTax = new C1.Win.C1Input.C1ComboBox();
+            this.chkStatusServ = new C1.Win.C1Input.C1CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboTax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkItmEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboItmT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboFMtp)).BeginInit();
@@ -84,7 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboTax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkStatusServ)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -107,6 +109,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel3.Controls.Add(this.chkStatusServ);
             this.panel3.Controls.Add(this.cboTax);
             this.panel3.Controls.Add(this.chkItmEdit);
             this.panel3.Controls.Add(this.cboItmT);
@@ -138,6 +141,27 @@
             this.panel3.Size = new System.Drawing.Size(502, 618);
             this.panel3.TabIndex = 1;
             this.theme1.SetTheme(this.panel3, "(default)");
+            // 
+            // cboTax
+            // 
+            this.cboTax.AllowSpinLoop = false;
+            this.cboTax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cboTax.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.cboTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboTax.GapHeight = 0;
+            this.cboTax.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.cboTax.ItemsDisplayMember = "";
+            this.cboTax.ItemsValueMember = "";
+            this.cboTax.Location = new System.Drawing.Point(286, 236);
+            this.cboTax.Name = "cboTax";
+            this.cboTax.Size = new System.Drawing.Size(177, 20);
+            this.cboTax.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cboTax.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
+            this.cboTax.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.cboTax.TabIndex = 562;
+            this.cboTax.Tag = null;
+            this.theme1.SetTheme(this.cboTax, "(default)");
+            this.cboTax.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // chkItmEdit
             // 
@@ -572,26 +596,23 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // cboTax
+            // chkStatusServ
             // 
-            this.cboTax.AllowSpinLoop = false;
-            this.cboTax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cboTax.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.cboTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboTax.GapHeight = 0;
-            this.cboTax.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.cboTax.ItemsDisplayMember = "";
-            this.cboTax.ItemsValueMember = "";
-            this.cboTax.Location = new System.Drawing.Point(286, 236);
-            this.cboTax.Name = "cboTax";
-            this.cboTax.Size = new System.Drawing.Size(177, 20);
-            this.cboTax.Style.DropDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cboTax.Style.DropDownBorderColor = System.Drawing.Color.Gainsboro;
-            this.cboTax.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.cboTax.TabIndex = 562;
-            this.cboTax.Tag = null;
-            this.theme1.SetTheme(this.cboTax, "(default)");
-            this.cboTax.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.chkStatusServ.BackColor = System.Drawing.Color.Transparent;
+            this.chkStatusServ.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkStatusServ.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chkStatusServ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkStatusServ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkStatusServ.Location = new System.Drawing.Point(286, 197);
+            this.chkStatusServ.Name = "chkStatusServ";
+            this.chkStatusServ.Padding = new System.Windows.Forms.Padding(4, 1, 1, 1);
+            this.chkStatusServ.Size = new System.Drawing.Size(153, 24);
+            this.chkStatusServ.TabIndex = 576;
+            this.chkStatusServ.Text = "ค่าบริการ xtrim";
+            this.theme1.SetTheme(this.chkStatusServ, "(default)");
+            this.chkStatusServ.UseVisualStyleBackColor = true;
+            this.chkStatusServ.Value = null;
+            this.chkStatusServ.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmItemsTypeSub
             // 
@@ -607,6 +628,7 @@
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboTax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkItmEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboItmT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboFMtp)).EndInit();
@@ -628,7 +650,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cboTax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkStatusServ)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -670,5 +692,6 @@
         private C1.Win.C1Input.C1CheckBox chkItmEdit;
         private System.Windows.Forms.RadioButton chkNotSendtoInv;
         private C1.Win.C1Input.C1ComboBox cboTax;
+        private C1.Win.C1Input.C1CheckBox chkStatusServ;
     }
 }

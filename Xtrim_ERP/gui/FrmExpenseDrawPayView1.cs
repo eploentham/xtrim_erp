@@ -21,6 +21,7 @@ namespace Xtrim_ERP.gui
     {
         XtrimControl xC;
         ExpensesPay expnp;
+        Company cop;
         Tax tax;
         Font fEdit, fEditB;
 
@@ -56,6 +57,8 @@ namespace Xtrim_ERP.gui
             expnp = new ExpensesPay();
             tax = new Tax();
             DateTime jobDate = DateTime.Now;
+            cop = new Company();
+            cop = xC.xtDB.copDB.selectByCode1("001");
             txtDate.Value = jobDate.Year.ToString() + "-" + jobDate.ToString("MM-dd");
             txtTaxDate.Value = jobDate.Year.ToString() + "-" + jobDate.ToString("MM-dd");
             txtPayerTaxDate.Value = jobDate.Year.ToString() + "-" + jobDate.ToString("MM-dd");
@@ -160,6 +163,7 @@ namespace Xtrim_ERP.gui
             //{
             //    theme1.SetTheme(con, "Office2010Green");
             //}
+            txtAmtReserve.Value = cop.amount_reserve;
         }
         
         private void ChkItem_Click(object sender, EventArgs e)
@@ -1234,7 +1238,7 @@ namespace Xtrim_ERP.gui
         private void BtnCashOk_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            Company cop = new Company();
+            
             Decimal draw = 0, reserve=0;
             cop = xC.xtDB.copDB.selectByCode1("001");
             Decimal.TryParse(cop.amount_reserve, out reserve);
@@ -1598,6 +1602,7 @@ namespace Xtrim_ERP.gui
                     {
                         ExpensesPayDetail expnPd = new ExpensesPayDetail();
                         ExpensesDrawDatail expndd = new ExpensesDrawDatail();
+                        ReserveCash rsc = new ReserveCash();
                         String expnddid = "";
                         expnddid = grfCashMake[i, colCID].ToString();
                         expndd = xC.xtDB.expnddDB.selectByPk1(expnddid);
@@ -1645,9 +1650,10 @@ namespace Xtrim_ERP.gui
                         if (int.TryParse(re1, out chk))
                         {
                             chkD++;
+                            xC.xtDB.updateOnhand(re1, xC.userId, expnPd.pay_amount);
                         }
                     }
-                    if (chkD == (grfChequeMake.Rows.Count - 1))
+                    if (chkD == (grfCashMake.Rows.Count - 1))
                     {
                         btnCashSave.Image = Resources.accept_database24;
                         //tCCheque.SelectedTab = tabChequePrint;

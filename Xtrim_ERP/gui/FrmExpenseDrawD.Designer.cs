@@ -35,6 +35,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtCusId = new C1.Win.C1Input.C1TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -70,7 +71,12 @@
             this.txtQty = new C1.Win.C1Input.C1TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.chkCheque = new System.Windows.Forms.RadioButton();
+            this.chkCash = new System.Windows.Forms.RadioButton();
+            this.chkAll = new System.Windows.Forms.RadioButton();
+            this.chkItmServe = new System.Windows.Forms.RadioButton();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -78,6 +84,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCusId)).BeginInit();
@@ -99,6 +106,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUtp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQty)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // sB
@@ -107,7 +115,7 @@
             this.sB1});
             this.sB.Location = new System.Drawing.Point(0, 464);
             this.sB.Name = "sB";
-            this.sB.Size = new System.Drawing.Size(777, 22);
+            this.sB.Size = new System.Drawing.Size(912, 22);
             this.sB.TabIndex = 7;
             this.sB.Text = "statusStrip1";
             // 
@@ -129,7 +137,7 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(777, 464);
+            this.panel1.Size = new System.Drawing.Size(912, 464);
             this.panel1.TabIndex = 8;
             this.theme1.SetTheme(this.panel1, "(default)");
             // 
@@ -154,19 +162,21 @@
             this.splitContainer1.Panel2.Controls.Add(this.panel3);
             this.splitContainer1.Panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.theme1.SetTheme(this.splitContainer1.Panel2, "(default)");
-            this.splitContainer1.Size = new System.Drawing.Size(777, 464);
-            this.splitContainer1.SplitterDistance = 386;
+            this.splitContainer1.Size = new System.Drawing.Size(912, 464);
+            this.splitContainer1.SplitterDistance = 510;
             this.splitContainer1.TabIndex = 595;
             this.theme1.SetTheme(this.splitContainer1, "(default)");
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.panel5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(386, 464);
+            this.panel2.Size = new System.Drawing.Size(510, 464);
             this.panel2.TabIndex = 593;
             this.theme1.SetTheme(this.panel2, "(default)");
             // 
@@ -195,9 +205,22 @@
             this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(387, 464);
+            this.panel3.Size = new System.Drawing.Size(398, 464);
             this.panel3.TabIndex = 594;
             this.theme1.SetTheme(this.panel3, "(default)");
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label15.Location = new System.Drawing.Point(12, 435);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(71, 20);
+            this.label15.TabIndex = 624;
+            this.label15.Text = "หมายเหตุ:";
+            this.theme1.SetTheme(this.label15, "(default)");
             // 
             // panel4
             // 
@@ -707,24 +730,105 @@
             this.label3.Text = "รายการ :";
             this.theme1.SetTheme(this.label3, "(default)");
             // 
-            // label15
+            // panel5
             // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(12, 435);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(71, 20);
-            this.label15.TabIndex = 624;
-            this.label15.Text = "หมายเหตุ:";
-            this.theme1.SetTheme(this.label15, "(default)");
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel5.Controls.Add(this.chkItmServe);
+            this.panel5.Controls.Add(this.chkCheque);
+            this.panel5.Controls.Add(this.chkCash);
+            this.panel5.Controls.Add(this.chkAll);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(510, 31);
+            this.panel5.TabIndex = 0;
+            this.theme1.SetTheme(this.panel5, "(default)");
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel6.Location = new System.Drawing.Point(0, 31);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(510, 433);
+            this.panel6.TabIndex = 0;
+            this.theme1.SetTheme(this.panel6, "(default)");
+            // 
+            // chkCheque
+            // 
+            this.chkCheque.AutoSize = true;
+            this.chkCheque.BackColor = System.Drawing.Color.Transparent;
+            this.chkCheque.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkCheque.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkCheque.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkCheque.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkCheque.Location = new System.Drawing.Point(317, 7);
+            this.chkCheque.Name = "chkCheque";
+            this.chkCheque.Size = new System.Drawing.Size(62, 17);
+            this.chkCheque.TabIndex = 499;
+            this.chkCheque.TabStop = true;
+            this.chkCheque.Text = "Cheque";
+            this.theme1.SetTheme(this.chkCheque, "(default)");
+            this.chkCheque.UseVisualStyleBackColor = false;
+            // 
+            // chkCash
+            // 
+            this.chkCash.AutoSize = true;
+            this.chkCash.BackColor = System.Drawing.Color.Transparent;
+            this.chkCash.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkCash.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkCash.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkCash.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkCash.Location = new System.Drawing.Point(228, 7);
+            this.chkCash.Name = "chkCash";
+            this.chkCash.Size = new System.Drawing.Size(56, 17);
+            this.chkCash.TabIndex = 498;
+            this.chkCash.TabStop = true;
+            this.chkCash.Text = "เงินสด";
+            this.theme1.SetTheme(this.chkCash, "(default)");
+            this.chkCash.UseVisualStyleBackColor = false;
+            // 
+            // chkAll
+            // 
+            this.chkAll.AutoSize = true;
+            this.chkAll.BackColor = System.Drawing.Color.Transparent;
+            this.chkAll.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkAll.Location = new System.Drawing.Point(135, 7);
+            this.chkAll.Name = "chkAll";
+            this.chkAll.Size = new System.Drawing.Size(58, 17);
+            this.chkAll.TabIndex = 497;
+            this.chkAll.TabStop = true;
+            this.chkAll.Text = "ทั้งหมด";
+            this.theme1.SetTheme(this.chkAll, "(default)");
+            this.chkAll.UseVisualStyleBackColor = false;
+            // 
+            // chkItmServe
+            // 
+            this.chkItmServe.AutoSize = true;
+            this.chkItmServe.BackColor = System.Drawing.Color.Transparent;
+            this.chkItmServe.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.chkItmServe.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkItmServe.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(189)))), ((int)(((byte)(182)))));
+            this.chkItmServe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.chkItmServe.Location = new System.Drawing.Point(402, 7);
+            this.chkItmServe.Name = "chkItmServe";
+            this.chkItmServe.Size = new System.Drawing.Size(68, 17);
+            this.chkItmServe.TabIndex = 500;
+            this.chkItmServe.TabStop = true;
+            this.chkItmServe.Text = "ค่าบริการ";
+            this.theme1.SetTheme(this.chkItmServe, "(default)");
+            this.chkItmServe.UseVisualStyleBackColor = false;
             // 
             // FrmExpenseDrawD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(777, 486);
+            this.ClientSize = new System.Drawing.Size(912, 486);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sB);
             this.Name = "FrmExpenseDrawD";
@@ -739,6 +843,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -763,6 +868,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboUtp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQty)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -813,5 +920,11 @@
         private C1.Win.C1Input.C1TextBox txtWtax1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.RadioButton chkCheque;
+        private System.Windows.Forms.RadioButton chkCash;
+        private System.Windows.Forms.RadioButton chkAll;
+        private System.Windows.Forms.RadioButton chkItmServe;
     }
 }

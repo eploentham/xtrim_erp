@@ -26,5 +26,6 @@ namespace Xtrim_ERP.object1
         public String date_appv { get; set; }
         public String date_reserve { get; set; }
         public String staff_id { get; set; }
+        public String amount_onhand { get; set; }
     }
 }
