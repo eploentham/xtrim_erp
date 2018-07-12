@@ -565,10 +565,24 @@ namespace Xtrim_ERP.control
             if (!rsp.reserve_pay_id.Equals(""))
             {
                 re = xtDB.rspDB.updateReserve(rspid, userid);
+                ReserveCash rsc = new ReserveCash();
+                rsc.reserve_cash_id = "";
+                rsc.reserve_pay_id = rsp.reserve_pay_id;
+                rsc.expenses_pay_detail_id = "0";
+                rsc.amount = rsp.amount_appv;
+                rsc.active = "1";
+                rsc.remark = "";
+                rsc.date_create = "";
+                rsc.date_modi = "";
+                rsc.date_cancel = "";
+                rsc.user_create = "";
+                rsc.user_modi = "";
+                rsc.user_cancel = "";
+                re = xtDB.rscDB.insertReserveCash(rsc, userId);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
-                    re = xtDB.copDB.updateAmountReserve(rsp.amount_reserve);
+                    re = xtDB.copDB.updateAmountReserve(rsp.amount_appv);
                 }
             }
             

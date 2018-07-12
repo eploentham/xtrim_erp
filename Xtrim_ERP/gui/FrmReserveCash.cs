@@ -1,4 +1,5 @@
 ﻿using C1.Win.C1FlexGrid;
+using C1.Win.C1Input;
 using C1.Win.C1SuperTooltip;
 using C1.Win.C1Themes;
 using System;
@@ -83,14 +84,14 @@ namespace Xtrim_ERP.gui
         private void setGrfView()
         {
             //grfDept.Rows.Count = 7;
-            DataTable dtP = new DataTable();
+            //DataTable dtP = new DataTable();
             DataTable dtC = new DataTable();
-            dtP = xC.xtDB.rspDB.selectAll();
+            //dtP = xC.xtDB.rspDB.selectAll();
             dtC = xC.xtDB.rscDB.selectAll();
             grfView.Cols.Count = 5;
             grfView.Rows.Count = 1;
-            TextBox txt = new TextBox();
-
+            C1TextBox txt = new C1TextBox();
+            
             grfView.Cols[colDate].Editor = txt;
             grfView.Cols[colType].Editor = txt;
             grfView.Cols[colAmt].Editor = txt;
@@ -112,16 +113,26 @@ namespace Xtrim_ERP.gui
             grfView.Cols[colDesc].Caption = "รายการ";
             
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
-            for (int i = 0; i < dtP.Rows.Count; i++)
+            for (int i = 0; i < dtC.Rows.Count; i++)
             {
                 Row row = grfView.Rows.Add();
                 row[0] = (i + 1);
                 if (i % 2 == 0)
                     row.StyleNew.BackColor = color;
-                row[colDate] = dtP.Rows[i][xC.xtDB.rspDB.rsp.date_reserve].ToString();
-                row[colType] = "เบิกเงิน";
-                row[colAmt] = dtP.Rows[i][xC.xtDB.rspDB.rsp.amount_reserve].ToString();
-                row[colDesc] = dtP.Rows[i][xC.xtDB.rspDB.rsp.desc1].ToString();
+                String date = "";
+                date= dtC.Rows[i][xC.xtDB.rscDB.rsc.date_create].ToString();
+                row[colDate] = date;
+                if (!dtC.Rows[i][xC.xtDB.rscDB.rsc.expenses_pay_detail_id].ToString().Equals("0"))
+                {
+                    row[colType] = "จ่าย";
+                }
+                else
+                {
+                    row[colType] = "เบิกเงิน";
+                }
+                
+                row[colAmt] = dtC.Rows[i][xC.xtDB.rscDB.rsc.amount].ToString();
+                row[colDesc] = dtC.Rows[i][xC.xtDB.rscDB.rsc.remark].ToString();
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
