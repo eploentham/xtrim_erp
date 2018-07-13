@@ -20,5 +20,7 @@ namespace Xtrim_ERP.object1
         public String user_create { get; set; }
         public String user_modi { get; set; }
         public String user_cancel { get; set; }
+        public String status_reserve { get; set; }
+        public String desc1 { get; set; }
     }
 }

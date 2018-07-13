@@ -152,14 +152,14 @@ namespace Xtrim_ERP.objdb
                 rsp.user_create + "," + rsp.user_modi + "," + rsp.user_cancel + "," +
                 rsp.active + "," + rsp.remark + ", " + rsp.amount_reserve + ", " +
                 rsp.date_appv + "," + rsp.date_draw + ", " + rsp.date_reserve + ", " +
-                rsp.staff_id + "," + rsp.amount_onhand + " " +
-                ") " +
+                rsp.staff_id + "," + rsp.amount_onhand + "," + rsp.status_appv + " " +
+               ") " +
                 "Values ('" + p.desc1.Replace("'", "''") + "','" + p.amount_draw.Replace("'", "''") + "','" + p.amount_appv.Replace("'", "''") + "', " +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.amount_reserve.Replace("'", "''") + "', " +
                 "'" + p.date_appv + "','" + p.date_draw.Replace("'", "''") + "','" + p.date_reserve.Replace("'", "''") + "', " +
-                "'" + p.staff_id + "','" + p.amount_onhand + "' " +
+                "'" + p.staff_id + "','" + p.amount_onhand + "','" + p.status_appv + "' " +
                 ")";
             try
             {
@@ -239,7 +239,7 @@ namespace Xtrim_ERP.objdb
                 "," + rsp.date_reserve + " = now() " +
                 "," + rsp.date_modi + " = now() " +
                 "," + rsp.user_modi + " = '" + userId + "' " +
-                "," + rsp.status_appv + " = '2' " +
+                "," + rsp.status_appv + " = '4' " +
                 "," + rsp.amount_onhand + " = " + rsp.amount_appv + " " +
                 "Where " + rsp.pkField + "='" + id + "'";
             try

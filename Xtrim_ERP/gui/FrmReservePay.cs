@@ -50,11 +50,13 @@ namespace Xtrim_ERP.gui
             C1ThemeController.ApplicationTheme = xC.iniC.themeApplication;
             theme1.Theme = C1ThemeController.ApplicationTheme;
             theme1.SetTheme(sB, "BeigeOne");
+            theme1.SetTheme(panel3, "Office2010Black");
+            
             foreach (Control c in panel3.Controls)
             {
-                theme1.SetTheme(c, "Office2013Red");
+                theme1.SetTheme(c, "Office2010Black");
             }
-
+            //theme1.SetTheme(txtDesc, "Office2010Green");
             bg = txtID.BackColor;
             fc = txtID.ForeColor;
             ff = txtID.Font;
@@ -74,11 +76,11 @@ namespace Xtrim_ERP.gui
 
             xC.xtDB.stfDB.setCboStaff(cboStaff, "");
             initGrfDept();
-            
+            //theme1.SetTheme(grfExpnD, "Office2010Black");
             setGrfDeptH();
 
             setControlEnable(false);
-            setFocusColor();
+            //setFocusColor();
             //setControlAppv();
             //setControl(drawId);
 
@@ -97,6 +99,8 @@ namespace Xtrim_ERP.gui
                 btnRsp.Hide();
                 flagEdit = false;
                 setControlEnable(flagEdit);
+                txtAmt.Enabled = true;          //ที่ทำแบบนี้ เพราะ ใส่ theme แล้ว disable ทำให้ มองตัวอักษร ไม่ชัด
+                txtDesc.Enabled = true;          //ที่ทำแบบนี้ เพราะ ใส่ theme แล้ว disable ทำให้ มองตัวอักษร ไม่ชัด
             }
             else if (flagForm.Equals("reserve"))
             {
@@ -216,7 +220,7 @@ namespace Xtrim_ERP.gui
             //grfExpnD.CellChanged += GrfExpnD_CellChanged;
             panel2.Controls.Add(grfExpnD);
 
-            theme1.SetTheme(grfExpnD, "Office2013Red");
+            theme1.SetTheme(grfExpnD, "Office2010Black");
         }
 
         private void GrfExpnD_AfterRowColChange(object sender, RangeEventArgs e)
@@ -226,6 +230,7 @@ namespace Xtrim_ERP.gui
             if (e.NewRange.Data == null) return;
             String cusId = "";
             cusId = grfExpnD[e.NewRange.r1, colID] != null ? grfExpnD[e.NewRange.r1, colID].ToString() : "";
+            panel3.Show();
             setControlRsp(cusId);
             setControlEnable(false);
         }
@@ -272,6 +277,10 @@ namespace Xtrim_ERP.gui
                 {
                     grfExpnD[i, colStatus] = "อนุมัติ";
                 }
+                else if (grfExpnD[i, colStatus].ToString().Equals("4"))
+                {
+                    grfExpnD[i, colStatus] = "รับเงินเรียบร้อย";
+                }
                 else
                 {
                     grfExpnD[i, colStatus] = "-";
@@ -312,7 +321,69 @@ namespace Xtrim_ERP.gui
             txtRspWait.Enabled = flag;
             chkVoid.Enabled = flag;
             cboStaff.Enabled = flag;
-            
+
+            if (flagForm.Equals("appv"))
+            {
+                btnNew.Hide();
+                btnEdit.Hide();
+                btnSave.Hide();
+                btnAppv.Show();
+                btnRsp.Hide();
+                flagEdit = false;
+                if(grfExpnD[grfExpnD.Row, colStatus] != null)
+                {
+                    if (grfExpnD[grfExpnD.Row, colStatus].ToString().Equals("ขออนุมัติ"))
+                    {
+                        btnAppv.Enabled = true;
+                    }
+                    else
+                    {
+                        btnAppv.Enabled = false;
+                    }
+                }
+                else
+                {
+                    btnAppv.Enabled = false;
+                }
+                
+                
+                //setControlEnable(flagEdit);
+                txtAmt.Enabled = true;          //ที่ทำแบบนี้ เพราะ ใส่ theme แล้ว disable ทำให้ มองตัวอักษร ไม่ชัด
+                txtDesc.Enabled = true;          //ที่ทำแบบนี้ เพราะ ใส่ theme แล้ว disable ทำให้ มองตัวอักษร ไม่ชัด
+            }
+            else if (flagForm.Equals("reserve"))
+            {
+                btnNew.Hide();
+                btnEdit.Hide();
+                btnSave.Hide();
+                btnAppv.Hide();
+                btnRsp.Show();
+                if (grfExpnD[grfExpnD.Row, colStatus] != null)
+                {
+                    if (grfExpnD[grfExpnD.Row, colStatus].ToString().Equals("อนุมัติ"))
+                    {
+                        btnRsp.Enabled = true;
+                    }
+                    else
+                    {
+                        btnRsp.Enabled = false;
+                    }
+                }
+                else
+                {
+                    btnRsp.Enabled = false;
+                }
+                
+            }
+            else if (flagForm.Equals("draw"))
+            {
+                btnNew.Show();
+                btnEdit.Show();
+                btnSave.Show();
+                btnAppv.Hide();
+                btnRsp.Hide();
+            }
+
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
         private void textBox_Enter(object sender, EventArgs e)
@@ -420,6 +491,7 @@ namespace Xtrim_ERP.gui
             cop = xC.xtDB.copDB.selectByCode1("001");
             txtAmtReserve.Value = cop.amount_reserve;
             txtRspWait.Value = xC.xtDB.rspDB.selectAppvWait();
+            panel3.Hide();
         }
     }
 }

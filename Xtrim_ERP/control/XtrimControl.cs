@@ -571,13 +571,15 @@ namespace Xtrim_ERP.control
                 rsc.expenses_pay_detail_id = "0";
                 rsc.amount = rsp.amount_appv;
                 rsc.active = "1";
-                rsc.remark = "";
+                rsc.remark = "เบิกเงินสำรองจ่าย";
                 rsc.date_create = "";
                 rsc.date_modi = "";
                 rsc.date_cancel = "";
                 rsc.user_create = "";
                 rsc.user_modi = "";
                 rsc.user_cancel = "";
+                rsc.status_reserve = "1";
+                rsc.desc1 = rsp.desc1;
                 re = xtDB.rscDB.insertReserveCash(rsc, userId);
                 int chk = 0;
                 if (int.TryParse(re, out chk))

@@ -1650,7 +1650,7 @@ namespace Xtrim_ERP.gui
                         if (int.TryParse(re1, out chk))
                         {
                             chkD++;
-                            xC.xtDB.updateOnhand(re1, xC.userId, expnPd.pay_amount);
+                            xC.xtDB.updateOnhand(re1, xC.userId, expnPd.pay_amount, expnPd.pay_to_cus_name_t, expnPd.item_name_t);
                         }
                     }
                     if (chkD == (grfCashMake.Rows.Count - 1))

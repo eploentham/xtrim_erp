@@ -175,7 +175,7 @@ namespace Xtrim_ERP.objdb
             taxDB = new TaxDB(conn);
             rscDB = new ReserveCashDB(conn);
         }
-        public String updateOnhand(String expnpdid, String userId, String amt)
+        public String updateOnhand(String expnpdid, String userId, String amt, String name1, String name2)
         {
             String re = "";
             String sql = "";
@@ -201,6 +201,8 @@ namespace Xtrim_ERP.objdb
                 {
                     if (onhand > amt1)  //2.ถ้าเงินเหลือพอ ตัดยอด
                     {
+                        //amt1 = 1000;
+
                         sql = "Update " + rspDB.rsp.table + " Set " +
                             " " + rspDB.rsp.amount_onhand + " = "+rspDB.rsp.amount_onhand+"-" + amt1 + " " +
                             "," + rspDB.rsp.date_reserve + " = now() " +
@@ -215,7 +217,7 @@ namespace Xtrim_ERP.objdb
                             rsc.reserve_cash_id = "";
                             rsc.reserve_pay_id = rsp1.reserve_pay_id;
                             rsc.expenses_pay_detail_id = expnpdid;
-                            rsc.amount = "-"+amt;
+                            rsc.amount = "-"+amt1;
                             rsc.active = "1";
                             rsc.remark = "";
                             rsc.date_create = "";
@@ -224,6 +226,8 @@ namespace Xtrim_ERP.objdb
                             rsc.user_create = "";
                             rsc.user_modi = "";
                             rsc.user_cancel = "";
+                            rsc.status_reserve = "2";
+                            rsc.desc1 = "จ่ายเงิน "+ name1+" "+ name2;
                             re = rscDB.insertReserveCash(rsc, userId);
 
                             chkOnhand = true;
@@ -236,7 +240,7 @@ namespace Xtrim_ERP.objdb
                     else
                     {
                         sql = "Update " + rspDB.rsp.table + " Set " +
-                            " " + rspDB.rsp.amount_onhand + " = '" + onhand + "' " +
+                            " " + rspDB.rsp.amount_onhand + " = " + rspDB.rsp.amount_onhand + "-" + onhand + " " +
                             "," + rspDB.rsp.date_reserve + " = now() " +
                             "," + rspDB.rsp.date_modi + " = now() " +
                             "," + rspDB.rsp.user_modi + " = '" + userId + "' " +
@@ -244,6 +248,8 @@ namespace Xtrim_ERP.objdb
                         try
                         {
                             re = conn.ExecuteNonQuery(conn.conn, sql);
+                            amt1 = amt1 - onhand;
+                            re = copDB.updateAmountReserve("-" + amt1.ToString());
                             ReserveCash rsc = new ReserveCash();
                             rsc.reserve_cash_id = "";
                             rsc.reserve_pay_id = rsp1.reserve_pay_id;
@@ -257,6 +263,8 @@ namespace Xtrim_ERP.objdb
                             rsc.user_create = "";
                             rsc.user_modi = "";
                             rsc.user_cancel = "";
+                            rsc.status_reserve = "2";
+                            rsc.desc1 = "จ่ายเงิน ";
                             rscDB.insertReserveCash(rsc, userId);
 
                             chkOnhand = false;

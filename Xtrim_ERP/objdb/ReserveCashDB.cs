@@ -32,7 +32,9 @@ namespace Xtrim_ERP.objdb
             rsc.date_cancel = "date_cancel";
             rsc.user_create = "user_create";
             rsc.user_modi = "user_modi";
-            rsc.user_cancel = "user_cancel";            
+            rsc.user_cancel = "user_cancel";
+            rsc.status_reserve = "status_reserve";
+            rsc.desc1 = "desc1";
 
             rsc.table = "t_reserve_cash";
             rsc.pkField = "reserve_cash_id";
@@ -63,6 +65,8 @@ namespace Xtrim_ERP.objdb
             p.user_modi = p.user_modi == null ? "" : p.user_modi;
             p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;            
             p.remark = p.remark == null ? "" : p.remark;
+            p.status_reserve = p.status_reserve == null ? "0" : p.status_reserve;
+            p.desc1 = p.desc1 == null ? "" : p.desc1;
 
             p.expenses_pay_detail_id = int.TryParse(p.expenses_pay_detail_id, out chk) ? chk.ToString() : "0";
             p.reserve_pay_id = int.TryParse(p.reserve_pay_id, out chk) ? chk.ToString() : "0";
@@ -80,13 +84,13 @@ namespace Xtrim_ERP.objdb
                 rsc.active + "," + rsc.remark + ", " + 
                 rsc.date_create + ", " + rsc.date_modi + ", " + rsc.date_cancel + ", " +
                 rsc.user_create + ", " + rsc.user_modi + ", " + rsc.user_cancel + "," +
-                rsc.amount + " " + 
+                rsc.amount + "," + rsc.status_reserve + "," + rsc.desc1 + " " +
                 ") " +
                 "Values ('" + p.expenses_pay_detail_id + "','" + p.reserve_pay_id + "'," + 
                 "'" + p.active + "','" + p.remark + "'," + 
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
-                "'" + p.amount + "' " + 
+                "'" + p.amount + "','" + p.status_reserve + "','" + p.desc1.Replace("'", "''") + "' " +
                 ")";
 
             try
@@ -240,7 +244,8 @@ namespace Xtrim_ERP.objdb
                 bll1.user_modi = dt.Rows[0][rsc.user_modi].ToString();
                 bll1.remark = dt.Rows[0][rsc.remark].ToString();
                 bll1.amount = dt.Rows[0][rsc.amount].ToString();
-                
+                bll1.status_reserve = dt.Rows[0][rsc.status_reserve].ToString();
+
             }
             else
             {
@@ -256,6 +261,7 @@ namespace Xtrim_ERP.objdb
                 bll1.user_create = "";
                 bll1.user_modi = "";
                 bll1.user_cancel = "";
+                bll1.status_reserve = "";
             }
 
             return bll1;

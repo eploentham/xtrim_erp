@@ -24,7 +24,7 @@ namespace Xtrim_ERP.gui
 
         Color bg, fc;
         Font ff, ffB;
-        int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6;
+        int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6, colStatusDoc=7;
         C1FlexGrid grfExpn;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
@@ -149,7 +149,7 @@ namespace Xtrim_ERP.gui
             }
             //grfExpn.DataSource = xC.xtDB.expndDB.selectAll1(cboYear.Text);
             grfExpn.Rows.Count = dt.Rows.Count + 1;
-            grfExpn.Cols.Count = 7;
+            grfExpn.Cols.Count = 8;
             TextBox txt = new TextBox();
 
             grfExpn.Cols[colCode].Editor = txt;
@@ -160,7 +160,8 @@ namespace Xtrim_ERP.gui
             grfExpn.Cols[colDesc].Width = 200;
             grfExpn.Cols[colRemark].Width = 200;
             grfExpn.Cols[colAmt].Width = 80;
-            grfExpn.Cols[colStatus].Width = 80;
+            grfExpn.Cols[colStatus].Width = 120;
+            grfExpn.Cols[colStatusDoc].Width = 120;
 
             grfExpn.ShowCursor = true;
             //grdFlex.Cols[colID].Caption = "no";
@@ -171,6 +172,8 @@ namespace Xtrim_ERP.gui
             grfExpn.Cols[colRemark].Caption = "หมายเหตุ";
             grfExpn.Cols[colStatus].Caption = "สถานะ";
             grfExpn.Cols[colAmt].Caption = "รวมเงิน";
+            grfExpn.Cols[colStatusDoc].Caption = "สถานะเอกสาร";
+
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -188,12 +191,17 @@ namespace Xtrim_ERP.gui
                 }
                 else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("2"))
                 {
-                    grfExpn[i + 1, colStatus] = "อนุมัติแล้ว";
+                    if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay].ToString().Equals("2"))
+                    {
+                        grfExpn[i + 1, colStatus] = "รับเงินเรียบร้อย";
+                    }
+                    //grfExpn[i + 1, colStatus] = "อนุมัติแล้ว";
                 }
                 else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("0"))
                 {
                     grfExpn[i + 1, colStatus] = "ป้อนใหม่";
                 }
+                
                 else
                 {
                     grfExpn[i + 1, colStatus] = "-";

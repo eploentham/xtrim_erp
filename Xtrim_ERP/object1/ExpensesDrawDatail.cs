@@ -54,5 +54,6 @@ namespace Xtrim_ERP.object1
         public String expenses_pay_detail_id { get; set; }
         public String status_page { get; set; }
         public String status_hide { get; set; }
+        public String status_doc { get; set; }
     }
 }

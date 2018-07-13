@@ -54,6 +54,8 @@ namespace Xtrim_ERP.gui
             initGrfView();
             setGrfView();
 
+            txtAmtReserve.Value = cop.amount_reserve;
+
             sB1.Text = "";
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
@@ -132,7 +134,7 @@ namespace Xtrim_ERP.gui
                 }
                 
                 row[colAmt] = dtC.Rows[i][xC.xtDB.rscDB.rsc.amount].ToString();
-                row[colDesc] = dtC.Rows[i][xC.xtDB.rscDB.rsc.remark].ToString();
+                row[colDesc] = dtC.Rows[i][xC.xtDB.rscDB.rsc.desc1].ToString();
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];

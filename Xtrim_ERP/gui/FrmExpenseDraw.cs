@@ -228,7 +228,7 @@ namespace Xtrim_ERP.gui
                     setKeyUpF2Imp1(imp);
                     txtJobCode.Value = "IMP"+jim.job_import_code;
                     setGrfDeptH1();
-                    
+                    txtAmtOnhandJob.Value = xC.xtDB.expnddDB.selectPayAmountByStf(xC.userId, jim.job_import_id);
                 }
             }
         }
@@ -849,6 +849,7 @@ namespace Xtrim_ERP.gui
             }
             expnD.status_pay = "1";
             expnD.status_page = "1";
+            expnD.status_doc = "0";
         }
         private void setExpensesDrawDetail(String expnid, String cusid)
         {
@@ -896,7 +897,7 @@ namespace Xtrim_ERP.gui
                 expndd.status_page = "1";
                 expndd.status_hide = "1";
                 expndd.job_id = jobId;
-                //expndd.cust_id = cusid;
+                expndd.status_doc = "0";
                 if (!expndd.amount.Equals(""))
                 {
                     xC.xtDB.expnddDB.insertExpenseDrawDetail(expndd, xC.userId);

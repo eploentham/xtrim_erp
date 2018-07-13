@@ -34,5 +34,6 @@ namespace Xtrim_ERP.object1
         public String status_pay_type { get; set; }
         public String payer_id { get; set; }
         public String status_page { get; set; }
+        public String status_doc { get; set; }
     }
 }

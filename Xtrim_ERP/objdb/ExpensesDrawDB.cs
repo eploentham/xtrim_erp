@@ -53,6 +53,7 @@ namespace Xtrim_ERP.objdb
             expnC.status_pay_type = "status_pay_type";
             expnC.payer_id = "payer_id";
             expnC.status_page = "status_page";
+            expnC.status_doc = "status_doc";
 
             expnC.table = "t_expenses_draw";
             expnC.pkField = "expenses_draw_id";
@@ -142,6 +143,7 @@ namespace Xtrim_ERP.objdb
             p.appv_desc = p.appv_desc == null ? "" : p.appv_desc;
             p.status_pay_type = p.status_pay_type == null ? "0" : p.status_pay_type;
             p.status_page = p.status_page == null ? "0" : p.status_page;
+            p.status_doc = p.status_doc == null ? "0" : p.status_doc;
 
 
             p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
@@ -172,7 +174,7 @@ namespace Xtrim_ERP.objdb
                 expnC.draw_date + "," + expnC.staff_id + "," + expnC.desc1 + ", " +
                 expnC.status_email + "," + expnC.status_appv + "," + expnC.amount + ", " +
                 expnC.year + "," + expnC.status_pay + "," + expnC.status_pay_type + "," +
-                expnC.payer_id + "," + expnC.status_page + " " +
+                expnC.payer_id + "," + expnC.status_page + "," + expnC.status_doc + " " +
 
                 ") " +
                 "Values ('" + p.expenses_draw_date + "','" + p.expenses_draw_code.Replace("'", "''") + "','" + p.job_id.Replace("'", "''") + "'," +
@@ -182,7 +184,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.draw_date + "','" + p.staff_id.Replace("'", "''") + "','" + p.desc1.Replace("'", "''") + "'," +
                 "'" + p.status_email + "','" + p.status_appv.Replace("'", "''") + "','" + p.amount + "'," +
                 "'" + p.year + "','" + p.status_pay + "','" + p.status_pay_type + "'," +
-                "'" + p.payer_id + "','" + p.status_page + "' " +
+                "'" + p.payer_id + "','" + p.status_page + "','" + p.status_doc + "' " +
                 ")";
             try
             {
@@ -498,6 +500,7 @@ namespace Xtrim_ERP.objdb
                 curr1.status_pay_type = dt.Rows[0][expnC.status_pay_type].ToString();
                 curr1.payer_id = dt.Rows[0][expnC.payer_id].ToString();
                 curr1.status_page = dt.Rows[0][expnC.status_page].ToString();
+                curr1.status_doc = dt.Rows[0][expnC.status_doc].ToString();
             }
             else
             {
@@ -528,6 +531,7 @@ namespace Xtrim_ERP.objdb
                 curr1.status_pay_type = "";
                 curr1.payer_id = "";
                 curr1.status_page = "";
+                curr1.status_doc = "";
             }
 
             return curr1;
