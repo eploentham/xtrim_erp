@@ -122,8 +122,7 @@ namespace Xtrim_ERP.objdb
                 "," + bll.amount + "='" + p.amount.Replace("'", "''") + "' " +
                 "," + bll.cust_id + "='" + p.cust_id.Replace("'", "''") + "' " +
                 "," + bll.billing_cover_id + "='" + p.billing_cover_id.Replace("'", "''") + "' " +
-                "Where " + bll.pkField + "='" + p.billing_id + "'"
-                ;
+                "Where " + bll.pkField + "='" + p.billing_id + "'";
             
             try
             {
