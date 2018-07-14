@@ -32,6 +32,8 @@
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.c1Button2 = new C1.Win.C1Input.C1Button();
+            this.btnImages = new C1.Win.C1Input.C1Button();
             this.txtId = new C1.Win.C1Input.C1TextBox();
             this.c1TextBox10 = new C1.Win.C1Input.C1TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -63,13 +65,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtConsNameT = new C1.Win.C1Input.C1TextBox();
             this.label34 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.c1Button1 = new C1.Win.C1Input.C1Button();
-            this.c1TextBox11 = new C1.Win.C1Input.C1TextBox();
-            this.c1Button2 = new C1.Win.C1Input.C1Button();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnInvSave)).BeginInit();
@@ -87,9 +89,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1Button13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConsNameT)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).BeginInit();
             this.SuspendLayout();
             // 
             // sB
@@ -97,9 +98,9 @@
             this.sB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.sB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sB1});
-            this.sB.Location = new System.Drawing.Point(0, 439);
+            this.sB.Location = new System.Drawing.Point(0, 523);
             this.sB.Name = "sB";
-            this.sB.Size = new System.Drawing.Size(447, 22);
+            this.sB.Size = new System.Drawing.Size(410, 22);
             this.sB.TabIndex = 5;
             this.sB.Text = "statusStrip1";
             this.theme1.SetTheme(this.sB, "(default)");
@@ -117,10 +118,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel1.Controls.Add(this.c1Button2);
-            this.panel1.Controls.Add(this.c1TextBox11);
-            this.panel1.Controls.Add(this.c1Button1);
-            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.btnImages);
             this.panel1.Controls.Add(this.txtId);
             this.panel1.Controls.Add(this.c1TextBox10);
             this.panel1.Controls.Add(this.label13);
@@ -156,9 +155,34 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(447, 439);
+            this.panel1.Size = new System.Drawing.Size(410, 523);
             this.panel1.TabIndex = 6;
             this.theme1.SetTheme(this.panel1, "(default)");
+            // 
+            // c1Button2
+            // 
+            this.c1Button2.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
+            this.c1Button2.Location = new System.Drawing.Point(215, 54);
+            this.c1Button2.Name = "c1Button2";
+            this.c1Button2.Size = new System.Drawing.Size(42, 45);
+            this.c1Button2.TabIndex = 499;
+            this.c1Button2.Text = "...";
+            this.c1Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button2, "(default)");
+            this.c1Button2.UseVisualStyleBackColor = true;
+            this.c1Button2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnImages
+            // 
+            this.btnImages.Location = new System.Drawing.Point(10, 375);
+            this.btnImages.Name = "btnImages";
+            this.btnImages.Size = new System.Drawing.Size(78, 22);
+            this.btnImages.TabIndex = 497;
+            this.btnImages.Text = "รูปใบเสร็จ ...";
+            this.btnImages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.theme1.SetTheme(this.btnImages, "(default)");
+            this.btnImages.UseVisualStyleBackColor = true;
+            this.btnImages.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtId
             // 
@@ -204,7 +228,7 @@
             // 
             this.btnInvSave.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
             this.btnInvSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInvSave.Location = new System.Drawing.Point(352, 402);
+            this.btnInvSave.Location = new System.Drawing.Point(316, 483);
             this.btnInvSave.Name = "btnInvSave";
             this.btnInvSave.Size = new System.Drawing.Size(83, 31);
             this.btnInvSave.TabIndex = 492;
@@ -627,62 +651,36 @@
             this.label34.Text = "ลำดับ :";
             this.theme1.SetTheme(this.label34, "(default)");
             // 
-            // label14
+            // panel2
             // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label14.Location = new System.Drawing.Point(7, 378);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(61, 16);
-            this.label14.TabIndex = 496;
-            this.label14.Text = "รูปใบเสร็จ :";
-            this.theme1.SetTheme(this.label14, "(default)");
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.Controls.Add(this.c1Button1);
+            this.panel2.Controls.Add(this.c1Button2);
+            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel2.Location = new System.Drawing.Point(130, 375);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(269, 102);
+            this.panel2.TabIndex = 500;
+            this.theme1.SetTheme(this.panel2, "(default)");
             // 
             // c1Button1
             // 
-            this.c1Button1.Location = new System.Drawing.Point(114, 375);
+            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
+            this.c1Button1.Location = new System.Drawing.Point(215, 3);
             this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(22, 22);
-            this.c1Button1.TabIndex = 497;
+            this.c1Button1.Size = new System.Drawing.Size(42, 45);
+            this.c1Button1.TabIndex = 500;
             this.c1Button1.Text = "...";
             this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.c1Button1, "(default)");
             this.c1Button1.UseVisualStyleBackColor = true;
             this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1TextBox11
-            // 
-            this.c1TextBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox11.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox11.Location = new System.Drawing.Point(142, 376);
-            this.c1TextBox11.Name = "c1TextBox11";
-            this.c1TextBox11.Size = new System.Drawing.Size(245, 20);
-            this.c1TextBox11.TabIndex = 498;
-            this.c1TextBox11.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox11, "(default)");
-            this.c1TextBox11.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button2
-            // 
-            this.c1Button2.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
-            this.c1Button2.Location = new System.Drawing.Point(393, 352);
-            this.c1Button2.Name = "c1Button2";
-            this.c1Button2.Size = new System.Drawing.Size(42, 45);
-            this.c1Button2.TabIndex = 499;
-            this.c1Button2.Text = "...";
-            this.c1Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button2, "(default)");
-            this.c1Button2.UseVisualStyleBackColor = true;
-            this.c1Button2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmJobImpCheckListExp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 461);
+            this.ClientSize = new System.Drawing.Size(410, 545);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sB);
             this.Name = "FrmJobImpCheckListExp";
@@ -694,6 +692,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnImages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnInvSave)).EndInit();
@@ -711,9 +711,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1Button13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConsNameT)).EndInit();
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -756,9 +755,9 @@
         private C1.Win.C1Input.C1TextBox c1TextBox10;
         private System.Windows.Forms.Label label13;
         private C1.Win.C1Input.C1TextBox txtId;
-        private System.Windows.Forms.Label label14;
-        private C1.Win.C1Input.C1Button c1Button1;
-        private C1.Win.C1Input.C1TextBox c1TextBox11;
+        private C1.Win.C1Input.C1Button btnImages;
         private C1.Win.C1Input.C1Button c1Button2;
+        private System.Windows.Forms.Panel panel2;
+        private C1.Win.C1Input.C1Button c1Button1;
     }
 }

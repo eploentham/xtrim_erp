@@ -32,6 +32,7 @@ ALTER TABLE t_tax AUTO_INCREMENT = 1700000000;
 ALTER TABLE f_tax_type AUTO_INCREMENT = 1710000000;
 ALTER TABLE t_tax_detail AUTO_INCREMENT = 1720000000;
 ALTER TABLE t_reserve_cash AUTO_INCREMENT = 1730000000;
+ALTER TABLE t_images AUTO_INCREMENT = 1740000000;
 
 
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ไม่ต้อง', 'ORIGIANL', '1', 'BL_TYPE');
@@ -576,6 +577,25 @@ ADD COLUMN `billing_cover_id` INT NULL AFTER `cust_id`;
 61-07-10
 ALTER TABLE `xtrim_erp`.`t_expenses_draw_detail` 
 CHANGE COLUMN `receipt_no` `receipt_no` VARCHAR(255) NULL DEFAULT NULL COMMENT 'เลขที่ใบเสร็จ จากการป้อนclear ค่าใช้จ่าย' ;
+
+
+
+61-07-14
+CREATE TABLE `t_images` (
+  `image_id` int(11) NOT NULL AUTO_INCREMENT,
+  `table_id` int(11) DEFAULT NULL COMMENT 'module ที่ต้องการเก็บรูป',
+  `image_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `image_path` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `active` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `remark` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `date_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `user_create` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `user_modi` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `user_cancel` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`image_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1740000000 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=174';
 
 
 
