@@ -324,7 +324,10 @@ namespace Xtrim_ERP.gui
         }
         private void ContextMenu_JclExp_new(object sender, System.EventArgs e)
         {
-            FrmJobImpCheckListExp frm = new FrmJobImpCheckListExp(xC);
+            String expnddid = "";
+            if (grfExpnD[grfExpnD.Row, colDid] == null) return;
+            expnddid = grfExpnD[grfExpnD.Row, colDid].ToString();
+            FrmJobImpCheckListExp frm = new FrmJobImpCheckListExp(xC, expnddid);
             frm.ShowDialog(this);
         }
         private void FrmExpenseReceipt_Load(object sender, EventArgs e)

@@ -32,22 +32,26 @@
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtId = new C1.Win.C1Input.C1TextBox();
-            this.txtConsNameT = new C1.Win.C1Input.C1TextBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.c1TextBox1 = new C1.Win.C1Input.C1TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnImages = new C1.Win.C1Input.C1Button();
+            this.txtTableId = new C1.Win.C1Input.C1TextBox();
+            this.btnUpload = new C1.Win.C1Input.C1Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.c1Button1 = new C1.Win.C1Input.C1Button();
+            this.btnImages = new C1.Win.C1Input.C1Button();
+            this.txtModule = new C1.Win.C1Input.C1TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtId = new C1.Win.C1Input.C1TextBox();
+            this.txtItmNameT = new C1.Win.C1Input.C1TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.txtJobId = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtId)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtConsNameT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTableId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnUpload)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnImages)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtModule)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItmNameT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJobId)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -75,13 +79,15 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel1.Controls.Add(this.c1Button1);
+            this.panel1.Controls.Add(this.txtJobId);
+            this.panel1.Controls.Add(this.txtTableId);
+            this.panel1.Controls.Add(this.btnUpload);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnImages);
-            this.panel1.Controls.Add(this.c1TextBox1);
+            this.panel1.Controls.Add(this.txtModule);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtId);
-            this.panel1.Controls.Add(this.txtConsNameT);
+            this.panel1.Controls.Add(this.txtItmNameT);
             this.panel1.Controls.Add(this.label34);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
@@ -91,71 +97,43 @@
             this.panel1.TabIndex = 7;
             this.theme1.SetTheme(this.panel1, "(default)");
             // 
-            // txtId
+            // txtTableId
             // 
-            this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtId.Location = new System.Drawing.Point(56, 12);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(18, 20);
-            this.txtId.TabIndex = 498;
-            this.txtId.Tag = null;
-            this.theme1.SetTheme(this.txtId, "(default)");
-            this.txtId.Visible = false;
-            this.txtId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtTableId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTableId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtTableId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtTableId.Location = new System.Drawing.Point(251, 38);
+            this.txtTableId.Name = "txtTableId";
+            this.txtTableId.Size = new System.Drawing.Size(36, 20);
+            this.txtTableId.TabIndex = 504;
+            this.txtTableId.Tag = null;
+            this.theme1.SetTheme(this.txtTableId, "(default)");
+            this.txtTableId.Visible = false;
+            this.txtTableId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // txtConsNameT
+            // btnUpload
             // 
-            this.txtConsNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtConsNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtConsNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtConsNameT.Location = new System.Drawing.Point(80, 12);
-            this.txtConsNameT.Name = "txtConsNameT";
-            this.txtConsNameT.Size = new System.Drawing.Size(165, 20);
-            this.txtConsNameT.TabIndex = 497;
-            this.txtConsNameT.Tag = null;
-            this.theme1.SetTheme(this.txtConsNameT, "(default)");
-            this.txtConsNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnUpload.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
+            this.btnUpload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpload.Location = new System.Drawing.Point(689, 73);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(88, 39);
+            this.btnUpload.TabIndex = 503;
+            this.btnUpload.Text = "Upload";
+            this.btnUpload.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnUpload, "(default)");
+            this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // label34
+            // panel2
             // 
-            this.label34.AutoSize = true;
-            this.label34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label34.Location = new System.Drawing.Point(11, 14);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(39, 16);
-            this.label34.TabIndex = 496;
-            this.label34.Text = "ลำดับ :";
-            this.theme1.SetTheme(this.label34, "(default)");
-            // 
-            // c1TextBox1
-            // 
-            this.c1TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox1.Location = new System.Drawing.Point(80, 38);
-            this.c1TextBox1.Name = "c1TextBox1";
-            this.c1TextBox1.Size = new System.Drawing.Size(165, 20);
-            this.c1TextBox1.TabIndex = 500;
-            this.c1TextBox1.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox1, "(default)");
-            this.c1TextBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label1.Location = new System.Drawing.Point(11, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 16);
-            this.label1.TabIndex = 499;
-            this.label1.Text = "module :";
-            this.theme1.SetTheme(this.label1, "(default)");
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel2.Location = new System.Drawing.Point(108, 73);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(575, 207);
+            this.panel2.TabIndex = 502;
+            this.theme1.SetTheme(this.panel2, "(default)");
             // 
             // btnImages
             // 
@@ -171,29 +149,85 @@
             this.btnImages.UseVisualStyleBackColor = true;
             this.btnImages.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // panel2
+            // txtModule
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel2.Location = new System.Drawing.Point(108, 73);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(575, 207);
-            this.panel2.TabIndex = 502;
-            this.theme1.SetTheme(this.panel2, "(default)");
+            this.txtModule.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtModule.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtModule.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtModule.Location = new System.Drawing.Point(80, 38);
+            this.txtModule.Name = "txtModule";
+            this.txtModule.Size = new System.Drawing.Size(165, 20);
+            this.txtModule.TabIndex = 500;
+            this.txtModule.Tag = null;
+            this.theme1.SetTheme(this.txtModule, "(default)");
+            this.txtModule.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1Button1
+            // label1
             // 
-            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
-            this.c1Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.c1Button1.Location = new System.Drawing.Point(689, 73);
-            this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(88, 39);
-            this.c1Button1.TabIndex = 503;
-            this.c1Button1.Text = "Upload";
-            this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button1, "(default)");
-            this.c1Button1.UseVisualStyleBackColor = true;
-            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label1.Location = new System.Drawing.Point(11, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 16);
+            this.label1.TabIndex = 499;
+            this.label1.Text = "module :";
+            this.theme1.SetTheme(this.label1, "(default)");
+            // 
+            // txtId
+            // 
+            this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtId.Location = new System.Drawing.Point(56, 12);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(18, 20);
+            this.txtId.TabIndex = 498;
+            this.txtId.Tag = null;
+            this.theme1.SetTheme(this.txtId, "(default)");
+            this.txtId.Visible = false;
+            this.txtId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtItmNameT
+            // 
+            this.txtItmNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtItmNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtItmNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtItmNameT.Location = new System.Drawing.Point(80, 12);
+            this.txtItmNameT.Name = "txtItmNameT";
+            this.txtItmNameT.Size = new System.Drawing.Size(165, 20);
+            this.txtItmNameT.TabIndex = 497;
+            this.txtItmNameT.Tag = null;
+            this.theme1.SetTheme(this.txtItmNameT, "(default)");
+            this.txtItmNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label34.Location = new System.Drawing.Point(11, 14);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(39, 16);
+            this.label34.TabIndex = 496;
+            this.label34.Text = "ลำดับ :";
+            this.theme1.SetTheme(this.label34, "(default)");
+            // 
+            // txtJobId
+            // 
+            this.txtJobId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJobId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJobId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtJobId.Location = new System.Drawing.Point(251, 12);
+            this.txtJobId.Name = "txtJobId";
+            this.txtJobId.Size = new System.Drawing.Size(18, 20);
+            this.txtJobId.TabIndex = 505;
+            this.txtJobId.Tag = null;
+            this.theme1.SetTheme(this.txtJobId, "(default)");
+            this.txtJobId.Visible = false;
+            this.txtJobId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmImages
             // 
@@ -203,17 +237,21 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sB);
             this.Name = "FrmImages";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmImages";
+            this.Load += new System.EventHandler(this.FrmImages_Load);
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtId)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtConsNameT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTableId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnUpload)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnImages)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtModule)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItmNameT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJobId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,13 +263,15 @@
         private System.Windows.Forms.StatusStrip sB;
         private System.Windows.Forms.ToolStripStatusLabel sB1;
         private System.Windows.Forms.Panel panel1;
-        private C1.Win.C1Input.C1TextBox c1TextBox1;
+        private C1.Win.C1Input.C1TextBox txtModule;
         private System.Windows.Forms.Label label1;
         private C1.Win.C1Input.C1TextBox txtId;
-        private C1.Win.C1Input.C1TextBox txtConsNameT;
+        private C1.Win.C1Input.C1TextBox txtItmNameT;
         private System.Windows.Forms.Label label34;
         private C1.Win.C1Input.C1Button btnImages;
-        private C1.Win.C1Input.C1Button c1Button1;
+        private C1.Win.C1Input.C1Button btnUpload;
         private System.Windows.Forms.Panel panel2;
+        private C1.Win.C1Input.C1TextBox txtTableId;
+        private C1.Win.C1Input.C1TextBox txtJobId;
     }
 }

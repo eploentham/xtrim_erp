@@ -71,6 +71,7 @@ namespace Xtrim_ERP.objdb
             expnC.status_page = "status_page";
             expnC.status_hide = "status_hide";
             expnC.status_doc = "status_doc";
+            expnC.receipt_amount = "receipt_amount";
 
             expnC.table = "t_expenses_draw_detail";
             expnC.pkField = "expenses_draw_detail_id";
@@ -188,6 +189,7 @@ namespace Xtrim_ERP.objdb
             p.wtax3 = Decimal.TryParse(p.wtax3, out chk1) ? chk1.ToString() : "0";
             p.vat = Decimal.TryParse(p.vat, out chk1) ? chk1.ToString() : "0";
             p.total = Decimal.TryParse(p.total, out chk1) ? chk1.ToString() : "0";
+            p.receipt_amount = Decimal.TryParse(p.receipt_amount, out chk1) ? chk1.ToString() : "0";
         }
         public String insert(ExpensesDrawDatail p, String userId)
         {
@@ -217,7 +219,7 @@ namespace Xtrim_ERP.objdb
                 expnC.pay_to_cus_id + "," + expnC.pay_to_cus_name_t + "," + expnC.pay_to_cus_addr + "," +
                 expnC.pay_to_cus_tax + "," + expnC.receipt_no + "," + expnC.receipt_date + "," +
                 expnC.status_page + "," + expnC.status_hide + "," + expnC.status_doc + " " +
-
+                expnC.receipt_amount + " " +
                 ") " +
                 "Values ('" + p.desc1.Replace("'", "''") + "','" + p.desc2.Replace("'", "''") + "','" + p.amount + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
@@ -233,7 +235,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.unit_name_t + "','" + p.expenses_pay_detail_id + "'," +
                 "'" + p.pay_to_cus_id + "','" + p.pay_to_cus_name_t + "','" + p.pay_to_cus_addr + "'," +
                 "'" + p.pay_to_cus_tax + "','" + p.receipt_no + "','" + p.receipt_date + "', " +
-                "'" + p.status_page + "','" + p.status_hide + "','" + p.status_doc + "' " +
+                "'" + p.status_page + "','" + p.status_hide + "','" + p.status_doc + "'," +
+                "'" + p.receipt_amount + "' " +
                 ")";
             try
             {
@@ -316,6 +319,30 @@ namespace Xtrim_ERP.objdb
                 "," + expnC.pay_bank_date + " = '" + p.pay_bank_date + "' " +
                 "," + expnC.expenses_pay_detail_id + " = '" + p.expenses_pay_detail_id + "' " +
                 "," + expnC.status_pay + " = '2' " +
+                "Where " + expnC.pkField + "='" + p.expenses_draw_detail_id + "'";
+
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
+            return re;
+        }
+        public String updateReceipt(ExpensesDrawDatail p, String userId)
+        {
+            String re = "";
+            String sql = "";
+            int chk = 0;
+
+            chkNull(p);
+
+            sql = "Update " + expnC.table + " Set " +
+                " " + expnC.receipt_amount + " = '" + p.pay_amount.Replace("'", "''") + "'" +
+                "," + expnC.receipt_date + " = '" + p.pay_date.Replace("'", "''") + "'" +
+                "," + expnC.receipt_no + " = '" + p.pay_cheque_no.Replace("'", "''") + "'" +
                 "Where " + expnC.pkField + "='" + p.expenses_draw_detail_id + "'";
 
             try
@@ -575,6 +602,7 @@ namespace Xtrim_ERP.objdb
                 curr1.status_page = dt.Rows[0][expnC.status_page].ToString();
                 curr1.status_hide = dt.Rows[0][expnC.status_hide].ToString();
                 curr1.status_doc = dt.Rows[0][expnC.status_doc].ToString();
+                curr1.receipt_amount = dt.Rows[0][expnC.receipt_amount].ToString();
             }
             else
             {
@@ -625,6 +653,7 @@ namespace Xtrim_ERP.objdb
                 curr1.status_page = "";
                 curr1.status_hide = "";
                 curr1.status_doc = "";
+                curr1.receipt_amount = "";
             }
 
             return curr1;

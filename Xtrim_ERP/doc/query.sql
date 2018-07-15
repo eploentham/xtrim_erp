@@ -597,6 +597,12 @@ CREATE TABLE `t_images` (
   PRIMARY KEY (`image_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1740000000 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='id=174';
 
+61-07-15
+ALTER TABLE `xtrim_erp`.`t_expenses_draw_detail` 
+ADD COLUMN `receipt_amount` DECIMAL(17,2) NULL AFTER `status_doc`;
+ALTER TABLE `xtrim_erp`.`t_images` 
+ADD COLUMN `job_id` int(11) NULL AFTER `user_cancel`;
+
 
 
 

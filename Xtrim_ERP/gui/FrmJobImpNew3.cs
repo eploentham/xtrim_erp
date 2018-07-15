@@ -1257,7 +1257,7 @@ namespace Xtrim_ERP.gui
         }
         private void ContextMenu_JclExp_new(object sender, System.EventArgs e)
         {
-            FrmJobImpCheckListExp frm = new FrmJobImpCheckListExp(xC);
+            FrmJobImpCheckListExp frm = new FrmJobImpCheckListExp(xC,"");
             frm.ShowDialog(this);
         }
         private void ContextMenu_JclExp_Edit(object sender, System.EventArgs e)
@@ -1270,12 +1270,12 @@ namespace Xtrim_ERP.gui
         }
         private void ContextMenu_ExpnS_new(object sender, System.EventArgs e)
         {
-            FrmJobImpCheckListExp frm = new FrmJobImpCheckListExp(xC);
+            FrmJobImpCheckListExp frm = new FrmJobImpCheckListExp(xC,"");
             frm.ShowDialog(this);
         }
         private void ContextMenu_ExpnD_new(object sender, System.EventArgs e)
         {
-            FrmJobImpCheckListExp frm = new FrmJobImpCheckListExp(xC);
+            FrmJobImpCheckListExp frm = new FrmJobImpCheckListExp(xC,"");
             frm.ShowDialog(this);
         }
         //private void ContextMenu_Gw_Cancel(object sender, System.EventArgs e)
