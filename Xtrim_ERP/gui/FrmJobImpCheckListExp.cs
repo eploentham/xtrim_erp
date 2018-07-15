@@ -72,13 +72,17 @@ namespace Xtrim_ERP.gui
             Images img = new Images();
             DataTable dt = new DataTable();
             dt = xC.xtDB.imgDB.selectByTableId(id);
-            int i = 0;
+            int i = 0,gapX=0,gapY=0,x=3,y=3;
             Point btnsize = new Point(42, 45);
+            gapX = 48;
+            gapY = 51;
+            x = 3;
+            y = 3;
             foreach(DataRow row in dt.Rows)
             {
                 C1Button btnImg = new C1Button();
                 btnImg.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
-                btnImg.Location = new System.Drawing.Point(3, 3);
+                btnImg.Location = new System.Drawing.Point(x, y);
                 btnImg.Name = "btnImg"+i;
                 btnImg.Size = new System.Drawing.Size(btnsize);
                 btnImg.TabIndex = 500;
@@ -87,9 +91,49 @@ namespace Xtrim_ERP.gui
                 theme1.SetTheme(btnImg, "VS2013Light");
                 btnImg.UseVisualStyleBackColor = true;
                 btnImg.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+                btnImg.Click += BtnImg_Click;
+                if (i < 5)
+                {
+                    x += gapX;
+                    //y += gapY;
+                }
+                else if(i == 6)
+                {
+                    x = 3;
+                    y = 54;
+                }
+                else
+                {
+                    x += gapX;
+                    //y += gapY;
+                }
+                
+                panel2.Controls.Add(btnImg);
                 i++;
             }
         }
+
+        private void BtnImg_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (((C1Button)sender).Name.Equals("btnImg0"))
+            {
+                MessageBox.Show("00000", "00000000");
+            }
+            else if (((C1Button)sender).Name.Equals("btnImg1"))
+            {
+                MessageBox.Show("11111", "1111111");
+            }
+            else if (((C1Button)sender).Name.Equals("btnImg6"))
+            {
+                MessageBox.Show("666666", "666666");
+            }
+            else if (((C1Button)sender).Name.Equals("btnImg7"))
+            {
+                MessageBox.Show("777777", "777777");
+            }
+        }
+
         private void setExpnDD()
         {
             expndd.receipt_amount = txtRcpAmt.Text.Replace("$","").Replace(",","");

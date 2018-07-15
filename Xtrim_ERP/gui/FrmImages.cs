@@ -171,7 +171,7 @@ namespace Xtrim_ERP.gui
             //grfJob.DataSource = xC.xtDB.jimDB.selectJimJblByJobYear2(cusid);
             //grfJob.Cols.Count = dt.Columns.Count;
 
-            grfImg.Cols.Count = 2;
+            grfImg.Cols.Count = 3;
             TextBox txt = new TextBox();
 
             grfImg.Cols[colPath].Editor = txt;
