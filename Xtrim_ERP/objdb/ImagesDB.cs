@@ -34,6 +34,7 @@ namespace Xtrim_ERP.objdb
             img.user_create = "user_create";
             img.user_modi = "user_modi";
             img.user_cancel = "user_cancel";
+            img.job_id = "job_id";
 
             img.table = "t_images";
             img.pkField = "image_id";
@@ -68,6 +69,7 @@ namespace Xtrim_ERP.objdb
             p.remark = p.remark == null ? "" : p.remark;
                         
             p.table_id = int.TryParse(p.table_id, out chk) ? chk.ToString() : "0";
+            p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
         }
         public String insert(Images p, String userId)
         {
@@ -75,12 +77,12 @@ namespace Xtrim_ERP.objdb
             p.active = "1";
             //p.ssdata_id = "";
             chkNull(p);
-            sql = "Insert Into " + img.table + "(" + img.image_name + "," + img.table_id + "," + 
+            sql = "Insert Into " + img.table + "(" + img.image_name + "," + img.table_id + "," + img.job_id + "," +
                 img.active + "," + img.remark + ", " + img.image_path + "," +
                 img.date_create + ", " + img.date_modi + ", " + img.date_cancel + "," +
-                img.user_create + ", " + img.user_modi + ", " + img.user_cancel + "," + 
+                img.user_create + ", " + img.user_modi + ", " + img.user_cancel + " " + 
                 ") " +
-                "Values ('" + p.image_name + "','" + p.table_id + "','" + 
+                "Values ('" + p.image_name + "','" + p.table_id + "','" + p.job_id + "'," +
                 "'" + p.active + "','" + p.remark + "','" + p.image_path + "', " +
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "' " +
@@ -119,7 +121,7 @@ namespace Xtrim_ERP.objdb
             }
             return re;
         }
-        public String insertBilling(Images p, String userId)
+        public String insertImages(Images p, String userId)
         {
             String re = "";
 
@@ -133,7 +135,7 @@ namespace Xtrim_ERP.objdb
             }
             return re;
         }
-        public String voidBilling(String id)
+        public String voidImage(String id)
         {
             String re = "", sql = "";
             sql = "Update " + img.table + " Set " +
@@ -174,7 +176,17 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
-        public Images selectByBillCode1(String copId)
+        public DataTable selectByTableId(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select bll.* " +
+                "From " + img.table + " bll " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where bll." + img.table_id + " ='" + copId + "' and " + img.active + "='1' ";
+            dt = conn.selectData(conn.conn, sql);            
+            return dt;
+        }
+        public Images selectByTableId1(String copId)
         {
             Images cop1 = new Images();
             DataTable dt = new DataTable();
@@ -183,7 +195,7 @@ namespace Xtrim_ERP.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where bll." + img.table_id + " ='" + copId + "' and " + img.active + "='1' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setBilling(dt);
+            cop1 = setImage(dt);
             return cop1;
         }
         public DataTable selectByPk(String copId)
@@ -205,48 +217,49 @@ namespace Xtrim_ERP.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where bll." + img.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setBilling(dt);
+            cop1 = setImage(dt);
             return cop1;
         }
-        public Images setBilling(DataTable dt)
+        public Images setImage(DataTable dt)
         {
-            Images bll1 = new Images();
+            Images img1 = new Images();
             if (dt.Rows.Count > 0)
             {
-                bll1.image_id = dt.Rows[0][img.image_id].ToString();
-                bll1.table_id = dt.Rows[0][img.table_id].ToString();
-                bll1.image_name = dt.Rows[0][img.image_name].ToString();
-                bll1.image_path = dt.Rows[0][img.image_path].ToString();
-                bll1.active = dt.Rows[0][img.active].ToString();
-                bll1.date_cancel = dt.Rows[0][img.date_cancel].ToString();
-                bll1.date_create = dt.Rows[0][img.date_create].ToString();
-                bll1.date_modi = dt.Rows[0][img.date_modi].ToString();
-                bll1.user_cancel = dt.Rows[0][img.user_cancel].ToString();
-                bll1.user_create = dt.Rows[0][img.user_create].ToString();
-                bll1.user_modi = dt.Rows[0][img.user_modi].ToString();
+                img1.image_id = dt.Rows[0][img.image_id].ToString();
+                img1.table_id = dt.Rows[0][img.table_id].ToString();
+                img1.image_name = dt.Rows[0][img.image_name].ToString();
+                img1.image_path = dt.Rows[0][img.image_path].ToString();
+                img1.active = dt.Rows[0][img.active].ToString();
+                img1.date_cancel = dt.Rows[0][img.date_cancel].ToString();
+                img1.date_create = dt.Rows[0][img.date_create].ToString();
+                img1.date_modi = dt.Rows[0][img.date_modi].ToString();
+                img1.user_cancel = dt.Rows[0][img.user_cancel].ToString();
+                img1.user_create = dt.Rows[0][img.user_create].ToString();
+                img1.user_modi = dt.Rows[0][img.user_modi].ToString();
                 
-                bll1.remark = dt.Rows[0][img.remark].ToString();
-                
+                img1.remark = dt.Rows[0][img.remark].ToString();
+                img1.job_id = dt.Rows[0][img.job_id].ToString();
+
             }
             else
             {
-                bll1.image_id = "";
-                bll1.table_id = "";
-                bll1.image_name = "";
-                bll1.image_path = "";
+                img1.image_id = "";
+                img1.table_id = "";
+                img1.image_name = "";
+                img1.image_path = "";
                 
-                bll1.active = "";
-                bll1.remark = "";
-                bll1.date_create = "";
-                bll1.date_modi = "";
-                bll1.date_cancel = "";
-                bll1.user_create = "";
-                bll1.user_modi = "";
-                bll1.user_cancel = "";
-                
+                img1.active = "";
+                img1.remark = "";
+                img1.date_create = "";
+                img1.date_modi = "";
+                img1.date_cancel = "";
+                img1.user_create = "";
+                img1.user_modi = "";
+                img1.user_cancel = "";
+                img1.job_id = "";
             }
 
-            return bll1;
+            return img1;
         }
     }
 }

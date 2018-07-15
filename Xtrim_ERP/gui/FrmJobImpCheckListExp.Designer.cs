@@ -32,12 +32,24 @@
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.c1Button12 = new C1.Win.C1Input.C1Button();
+            this.c1Button11 = new C1.Win.C1Input.C1Button();
+            this.c1Button6 = new C1.Win.C1Input.C1Button();
+            this.c1Button7 = new C1.Win.C1Input.C1Button();
+            this.c1Button8 = new C1.Win.C1Input.C1Button();
+            this.c1Button9 = new C1.Win.C1Input.C1Button();
+            this.c1Button10 = new C1.Win.C1Input.C1Button();
+            this.c1Button5 = new C1.Win.C1Input.C1Button();
+            this.c1Button4 = new C1.Win.C1Input.C1Button();
+            this.c1Button3 = new C1.Win.C1Input.C1Button();
             this.c1Button2 = new C1.Win.C1Input.C1Button();
+            this.c1Button1 = new C1.Win.C1Input.C1Button();
             this.btnImages = new C1.Win.C1Input.C1Button();
             this.txtId = new C1.Win.C1Input.C1TextBox();
             this.c1TextBox10 = new C1.Win.C1Input.C1TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnInvSave = new C1.Win.C1Input.C1Button();
+            this.btnSave = new C1.Win.C1Input.C1Button();
             this.c1TextBox9 = new C1.Win.C1Input.C1TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.c1TextBox8 = new C1.Win.C1Input.C1TextBox();
@@ -46,51 +58,61 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.c1DateEdit2 = new C1.Win.Calendar.C1DateEdit();
-            this.c1TextBox6 = new C1.Win.C1Input.C1TextBox();
+            this.txtRcpAmt = new C1.Win.C1Input.C1TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.c1DateEdit1 = new C1.Win.Calendar.C1DateEdit();
             this.c1TextBox5 = new C1.Win.C1Input.C1TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.c1TextBox4 = new C1.Win.C1Input.C1TextBox();
+            this.txtRcpNum = new C1.Win.C1Input.C1TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtInvDate = new C1.Win.Calendar.C1DateEdit();
+            this.txtRcpDate = new C1.Win.Calendar.C1DateEdit();
             this.c1TextBox3 = new C1.Win.C1Input.C1TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.c1TextBox2 = new C1.Win.C1Input.C1TextBox();
+            this.txtItmNameT = new C1.Win.C1Input.C1TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.c1Button13 = new C1.Win.C1Input.C1Button();
-            this.c1TextBox1 = new C1.Win.C1Input.C1TextBox();
+            this.txtItmCode = new C1.Win.C1Input.C1TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtConsNameT = new C1.Win.C1Input.C1TextBox();
+            this.txtItmNameT1 = new C1.Win.C1Input.C1TextBox();
             this.label34 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.c1Button1 = new C1.Win.C1Input.C1Button();
+            this.txtTableId = new C1.Win.C1Input.C1TextBox();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnInvSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRcpAmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtInvDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRcpNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRcpDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItmNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtConsNameT)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItmCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItmNameT1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTableId)).BeginInit();
             this.SuspendLayout();
             // 
             // sB
@@ -100,7 +122,7 @@
             this.sB1});
             this.sB.Location = new System.Drawing.Point(0, 523);
             this.sB.Name = "sB";
-            this.sB.Size = new System.Drawing.Size(410, 22);
+            this.sB.Size = new System.Drawing.Size(445, 22);
             this.sB.TabIndex = 5;
             this.sB.Text = "statusStrip1";
             this.theme1.SetTheme(this.sB, "(default)");
@@ -118,12 +140,13 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.txtTableId);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnImages);
             this.panel1.Controls.Add(this.txtId);
             this.panel1.Controls.Add(this.c1TextBox10);
             this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.btnInvSave);
+            this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.c1TextBox9);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.c1TextBox8);
@@ -132,45 +155,210 @@
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.c1DateEdit2);
-            this.panel1.Controls.Add(this.c1TextBox6);
+            this.panel1.Controls.Add(this.txtRcpAmt);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.c1DateEdit1);
             this.panel1.Controls.Add(this.c1TextBox5);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.c1TextBox4);
+            this.panel1.Controls.Add(this.txtRcpNum);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtInvDate);
+            this.panel1.Controls.Add(this.txtRcpDate);
             this.panel1.Controls.Add(this.c1TextBox3);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.c1TextBox2);
+            this.panel1.Controls.Add(this.txtItmNameT);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.c1Button13);
-            this.panel1.Controls.Add(this.c1TextBox1);
+            this.panel1.Controls.Add(this.txtItmCode);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtConsNameT);
+            this.panel1.Controls.Add(this.txtItmNameT1);
             this.panel1.Controls.Add(this.label34);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(410, 523);
+            this.panel1.Size = new System.Drawing.Size(445, 523);
             this.panel1.TabIndex = 6;
             this.theme1.SetTheme(this.panel1, "(default)");
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.Controls.Add(this.c1Button12);
+            this.panel2.Controls.Add(this.c1Button11);
+            this.panel2.Controls.Add(this.c1Button6);
+            this.panel2.Controls.Add(this.c1Button7);
+            this.panel2.Controls.Add(this.c1Button8);
+            this.panel2.Controls.Add(this.c1Button9);
+            this.panel2.Controls.Add(this.c1Button10);
+            this.panel2.Controls.Add(this.c1Button5);
+            this.panel2.Controls.Add(this.c1Button4);
+            this.panel2.Controls.Add(this.c1Button3);
+            this.panel2.Controls.Add(this.c1Button2);
+            this.panel2.Controls.Add(this.c1Button1);
+            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel2.Location = new System.Drawing.Point(130, 375);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(303, 102);
+            this.panel2.TabIndex = 500;
+            this.theme1.SetTheme(this.panel2, "(default)");
+            // 
+            // c1Button12
+            // 
+            this.c1Button12.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
+            this.c1Button12.Location = new System.Drawing.Point(243, 54);
+            this.c1Button12.Name = "c1Button12";
+            this.c1Button12.Size = new System.Drawing.Size(42, 45);
+            this.c1Button12.TabIndex = 511;
+            this.c1Button12.Text = "...";
+            this.c1Button12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button12, "(default)");
+            this.c1Button12.UseVisualStyleBackColor = true;
+            this.c1Button12.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button11
+            // 
+            this.c1Button11.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
+            this.c1Button11.Location = new System.Drawing.Point(243, 3);
+            this.c1Button11.Name = "c1Button11";
+            this.c1Button11.Size = new System.Drawing.Size(42, 45);
+            this.c1Button11.TabIndex = 510;
+            this.c1Button11.Text = "...";
+            this.c1Button11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button11, "(default)");
+            this.c1Button11.UseVisualStyleBackColor = true;
+            this.c1Button11.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button6
+            // 
+            this.c1Button6.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
+            this.c1Button6.Location = new System.Drawing.Point(195, 54);
+            this.c1Button6.Name = "c1Button6";
+            this.c1Button6.Size = new System.Drawing.Size(42, 45);
+            this.c1Button6.TabIndex = 509;
+            this.c1Button6.Text = "...";
+            this.c1Button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button6, "(default)");
+            this.c1Button6.UseVisualStyleBackColor = true;
+            this.c1Button6.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button7
+            // 
+            this.c1Button7.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
+            this.c1Button7.Location = new System.Drawing.Point(147, 54);
+            this.c1Button7.Name = "c1Button7";
+            this.c1Button7.Size = new System.Drawing.Size(42, 45);
+            this.c1Button7.TabIndex = 508;
+            this.c1Button7.Text = "...";
+            this.c1Button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button7, "(default)");
+            this.c1Button7.UseVisualStyleBackColor = true;
+            this.c1Button7.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button8
+            // 
+            this.c1Button8.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
+            this.c1Button8.Location = new System.Drawing.Point(99, 54);
+            this.c1Button8.Name = "c1Button8";
+            this.c1Button8.Size = new System.Drawing.Size(42, 45);
+            this.c1Button8.TabIndex = 507;
+            this.c1Button8.Text = "...";
+            this.c1Button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button8, "(default)");
+            this.c1Button8.UseVisualStyleBackColor = true;
+            this.c1Button8.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button9
+            // 
+            this.c1Button9.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
+            this.c1Button9.Location = new System.Drawing.Point(51, 54);
+            this.c1Button9.Name = "c1Button9";
+            this.c1Button9.Size = new System.Drawing.Size(42, 45);
+            this.c1Button9.TabIndex = 506;
+            this.c1Button9.Text = "...";
+            this.c1Button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button9, "(default)");
+            this.c1Button9.UseVisualStyleBackColor = true;
+            this.c1Button9.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button10
+            // 
+            this.c1Button10.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
+            this.c1Button10.Location = new System.Drawing.Point(3, 54);
+            this.c1Button10.Name = "c1Button10";
+            this.c1Button10.Size = new System.Drawing.Size(42, 45);
+            this.c1Button10.TabIndex = 505;
+            this.c1Button10.Text = "...";
+            this.c1Button10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button10, "(default)");
+            this.c1Button10.UseVisualStyleBackColor = true;
+            this.c1Button10.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button5
+            // 
+            this.c1Button5.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
+            this.c1Button5.Location = new System.Drawing.Point(195, 3);
+            this.c1Button5.Name = "c1Button5";
+            this.c1Button5.Size = new System.Drawing.Size(42, 45);
+            this.c1Button5.TabIndex = 504;
+            this.c1Button5.Text = "...";
+            this.c1Button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button5, "(default)");
+            this.c1Button5.UseVisualStyleBackColor = true;
+            this.c1Button5.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button4
+            // 
+            this.c1Button4.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
+            this.c1Button4.Location = new System.Drawing.Point(147, 3);
+            this.c1Button4.Name = "c1Button4";
+            this.c1Button4.Size = new System.Drawing.Size(42, 45);
+            this.c1Button4.TabIndex = 503;
+            this.c1Button4.Text = "...";
+            this.c1Button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button4, "(default)");
+            this.c1Button4.UseVisualStyleBackColor = true;
+            this.c1Button4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button3
+            // 
+            this.c1Button3.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
+            this.c1Button3.Location = new System.Drawing.Point(99, 3);
+            this.c1Button3.Name = "c1Button3";
+            this.c1Button3.Size = new System.Drawing.Size(42, 45);
+            this.c1Button3.TabIndex = 502;
+            this.c1Button3.Text = "...";
+            this.c1Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button3, "(default)");
+            this.c1Button3.UseVisualStyleBackColor = true;
+            this.c1Button3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // c1Button2
             // 
             this.c1Button2.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
-            this.c1Button2.Location = new System.Drawing.Point(215, 54);
+            this.c1Button2.Location = new System.Drawing.Point(51, 3);
             this.c1Button2.Name = "c1Button2";
             this.c1Button2.Size = new System.Drawing.Size(42, 45);
-            this.c1Button2.TabIndex = 499;
+            this.c1Button2.TabIndex = 501;
             this.c1Button2.Text = "...";
             this.c1Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.c1Button2, "(default)");
             this.c1Button2.UseVisualStyleBackColor = true;
             this.c1Button2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // c1Button1
+            // 
+            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
+            this.c1Button1.Location = new System.Drawing.Point(3, 3);
+            this.c1Button1.Name = "c1Button1";
+            this.c1Button1.Size = new System.Drawing.Size(42, 45);
+            this.c1Button1.TabIndex = 500;
+            this.c1Button1.Text = "...";
+            this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.c1Button1, "(default)");
+            this.c1Button1.UseVisualStyleBackColor = true;
+            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // btnImages
             // 
@@ -224,19 +412,19 @@
             this.label13.Text = "ยอดชำระหัก WHT แล้ว :";
             this.theme1.SetTheme(this.label13, "(default)");
             // 
-            // btnInvSave
+            // btnSave
             // 
-            this.btnInvSave.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
-            this.btnInvSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInvSave.Location = new System.Drawing.Point(316, 483);
-            this.btnInvSave.Name = "btnInvSave";
-            this.btnInvSave.Size = new System.Drawing.Size(83, 31);
-            this.btnInvSave.TabIndex = 492;
-            this.btnInvSave.Text = "บันทึกช้อมูล";
-            this.btnInvSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnInvSave, "(default)");
-            this.btnInvSave.UseVisualStyleBackColor = true;
-            this.btnInvSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnSave.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(316, 483);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(83, 31);
+            this.btnSave.TabIndex = 492;
+            this.btnSave.Text = "บันทึกช้อมูล";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnSave, "(default)");
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // c1TextBox9
             // 
@@ -363,18 +551,18 @@
             this.theme1.SetTheme(this.c1DateEdit2, "(default)");
             this.c1DateEdit2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1TextBox6
+            // txtRcpAmt
             // 
-            this.c1TextBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox6.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox6.Location = new System.Drawing.Point(142, 220);
-            this.c1TextBox6.Name = "c1TextBox6";
-            this.c1TextBox6.Size = new System.Drawing.Size(245, 20);
-            this.c1TextBox6.TabIndex = 462;
-            this.c1TextBox6.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox6, "(default)");
-            this.c1TextBox6.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtRcpAmt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRcpAmt.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtRcpAmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtRcpAmt.Location = new System.Drawing.Point(142, 220);
+            this.txtRcpAmt.Name = "txtRcpAmt";
+            this.txtRcpAmt.Size = new System.Drawing.Size(245, 20);
+            this.txtRcpAmt.TabIndex = 462;
+            this.txtRcpAmt.Tag = null;
+            this.theme1.SetTheme(this.txtRcpAmt, "(default)");
+            this.txtRcpAmt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label8
             // 
@@ -462,18 +650,18 @@
             this.label6.Text = "PRQ :";
             this.theme1.SetTheme(this.label6, "(default)");
             // 
-            // c1TextBox4
+            // txtRcpNum
             // 
-            this.c1TextBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox4.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox4.Location = new System.Drawing.Point(142, 116);
-            this.c1TextBox4.Name = "c1TextBox4";
-            this.c1TextBox4.Size = new System.Drawing.Size(245, 20);
-            this.c1TextBox4.TabIndex = 456;
-            this.c1TextBox4.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox4, "(default)");
-            this.c1TextBox4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtRcpNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRcpNum.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtRcpNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtRcpNum.Location = new System.Drawing.Point(142, 116);
+            this.txtRcpNum.Name = "txtRcpNum";
+            this.txtRcpNum.Size = new System.Drawing.Size(245, 20);
+            this.txtRcpNum.TabIndex = 456;
+            this.txtRcpNum.Tag = null;
+            this.theme1.SetTheme(this.txtRcpNum, "(default)");
+            this.txtRcpNum.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label5
             // 
@@ -501,39 +689,39 @@
             this.label4.Text = "วันที่ในใบเสร็จ :";
             this.theme1.SetTheme(this.label4, "(default)");
             // 
-            // txtInvDate
+            // txtRcpDate
             // 
-            this.txtInvDate.AllowSpinLoop = false;
-            this.txtInvDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtInvDate.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.txtInvDate.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.txtInvDate.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.txtInvDate.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.txtInvDate.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.txtInvDate.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.txtInvDate.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.txtInvDate.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.txtInvDate.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.txtInvDate.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.txtInvDate.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtInvDate.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.txtInvDate.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtInvDate.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.txtInvDate.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            this.txtRcpDate.AllowSpinLoop = false;
+            this.txtRcpDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRcpDate.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtRcpDate.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtRcpDate.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtRcpDate.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtRcpDate.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtRcpDate.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtRcpDate.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtRcpDate.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtRcpDate.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtRcpDate.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtRcpDate.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtRcpDate.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtRcpDate.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtRcpDate.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtRcpDate.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
             | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
             | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
             | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.txtInvDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInvDate.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.txtInvDate.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.txtInvDate.Location = new System.Drawing.Point(142, 142);
-            this.txtInvDate.Name = "txtInvDate";
-            this.txtInvDate.Size = new System.Drawing.Size(118, 20);
-            this.txtInvDate.TabIndex = 453;
-            this.txtInvDate.Tag = null;
-            this.theme1.SetTheme(this.txtInvDate, "(default)");
-            this.txtInvDate.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtRcpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRcpDate.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtRcpDate.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtRcpDate.Location = new System.Drawing.Point(142, 142);
+            this.txtRcpDate.Name = "txtRcpDate";
+            this.txtRcpDate.Size = new System.Drawing.Size(118, 20);
+            this.txtRcpDate.TabIndex = 453;
+            this.txtRcpDate.Tag = null;
+            this.theme1.SetTheme(this.txtRcpDate, "(default)");
+            this.txtRcpDate.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // c1TextBox3
             // 
@@ -561,18 +749,18 @@
             this.label3.Text = "ประเภทของเงินที่จ่าย :";
             this.theme1.SetTheme(this.label3, "(default)");
             // 
-            // c1TextBox2
+            // txtItmNameT
             // 
-            this.c1TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox2.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox2.Location = new System.Drawing.Point(142, 64);
-            this.c1TextBox2.Name = "c1TextBox2";
-            this.c1TextBox2.Size = new System.Drawing.Size(245, 20);
-            this.c1TextBox2.TabIndex = 450;
-            this.c1TextBox2.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox2, "(default)");
-            this.c1TextBox2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtItmNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtItmNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtItmNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtItmNameT.Location = new System.Drawing.Point(142, 64);
+            this.txtItmNameT.Name = "txtItmNameT";
+            this.txtItmNameT.Size = new System.Drawing.Size(245, 20);
+            this.txtItmNameT.TabIndex = 450;
+            this.txtItmNameT.Tag = null;
+            this.theme1.SetTheme(this.txtItmNameT, "(default)");
+            this.txtItmNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label2
             // 
@@ -599,18 +787,18 @@
             this.c1Button13.UseVisualStyleBackColor = true;
             this.c1Button13.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1TextBox1
+            // txtItmCode
             // 
-            this.c1TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox1.Location = new System.Drawing.Point(142, 38);
-            this.c1TextBox1.Name = "c1TextBox1";
-            this.c1TextBox1.Size = new System.Drawing.Size(245, 20);
-            this.c1TextBox1.TabIndex = 447;
-            this.c1TextBox1.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox1, "(default)");
-            this.c1TextBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtItmCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtItmCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtItmCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtItmCode.Location = new System.Drawing.Point(142, 38);
+            this.txtItmCode.Name = "txtItmCode";
+            this.txtItmCode.Size = new System.Drawing.Size(245, 20);
+            this.txtItmCode.TabIndex = 447;
+            this.txtItmCode.Tag = null;
+            this.theme1.SetTheme(this.txtItmCode, "(default)");
+            this.txtItmCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label1
             // 
@@ -625,18 +813,18 @@
             this.label1.Text = "รหัส :";
             this.theme1.SetTheme(this.label1, "(default)");
             // 
-            // txtConsNameT
+            // txtItmNameT1
             // 
-            this.txtConsNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtConsNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtConsNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtConsNameT.Location = new System.Drawing.Point(142, 12);
-            this.txtConsNameT.Name = "txtConsNameT";
-            this.txtConsNameT.Size = new System.Drawing.Size(53, 20);
-            this.txtConsNameT.TabIndex = 445;
-            this.txtConsNameT.Tag = null;
-            this.theme1.SetTheme(this.txtConsNameT, "(default)");
-            this.txtConsNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtItmNameT1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtItmNameT1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtItmNameT1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtItmNameT1.Location = new System.Drawing.Point(142, 12);
+            this.txtItmNameT1.Name = "txtItmNameT1";
+            this.txtItmNameT1.Size = new System.Drawing.Size(245, 20);
+            this.txtItmNameT1.TabIndex = 445;
+            this.txtItmNameT1.Tag = null;
+            this.theme1.SetTheme(this.txtItmNameT1, "(default)");
+            this.txtItmNameT1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label34
             // 
@@ -651,36 +839,25 @@
             this.label34.Text = "ลำดับ :";
             this.theme1.SetTheme(this.label34, "(default)");
             // 
-            // panel2
+            // txtTableId
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel2.Controls.Add(this.c1Button1);
-            this.panel2.Controls.Add(this.c1Button2);
-            this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel2.Location = new System.Drawing.Point(130, 375);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(269, 102);
-            this.panel2.TabIndex = 500;
-            this.theme1.SetTheme(this.panel2, "(default)");
-            // 
-            // c1Button1
-            // 
-            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
-            this.c1Button1.Location = new System.Drawing.Point(215, 3);
-            this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(42, 45);
-            this.c1Button1.TabIndex = 500;
-            this.c1Button1.Text = "...";
-            this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button1, "(default)");
-            this.c1Button1.UseVisualStyleBackColor = true;
-            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtTableId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTableId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtTableId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtTableId.Location = new System.Drawing.Point(393, 12);
+            this.txtTableId.Name = "txtTableId";
+            this.txtTableId.Size = new System.Drawing.Size(22, 20);
+            this.txtTableId.TabIndex = 505;
+            this.txtTableId.Tag = null;
+            this.theme1.SetTheme(this.txtTableId, "(default)");
+            this.txtTableId.Visible = false;
+            this.txtTableId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmJobImpCheckListExp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(410, 545);
+            this.ClientSize = new System.Drawing.Size(445, 545);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.sB);
             this.Name = "FrmJobImpCheckListExp";
@@ -692,27 +869,38 @@
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnImages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnInvSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRcpAmt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1DateEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtInvDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRcpNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRcpDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItmNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtConsNameT)).EndInit();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItmCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItmNameT1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTableId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -724,18 +912,18 @@
         private System.Windows.Forms.ToolStripStatusLabel sB1;
         private C1.Win.C1Themes.C1ThemeController theme1;
         private System.Windows.Forms.Panel panel1;
-        private C1.Win.C1Input.C1TextBox c1TextBox1;
+        private C1.Win.C1Input.C1TextBox txtItmCode;
         private System.Windows.Forms.Label label1;
-        private C1.Win.C1Input.C1TextBox txtConsNameT;
+        private C1.Win.C1Input.C1TextBox txtItmNameT1;
         private System.Windows.Forms.Label label34;
         private C1.Win.C1Input.C1Button c1Button13;
         private C1.Win.C1Input.C1TextBox c1TextBox3;
         private System.Windows.Forms.Label label3;
-        private C1.Win.C1Input.C1TextBox c1TextBox2;
+        private C1.Win.C1Input.C1TextBox txtItmNameT;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private C1.Win.Calendar.C1DateEdit txtInvDate;
-        private C1.Win.C1Input.C1TextBox c1TextBox4;
+        private C1.Win.Calendar.C1DateEdit txtRcpDate;
+        private C1.Win.C1Input.C1TextBox txtRcpNum;
         private System.Windows.Forms.Label label5;
         private C1.Win.C1Input.C1TextBox c1TextBox5;
         private System.Windows.Forms.Label label6;
@@ -743,7 +931,7 @@
         private C1.Win.Calendar.C1DateEdit c1DateEdit1;
         private System.Windows.Forms.Label label9;
         private C1.Win.Calendar.C1DateEdit c1DateEdit2;
-        private C1.Win.C1Input.C1TextBox c1TextBox6;
+        private C1.Win.C1Input.C1TextBox txtRcpAmt;
         private System.Windows.Forms.Label label8;
         private C1.Win.C1Input.C1TextBox c1TextBox9;
         private System.Windows.Forms.Label label12;
@@ -751,13 +939,24 @@
         private System.Windows.Forms.Label label11;
         private C1.Win.C1Input.C1TextBox c1TextBox7;
         private System.Windows.Forms.Label label10;
-        private C1.Win.C1Input.C1Button btnInvSave;
+        private C1.Win.C1Input.C1Button btnSave;
         private C1.Win.C1Input.C1TextBox c1TextBox10;
         private System.Windows.Forms.Label label13;
         private C1.Win.C1Input.C1TextBox txtId;
         private C1.Win.C1Input.C1Button btnImages;
-        private C1.Win.C1Input.C1Button c1Button2;
         private System.Windows.Forms.Panel panel2;
+        private C1.Win.C1Input.C1Button c1Button12;
+        private C1.Win.C1Input.C1Button c1Button11;
+        private C1.Win.C1Input.C1Button c1Button6;
+        private C1.Win.C1Input.C1Button c1Button7;
+        private C1.Win.C1Input.C1Button c1Button8;
+        private C1.Win.C1Input.C1Button c1Button9;
+        private C1.Win.C1Input.C1Button c1Button10;
+        private C1.Win.C1Input.C1Button c1Button5;
+        private C1.Win.C1Input.C1Button c1Button4;
+        private C1.Win.C1Input.C1Button c1Button3;
+        private C1.Win.C1Input.C1Button c1Button2;
         private C1.Win.C1Input.C1Button c1Button1;
+        private C1.Win.C1Input.C1TextBox txtTableId;
     }
 }

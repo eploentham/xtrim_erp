@@ -118,7 +118,7 @@ namespace Xtrim_ERP.control
             sAddr = new Address();
             sConY = new Customer();
             sItm = new Items();
-            ftpC = new FtpClient();
+            ftpC = new FtpClient(iniC.hostFTP, iniC.userFTP, iniC.passFTP);
 
             cTxtFocus = ColorTranslator.FromHtml(iniC.txtFocus);
             regEmail = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
@@ -128,18 +128,26 @@ namespace Xtrim_ERP.control
             iniC.hostDB = iniF.Read("hostDB");
             iniC.hostDBEx = iniF.Read("hostDBEx");
             iniC.hostDBIm = iniF.Read("hostDBIm");
+            iniC.hostFTP = iniF.Read("hostFTP");
+
             iniC.nameDB = iniF.Read("nameDB");
             iniC.nameDBEx = iniF.Read("nameDBEx");
             iniC.nameDBIm = iniF.Read("nameDBIm");
+
             iniC.passDB = iniF.Read("passDB");
             iniC.passDBEx = iniF.Read("passDBEx");
             iniC.passDBIm = iniF.Read("passDBIm");
+            iniC.passFTP = iniF.Read("passFTP");
+
             iniC.portDB = iniF.Read("portDB");
             iniC.portDBEx = iniF.Read("portDBEx");
             iniC.portDBIm = iniF.Read("portDBIm");
+            iniC.portFTP = iniF.Read("portFTP");
+
             iniC.userDB = iniF.Read("userDB");
             iniC.userDBEx = iniF.Read("userDBEx");
             iniC.userDBIm = iniF.Read("userDBIm");
+            iniC.userFTP = iniF.Read("userFTP");
 
             iniC.grdViewFontSize = iniF.Read("grdViewFontSize");
             iniC.grdViewFontName = iniF.Read("grdViewFontName");
