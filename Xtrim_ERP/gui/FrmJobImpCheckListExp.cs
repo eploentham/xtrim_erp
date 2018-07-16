@@ -25,6 +25,7 @@ namespace Xtrim_ERP.gui
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
         String tableId = "";
+        DataTable dtImg = new DataTable();
 
         public FrmJobImpCheckListExp(XtrimControl x, String tableid)
         {
@@ -70,15 +71,15 @@ namespace Xtrim_ERP.gui
         private void setImages(String id)
         {
             Images img = new Images();
-            DataTable dt = new DataTable();
-            dt = xC.xtDB.imgDB.selectByTableId(id);
+            
+            dtImg = xC.xtDB.imgDB.selectByTableId(id);
             int i = 0,gapX=0,gapY=0,x=3,y=3;
             Point btnsize = new Point(42, 45);
             gapX = 48;
             gapY = 51;
             x = 3;
             y = 3;
-            foreach(DataRow row in dt.Rows)
+            foreach(DataRow row in dtImg.Rows)
             {
                 C1Button btnImg = new C1Button();
                 btnImg.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
@@ -97,7 +98,7 @@ namespace Xtrim_ERP.gui
                     x += gapX;
                     //y += gapY;
                 }
-                else if(i == 6)
+                else if(i == 5)
                 {
                     x = 3;
                     y = 54;
@@ -118,19 +119,109 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             if (((C1Button)sender).Name.Equals("btnImg0"))
             {
-                MessageBox.Show("00000", "00000000");
+                String id = "";
+                if (dtImg.Rows[0][xC.xtDB.imgDB.img.image_id] == null) return;
+                id = dtImg.Rows[0][xC.xtDB.imgDB.img.image_id].ToString();
+                //MessageBox.Show("00000", "00000000");
+                FrmImageView frm = new FrmImageView(xC,id);
+                frm.ShowDialog(this);
+                //MessageBox.Show("00000", "00000000");
             }
             else if (((C1Button)sender).Name.Equals("btnImg1"))
             {
-                MessageBox.Show("11111", "1111111");
+                String id = "";
+                if (dtImg.Rows[1][xC.xtDB.imgDB.img.image_id] == null) return;
+                id = dtImg.Rows[1][xC.xtDB.imgDB.img.image_id].ToString();
+                FrmImageView frm = new FrmImageView(xC, id);
+                frm.ShowDialog(this);
+            }
+            else if (((C1Button)sender).Name.Equals("btnImg2"))
+            {
+                String id = "";
+                if (dtImg.Rows[2][xC.xtDB.imgDB.img.image_id] == null) return;
+                id = dtImg.Rows[2][xC.xtDB.imgDB.img.image_id].ToString();
+                FrmImageView frm = new FrmImageView(xC, id);
+                frm.ShowDialog(this);
+            }
+            else if (((C1Button)sender).Name.Equals("btnImg3"))
+            {
+                String id = "";
+                if (dtImg.Rows[3][xC.xtDB.imgDB.img.image_id] == null) return;
+                id = dtImg.Rows[3][xC.xtDB.imgDB.img.image_id].ToString();
+                FrmImageView frm = new FrmImageView(xC, id);
+                frm.ShowDialog(this);
+            }
+            else if (((C1Button)sender).Name.Equals("btnImg4"))
+            {
+                String id = "";
+                if (dtImg.Rows[4][xC.xtDB.imgDB.img.image_id] == null) return;
+                id = dtImg.Rows[4][xC.xtDB.imgDB.img.image_id].ToString();
+                FrmImageView frm = new FrmImageView(xC, id);
+                frm.ShowDialog(this);
+            }
+            else if (((C1Button)sender).Name.Equals("btnImg5"))
+            {
+                String id = "";
+                if (dtImg.Rows[5][xC.xtDB.imgDB.img.image_id] == null) return;
+                id = dtImg.Rows[5][xC.xtDB.imgDB.img.image_id].ToString();
+                FrmImageView frm = new FrmImageView(xC, id);
+                frm.ShowDialog(this);
             }
             else if (((C1Button)sender).Name.Equals("btnImg6"))
             {
-                MessageBox.Show("666666", "666666");
+                String id = "";
+                if (dtImg.Rows[6][xC.xtDB.imgDB.img.image_id] == null) return;
+                id = dtImg.Rows[6][xC.xtDB.imgDB.img.image_id].ToString();
+                FrmImageView frm = new FrmImageView(xC, id);
+                frm.ShowDialog(this);
             }
             else if (((C1Button)sender).Name.Equals("btnImg7"))
             {
-                MessageBox.Show("777777", "777777");
+                String id = "";
+                if (dtImg.Rows[7][xC.xtDB.imgDB.img.image_id] == null) return;
+                id = dtImg.Rows[7][xC.xtDB.imgDB.img.image_id].ToString();
+                FrmImageView frm = new FrmImageView(xC, id);
+                frm.ShowDialog(this);
+            }
+            else if (((C1Button)sender).Name.Equals("btnImg8"))
+            {
+                String id = "";
+                if (dtImg.Rows[8][xC.xtDB.imgDB.img.image_id] == null) return;
+                id = dtImg.Rows[8][xC.xtDB.imgDB.img.image_id].ToString();
+                FrmImageView frm = new FrmImageView(xC, id);
+                frm.ShowDialog(this);
+            }
+            else if (((C1Button)sender).Name.Equals("btnImg9"))
+            {
+                String id = "";
+                if (dtImg.Rows[9][xC.xtDB.imgDB.img.image_id] == null) return;
+                id = dtImg.Rows[9][xC.xtDB.imgDB.img.image_id].ToString();
+                FrmImageView frm = new FrmImageView(xC, id);
+                frm.ShowDialog(this);
+            }
+            else if (((C1Button)sender).Name.Equals("btnImg10"))
+            {
+                String id = "";
+                if (dtImg.Rows[10][xC.xtDB.imgDB.img.image_id] == null) return;
+                id = dtImg.Rows[10][xC.xtDB.imgDB.img.image_id].ToString();
+                FrmImageView frm = new FrmImageView(xC, id);
+                frm.ShowDialog(this);
+            }
+            else if (((C1Button)sender).Name.Equals("btnImg11"))
+            {
+                String id = "";
+                if (dtImg.Rows[11][xC.xtDB.imgDB.img.image_id] == null) return;
+                id = dtImg.Rows[11][xC.xtDB.imgDB.img.image_id].ToString();
+                FrmImageView frm = new FrmImageView(xC, id);
+                frm.ShowDialog(this);
+            }
+            else if (((C1Button)sender).Name.Equals("btnImg12"))
+            {
+                String id = "";
+                if (dtImg.Rows[12][xC.xtDB.imgDB.img.image_id] == null) return;
+                id = dtImg.Rows[12][xC.xtDB.imgDB.img.image_id].ToString();
+                FrmImageView frm = new FrmImageView(xC, id);
+                frm.ShowDialog(this);
             }
         }
 

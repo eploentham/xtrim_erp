@@ -284,6 +284,12 @@
     <Compile Include="gui\FrmImages.Designer.cs">
       <DependentUpon>FrmImages.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmImageView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmImageView.Designer.cs">
+      <DependentUpon>FrmImageView.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmItems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -939,6 +945,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmImages.resx">
       <DependentUpon>FrmImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmImageView.resx">
+      <DependentUpon>FrmImageView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmItems.resx">
       <DependentUpon>FrmItems.cs</DependentUpon>

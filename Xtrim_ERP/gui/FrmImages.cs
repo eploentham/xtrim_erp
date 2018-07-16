@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,15 +66,22 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
+                int i = 0;
+                DataTable dt = new DataTable();
+                dt = xC.xtDB.imgDB.selectByTableId(tableId);
+                i = dt.Rows.Count+1;
                 foreach (Row row in grfImg.Rows)
                 {
+                    int chk = 0, chkD = 0;
                     if (row[colPath] == null) continue;
                     if (row[colPath].ToString().Equals("Path")) continue;
                     Images img = new Images();
                     img.image_id = "";
                     img.table_id = tableId;
-                    img.image_name = "";
+                    
                     img.image_path = row[colPath].ToString();
+                    String ext = Path.GetExtension(@img.image_path);
+                    img.image_name = tableId+"_"+i + ext;
 
                     img.active = "";
                     img.remark = row[colRemark].ToString();
@@ -85,7 +93,14 @@ namespace Xtrim_ERP.gui
                     img.user_cancel = "";
                     img.job_id = txtJobId.Text;
 
-                    xC.xtDB.imgDB.insertImages(img, xC.userId);
+                    string re = xC.xtDB.imgDB.insertImages(img, xC.userId);
+                    if (int.TryParse(re, out chk))
+                    {
+                        
+                        xC.ftpC.createDirectory(img.job_id);
+                        xC.ftpC.upload(img.job_id+"/"+img.image_name, img.image_path);
+                    }
+                    i++;
                 }
             }
         }
@@ -150,7 +165,7 @@ namespace Xtrim_ERP.gui
             grfImg.Clear();
             grfImg.Rows.Count = 1;
             grfImg.Cols.Count = 3;
-
+            
             grfImg.Cols[colPath].Width = 300;
             grfImg.Cols[colRemark].Width = 200;
 
@@ -161,6 +176,7 @@ namespace Xtrim_ERP.gui
 
             theme1.SetTheme(grfImg, "Office2013Red");
         }
+        
         private void setGrfImg(String[] path1)
         {
             grfImg.DataSource = null;

@@ -25,8 +25,9 @@ namespace Xtrim_ERP.object1
         }
 
         /* Download File */
-        public void download(string remoteFile, string localFile)
+        public MemoryStream download(string remoteFile)
         {
+            MemoryStream stream = new MemoryStream();
             try
             {
                 /* Create an FTP Request */
@@ -44,28 +45,32 @@ namespace Xtrim_ERP.object1
                 /* Get the FTP Server's Response Stream */
                 ftpStream = ftpResponse.GetResponseStream();
                 /* Open a File Stream to Write the Downloaded File */
-                FileStream localFileStream = new FileStream(localFile, FileMode.Create);
+                //FileStream localFileStream = new FileStream(localFile, FileMode.Create);
+                
                 /* Buffer for the Downloaded Data */
                 byte[] byteBuffer = new byte[bufferSize];
                 int bytesRead = ftpStream.Read(byteBuffer, 0, bufferSize);
+                
                 /* Download the File by Writing the Buffered Data Until the Transfer is Complete */
                 try
                 {
                     while (bytesRead > 0)
                     {
-                        localFileStream.Write(byteBuffer, 0, bytesRead);
+                        //localFileStream.Write(byteBuffer, 0, bytesRead);
+                        stream.Write(byteBuffer, 0, bytesRead);
                         bytesRead = ftpStream.Read(byteBuffer, 0, bufferSize);
+
                     }
                 }
                 catch (Exception ex) { Console.WriteLine(ex.ToString()); }
                 /* Resource Cleanup */
-                localFileStream.Close();
+                //localFileStream.Close();
                 ftpStream.Close();
                 ftpResponse.Close();
                 ftpRequest = null;
             }
             catch (Exception ex) { Console.WriteLine(ex.ToString()); }
-            return;
+            return stream;
         }
 
         /* Upload File */
@@ -86,7 +91,7 @@ namespace Xtrim_ERP.object1
                 /* Establish Return Communication with the FTP Server */
                 ftpStream = ftpRequest.GetRequestStream();
                 /* Open a File Stream to Read the File for Upload */
-                FileStream localFileStream = new FileStream(localFile, FileMode.Create);
+                FileStream localFileStream = new FileStream(localFile, FileMode.Open);
                 /* Buffer for the Downloaded Data */
                 byte[] byteBuffer = new byte[bufferSize];
                 int bytesSent = localFileStream.Read(byteBuffer, 0, bufferSize);

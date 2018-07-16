@@ -141,7 +141,7 @@ namespace Xtrim_ERP.objdb
             sql = "Update " + img.table + " Set " +
                 " " + img.active + "='3' " +
                 "," + img.date_cancel + "=now() " +
-                "Where " + img.image_id + "='" + id + "'";
+                "Where " + img.pkField + "='" + id + "'";
             re = conn.ExecuteNonQuery(conn.conn, sql);
 
             return re;
@@ -182,7 +182,8 @@ namespace Xtrim_ERP.objdb
             String sql = "select bll.* " +
                 "From " + img.table + " bll " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where bll." + img.table_id + " ='" + copId + "' and " + img.active + "='1' ";
+                "Where bll." + img.table_id + " ='" + copId + "' and " + img.active + "='1' " +
+                "Order By "+img.image_id;
             dt = conn.selectData(conn.conn, sql);            
             return dt;
         }
