@@ -1475,7 +1475,7 @@ namespace Xtrim_ERP.gui
                     MessageBox.Show("มีรายการไม่ตรงกลุ่ม", "error");
                 }
             }
-                       
+            
             tax.status_page = "1";
             return chk;
         }
