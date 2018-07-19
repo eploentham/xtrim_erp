@@ -87,6 +87,7 @@ namespace Xtrim_ERP.objdb
         public TaxDB taxDB;
         public ReserveCashDB rscDB;
         public ImagesDB imgDB;
+        public ExpensesClearCashDB eccDB;
 
         public MeiosysDB mioDB;
 
@@ -176,6 +177,7 @@ namespace Xtrim_ERP.objdb
             taxDB = new TaxDB(conn);
             rscDB = new ReserveCashDB(conn);
             imgDB = new ImagesDB(conn);
+            eccDB = new ExpensesClearCashDB(conn);
         }
         public String updateOnhand(String expnpdid, String userId, String amt, String name1, String name2)
         {

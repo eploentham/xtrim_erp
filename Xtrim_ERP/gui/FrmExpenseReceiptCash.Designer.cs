@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
-            this.sB = new System.Windows.Forms.StatusStrip();
-            this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnDNew = new C1.Win.C1Input.C1Button();
             this.txtddAmt1 = new C1.Win.C1Input.C1TextBox();
             this.label106 = new System.Windows.Forms.Label();
             this.txtAmt = new C1.Win.C1Input.C1TextBox();
@@ -45,10 +44,11 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnDNew = new C1.Win.C1Input.C1Button();
+            this.sB = new System.Windows.Forms.StatusStrip();
+            this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
-            this.sB.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtddAmt1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
@@ -60,28 +60,12 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDNew)).BeginInit();
+            this.sB.SuspendLayout();
             this.SuspendLayout();
             // 
             // theme1
             // 
             this.theme1.Theme = "Office2013Red";
-            // 
-            // sB
-            // 
-            this.sB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sB1});
-            this.sB.Location = new System.Drawing.Point(0, 697);
-            this.sB.Name = "sB";
-            this.sB.Size = new System.Drawing.Size(1067, 22);
-            this.sB.TabIndex = 10;
-            this.sB.Text = "statusStrip1";
-            // 
-            // sB1
-            // 
-            this.sB1.Name = "sB1";
-            this.sB1.Size = new System.Drawing.Size(118, 17);
-            this.sB1.Text = "toolStripStatusLabel1";
             // 
             // panel2
             // 
@@ -103,6 +87,20 @@
             this.panel2.Size = new System.Drawing.Size(1067, 60);
             this.panel2.TabIndex = 11;
             this.theme1.SetTheme(this.panel2, "(default)");
+            // 
+            // btnDNew
+            // 
+            this.btnDNew.Image = global::Xtrim_ERP.Properties.Resources.ClearFormatting_small;
+            this.btnDNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDNew.Location = new System.Drawing.Point(918, 29);
+            this.btnDNew.Name = "btnDNew";
+            this.btnDNew.Size = new System.Drawing.Size(50, 25);
+            this.btnDNew.TabIndex = 515;
+            this.btnDNew.Text = "เพิ่ม";
+            this.btnDNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnDNew, "(default)");
+            this.btnDNew.UseVisualStyleBackColor = true;
+            this.btnDNew.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtddAmt1
             // 
@@ -303,19 +301,21 @@
             this.panel4.TabIndex = 0;
             this.theme1.SetTheme(this.panel4, "(default)");
             // 
-            // btnDNew
+            // sB
             // 
-            this.btnDNew.Image = global::Xtrim_ERP.Properties.Resources.ClearFormatting_small;
-            this.btnDNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDNew.Location = new System.Drawing.Point(918, 29);
-            this.btnDNew.Name = "btnDNew";
-            this.btnDNew.Size = new System.Drawing.Size(50, 25);
-            this.btnDNew.TabIndex = 515;
-            this.btnDNew.Text = "เพิ่ม";
-            this.btnDNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnDNew, "(default)");
-            this.btnDNew.UseVisualStyleBackColor = true;
-            this.btnDNew.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.sB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sB1});
+            this.sB.Location = new System.Drawing.Point(0, 697);
+            this.sB.Name = "sB";
+            this.sB.Size = new System.Drawing.Size(1067, 22);
+            this.sB.TabIndex = 10;
+            this.sB.Text = "statusStrip1";
+            // 
+            // sB1
+            // 
+            this.sB1.Name = "sB1";
+            this.sB1.Size = new System.Drawing.Size(118, 17);
+            this.sB1.Text = "toolStripStatusLabel1";
             // 
             // FrmExpenseReceiptCash
             // 
@@ -329,10 +329,9 @@
             this.Text = "FrmExpenseReceiptCash";
             this.Load += new System.EventHandler(this.FrmExpenseReceiptCash_Load);
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
-            this.sB.ResumeLayout(false);
-            this.sB.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtddAmt1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
@@ -344,7 +343,8 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnDNew)).EndInit();
+            this.sB.ResumeLayout(false);
+            this.sB.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

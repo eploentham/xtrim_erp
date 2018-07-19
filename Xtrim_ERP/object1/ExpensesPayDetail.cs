@@ -26,6 +26,9 @@ namespace Xtrim_ERP.object1
         public String comp_bank_id { get; set; }
         public String pay_bank_date { get; set; }
         public String expenses_draw_detail_id { get; set; }
-        //public String cust_id { get; set; }
+        public String desc_dd { get; set; }
+        public String desc_d { get; set; }
+        public String staff_id { get; set; }
+        public String expense_clear_cash_id { get; set; }
     }
 }

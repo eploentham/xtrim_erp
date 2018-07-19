@@ -621,6 +621,7 @@
     <Compile Include="objdb\CustomerTaxInvoiceDB.cs" />
     <Compile Include="objdb\DebtorDB.cs" />
     <Compile Include="objdb\DocTypeDB.cs" />
+    <Compile Include="objdb\ExpensesClearCashDB.cs" />
     <Compile Include="objdb\ExpensesPayDB.cs" />
     <Compile Include="objdb\ExpensesPayDetailDB.cs" />
     <Compile Include="objdb\FMethodPaymentDB.cs" />
@@ -653,6 +654,7 @@
     <Compile Include="objdb\TaxDB.cs" />
     <Compile Include="objdb\TaxDetailDB.cs" />
     <Compile Include="object1\BillingCover.cs" />
+    <Compile Include="object1\ExpensesClearCash.cs" />
     <Compile Include="object1\FTaxType.cs" />
     <Compile Include="object1\FtpClient.cs" />
     <Compile Include="object1\Images.cs" />
