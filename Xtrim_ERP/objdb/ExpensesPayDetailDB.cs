@@ -50,7 +50,10 @@ namespace Xtrim_ERP.objdb
             expnP.comp_bank_id= "comp_bank_id";
             expnP.pay_bank_date= "pay_bank_date";
             expnP.expenses_draw_detail_id = "expenses_draw_detail_id";
-            //expnP.cust_id = "cust_id";
+            expnP.desc_dd = "desc_dd";
+            expnP.desc_d = "desc_d";
+            expnP.staff_id = "staff_id";
+            expnP.expense_clear_cash_id = "expense_clear_cash_id";
 
             expnP.table = "t_expenses_pay_detail";
             expnP.pkField = "expenses_pay_detail_id";
@@ -86,8 +89,8 @@ namespace Xtrim_ERP.objdb
             p.status_pay_type = p.status_pay_type == null ? "0" : p.status_pay_type;
             p.remark = p.remark == null ? "" : p.remark;
             p.item_name_t = p.item_name_t == null ? "" : p.item_name_t;
-            //p.job_id = p.job_id == null ? "" : p.job_id;
-            //p.pay_amount = p.pay_amount == null ? "" : p.pay_amount;
+            p.desc_dd = p.desc_dd == null ? "" : p.desc_dd;
+            p.desc_d = p.desc_d == null ? "" : p.desc_d;
             //p.pay_to_cus_id = p.pay_to_cus_id == null ? "" : p.pay_to_cus_id;
             p.pay_to_cus_name_t = p.pay_to_cus_name_t == null ? "" : p.pay_to_cus_name_t;
             p.pay_to_cus_addr = p.pay_to_cus_addr == null ? "" : p.pay_to_cus_addr;
@@ -97,13 +100,14 @@ namespace Xtrim_ERP.objdb
             //p.remark1 = p.remark1 == null ? "" : p.remark1;
             //p.remark1 = p.remark1 == null ? "" : p.remark1;
 
-            //p.cust_id = int.TryParse(p.cust_id, out chk) ? chk.ToString() : "0";
+            p.staff_id = int.TryParse(p.staff_id, out chk) ? chk.ToString() : "0";
             p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
             p.pay_to_cus_id = int.TryParse(p.pay_to_cus_id, out chk) ? chk.ToString() : "0";
             p.pay_cheque_bank_id = int.TryParse(p.pay_cheque_bank_id, out chk) ? chk.ToString() : "0";
             p.pay_staff_id = int.TryParse(p.pay_staff_id, out chk) ? chk.ToString() : "0";
             p.comp_bank_id = int.TryParse(p.comp_bank_id, out chk) ? chk.ToString() : "0";
             p.expenses_draw_detail_id = int.TryParse(p.expenses_draw_detail_id, out chk) ? chk.ToString() : "0";
+            p.expense_clear_cash_id = int.TryParse(p.expense_clear_cash_id, out chk) ? chk.ToString() : "0";
 
             p.pay_amount = Decimal.TryParse(p.pay_amount, out chk1) ? chk1.ToString() : "0";
             //p.amount_reserve = Decimal.TryParse(p.amount_reserve, out chk1) ? chk1.ToString() : "0";
@@ -124,7 +128,8 @@ namespace Xtrim_ERP.objdb
                 expnP.pay_to_cus_id + ", " + expnP.pay_to_cus_name_t + ", " + expnP.pay_to_cus_addr + ", " +
                 expnP.pay_to_cus_tax + ", " + expnP.pay_cheque_no + ", " + expnP.pay_cheque_bank_id + ", " +
                 expnP.pay_staff_id + ", " + expnP.pay_date + ", " + expnP.comp_bank_id + ", " +
-                expnP.pay_bank_date + "," + expnP.expenses_draw_detail_id + " " +
+                expnP.pay_bank_date + "," + expnP.expenses_draw_detail_id + "," + expnP.desc_dd + "," +
+                expnP.desc_d + "," + expnP.staff_id + "," + expnP.expense_clear_cash_id + " " +
                 ") " +
                 "Values ('" + p.expenses_pay_id + "','" + p.item_id + "','" + p.status_pay_type + "'," +
                 "'" + p.active + "','" + p.remark + "'," +
@@ -134,7 +139,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.pay_to_cus_id + "','" + p.pay_to_cus_name_t + "','" + p.pay_to_cus_addr + "'," +
                 "'" + p.pay_to_cus_tax + "','" + p.pay_cheque_no + "','" + p.pay_cheque_bank_id + "'," +
                 "'" + p.pay_staff_id + "','" + p.pay_date + "','" + p.comp_bank_id + "'," +
-                "'" + p.pay_bank_date + "','" + p.expenses_draw_detail_id + "' " +
+                "'" + p.pay_bank_date + "','" + p.expenses_draw_detail_id + "','" + p.desc_dd + "'," +
+                "'" + p.desc_d + "','" + p.staff_id + "','" + p.expense_clear_cash_id + "' " +
                 ")";            
             try
             {
@@ -171,7 +177,12 @@ namespace Xtrim_ERP.objdb
                 "," + expnP.pay_date + "='" + p.pay_date.Replace("'", "''") + "' " +
                 "," + expnP.comp_bank_id + "='" + p.comp_bank_id.Replace("'", "''") + "' " +
                 "," + expnP.pay_bank_date + "='" + p.pay_bank_date.Replace("'", "''") + "' " +
-                
+                "," + expnP.expenses_draw_detail_id + "='" + p.expenses_draw_detail_id.Replace("'", "''") + "' " +
+                "," + expnP.desc_dd + "='" + p.desc_dd.Replace("'", "''") + "' " +
+                "," + expnP.desc_d + "='" + p.desc_d.Replace("'", "''") + "' " +
+                "," + expnP.staff_id + "='" + p.staff_id.Replace("'", "''") + "' " +
+                "," + expnP.expense_clear_cash_id + "='" + p.expense_clear_cash_id.Replace("'", "''") + "' " +
+
                 "Where " + expnP.expenses_pay_detail_id + "='" + p.expenses_pay_detail_id + "'"
                 ;
             try
@@ -234,6 +245,26 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+        public DataTable selectByJobIdStfId(String jobid, String stfid)
+        {
+            String wherejob="", wherestf = "";
+            DataTable dt = new DataTable();
+            if (!jobid.Equals(""))
+            {
+                wherejob = " and expnP." + expnP.job_id + "='" + jobid + "'  ";
+            }
+            if (!stfid.Equals(""))
+            {
+                wherestf = " and expnP." + expnP.staff_id + "='" + stfid + "'  ";
+            }
+            String sql = "select expnP.* " +
+                "From " + expnP.table + " expnP " +
+                " " +
+                "Where expnP." + expnP.active + " ='1' "+ wherejob+ wherestf;
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
         public DataTable selectPrintCheque(String expndid)
         {
             DataTable dt = new DataTable();
@@ -249,6 +280,7 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+
         public C1ComboBox setC1CboItem(C1ComboBox c)
         {
             lexpn.Clear();

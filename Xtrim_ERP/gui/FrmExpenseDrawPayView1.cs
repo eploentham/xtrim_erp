@@ -1602,10 +1602,12 @@ namespace Xtrim_ERP.gui
                     {
                         ExpensesPayDetail expnPd = new ExpensesPayDetail();
                         ExpensesDrawDatail expndd = new ExpensesDrawDatail();
+                        ExpensesDraw expnd = new ExpensesDraw();
                         ReserveCash rsc = new ReserveCash();
                         String expnddid = "";
                         expnddid = grfCashMake[i, colCID].ToString();
                         expndd = xC.xtDB.expnddDB.selectByPk1(expnddid);
+                        expnd = xC.xtDB.expndDB.selectByPk1(expndd.expense_draw_id);
 
                         expnPd.expenses_pay_detail_id = grfCashMake[i, colCpayID] != null ? grfCashMake[i, colCpayID].ToString() : "";//colCChequeNo
                         expnPd.expenses_pay_id = txtExpnpID.Text;
@@ -1634,6 +1636,9 @@ namespace Xtrim_ERP.gui
                         expnPd.comp_bank_id = grfCashMake[i, colCBank] != null ? xC.xtDB.copbDB.getIdByName(grfCashMake[i, colCBank].ToString()) : "";
                         expnPd.pay_bank_date = grfCashMake[i, colChequeDate] != null ? xC.datetoDB(grfCashMake[i, colChequeDate].ToString()) : "";
                         expnPd.expenses_draw_detail_id = expndd.expenses_draw_detail_id;
+                        expnPd.desc_dd = expndd.desc1;
+                        expnPd.desc_d = expnd.desc1;
+                        expnPd.staff_id = expnd.staff_id;
 
                         expndd.status_pay_type = "2";
                         expndd.pay_amount = expnPd.pay_amount;
