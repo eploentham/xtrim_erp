@@ -17,6 +17,7 @@ namespace Xtrim_ERP.gui
     {
         XtrimControl xC;
         ExpensesDrawDatail expndd;
+        ExpensesClearCash ecc;
 
         Font fEdit, fEditB;
         Color bg, fc, cgrfOld;
@@ -40,6 +41,7 @@ namespace Xtrim_ERP.gui
             theme1.Theme = C1ThemeController.ApplicationTheme;
             theme1.SetTheme(sB, "BeigeOne");
             theme1.SetTheme(panel1, "VS2013Light");
+            ecc = new ExpensesClearCash();
 
             setControl(tableId);
 
@@ -57,7 +59,9 @@ namespace Xtrim_ERP.gui
             txtId.Value = id;
             Items itm = new Items();
             expndd = new ExpensesDrawDatail();
-            expndd = xC.xtDB.expnddDB.selectByPk1(id);
+            ecc = new ExpensesClearCash();
+            ecc = xC.xtDB.eccDB.selectByPk1(id);
+            expndd = xC.xtDB.expnddDB.selectByPk1(ecc.expenses_draw_detail_id);
             itm = xC.xtDB.itmDB.selectByPk1(expndd.item_id);
             txtTableId.Value = expndd.expenses_draw_detail_id;
             txtItmNameT1.Value = expndd.item_name_t;
@@ -250,8 +254,7 @@ namespace Xtrim_ERP.gui
 
         private void FrmJobImpCheckListExp_Load(object sender, EventArgs e)
         {
-
-
+            
         }
     }
 }

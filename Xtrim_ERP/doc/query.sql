@@ -604,6 +604,12 @@ ADD COLUMN `receipt_amount` DECIMAL(17,2) NULL AFTER `status_doc`;
 ALTER TABLE `xtrim_erp`.`t_images` 
 ADD COLUMN `job_id` int(11) NULL AFTER `user_cancel`;
 
+61-07-19
+ALTER TABLE `xtrim_erp`.`t_expenses_clear_cash` 
+ADD COLUMN `row1` INT NULL AFTER `user_cancel`;
+ALTER TABLE `xtrim_erp`.`t_expenses_clear_cash` 
+ADD COLUMN `item_code` VARCHAR(255) NULL AFTER `row1`;
+
 
 
 

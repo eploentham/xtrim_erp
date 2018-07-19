@@ -36,6 +36,7 @@ namespace Xtrim_ERP.gui
             initGrfExpnD();
             initGrfEcc();
 
+            btnDNew.Click += BtnDNew_Click;
             cboStaff.SelectedItemChanged += CboStaff_SelectedItemChanged;
             txtJobCode.KeyUp += TxtJobCode_KeyUp;
 
@@ -142,6 +143,14 @@ namespace Xtrim_ERP.gui
                 txtID.Value = jim.job_import_id;
                 setGrfExpnD(txtID.Text, cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "");
             }
+        }
+        private void BtnDNew_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmExpenseClearCash frm = new FrmExpenseClearCash(xC, "");
+            frm.WindowState = FormWindowState.Normal;
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog(this);
         }
         private void FrmExpenseReceiptCash_Load(object sender, EventArgs e)
         {

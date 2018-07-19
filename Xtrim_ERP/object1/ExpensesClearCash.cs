@@ -42,5 +42,7 @@ namespace Xtrim_ERP.object1
         public String pay_to_cus_addr { get; set; }
         public String pay_to_cus_tax { get; set; }
         public String pay_staff_id { get; set; }
+        public String row1 { get; set; }
+        public String item_code { get; set; }
     }
 }

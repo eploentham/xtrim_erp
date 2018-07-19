@@ -34,18 +34,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtTableId = new C1.Win.C1Input.C1TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.c1Button12 = new C1.Win.C1Input.C1Button();
-            this.c1Button11 = new C1.Win.C1Input.C1Button();
-            this.c1Button6 = new C1.Win.C1Input.C1Button();
-            this.c1Button7 = new C1.Win.C1Input.C1Button();
-            this.c1Button8 = new C1.Win.C1Input.C1Button();
-            this.c1Button9 = new C1.Win.C1Input.C1Button();
-            this.c1Button10 = new C1.Win.C1Input.C1Button();
-            this.c1Button5 = new C1.Win.C1Input.C1Button();
-            this.c1Button4 = new C1.Win.C1Input.C1Button();
-            this.c1Button3 = new C1.Win.C1Input.C1Button();
-            this.c1Button2 = new C1.Win.C1Input.C1Button();
-            this.c1Button1 = new C1.Win.C1Input.C1Button();
             this.btnImages = new C1.Win.C1Input.C1Button();
             this.txtId = new C1.Win.C1Input.C1TextBox();
             this.c1TextBox10 = new C1.Win.C1Input.C1TextBox();
@@ -82,19 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTableId)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox10)).BeginInit();
@@ -199,192 +174,12 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel2.Controls.Add(this.c1Button12);
-            this.panel2.Controls.Add(this.c1Button11);
-            this.panel2.Controls.Add(this.c1Button6);
-            this.panel2.Controls.Add(this.c1Button7);
-            this.panel2.Controls.Add(this.c1Button8);
-            this.panel2.Controls.Add(this.c1Button9);
-            this.panel2.Controls.Add(this.c1Button10);
-            this.panel2.Controls.Add(this.c1Button5);
-            this.panel2.Controls.Add(this.c1Button4);
-            this.panel2.Controls.Add(this.c1Button3);
-            this.panel2.Controls.Add(this.c1Button2);
-            this.panel2.Controls.Add(this.c1Button1);
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel2.Location = new System.Drawing.Point(130, 375);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(303, 102);
             this.panel2.TabIndex = 500;
             this.theme1.SetTheme(this.panel2, "(default)");
-            // 
-            // c1Button12
-            // 
-            this.c1Button12.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
-            this.c1Button12.Location = new System.Drawing.Point(243, 54);
-            this.c1Button12.Name = "c1Button12";
-            this.c1Button12.Size = new System.Drawing.Size(42, 45);
-            this.c1Button12.TabIndex = 511;
-            this.c1Button12.Text = "...";
-            this.c1Button12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button12, "(default)");
-            this.c1Button12.UseVisualStyleBackColor = true;
-            this.c1Button12.Visible = false;
-            this.c1Button12.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button11
-            // 
-            this.c1Button11.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
-            this.c1Button11.Location = new System.Drawing.Point(243, 3);
-            this.c1Button11.Name = "c1Button11";
-            this.c1Button11.Size = new System.Drawing.Size(42, 45);
-            this.c1Button11.TabIndex = 510;
-            this.c1Button11.Text = "...";
-            this.c1Button11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button11, "(default)");
-            this.c1Button11.UseVisualStyleBackColor = true;
-            this.c1Button11.Visible = false;
-            this.c1Button11.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button6
-            // 
-            this.c1Button6.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
-            this.c1Button6.Location = new System.Drawing.Point(195, 54);
-            this.c1Button6.Name = "c1Button6";
-            this.c1Button6.Size = new System.Drawing.Size(42, 45);
-            this.c1Button6.TabIndex = 509;
-            this.c1Button6.Text = "...";
-            this.c1Button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button6, "(default)");
-            this.c1Button6.UseVisualStyleBackColor = true;
-            this.c1Button6.Visible = false;
-            this.c1Button6.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button7
-            // 
-            this.c1Button7.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
-            this.c1Button7.Location = new System.Drawing.Point(147, 54);
-            this.c1Button7.Name = "c1Button7";
-            this.c1Button7.Size = new System.Drawing.Size(42, 45);
-            this.c1Button7.TabIndex = 508;
-            this.c1Button7.Text = "...";
-            this.c1Button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button7, "(default)");
-            this.c1Button7.UseVisualStyleBackColor = true;
-            this.c1Button7.Visible = false;
-            this.c1Button7.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button8
-            // 
-            this.c1Button8.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
-            this.c1Button8.Location = new System.Drawing.Point(99, 54);
-            this.c1Button8.Name = "c1Button8";
-            this.c1Button8.Size = new System.Drawing.Size(42, 45);
-            this.c1Button8.TabIndex = 507;
-            this.c1Button8.Text = "...";
-            this.c1Button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button8, "(default)");
-            this.c1Button8.UseVisualStyleBackColor = true;
-            this.c1Button8.Visible = false;
-            this.c1Button8.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button9
-            // 
-            this.c1Button9.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
-            this.c1Button9.Location = new System.Drawing.Point(51, 54);
-            this.c1Button9.Name = "c1Button9";
-            this.c1Button9.Size = new System.Drawing.Size(42, 45);
-            this.c1Button9.TabIndex = 506;
-            this.c1Button9.Text = "...";
-            this.c1Button9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button9, "(default)");
-            this.c1Button9.UseVisualStyleBackColor = true;
-            this.c1Button9.Visible = false;
-            this.c1Button9.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button10
-            // 
-            this.c1Button10.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
-            this.c1Button10.Location = new System.Drawing.Point(3, 54);
-            this.c1Button10.Name = "c1Button10";
-            this.c1Button10.Size = new System.Drawing.Size(42, 45);
-            this.c1Button10.TabIndex = 505;
-            this.c1Button10.Text = "...";
-            this.c1Button10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button10, "(default)");
-            this.c1Button10.UseVisualStyleBackColor = true;
-            this.c1Button10.Visible = false;
-            this.c1Button10.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button5
-            // 
-            this.c1Button5.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
-            this.c1Button5.Location = new System.Drawing.Point(195, 3);
-            this.c1Button5.Name = "c1Button5";
-            this.c1Button5.Size = new System.Drawing.Size(42, 45);
-            this.c1Button5.TabIndex = 504;
-            this.c1Button5.Text = "...";
-            this.c1Button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button5, "(default)");
-            this.c1Button5.UseVisualStyleBackColor = true;
-            this.c1Button5.Visible = false;
-            this.c1Button5.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button4
-            // 
-            this.c1Button4.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
-            this.c1Button4.Location = new System.Drawing.Point(147, 3);
-            this.c1Button4.Name = "c1Button4";
-            this.c1Button4.Size = new System.Drawing.Size(42, 45);
-            this.c1Button4.TabIndex = 503;
-            this.c1Button4.Text = "...";
-            this.c1Button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button4, "(default)");
-            this.c1Button4.UseVisualStyleBackColor = true;
-            this.c1Button4.Visible = false;
-            this.c1Button4.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button3
-            // 
-            this.c1Button3.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
-            this.c1Button3.Location = new System.Drawing.Point(99, 3);
-            this.c1Button3.Name = "c1Button3";
-            this.c1Button3.Size = new System.Drawing.Size(42, 45);
-            this.c1Button3.TabIndex = 502;
-            this.c1Button3.Text = "...";
-            this.c1Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button3, "(default)");
-            this.c1Button3.UseVisualStyleBackColor = true;
-            this.c1Button3.Visible = false;
-            this.c1Button3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button2
-            // 
-            this.c1Button2.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
-            this.c1Button2.Location = new System.Drawing.Point(51, 3);
-            this.c1Button2.Name = "c1Button2";
-            this.c1Button2.Size = new System.Drawing.Size(42, 45);
-            this.c1Button2.TabIndex = 501;
-            this.c1Button2.Text = "...";
-            this.c1Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button2, "(default)");
-            this.c1Button2.UseVisualStyleBackColor = true;
-            this.c1Button2.Visible = false;
-            this.c1Button2.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // c1Button1
-            // 
-            this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.PrintPreview_large;
-            this.c1Button1.Location = new System.Drawing.Point(3, 3);
-            this.c1Button1.Name = "c1Button1";
-            this.c1Button1.Size = new System.Drawing.Size(42, 45);
-            this.c1Button1.TabIndex = 500;
-            this.c1Button1.Text = "...";
-            this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.c1Button1, "(default)");
-            this.c1Button1.UseVisualStyleBackColor = true;
-            this.c1Button1.Visible = false;
-            this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // btnImages
             // 
@@ -882,19 +677,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTableId)).EndInit();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnImages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox10)).EndInit();
@@ -957,18 +739,6 @@
         private C1.Win.C1Input.C1TextBox txtId;
         private C1.Win.C1Input.C1Button btnImages;
         private System.Windows.Forms.Panel panel2;
-        private C1.Win.C1Input.C1Button c1Button12;
-        private C1.Win.C1Input.C1Button c1Button11;
-        private C1.Win.C1Input.C1Button c1Button6;
-        private C1.Win.C1Input.C1Button c1Button7;
-        private C1.Win.C1Input.C1Button c1Button8;
-        private C1.Win.C1Input.C1Button c1Button9;
-        private C1.Win.C1Input.C1Button c1Button10;
-        private C1.Win.C1Input.C1Button c1Button5;
-        private C1.Win.C1Input.C1Button c1Button4;
-        private C1.Win.C1Input.C1Button c1Button3;
-        private C1.Win.C1Input.C1Button c1Button2;
-        private C1.Win.C1Input.C1Button c1Button1;
         private C1.Win.C1Input.C1TextBox txtTableId;
     }
 }

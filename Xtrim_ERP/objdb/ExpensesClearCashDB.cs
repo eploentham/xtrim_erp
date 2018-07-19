@@ -62,6 +62,8 @@ namespace Xtrim_ERP.objdb
             ecc.pay_to_cus_addr = "pay_to_cus_addr";
             ecc.pay_to_cus_tax = "pay_to_cus_tax";
             ecc.pay_staff_id = "pay_staff_id";
+            ecc.row1 = "row1";
+            ecc.item_code = "item_code";
 
             ecc.table = "t_expenses_clear_cash";
             ecc.pkField = "expense_clear_cash_id";
@@ -155,7 +157,7 @@ namespace Xtrim_ERP.objdb
             p.pay_to_cus_name_t = p.pay_to_cus_name_t == null ? "" : p.pay_to_cus_name_t;
             p.pay_to_cus_addr = p.pay_to_cus_addr == null ? "" : p.pay_to_cus_addr;
             p.pay_to_cus_tax = p.pay_to_cus_tax == null ? "" : p.pay_to_cus_tax;
-
+            p.item_code = p.item_code == null ? "" : p.item_code;
 
             p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
             p.staff_id = int.TryParse(p.staff_id, out chk) ? chk.ToString() : "0";
@@ -166,6 +168,7 @@ namespace Xtrim_ERP.objdb
             p.expenses_draw_detail_id = int.TryParse(p.expenses_draw_detail_id, out chk) ? chk.ToString() : "0";
             p.expenses_draw_id = int.TryParse(p.expenses_draw_id, out chk) ? chk.ToString() : "0";
             p.pay_staff_id = int.TryParse(p.pay_staff_id, out chk) ? chk.ToString() : "0";
+            p.row1 = int.TryParse(p.row1, out chk) ? chk.ToString() : "0";
 
             p.total = Decimal.TryParse(p.total, out chk1) ? chk1.ToString() : "0";
             p.qty = Decimal.TryParse(p.qty, out chk1) ? chk1.ToString() : "0";
@@ -189,14 +192,15 @@ namespace Xtrim_ERP.objdb
             sql = "Insert Into " + ecc.table + "(" + ecc.expenses_pay_detail_id + "," + ecc.expenses_draw_id + "," + ecc.job_id + "," +
                 ecc.date_create + "," + ecc.date_modi + "," + ecc.date_cancel + "," +
                 ecc.user_create + "," + ecc.user_modi + "," + ecc.user_cancel + "," +
-                ecc.active + "," + ecc.remark + ", " + ecc.job_code + ", " +
+                ecc.active + "," + ecc.remark + ", " + ecc.job_code + "," +
                 ecc.expenses_draw_detail_id + "," + ecc.staff_id + "," + ecc.ecc_doc + "," +
-                ecc.item_id + "," + ecc.expense_clear_cash_date + "," + ecc.item_name_t + ", " +
+                ecc.item_id + "," + ecc.expense_clear_cash_date + "," + ecc.item_name_t + "," +
                 ecc.pay_amount + "," + ecc.unit_id + "," + ecc.unit_name_t + "," +
                 ecc.vat + "," + ecc.total + "," + ecc.receipt_date + "," +
-                ecc.receipt_no + "," + ecc.receipt_date + "," + ecc.pay_date + ", " +
-                ecc.price + "," + ecc.pay_to_cus_name_t + "," + ecc.pay_to_cus_addr + ", " +
-                ecc.pay_to_cus_tax + "," + ecc.pay_to_cus_id + "," + ecc.pay_staff_id + " " +
+                ecc.receipt_no + "," + ecc.receipt_date + "," + ecc.pay_date + "," +
+                ecc.price + "," + ecc.pay_to_cus_name_t + "," + ecc.pay_to_cus_addr + "," +
+                ecc.pay_to_cus_tax + "," + ecc.pay_to_cus_id + "," + ecc.pay_staff_id + "," +
+                ecc.row1 + "," + ecc.item_code + " " +
                 ") " +
                 "Values ('" + p.expenses_pay_detail_id + "','" + p.expenses_draw_id.Replace("'", "''") + "','" + p.job_id.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
@@ -208,7 +212,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.vat + "','" + p.total + "','" + p.receipt_date + "'," +
                 "'" + p.receipt_no + "','" + p.receipt_date + "','" + p.pay_date + "', " +
                 "'" + p.price + "','" + p.pay_to_cus_name_t.Replace("'", "''") + "','" + p.pay_to_cus_addr.Replace("'", "''") + "', " +
-                "'" + p.pay_to_cus_tax + "','" + p.pay_to_cus_id + "','" + p.pay_staff_id + "' " +
+                "'" + p.pay_to_cus_tax + "','" + p.pay_to_cus_id + "','" + p.pay_staff_id + "'," +
+                "'" + p.row1 + "','" + p.item_code + "' " +
                 ")";
             try
             {
@@ -258,6 +263,8 @@ namespace Xtrim_ERP.objdb
                 "," + ecc.pay_to_cus_id + " = '" + p.pay_to_cus_id + "' " +
                 "," + ecc.pay_staff_id + " = '" + p.pay_staff_id + "' " +
                 "," + ecc.pay_to_cus_tax + " = '" + p.pay_to_cus_tax + "' " +
+                "," + ecc.item_code + " = '" + p.item_code + "' " +
+                "," + ecc.row1 + " = '" + p.row1 + "' " +
                 "Where " + ecc.pkField + "='" + p.expense_clear_cash_id + "'"
                 ;
 
@@ -544,6 +551,8 @@ namespace Xtrim_ERP.objdb
                 ecc1.pay_to_cus_addr = dt.Rows[0][ecc.pay_to_cus_addr].ToString();
                 ecc1.pay_to_cus_tax = dt.Rows[0][ecc.pay_to_cus_tax].ToString();
                 ecc1.pay_staff_id = dt.Rows[0][ecc.pay_staff_id].ToString();
+                ecc1.row1 = dt.Rows[0][ecc.row1].ToString();
+                ecc1.item_code = dt.Rows[0][ecc.item_code].ToString();
             }
             else
             {
@@ -582,6 +591,8 @@ namespace Xtrim_ERP.objdb
                 ecc1.pay_to_cus_addr = "";
                 ecc1.pay_to_cus_tax = "";
                 ecc1.pay_staff_id = "";
+                ecc1.row1 = "";
+                ecc1.item_code = "";
             }
 
             return ecc1;
