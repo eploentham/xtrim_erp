@@ -245,6 +245,18 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+        public ExpensesPayDetail selectByPk1(String copId)
+        {
+            ExpensesPayDetail cop1 = new ExpensesPayDetail();
+            DataTable dt = new DataTable();
+            String sql = "select expC.* " +
+                "From " + expnP.table + " expC " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where expC." + expnP.pkField + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            cop1 = setExpensePayDetail(dt);
+            return cop1;
+        }
         public DataTable selectByJobIdStfId(String jobid, String stfid)
         {
             String wherejob="", wherestf = "";
@@ -309,6 +321,80 @@ namespace Xtrim_ERP.objdb
                 lexpn.Add(expn1);
             }
             return c;
+        }
+        public ExpensesPayDetail setExpensePayDetail(DataTable dt)
+        {
+            ExpensesPayDetail pd1 = new ExpensesPayDetail();
+            if (dt.Rows.Count > 0)
+            {
+                pd1.expenses_pay_detail_id = dt.Rows[0][expnP.expenses_pay_detail_id].ToString();
+                pd1.expenses_pay_id = dt.Rows[0][expnP.expenses_pay_id].ToString();
+                pd1.item_id = dt.Rows[0][expnP.item_id].ToString();
+                pd1.status_pay_type = dt.Rows[0][expnP.status_pay_type].ToString();
+                pd1.active = dt.Rows[0][expnP.active].ToString();
+                pd1.remark = dt.Rows[0][expnP.remark].ToString();
+                pd1.user_cancel = dt.Rows[0][expnP.user_cancel].ToString();
+                pd1.user_create = dt.Rows[0][expnP.user_create].ToString();
+                pd1.user_modi = dt.Rows[0][expnP.user_modi].ToString();
+                pd1.date_cancel = dt.Rows[0][expnP.date_cancel].ToString();
+                pd1.date_create = dt.Rows[0][expnP.date_create].ToString();
+                pd1.date_modi = dt.Rows[0][expnP.date_modi].ToString();
+
+                pd1.item_name_t = dt.Rows[0][expnP.item_name_t].ToString();
+                pd1.job_id = dt.Rows[0][expnP.job_id].ToString();
+                pd1.pay_amount = dt.Rows[0][expnP.pay_amount].ToString();
+                pd1.pay_to_cus_id = dt.Rows[0][expnP.pay_to_cus_id].ToString();
+                pd1.pay_to_cus_name_t = dt.Rows[0][expnP.pay_to_cus_name_t].ToString();
+                pd1.pay_to_cus_addr = dt.Rows[0][expnP.pay_to_cus_addr].ToString();
+                pd1.pay_to_cus_tax = dt.Rows[0][expnP.pay_to_cus_tax].ToString();
+                pd1.pay_cheque_no = dt.Rows[0][expnP.pay_cheque_no].ToString();
+                pd1.pay_cheque_bank_id = dt.Rows[0][expnP.pay_cheque_bank_id].ToString();
+                pd1.pay_staff_id = dt.Rows[0][expnP.pay_staff_id].ToString();
+                pd1.pay_date = dt.Rows[0][expnP.pay_date].ToString();
+                pd1.comp_bank_id = dt.Rows[0][expnP.comp_bank_id].ToString();
+                pd1.pay_bank_date = dt.Rows[0][expnP.pay_bank_date].ToString();
+                pd1.expenses_draw_detail_id = dt.Rows[0][expnP.expenses_draw_detail_id].ToString();
+                pd1.desc_dd = dt.Rows[0][expnP.desc_dd].ToString();
+                pd1.desc_d = dt.Rows[0][expnP.desc_d].ToString();
+                pd1.staff_id = dt.Rows[0][expnP.staff_id].ToString();
+                pd1.expense_clear_cash_id = dt.Rows[0][expnP.expense_clear_cash_id].ToString();
+            }
+            else
+            {
+                pd1.expenses_pay_detail_id = "";
+                pd1.expenses_pay_id = "";
+                pd1.item_id = "";
+                pd1.status_pay_type = "";
+                pd1.active = "1";
+                pd1.remark = "";
+                pd1.user_cancel = "";
+                pd1.user_create = "";
+                pd1.user_modi = "";
+                pd1.date_cancel = "";
+                pd1.date_create = "";
+                pd1.date_modi = "";
+
+                pd1.item_name_t = "";
+                pd1.job_id = "";
+                pd1.pay_amount = "";
+                pd1.pay_to_cus_id = "";
+                pd1.pay_to_cus_name_t = "";
+                pd1.pay_to_cus_addr = "";
+                pd1.pay_to_cus_tax = "";
+                pd1.pay_cheque_no = "";
+                pd1.pay_cheque_bank_id = "";
+                pd1.pay_staff_id = "";
+                pd1.pay_date = "";
+                pd1.comp_bank_id = "";
+                pd1.pay_bank_date = "";
+                pd1.expenses_draw_detail_id = "";
+                pd1.desc_dd = "";
+                pd1.desc_d = "";
+                pd1.staff_id = "";
+                pd1.expense_clear_cash_id = "";
+            }
+
+            return pd1;
         }
     }
 }

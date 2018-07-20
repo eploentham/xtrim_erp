@@ -18,7 +18,7 @@ namespace Xtrim_ERP.gui
     public partial class FrmExpenseClearCash : Form
     {
         XtrimControl xC;
-        ExpensesDrawDatail expndd;
+        ExpensesPayDetail expnpd;
         ExpensesClearCash ecc;
 
         Font fEdit, fEditB;
@@ -27,14 +27,17 @@ namespace Xtrim_ERP.gui
 
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
-        String eccid = "";
+        String eccid = "", itmPd="", pdid="", jobcode="";
         DataTable dtImg = new DataTable();
 
-        public FrmExpenseClearCash(XtrimControl x, String eccid)
+        public FrmExpenseClearCash(XtrimControl x, String eccid, String pdid, String itmNameTPd, String jobcode)
         {
             InitializeComponent();
             xC = x;
+            itmPd = itmNameTPd;
             this.eccid = eccid;
+            this.pdid = pdid;
+            this.jobcode = jobcode;
             initConfig();
         }
         private void initConfig()
@@ -44,6 +47,10 @@ namespace Xtrim_ERP.gui
             theme1.SetTheme(sB, "BeigeOne");
             theme1.SetTheme(panel1, "VS2013Light");
             ecc = new ExpensesClearCash();
+            expnpd = new ExpensesPayDetail();
+
+            btnSave.Click += BtnSave_Click;
+            txtItmNameT.KeyUp += TxtItmNameT_KeyUp;
 
             setControl(eccid);
 
@@ -53,22 +60,64 @@ namespace Xtrim_ERP.gui
             }           
 
         }
+
+        private void TxtItmNameT_KeyUp(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (e.KeyCode == Keys.F2)
+            {
+                setKeyUpF2Itm();
+            }
+        }
+        private void setKeyUpF2Itm()
+        {
+            Point pp = txtItmNameT.Location;
+            pp.Y = pp.Y + 120 + 20;
+            pp.X = pp.X - 20;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Items, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2Itm1(xC.sItm);
+        }
+        private void setKeyUpF2Itm1(Items itm)
+        {
+            txtItmNameT.Value = itm.item_name_t;
+            txtItmId.Value = itm.item_id;
+            txtItmCode.Value = itm.item_code;
+        }
         private void setControl(String id)
         {
-            txtId.Value = id;
             Items itm = new Items();
-            expndd = new ExpensesDrawDatail();
+            expnpd = new ExpensesPayDetail();
             ecc = new ExpensesClearCash();
+            JobImport jim = new JobImport();
             ecc = xC.xtDB.eccDB.selectByPk1(id);
-            //expndd = xC.xtDB.expnddDB.selectByPk1(ecc.expenses_draw_detail_id);
-            //itm = xC.xtDB.itmDB.selectByPk1(ecc.item_id);
-            //txtTableId.Value = expndd.expenses_draw_detail_id;
-            txtRow.Value = ecc.row1;
-            txtRcpAmt.Value = ecc.pay_amount;
-            txtRcpNum.Value = ecc.receipt_no;
-            txtRcpDate.Value = ecc.receipt_date;
+            expnpd = xC.xtDB.expnpdDB.selectByPk1(pdid);
+            if (ecc.expense_clear_cash_id.Equals(""))
+            {
+                jim = xC.xtDB.jimDB.selectByJobCode(jobcode);
+            }
+            txtItmNamePd.Value = itmPd;
+            txtId.Value = ecc.expense_clear_cash_id;
+            txtJobId.Value = ecc.job_id.Equals("") ? jim.job_import_id : ecc.job_id;
+            txtJobCode.Value = ecc.job_code.Equals("") ? jobcode : ecc.job_code;
+            txtPdId.Value = ecc.expenses_pay_detail_id.Equals("") ? pdid : ecc.expenses_pay_detail_id;
+            txtStfId.Value = ecc.staff_id.Equals("") ? xC.userId : ecc.staff_id;
+            txtddId.Value = ecc.expenses_draw_detail_id.Equals("") ? expnpd.expenses_draw_detail_id : ecc.expenses_draw_detail_id;
+            //txtdid.Value = ecc.expenses_draw_id.Equals("") ? jim.job_import_id : ecc.expenses_draw_id;
+
+            txtRow.Value = ecc.row1.Equals("") ? "1" : ecc.row1;
+            txtReceiptNo.Value = ecc.receipt_no;
+            txtReceiptDate.Value = ecc.receipt_date;
+            txtItmId.Value = ecc.item_id;
             txtItmCode.Value = ecc.item_code;
             txtItmNameT.Value = ecc.item_name_t;
+            
+            
+            txtPayAmt.Value = ecc.pay_amount;
+            
+            //txtItmCode.Value = ecc.item_code;
+            
             setImages(txtId.Text);
         }
         private void setImages(String id)
@@ -114,6 +163,66 @@ namespace Xtrim_ERP.gui
 
                 panel2.Controls.Add(btnImg);
                 i++;
+            }
+        }
+        private Boolean setEcc()
+        {
+            Boolean chk = true;
+            ecc = new ExpensesClearCash();
+            if (txtId.Text.Equals(""))
+            {
+
+            }
+            ecc = xC.xtDB.eccDB.selectByPk1(txtId.Text);
+            ecc.expense_clear_cash_id = txtId.Text;
+            ecc.expenses_pay_detail_id = txtPdId.Text;
+            ecc.job_id = txtJobId.Text;
+            ecc.job_code = txtJobCode.Text;
+            ecc.expenses_draw_detail_id = txtddId.Text;
+            ecc.staff_id = txtStfId.Text;
+
+            ecc.active = "1";
+            ecc.date_create = "";
+            ecc.date_modi = "";
+            ecc.date_cancel = "";
+            ecc.user_create = "";
+            ecc.user_modi = "";
+            ecc.user_cancel = "";
+
+            ecc.expenses_draw_id = "";
+            ecc.remark = txtRemark.Text;
+            ecc.ecc_doc = "";
+            ecc.expense_clear_cash_date = "";
+            ecc.item_id = txtItmId.Text;
+            ecc.item_name_t = txtItmNameT.Text;
+
+            ecc.pay_amount = txtPayAmt.Text.Replace("$","").Replace(",","");
+            ecc.pay_date = "";
+            ecc.qty = "";
+            ecc.price = "";
+            ecc.unit_id = "";
+            ecc.unit_name_t = "";
+            ecc.vat = "";
+            ecc.total = "";
+            ecc.receipt_date = xC.datetoDB(txtReceiptDate.Text);
+            ecc.receipt_no = txtReceiptNo.Text;
+            ecc.pay_to_cus_id = "";
+            ecc.pay_to_cus_name_t = "";
+            ecc.pay_to_cus_addr = "";
+            ecc.pay_to_cus_tax = "";
+            ecc.pay_staff_id = txtStfId.Text;
+            ecc.row1 = txtRow.Text;
+            ecc.item_code = txtItmCode.Text;
+            return chk;
+        }
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                setEcc();
+                //xC.sEcc = ecc;
+                xC.xtDB.eccDB.insertExpenseReceiptCash(ecc, xC.userId);
             }
         }
         private void BtnImg_Click(object sender, EventArgs e)

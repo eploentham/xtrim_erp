@@ -181,7 +181,7 @@ namespace Xtrim_ERP.objdb
         {
             String re = "";
             String sql = "";
-            p.active = "1";
+            p.active = "0";     // ให้ insert ไปก่อน แล้วค่อย update active = 1 อีกที
             //p.ssdata_id = "";
             int chk = 0;
 
@@ -196,7 +196,7 @@ namespace Xtrim_ERP.objdb
                 ecc.expenses_draw_detail_id + "," + ecc.staff_id + "," + ecc.ecc_doc + "," +
                 ecc.item_id + "," + ecc.expense_clear_cash_date + "," + ecc.item_name_t + "," +
                 ecc.pay_amount + "," + ecc.unit_id + "," + ecc.unit_name_t + "," +
-                ecc.vat + "," + ecc.total + "," + ecc.receipt_date + "," +
+                ecc.vat + "," + ecc.total + "," + //ecc.receipt_date + "," +
                 ecc.receipt_no + "," + ecc.receipt_date + "," + ecc.pay_date + "," +
                 ecc.price + "," + ecc.pay_to_cus_name_t + "," + ecc.pay_to_cus_addr + "," +
                 ecc.pay_to_cus_tax + "," + ecc.pay_to_cus_id + "," + ecc.pay_staff_id + "," +
@@ -209,7 +209,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.expenses_draw_detail_id + "','" + p.staff_id.Replace("'", "''") + "','" + p.ecc_doc.Replace("'", "''") + "'," +
                 "'" + p.item_id + "','" + p.expense_clear_cash_date.Replace("'", "''") + "','" + p.item_name_t.Replace("'", "''") + "'," +
                 "'" + p.pay_amount + "','" + p.unit_id + "','" + p.unit_name_t.Replace("'", "''") + "'," +
-                "'" + p.vat + "','" + p.total + "','" + p.receipt_date + "'," +
+                "'" + p.vat + "','" + p.total + "'," + //p.receipt_date + "'," +
                 "'" + p.receipt_no + "','" + p.receipt_date + "','" + p.pay_date + "', " +
                 "'" + p.price + "','" + p.pay_to_cus_name_t.Replace("'", "''") + "','" + p.pay_to_cus_addr.Replace("'", "''") + "', " +
                 "'" + p.pay_to_cus_tax + "','" + p.pay_to_cus_id + "','" + p.pay_staff_id + "'," +
@@ -362,39 +362,16 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
-        public DataTable selectToPayAll1(String pay_amount, StatusPay spay, StatusPayType spaytype)
+        public DataTable selectToPayDetailId(String pdid)
         {
             DataTable dt = new DataTable();
             String wherestatuspay = "", wherestatuspaytype = "", wherestatuspage = "";
-            if (spay == StatusPay.waitappv)
-            {
-                wherestatuspay = " and " + ecc.expense_clear_cash_date + " in ('1','0') and " + ecc.unit_id + "='1'";
-            }
-            else if (spay == StatusPay.appv)
-            {
-                wherestatuspay = " and " + ecc.expense_clear_cash_date + "='2' and " + ecc.unit_id + "='1'";
-            }
-            else if (spay == StatusPay.all)
-            {
-                wherestatuspay = "";
-            }
-            if (spaytype == StatusPayType.Cash)
-            {
-                wherestatuspaytype = " and " + ecc.unit_name_t + " ='1' ";
-            }
-            else if (spaytype == StatusPayType.Cheque)
-            {
-                wherestatuspaytype = " and " + ecc.unit_name_t + " ='2' ";
-            }
-            else if (spaytype == StatusPayType.all)
-            {
-                wherestatuspaytype = " and " + ecc.unit_name_t + " in ('1','2') ";
-            }
-            wherestatuspage = " and " + ecc.total + "='1' ";
-            String sql = "select expC." + ecc.expense_clear_cash_id + "," + ecc.expenses_draw_id + "," + ecc.ecc_doc + "," + ecc.remark + "," + ecc.item_name_t + "," + ecc.expense_clear_cash_date + "," + ecc.unit_name_t + "," + ecc.unit_id + " " +
+            
+            //wherestatuspage = " and " + ecc.total + "='1' ";
+            String sql = "select expC.* "  +
                 "From " + ecc.table + " expC " +
                 " " +
-                "Where expC." + ecc.active + " ='1' and " + ecc.pay_amount + "='" + pay_amount + "' " + wherestatuspay + wherestatuspaytype + wherestatuspage;
+                "Where expC." + ecc.active + " in ('0', '1') and " + ecc.expenses_pay_detail_id + "='" + pdid + "' " ;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
