@@ -43,7 +43,8 @@ namespace Xtrim_ERP.object1
             TruckCop,
             AddressPlaceAddr,
             AddressContainerYard,
-            ContainerYard
+            ContainerYard,
+            Items
         };
         Search flag;
         //private CellStyle _style;
@@ -251,6 +252,10 @@ namespace Xtrim_ERP.object1
             {
                 grfFlex.DataSource = xC.xtDB.cusDB.selectContainerYardAll();
             }
+            else if (flag == Search.Items)
+            {
+                grfFlex.DataSource = xC.xtDB.itmDB.selectAll1("1");
+            }
             grfFlex.Cols[colID].Width = 60;
             grfFlex.Cols[colNameT].Width = 20;
             //grdFlex.ShowCursor = true;
@@ -444,6 +449,11 @@ namespace Xtrim_ERP.object1
                     xC.sConY = xC.xtDB.cusDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                     xC.sAddr = new Address();
                     xC.sAddr = xC.xtDB.addrDB.selectByPk1(grfAddr[grfAddr.Row, colID].ToString());
+                }
+                else if (flag == Search.Items)
+                {
+                    xC.sItm = new Items();
+                    xC.sItm = xC.xtDB.itmDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                 }
                 Close();
                 return true;

@@ -33,7 +33,7 @@ ALTER TABLE f_tax_type AUTO_INCREMENT = 1710000000;
 ALTER TABLE t_tax_detail AUTO_INCREMENT = 1720000000;
 ALTER TABLE t_reserve_cash AUTO_INCREMENT = 1730000000;
 ALTER TABLE t_images AUTO_INCREMENT = 1740000000;
-ALTER TABLE t_expense_clear_cash AUTO_INCREMENT = 1750000000;
+ALTER TABLE t_expenses_clear_cash AUTO_INCREMENT = 1750000000;
 
 
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ไม่ต้อง', 'ORIGIANL', '1', 'BL_TYPE');

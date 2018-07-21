@@ -52,6 +52,7 @@ namespace Xtrim_ERP.control
         public Truck sTrk;
         public Address sAddr;
         public Items sItm;
+        public ExpensesClearCash sEcc;
 
         public Terminal sTmn;
         public LogFile lf;
@@ -118,6 +119,7 @@ namespace Xtrim_ERP.control
             sAddr = new Address();
             sConY = new Customer();
             sItm = new Items();
+            sEcc = new ExpensesClearCash();
             ftpC = new FtpClient(iniC.hostFTP, iniC.userFTP, iniC.passFTP);
 
             cTxtFocus = ColorTranslator.FromHtml(iniC.txtFocus);
