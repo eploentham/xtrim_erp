@@ -32,6 +32,16 @@
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtdid = new C1.Win.C1Input.C1TextBox();
+            this.txtddId = new C1.Win.C1Input.C1TextBox();
+            this.txtStfId = new C1.Win.C1Input.C1TextBox();
+            this.txtPdId = new C1.Win.C1Input.C1TextBox();
+            this.txtJobCode = new C1.Win.C1Input.C1TextBox();
+            this.txtJobId = new C1.Win.C1Input.C1TextBox();
+            this.txtItmCode = new C1.Win.C1Input.C1TextBox();
+            this.txtItmId = new C1.Win.C1Input.C1TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtItmNamePd = new C1.Win.C1Input.C1TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnImages = new C1.Win.C1Input.C1Button();
             this.c1TextBox10 = new C1.Win.C1Input.C1TextBox();
@@ -65,19 +75,18 @@
             this.txtId = new C1.Win.C1Input.C1TextBox();
             this.txtRow = new C1.Win.C1Input.C1TextBox();
             this.label34 = new System.Windows.Forms.Label();
-            this.txtItmNamePd = new C1.Win.C1Input.C1TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtItmId = new C1.Win.C1Input.C1TextBox();
-            this.txtItmCode = new C1.Win.C1Input.C1TextBox();
-            this.txtJobId = new C1.Win.C1Input.C1TextBox();
-            this.txtJobCode = new C1.Win.C1Input.C1TextBox();
-            this.txtPdId = new C1.Win.C1Input.C1TextBox();
-            this.txtStfId = new C1.Win.C1Input.C1TextBox();
-            this.txtddId = new C1.Win.C1Input.C1TextBox();
-            this.txtdid = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtdid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtddId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStfId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPdId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJobId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItmCode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItmId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItmNamePd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
@@ -97,15 +106,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTableId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRow)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtItmNamePd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtItmId)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtItmCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtJobId)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPdId)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtStfId)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtddId)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtdid)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -183,6 +183,144 @@
             this.panel1.Size = new System.Drawing.Size(511, 573);
             this.panel1.TabIndex = 7;
             this.theme1.SetTheme(this.panel1, "(default)");
+            // 
+            // txtdid
+            // 
+            this.txtdid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtdid.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtdid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtdid.Location = new System.Drawing.Point(432, 53);
+            this.txtdid.Name = "txtdid";
+            this.txtdid.Size = new System.Drawing.Size(33, 20);
+            this.txtdid.TabIndex = 551;
+            this.txtdid.Tag = null;
+            this.theme1.SetTheme(this.txtdid, "(default)");
+            this.txtdid.Visible = false;
+            this.txtdid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtddId
+            // 
+            this.txtddId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtddId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtddId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtddId.Location = new System.Drawing.Point(432, 25);
+            this.txtddId.Name = "txtddId";
+            this.txtddId.Size = new System.Drawing.Size(33, 20);
+            this.txtddId.TabIndex = 550;
+            this.txtddId.Tag = null;
+            this.theme1.SetTheme(this.txtddId, "(default)");
+            this.txtddId.Visible = false;
+            this.txtddId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtStfId
+            // 
+            this.txtStfId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtStfId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtStfId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtStfId.Location = new System.Drawing.Point(393, 103);
+            this.txtStfId.Name = "txtStfId";
+            this.txtStfId.Size = new System.Drawing.Size(33, 20);
+            this.txtStfId.TabIndex = 549;
+            this.txtStfId.Tag = null;
+            this.theme1.SetTheme(this.txtStfId, "(default)");
+            this.txtStfId.Visible = false;
+            this.txtStfId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtPdId
+            // 
+            this.txtPdId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPdId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPdId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPdId.Location = new System.Drawing.Point(393, 23);
+            this.txtPdId.Name = "txtPdId";
+            this.txtPdId.Size = new System.Drawing.Size(33, 20);
+            this.txtPdId.TabIndex = 548;
+            this.txtPdId.Tag = null;
+            this.theme1.SetTheme(this.txtPdId, "(default)");
+            this.txtPdId.Visible = false;
+            this.txtPdId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtJobCode
+            // 
+            this.txtJobCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJobCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJobCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtJobCode.Location = new System.Drawing.Point(115, 25);
+            this.txtJobCode.Name = "txtJobCode";
+            this.txtJobCode.Size = new System.Drawing.Size(33, 20);
+            this.txtJobCode.TabIndex = 547;
+            this.txtJobCode.Tag = null;
+            this.theme1.SetTheme(this.txtJobCode, "(default)");
+            this.txtJobCode.Visible = false;
+            this.txtJobCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtJobId
+            // 
+            this.txtJobId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJobId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJobId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtJobId.Location = new System.Drawing.Point(76, 25);
+            this.txtJobId.Name = "txtJobId";
+            this.txtJobId.Size = new System.Drawing.Size(33, 20);
+            this.txtJobId.TabIndex = 546;
+            this.txtJobId.Tag = null;
+            this.theme1.SetTheme(this.txtJobId, "(default)");
+            this.txtJobId.Visible = false;
+            this.txtJobId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtItmCode
+            // 
+            this.txtItmCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtItmCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtItmCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtItmCode.Location = new System.Drawing.Point(65, 77);
+            this.txtItmCode.Name = "txtItmCode";
+            this.txtItmCode.Size = new System.Drawing.Size(33, 20);
+            this.txtItmCode.TabIndex = 545;
+            this.txtItmCode.Tag = null;
+            this.theme1.SetTheme(this.txtItmCode, "(default)");
+            this.txtItmCode.Visible = false;
+            this.txtItmCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // txtItmId
+            // 
+            this.txtItmId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtItmId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtItmId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtItmId.Location = new System.Drawing.Point(103, 77);
+            this.txtItmId.Name = "txtItmId";
+            this.txtItmId.Size = new System.Drawing.Size(33, 20);
+            this.txtItmId.TabIndex = 544;
+            this.txtItmId.Tag = null;
+            this.theme1.SetTheme(this.txtItmId, "(default)");
+            this.txtItmId.Visible = false;
+            this.txtItmId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label14.Location = new System.Drawing.Point(7, 27);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(77, 16);
+            this.label14.TabIndex = 543;
+            this.label14.Text = "รายการขอเบิก :";
+            this.theme1.SetTheme(this.label14, "(default)");
+            // 
+            // txtItmNamePd
+            // 
+            this.txtItmNamePd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtItmNamePd.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtItmNamePd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtItmNamePd.Location = new System.Drawing.Point(142, 25);
+            this.txtItmNamePd.Name = "txtItmNamePd";
+            this.txtItmNamePd.Size = new System.Drawing.Size(357, 24);
+            this.txtItmNamePd.TabIndex = 542;
+            this.txtItmNamePd.Tag = null;
+            this.theme1.SetTheme(this.txtItmNamePd, "(default)");
+            this.txtItmNamePd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // panel2
             // 
@@ -576,7 +714,7 @@
             this.txtItmNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtItmNameT.Location = new System.Drawing.Point(142, 77);
             this.txtItmNameT.Name = "txtItmNameT";
-            this.txtItmNameT.Size = new System.Drawing.Size(245, 20);
+            this.txtItmNameT.Size = new System.Drawing.Size(334, 20);
             this.txtItmNameT.TabIndex = 516;
             this.txtItmNameT.Tag = null;
             this.theme1.SetTheme(this.txtItmNameT, "(default)");
@@ -598,7 +736,7 @@
             // c1Button1
             // 
             this.c1Button1.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button1.Location = new System.Drawing.Point(393, 76);
+            this.c1Button1.Location = new System.Drawing.Point(477, 76);
             this.c1Button1.Name = "c1Button1";
             this.c1Button1.Size = new System.Drawing.Size(22, 22);
             this.c1Button1.TabIndex = 514;
@@ -654,7 +792,7 @@
             this.txtRow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtRow.Location = new System.Drawing.Point(142, 51);
             this.txtRow.Name = "txtRow";
-            this.txtRow.Size = new System.Drawing.Size(245, 20);
+            this.txtRow.Size = new System.Drawing.Size(86, 20);
             this.txtRow.TabIndex = 507;
             this.txtRow.Tag = null;
             this.theme1.SetTheme(this.txtRow, "(default)");
@@ -673,144 +811,6 @@
             this.label34.Text = "ลำดับ :";
             this.theme1.SetTheme(this.label34, "(default)");
             // 
-            // txtItmNamePd
-            // 
-            this.txtItmNamePd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtItmNamePd.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtItmNamePd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtItmNamePd.Location = new System.Drawing.Point(142, 25);
-            this.txtItmNamePd.Name = "txtItmNamePd";
-            this.txtItmNamePd.Size = new System.Drawing.Size(245, 24);
-            this.txtItmNamePd.TabIndex = 542;
-            this.txtItmNamePd.Tag = null;
-            this.theme1.SetTheme(this.txtItmNamePd, "(default)");
-            this.txtItmNamePd.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label14.Location = new System.Drawing.Point(7, 27);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(64, 16);
-            this.label14.TabIndex = 543;
-            this.label14.Text = "รายการเบิก :";
-            this.theme1.SetTheme(this.label14, "(default)");
-            // 
-            // txtItmId
-            // 
-            this.txtItmId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtItmId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtItmId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtItmId.Location = new System.Drawing.Point(103, 77);
-            this.txtItmId.Name = "txtItmId";
-            this.txtItmId.Size = new System.Drawing.Size(33, 20);
-            this.txtItmId.TabIndex = 544;
-            this.txtItmId.Tag = null;
-            this.theme1.SetTheme(this.txtItmId, "(default)");
-            this.txtItmId.Visible = false;
-            this.txtItmId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtItmCode
-            // 
-            this.txtItmCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtItmCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtItmCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtItmCode.Location = new System.Drawing.Point(65, 77);
-            this.txtItmCode.Name = "txtItmCode";
-            this.txtItmCode.Size = new System.Drawing.Size(33, 20);
-            this.txtItmCode.TabIndex = 545;
-            this.txtItmCode.Tag = null;
-            this.theme1.SetTheme(this.txtItmCode, "(default)");
-            this.txtItmCode.Visible = false;
-            this.txtItmCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtJobId
-            // 
-            this.txtJobId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtJobId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtJobId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtJobId.Location = new System.Drawing.Point(76, 25);
-            this.txtJobId.Name = "txtJobId";
-            this.txtJobId.Size = new System.Drawing.Size(33, 20);
-            this.txtJobId.TabIndex = 546;
-            this.txtJobId.Tag = null;
-            this.theme1.SetTheme(this.txtJobId, "(default)");
-            this.txtJobId.Visible = false;
-            this.txtJobId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtJobCode
-            // 
-            this.txtJobCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtJobCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtJobCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtJobCode.Location = new System.Drawing.Point(115, 25);
-            this.txtJobCode.Name = "txtJobCode";
-            this.txtJobCode.Size = new System.Drawing.Size(33, 20);
-            this.txtJobCode.TabIndex = 547;
-            this.txtJobCode.Tag = null;
-            this.theme1.SetTheme(this.txtJobCode, "(default)");
-            this.txtJobCode.Visible = false;
-            this.txtJobCode.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtPdId
-            // 
-            this.txtPdId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPdId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtPdId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtPdId.Location = new System.Drawing.Point(393, 23);
-            this.txtPdId.Name = "txtPdId";
-            this.txtPdId.Size = new System.Drawing.Size(33, 20);
-            this.txtPdId.TabIndex = 548;
-            this.txtPdId.Tag = null;
-            this.theme1.SetTheme(this.txtPdId, "(default)");
-            this.txtPdId.Visible = false;
-            this.txtPdId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtStfId
-            // 
-            this.txtStfId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStfId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtStfId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtStfId.Location = new System.Drawing.Point(393, 103);
-            this.txtStfId.Name = "txtStfId";
-            this.txtStfId.Size = new System.Drawing.Size(33, 20);
-            this.txtStfId.TabIndex = 549;
-            this.txtStfId.Tag = null;
-            this.theme1.SetTheme(this.txtStfId, "(default)");
-            this.txtStfId.Visible = false;
-            this.txtStfId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtddId
-            // 
-            this.txtddId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtddId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtddId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtddId.Location = new System.Drawing.Point(432, 25);
-            this.txtddId.Name = "txtddId";
-            this.txtddId.Size = new System.Drawing.Size(33, 20);
-            this.txtddId.TabIndex = 550;
-            this.txtddId.Tag = null;
-            this.theme1.SetTheme(this.txtddId, "(default)");
-            this.txtddId.Visible = false;
-            this.txtddId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // txtdid
-            // 
-            this.txtdid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtdid.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtdid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtdid.Location = new System.Drawing.Point(432, 53);
-            this.txtdid.Name = "txtdid";
-            this.txtdid.Size = new System.Drawing.Size(33, 20);
-            this.txtdid.TabIndex = 551;
-            this.txtdid.Tag = null;
-            this.theme1.SetTheme(this.txtdid, "(default)");
-            this.txtdid.Visible = false;
-            this.txtdid.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmExpenseClearCash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -826,6 +826,15 @@
             this.sB.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtdid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtddId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStfId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPdId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJobId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItmCode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItmId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtItmNamePd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnImages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
@@ -845,15 +854,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTableId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRow)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtItmNamePd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtItmId)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtItmCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtJobId)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPdId)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtStfId)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtddId)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtdid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

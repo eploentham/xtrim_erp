@@ -277,6 +277,46 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+        public DataTable selectByJobIdStfIdNoClear(String jobid, String stfid)
+        {
+            String wherejob = "", wherestf = "";
+            DataTable dt = new DataTable();
+            if (!jobid.Equals(""))
+            {
+                wherejob = " and expnP." + expnP.job_id + "='" + jobid + "'  ";
+            }
+            if (!stfid.Equals(""))
+            {
+                wherestf = " and expnP." + expnP.staff_id + "='" + stfid + "'  ";
+            }
+            String sql = "select expnP.* " +
+                "From " + expnP.table + " expnP " +
+                " " +
+                "Where expnP." + expnP.active + " ='1' and epxnP."+expnP.expense_clear_cash_id+"=0 "+  wherejob + wherestf;
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public String selectSumPayAmtByJobIdStfIdNoClear(String jobid, String stfid)
+        {
+            String wherejob = "", wherestf = "",re="";
+            DataTable dt = new DataTable();
+            if (!jobid.Equals(""))
+            {
+                wherejob = " and expnP." + expnP.job_id + "='" + jobid + "'  ";
+            }
+            if (!stfid.Equals(""))
+            {
+                wherestf = " and expnP." + expnP.pay_staff_id + "='" + stfid + "'  ";
+            }
+            String sql = "select sum(expnP." +expnP.pay_amount+") as amt " +
+                "From " + expnP.table + " expnP " +
+                " " +
+                "Where expnP." + expnP.active + " ='1' and expnP." + expnP.expense_clear_cash_id + "=0 " + wherejob + wherestf;
+            dt = conn.selectData(conn.conn, sql);
+            re = dt.Rows[0]["amt"].ToString();
+            return re;
+        }
         public DataTable selectPrintCheque(String expndid)
         {
             DataTable dt = new DataTable();

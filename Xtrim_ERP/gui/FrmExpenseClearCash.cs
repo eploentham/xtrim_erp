@@ -27,10 +27,10 @@ namespace Xtrim_ERP.gui
 
         C1SuperTooltip stt;
         C1SuperErrorProvider sep;
-        String eccid = "", itmPd="", pdid="", jobcode="";
+        String eccid = "", itmPd="", pdid="", jobcode="", rowno;
         DataTable dtImg = new DataTable();
 
-        public FrmExpenseClearCash(XtrimControl x, String eccid, String pdid, String itmNameTPd, String jobcode)
+        public FrmExpenseClearCash(XtrimControl x, String eccid, String pdid, String itmNameTPd, String jobcode, String rowno)
         {
             InitializeComponent();
             xC = x;
@@ -38,6 +38,7 @@ namespace Xtrim_ERP.gui
             this.eccid = eccid;
             this.pdid = pdid;
             this.jobcode = jobcode;
+            this.rowno = rowno;
             initConfig();
         }
         private void initConfig()
@@ -105,14 +106,15 @@ namespace Xtrim_ERP.gui
             txtStfId.Value = ecc.staff_id.Equals("") ? xC.userId : ecc.staff_id;
             txtddId.Value = ecc.expenses_draw_detail_id.Equals("") ? expnpd.expenses_draw_detail_id : ecc.expenses_draw_detail_id;
             //txtdid.Value = ecc.expenses_draw_id.Equals("") ? jim.job_import_id : ecc.expenses_draw_id;
-
-            txtRow.Value = ecc.row1.Equals("") ? "1" : ecc.row1;
+            int row = 0, chk=0;
+            int.TryParse(rowno, out chk);
+            //chk++;
+            txtRow.Value = chk;
             txtReceiptNo.Value = ecc.receipt_no;
             txtReceiptDate.Value = ecc.receipt_date;
             txtItmId.Value = ecc.item_id;
             txtItmCode.Value = ecc.item_code;
-            txtItmNameT.Value = ecc.item_name_t;
-            
+            txtItmNameT.Value = ecc.item_name_t;            
             
             txtPayAmt.Value = ecc.pay_amount;
             

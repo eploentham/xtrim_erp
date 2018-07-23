@@ -64,6 +64,10 @@ namespace Xtrim_ERP.objdb
             ecc.pay_staff_id = "pay_staff_id";
             ecc.row1 = "row1";
             ecc.item_code = "item_code";
+            ecc.status_appv = "status_appv";
+            ecc.status_doc = "status_doc";
+            ecc.appv_staff_id = "appv_staff_id";
+            ecc.doc_staff_id = "doc_staff_id";
 
             ecc.table = "t_expenses_clear_cash";
             ecc.pkField = "expense_clear_cash_id";
@@ -158,6 +162,8 @@ namespace Xtrim_ERP.objdb
             p.pay_to_cus_addr = p.pay_to_cus_addr == null ? "" : p.pay_to_cus_addr;
             p.pay_to_cus_tax = p.pay_to_cus_tax == null ? "" : p.pay_to_cus_tax;
             p.item_code = p.item_code == null ? "" : p.item_code;
+            p.status_appv = p.status_appv == null ? "0" : p.status_appv;
+            p.status_doc = p.status_doc == null ? "0" : p.status_doc;
 
             p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
             p.staff_id = int.TryParse(p.staff_id, out chk) ? chk.ToString() : "0";
@@ -169,6 +175,8 @@ namespace Xtrim_ERP.objdb
             p.expenses_draw_id = int.TryParse(p.expenses_draw_id, out chk) ? chk.ToString() : "0";
             p.pay_staff_id = int.TryParse(p.pay_staff_id, out chk) ? chk.ToString() : "0";
             p.row1 = int.TryParse(p.row1, out chk) ? chk.ToString() : "0";
+            p.appv_staff_id = int.TryParse(p.appv_staff_id, out chk) ? chk.ToString() : "0";
+            p.doc_staff_id = int.TryParse(p.doc_staff_id, out chk) ? chk.ToString() : "0";
 
             p.total = Decimal.TryParse(p.total, out chk1) ? chk1.ToString() : "0";
             p.qty = Decimal.TryParse(p.qty, out chk1) ? chk1.ToString() : "0";
@@ -182,7 +190,8 @@ namespace Xtrim_ERP.objdb
             String re = "";
             String sql = "";
             p.active = "0";     // ให้ insert ไปก่อน แล้วค่อย update active = 1 อีกที
-            //p.ssdata_id = "";
+            p.status_appv = "0";
+            p.status_doc = "0";
             int chk = 0;
 
             chkNull(p);
@@ -200,7 +209,8 @@ namespace Xtrim_ERP.objdb
                 ecc.receipt_no + "," + ecc.receipt_date + "," + ecc.pay_date + "," +
                 ecc.price + "," + ecc.pay_to_cus_name_t + "," + ecc.pay_to_cus_addr + "," +
                 ecc.pay_to_cus_tax + "," + ecc.pay_to_cus_id + "," + ecc.pay_staff_id + "," +
-                ecc.row1 + "," + ecc.item_code + " " +
+                ecc.row1 + "," + ecc.item_code + "," + ecc.status_appv + "," +
+                ecc.status_doc + "," + ecc.appv_staff_id + "," + ecc.doc_staff_id + " " +
                 ") " +
                 "Values ('" + p.expenses_pay_detail_id + "','" + p.expenses_draw_id.Replace("'", "''") + "','" + p.job_id.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
@@ -213,7 +223,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.receipt_no + "','" + p.receipt_date + "','" + p.pay_date + "', " +
                 "'" + p.price + "','" + p.pay_to_cus_name_t.Replace("'", "''") + "','" + p.pay_to_cus_addr.Replace("'", "''") + "', " +
                 "'" + p.pay_to_cus_tax + "','" + p.pay_to_cus_id + "','" + p.pay_staff_id + "'," +
-                "'" + p.row1 + "','" + p.item_code + "' " +
+                "'" + p.row1 + "','" + p.item_code + "','" + p.status_appv + "', " +
+                "'" + p.status_doc + "','" + p.appv_staff_id + "','" + p.doc_staff_id + "' " +
                 ")";
             try
             {
@@ -303,15 +314,27 @@ namespace Xtrim_ERP.objdb
 
             return "";
         }
-        public String updateSendToApprove(String doc, String id)
+        public String updateActive(String pdid)
+        {
+            String re = "";
+
+            String sql = "update " + ecc.table + " Set " +
+                "" + ecc.active + "='1' " +                
+                "Where " + ecc.active + " = '0' and " + ecc.expenses_pay_detail_id + "='" + pdid + "' ";
+            re = conn.ExecuteNonQuery(conn.conn, sql);
+
+            return re;
+        }
+        public String updateComplete(String doc, String pdid, String userid)
         {
             DataTable dt = new DataTable();
             String re = "";
 
             String sql = "update " + ecc.table + " Set " +
-                "" + ecc.expenses_draw_id + "='" + doc + "' " +
-                "," + ecc.expense_clear_cash_date + "='1' " +
-                "Where " + ecc.pkField + "='" + id + "'";
+                "" + ecc.status_doc + "='1' " +
+                "," + ecc.ecc_doc + "='"+ doc + "' " +
+                "," + ecc.doc_staff_id + "='" + userid + "' " +
+                "Where " + ecc.expenses_pay_detail_id + "='" + pdid + "'";
             re = conn.ExecuteNonQuery(conn.conn, sql);
 
             return re;
@@ -530,6 +553,10 @@ namespace Xtrim_ERP.objdb
                 ecc1.pay_staff_id = dt.Rows[0][ecc.pay_staff_id].ToString();
                 ecc1.row1 = dt.Rows[0][ecc.row1].ToString();
                 ecc1.item_code = dt.Rows[0][ecc.item_code].ToString();
+                ecc1.status_appv = dt.Rows[0][ecc.status_appv].ToString();
+                ecc1.status_doc = dt.Rows[0][ecc.status_doc].ToString();
+                ecc1.appv_staff_id = dt.Rows[0][ecc.appv_staff_id].ToString();
+                ecc1.doc_staff_id = dt.Rows[0][ecc.doc_staff_id].ToString();
             }
             else
             {
@@ -570,6 +597,10 @@ namespace Xtrim_ERP.objdb
                 ecc1.pay_staff_id = "";
                 ecc1.row1 = "";
                 ecc1.item_code = "";
+                ecc1.status_appv = "";
+                ecc1.status_doc = "";
+                ecc1.appv_staff_id = "";
+                ecc1.doc_staff_id = "";
             }
 
             return ecc1;

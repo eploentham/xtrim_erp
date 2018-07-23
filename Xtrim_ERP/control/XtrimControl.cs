@@ -569,6 +569,13 @@ namespace Xtrim_ERP.control
             re = xtDB.expndDB.updateSendToApprove(doc, id);
             return re;
         }
+        public String updateClearCashComplete(String pdid, String userid)
+        {
+            String re = "";
+            String doc = xtDB.copDB.genEccDoc();
+            re = xtDB.eccDB.updateComplete(doc, pdid, userid);
+            return re;
+        }
         public String updateReserveAmt(String rspid, String userid)
         {
             String re = "";

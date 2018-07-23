@@ -610,6 +610,22 @@ ADD COLUMN `row1` INT NULL AFTER `user_cancel`;
 ALTER TABLE `xtrim_erp`.`t_expenses_clear_cash` 
 ADD COLUMN `item_code` VARCHAR(255) NULL AFTER `row1`;
 
+61-07-21
+ALTER TABLE `xtrim_erp`.`t_expenses_draw` 
+CHANGE COLUMN `status_doc` `status_doc` VARCHAR(55) NULL DEFAULT NULL COMMENT 'สถานะการป้อนเอกสาร\nว่าเบิกเงินไป แล้วเอาเอกสารมาป้อน ครบไหม\n0=default\n1=ป้อนเอกสารแล้ว\n2=ตรวจแล้ว complete' ;
+ALTER TABLE `xtrim_erp`.`t_expenses_clear_cash` 
+ADD COLUMN `status_doc` VARCHAR(255) NULL COMMENT '0=default\n1=ป้อนเอกสารแล้ว\n2=ตรวจแล้ว complete' AFTER `item_code`;
+ALTER TABLE `xtrim_erp`.`t_expenses_clear_cash` 
+CHANGE COLUMN `status_doc` `status_appv` VARCHAR(255) NULL DEFAULT NULL COMMENT '0=default;1=send to approve; 2= approve' ;
+ALTER TABLE `xtrim_erp`.`t_expenses_clear_cash` 
+ADD COLUMN `status_doc` VARCHAR(255) NULL AFTER `status_appv`;
+ALTER TABLE `xtrim_erp`.`t_expenses_clear_cash` 
+CHANGE COLUMN `status_doc` `status_doc` VARCHAR(255) NULL DEFAULT NULL COMMENT '0=default\\n1=ป้อนเอกสารแล้ว\\n2=ตรวจแล้ว complete' ;
+ALTER TABLE `xtrim_erp`.`t_expenses_clear_cash` 
+ADD COLUMN `doc_staff_id` VARCHAR(255) NULL AFTER `status_doc`,
+ADD COLUMN `appv_staff_id` VARCHAR(255) NULL AFTER `doc_staff_id`;
+
+
 
 
 
