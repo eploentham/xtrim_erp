@@ -205,7 +205,7 @@ namespace Xtrim_ERP.objdb
                 rsp1 = rspDB.selectByOnhandOLD();
                 if (Decimal.TryParse(rsp1.amount_onhand, out onhand))
                 {
-                    if (onhand > amt1)  //2.ถ้าเงินเหลือพอ ตัดยอด
+                    if (onhand >= amt1)  //2.ถ้าเงินเหลือพอ ตัดยอด
                     {
                         //amt1 = 1000;
 

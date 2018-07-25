@@ -444,7 +444,7 @@ namespace Xtrim_ERP.objdb
             String sql = "select expC."+expnC.expenses_draw_id + ",expC." + expnC.expenses_draw_code + ",expC." + expnC.desc1 + ",expC." + expnC.amount+ ",expC." + expnC.remark +" "+
                 "From " + expnC.table + " expC " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where expC." + expnC.job_code + " = '" + copId + "' ";
+                "Where expC." + expnC.job_code + " = '" + copId + "' and expC."+expnC.active+"='1' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
