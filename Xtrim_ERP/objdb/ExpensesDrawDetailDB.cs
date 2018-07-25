@@ -218,7 +218,7 @@ namespace Xtrim_ERP.objdb
                 expnC.unit_name_t + ", " + expnC.expenses_pay_detail_id + ", " +
                 expnC.pay_to_cus_id + "," + expnC.pay_to_cus_name_t + "," + expnC.pay_to_cus_addr + "," +
                 expnC.pay_to_cus_tax + "," + expnC.receipt_no + "," + expnC.receipt_date + "," +
-                expnC.status_page + "," + expnC.status_hide + "," + expnC.status_doc + " " +
+                expnC.status_page + "," + expnC.status_hide + "," + expnC.status_doc + "," +
                 expnC.receipt_amount + " " +
                 ") " +
                 "Values ('" + p.desc1.Replace("'", "''") + "','" + p.desc2.Replace("'", "''") + "','" + p.amount + "'," +
@@ -355,6 +355,27 @@ namespace Xtrim_ERP.objdb
             }
             return re;
         }
+        public String VoidExpensesDrawDetailByDrawId(String drawId, String userId)
+        {
+            String re = "";
+            String sql = "";
+            int chk = 0;
+            
+            sql = "Update " + expnC.table + " Set " +
+                " " + expnC.active + " = '3'" +
+                "," + expnC.user_cancel + " = '"+ userId + "'" +
+                "," + expnC.date_cancel + " = now() " +
+                "Where " + expnC.expense_draw_id + "='" + drawId + "'";
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
+            return re;
+        }
         public String insertExpenseDrawDetail(ExpensesDrawDatail p, String userId)
         {
             String re = "";
@@ -419,7 +440,20 @@ namespace Xtrim_ERP.objdb
                 "," + expnC.pay_to_cus_tax + "," + expnC.receipt_date + "," + expnC.receipt_no + "," +expnC.status_page+","+ expnC.status_hide + " " +
                 "From " + expnC.table + " expC " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where expC." + expnC.job_id + " ='" + copId + "' ";
+                "Where expC." + expnC.job_id + " ='" + copId + "' and expC."+expnC.active+"='1' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
+        public DataTable selectByPdId(String copId)
+        {
+            String currId = "";
+            DataTable dt = new DataTable();
+            String sql = "select expC." + expnC.expenses_draw_detail_id + "," + expnC.item_id + "," + expnC.item_name_t + "," + expnC.qty + "," + expnC.unit_id + "," + expnC.unit_name_t + "," + expnC.price +
+                "," + expnC.amount + "," + expnC.wtax1 + "," + expnC.wtax3 + "," + expnC.vat + "," + expnC.remark + "," + expnC.total + "," + expnC.pay_to_cus_id + "," + expnC.pay_to_cus_name_t + "," + expnC.pay_to_cus_addr +
+                "," + expnC.pay_to_cus_tax + "," + expnC.receipt_date + "," + expnC.receipt_no + "," + expnC.status_page + "," + expnC.status_hide + " " +
+                "From " + expnC.table + " expC " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where expC." + expnC.expenses_pay_detail_id + " ='" + copId + "' and expC." + expnC.active + "='1' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }

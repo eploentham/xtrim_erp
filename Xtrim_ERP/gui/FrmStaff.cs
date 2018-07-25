@@ -216,7 +216,8 @@ namespace Xtrim_ERP.gui
             String cusId = "";
             cusId = grfStf[e.NewRange.r1, colID] != null ? grfStf[e.NewRange.r1, colID].ToString() : "";
             setControl(cusId);
-            setControlEnable(false);
+            flagEdit = false;
+            setControlEnable(flagEdit);
             //setGrfAddrH(cusId);
             //setGrfContH(cusId);
             //setGrfRmkH(cusId);
@@ -331,6 +332,7 @@ namespace Xtrim_ERP.gui
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
+                    xC.xtDB.stfDB.getlStf();
                     btnSave.Image = Resources.accept_database24;
                 }
                 else

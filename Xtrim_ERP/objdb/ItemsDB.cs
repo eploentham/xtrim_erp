@@ -201,7 +201,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.active + "','" + p.remark.Replace("'", "''") + "','" + p.sort1 + "'," +
                 "'" + p.acc_code + "','" + p.status_tax53.Replace("'", "''") + "','" + p.item_grp_id + "'," +
                 "'" + p.item_type_sub_id + "','" + p.item_cat_id.Replace("'", "''") + "','" + p.status_app + "'," +
-                "'" + p.f_method_payment_id + "','" + p.status_invoice.Replace("'", "''") + "'," + p.unit_id + "'," +
+                "'" + p.f_method_payment_id + "','" + p.status_invoice.Replace("'", "''") + "','" + p.unit_id + "'," +
                 "'" + p.price1 + "','" + p.price2.Replace("'", "''") + "','" + p.price3 + "'," +
                 "'" + p.price4 + "','" + p.price5.Replace("'", "''") + "','" + p.item_group_id.Replace("'", "''") + "'," +
                 "'" + p.tax_id + "','" + p.status_hide + "' " +
@@ -275,7 +275,7 @@ namespace Xtrim_ERP.objdb
             {
                 re = update(p, userId);
             }
-
+            getlExpn();
             return re;
         }
         public String deleteAll()

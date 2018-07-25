@@ -63,7 +63,7 @@ namespace Xtrim_ERP.control
         public FtpClient ftpC;
         Regex regEmail;
         String soapTaxId = "";
-        public String FixJobCode="IMP";
+        public String FixJobCode="IMP", FixEccCode="CC";
         //public enum Search
         //{
         //    Customer,
@@ -574,7 +574,8 @@ namespace Xtrim_ERP.control
             String re = "";
             String doc = xtDB.copDB.genEccDoc();
             re = xtDB.eccDB.updateComplete(doc, pdid, userid);
-            return re;
+            xtDB.expnpdDB.updateEcc(pdid, doc);
+            return doc;
         }
         public String updateReserveAmt(String rspid, String userid)
         {
@@ -613,7 +614,6 @@ namespace Xtrim_ERP.control
         }
         public String updateStatusPay(String id)
         {
-            
             String re = "", sql = "";
             re = xtDB.expnddDB.selectStatusPayByDrawId(id);
 
@@ -622,6 +622,23 @@ namespace Xtrim_ERP.control
                 re = xtDB.expndDB.updateStatusPay(id);
             }
 
+            return re;
+        }
+        public String VoidExpensesDraw(String drawId, String userid)
+        {
+            String re = "", sql = "";
+            ExpensesDraw expnD = new ExpensesDraw();
+            expnD = xtDB.expndDB.selectByPk1(drawId);
+            if (expnD.status_pay.Equals("2"))
+            {
+                re = "ไม่สามารถยกเลิกได้ เพราะได้รับเงินไปแล้ว";
+            }
+            else
+            {
+                re = xtDB.expndDB.VoidExpensesDraw(drawId, userid);
+                xtDB.expnddDB.VoidExpensesDrawDetailByDrawId(drawId, userid);
+                re = "ยกเลิก เรียบร้อย";
+            }
             return re;
         }
     }

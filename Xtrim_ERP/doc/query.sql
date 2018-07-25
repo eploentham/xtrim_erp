@@ -34,6 +34,7 @@ ALTER TABLE t_tax_detail AUTO_INCREMENT = 1720000000;
 ALTER TABLE t_reserve_cash AUTO_INCREMENT = 1730000000;
 ALTER TABLE t_images AUTO_INCREMENT = 1740000000;
 ALTER TABLE t_expenses_clear_cash AUTO_INCREMENT = 1750000000;
+ALTER TABLE t_expenses_refund AUTO_INCREMENT = 1760000000;
 
 
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ไม่ต้อง', 'ORIGIANL', '1', 'BL_TYPE');
@@ -736,3 +737,7 @@ delete from t_expenses_pay_detail;
 delete from t_reserve_cash;
 delete from t_reserve_pay;
 update b_company set amount_reserve =0 where comp_code = '001'
+
+  รับดูแลระบบ ก็เหมือนผู้กำกับ
+ตอนจบก็แฮปปี้เอ็นดิ้ง 
+โปรเจคที่ทำก็เหมือนละครเรื่องหนึ่งที่เรากำกับ

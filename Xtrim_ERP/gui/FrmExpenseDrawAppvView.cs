@@ -107,7 +107,7 @@ namespace Xtrim_ERP.gui
             DataTable dt = new DataTable();
             dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all, objdb.ExpensesDrawDB.StatusPayType.all);
             grfExpn.Cols.Count = 9;
-            grfExpn.Rows.Count = dt.Rows.Count+1;
+            grfExpn.Rows.Count = 1;
             TextBox txt = new TextBox();
 
             grfExpn.Cols[colCode].Editor = txt;
@@ -136,53 +136,54 @@ namespace Xtrim_ERP.gui
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                grfExpn[i, 0] = i;
+                Row row = grfExpn.Rows.Add();
+                row[0] = (i+1);
                 if (i % 2 == 0)
                     grfExpn.Rows[i].StyleNew.BackColor = color;
-                grfExpn[i + 1, colID] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_id].ToString();
-                grfExpn[i + 1, colCode] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_code].ToString();
-                grfExpn[i + 1, colDesc] = dt.Rows[i][xC.xtDB.expndDB.expnC.desc1].ToString();
-                grfExpn[i + 1, colRemark] = dt.Rows[i][xC.xtDB.expndDB.expnC.remark].ToString();
-                grfExpn[i + 1, colAmt] = dt.Rows[i][xC.xtDB.expndDB.expnC.amount].ToString();
+                row[colID] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_id].ToString();
+                row[colCode] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_code].ToString();
+                row[colDesc] = dt.Rows[i][xC.xtDB.expndDB.expnC.desc1].ToString();
+                row[colRemark] = dt.Rows[i][xC.xtDB.expndDB.expnC.remark].ToString();
+                row[colAmt] = dt.Rows[i][xC.xtDB.expndDB.expnC.amount].ToString();
                 if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("1"))
                 {
-                    grfExpn[i + 1, colStatus] = "รอออนุมัติ";
+                    row[colStatus] = "รอออนุมัติ";
                 }
                 else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("2"))
                 {
-                    grfExpn[i + 1, colStatus] = "อนุมัติแล้ว";
+                    row[colStatus] = "อนุมัติแล้ว";
                 }
                 else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("0"))
                 {
-                    grfExpn[i + 1, colStatus] = "ป้อนใหม่";
+                    row[colStatus] = "ป้อนใหม่";
                 }
                 else
                 {
-                    grfExpn[i + 1, colStatus] = "-";
+                    row[colStatus] = "-";
                 }
                 if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay_type].ToString().Equals("1"))
                 {
-                    grfExpn[i + 1, colFlagForm] = "Cash";
+                    row[colFlagForm] = "Cash";
                 }
                 else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay_type].ToString().Equals("2"))
                 {
-                    grfExpn[i + 1, colFlagForm] = "Cheque";
+                    row[colFlagForm] = "Cheque";
                 }
                 else
                 {
-                    grfExpn[i + 1, colFlagForm] = "-";
+                    row[colFlagForm] = "-";
                 }
                 if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay].ToString().Equals("1"))
                 {
-                    grfExpn[i + 1, colStatusPay] = "รอจ่าย";
+                    row[colStatusPay] = "รอจ่าย";
                 }
                 else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay].ToString().Equals("2"))
                 {
-                    grfExpn[i + 1, colStatusPay] = "จ่ายแล้ว";
+                    row[colStatusPay] = "จ่ายแล้ว";
                 }
                 else
                 {
-                    grfExpn[i + 1, colStatusPay] = "-";
+                    row[colStatusPay] = "-";
                 }
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);

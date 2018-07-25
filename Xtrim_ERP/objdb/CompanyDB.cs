@@ -503,7 +503,7 @@ namespace Xtrim_ERP.objdb
             else
             {
                 int chk = 0;
-                if (int.TryParse(cop1.tax_doc, out chk))
+                if (int.TryParse(cop1.ecc_doc, out chk))
                 {
                     chk++;
                     doc = "00000" + chk;
@@ -516,7 +516,7 @@ namespace Xtrim_ERP.objdb
                     conn.ExecuteNonQuery(conn.conn, sql);
                 }
             }
-            doc = "BC" + year.Substring(year.Length - 2, 2) + doc;
+            doc = "CC" + year.Substring(year.Length - 2, 2) + doc;
             return doc;
         }
         public String updateAmountReserve(String amt)

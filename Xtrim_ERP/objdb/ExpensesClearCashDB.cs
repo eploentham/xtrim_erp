@@ -16,7 +16,7 @@ namespace Xtrim_ERP.objdb
 
         public List<ExpensesClearCash> lecc;
         public enum StatusPay { waitappv, appv, all };
-        public enum StatusPayType { Cash, Cheque, all };
+        public enum StatusAppv { sendtoAppv, Appv, All };
         public enum StatusPage { AppvPay, SaveViewOnly };
         public ExpensesClearCashDB(ConnectDB c)
         {
@@ -332,7 +332,7 @@ namespace Xtrim_ERP.objdb
 
             String sql = "update " + ecc.table + " Set " +
                 "" + ecc.status_doc + "='1' " +
-                "," + ecc.ecc_doc + "='"+ doc + "' " +
+                "," + ecc.ecc_doc + "='"+ doc.Replace("CC","") + "' " +
                 "," + ecc.doc_staff_id + "='" + userid + "' " +
                 "Where " + ecc.expenses_pay_detail_id + "='" + pdid + "'";
             re = conn.ExecuteNonQuery(conn.conn, sql);
@@ -465,13 +465,45 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
-        public DataTable selectByJobCode2(String copId)
+        public DataTable selectByStatusAppv(String eccdoc, StatusAppv statusappv)
         {
             DataTable dt = new DataTable();
-            String sql = "select expC." + ecc.expense_clear_cash_id + ",expC." + ecc.expenses_draw_id + ",expC." + ecc.ecc_doc + ",expC." + ecc.item_name_t + ",expC." + ecc.remark + " " +
-                "From " + ecc.table + " expC " +
+            String sql = "", wherestatusappv="", whereeccdoc="";
+            if(statusappv == StatusAppv.sendtoAppv)
+            {
+                wherestatusappv = " and "+ecc.status_appv+" = '0' ";
+            }
+            else if (statusappv == StatusAppv.Appv)
+            {
+                wherestatusappv = " and " + ecc.status_appv + " = '1' ";
+            }
+            if (!eccdoc.Equals(""))
+            {
+                whereeccdoc = " and "+ecc.ecc_doc+" = '"+eccdoc+"' ";
+            }
+            sql = "select * " +
+                "From " + ecc.table + "  " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where expC." + ecc.job_code + " = '" + copId + "' ";
+                "Where " + ecc.active + " = '1' "+wherestatusappv+ whereeccdoc;
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
+        public DataTable selectSumEccDocByStatusAppv(StatusAppv statusappv)
+        {
+            DataTable dt = new DataTable();
+            String sql = "", wherestatusappv = "";
+            if (statusappv == StatusAppv.sendtoAppv)
+            {
+                wherestatusappv = " and " + ecc.status_appv + " = '0' ";
+            }
+            else if (statusappv == StatusAppv.Appv)
+            {
+                wherestatusappv = " and " + ecc.status_appv + " = '1' ";
+            }
+            sql = "select "+ecc.ecc_doc+",sum("+ecc.pay_amount+") as "+ecc.pay_amount + " " +
+                "From " + ecc.table + "  " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where " + ecc.active + " = '1' " + wherestatusappv;
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -508,6 +540,18 @@ namespace Xtrim_ERP.objdb
                 "From " + ecc.table + " expC " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where expC." + ecc.pkField + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            cop1 = setExpenseReceiptCash(dt);
+            return cop1;
+        }
+        public ExpensesClearCash selectByEccDoc(String copId)
+        {
+            ExpensesClearCash cop1 = new ExpensesClearCash();
+            DataTable dt = new DataTable();
+            String sql = "select expC.* " +
+                "From " + ecc.table + " expC " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where expC." + ecc.ecc_doc + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setExpenseReceiptCash(dt);
             return cop1;

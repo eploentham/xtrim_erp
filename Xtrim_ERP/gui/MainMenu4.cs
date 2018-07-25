@@ -73,9 +73,26 @@ namespace Xtrim_ERP.gui
             menuJobTax.Click += MenuJobTax_Click;
             menuRspCard.Click += MenuRspCard_Click;
             menuExpnReceipt1.Click += MenuExpnReceipt1_Click;
-            //menuExpnReceipt.Click += MenuExpnReceipt_Click;
+            menuEcc.Click += MenuEcc_Click;
+            menuReceiptAppv.Click += MenuReceiptAppv_Click;
         }
-        
+
+        private void MenuReceiptAppv_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmExpenseReceiptAppvView frm = new FrmExpenseReceiptAppvView(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, menuReceiptAppv.Text + " ");
+        }
+
+        private void MenuEcc_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmExpenseRefund frm = new FrmExpenseRefund(xC,"",xC.userId, "","");
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, menuEcc.Text + " ");
+        }
+
         private void MenuRspCard_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();

@@ -276,12 +276,20 @@ namespace Xtrim_ERP.objdb
         }
         public String updatePassword(String stfId, String password1)
         {
-            DataTable dt = new DataTable();
+            //DataTable dt = new DataTable();
+            String re = "";
             String sql = "Update " + stf.table+" Set "+stf.password1+"='"+password1+"' " +
                 "Where "+stf.pkField + "='"+stfId+"'";
-            conn.ExecuteNonQuery(conn.conn, sql);
-
-            return "";
+            //conn.ExecuteNonQuery(conn.conn, sql);
+            try
+            {
+                re = conn.ExecuteNonQuery(conn.conn, sql);
+            }
+            catch (Exception ex)
+            {
+                sql = ex.Message + " " + ex.InnerException;
+            }
+            return re;
         }
         public String VoidStaff(String stfId, String userIdVoid)
         {
@@ -508,7 +516,12 @@ namespace Xtrim_ERP.objdb
         {
             ComboBoxItem item = new ComboBoxItem();
             //DataTable dt = selectWard();
+            int i = 0;
             if (lStf.Count <= 0) getlStf();
+            item = new ComboBoxItem();
+            item.Value = "";
+            item.Text = "";
+            c.Items.Add(item);
             foreach (Staff cus1 in lStf)
             {
                 item = new ComboBoxItem();
@@ -519,7 +532,9 @@ namespace Xtrim_ERP.objdb
                 {
                     //c.SelectedItem = item.Value;
                     c.SelectedText = item.Text;
+                    c.SelectedIndex = i+1;
                 }
+                i++;
             }
         }
     }

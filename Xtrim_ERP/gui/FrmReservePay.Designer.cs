@@ -405,9 +405,9 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.label5.Location = new System.Drawing.Point(9, 117);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 16);
+            this.label5.Size = new System.Drawing.Size(61, 16);
             this.label5.TabIndex = 523;
-            this.label5.Text = "รวมเงิน :";
+            this.label5.Text = "จำนวนเงิน :";
             this.theme1.SetTheme(this.label5, "(default)");
             // 
             // txtAmt

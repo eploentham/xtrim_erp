@@ -284,11 +284,23 @@
     <Compile Include="gui\FrmExpenseReceipt.Designer.cs">
       <DependentUpon>FrmExpenseReceipt.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmExpenseReceiptAppvView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmExpenseReceiptAppvView.Designer.cs">
+      <DependentUpon>FrmExpenseReceiptAppvView.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmExpenseReceiptCash.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gui\FrmExpenseReceiptCash.Designer.cs">
       <DependentUpon>FrmExpenseReceiptCash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gui\FrmExpenseRefund.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmExpenseRefund.Designer.cs">
+      <DependentUpon>FrmExpenseRefund.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmImages.cs">
       <SubType>Form</SubType>
@@ -630,6 +642,8 @@
     <Compile Include="objdb\ExpensesClearCashDB.cs" />
     <Compile Include="objdb\ExpensesPayDB.cs" />
     <Compile Include="objdb\ExpensesPayDetailDB.cs" />
+    <Compile Include="objdb\ExpensesRefundDB.cs" />
+    <Compile Include="object1\ExpensesRefund.cs" />
     <Compile Include="objdb\FMethodPaymentDB.cs" />
     <Compile Include="objdb\FTaxTypeDB.cs" />
     <Compile Include="objdb\ImagesDB.cs" />
@@ -960,8 +974,14 @@
     <EmbeddedResource Include="gui\FrmExpenseReceipt.resx">
       <DependentUpon>FrmExpenseReceipt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmExpenseReceiptAppvView.resx">
+      <DependentUpon>FrmExpenseReceiptAppvView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmExpenseReceiptCash.resx">
       <DependentUpon>FrmExpenseReceiptCash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmExpenseRefund.resx">
+      <DependentUpon>FrmExpenseRefund.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmImages.resx">
       <DependentUpon>FrmImages.cs</DependentUpon>

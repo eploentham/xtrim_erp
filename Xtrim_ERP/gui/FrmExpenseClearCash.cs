@@ -58,8 +58,7 @@ namespace Xtrim_ERP.gui
             foreach (Control c in panel1.Controls)
             {
                 theme1.SetTheme(c, "VS2013Light");
-            }           
-
+            }
         }
 
         private void TxtItmNameT_KeyUp(object sender, KeyEventArgs e)
@@ -73,8 +72,8 @@ namespace Xtrim_ERP.gui
         private void setKeyUpF2Itm()
         {
             Point pp = txtItmNameT.Location;
-            pp.Y = pp.Y + 120 + 20;
-            pp.X = pp.X - 20;
+            pp.Y += (260);
+            pp.X += 260;
 
             FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Items, pp);
             frm.ShowDialog(this);

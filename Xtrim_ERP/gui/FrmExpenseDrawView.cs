@@ -148,7 +148,8 @@ namespace Xtrim_ERP.gui
                 }
             }
             //grfExpn.DataSource = xC.xtDB.expndDB.selectAll1(cboYear.Text);
-            grfExpn.Rows.Count = dt.Rows.Count + 1;
+            //grfExpn.Rows.Count = dt.Rows.Count + 1;
+            grfExpn.Rows.Count = 1;
             grfExpn.Cols.Count = 8;
             TextBox txt = new TextBox();
 
@@ -177,34 +178,35 @@ namespace Xtrim_ERP.gui
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                grfExpn[i, 0] = i;
+                Row row = grfExpn.Rows.Add();
+                row[0] = (i+1);
                 if (i % 2 == 0)
-                    grfExpn.Rows[i].StyleNew.BackColor = color;
-                grfExpn[i + 1, colID] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_id].ToString();
-                grfExpn[i + 1, colCode] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_code].ToString();
-                grfExpn[i + 1, colDesc] = dt.Rows[i][xC.xtDB.expndDB.expnC.desc1].ToString();
-                grfExpn[i + 1, colRemark] = dt.Rows[i][xC.xtDB.expndDB.expnC.remark].ToString();
-                grfExpn[i + 1, colAmt] = dt.Rows[i][xC.xtDB.expndDB.expnC.amount].ToString();
+                    grfExpn.Rows[i+1].StyleNew.BackColor = color;
+                row[colID] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_id].ToString();
+                row[colCode] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_code].ToString();
+                row[colDesc] = dt.Rows[i][xC.xtDB.expndDB.expnC.desc1].ToString();
+                row[colRemark] = dt.Rows[i][xC.xtDB.expndDB.expnC.remark].ToString();
+                row[colAmt] = dt.Rows[i][xC.xtDB.expndDB.expnC.amount].ToString();
                 if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("1"))
                 {
-                    grfExpn[i + 1, colStatus] = "รอออนุมัติ";
+                    row[colStatus] = "รอออนุมัติ";
                 }
                 else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("2"))
                 {
                     if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay].ToString().Equals("2"))
                     {
-                        grfExpn[i + 1, colStatus] = "รับเงินเรียบร้อย";
+                        row[colStatus] = "รับเงินเรียบร้อย";
                     }
                     //grfExpn[i + 1, colStatus] = "อนุมัติแล้ว";
                 }
                 else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("0"))
                 {
-                    grfExpn[i + 1, colStatus] = "ป้อนใหม่";
+                    row[colStatus] = "ป้อนใหม่";
                 }
                 
                 else
                 {
-                    grfExpn[i + 1, colStatus] = "-";
+                    row[colStatus] = "-";
                 }
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);

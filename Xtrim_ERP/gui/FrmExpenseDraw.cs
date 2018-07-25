@@ -69,7 +69,11 @@ namespace Xtrim_ERP.gui
             {
                 theme1.SetTheme(c, "Office2013Red");
             }
-
+            foreach (Control c in panel2.Controls)
+            {
+                theme1.SetTheme(c, "Office2013Red");
+            }
+            theme1.SetTheme(panel2, "Office2013Red");
             bg = txtCode.BackColor;
             fc = txtCode.ForeColor;
             ff = txtCode.Font;
@@ -91,6 +95,8 @@ namespace Xtrim_ERP.gui
             btnDEdit.Click += BtnDEdit_Click;
             cboStaff.DropDownClosed += CboStaff_DropDownClosed;
             txtImpNameT.KeyUp += TxtImpNameT_KeyUp;
+            chkVoid.Click += ChkVoid_Click;            
+            btnVoid.Click += BtnVoid_Click;
 
 
             initGrfDept();
@@ -98,7 +104,7 @@ namespace Xtrim_ERP.gui
             setGrfDeptH();
             setGrfDeptH1();
             
-            setFocusColor();
+            //setFocusColor();
             
             setControl(drawId);
             setControlEnable(false);
@@ -112,6 +118,51 @@ namespace Xtrim_ERP.gui
             stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
             imp = new Customer();
             txtAmtOnhand.Value = xC.xtDB.expnddDB.selectPayAmountByStf(xC.userId);
+        }
+        private void BtnVoid_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            {
+                String re = xC.xtDB.expndDB.VoidExpensesDraw(txtID.Text, userIdVoid);
+                MessageBox.Show(re, "");
+                //setGrfStfH();
+            }
+        }
+        private void TxtPasswordVoid_KeyUp1(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (e.KeyCode == Keys.Enter)
+            {
+                userIdVoid = xC.xtDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
+                if (userIdVoid.Length > 0)
+                {
+                    txtPasswordVoid.Hide();
+                    btnVoid.Show();
+                    stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> รหัสผ่านถูกต้อง", btnVoid);
+                }
+                else
+                {
+                    sep.SetError(txtPasswordVoid, "333");
+                }
+            }
+        }
+
+        private void ChkVoid_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            //new Boolead chkVoid.Checked ? txtPasswordVoid.Show() : txtPasswordVoid.Hide();
+
+            if (chkVoid.Checked)
+            {
+                txtPasswordVoid.Show();
+                txtPasswordVoid.Focus();
+                stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> กรุณาป้อนรหัสผ่าน", txtPasswordVoid);
+            }
+            else
+            {
+                txtPasswordVoid.Hide();
+            }
         }
 
         private void TxtImpNameT_KeyUp(object sender, KeyEventArgs e)
@@ -704,6 +755,7 @@ namespace Xtrim_ERP.gui
                 xC.setC1Combo(cboStaff, expnD.staff_id);
                 imp = xC.xtDB.cusDB.selectByPk1(expnD.payer_id);
                 setKeyUpF2Imp1(imp);
+                xC.xtDB.stfDB.setCboStaff(cboStaff, expnD.staff_id);
             }
 
             setGrfDeptH();
@@ -711,8 +763,7 @@ namespace Xtrim_ERP.gui
             if (expnD.status_appv.Equals("0"))
             {
                 label8.Text = "...";
-                
-            }            
+            }
             else if (expnD.status_appv.Equals("1"))
             {
                 label8.Text = "รออนุมัติ";
@@ -747,7 +798,9 @@ namespace Xtrim_ERP.gui
             txtImpNameT.Enabled = flag;
             txtDesc.Enabled = flag;
             txtRemark.Enabled = flag;
-            txtAmt.Enabled = flag;
+            txtAmt.Enabled = false;
+            txtAmtOnhand.Enabled = false;
+            txtAmtOnhandJob.Enabled = false;
             txtAppvAmt.Enabled = flag;
             btnDNew.Enabled = flag;
             btnDEdit.Enabled = flag;

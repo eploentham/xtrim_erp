@@ -209,20 +209,29 @@ namespace Xtrim_ERP.objdb
             }
             return re;
         }
-        public String voidBank(String id)
+        public String voidExpensePayDetail(String id)
         {
             String re = "", sql = "";
 
             sql = "Update " + expnP.table + " Set " +
                 " " + expnP.active + "='3' " +
                 "," + expnP.date_cancel + "=now() " +
-                "Where " + expnP.expenses_pay_detail_id + "='" + id + "'"
-                ;
+                "Where " + expnP.expenses_pay_detail_id + "='" + id + "'";
             re = conn.ExecuteNonQuery(conn.conn, sql);
 
             return re;
         }
+        public String updateEcc(String id, String eccid)
+        {
+            String re = "", sql = "";
 
+            sql = "Update " + expnP.table + " Set " +
+                " " + expnP.expense_clear_cash_id + "='"+ eccid.Replace("CC","") + "' " +
+                "Where " + expnP.expenses_pay_detail_id + "='" + id + "'";
+            re = conn.ExecuteNonQuery(conn.conn, sql);
+
+            return re;
+        }
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
@@ -241,6 +250,17 @@ namespace Xtrim_ERP.objdb
                 "From " + expnP.table + " expnP " +
                 " " +
                 "Where expnP." + expnP.active + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectByEccId(String eccId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select expnP." + expnP.expenses_pay_detail_id + "," + expnP.item_name_t + "," + expnP.pay_amount + " " +
+                "From " + expnP.table + " expnP " +
+                " " +
+                "Where expnP." + expnP.active + " ='1' and expnP." + expnP.expense_clear_cash_id+" = '"+eccId+"'";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -272,7 +292,8 @@ namespace Xtrim_ERP.objdb
             String sql = "select expnP.* " +
                 "From " + expnP.table + " expnP " +
                 " " +
-                "Where expnP." + expnP.active + " ='1' "+ wherejob+ wherestf;
+                "Where expnP." + expnP.active + " ='1' "+ wherejob+ wherestf + " " +
+                "Order By expnP."+expnP.expenses_pay_detail_id;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;

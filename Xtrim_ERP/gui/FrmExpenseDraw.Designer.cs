@@ -32,6 +32,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtAmtOnhandJob = new C1.Win.C1Input.C1TextBox();
             this.txtImpNameT = new C1.Win.C1Input.C1TextBox();
             this.btnDEdit = new C1.Win.C1Input.C1Button();
             this.btnDNew = new C1.Win.C1Input.C1Button();
@@ -71,11 +73,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtAmtOnhandJob = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmtOnhandJob)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtImpNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDNew)).BeginInit();
@@ -101,7 +102,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtExpndDrawDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).BeginInit();
             this.sB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAmtOnhandJob)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -181,6 +181,39 @@
             this.panel2.Size = new System.Drawing.Size(1159, 336);
             this.panel2.TabIndex = 0;
             this.theme1.SetTheme(this.panel2, "(default)");
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label11.Location = new System.Drawing.Point(474, 63);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 16);
+            this.label11.TabIndex = 508;
+            this.label11.Text = "ของ job นี้ :";
+            this.theme1.SetTheme(this.label11, "(default)");
+            // 
+            // txtAmtOnhandJob
+            // 
+            this.txtAmtOnhandJob.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAmtOnhandJob.DataType = typeof(decimal);
+            this.txtAmtOnhandJob.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtAmtOnhandJob.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtAmtOnhandJob.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
+            this.txtAmtOnhandJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtAmtOnhandJob.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtAmtOnhandJob.Location = new System.Drawing.Point(539, 59);
+            this.txtAmtOnhandJob.Name = "txtAmtOnhandJob";
+            this.txtAmtOnhandJob.Size = new System.Drawing.Size(104, 24);
+            this.txtAmtOnhandJob.TabIndex = 507;
+            this.txtAmtOnhandJob.Tag = null;
+            this.theme1.SetTheme(this.txtAmtOnhandJob, "(default)");
+            this.txtAmtOnhandJob.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // txtImpNameT
             // 
@@ -295,6 +328,7 @@
             this.c1Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.c1Button1, "(default)");
             this.c1Button1.UseVisualStyleBackColor = true;
+            this.c1Button1.Visible = false;
             this.c1Button1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label8
@@ -768,39 +802,6 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label11.Location = new System.Drawing.Point(474, 63);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 16);
-            this.label11.TabIndex = 508;
-            this.label11.Text = "ของ job นี้ :";
-            this.theme1.SetTheme(this.label11, "(default)");
-            // 
-            // txtAmtOnhandJob
-            // 
-            this.txtAmtOnhandJob.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAmtOnhandJob.DataType = typeof(decimal);
-            this.txtAmtOnhandJob.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtAmtOnhandJob.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
-            this.txtAmtOnhandJob.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
-            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
-            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
-            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.txtAmtOnhandJob.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtAmtOnhandJob.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
-            this.txtAmtOnhandJob.Location = new System.Drawing.Point(539, 59);
-            this.txtAmtOnhandJob.Name = "txtAmtOnhandJob";
-            this.txtAmtOnhandJob.Size = new System.Drawing.Size(104, 24);
-            this.txtAmtOnhandJob.TabIndex = 507;
-            this.txtAmtOnhandJob.Tag = null;
-            this.theme1.SetTheme(this.txtAmtOnhandJob, "(default)");
-            this.txtAmtOnhandJob.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmExpenseDraw
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -815,6 +816,7 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAmtOnhandJob)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtImpNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDNew)).EndInit();
@@ -841,7 +843,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCode)).EndInit();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAmtOnhandJob)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

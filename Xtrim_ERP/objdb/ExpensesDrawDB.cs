@@ -299,6 +299,20 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
+        public String VoidExpensesDraw(String id, String userId)
+        {
+            DataTable dt = new DataTable();
+            String re = "", sql = "";
+
+            sql = "update " + expnC.table + " Set " +
+                "" + expnC.active + "='3' " +
+                "," + expnC.user_cancel + "='"+ userId + "' " +
+                "," + expnC.date_cancel + "= now() " +
+                "Where " + expnC.pkField + "='" + id + "'";
+            re = conn.ExecuteNonQuery(conn.conn, sql);
+
+            return re;
+        }
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();

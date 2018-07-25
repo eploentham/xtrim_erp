@@ -174,7 +174,7 @@ namespace Xtrim_ERP.gui
                 Row row = grfExpnD.Rows.Add();
                 row[0] = i + 1;
                 if (i % 2 == 0)
-                    grfExpnD.Rows[i].StyleNew.BackColor = color;
+                    grfExpnD.Rows[i+1].StyleNew.BackColor = color;
                 row[colDid] = dt.Rows[i][xC.xtDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
                 row[colDItemNamet] = dt.Rows[i][xC.xtDB.expnddDB.expnC.item_name_t].ToString();
                 row[colDQty] = dt.Rows[i][xC.xtDB.expnddDB.expnC.qty].ToString();

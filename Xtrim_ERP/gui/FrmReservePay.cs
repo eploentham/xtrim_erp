@@ -60,11 +60,11 @@ namespace Xtrim_ERP.gui
             bg = txtID.BackColor;
             fc = txtID.ForeColor;
             ff = txtID.Font;
-            xC.xtDB.stfDB.setCboStaff(cboStaff, "");
+            xC.xtDB.stfDB.setCboStaff(cboStaff, xC.userId);
             DateTime jobDate = DateTime.Now;
             txtDateDraw.Value = jobDate.Year.ToString() + "-" + jobDate.ToString("MM-dd");
-            jobDate = jobDate.AddDays(7);
-            txtDateDraw.Value = jobDate.Year.ToString() + "-" + jobDate.ToString("MM-dd");
+            //jobDate = jobDate.AddDays(7);
+            //txtDateDraw.Value = jobDate.Year.ToString() + "-" + jobDate.ToString("MM-dd");
 
             txtPasswordVoid.KeyUp += TxtPasswordVoid_KeyUp;
 
@@ -74,7 +74,7 @@ namespace Xtrim_ERP.gui
             btnAppv.Click += BtnAppv_Click;
             btnRsp.Click += BtnRsp_Click;
 
-            xC.xtDB.stfDB.setCboStaff(cboStaff, "");
+            //xC.xtDB.stfDB.setCboStaff(cboStaff, "");
             initGrfDept();
             //theme1.SetTheme(grfExpnD, "Office2010Black");
             setGrfDeptH();
@@ -330,6 +330,7 @@ namespace Xtrim_ERP.gui
                 btnAppv.Show();
                 btnRsp.Hide();
                 flagEdit = false;
+                if (grfExpnD.Row < 0) return;
                 if(grfExpnD[grfExpnD.Row, colStatus] != null)
                 {
                     if (grfExpnD[grfExpnD.Row, colStatus].ToString().Equals("ขออนุมัติ"))
@@ -358,6 +359,7 @@ namespace Xtrim_ERP.gui
                 btnSave.Hide();
                 btnAppv.Hide();
                 btnRsp.Show();
+                if (grfExpnD.Row < 0) return;
                 if (grfExpnD[grfExpnD.Row, colStatus] != null)
                 {
                     if (grfExpnD[grfExpnD.Row, colStatus].ToString().Equals("อนุมัติ"))
@@ -447,7 +449,7 @@ namespace Xtrim_ERP.gui
                 txtDesc.Value = "";
                 txtAmt.Value = "";
                 //txtDateDraw.Value = "";
-                xC.setC1Combo(cboStaff, "");
+                xC.setC1Combo(cboStaff, xC.userId);
             }
             if (flagForm.Equals("appv"))
             {
@@ -491,7 +493,7 @@ namespace Xtrim_ERP.gui
             cop = xC.xtDB.copDB.selectByCode1("001");
             txtAmtReserve.Value = cop.amount_reserve;
             txtRspWait.Value = xC.xtDB.rspDB.selectAppvWait();
-            panel3.Hide();
+            //panel3.Hide();
         }
     }
 }
