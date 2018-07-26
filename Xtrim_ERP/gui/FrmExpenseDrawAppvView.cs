@@ -23,7 +23,7 @@ namespace Xtrim_ERP.gui
 
         Color bg, fc;
         Font ff, ffB;
-        int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6, colFlagForm=7, colStatusPay=8;
+        int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6, colFlagForm=7, colStatusPay=8, cola=9;
         C1FlexGrid grfExpn;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
@@ -106,7 +106,7 @@ namespace Xtrim_ERP.gui
             grfExpn.Clear();
             DataTable dt = new DataTable();
             dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all, objdb.ExpensesDrawDB.StatusPayType.all);
-            grfExpn.Cols.Count = 9;
+            grfExpn.Cols.Count = 10;
             grfExpn.Rows.Count = 1;
             TextBox txt = new TextBox();
 
@@ -141,6 +141,7 @@ namespace Xtrim_ERP.gui
                 if (i % 2 == 0)
                     grfExpn.Rows[i].StyleNew.BackColor = color;
                 row[colID] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_id].ToString();
+                row[cola] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_id].ToString();
                 row[colCode] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_code].ToString();
                 row[colDesc] = dt.Rows[i][xC.xtDB.expndDB.expnC.desc1].ToString();
                 row[colRemark] = dt.Rows[i][xC.xtDB.expndDB.expnC.remark].ToString();
@@ -189,6 +190,7 @@ namespace Xtrim_ERP.gui
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
             grfExpn.Cols[colID].Visible = false;
+            grfExpn.Cols[cola].Visible = false;
         }
         //private void grfDept_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
         //{
@@ -201,7 +203,7 @@ namespace Xtrim_ERP.gui
             if (grfExpn.Row < 0) return;
             
             String deptId = "";
-            xC.drawID = grfExpn[grfExpn.Row, colID] != null ? grfExpn[grfExpn.Row, colID].ToString() : "";
+            xC.drawID = grfExpn[grfExpn.Row, cola] != null ? grfExpn[grfExpn.Row, cola].ToString() : "";
             ExpensesDraw expn = new ExpensesDraw();
             FrmExpenseDraw frm;
             expn = xC.xtDB.expndDB.selectByPk1(xC.drawID);

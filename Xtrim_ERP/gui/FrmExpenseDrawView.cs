@@ -1,4 +1,5 @@
 ﻿using C1.Win.C1FlexGrid;
+using C1.Win.C1Input;
 using C1.Win.C1SuperTooltip;
 using C1.Win.C1Themes;
 using System;
@@ -24,7 +25,7 @@ namespace Xtrim_ERP.gui
 
         Color bg, fc;
         Font ff, ffB;
-        int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6, colStatusDoc=7;
+        int colID = 1, colCode = 2, colDesc = 3, colRemark = 4, colAmt = 5, colStatus = 6, colStatusDoc=7, cola=8;
         C1FlexGrid grfExpn;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         Boolean flagEdit = false;
@@ -95,7 +96,7 @@ namespace Xtrim_ERP.gui
 
             FilterRow fr = new FilterRow(grfExpn);
 
-            //grfExpn.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfDept_AfterRowColChange);
+            //grfExpn.AfterRowColChange += GrfExpn_AfterRowColChange;
             //grfExpnC.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfDept_CellButtonClick);
             //grfExpnC.CellChanged += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfDept_CellChanged);
             ContextMenu menuGw = new ContextMenu();
@@ -107,6 +108,15 @@ namespace Xtrim_ERP.gui
 
             theme1.SetTheme(grfExpn, "Office2013Red");
         }
+
+        private void GrfExpn_AfterRowColChange(object sender, RangeEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (grfExpn.Row == null) return;
+            if (grfExpn.Row < 0) return;
+            Row row = grfExpn.Rows[grfExpn.Row];
+        }
+
         private void setGrfDeptH()
         {
             //grfDept.Rows.Count = 7;
@@ -150,9 +160,11 @@ namespace Xtrim_ERP.gui
             //grfExpn.DataSource = xC.xtDB.expndDB.selectAll1(cboYear.Text);
             //grfExpn.Rows.Count = dt.Rows.Count + 1;
             grfExpn.Rows.Count = 1;
-            grfExpn.Cols.Count = 8;
-            TextBox txt = new TextBox();
+            grfExpn.Cols.Count = 9;
+            C1TextBox txt = new C1TextBox();
+            //txt.dat
 
+            grfExpn.Cols[colID].Editor = txt;
             grfExpn.Cols[colCode].Editor = txt;
             grfExpn.Cols[colDesc].Editor = txt;
             grfExpn.Cols[colRemark].Editor = txt;
@@ -179,10 +191,11 @@ namespace Xtrim_ERP.gui
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 Row row = grfExpn.Rows.Add();
-                row[0] = (i+1);
-                if (i % 2 == 0)
-                    grfExpn.Rows[i+1].StyleNew.BackColor = color;
-                row[colID] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_id].ToString();
+                //row[0] = (i+1);
+                //if (i % 2 == 0)
+                //    grfExpn.Rows[i+1].StyleNew.BackColor = color;
+                row[cola] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_id].ToString();
+                //row[cola] = "A" ;
                 row[colCode] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_code].ToString();
                 row[colDesc] = dt.Rows[i][xC.xtDB.expndDB.expnC.desc1].ToString();
                 row[colRemark] = dt.Rows[i][xC.xtDB.expndDB.expnC.remark].ToString();
@@ -212,6 +225,8 @@ namespace Xtrim_ERP.gui
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
             grfExpn.Cols[colID].Visible = false;
+            grfExpn.Cols[cola].Visible = false;
+
         }
         //private void grfDept_AfterRowColChange(object sender, C1.Win.C1FlexGrid.RangeEventArgs e)
         //{
@@ -221,9 +236,8 @@ namespace Xtrim_ERP.gui
         {
             if (grfExpn.Row == null) return;
             if (grfExpn.Row < 0) return;
-
-            String deptId = "";
-            xC.drawID = grfExpn[grfExpn.Row, colID] != null ? grfExpn[grfExpn.Row, colID].ToString() : "";
+            Row row = grfExpn.Rows[grfExpn.Row];
+            xC.drawID = grfExpn[grfExpn.Row, cola] != null ? grfExpn[grfExpn.Row, cola].ToString() : "";
             FrmExpenseDraw frm = new FrmExpenseDraw(xC, xC.drawID, (FrmExpenseDraw.flagForm2)flagfom2, FrmExpenseDraw.flagAction.draw);
             //frm.drawId = xC.drawID;
             //frm.flagForm = "view";
