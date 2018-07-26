@@ -62,7 +62,7 @@ namespace Xtrim_ERP.gui
             sep = new C1SuperErrorProvider();
             stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
 
-            chkAll.Checked = true;
+            chkAppvWait.Checked = true;
             xC.setCboYear(cboYear);
             initGrfDept();
             setGrfDeptH();
