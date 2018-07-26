@@ -236,6 +236,23 @@ namespace Xtrim_ERP.objdb
             cop1 = setExpensesRefund(dt);
             return cop1;
         }
+        public String selectSumByEccDoc(String eccdoc)
+        {
+            DataTable dt = new DataTable();
+            String sql = "", wherestatusappv = "";
+
+            sql = "select sum(" + erf.amount + ") as " + erf.amount + " " +
+                "From " + erf.table + "  " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where " + erf.active + " = '1' and " + erf.ecc_doc + "='" + eccdoc + "'";
+            dt = conn.selectData(conn.conn, sql);
+            String re = "";
+            Decimal chk = 0;
+            re = dt.Rows[0][erf.amount].ToString();
+            Decimal.TryParse(re, out chk);
+            
+            return chk.ToString();
+        }
         public ExpensesRefund setExpensesRefund(DataTable dt)
         {
             ExpensesRefund erf1 = new ExpensesRefund();

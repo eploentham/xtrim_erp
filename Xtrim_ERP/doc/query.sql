@@ -736,6 +736,8 @@ delete from t_expenses_pay;
 delete from t_expenses_pay_detail;
 delete from t_reserve_cash;
 delete from t_reserve_pay;
+delete from t_expenses_clear_cash;
+delete from t_expenses_refund;
 update b_company set amount_reserve =0 where comp_code = '001'
 
   รับดูแลระบบ ก็เหมือนผู้กำกับ

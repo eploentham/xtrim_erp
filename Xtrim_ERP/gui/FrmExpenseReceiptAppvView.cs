@@ -23,7 +23,7 @@ namespace Xtrim_ERP.gui
         int colId = 1, colEccDoc = 2, colItmNameT = 3, colAmt = 4, colReceiptNo = 5, colReceiptDate = 6, colJobCode = 7, colexpnDdId=8;
         int colPdId = 1, colPdItmNameT = 2, colPdPayamt = 3;
         int colDdId = 1, colDdItmNameT = 2, colDdPayamt = 3;
-        int colEccDeccdoc = 1, colEccDpayamt = 2;
+        int colEccDeccdoc = 1, colEccDpayamt = 2, colEccRefund=3;
         int colErfId = 1, colErfDesc = 2, colErfAmt = 3, colErfJobCode = 4, colErfRemark = 5;
 
         public FrmExpenseReceiptAppvView(XtrimControl x)
@@ -43,6 +43,7 @@ namespace Xtrim_ERP.gui
             initGrfEccD();
             initGrPd();
             initGrDd();
+            initGrfRefund();
             setGrfEcc();
         }
         private void initGrfEcc()
@@ -54,13 +55,15 @@ namespace Xtrim_ERP.gui
             gbEccH.Controls.Add(grfEcc);
 
             grfEcc.Rows.Count = 1;
-            grfEcc.Cols.Count = 3;
-            grfEcc.Cols[colEccDeccdoc].Width = 80;
+            grfEcc.Cols.Count = 4;
+            grfEcc.Cols[colEccDeccdoc].Width = 100;
             grfEcc.Cols[colEccDpayamt].Width = 200;
+            grfEcc.Cols[colEccRefund].Width = 200;
 
             grfEcc.ShowCursor = true;
             grfEcc.Cols[colEccDeccdoc].Caption = "เลขที่เอกสาร";
-            grfEcc.Cols[colEccDpayamt].Caption = "จำนวนเงิน";
+            grfEcc.Cols[colEccDpayamt].Caption = "จำนวนเงิน มีใบเสร็จ";
+            grfEcc.Cols[colEccRefund].Caption = "จำนวนเงิน คืนเงินสด";
 
             grfEcc.AfterRowColChange += GrfEcc_AfterRowColChange;
 
@@ -74,23 +77,29 @@ namespace Xtrim_ERP.gui
             DataTable dt = new DataTable();
             dt = xC.xtDB.eccDB.selectSumEccDocByStatusAppv(chkAppvWait.Checked ? objdb.ExpensesClearCashDB.StatusAppv.sendtoAppv : chkAppvOk.Checked ? objdb.ExpensesClearCashDB.StatusAppv.Appv : objdb.ExpensesClearCashDB.StatusAppv.All);
 
-            grfEcc.Cols[colEccDeccdoc].Width = 80;
+            grfEcc.Cols[colEccDeccdoc].Width = 100;
             grfEcc.Cols[colEccDpayamt].Width = 200;
+            grfEcc.Cols[colEccRefund].Width = 200;
 
             grfEcc.ShowCursor = true;
             grfEcc.Cols[colEccDeccdoc].Caption = "เลขที่เอกสาร";
             grfEcc.Cols[colEccDpayamt].Caption = "จำนวนเงิน";
+            grfEcc.Cols[colEccRefund].Caption = "จำนวนเงิน คืนเงินสด";
 
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
+                String eccDoc = "", amt="";
                 Row row = grfEcc.Rows.Add();
                 row[0] = i + 1;
                 if (i % 2 == 0)
                     grfEcc.Rows[i+1].StyleNew.BackColor = color;
-                row[colEccDeccdoc] = xC.FixEccCode + dt.Rows[i][xC.xtDB.eccDB.ecc.ecc_doc].ToString();
+                eccDoc = xC.FixEccCode + dt.Rows[i][xC.xtDB.eccDB.ecc.ecc_doc].ToString();
+                row[colEccDeccdoc] = eccDoc;
                 row[colEccDpayamt] = dt.Rows[i][xC.xtDB.eccDB.ecc.pay_amount].ToString();
-                
+                amt = xC.xtDB.erfDB.selectSumByEccDoc(eccDoc.Replace(xC.FixEccCode,""));
+                row[colEccRefund] = amt;
+
                 //if (dt.Rows[i][xC.xtDB.eccDB.ecc.status_appv].ToString().Equals("0"))
                 //{
                 //    row.StyleNew.BackColor = Color.Gray;
@@ -126,7 +135,7 @@ namespace Xtrim_ERP.gui
             grfPd.Rows.Count = 1;
             grfPd.Cols.Count = 4;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expnpdDB.selectByEccId(eccid);
+            dt = xC.xtDB.expnpdDB.selectByEccDoc(eccid.Replace(xC.FixEccCode,""));
 
             grfPd.Cols[colPdItmNameT].Width = 200;
             grfPd.Cols[colPdPayamt].Width = 100;
@@ -302,7 +311,7 @@ namespace Xtrim_ERP.gui
             grfErf.Rows.Count = 1;
             grfErf.Cols.Count = 6;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.erfDB.selectByEccDoc(eccid);
+            dt = xC.xtDB.erfDB.selectByEccDoc(eccid.Replace(xC.FixEccCode,""));
 
             grfErf.Cols[colErfDesc].Width = 200;
             grfErf.Cols[colErfAmt].Width = 80;
@@ -362,8 +371,9 @@ namespace Xtrim_ERP.gui
             if (grfEccD.Row < 0) return;
             if (grfEccD[grfEccD.Row, colId] == null) return;
             
-            setGrfPd(grfEccD[grfEccD.Row, colId].ToString());
+            setGrfPd(grfEccD[grfEccD.Row, colEccDoc].ToString());
             setGrfDd(grfEccD[grfEcc.Row, colexpnDdId].ToString());
+            setGrfErf(grfEccD[grfEccD.Row, colEccDoc].ToString());
             setControl(grfEccD[grfEccD.Row, colId].ToString());
         }
         private void GrfPd_AfterRowColChange(object sender, RangeEventArgs e)

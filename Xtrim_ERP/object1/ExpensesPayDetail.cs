@@ -30,5 +30,6 @@ namespace Xtrim_ERP.object1
         public String desc_d { get; set; }
         public String staff_id { get; set; }
         public String expense_clear_cash_id { get; set; }
+        public String ecc_doc { get; set; }
     }
 }

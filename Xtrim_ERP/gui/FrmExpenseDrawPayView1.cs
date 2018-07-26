@@ -1631,14 +1631,14 @@ namespace Xtrim_ERP.gui
                         expnPd.pay_to_cus_tax = expndd.pay_to_cus_tax;
                         expnPd.pay_cheque_no = grfCashMake[i, colCChequeNo] != null ? grfCashMake[i, colCChequeNo].ToString() : "";
                         expnPd.pay_cheque_bank_id = grfCashMake[i, colCBank] != null ? xC.xtDB.copbDB.getIdByName(grfCashMake[i, colCBank].ToString()) : "";
-                        expnPd.pay_staff_id = xC.userId;
+                        expnPd.pay_staff_id = expnd.staff_id;   //คนรับเงิน
                         expnPd.pay_date = xC.datetoDB(txtDate.Text);
                         expnPd.comp_bank_id = grfCashMake[i, colCBank] != null ? xC.xtDB.copbDB.getIdByName(grfCashMake[i, colCBank].ToString()) : "";
                         expnPd.pay_bank_date = grfCashMake[i, colChequeDate] != null ? xC.datetoDB(grfCashMake[i, colChequeDate].ToString()) : "";
                         expnPd.expenses_draw_detail_id = expndd.expenses_draw_detail_id;
                         expnPd.desc_dd = expndd.desc1;
                         expnPd.desc_d = expnd.desc1;
-                        expnPd.staff_id = expnd.staff_id;
+                        expnPd.staff_id = xC.userId;    //คนจ่ายเงิน
 
                         expndd.status_pay_type = "2";
                         expndd.pay_amount = expnPd.pay_amount;
@@ -1661,6 +1661,7 @@ namespace Xtrim_ERP.gui
                     if (chkD == (grfCashMake.Rows.Count - 1))
                     {
                         btnCashSave.Image = Resources.accept_database24;
+                        btnCashSave.Enabled = false;
                         //tCCheque.SelectedTab = tabChequePrint;
 
                         //setGrfChequePrn(txtExpnpID.Text);

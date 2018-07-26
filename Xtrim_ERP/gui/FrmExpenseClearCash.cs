@@ -223,7 +223,12 @@ namespace Xtrim_ERP.gui
             {
                 setEcc();
                 //xC.sEcc = ecc;
-                xC.xtDB.eccDB.insertExpenseReceiptCash(ecc, xC.userId);
+                int chk = 0;
+                String re = xC.xtDB.eccDB.insertExpenseReceiptCash(ecc, xC.userId);
+                if (int.TryParse(re, out chk))
+                {
+                    Close();
+                }
             }
         }
         private void BtnImg_Click(object sender, EventArgs e)

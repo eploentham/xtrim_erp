@@ -503,7 +503,7 @@ namespace Xtrim_ERP.gui
                     menuInit.Enabled = true;
                 }
             }
-            this.Text = "Last Update 2018-07-16";
+            this.Text = xC.user.staff_fname_t+" "+xC.user.staff_lname_t + " Last Update 2018-07-26";
         }
     }
 }

@@ -544,7 +544,7 @@ namespace Xtrim_ERP.gui
             {
                 grfExpnD[i + 1, 0] = i + 1;
                 if (i % 2 == 0)
-                    grfExpnD.Rows[i].StyleNew.BackColor = color;
+                    grfExpnD.Rows[i+1].StyleNew.BackColor = color;
                 grfExpnD[i+1, colDid] = dt.Rows[i][xC.xtDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
                 grfExpnD[i + 1, colDItemNamet] = dt.Rows[i][xC.xtDB.expnddDB.expnC.item_name_t].ToString();
                 grfExpnD[i + 1, colDQty] = dt.Rows[i][xC.xtDB.expnddDB.expnC.qty].ToString();
@@ -1037,7 +1037,10 @@ namespace Xtrim_ERP.gui
                 int chk = 0;
                 if(int.TryParse(re, out chk))
                 {
-                    setControl(drawId);
+                    //ExpensesDraw expnd = new ExpensesDraw();
+                    //expnd = xC.xtDB.expndDB.selectByPk1(txtID.Text);
+                    //txtCode.Value = expnd.expenses_draw_code;
+                    setControl(txtID.Text);
                     setControlEnable(false);
                 }
             }
@@ -1062,7 +1065,7 @@ namespace Xtrim_ERP.gui
                     {
                         setExpensesDrawDetail(txtID.Text, jim.cust_id);
                     }
-                    
+                    txtID.Value = re;
                     btnSave.Image = Resources.accept_database24;
                 }
                 else

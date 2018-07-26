@@ -507,20 +507,17 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
-        public String selectByNameTLike(String copId)
+        public DataTable selectSumByEccDoc(String eccdoc)
         {
-            String currId = "";
             DataTable dt = new DataTable();
-            String sql = "select expC.* " +
-                "From " + ecc.table + " expC " +
+            String sql = "", wherestatusappv = "";
+            
+            sql = "select " + ecc.ecc_doc + ",sum(" + ecc.pay_amount + ") as " + ecc.pay_amount + " " +
+                "From " + ecc.table + "  " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where expC." + ecc.expenses_draw_id + " like '%" + copId.ToLower() + "%' ";
+                "Where " + ecc.active + " = '1' and "+ecc.ecc_doc+"='" + eccdoc + "'";
             dt = conn.selectData(conn.conn, sql);
-            if (dt.Rows.Count == 1)
-            {
-                currId = dt.Rows[0][ecc.expense_clear_cash_id].ToString();
-            }
-            return currId;
+            return dt;
         }
         public DataTable selectByPk(String copId)
         {
@@ -554,6 +551,28 @@ namespace Xtrim_ERP.objdb
                 "Where expC." + ecc.ecc_doc + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
             cop1 = setExpenseReceiptCash(dt);
+            return cop1;
+        }
+        public ExpensesClearCash selectToRefundByEccDoc(String copId)
+        {
+            ExpensesClearCash cop1 = new ExpensesClearCash();
+            DataTable dt = new DataTable();
+            String sql = "select * " +
+                "From " + ecc.table + "  " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where " + ecc.ecc_doc + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            cop1 = setExpenseReceiptCash(dt);
+            sql = "Select sum("+ecc.pay_amount+") as "+ecc.pay_amount+" "+
+                "From "+ecc.table +" "+
+                "Where " + ecc.ecc_doc + " ='" + copId + "' ";
+            dt.Clear();
+            dt = conn.selectData(conn.conn, sql);
+            String re = "";
+            Decimal chk = 0;
+            re = dt.Rows[0][ecc.pay_amount].ToString();
+            Decimal.TryParse(re, out chk);
+            cop1.pay_amount = chk.ToString();
             return cop1;
         }
         public ExpensesClearCash setExpenseReceiptCash(DataTable dt)

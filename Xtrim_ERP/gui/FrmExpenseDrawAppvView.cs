@@ -139,7 +139,7 @@ namespace Xtrim_ERP.gui
                 Row row = grfExpn.Rows.Add();
                 row[0] = (i+1);
                 if (i % 2 == 0)
-                    grfExpn.Rows[i].StyleNew.BackColor = color;
+                    grfExpn.Rows[i+1].StyleNew.BackColor = color;
                 row[colID] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_id].ToString();
                 row[cola] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_id].ToString();
                 row[colCode] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_code].ToString();

@@ -54,6 +54,7 @@ namespace Xtrim_ERP.objdb
             expnP.desc_d = "desc_d";
             expnP.staff_id = "staff_id";
             expnP.expense_clear_cash_id = "expense_clear_cash_id";
+            expnP.ecc_doc = "ecc_doc";
 
             expnP.table = "t_expenses_pay_detail";
             expnP.pkField = "expenses_pay_detail_id";
@@ -96,7 +97,7 @@ namespace Xtrim_ERP.objdb
             p.pay_to_cus_addr = p.pay_to_cus_addr == null ? "" : p.pay_to_cus_addr;
             p.pay_to_cus_tax = p.pay_to_cus_tax == null ? "" : p.pay_to_cus_tax;
             p.pay_cheque_no = p.pay_cheque_no == null ? "" : p.pay_cheque_no;
-            //p.pay_cheque_bank_id = p.pay_cheque_bank_id == null ? "" : p.pay_cheque_bank_id;
+            p.ecc_doc = p.ecc_doc == null ? "" : p.ecc_doc;
             //p.remark1 = p.remark1 == null ? "" : p.remark1;
             //p.remark1 = p.remark1 == null ? "" : p.remark1;
 
@@ -129,7 +130,8 @@ namespace Xtrim_ERP.objdb
                 expnP.pay_to_cus_tax + ", " + expnP.pay_cheque_no + ", " + expnP.pay_cheque_bank_id + ", " +
                 expnP.pay_staff_id + ", " + expnP.pay_date + ", " + expnP.comp_bank_id + ", " +
                 expnP.pay_bank_date + "," + expnP.expenses_draw_detail_id + "," + expnP.desc_dd + "," +
-                expnP.desc_d + "," + expnP.staff_id + "," + expnP.expense_clear_cash_id + " " +
+                expnP.desc_d + "," + expnP.staff_id + "," + expnP.expense_clear_cash_id + "," +
+                expnP.ecc_doc + " " +
                 ") " +
                 "Values ('" + p.expenses_pay_id + "','" + p.item_id + "','" + p.status_pay_type + "'," +
                 "'" + p.active + "','" + p.remark + "'," +
@@ -140,7 +142,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.pay_to_cus_tax + "','" + p.pay_cheque_no + "','" + p.pay_cheque_bank_id + "'," +
                 "'" + p.pay_staff_id + "','" + p.pay_date + "','" + p.comp_bank_id + "'," +
                 "'" + p.pay_bank_date + "','" + p.expenses_draw_detail_id + "','" + p.desc_dd + "'," +
-                "'" + p.desc_d + "','" + p.staff_id + "','" + p.expense_clear_cash_id + "' " +
+                "'" + p.desc_d + "','" + p.staff_id + "','" + p.expense_clear_cash_id + "', " +
+                "'" + p.ecc_doc + "' " +
                 ")";            
             try
             {
@@ -227,6 +230,7 @@ namespace Xtrim_ERP.objdb
 
             sql = "Update " + expnP.table + " Set " +
                 " " + expnP.expense_clear_cash_id + "='"+ eccid.Replace("CC","") + "' " +
+                "," + expnP.ecc_doc + "='" + eccid.Replace("CC", "") + "' " +
                 "Where " + expnP.expenses_pay_detail_id + "='" + id + "'";
             re = conn.ExecuteNonQuery(conn.conn, sql);
 
@@ -265,6 +269,17 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+        public DataTable selectByEccDoc(String eccdoc)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select expnP." + expnP.expenses_pay_detail_id + "," + expnP.item_name_t + "," + expnP.pay_amount + " " +
+                "From " + expnP.table + " expnP " +
+                " " +
+                "Where expnP." + expnP.active + " ='1' and expnP." + expnP.ecc_doc + " = '" + eccdoc + "'";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
         public ExpensesPayDetail selectByPk1(String copId)
         {
             ExpensesPayDetail cop1 = new ExpensesPayDetail();
@@ -287,7 +302,7 @@ namespace Xtrim_ERP.objdb
             }
             if (!stfid.Equals(""))
             {
-                wherestf = " and expnP." + expnP.staff_id + "='" + stfid + "'  ";
+                wherestf = " and expnP." + expnP.pay_staff_id + "='" + stfid + "'  ";
             }
             String sql = "select expnP.* " +
                 "From " + expnP.table + " expnP " +
@@ -308,7 +323,7 @@ namespace Xtrim_ERP.objdb
             }
             if (!stfid.Equals(""))
             {
-                wherestf = " and expnP." + expnP.staff_id + "='" + stfid + "'  ";
+                wherestf = " and expnP." + expnP.pay_staff_id + "='" + stfid + "'  ";
             }
             String sql = "select expnP.* " +
                 "From " + expnP.table + " expnP " +
@@ -333,7 +348,8 @@ namespace Xtrim_ERP.objdb
             String sql = "select sum(expnP." +expnP.pay_amount+") as amt " +
                 "From " + expnP.table + " expnP " +
                 " " +
-                "Where expnP." + expnP.active + " ='1' and expnP." + expnP.expense_clear_cash_id + "=0 " + wherejob + wherestf;
+                //"Where expnP." + expnP.active + " ='1' and expnP." + expnP.expense_clear_cash_id + "=0 " + wherejob + wherestf;
+                "Where expnP." + expnP.active + " ='1' " + wherejob + wherestf;
             dt = conn.selectData(conn.conn, sql);
             re = dt.Rows[0]["amt"].ToString();
             return re;
@@ -419,6 +435,7 @@ namespace Xtrim_ERP.objdb
                 pd1.desc_d = dt.Rows[0][expnP.desc_d].ToString();
                 pd1.staff_id = dt.Rows[0][expnP.staff_id].ToString();
                 pd1.expense_clear_cash_id = dt.Rows[0][expnP.expense_clear_cash_id].ToString();
+                pd1.ecc_doc = dt.Rows[0][expnP.ecc_doc].ToString();
             }
             else
             {
@@ -453,6 +470,7 @@ namespace Xtrim_ERP.objdb
                 pd1.desc_d = "";
                 pd1.staff_id = "";
                 pd1.expense_clear_cash_id = "";
+                pd1.ecc_doc = "";
             }
 
             return pd1;

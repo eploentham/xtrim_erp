@@ -159,7 +159,7 @@ namespace Xtrim_ERP.gui
         }
         private void setControlEcc(String eccDoc)
         {
-            ecc = xC.xtDB.eccDB.selectByEccDoc(eccDoc);
+            ecc = xC.xtDB.eccDB.selectToRefundByEccDoc(eccDoc);
             txtId.Value = "";
             
             jobId = ecc.job_id;

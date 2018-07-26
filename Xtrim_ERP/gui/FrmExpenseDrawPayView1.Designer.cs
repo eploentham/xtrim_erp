@@ -419,10 +419,10 @@
             this.tC1.Controls.Add(this.tabTax);
             this.tC1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tC1.HotTrack = true;
-            this.tC1.Location = new System.Drawing.Point(641, 0);
+            this.tC1.Location = new System.Drawing.Point(425, 0);
             this.tC1.Name = "tC1";
             this.tC1.SelectedIndex = 2;
-            this.tC1.Size = new System.Drawing.Size(987, 947);
+            this.tC1.Size = new System.Drawing.Size(1203, 947);
             this.tC1.TabIndex = 1;
             this.tC1.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
             this.tC1.TabsShowFocusCues = false;
@@ -435,7 +435,7 @@
             this.tabCheque.Controls.Add(this.panel5);
             this.tabCheque.Location = new System.Drawing.Point(1, 24);
             this.tabCheque.Name = "tabCheque";
-            this.tabCheque.Size = new System.Drawing.Size(985, 922);
+            this.tabCheque.Size = new System.Drawing.Size(1201, 922);
             this.tabCheque.TabIndex = 0;
             this.tabCheque.Text = "จ่าย Cheque";
             // 
@@ -447,7 +447,7 @@
             this.panel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(985, 922);
+            this.panel5.Size = new System.Drawing.Size(1201, 922);
             this.panel5.TabIndex = 0;
             this.theme1.SetTheme(this.panel5, "(default)");
             // 
@@ -464,7 +464,7 @@
             this.tCCheque.Location = new System.Drawing.Point(0, 0);
             this.tCCheque.Name = "tCCheque";
             this.tCCheque.SelectedIndex = 3;
-            this.tCCheque.Size = new System.Drawing.Size(985, 922);
+            this.tCCheque.Size = new System.Drawing.Size(1201, 922);
             this.tCCheque.TabIndex = 0;
             this.tCCheque.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
             this.tCCheque.TabsShowFocusCues = false;
@@ -477,7 +477,7 @@
             this.tabChequeView.Controls.Add(this.panel6);
             this.tabChequeView.Location = new System.Drawing.Point(1, 24);
             this.tabChequeView.Name = "tabChequeView";
-            this.tabChequeView.Size = new System.Drawing.Size(983, 897);
+            this.tabChequeView.Size = new System.Drawing.Size(1199, 897);
             this.tabChequeView.TabIndex = 0;
             this.tabChequeView.Text = "เตรียมข้อมูลจ่าย Cheque";
             // 
@@ -491,7 +491,7 @@
             this.panel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(983, 897);
+            this.panel6.Size = new System.Drawing.Size(1199, 897);
             this.panel6.TabIndex = 0;
             this.theme1.SetTheme(this.panel6, "(default)");
             // 
@@ -503,7 +503,7 @@
             this.panel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel11.Location = new System.Drawing.Point(640, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(343, 897);
+            this.panel11.Size = new System.Drawing.Size(559, 897);
             this.panel11.TabIndex = 0;
             this.theme1.SetTheme(this.panel11, "(default)");
             // 
@@ -514,7 +514,7 @@
             this.gBChequeMake.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.gBChequeMake.Location = new System.Drawing.Point(0, 0);
             this.gBChequeMake.Name = "gBChequeMake";
-            this.gBChequeMake.Size = new System.Drawing.Size(343, 897);
+            this.gBChequeMake.Size = new System.Drawing.Size(559, 897);
             this.gBChequeMake.TabIndex = 1;
             this.gBChequeMake.TabStop = false;
             this.gBChequeMake.Text = "Cheque ทำจ่าย";
@@ -626,7 +626,7 @@
             this.tabChequeMake.Controls.Add(this.panel7);
             this.tabChequeMake.Location = new System.Drawing.Point(1, 24);
             this.tabChequeMake.Name = "tabChequeMake";
-            this.tabChequeMake.Size = new System.Drawing.Size(983, 897);
+            this.tabChequeMake.Size = new System.Drawing.Size(1199, 897);
             this.tabChequeMake.TabIndex = 1;
             this.tabChequeMake.Text = "ทำ Cheque";
             // 
@@ -639,7 +639,7 @@
             this.panel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(983, 897);
+            this.panel7.Size = new System.Drawing.Size(1199, 897);
             this.panel7.TabIndex = 0;
             this.theme1.SetTheme(this.panel7, "(default)");
             // 
@@ -650,7 +650,7 @@
             this.panel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel13.Location = new System.Drawing.Point(0, 169);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(983, 728);
+            this.panel13.Size = new System.Drawing.Size(1199, 728);
             this.panel13.TabIndex = 0;
             this.theme1.SetTheme(this.panel13, "(default)");
             // 
@@ -663,7 +663,7 @@
             this.panel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel12.Location = new System.Drawing.Point(0, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(983, 169);
+            this.panel12.Size = new System.Drawing.Size(1199, 169);
             this.panel12.TabIndex = 0;
             this.theme1.SetTheme(this.panel12, "(default)");
             // 
@@ -679,7 +679,7 @@
             this.panel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel15.Location = new System.Drawing.Point(617, 0);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(366, 169);
+            this.panel15.Size = new System.Drawing.Size(582, 169);
             this.panel15.TabIndex = 0;
             this.theme1.SetTheme(this.panel15, "(default)");
             // 
@@ -788,7 +788,7 @@
             this.tabChequePrint.Controls.Add(this.panel8);
             this.tabChequePrint.Location = new System.Drawing.Point(1, 24);
             this.tabChequePrint.Name = "tabChequePrint";
-            this.tabChequePrint.Size = new System.Drawing.Size(983, 897);
+            this.tabChequePrint.Size = new System.Drawing.Size(1199, 897);
             this.tabChequePrint.TabIndex = 2;
             this.tabChequePrint.Text = "พิมพ์ Cheque";
             // 
@@ -799,7 +799,7 @@
             this.panel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(983, 897);
+            this.panel8.Size = new System.Drawing.Size(1199, 897);
             this.panel8.TabIndex = 0;
             this.theme1.SetTheme(this.panel8, "(default)");
             // 
@@ -808,7 +808,7 @@
             this.tabChequeTax.Controls.Add(this.panel26);
             this.tabChequeTax.Location = new System.Drawing.Point(1, 24);
             this.tabChequeTax.Name = "tabChequeTax";
-            this.tabChequeTax.Size = new System.Drawing.Size(983, 897);
+            this.tabChequeTax.Size = new System.Drawing.Size(1199, 897);
             this.tabChequeTax.TabIndex = 3;
             this.tabChequeTax.Text = "พิมพ์ ใบหัก ณ ที่จ่าย";
             // 
@@ -821,7 +821,7 @@
             this.panel26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel26.Location = new System.Drawing.Point(0, 0);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(983, 897);
+            this.panel26.Size = new System.Drawing.Size(1199, 897);
             this.panel26.TabIndex = 0;
             this.theme1.SetTheme(this.panel26, "(default)");
             // 
@@ -901,7 +901,7 @@
             this.panel33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel33.Location = new System.Drawing.Point(0, 0);
             this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(983, 718);
+            this.panel33.Size = new System.Drawing.Size(1199, 718);
             this.panel33.TabIndex = 0;
             this.theme1.SetTheme(this.panel33, "(default)");
             // 
@@ -2197,7 +2197,7 @@
             this.panel32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel32.Location = new System.Drawing.Point(0, 718);
             this.panel32.Name = "panel32";
-            this.panel32.Size = new System.Drawing.Size(983, 179);
+            this.panel32.Size = new System.Drawing.Size(1199, 179);
             this.panel32.TabIndex = 0;
             this.theme1.SetTheme(this.panel32, "(default)");
             // 
@@ -2206,7 +2206,7 @@
             this.tabCash.Controls.Add(this.panel16);
             this.tabCash.Location = new System.Drawing.Point(1, 24);
             this.tabCash.Name = "tabCash";
-            this.tabCash.Size = new System.Drawing.Size(985, 922);
+            this.tabCash.Size = new System.Drawing.Size(1201, 922);
             this.tabCash.TabIndex = 1;
             this.tabCash.Text = "จ่าย เงินสด";
             // 
@@ -2218,7 +2218,7 @@
             this.panel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel16.Location = new System.Drawing.Point(0, 0);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(985, 922);
+            this.panel16.Size = new System.Drawing.Size(1201, 922);
             this.panel16.TabIndex = 0;
             this.theme1.SetTheme(this.panel16, "(default)");
             // 
@@ -2234,7 +2234,7 @@
             this.tabCash1.Location = new System.Drawing.Point(0, 0);
             this.tabCash1.Name = "tabCash1";
             this.tabCash1.SelectedIndex = 2;
-            this.tabCash1.Size = new System.Drawing.Size(985, 922);
+            this.tabCash1.Size = new System.Drawing.Size(1201, 922);
             this.tabCash1.TabIndex = 0;
             this.tabCash1.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
             this.tabCash1.TabsShowFocusCues = false;
@@ -2249,7 +2249,7 @@
             this.tabCashView.Controls.Add(this.panel17);
             this.tabCashView.Location = new System.Drawing.Point(1, 24);
             this.tabCashView.Name = "tabCashView";
-            this.tabCashView.Size = new System.Drawing.Size(983, 897);
+            this.tabCashView.Size = new System.Drawing.Size(1199, 897);
             this.tabCashView.TabIndex = 0;
             this.tabCashView.Text = "เตรียมข้อมูลจ่าย เงินสด";
             // 
@@ -2261,7 +2261,7 @@
             this.panel19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel19.Location = new System.Drawing.Point(598, 0);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(385, 897);
+            this.panel19.Size = new System.Drawing.Size(601, 897);
             this.panel19.TabIndex = 2;
             this.theme1.SetTheme(this.panel19, "(default)");
             // 
@@ -2272,7 +2272,7 @@
             this.gbCashPre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.gbCashPre.Location = new System.Drawing.Point(0, 0);
             this.gbCashPre.Name = "gbCashPre";
-            this.gbCashPre.Size = new System.Drawing.Size(385, 897);
+            this.gbCashPre.Size = new System.Drawing.Size(601, 897);
             this.gbCashPre.TabIndex = 0;
             this.gbCashPre.TabStop = false;
             this.gbCashPre.Text = "ทำจ่ายเงินสด";
@@ -2384,7 +2384,7 @@
             this.tabCashMake.Controls.Add(this.panel21);
             this.tabCashMake.Location = new System.Drawing.Point(1, 24);
             this.tabCashMake.Name = "tabCashMake";
-            this.tabCashMake.Size = new System.Drawing.Size(983, 897);
+            this.tabCashMake.Size = new System.Drawing.Size(1199, 897);
             this.tabCashMake.TabIndex = 1;
             this.tabCashMake.Text = "ทำจ่าย เงินสด";
             // 
@@ -2397,7 +2397,7 @@
             this.panel21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel21.Location = new System.Drawing.Point(0, 0);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(983, 897);
+            this.panel21.Size = new System.Drawing.Size(1199, 897);
             this.panel21.TabIndex = 0;
             this.theme1.SetTheme(this.panel21, "(default)");
             // 
@@ -2408,7 +2408,7 @@
             this.panel23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel23.Location = new System.Drawing.Point(0, 50);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(983, 847);
+            this.panel23.Size = new System.Drawing.Size(1199, 847);
             this.panel23.TabIndex = 0;
             this.theme1.SetTheme(this.panel23, "(default)");
             // 
@@ -2426,7 +2426,7 @@
             this.panel22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel22.Location = new System.Drawing.Point(0, 0);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(983, 50);
+            this.panel22.Size = new System.Drawing.Size(1199, 50);
             this.panel22.TabIndex = 0;
             this.theme1.SetTheme(this.panel22, "(default)");
             // 
@@ -2438,7 +2438,7 @@
             this.btnCashSave.Name = "btnCashSave";
             this.btnCashSave.Size = new System.Drawing.Size(83, 39);
             this.btnCashSave.TabIndex = 540;
-            this.btnCashSave.Text = "บันทึกช้อมูล";
+            this.btnCashSave.Text = "จ่ายเงินสด";
             this.btnCashSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.theme1.SetTheme(this.btnCashSave, "(default)");
             this.btnCashSave.UseVisualStyleBackColor = true;
@@ -2548,7 +2548,7 @@
             this.tabCashTax.Controls.Add(this.panel25);
             this.tabCashTax.Location = new System.Drawing.Point(1, 24);
             this.tabCashTax.Name = "tabCashTax";
-            this.tabCashTax.Size = new System.Drawing.Size(983, 897);
+            this.tabCashTax.Size = new System.Drawing.Size(1199, 897);
             this.tabCashTax.TabIndex = 2;
             this.tabCashTax.Text = "พิมพ์ ใบหัก ณ ที่จ่าย";
             // 
@@ -2561,7 +2561,7 @@
             this.panel25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel25.Location = new System.Drawing.Point(0, 0);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(983, 897);
+            this.panel25.Size = new System.Drawing.Size(1199, 897);
             this.panel25.TabIndex = 0;
             this.theme1.SetTheme(this.panel25, "(default)");
             // 
@@ -2572,7 +2572,7 @@
             this.panel35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel35.Location = new System.Drawing.Point(0, 0);
             this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(983, 721);
+            this.panel35.Size = new System.Drawing.Size(1199, 721);
             this.panel35.TabIndex = 0;
             this.theme1.SetTheme(this.panel35, "(default)");
             // 
@@ -2583,7 +2583,7 @@
             this.panel34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel34.Location = new System.Drawing.Point(0, 721);
             this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(983, 176);
+            this.panel34.Size = new System.Drawing.Size(1199, 176);
             this.panel34.TabIndex = 0;
             this.theme1.SetTheme(this.panel34, "(default)");
             // 
@@ -2592,7 +2592,7 @@
             this.tabTax.Controls.Add(this.panel24);
             this.tabTax.Location = new System.Drawing.Point(1, 24);
             this.tabTax.Name = "tabTax";
-            this.tabTax.Size = new System.Drawing.Size(985, 922);
+            this.tabTax.Size = new System.Drawing.Size(1201, 922);
             this.tabTax.TabIndex = 2;
             this.tabTax.Text = "พิมพ์ ใบหัก ณ ที่จ่าย";
             // 
@@ -2633,7 +2633,7 @@
             this.panel24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel24.Location = new System.Drawing.Point(0, 0);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(985, 922);
+            this.panel24.Size = new System.Drawing.Size(1201, 922);
             this.panel24.TabIndex = 0;
             this.theme1.SetTheme(this.panel24, "(default)");
             // 
@@ -3520,7 +3520,7 @@
             this.cdLeft.Id = 2;
             this.cdLeft.Location = new System.Drawing.Point(0, 0);
             this.cdLeft.Name = "cdLeft";
-            this.cdLeft.Size = new System.Drawing.Size(641, 947);
+            this.cdLeft.Size = new System.Drawing.Size(425, 947);
             this.theme1.SetTheme(this.cdLeft, "(default)");
             // 
             // c1DockingTab1
@@ -3536,7 +3536,7 @@
             this.c1DockingTab1.Location = new System.Drawing.Point(0, 0);
             this.c1DockingTab1.Name = "c1DockingTab1";
             this.c1DockingTab1.ShowCaption = true;
-            this.c1DockingTab1.Size = new System.Drawing.Size(641, 947);
+            this.c1DockingTab1.Size = new System.Drawing.Size(425, 947);
             this.c1DockingTab1.TabIndex = 0;
             this.c1DockingTab1.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
             this.c1DockingTab1.TabsShowFocusCues = false;
@@ -3550,7 +3550,7 @@
             this.c1DockingTabPage1.Controls.Add(this.panel2);
             this.c1DockingTabPage1.Location = new System.Drawing.Point(1, 1);
             this.c1DockingTabPage1.Name = "c1DockingTabPage1";
-            this.c1DockingTabPage1.Size = new System.Drawing.Size(636, 922);
+            this.c1DockingTabPage1.Size = new System.Drawing.Size(420, 922);
             this.c1DockingTabPage1.TabIndex = 0;
             this.c1DockingTabPage1.Text = "Page1";
             // 
@@ -3563,7 +3563,7 @@
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel2.Location = new System.Drawing.Point(0, 22);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(636, 900);
+            this.panel2.Size = new System.Drawing.Size(420, 900);
             this.panel2.TabIndex = 0;
             this.theme1.SetTheme(this.panel2, "(default)");
             // 
@@ -3574,7 +3574,7 @@
             this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel4.Location = new System.Drawing.Point(0, 46);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(636, 854);
+            this.panel4.Size = new System.Drawing.Size(420, 854);
             this.panel4.TabIndex = 12;
             this.theme1.SetTheme(this.panel4, "(default)");
             // 
@@ -3591,7 +3591,7 @@
             this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(636, 46);
+            this.panel3.Size = new System.Drawing.Size(420, 46);
             this.panel3.TabIndex = 11;
             this.theme1.SetTheme(this.panel3, "(default)");
             // 

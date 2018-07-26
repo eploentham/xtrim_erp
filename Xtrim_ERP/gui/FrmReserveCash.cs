@@ -68,7 +68,7 @@ namespace Xtrim_ERP.gui
             grfView.Dock = System.Windows.Forms.DockStyle.Fill;
             grfView.Location = new System.Drawing.Point(0, 0);
 
-            FilterRow fr = new FilterRow(grfView);
+            //FilterRow fr = new FilterRow(grfView);
             //grfView.AfterDataRefresh += GrfView_AfterDataRefresh;
             //grfExpn.AfterRowColChange += new C1.Win.C1FlexGrid.RangeEventHandler(this.grfDept_AfterRowColChange);
             //grfExpnC.CellButtonClick += new C1.Win.C1FlexGrid.RowColEventHandler(this.grfDept_CellButtonClick);
@@ -99,10 +99,10 @@ namespace Xtrim_ERP.gui
             grfView.Cols[colAmt].Editor = txt;
             grfView.Cols[colDesc].Editor = txt;
 
-            grfView.Cols[colDate].Width = 100;
+            grfView.Cols[colDate].Width = 150;
             grfView.Cols[colType].Width = 100;
             grfView.Cols[colAmt].Width = 100;
-            grfView.Cols[colDesc].Width = 200;
+            grfView.Cols[colDesc].Width = 300;
             //grfView.Cols[colStatus].Width = 80;
             //grfView.Cols[colStatusPay].Width = 80;
             grfView.ShowCursor = true;

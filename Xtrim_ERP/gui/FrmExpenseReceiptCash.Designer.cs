@@ -120,7 +120,7 @@
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1148, 57);
+            this.panel2.Size = new System.Drawing.Size(1260, 57);
             this.panel2.TabIndex = 11;
             this.theme1.SetTheme(this.panel2, "(default)");
             // 
@@ -367,7 +367,7 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Location = new System.Drawing.Point(0, 57);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1148, 640);
+            this.panel1.Size = new System.Drawing.Size(1260, 640);
             this.panel1.TabIndex = 515;
             this.theme1.SetTheme(this.panel1, "(default)");
             // 
@@ -392,8 +392,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.panel4);
             this.splitContainer1.Panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.theme1.SetTheme(this.splitContainer1.Panel2, "(default)");
-            this.splitContainer1.Size = new System.Drawing.Size(1148, 640);
-            this.splitContainer1.SplitterDistance = 558;
+            this.splitContainer1.Size = new System.Drawing.Size(1260, 640);
+            this.splitContainer1.SplitterDistance = 612;
             this.splitContainer1.TabIndex = 0;
             this.theme1.SetTheme(this.splitContainer1, "(default)");
             // 
@@ -406,7 +406,7 @@
             this.panel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(558, 640);
+            this.panel3.Size = new System.Drawing.Size(612, 640);
             this.panel3.TabIndex = 0;
             this.theme1.SetTheme(this.panel3, "(default)");
             // 
@@ -417,7 +417,7 @@
             this.panel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel6.Location = new System.Drawing.Point(0, 149);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(558, 491);
+            this.panel6.Size = new System.Drawing.Size(612, 491);
             this.panel6.TabIndex = 0;
             this.theme1.SetTheme(this.panel6, "(default)");
             // 
@@ -439,7 +439,7 @@
             this.panel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(558, 149);
+            this.panel5.Size = new System.Drawing.Size(612, 149);
             this.panel5.TabIndex = 0;
             this.theme1.SetTheme(this.panel5, "(default)");
             // 
@@ -612,7 +612,7 @@
             this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(586, 640);
+            this.panel4.Size = new System.Drawing.Size(644, 640);
             this.panel4.TabIndex = 0;
             this.theme1.SetTheme(this.panel4, "(default)");
             // 
@@ -623,7 +623,7 @@
             this.panel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel8.Location = new System.Drawing.Point(0, 44);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(586, 596);
+            this.panel8.Size = new System.Drawing.Size(644, 596);
             this.panel8.TabIndex = 1;
             this.theme1.SetTheme(this.panel8, "(default)");
             // 
@@ -638,7 +638,7 @@
             this.panel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(586, 44);
+            this.panel7.Size = new System.Drawing.Size(644, 44);
             this.panel7.TabIndex = 0;
             this.theme1.SetTheme(this.panel7, "(default)");
             // 
@@ -648,7 +648,7 @@
             this.sB1});
             this.sB.Location = new System.Drawing.Point(0, 697);
             this.sB.Name = "sB";
-            this.sB.Size = new System.Drawing.Size(1148, 22);
+            this.sB.Size = new System.Drawing.Size(1260, 22);
             this.sB.TabIndex = 10;
             this.sB.Text = "statusStrip1";
             // 
@@ -662,7 +662,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1148, 719);
+            this.ClientSize = new System.Drawing.Size(1260, 719);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.sB);
