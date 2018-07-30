@@ -296,6 +296,12 @@
     <Compile Include="gui\FrmExpenseReceiptCash.Designer.cs">
       <DependentUpon>FrmExpenseReceiptCash.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmExpenseReceiptCashAppv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmExpenseReceiptCashAppv.Designer.cs">
+      <DependentUpon>FrmExpenseReceiptCashAppv.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmExpenseRefund.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -979,6 +985,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmExpenseReceiptCash.resx">
       <DependentUpon>FrmExpenseReceiptCash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmExpenseReceiptCashAppv.resx">
+      <DependentUpon>FrmExpenseReceiptCashAppv.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmExpenseRefund.resx">
       <DependentUpon>FrmExpenseRefund.cs</DependentUpon>

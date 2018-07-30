@@ -626,6 +626,11 @@ ALTER TABLE `xtrim_erp`.`t_expenses_clear_cash`
 ADD COLUMN `doc_staff_id` VARCHAR(255) NULL AFTER `status_doc`,
 ADD COLUMN `appv_staff_id` VARCHAR(255) NULL AFTER `doc_staff_id`;
 
+61-07-29
+ALTER TABLE `xtrim_erp`.`b_staff` 
+ADD COLUMN `status_expense_draw` VARCHAR(255) NULL COMMENT 'หน้าจอเบิกเงิน' AFTER `status_module_other_job`,
+ADD COLUMN `status_expnese_appv` VARCHAR(255) NULL COMMENT 'หน้าจอ อนุมัติ เบิกเงิน' AFTER `status_expense_draw`,
+ADD COLUMN `status_expense_pay` VARCHAR(255) NULL COMMENT 'หน้าจอ จ่ายเงิน' AFTER `status_expnese_appv`;
 
 
 

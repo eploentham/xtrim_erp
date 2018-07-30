@@ -545,7 +545,7 @@ namespace Xtrim_ERP.gui
                 grfExpnD[i + 1, 0] = i + 1;
                 if (i % 2 == 0)
                     grfExpnD.Rows[i+1].StyleNew.BackColor = color;
-                grfExpnD[i+1, colDid] = dt.Rows[i][xC.xtDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
+                grfExpnD[i + 1, colDid] = dt.Rows[i][xC.xtDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
                 grfExpnD[i + 1, colDItemNamet] = dt.Rows[i][xC.xtDB.expnddDB.expnC.item_name_t].ToString();
                 grfExpnD[i + 1, colDQty] = dt.Rows[i][xC.xtDB.expnddDB.expnC.qty].ToString();
                 grfExpnD[i + 1, colDUnitNameT] = dt.Rows[i][xC.xtDB.expnddDB.expnC.unit_name_t].ToString();
@@ -772,7 +772,14 @@ namespace Xtrim_ERP.gui
             else if (expnD.status_appv.Equals("2"))
             {
                 label8.Text = "อนุมัติแล้ว";
-                label8.ForeColor = Color.Green;
+                label8.ForeColor = Color.SaddleBrown;
+            }
+            if (expnD.status_pay.Equals("2"))
+            {
+                label8.Text = "จ่ายเงินแล้ว";
+                label8.ForeColor = Color.Gray;
+                setControlAppv();
+                setControlEnablePay();
             }
             if (flagfom2 == flagForm2.Cash)
             {
@@ -784,6 +791,13 @@ namespace Xtrim_ERP.gui
                 label9.Hide();
                 txtAmtOnhand.Hide();
             }
+        }
+        private void setControlEnablePay()
+        {
+            btnDoc.Enabled = false;
+            btnNew.Enabled = false;
+            btnEdit.Enabled = false;
+            btnSave.Enabled = false;
         }
         private void setControlEnable(Boolean flag)
         {

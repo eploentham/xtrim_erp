@@ -60,6 +60,9 @@ namespace Xtrim_ERP.objdb
             stf.posi_name_t = "posi_name_t";
             stf.dept_name_t = "dept_name_t";
             stf.dept_id = "dept_id";
+            stf.status_expense_appv = "status_expense_appv";
+            stf.status_expense_draw = "status_expense_draw";
+            stf.status_expense_pay = "status_expense_pay";
 
             stf.table = "b_staff";
             stf.pkField = "staff_id";
@@ -149,6 +152,7 @@ namespace Xtrim_ERP.objdb
             p.pid = p.pid == null ? "" : p.pid;
             p.logo = p.logo == null ? "" : p.logo;
             p.dept_name = p.dept_name == null ? "" : p.dept_name;
+            
 
             p.status_admin = p.status_admin == null ? "0" : p.status_admin;
             p.status_module_imp_job = p.status_module_imp_job == null ? "0" : p.status_module_imp_job;
@@ -157,6 +161,9 @@ namespace Xtrim_ERP.objdb
             p.status_module_imp_job = p.status_module_imp_job.Equals("") ? "0" : p.status_module_imp_job;
             p.status_module_exp_job = p.status_module_exp_job.Equals("") ? "0" : p.status_module_exp_job;
             p.status_module_other_job = p.status_module_other_job.Equals("") ? "0" : p.status_module_other_job;
+            p.status_expense_appv = p.status_expense_appv == null ? "0" : p.status_expense_appv;
+            p.status_expense_draw = p.status_expense_draw == null ? "0" : p.status_expense_draw;
+            p.status_expense_pay = p.status_expense_pay == null ? "0" : p.status_expense_pay;
             //p.user_cancel = p.user_cancel == null ? "" : p.user_cancel;
         }
         public String insert(Staff p, String userId)
@@ -175,10 +182,11 @@ namespace Xtrim_ERP.objdb
                 stf.email + "," + stf.posi_id + "," + stf.posi_name + "," +
                 stf.date_create + "," + stf.date_modi + "," + stf.date_cancel + "," +
                 stf.user_create + "," + stf.user_modi + "," + stf.user_cancel + ","+
-                stf.staff_lname_t + "," + stf.staff_lname_e + ", " + stf.pid + ", " +
-                stf.logo + ", " + stf.posi_id + ", " + stf.dept_name + ", " +
-                stf.status_admin + ", " + stf.status_module_imp_job + ", " + stf.status_module_exp_job + ", " +
-                stf.status_module_other_job + " " +
+                stf.staff_lname_t + "," + stf.staff_lname_e + ", " + stf.pid + "," +
+                stf.logo + ", " + stf.posi_id + ", " + stf.dept_name + "," +
+                stf.status_admin + ", " + stf.status_module_imp_job + "," + stf.status_module_exp_job + "," +
+                stf.status_module_other_job + "," +
+                stf.status_expense_appv + "," + stf.status_expense_draw + "," + stf.status_expense_pay + " " +
                 ") " +
                 "Values ('" + p.staff_code + "','" + p.username + "','" + p.prefix_id + "'," +
                 "'" + p.staff_fname_t.Replace("'", "''") + "','" + p.staff_fname_e.Replace("'", "''") + "','" + p.password1 + "'," +
@@ -187,10 +195,11 @@ namespace Xtrim_ERP.objdb
                 "'" + p.email + "','" + p.posi_id + "','" + p.posi_name + "'," +
                 "now(),'" + p.date_modi + "','" + p.date_cancel + "'," +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "', " +
-                "'" + p.staff_lname_t.Replace("'", "''") + "','" + p.staff_lname_e.Replace("'", "''") + "','" + p.pid + "', " +
-                "'" + p.logo+"','" + p.posi_id + "','" + p.dept_name.Replace("'", "''") + "', " +
-                "'" + p.status_admin + "','" + p.status_module_imp_job + "','" + p.status_module_exp_job.Replace("'", "''") + "', " +
-                "'" + p.status_module_other_job.Replace("'", "''") + "' " +
+                "'" + p.staff_lname_t.Replace("'", "''") + "','" + p.staff_lname_e.Replace("'", "''") + "','" + p.pid + "'," +
+                "'" + p.logo+"','" + p.posi_id + "','" + p.dept_name.Replace("'", "''") + "'," +
+                "'" + p.status_admin + "','" + p.status_module_imp_job + "','" + p.status_module_exp_job.Replace("'", "''") + "'," +
+                "'" + p.status_module_other_job.Replace("'", "''") + "'," +
+                "'" + p.status_expense_appv + "','" + p.status_expense_draw + "','" + p.status_expense_pay.Replace("'", "''") + "' " +
                 ")";
             try
             {
@@ -237,6 +246,9 @@ namespace Xtrim_ERP.objdb
                 "," + stf.status_module_imp_job + " = '" + p.status_module_imp_job.Replace("'", "''") + "' " +
                 "," + stf.status_module_exp_job + " = '" + p.status_module_exp_job.Replace("'", "''") + "' " +
                 "," + stf.status_module_other_job + " = '" + p.status_module_other_job.Replace("'", "''") + "' " +
+                "," + stf.status_expense_appv + " = '" + p.status_expense_appv.Replace("'", "''") + "' " +
+                "," + stf.status_expense_draw + " = '" + p.status_expense_draw.Replace("'", "''") + "' " +
+                "," + stf.status_expense_pay + " = '" + p.status_expense_pay.Replace("'", "''") + "' " +
                 "Where " + stf.pkField + "='" + p.staff_id + "'"
                 ;
 
@@ -468,6 +480,9 @@ namespace Xtrim_ERP.objdb
                 stf1.posi_name = dt.Rows[0][stf.posi_name].ToString();
                 stf1.dept_name_t = dt.Rows[0][stf.dept_name_t] != null ? dt.Rows[0][stf.dept_name_t].ToString() : "";
                 stf1.posi_name_t = dt.Rows[0][stf.posi_name_t] != null ? dt.Rows[0][stf.posi_name_t].ToString() : "";
+                stf1.status_expense_appv = dt.Rows[0][stf.status_expense_appv] != null ? dt.Rows[0][stf.status_expense_appv].ToString() : "";
+                stf1.status_expense_draw = dt.Rows[0][stf.status_expense_draw] != null ? dt.Rows[0][stf.status_expense_draw].ToString() : "";
+                stf1.status_expense_pay = dt.Rows[0][stf.status_expense_pay] != null ? dt.Rows[0][stf.status_expense_pay].ToString() : "";
             }
             else
             {
@@ -510,6 +525,9 @@ namespace Xtrim_ERP.objdb
             stf1.status_module_imp_job = "0";
             stf1.status_module_exp_job = "0";
             stf1.status_module_other_job = "0";
+            stf1.status_expense_appv = "0";
+            stf1.status_expense_draw = "0";
+            stf1.status_expense_pay = "0";
             return stf1;
         }
         public void setCboStaff(C1ComboBox c, String selected)

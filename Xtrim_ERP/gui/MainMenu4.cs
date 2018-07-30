@@ -75,12 +75,14 @@ namespace Xtrim_ERP.gui
             menuExpnReceipt1.Click += MenuExpnReceipt1_Click;
             menuEcc.Click += MenuEcc_Click;
             menuReceiptAppv.Click += MenuReceiptAppv_Click;
+
+            
         }
 
         private void MenuReceiptAppv_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmExpenseReceiptAppvView frm = new FrmExpenseReceiptAppvView(xC);
+            FrmExpenseReceiptCashAppv frm = new FrmExpenseReceiptCashAppv(xC);
             frm.FormBorderStyle = FormBorderStyle.None;
             AddNewTab(frm, menuReceiptAppv.Text + " ");
         }
@@ -106,7 +108,7 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             FrmJobTax frm = new FrmJobTax(xC);
             frm.FormBorderStyle = FormBorderStyle.None;
-            AddNewTab(frm, menuJobTax.Text + " ");
+            AddNewTab(frm, menuJobTax1.Text + " ");
         }
         private void MenuExpnReceipt1_Click(object sender, EventArgs e)
         {
@@ -502,8 +504,37 @@ namespace Xtrim_ERP.gui
                 {
                     menuInit.Enabled = true;
                 }
+
+                menuDrawReserve.Visible = false;
+                menuExpnDraw0.Visible = false;
+                menuExpnDrawAppv.Visible = false;
+                menuExpnDrawPay.Visible = false;
+                menuExpnDraw0.Visible = false;
+                menuBilling1.Visible = false;
+                menuPayment.Visible = false;
+                menuDebtor.Visible = false;
+                toolStripSeparator4.Visible = false;
+                toolStripSeparator5.Visible = false;
+                if (xC.user.status_expense_draw.Equals("1"))
+                {
+                    menuExpnDraw0.Visible = true;
+                }
+                if (xC.user.status_expense_appv.Equals("1"))
+                {
+                    menuExpnDrawAppv.Visible = true;
+                    toolStripSeparator4.Visible = true;
+                }
+                if (xC.user.status_expense_pay.Equals("1"))
+                {
+                    menuExpnDrawPay.Visible = true;
+                    menuBilling1.Visible = true;
+                    menuPayment.Visible = true;
+                    menuDebtor.Visible = true;
+                    toolStripSeparator5.Visible = true;
+                    menuDrawReserve.Visible = true;
+                }
             }
-            this.Text = xC.user.staff_fname_t+" "+xC.user.staff_lname_t + " Last Update 2018-07-26";
+            this.Text = xC.user.staff_fname_t+" "+xC.user.staff_lname_t + " Last Update 2018-07-29";
         }
     }
 }

@@ -59,6 +59,8 @@ namespace Xtrim_ERP.gui
             xC.setCboYear(cboYear);
             initGrfDept();
             setGrfDeptH();
+
+            chkAppvWait.Checked = true;
         }
         private void ChkAppvWait_Click(object sender, EventArgs e)
         {

@@ -36,5 +36,8 @@ namespace Xtrim_ERP.object1
         public String status_module_imp_job { get; set; }
         public String status_module_exp_job { get; set; }
         public String status_module_other_job { get; set; }
+        public String status_expense_draw { get; set; }
+        public String status_expense_appv { get; set; }
+        public String status_expense_pay { get; set; }
     }
 }

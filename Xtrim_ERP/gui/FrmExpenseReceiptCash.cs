@@ -74,7 +74,7 @@ namespace Xtrim_ERP.gui
             grfExpnD.Cols[colExpnDdesc1].Caption = "รายละเอียด";
             grfExpnD.Cols[colExpnDDdesc1].Caption = "รายละเอียด";
 
-            grfExpnD.AfterRowColChange += GrfExpnD_AfterRowColChange;
+            //grfExpnD.AfterRowColChange += GrfExpnD_AfterRowColChange;
             grfExpnD.Cols[colId].Visible = false;
         }
         

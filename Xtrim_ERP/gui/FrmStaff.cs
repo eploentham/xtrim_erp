@@ -624,6 +624,9 @@ namespace Xtrim_ERP.gui
             chkImpJob.Checked = stf.status_module_imp_job.Equals("1") ? true : false;
             chkExpJob.Checked = stf.status_module_exp_job.Equals("1") ? true : false;
             chkOtherJob.Checked = stf.status_module_other_job.Equals("1") ? true : false;
+            chkExpnAppv.Checked = stf.status_expense_appv.Equals("1") ? true : false;
+            chkExpnD.Checked = stf.status_expense_draw.Equals("1") ? true : false;
+            chkExpnP.Checked = stf.status_expense_pay.Equals("1") ? true : false;
             btnPassword.Show();
         }
         private void setStaff()
@@ -648,6 +651,9 @@ namespace Xtrim_ERP.gui
             stf.status_module_imp_job = chkImpJob.Checked ? "1" : "0";
             stf.status_module_exp_job = chkExpJob.Checked ? "1" : "0";
             stf.status_module_other_job = chkOtherJob.Checked ? "1" : "0";
+            stf.status_expense_appv = chkExpnAppv.Checked ? "1" : "0";
+            stf.status_expense_draw = chkExpnD.Checked ? "1" : "0";
+            stf.status_expense_pay = chkExpnP.Checked ? "1" : "0";
             //stf.logo = txtLogo.Value.ToString();
             //txtCopCode.Value = xC.xtDB.copDB.cop.comp_id;
         }
