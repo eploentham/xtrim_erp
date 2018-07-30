@@ -32,6 +32,7 @@
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtdid = new C1.Win.C1Input.C1TextBox();
             this.txtddId = new C1.Win.C1Input.C1TextBox();
             this.txtStfId = new C1.Win.C1Input.C1TextBox();
@@ -65,7 +66,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtReceiptDate = new C1.Win.Calendar.C1DateEdit();
-            this.c1TextBox3 = new C1.Win.C1Input.C1TextBox();
+            this.txtPayCusNameT = new C1.Win.C1Input.C1TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtItmNameT = new C1.Win.C1Input.C1TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -75,7 +76,7 @@
             this.txtId = new C1.Win.C1Input.C1TextBox();
             this.txtRow = new C1.Win.C1Input.C1TextBox();
             this.label34 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtPayCusId = new C1.Win.C1Input.C1TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -100,13 +101,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtReceiptNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtReceiptDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPayCusNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtItmNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTableId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPayCusId)).BeginInit();
             this.SuspendLayout();
             // 
             // theme1
@@ -134,6 +136,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel1.Controls.Add(this.txtPayCusId);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtdid);
             this.panel1.Controls.Add(this.txtddId);
@@ -168,7 +171,7 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txtReceiptDate);
-            this.panel1.Controls.Add(this.c1TextBox3);
+            this.panel1.Controls.Add(this.txtPayCusNameT);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtItmNameT);
             this.panel1.Controls.Add(this.label2);
@@ -185,6 +188,19 @@
             this.panel1.Size = new System.Drawing.Size(511, 519);
             this.panel1.TabIndex = 7;
             this.theme1.SetTheme(this.panel1, "(default)");
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label1.Location = new System.Drawing.Point(7, 94);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 16);
+            this.label1.TabIndex = 552;
+            this.label1.Text = "Job No :";
+            this.theme1.SetTheme(this.label1, "(default)");
             // 
             // txtdid
             // 
@@ -219,7 +235,7 @@
             this.txtStfId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtStfId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtStfId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtStfId.Location = new System.Drawing.Point(393, 127);
+            this.txtStfId.Location = new System.Drawing.Point(417, 178);
             this.txtStfId.Name = "txtStfId";
             this.txtStfId.Size = new System.Drawing.Size(33, 20);
             this.txtStfId.TabIndex = 549;
@@ -588,7 +604,7 @@
             this.c1TextBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.c1TextBox5.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.c1TextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox5.Location = new System.Drawing.Point(142, 176);
+            this.c1TextBox5.Location = new System.Drawing.Point(142, 155);
             this.c1TextBox5.Name = "c1TextBox5";
             this.c1TextBox5.Size = new System.Drawing.Size(245, 20);
             this.c1TextBox5.TabIndex = 524;
@@ -674,7 +690,7 @@
             this.txtReceiptDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtReceiptDate.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
             this.txtReceiptDate.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.txtReceiptDate.Location = new System.Drawing.Point(142, 155);
+            this.txtReceiptDate.Location = new System.Drawing.Point(142, 176);
             this.txtReceiptDate.Name = "txtReceiptDate";
             this.txtReceiptDate.Size = new System.Drawing.Size(118, 20);
             this.txtReceiptDate.TabIndex = 519;
@@ -682,18 +698,18 @@
             this.theme1.SetTheme(this.txtReceiptDate, "(default)");
             this.txtReceiptDate.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1TextBox3
+            // txtPayCusNameT
             // 
-            this.c1TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox3.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox3.Location = new System.Drawing.Point(142, 113);
-            this.c1TextBox3.Name = "c1TextBox3";
-            this.c1TextBox3.Size = new System.Drawing.Size(245, 20);
-            this.c1TextBox3.TabIndex = 518;
-            this.c1TextBox3.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox3, "(default)");
-            this.c1TextBox3.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtPayCusNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPayCusNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPayCusNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPayCusNameT.Location = new System.Drawing.Point(142, 113);
+            this.txtPayCusNameT.Name = "txtPayCusNameT";
+            this.txtPayCusNameT.Size = new System.Drawing.Size(245, 20);
+            this.txtPayCusNameT.TabIndex = 518;
+            this.txtPayCusNameT.Tag = null;
+            this.theme1.SetTheme(this.txtPayCusNameT, "(default)");
+            this.txtPayCusNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label3
             // 
@@ -703,9 +719,9 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.label3.Location = new System.Drawing.Point(7, 115);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 16);
+            this.label3.Size = new System.Drawing.Size(67, 16);
             this.label3.TabIndex = 517;
-            this.label3.Text = "ประเภทของเงินที่จ่าย :";
+            this.label3.Text = "บริษัทที่จ่าย :";
             this.theme1.SetTheme(this.label3, "(default)");
             // 
             // txtItmNameT
@@ -749,7 +765,7 @@
             // c1Button13
             // 
             this.c1Button13.Image = global::Xtrim_ERP.Properties.Resources.refresh16;
-            this.c1Button13.Location = new System.Drawing.Point(347, 50);
+            this.c1Button13.Location = new System.Drawing.Point(393, 113);
             this.c1Button13.Name = "c1Button13";
             this.c1Button13.Size = new System.Drawing.Size(22, 22);
             this.c1Button13.TabIndex = 511;
@@ -812,18 +828,19 @@
             this.label34.Text = "ลำดับ :";
             this.theme1.SetTheme(this.label34, "(default)");
             // 
-            // label1
+            // txtPayCusId
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label1.Location = new System.Drawing.Point(7, 94);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 16);
-            this.label1.TabIndex = 552;
-            this.label1.Text = "Job No :";
-            this.theme1.SetTheme(this.label1, "(default)");
+            this.txtPayCusId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPayCusId.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPayCusId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPayCusId.Location = new System.Drawing.Point(421, 115);
+            this.txtPayCusId.Name = "txtPayCusId";
+            this.txtPayCusId.Size = new System.Drawing.Size(33, 20);
+            this.txtPayCusId.TabIndex = 553;
+            this.txtPayCusId.Tag = null;
+            this.theme1.SetTheme(this.txtPayCusId, "(default)");
+            this.txtPayCusId.Visible = false;
+            this.txtPayCusId.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmExpenseClearCash
             // 
@@ -861,13 +878,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.c1TextBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtReceiptNo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtReceiptDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPayCusNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtItmNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c1Button13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTableId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPayCusId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -907,7 +925,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private C1.Win.Calendar.C1DateEdit txtReceiptDate;
-        private C1.Win.C1Input.C1TextBox c1TextBox3;
+        private C1.Win.C1Input.C1TextBox txtPayCusNameT;
         private System.Windows.Forms.Label label3;
         private C1.Win.C1Input.C1TextBox txtItmNameT;
         private System.Windows.Forms.Label label2;
@@ -923,5 +941,6 @@
         private C1.Win.C1Input.C1TextBox txtddId;
         private C1.Win.C1Input.C1TextBox txtdid;
         private System.Windows.Forms.Label label1;
+        private C1.Win.C1Input.C1TextBox txtPayCusId;
     }
 }

@@ -42,8 +42,6 @@
             this.btnJobSearch = new C1.Win.C1Input.C1Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSave = new C1.Win.C1Input.C1Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtItmNameT = new C1.Win.C1Input.C1TextBox();
             this.btnDNew = new C1.Win.C1Input.C1Button();
             this.btnDoc = new C1.Win.C1Input.C1Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -62,10 +60,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtJobAmt = new C1.Win.C1Input.C1TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.sB = new System.Windows.Forms.StatusStrip();
             this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboStaff)).BeginInit();
@@ -77,7 +77,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnJobSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtItmNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDoc)).BeginInit();
             this.panel1.SuspendLayout();
@@ -96,6 +95,7 @@
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
             this.sB.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // theme1
@@ -295,7 +295,7 @@
             // 
             this.btnSave.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(584, 4);
+            this.btnSave.Location = new System.Drawing.Point(213, 6);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(83, 31);
             this.btnSave.TabIndex = 538;
@@ -304,32 +304,6 @@
             this.theme1.SetTheme(this.btnSave, "(default)");
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label1.Location = new System.Drawing.Point(13, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 16);
-            this.label1.TabIndex = 517;
-            this.label1.Text = "รายการ";
-            this.theme1.SetTheme(this.label1, "(default)");
-            // 
-            // txtItmNameT
-            // 
-            this.txtItmNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtItmNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtItmNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtItmNameT.Location = new System.Drawing.Point(61, 6);
-            this.txtItmNameT.Name = "txtItmNameT";
-            this.txtItmNameT.Size = new System.Drawing.Size(443, 24);
-            this.txtItmNameT.TabIndex = 516;
-            this.txtItmNameT.Tag = null;
-            this.theme1.SetTheme(this.txtItmNameT, "(default)");
-            this.txtItmNameT.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // btnDNew
             // 
@@ -349,7 +323,7 @@
             // 
             this.btnDoc.Image = global::Xtrim_ERP.Properties.Resources.accept_database24;
             this.btnDoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDoc.Location = new System.Drawing.Point(393, 101);
+            this.btnDoc.Location = new System.Drawing.Point(439, 96);
             this.btnDoc.Name = "btnDoc";
             this.btnDoc.Size = new System.Drawing.Size(83, 32);
             this.btnDoc.TabIndex = 520;
@@ -425,8 +399,8 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panel5.Controls.Add(this.txtEccCode);
-            this.panel5.Controls.Add(this.btnRefund);
             this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.btnDoc);
             this.panel5.Controls.Add(this.txtPayAmt);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.txtEccAmt);
@@ -434,7 +408,6 @@
             this.panel5.Controls.Add(this.txtRefundPay);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.txtJobAmt);
-            this.panel5.Controls.Add(this.btnDoc);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel5.Location = new System.Drawing.Point(0, 0);
@@ -461,7 +434,7 @@
             // 
             this.btnRefund.Image = global::Xtrim_ERP.Properties.Resources.custom_reports24;
             this.btnRefund.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefund.Location = new System.Drawing.Point(12, 101);
+            this.btnRefund.Location = new System.Drawing.Point(3, 3);
             this.btnRefund.Name = "btnRefund";
             this.btnRefund.Size = new System.Drawing.Size(83, 32);
             this.btnRefund.TabIndex = 547;
@@ -607,6 +580,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panel4.Controls.Add(this.panel8);
+            this.panel4.Controls.Add(this.panel9);
             this.panel4.Controls.Add(this.panel7);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
@@ -616,22 +590,9 @@
             this.panel4.TabIndex = 0;
             this.theme1.SetTheme(this.panel4, "(default)");
             // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel8.Location = new System.Drawing.Point(0, 44);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(644, 596);
-            this.panel8.TabIndex = 1;
-            this.theme1.SetTheme(this.panel8, "(default)");
-            // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panel7.Controls.Add(this.txtItmNameT);
-            this.panel7.Controls.Add(this.label1);
             this.panel7.Controls.Add(this.btnSave);
             this.panel7.Controls.Add(this.btnDNew);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
@@ -658,6 +619,41 @@
             this.sB1.Size = new System.Drawing.Size(118, 17);
             this.sB1.Text = "toolStripStatusLabel1";
             // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Controls.Add(this.btnRefund);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel9.Location = new System.Drawing.Point(0, 358);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(644, 282);
+            this.panel9.TabIndex = 0;
+            this.theme1.SetTheme(this.panel9, "(default)");
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel8.Location = new System.Drawing.Point(0, 44);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(644, 314);
+            this.panel8.TabIndex = 2;
+            this.theme1.SetTheme(this.panel8, "(default)");
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.panel10.Location = new System.Drawing.Point(0, 39);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(644, 243);
+            this.panel10.TabIndex = 0;
+            this.theme1.SetTheme(this.panel10, "(default)");
+            // 
             // FrmExpenseReceiptCash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -681,7 +677,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnJobSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtItmNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDoc)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -700,9 +695,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJobAmt)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.sB.ResumeLayout(false);
             this.sB.PerformLayout();
+            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -728,8 +723,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private C1.Win.C1Input.C1Button btnDNew;
-        private System.Windows.Forms.Label label1;
-        private C1.Win.C1Input.C1TextBox txtItmNameT;
         private C1.Win.C1Input.C1TextBox txtID;
         private C1.Win.C1Input.C1TextBox txtPdId;
         private C1.Win.C1Input.C1Button btnDoc;
@@ -744,9 +737,11 @@
         private C1.Win.C1Input.C1TextBox txtEccAmt;
         private System.Windows.Forms.Label label6;
         private C1.Win.C1Input.C1TextBox txtPayAmt;
-        private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
         private C1.Win.C1Input.C1Button btnRefund;
         private C1.Win.C1Input.C1TextBox txtEccCode;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel10;
     }
 }

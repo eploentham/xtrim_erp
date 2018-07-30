@@ -120,7 +120,7 @@ namespace Xtrim_ERP.gui
         private void MenuExpnReceiptCash_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            FrmExpenseReceiptCash frm = new FrmExpenseReceiptCash(xC);
+            FrmExpenseReceiptCash1 frm = new FrmExpenseReceiptCash1(xC);
             frm.FormBorderStyle = FormBorderStyle.None;
             AddNewTab(frm, menuExpnReceiptCash.Text + " ");
         }

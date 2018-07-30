@@ -233,7 +233,7 @@ namespace Xtrim_ERP.gui
             txtID.Value = eccid;
             int row = 0;
             row = grfEcc != null ? grfEcc.Rows.Count : 0;
-            FrmExpenseClearCash frm = new FrmExpenseClearCash(xC, txtID.Text, txtPdId.Text, txtItmNameT.Text, txtJobCode.Text,row.ToString());
+            FrmExpenseClearCash frm = new FrmExpenseClearCash(xC, txtID.Text, txtPdId.Text, "", txtJobCode.Text,row.ToString());
             frm.WindowState = FormWindowState.Normal;
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog(this);
@@ -306,12 +306,12 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             if (txtPdId.Text.Equals(""))
             {
-                MessageBox.Show("ไม่พบ รายการ เบิกค่าใช้จ่าย เงินสด", "");
-                return;
+                //MessageBox.Show("ไม่พบ รายการ เบิกค่าใช้จ่าย เงินสด", "");
+                //return;
             }
             int row = 0;
             row = grfEcc != null ? grfEcc.Rows.Count: 0;
-            FrmExpenseClearCash frm = new FrmExpenseClearCash(xC, "", txtPdId.Text, txtItmNameT.Text, txtJobCode.Text,row.ToString());
+            FrmExpenseClearCash frm = new FrmExpenseClearCash(xC, "", txtPdId.Text, "", txtJobCode.Text,row.ToString());
             frm.WindowState = FormWindowState.Normal;
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog(this);
@@ -327,7 +327,7 @@ namespace Xtrim_ERP.gui
             expnpd = xC.xtDB.expnpdDB.selectByPk1(pdid);
             txtID.Value = "";
             txtPdId.Value = pdid;
-            txtItmNameT.Value = expnpd.item_name_t;
+            //txtItmNameT.Value = expnpd.item_name_t;
             txtPayAmt.Value = expnpd.pay_amount;
             setGrfEcc(pdid);
         }

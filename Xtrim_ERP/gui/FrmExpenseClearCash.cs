@@ -52,12 +52,22 @@ namespace Xtrim_ERP.gui
 
             btnSave.Click += BtnSave_Click;
             txtItmNameT.KeyUp += TxtItmNameT_KeyUp;
+            txtPayCusNameT.KeyUp += TxtPayCusNameT_KeyUp;
 
             setControl(eccid);
 
             foreach (Control c in panel1.Controls)
             {
                 theme1.SetTheme(c, "VS2013Light");
+            }
+        }
+
+        private void TxtPayCusNameT_KeyUp(object sender, KeyEventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (e.KeyCode == Keys.F2)
+            {
+                setKeyUpF2Cus();
             }
         }
 
@@ -84,6 +94,22 @@ namespace Xtrim_ERP.gui
             txtItmNameT.Value = itm.item_name_t;
             txtItmId.Value = itm.item_id;
             txtItmCode.Value = itm.item_code;
+        }
+        private void setKeyUpF2Cus()
+        {
+            Point pp = txtItmNameT.Location;
+            pp.Y += (260);
+            pp.X += 260;
+
+            FrmSearch frm = new FrmSearch(xC, FrmSearch.Search.Customer, pp);
+            frm.ShowDialog(this);
+            setKeyUpF2Cus1(xC.sCus);
+        }
+        private void setKeyUpF2Cus1(Customer cus)
+        {
+            txtPayCusNameT.Value = cus.cust_name_t;
+            txtPayCusId.Value = cus.cust_id;
+            
         }
         private void setControl(String id)
         {
@@ -116,6 +142,8 @@ namespace Xtrim_ERP.gui
             txtItmNameT.Value = ecc.item_name_t;            
             
             txtPayAmt.Value = ecc.pay_amount;
+            txtPayCusId.Value = ecc.pay_to_cus_id;
+            txtPayCusNameT.Value = ecc.pay_to_cus_name_t;
             
             //txtItmCode.Value = ecc.item_code;
             
@@ -214,6 +242,8 @@ namespace Xtrim_ERP.gui
             ecc.pay_staff_id = txtStfId.Text;
             ecc.row1 = txtRow.Text;
             ecc.item_code = txtItmCode.Text;
+            ecc.pay_to_cus_name_t = txtPayCusNameT.Text;
+            ecc.pay_to_cus_id = txtPayCusId.Text;
             return chk;
         }
         private void BtnSave_Click(object sender, EventArgs e)
