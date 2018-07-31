@@ -42,6 +42,8 @@
             this.cboYear = new C1.Win.C1Input.C1ComboBox();
             this.label36 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtErfDate = new C1.Win.Calendar.C1DateEdit();
             this.btnRefund = new C1.Win.C1Input.C1Button();
             this.txtPasswordVoid = new C1.Win.C1Input.C1TextBox();
             this.chkVoid = new C1.Win.C1Input.C1CheckBox();
@@ -61,8 +63,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtId = new C1.Win.C1Input.C1TextBox();
             this.label34 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtErfDate = new C1.Win.Calendar.C1DateEdit();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -73,6 +73,7 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cboYear)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtErfDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefund)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).BeginInit();
@@ -86,7 +87,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDesc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtErfDate)).BeginInit();
             this.SuspendLayout();
             // 
             // sB
@@ -304,6 +304,53 @@
             this.panel3.Size = new System.Drawing.Size(432, 705);
             this.panel3.TabIndex = 0;
             this.theme1.SetTheme(this.panel3, "(default)");
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label5.Location = new System.Drawing.Point(6, 75);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 16);
+            this.label5.TabIndex = 562;
+            this.label5.Text = "วันที่ :";
+            this.theme1.SetTheme(this.label5, "(default)");
+            // 
+            // txtErfDate
+            // 
+            this.txtErfDate.AllowSpinLoop = false;
+            this.txtErfDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtErfDate.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtErfDate.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtErfDate.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtErfDate.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtErfDate.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
+            this.txtErfDate.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
+            this.txtErfDate.Calendar.SelectionForeColor = System.Drawing.Color.White;
+            this.txtErfDate.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.txtErfDate.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.txtErfDate.Calendar.TodayBorderColor = System.Drawing.Color.White;
+            this.txtErfDate.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtErfDate.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtErfDate.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtErfDate.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtErfDate.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
+            this.txtErfDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtErfDate.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
+            this.txtErfDate.ImagePadding = new System.Windows.Forms.Padding(0);
+            this.txtErfDate.Location = new System.Drawing.Point(77, 68);
+            this.txtErfDate.Name = "txtErfDate";
+            this.txtErfDate.Size = new System.Drawing.Size(118, 20);
+            this.txtErfDate.TabIndex = 561;
+            this.txtErfDate.Tag = null;
+            this.theme1.SetTheme(this.txtErfDate, "(default)");
+            this.txtErfDate.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // btnRefund
             // 
@@ -579,53 +626,6 @@
             this.label34.Text = "เลขที่ :";
             this.theme1.SetTheme(this.label34, "(default)");
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label5.Location = new System.Drawing.Point(6, 75);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 16);
-            this.label5.TabIndex = 562;
-            this.label5.Text = "วันที่ :";
-            this.theme1.SetTheme(this.label5, "(default)");
-            // 
-            // txtErfDate
-            // 
-            this.txtErfDate.AllowSpinLoop = false;
-            this.txtErfDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtErfDate.Calendar.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.txtErfDate.Calendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.txtErfDate.Calendar.DayNamesColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.txtErfDate.Calendar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.txtErfDate.Calendar.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.txtErfDate.Calendar.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(71)))), ((int)(((byte)(47)))));
-            this.txtErfDate.Calendar.SelectionForeColor = System.Drawing.Color.White;
-            this.txtErfDate.Calendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.txtErfDate.Calendar.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.txtErfDate.Calendar.TodayBorderColor = System.Drawing.Color.White;
-            this.txtErfDate.Calendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtErfDate.Calendar.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            this.txtErfDate.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtErfDate.DisplayFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.txtErfDate.DisplayFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)((((((C1.Win.C1Input.FormatInfoInheritFlags.CustomFormat | C1.Win.C1Input.FormatInfoInheritFlags.NullText) 
-            | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
-            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
-            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
-            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.txtErfDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtErfDate.FormatType = C1.Win.C1Input.FormatTypeEnum.ShortDate;
-            this.txtErfDate.ImagePadding = new System.Windows.Forms.Padding(0);
-            this.txtErfDate.Location = new System.Drawing.Point(77, 68);
-            this.txtErfDate.Name = "txtErfDate";
-            this.txtErfDate.Size = new System.Drawing.Size(118, 20);
-            this.txtErfDate.TabIndex = 561;
-            this.txtErfDate.Tag = null;
-            this.theme1.SetTheme(this.txtErfDate, "(default)");
-            this.txtErfDate.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
             // FrmExpenseRefund
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -650,6 +650,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboYear)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtErfDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefund)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordVoid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkVoid)).EndInit();
@@ -663,7 +664,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJobCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDesc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtId)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtErfDate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

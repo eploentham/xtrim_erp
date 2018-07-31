@@ -28,5 +28,6 @@ namespace Xtrim_ERP.object1
         public String expenses_refund_date { get; set; }
         public String ecc_doc { get; set; }
         public String job_code { get; set; }
+        public String pay_staff_id { get; set; }
     }
 }

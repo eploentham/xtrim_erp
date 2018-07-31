@@ -97,7 +97,7 @@ namespace Xtrim_ERP.objdb
             p.pay_to_cus_addr = p.pay_to_cus_addr == null ? "" : p.pay_to_cus_addr;
             p.pay_to_cus_tax = p.pay_to_cus_tax == null ? "" : p.pay_to_cus_tax;
             p.pay_cheque_no = p.pay_cheque_no == null ? "" : p.pay_cheque_no;
-            p.ecc_doc = p.ecc_doc == null ? "" : p.ecc_doc;
+            //p.ecc_doc = p.ecc_doc == null ? "" : p.ecc_doc;
             //p.remark1 = p.remark1 == null ? "" : p.remark1;
             //p.remark1 = p.remark1 == null ? "" : p.remark1;
 
@@ -109,6 +109,7 @@ namespace Xtrim_ERP.objdb
             p.comp_bank_id = int.TryParse(p.comp_bank_id, out chk) ? chk.ToString() : "0";
             p.expenses_draw_detail_id = int.TryParse(p.expenses_draw_detail_id, out chk) ? chk.ToString() : "0";
             p.expense_clear_cash_id = int.TryParse(p.expense_clear_cash_id, out chk) ? chk.ToString() : "0";
+            p.ecc_doc = int.TryParse(p.ecc_doc, out chk) ? chk.ToString() : "0";
 
             p.pay_amount = Decimal.TryParse(p.pay_amount, out chk1) ? chk1.ToString() : "0";
             //p.amount_reserve = Decimal.TryParse(p.amount_reserve, out chk1) ? chk1.ToString() : "0";
@@ -269,6 +270,17 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+        public DataTable selectByStfIdEccDocNo(String stfId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select expnP." + expnP.expenses_pay_detail_id + "," + expnP.item_name_t + "," + expnP.pay_amount + " " +
+                "From " + expnP.table + " expnP " +
+                " " +
+                "Where expnP." + expnP.active + " ='1' and expnP." + expnP.pay_staff_id + " = '" + stfId + "' and expnP." + expnP.ecc_doc + "='0'";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
         public DataTable selectByEccDoc(String eccdoc)
         {
             DataTable dt = new DataTable();
@@ -313,6 +325,7 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
+        
         public DataTable selectByJobIdStfIdNoClear(String jobid, String stfid)
         {
             String wherejob = "", wherestf = "";

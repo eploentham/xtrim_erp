@@ -162,7 +162,7 @@ namespace Xtrim_ERP.gui
             grfEcc.Clear();
             grfEcc.Rows.Count = 1;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.eccDB.selectToPayDetailId(pdid);
+            dt = xC.xtDB.eccDB.selectByStfIdClearCash(pdid);
 
             grfEcc.Cols[coleccItemet].Width = 200;
             grfEcc.Cols[colerrprice].Width = 100;
@@ -287,7 +287,7 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             if (MessageBox.Show("ต้องการ ยืนยันช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                String re = xC.updateClearCashComplete(txtPdId.Text, xC.userId);
+                String re = xC.updateClearCashComplete( xC.userId);
                 int chk = 0;
                 if (int.TryParse(re.Replace("CC", ""), out chk))
                 {

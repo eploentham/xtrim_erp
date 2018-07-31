@@ -311,7 +311,7 @@ namespace Xtrim_ERP.gui
             grfErf.Rows.Count = 1;
             grfErf.Cols.Count = 6;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.erfDB.selectByEccDoc(eccid.Replace(xC.FixEccCode,""));
+            //dt = xC.xtDB.erfDB.selectByEccDoc(eccid.Replace(xC.FixEccCode,""));
 
             grfErf.Cols[colErfDesc].Width = 200;
             grfErf.Cols[colErfAmt].Width = 80;

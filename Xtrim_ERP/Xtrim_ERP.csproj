@@ -266,6 +266,12 @@
     <Compile Include="gui\FrmExpenseClearCash.Designer.cs">
       <DependentUpon>FrmExpenseClearCash.cs</DependentUpon>
     </Compile>
+    <Compile Include="gui\FrmExpenseClearCashRefund.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gui\FrmExpenseClearCashRefund.Designer.cs">
+      <DependentUpon>FrmExpenseClearCashRefund.cs</DependentUpon>
+    </Compile>
     <Compile Include="gui\FrmExpenseDrawD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -976,6 +982,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmExpenseClearCash.resx">
       <DependentUpon>FrmExpenseClearCash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gui\FrmExpenseClearCashRefund.resx">
+      <DependentUpon>FrmExpenseClearCashRefund.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmExpenseDrawD.resx">
       <DependentUpon>FrmExpenseDrawD.cs</DependentUpon>

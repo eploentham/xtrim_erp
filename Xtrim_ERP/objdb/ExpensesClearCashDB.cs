@@ -314,18 +314,18 @@ namespace Xtrim_ERP.objdb
 
             return "";
         }
-        public String updateActive(String pdid)
+        public String updateActive(String stfid)
         {
             String re = "";
 
             String sql = "update " + ecc.table + " Set " +
                 "" + ecc.active + "='1' " +                
-                "Where " + ecc.active + " = '0' and " + ecc.expenses_pay_detail_id + "='" + pdid + "' ";
+                "Where " + ecc.active + " = '0' and " + ecc.pay_staff_id + "='" + stfid + "' ";
             re = conn.ExecuteNonQuery(conn.conn, sql);
 
             return re;
         }
-        public String updateComplete(String doc, String pdid, String userid)
+        public String updateComplete(String doc, String stfid, String userid)
         {
             DataTable dt = new DataTable();
             String re = "";
@@ -334,7 +334,7 @@ namespace Xtrim_ERP.objdb
                 "" + ecc.status_doc + "='1' " +
                 "," + ecc.ecc_doc + "='"+ doc.Replace("CC","") + "' " +
                 "," + ecc.doc_staff_id + "='" + userid + "' " +
-                "Where " + ecc.expenses_pay_detail_id + "='" + pdid + "'";
+                "Where " + ecc.pay_staff_id + "='" + stfid + "' and "+ecc.status_doc+"='0'";
             re = conn.ExecuteNonQuery(conn.conn, sql);
 
             return re;
@@ -385,7 +385,7 @@ namespace Xtrim_ERP.objdb
 
             return dt;
         }
-        public DataTable selectToPayDetailId(String pdid)
+        public DataTable selectByStfIdClearCash(String stfid)
         {
             DataTable dt = new DataTable();
             String wherestatuspay = "", wherestatuspaytype = "", wherestatuspage = "";
@@ -394,7 +394,7 @@ namespace Xtrim_ERP.objdb
             String sql = "select expC.* "  +
                 "From " + ecc.table + " expC " +
                 " " +
-                "Where expC." + ecc.active + " in ('0', '1') and " + ecc.expenses_pay_detail_id + "='" + pdid + "' " ;
+                "Where expC." + ecc.active + " in ('0', '1') and " + ecc.pay_staff_id + "='" + stfid + "' and "+ecc.ecc_doc+"='0'" ;
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
@@ -488,6 +488,29 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
+        public DataTable selectByStfIdStatusAppv(String stfId, StatusAppv statusappv)
+        {
+            DataTable dt = new DataTable();
+            String sql = "", wherestatusappv = "", wherestfId = "";
+            if (statusappv == StatusAppv.sendtoAppv)
+            {
+                wherestatusappv = " and " + ecc.status_appv + " = '0' ";
+            }
+            else if (statusappv == StatusAppv.Appv)
+            {
+                wherestatusappv = " and " + ecc.status_appv + " = '1' ";
+            }
+            if (!stfId.Equals(""))
+            {
+                wherestfId = " and " + ecc.pay_staff_id + " = '" + stfId + "' ";
+            }
+            sql = "select * " +
+                "From " + ecc.table + "  " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where " + ecc.active + " = '1' " + wherestatusappv + wherestfId;
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
         public DataTable selectSumEccDocByStatusAppv(StatusAppv statusappv)
         {
             DataTable dt = new DataTable();
@@ -538,7 +561,7 @@ namespace Xtrim_ERP.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where expC." + ecc.pkField + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setExpenseReceiptCash(dt);
+            cop1 = setExpenseClearCash(dt);
             return cop1;
         }
         public ExpensesClearCash selectByEccDoc(String copId)
@@ -550,7 +573,7 @@ namespace Xtrim_ERP.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where expC." + ecc.ecc_doc + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setExpenseReceiptCash(dt);
+            cop1 = setExpenseClearCash(dt);
             return cop1;
         }
         public ExpensesClearCash selectToRefundByEccDoc(String copId)
@@ -562,7 +585,7 @@ namespace Xtrim_ERP.objdb
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
                 "Where " + ecc.ecc_doc + " ='" + copId + "' ";
             dt = conn.selectData(conn.conn, sql);
-            cop1 = setExpenseReceiptCash(dt);
+            cop1 = setExpenseClearCash(dt);
             sql = "Select sum("+ecc.pay_amount+") as "+ecc.pay_amount+" "+
                 "From "+ecc.table +" "+
                 "Where " + ecc.ecc_doc + " ='" + copId + "' ";
@@ -575,7 +598,7 @@ namespace Xtrim_ERP.objdb
             cop1.pay_amount = chk.ToString();
             return cop1;
         }
-        public ExpensesClearCash setExpenseReceiptCash(DataTable dt)
+        public ExpensesClearCash setExpenseClearCash(DataTable dt)
         {
             ExpensesClearCash ecc1 = new ExpensesClearCash();
             if (dt.Rows.Count > 0)

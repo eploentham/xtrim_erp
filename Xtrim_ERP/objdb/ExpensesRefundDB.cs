@@ -41,6 +41,7 @@ namespace Xtrim_ERP.objdb
             erf.expenses_refund_date = "expenses_refund_date";
             erf.ecc_doc = "ecc_doc";
             erf.job_code = "job_code";
+            erf.pay_staff_id = "pay_staff_id";
 
             erf.table = "t_expenses_refund";
             erf.pkField = "expenses_refund_id";
@@ -82,6 +83,7 @@ namespace Xtrim_ERP.objdb
             p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
             p.expenses_pay_detail_id = int.TryParse(p.expenses_pay_detail_id, out chk) ? chk.ToString() : "0";
             p.ecc_doc = int.TryParse(p.ecc_doc, out chk) ? chk.ToString() : "0";
+            p.pay_staff_id = int.TryParse(p.pay_staff_id, out chk) ? chk.ToString() : "0";
 
 
             p.amount = Decimal.TryParse(p.amount, out chk1) ? chk1.ToString() : "0";
@@ -99,7 +101,7 @@ namespace Xtrim_ERP.objdb
                 erf.user_create + ", " + erf.user_modi + ", " + erf.user_cancel + "," +
                 erf.amount + "," + erf.status_page + "," + erf.status_appv + ", " +
                 erf.status_doc + "," + erf.expenses_refund_date + "," + erf.ecc_doc + "," +
-                erf.job_code + " " +
+                erf.job_code + "," + erf.pay_staff_id + " " +
                 ") " +
                 "Values ('" + p.expenses_pay_detail_id + "','" + p.expense_clear_cash_id + "','" + p.desc1 + "'," +
                 "'" + p.active + "','" + p.remark + "','" + p.job_id + "', " +
@@ -107,7 +109,7 @@ namespace Xtrim_ERP.objdb
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "'," +
                 "'" + p.amount + "','" + p.status_page + "','" + p.status_appv + "'," +
                 "'" + p.status_doc + "','" + p.expenses_refund_date + "','" + p.ecc_doc + "'," +
-                "'" + p.job_code + "' " +
+                "'" + p.job_code + "','" + p.pay_staff_id + "' " +
                 ")";
 
             try
@@ -137,6 +139,7 @@ namespace Xtrim_ERP.objdb
                 "," + erf.status_appv + "='" + p.status_appv.Replace("'", "''") + "' " +
                 "," + erf.job_code + "='" + p.job_code.Replace("'", "''") + "' " +
                 "," + erf.ecc_doc + "='" + p.ecc_doc.Replace("'", "''") + "' " +
+                "," + erf.pay_staff_id + "='" + p.pay_staff_id.Replace("'", "''") + "' " +
                 "Where " + erf.pkField + "='" + p.expenses_refund_id + "'";
 
             try
@@ -194,13 +197,13 @@ namespace Xtrim_ERP.objdb
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
-        public DataTable selectByEccDoc(String copId)
+        public DataTable selectByStfId(String copId)
         {
             DataTable dt = new DataTable();
-            String sql = "select bll.* " +
-                "From " + erf.table + " bll " +
+            String sql = "select erf.* " +
+                "From " + erf.table + " erf " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where bll." + erf.ecc_doc + " ='" + copId + "' and " + erf.active + "='1' ";
+                "Where erf." + erf.pay_staff_id + " ='" + copId + "' and " + erf.active + "='1' ";
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }
@@ -278,6 +281,7 @@ namespace Xtrim_ERP.objdb
                 erf1.expenses_refund_date = dt.Rows[0][erf.expenses_refund_date].ToString();
                 erf1.ecc_doc = dt.Rows[0][erf.ecc_doc].ToString();
                 erf1.job_code = dt.Rows[0][erf.job_code].ToString();
+                erf1.pay_staff_id = dt.Rows[0][erf.pay_staff_id].ToString();
             }
             else
             {
@@ -301,6 +305,7 @@ namespace Xtrim_ERP.objdb
                 erf1.expenses_refund_date = "";
                 erf1.ecc_doc = "";
                 erf1.job_code = "";
+                erf1.pay_staff_id = "";
             }
 
             return erf1;

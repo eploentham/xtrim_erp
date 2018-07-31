@@ -516,14 +516,17 @@ namespace Xtrim_ERP.control
         }
         public void setCboC1(C1ComboBox c, String selected)
         {
-            foreach(object o in c.Items)
+            int i = 0;
+            foreach (object o in c.Items)
             {
                 ComboBoxItem a4 = (ComboBoxItem)o;
                 if (a4.Value.Equals(selected))
                 {
-                    c.SelectedText = a4.Text;
+                    //c.SelectedText = a4.Text;
+                    c.SelectedIndex = i;
                     break;
                 }
+                i++;
             }
         }
         public string GoogleMapSign(string url, string keyString)
@@ -569,12 +572,12 @@ namespace Xtrim_ERP.control
             re = xtDB.expndDB.updateSendToApprove(doc, id);
             return re;
         }
-        public String updateClearCashComplete(String pdid, String userid)
+        public String updateClearCashComplete(String stfid)
         {
             String re = "";
             String doc = xtDB.copDB.genEccDoc();
-            re = xtDB.eccDB.updateComplete(doc, pdid, userid);
-            xtDB.expnpdDB.updateEcc(pdid, doc);
+            re = xtDB.eccDB.updateComplete(doc, stfid, this.userId);
+            //xtDB.expnpdDB.updateEcc(pdid, doc);
             return doc;
         }
         public String updateReserveAmt(String rspid, String userid)
