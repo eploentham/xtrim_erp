@@ -187,13 +187,18 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public DataTable selectByCusId(String copId)
+        public DataTable selectByEccStfid(String eccDoc, String stfId)
         {
             DataTable dt = new DataTable();
-            String sql = "select bll.* " +
-                "From " + erf.table + " bll " +
+            String whereecc = "";
+            if (!eccDoc.Equals(""))
+            {
+                whereecc = " and erf." + erf.ecc_doc + " = '" + eccDoc + "'";
+            }
+            String sql = "select erf.* " +
+                "From " + erf.table + " erf " +
                 //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
-                "Where bll." + erf.status_page + " ='" + copId + "' and " + erf.active + "='1' ";
+                "Where erf." + erf.status_appv + " ='0' and erf." + erf.active + "='1' and erf." + erf.pay_staff_id+"='"+stfId+ "'"+ whereecc;
             dt = conn.selectData(conn.conn, sql);
             return dt;
         }

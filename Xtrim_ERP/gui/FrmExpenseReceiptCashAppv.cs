@@ -21,8 +21,8 @@ namespace Xtrim_ERP.gui
 
         C1FlexGrid grfEcc, grfPd;
 
-        int colPdId = 1, colPdItmNameT = 2, colPdPayamt = 3;
-        int colEccChk=1, colEccId = 2, colEccDoc = 3, colItmNameT = 4, colAmt = 5, colReceiptNo = 6, colReceiptDate = 7, colJobCode = 8, colexpnDdId = 9;
+        int colPdChk=1, colPdId = 2, colPdItmNameT = 3, colPdPayamt = 4;
+        int colEccChk=1, colEccId = 2, colEccDoc = 3, colItmNameT = 4, colEccAmt = 5, colReceiptNo = 6, colReceiptDate = 7, colJobCode = 8, colexpnDdId = 9, colflag=10;
 
         public FrmExpenseReceiptCashAppv(XtrimControl x)
         {
@@ -39,10 +39,12 @@ namespace Xtrim_ERP.gui
             chkAppvWait.Checked = true;
 
             cboStaff.SelectedItemChanged += CboStaff_SelectedItemChanged;
+            btnRefund.Click += BtnRefund_Click;
 
             initGrfEcc();
             initGrPd();
         }
+        
         private void initGrPd()
         {
             grfPd = new C1FlexGrid();
@@ -52,7 +54,7 @@ namespace Xtrim_ERP.gui
             gbPd.Controls.Add(grfPd);
 
             grfPd.Rows.Count = 1;
-            grfPd.Cols.Count = 4;
+            grfPd.Cols.Count = 5;
             grfPd.Cols[colPdItmNameT].Width = 200;
             grfPd.Cols[colPdPayamt].Width = 100;
 
@@ -68,12 +70,18 @@ namespace Xtrim_ERP.gui
         {
             grfPd.Clear();
             grfPd.Rows.Count = 1;
-            grfPd.Cols.Count = 4;
+            grfPd.Cols.Count = 5;
             DataTable dt = new DataTable();
             dt = xC.xtDB.expnpdDB.selectByStfIdEccDocNo(stfId);
 
+            CellStyle cs = grfEcc.Styles.Add("bool");
+            cs.DataType = typeof(bool);
+            //cs.ImageAlign = ImageAlignEnum.LeftCenter;
+            cs.TextAlign = TextAlignEnum.LeftCenter;
+            grfPd.Cols[colPdChk].Style = cs;
             grfPd.Cols[colPdItmNameT].Width = 200;
             grfPd.Cols[colPdPayamt].Width = 100;
+            //grfPd.Cols[colPdChk].ImageAndText = "aaaa";
 
             grfPd.ShowCursor = true;
             grfPd.Cols[colPdItmNameT].Caption = "รายการ";
@@ -102,13 +110,13 @@ namespace Xtrim_ERP.gui
             gbEcc.Controls.Add(grfEcc);
 
             grfEcc.Rows.Count = 1;
-            grfEcc.Cols.Count = 10;
+            grfEcc.Cols.Count = 11;
 
             grfEcc.Cols[colEccChk].Editor = chk;
 
             grfEcc.Cols[colEccDoc].Width = 80;
             grfEcc.Cols[colItmNameT].Width = 200;
-            grfEcc.Cols[colAmt].Width = 80;
+            grfEcc.Cols[colEccAmt].Width = 80;
             grfEcc.Cols[colReceiptNo].Width = 80;
             grfEcc.Cols[colReceiptDate].Width = 100;
             grfEcc.Cols[colJobCode].Width = 80;
@@ -117,7 +125,7 @@ namespace Xtrim_ERP.gui
             grfEcc.ShowCursor = true;
             grfEcc.Cols[colEccDoc].Caption = "เลขที่เอกสาร";
             grfEcc.Cols[colItmNameT].Caption = "รายการ";
-            grfEcc.Cols[colAmt].Caption = "ยอดเงิน";
+            grfEcc.Cols[colEccAmt].Caption = "ยอดเงิน";
             grfEcc.Cols[colReceiptNo].Caption = "เลขที่ใบเสร็จ";
             grfEcc.Cols[colReceiptDate].Caption = "วันที่ในใบเวร็จ";
             grfEcc.Cols[colJobCode].Caption = "job no";
@@ -132,20 +140,22 @@ namespace Xtrim_ERP.gui
         {
             grfEcc.Clear();
             grfEcc.Rows.Count = 1;
-            grfEcc.Cols.Count = 10;
+            grfEcc.Cols.Count = 11;
             DataTable dt = new DataTable();
             dt = xC.xtDB.eccDB.selectByStfIdStatusAppv(stfId, chkAppvWait.Checked ? objdb.ExpensesClearCashDB.StatusAppv.sendtoAppv : objdb.ExpensesClearCashDB.StatusAppv.All);
+            DataTable dtErf = new DataTable();
+            dtErf = xC.xtDB.erfDB.selectByEccStfid("",stfId);
 
-            CellStyle cs = grfEcc.Styles.Add("emp");
-            cs = grfEcc.Styles.Add("bool");
+            CellStyle cs = grfEcc.Styles.Add("bool");
+            //cs = grfEcc.Styles.Add("bool");
             cs.DataType = typeof(bool);
             cs.ImageAlign = ImageAlignEnum.LeftCenter;
 
             grfEcc.Cols[colEccChk].Style = cs;
-
+            //grfEcc.Cols[colEccChk].Width = 180;
             grfEcc.Cols[colEccDoc].Width = 80;
             grfEcc.Cols[colItmNameT].Width = 200;
-            grfEcc.Cols[colAmt].Width = 80;
+            grfEcc.Cols[colEccAmt].Width = 80;
             grfEcc.Cols[colReceiptNo].Width = 80;
             grfEcc.Cols[colReceiptDate].Width = 100;
             grfEcc.Cols[colJobCode].Width = 80;
@@ -153,7 +163,7 @@ namespace Xtrim_ERP.gui
             grfEcc.ShowCursor = true;
             grfEcc.Cols[colEccDoc].Caption = "เลขที่เอกสาร";
             grfEcc.Cols[colItmNameT].Caption = "รายการ";
-            grfEcc.Cols[colAmt].Caption = "ยอดเงิน";
+            grfEcc.Cols[colEccAmt].Caption = "ยอดเงิน";
             grfEcc.Cols[colReceiptNo].Caption = "เลขที่ใบเสร็จ";
             grfEcc.Cols[colReceiptDate].Caption = "วันที่ในใบเวร็จ";
             grfEcc.Cols[colJobCode].Caption = "job no";
@@ -165,18 +175,30 @@ namespace Xtrim_ERP.gui
                 row[0] = i + 1;
                 if (i % 2 == 0)
                     grfEcc.Rows[i + 1].StyleNew.BackColor = color;
+                row[colEccChk] = "เลือก";
                 row[colEccId] = dt.Rows[i][xC.xtDB.eccDB.ecc.expense_clear_cash_id].ToString();
                 row[colEccDoc] = xC.FixEccCode + dt.Rows[i][xC.xtDB.eccDB.ecc.ecc_doc].ToString();
                 row[colItmNameT] = dt.Rows[i][xC.xtDB.eccDB.ecc.item_name_t].ToString();
-                row[colAmt] = dt.Rows[i][xC.xtDB.eccDB.ecc.pay_amount].ToString();
+                row[colEccAmt] = dt.Rows[i][xC.xtDB.eccDB.ecc.pay_amount].ToString();
                 row[colReceiptNo] = dt.Rows[i][xC.xtDB.eccDB.ecc.receipt_no].ToString();
                 row[colReceiptDate] = dt.Rows[i][xC.xtDB.eccDB.ecc.receipt_date].ToString();
                 row[colJobCode] = dt.Rows[i][xC.xtDB.eccDB.ecc.job_code].ToString();
-                //row[colexpnDdId] = dt.Rows[i][xC.xtDB.eccDB.ecc.expenses_draw_detail_id].ToString();
+                row[colflag] = "ecc";
                 //if (dt.Rows[i][xC.xtDB.eccDB.ecc.status_appv].ToString().Equals("0"))
                 //{
                 //    row.StyleNew.BackColor = Color.Gray;
                 //}
+            }
+            for(int i = 0; i < dtErf.Rows.Count; i++)
+            {
+                Row row = grfEcc.Rows.Add();
+                row[0] = i + 1;
+                row.StyleNew.BackColor = Color.Gold;
+                row[colEccId] = dtErf.Rows[i][xC.xtDB.erfDB.erf.expenses_refund_id].ToString();
+                row[colEccDoc] = xC.FixEccCode + dtErf.Rows[i][xC.xtDB.erfDB.erf.ecc_doc].ToString();
+                row[colItmNameT] = dtErf.Rows[i][xC.xtDB.erfDB.erf.desc1].ToString();
+                row[colEccAmt] = dtErf.Rows[i][xC.xtDB.erfDB.erf.amount].ToString();
+                row[colflag] = "erf";
             }
             //CellRange rg = grfEcc.GetCellRange(1, 1);
             grfEcc.Cols[colEccId].Visible = false;
@@ -204,14 +226,39 @@ namespace Xtrim_ERP.gui
             if (grfEcc == null) return;
             if (grfEcc.Row < 0) return;
             if (grfEcc[grfEcc.Row, colEccId] == null) return;
-
+            calAmtEcc();
             //MessageBox.Show("aa " + grfEcc[grfEcc.Row, colEccId].ToString(), ""+ grfEcc[grfEcc.Row, colEccChk].ToString());
+        }
+        private void calAmtEcc()
+        {
+            Decimal amt = 0;
+            foreach (Row row in grfEcc.Rows)
+            {
+                Decimal chk = 0;
+                if (row[colEccAmt] == null) continue;
+                if (row[colEccChk] == null) continue;
+                if ((bool)row[colEccChk]==true)
+                {
+                    Decimal.TryParse(row[colEccAmt].ToString(), out chk);
+                    amt += chk;
+                }
+                
+            }
+            txtEccAmt.Value = amt;
         }
         private void CboStaff_SelectedItemChanged(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             setGrfEcc(cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "");
             setGrfPd(cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "");
+        }
+        private void BtnRefund_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmExpenseClearCashRefund frm = new FrmExpenseClearCashRefund(xC, cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "", "");
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog(this);
+            setGrfEcc(cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "");
         }
         private void FrmExpenseReceiptCashAppv_Load(object sender, EventArgs e)
         {
