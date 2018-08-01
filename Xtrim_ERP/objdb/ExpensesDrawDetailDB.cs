@@ -72,6 +72,8 @@ namespace Xtrim_ERP.objdb
             expnC.status_hide = "status_hide";
             expnC.status_doc = "status_doc";
             expnC.receipt_amount = "receipt_amount";
+            expnC.erc_doc = "erc_doc";
+            expnC.status_erc = "status_erc";
 
             expnC.table = "t_expenses_draw_detail";
             expnC.pkField = "expenses_draw_detail_id";
@@ -168,6 +170,8 @@ namespace Xtrim_ERP.objdb
             p.status_page = p.status_page == null ? "0" : p.status_page;
             p.status_hide = p.status_hide == null ? "0" : p.status_hide;
             p.status_doc = p.status_doc == null ? "0" : p.status_doc;
+            p.erc_doc = p.erc_doc == null ? "" : p.erc_doc;
+            p.status_erc = p.status_erc == null ? "0" : p.status_erc;
 
             p.expense_draw_id = int.TryParse(p.expense_draw_id, out chk) ? chk.ToString() : "0";
             p.expense_type_id = int.TryParse(p.expense_type_id, out chk) ? chk.ToString() : "0";
@@ -219,7 +223,7 @@ namespace Xtrim_ERP.objdb
                 expnC.pay_to_cus_id + "," + expnC.pay_to_cus_name_t + "," + expnC.pay_to_cus_addr + "," +
                 expnC.pay_to_cus_tax + "," + expnC.receipt_no + "," + expnC.receipt_date + "," +
                 expnC.status_page + "," + expnC.status_hide + "," + expnC.status_doc + "," +
-                expnC.receipt_amount + " " +
+                expnC.receipt_amount + "," + expnC.erc_doc + "," + expnC.status_erc + " " +
                 ") " +
                 "Values ('" + p.desc1.Replace("'", "''") + "','" + p.desc2.Replace("'", "''") + "','" + p.amount + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
@@ -236,7 +240,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.pay_to_cus_id + "','" + p.pay_to_cus_name_t + "','" + p.pay_to_cus_addr + "'," +
                 "'" + p.pay_to_cus_tax + "','" + p.receipt_no + "','" + p.receipt_date + "', " +
                 "'" + p.status_page + "','" + p.status_hide + "','" + p.status_doc + "'," +
-                "'" + p.receipt_amount + "' " +
+                "'" + p.receipt_amount + "','" + p.erc_doc + "','" + p.status_erc + "' " +
                 ")";
             try
             {
@@ -504,6 +508,18 @@ namespace Xtrim_ERP.objdb
             re = dt.Rows.Count.ToString();
             return re;
         }
+        public DataTable selectStatusErcByStfId(String copId)
+        {
+            DataTable dt = new DataTable();
+            String re = "";
+            String sql = "select expC.* " +
+                "From " + expnC.table + " expC " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where expC." + expnC.pay_staff_id + " ='" + copId + "' and " + expnC.status_erc + "='1'";
+            dt = conn.selectData(conn.conn, sql);
+            
+            return dt;
+        }
         public DataTable selectByChequeAppv(String copId)
         {
             DataTable dt = new DataTable();
@@ -637,6 +653,8 @@ namespace Xtrim_ERP.objdb
                 curr1.status_hide = dt.Rows[0][expnC.status_hide].ToString();
                 curr1.status_doc = dt.Rows[0][expnC.status_doc].ToString();
                 curr1.receipt_amount = dt.Rows[0][expnC.receipt_amount].ToString();
+                curr1.erc_doc = dt.Rows[0][expnC.erc_doc].ToString();
+                curr1.status_erc = dt.Rows[0][expnC.status_erc].ToString();
             }
             else
             {
@@ -688,6 +706,8 @@ namespace Xtrim_ERP.objdb
                 curr1.status_hide = "";
                 curr1.status_doc = "";
                 curr1.receipt_amount = "";
+                curr1.erc_doc = "";
+                curr1.status_erc = "";
             }
 
             return curr1;

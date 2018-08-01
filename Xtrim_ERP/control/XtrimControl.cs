@@ -30,7 +30,7 @@ namespace Xtrim_ERP.control
 
         public String userId="";
         public String copID = "", jobID="", cusID="",addrID="", contID="", cusrID="", custID="", stfID="", deptID="", posiID="", drawID="";
-        public String rContactName = "", rContacTel = "", rContID="";
+        public String rContactName = "", rContacTel = "", rContID="", userIderc="";
 
         public Customer sCus;
         public Customer sImp;

@@ -132,9 +132,16 @@ namespace Xtrim_ERP.gui
             txtddId.Value = ecc.expenses_draw_detail_id.Equals("") ? expnpd.expenses_draw_detail_id : ecc.expenses_draw_detail_id;
             //txtdid.Value = ecc.expenses_draw_id.Equals("") ? jim.job_import_id : ecc.expenses_draw_id;
             int row = 0, chk=0;
-            int.TryParse(rowno, out chk);
+            if(int.TryParse(rowno, out chk))
+            {
+                txtRow.Value = chk;
+            }
+            else
+            {
+                txtRow.Value = ecc.row1;
+            }
             //chk++;
-            txtRow.Value = chk;
+            
             txtReceiptNo.Value = ecc.receipt_no;
             txtReceiptDate.Value = ecc.receipt_date;
             txtItmId.Value = ecc.item_id;

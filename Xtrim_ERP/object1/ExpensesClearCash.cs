@@ -48,5 +48,6 @@ namespace Xtrim_ERP.object1
         public String status_doc { get; set; }
         public String appv_staff_id { get; set; }
         public String doc_staff_id { get; set; }
+        public String erc_doc { get; set; }
     }
 }

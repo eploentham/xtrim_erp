@@ -39,7 +39,7 @@ namespace Xtrim_ERP.gui
         int flagshow = 0;
         public enum flagForm2 { Cash, Cheque };
         flagForm2 flagfom2;
-        public enum flagAction { draw, appv, pay };
+        public enum flagAction {draw, appv, pay, autoappv};
         flagAction flagaction;
         //String impId = "";
         Customer imp;
@@ -97,8 +97,7 @@ namespace Xtrim_ERP.gui
             txtImpNameT.KeyUp += TxtImpNameT_KeyUp;
             chkVoid.Click += ChkVoid_Click;            
             btnVoid.Click += BtnVoid_Click;
-
-
+            
             initGrfDept();
             initGrfDept1();
             setGrfDeptH();
@@ -864,7 +863,8 @@ namespace Xtrim_ERP.gui
                     btnAppv.Enabled = true;
                 }
                 txtAppvAmt.Show();
-                setControlEnable(true);
+                flagEdit = true;
+                setControlEnable(flagEdit);
                 txtAppvAmt.Value = txtAmt.Text.Replace("$","").Replace(",", "");
             }
             else if (flagaction == flagAction.pay)
@@ -877,6 +877,20 @@ namespace Xtrim_ERP.gui
                 btnAppv.Hide();
                 label7.Show();
                 txtAppvAmt.Show();
+            }
+            else if (flagaction == flagAction.autoappv)
+            {
+                btnDoc.Hide();
+                btnNew.Hide();
+                btnSave.Show();
+                btnVoid.Show();
+                btnEdit.Hide();
+                btnAppv.Hide();
+                label7.Show();
+                txtAppvAmt.Show();
+                flagEdit = true;
+                setControlEnable(flagEdit);
+                xC.setC1Combo(cboStaff, xC.userIderc);
             }
         }
         private void setExpensesDraw()
@@ -965,6 +979,17 @@ namespace Xtrim_ERP.gui
                 expndd.status_hide = "1";
                 expndd.job_id = jobId;
                 expndd.status_doc = "0";
+                if(flagaction == flagAction.autoappv)
+                {
+                    expndd.status_erc = "1";
+                    expndd.pay_amount = expndd.amount;
+                    expndd.pay_staff_id = cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "";
+                }
+                else
+                {
+                    expndd.status_erc = "0";
+                }
+                
                 if (!expndd.amount.Equals(""))
                 {
                     xC.xtDB.expnddDB.insertExpenseDrawDetail(expndd, xC.userId);
@@ -1080,6 +1105,20 @@ namespace Xtrim_ERP.gui
                         setExpensesDrawDetail(txtID.Text, jim.cust_id);
                     }
                     txtID.Value = re;
+                    if(flagaction == flagAction.autoappv)
+                    {
+                        re = "";
+                        re = xC.updateDrawSendToApprove(txtID.Text);
+                        if (int.TryParse(re, out chk))
+                        {
+                            re = "";
+                            re = xC.xtDB.expndDB.updateStatusApprove(txtID.Text);
+                            if (int.TryParse(re, out chk))
+                            {
+                                Close();
+                            }
+                        }
+                    }
                     btnSave.Image = Resources.accept_database24;
                 }
                 else

@@ -34,6 +34,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.gbPd = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtPdAmt = new C1.Win.C1Input.C1TextBox();
             this.chkAll = new System.Windows.Forms.RadioButton();
             this.chkAppvWait = new System.Windows.Forms.RadioButton();
             this.cboStaff = new C1.Win.C1Input.C1ComboBox();
@@ -42,13 +44,14 @@
             this.label36 = new System.Windows.Forms.Label();
             this.gbEcc = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCal = new C1.Win.C1Input.C1Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtErcDoc = new C1.Win.C1Input.C1TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtEccAmt = new C1.Win.C1Input.C1TextBox();
             this.btnDNew = new C1.Win.C1Input.C1Button();
             this.btnSave = new C1.Win.C1Input.C1Button();
             this.btnRefund = new C1.Win.C1Input.C1Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtEccAmt = new C1.Win.C1Input.C1TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.c1TextBox1 = new C1.Win.C1Input.C1TextBox();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -56,14 +59,16 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPdAmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboStaff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboYear)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtErcDoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEccAmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDNew)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefund)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEccAmt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // sB
@@ -129,7 +134,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.c1TextBox1);
+            this.panel1.Controls.Add(this.txtPdAmt);
             this.panel1.Controls.Add(this.chkAll);
             this.panel1.Controls.Add(this.chkAppvWait);
             this.panel1.Controls.Add(this.cboStaff);
@@ -143,6 +148,39 @@
             this.panel1.Size = new System.Drawing.Size(483, 88);
             this.panel1.TabIndex = 0;
             this.theme1.SetTheme(this.panel1, "(default)");
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label1.Location = new System.Drawing.Point(181, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(164, 16);
+            this.label1.TabIndex = 552;
+            this.label1.Text = "ยอดเงินClearบัญชีของรายการนี้ :";
+            this.theme1.SetTheme(this.label1, "(default)");
+            // 
+            // txtPdAmt
+            // 
+            this.txtPdAmt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPdAmt.DataType = typeof(decimal);
+            this.txtPdAmt.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtPdAmt.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtPdAmt.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
+            this.txtPdAmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtPdAmt.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtPdAmt.Location = new System.Drawing.Point(350, 58);
+            this.txtPdAmt.Name = "txtPdAmt";
+            this.txtPdAmt.Size = new System.Drawing.Size(116, 24);
+            this.txtPdAmt.TabIndex = 551;
+            this.txtPdAmt.Tag = null;
+            this.theme1.SetTheme(this.txtPdAmt, "(default)");
+            this.txtPdAmt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // chkAll
             // 
@@ -260,6 +298,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panel2.Controls.Add(this.btnCal);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.txtErcDoc);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.txtEccAmt);
             this.panel2.Controls.Add(this.btnDNew);
@@ -273,47 +314,52 @@
             this.panel2.TabIndex = 0;
             this.theme1.SetTheme(this.panel2, "(default)");
             // 
-            // btnDNew
+            // btnCal
             // 
-            this.btnDNew.Image = global::Xtrim_ERP.Properties.Resources.ClearFormatting_small;
-            this.btnDNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDNew.Location = new System.Drawing.Point(129, 12);
-            this.btnDNew.Name = "btnDNew";
-            this.btnDNew.Size = new System.Drawing.Size(83, 32);
-            this.btnDNew.TabIndex = 550;
-            this.btnDNew.Text = "ป้อนเบิกเงิน";
-            this.btnDNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnDNew, "(default)");
-            this.btnDNew.UseVisualStyleBackColor = true;
-            this.btnDNew.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnCal.Image = global::Xtrim_ERP.Properties.Resources.Edit_Male_User24;
+            this.btnCal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCal.Location = new System.Drawing.Point(399, 48);
+            this.btnCal.Name = "btnCal";
+            this.btnCal.Size = new System.Drawing.Size(83, 31);
+            this.btnCal.TabIndex = 555;
+            this.btnCal.Text = "ตรวจช้อมูล";
+            this.btnCal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnCal, "(default)");
+            this.btnCal.UseVisualStyleBackColor = true;
+            this.btnCal.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // btnSave
+            // label2
             // 
-            this.btnSave.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(338, 12);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(83, 31);
-            this.btnSave.TabIndex = 549;
-            this.btnSave.Text = "บันทึกช้อมูล";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnSave, "(default)");
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label2.Location = new System.Drawing.Point(233, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 16);
+            this.label2.TabIndex = 554;
+            this.label2.Text = "เลขที่ :";
+            this.theme1.SetTheme(this.label2, "(default)");
             // 
-            // btnRefund
+            // txtErcDoc
             // 
-            this.btnRefund.Image = global::Xtrim_ERP.Properties.Resources.custom_reports24;
-            this.btnRefund.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefund.Location = new System.Drawing.Point(16, 12);
-            this.btnRefund.Name = "btnRefund";
-            this.btnRefund.Size = new System.Drawing.Size(83, 32);
-            this.btnRefund.TabIndex = 548;
-            this.btnRefund.Text = "ป้อนคืนเงิน";
-            this.btnRefund.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.theme1.SetTheme(this.btnRefund, "(default)");
-            this.btnRefund.UseVisualStyleBackColor = true;
-            this.btnRefund.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.txtErcDoc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtErcDoc.DataType = typeof(decimal);
+            this.txtErcDoc.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtErcDoc.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtErcDoc.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
+            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
+            this.txtErcDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtErcDoc.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
+            this.txtErcDoc.Location = new System.Drawing.Point(277, 20);
+            this.txtErcDoc.Name = "txtErcDoc";
+            this.txtErcDoc.Size = new System.Drawing.Size(116, 24);
+            this.txtErcDoc.TabIndex = 553;
+            this.txtErcDoc.Tag = null;
+            this.theme1.SetTheme(this.txtErcDoc, "(default)");
+            this.txtErcDoc.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // label5
             // 
@@ -348,38 +394,47 @@
             this.theme1.SetTheme(this.txtEccAmt, "(default)");
             this.txtEccAmt.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // label1
+            // btnDNew
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label1.Location = new System.Drawing.Point(181, 63);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 16);
-            this.label1.TabIndex = 552;
-            this.label1.Text = "ยอดเงินClearบัญชีของรายการนี้ :";
-            this.theme1.SetTheme(this.label1, "(default)");
+            this.btnDNew.Image = global::Xtrim_ERP.Properties.Resources.ClearFormatting_small;
+            this.btnDNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDNew.Location = new System.Drawing.Point(129, 12);
+            this.btnDNew.Name = "btnDNew";
+            this.btnDNew.Size = new System.Drawing.Size(83, 32);
+            this.btnDNew.TabIndex = 550;
+            this.btnDNew.Text = "ป้อนเบิกเงิน";
+            this.btnDNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnDNew, "(default)");
+            this.btnDNew.UseVisualStyleBackColor = true;
+            this.btnDNew.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
-            // c1TextBox1
+            // btnSave
             // 
-            this.c1TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.c1TextBox1.DataType = typeof(decimal);
-            this.c1TextBox1.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.c1TextBox1.EditFormat.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
-            this.c1TextBox1.EditFormat.Inherit = ((C1.Win.C1Input.FormatInfoInheritFlags)(((((C1.Win.C1Input.FormatInfoInheritFlags.NullText | C1.Win.C1Input.FormatInfoInheritFlags.EmptyAsNull) 
-            | C1.Win.C1Input.FormatInfoInheritFlags.TrimStart) 
-            | C1.Win.C1Input.FormatInfoInheritFlags.TrimEnd) 
-            | C1.Win.C1Input.FormatInfoInheritFlags.CalendarType)));
-            this.c1TextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox1.FormatType = C1.Win.C1Input.FormatTypeEnum.Currency;
-            this.c1TextBox1.Location = new System.Drawing.Point(350, 58);
-            this.c1TextBox1.Name = "c1TextBox1";
-            this.c1TextBox1.Size = new System.Drawing.Size(116, 24);
-            this.c1TextBox1.TabIndex = 551;
-            this.c1TextBox1.Tag = null;
-            this.theme1.SetTheme(this.c1TextBox1, "(default)");
-            this.c1TextBox1.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            this.btnSave.Image = global::Xtrim_ERP.Properties.Resources.download_database24;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(399, 13);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(83, 31);
+            this.btnSave.TabIndex = 549;
+            this.btnSave.Text = "บันทึกช้อมูล";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnSave, "(default)");
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // btnRefund
+            // 
+            this.btnRefund.Image = global::Xtrim_ERP.Properties.Resources.custom_reports24;
+            this.btnRefund.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefund.Location = new System.Drawing.Point(16, 12);
+            this.btnRefund.Name = "btnRefund";
+            this.btnRefund.Size = new System.Drawing.Size(83, 32);
+            this.btnRefund.TabIndex = 548;
+            this.btnRefund.Text = "ป้อนคืนเงิน";
+            this.btnRefund.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.theme1.SetTheme(this.btnRefund, "(default)");
+            this.btnRefund.UseVisualStyleBackColor = true;
+            this.btnRefund.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
             // 
             // FrmExpenseReceiptCashAppv
             // 
@@ -400,15 +455,17 @@
             this.splitContainer1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPdAmt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboStaff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboYear)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtErcDoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEccAmt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDNew)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefund)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEccAmt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c1TextBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -434,8 +491,11 @@
         private System.Windows.Forms.RadioButton chkAll;
         private System.Windows.Forms.RadioButton chkAppvWait;
         private System.Windows.Forms.Label label1;
-        private C1.Win.C1Input.C1TextBox c1TextBox1;
+        private C1.Win.C1Input.C1TextBox txtPdAmt;
         private System.Windows.Forms.Label label5;
         private C1.Win.C1Input.C1TextBox txtEccAmt;
+        private System.Windows.Forms.Label label2;
+        private C1.Win.C1Input.C1TextBox txtErcDoc;
+        private C1.Win.C1Input.C1Button btnCal;
     }
 }

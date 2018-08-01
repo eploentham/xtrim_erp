@@ -68,6 +68,7 @@ namespace Xtrim_ERP.objdb
             ecc.status_doc = "status_doc";
             ecc.appv_staff_id = "appv_staff_id";
             ecc.doc_staff_id = "doc_staff_id";
+            ecc.erc_doc = "erc_doc";
 
             ecc.table = "t_expenses_clear_cash";
             ecc.pkField = "expense_clear_cash_id";
@@ -147,8 +148,8 @@ namespace Xtrim_ERP.objdb
             p.job_code = p.job_code == null ? "" : p.job_code;
             //p.expenses_draw_detail_id = p.expenses_draw_detail_id == null ? "" : p.expenses_draw_detail_id;
             p.remark = p.remark == null ? "" : p.remark;
-            //p.ecc_doc = p.ecc_doc == null ? "" : p.ecc_doc;
-            p.ecc_doc = p.ecc_doc == null ? "" : p.ecc_doc;
+            p.erc_doc = p.erc_doc == null ? "" : p.erc_doc;
+            p.ecc_doc = p.ecc_doc == null ? "0" : p.ecc_doc;
             p.expense_clear_cash_date = p.expense_clear_cash_date == null ? "0" : p.expense_clear_cash_date;
             p.item_name_t = p.item_name_t == null ? "" : p.item_name_t;
             p.pay_date = p.pay_date == null ? "" : p.pay_date;
@@ -210,7 +211,8 @@ namespace Xtrim_ERP.objdb
                 ecc.price + "," + ecc.pay_to_cus_name_t + "," + ecc.pay_to_cus_addr + "," +
                 ecc.pay_to_cus_tax + "," + ecc.pay_to_cus_id + "," + ecc.pay_staff_id + "," +
                 ecc.row1 + "," + ecc.item_code + "," + ecc.status_appv + "," +
-                ecc.status_doc + "," + ecc.appv_staff_id + "," + ecc.doc_staff_id + " " +
+                ecc.status_doc + "," + ecc.appv_staff_id + "," + ecc.doc_staff_id + "," +
+                ecc.erc_doc + " " +
                 ") " +
                 "Values ('" + p.expenses_pay_detail_id + "','" + p.expenses_draw_id.Replace("'", "''") + "','" + p.job_id.Replace("'", "''") + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
@@ -220,11 +222,12 @@ namespace Xtrim_ERP.objdb
                 "'" + p.item_id + "','" + p.expense_clear_cash_date.Replace("'", "''") + "','" + p.item_name_t.Replace("'", "''") + "'," +
                 "'" + p.pay_amount + "','" + p.unit_id + "','" + p.unit_name_t.Replace("'", "''") + "'," +
                 "'" + p.vat + "','" + p.total + "'," + //p.receipt_date + "'," +
-                "'" + p.receipt_no + "','" + p.receipt_date + "','" + p.pay_date + "', " +
-                "'" + p.price + "','" + p.pay_to_cus_name_t.Replace("'", "''") + "','" + p.pay_to_cus_addr.Replace("'", "''") + "', " +
+                "'" + p.receipt_no + "','" + p.receipt_date + "','" + p.pay_date + "'," +
+                "'" + p.price + "','" + p.pay_to_cus_name_t.Replace("'", "''") + "','" + p.pay_to_cus_addr.Replace("'", "''") + "'," +
                 "'" + p.pay_to_cus_tax + "','" + p.pay_to_cus_id + "','" + p.pay_staff_id + "'," +
-                "'" + p.row1 + "','" + p.item_code + "','" + p.status_appv + "', " +
-                "'" + p.status_doc + "','" + p.appv_staff_id + "','" + p.doc_staff_id + "' " +
+                "'" + p.row1 + "','" + p.item_code + "','" + p.status_appv + "'," +
+                "'" + p.status_doc + "','" + p.appv_staff_id + "','" + p.doc_staff_id + "'," +
+                "'" + p.erc_doc + "' " +
                 ")";
             try
             {
@@ -643,6 +646,7 @@ namespace Xtrim_ERP.objdb
                 ecc1.status_doc = dt.Rows[0][ecc.status_doc].ToString();
                 ecc1.appv_staff_id = dt.Rows[0][ecc.appv_staff_id].ToString();
                 ecc1.doc_staff_id = dt.Rows[0][ecc.doc_staff_id].ToString();
+                ecc1.erc_doc = dt.Rows[0][ecc.erc_doc].ToString();
             }
             else
             {
@@ -687,6 +691,7 @@ namespace Xtrim_ERP.objdb
                 ecc1.status_doc = "";
                 ecc1.appv_staff_id = "";
                 ecc1.doc_staff_id = "";
+                ecc1.erc_doc = "";
             }
 
             return ecc1;

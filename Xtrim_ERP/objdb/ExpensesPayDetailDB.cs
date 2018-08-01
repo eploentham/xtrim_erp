@@ -55,6 +55,7 @@ namespace Xtrim_ERP.objdb
             expnP.staff_id = "staff_id";
             expnP.expense_clear_cash_id = "expense_clear_cash_id";
             expnP.ecc_doc = "ecc_doc";
+            expnP.erc_doc = "erc_doc";
 
             expnP.table = "t_expenses_pay_detail";
             expnP.pkField = "expenses_pay_detail_id";
@@ -97,7 +98,7 @@ namespace Xtrim_ERP.objdb
             p.pay_to_cus_addr = p.pay_to_cus_addr == null ? "" : p.pay_to_cus_addr;
             p.pay_to_cus_tax = p.pay_to_cus_tax == null ? "" : p.pay_to_cus_tax;
             p.pay_cheque_no = p.pay_cheque_no == null ? "" : p.pay_cheque_no;
-            //p.ecc_doc = p.ecc_doc == null ? "" : p.ecc_doc;
+            p.erc_doc = p.erc_doc == null ? "" : p.erc_doc;
             //p.remark1 = p.remark1 == null ? "" : p.remark1;
             //p.remark1 = p.remark1 == null ? "" : p.remark1;
 
@@ -132,7 +133,7 @@ namespace Xtrim_ERP.objdb
                 expnP.pay_staff_id + ", " + expnP.pay_date + ", " + expnP.comp_bank_id + ", " +
                 expnP.pay_bank_date + "," + expnP.expenses_draw_detail_id + "," + expnP.desc_dd + "," +
                 expnP.desc_d + "," + expnP.staff_id + "," + expnP.expense_clear_cash_id + "," +
-                expnP.ecc_doc + " " +
+                expnP.ecc_doc + "," + expnP.erc_doc + " " +
                 ") " +
                 "Values ('" + p.expenses_pay_id + "','" + p.item_id + "','" + p.status_pay_type + "'," +
                 "'" + p.active + "','" + p.remark + "'," +
@@ -144,7 +145,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.pay_staff_id + "','" + p.pay_date + "','" + p.comp_bank_id + "'," +
                 "'" + p.pay_bank_date + "','" + p.expenses_draw_detail_id + "','" + p.desc_dd + "'," +
                 "'" + p.desc_d + "','" + p.staff_id + "','" + p.expense_clear_cash_id + "', " +
-                "'" + p.ecc_doc + "' " +
+                "'" + p.ecc_doc + "','" + p.erc_doc + "' " +
                 ")";            
             try
             {
@@ -449,6 +450,7 @@ namespace Xtrim_ERP.objdb
                 pd1.staff_id = dt.Rows[0][expnP.staff_id].ToString();
                 pd1.expense_clear_cash_id = dt.Rows[0][expnP.expense_clear_cash_id].ToString();
                 pd1.ecc_doc = dt.Rows[0][expnP.ecc_doc].ToString();
+                pd1.erc_doc = dt.Rows[0][expnP.erc_doc].ToString();
             }
             else
             {
@@ -484,6 +486,7 @@ namespace Xtrim_ERP.objdb
                 pd1.staff_id = "";
                 pd1.expense_clear_cash_id = "";
                 pd1.ecc_doc = "";
+                pd1.erc_doc = "";
             }
 
             return pd1;
