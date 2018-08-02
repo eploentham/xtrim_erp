@@ -179,11 +179,13 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String updateBillingCover(String id, String coverid)
+        public String updateStatusApprove(String id, String erc_doc, String pdid)
         {
             String re = "", sql = "";
             sql = "Update " + erf.table + " Set " +
-                " " + erf.status_appv + "='" + coverid + "' " +
+                " " + erf.status_appv + "='1' " +
+                "," + erf.erc_doc + "='" + erc_doc.Replace("RC", "") + "' " +
+                "," + erf.expenses_pay_detail_id + "='" + pdid + "' " +
                 "Where " + erf.expenses_refund_id + "='" + id + "'";
             re = conn.ExecuteNonQuery(conn.conn, sql);
 

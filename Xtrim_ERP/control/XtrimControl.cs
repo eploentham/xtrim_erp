@@ -580,6 +580,14 @@ namespace Xtrim_ERP.control
             //xtDB.expnpdDB.updateEcc(pdid, doc);
             return doc;
         }
+        public String updateReceiptCashComplete(String stfid)
+        {
+            String re = "";
+            String doc = xtDB.copDB.genErcDoc();
+            re = xtDB.eccDB.updateComplete(doc, stfid, this.userId);
+            //xtDB.expnpdDB.updateEcc(pdid, doc);
+            return doc;
+        }
         public String updateReserveAmt(String rspid, String userid)
         {
             String re = "";

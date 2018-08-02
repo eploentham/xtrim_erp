@@ -74,6 +74,7 @@ namespace Xtrim_ERP.objdb
             expnC.receipt_amount = "receipt_amount";
             expnC.erc_doc = "erc_doc";
             expnC.status_erc = "status_erc";
+            expnC.status_appv = "status_appv";
 
             expnC.table = "t_expenses_draw_detail";
             expnC.pkField = "expenses_draw_detail_id";
@@ -172,6 +173,7 @@ namespace Xtrim_ERP.objdb
             p.status_doc = p.status_doc == null ? "0" : p.status_doc;
             p.erc_doc = p.erc_doc == null ? "" : p.erc_doc;
             p.status_erc = p.status_erc == null ? "0" : p.status_erc;
+            p.status_appv = p.status_appv == null ? "0" : p.status_appv;
 
             p.expense_draw_id = int.TryParse(p.expense_draw_id, out chk) ? chk.ToString() : "0";
             p.expense_type_id = int.TryParse(p.expense_type_id, out chk) ? chk.ToString() : "0";
@@ -223,7 +225,8 @@ namespace Xtrim_ERP.objdb
                 expnC.pay_to_cus_id + "," + expnC.pay_to_cus_name_t + "," + expnC.pay_to_cus_addr + "," +
                 expnC.pay_to_cus_tax + "," + expnC.receipt_no + "," + expnC.receipt_date + "," +
                 expnC.status_page + "," + expnC.status_hide + "," + expnC.status_doc + "," +
-                expnC.receipt_amount + "," + expnC.erc_doc + "," + expnC.status_erc + " " +
+                expnC.receipt_amount + "," + expnC.erc_doc + "," + expnC.status_erc + "," +
+                expnC.status_appv + " " +
                 ") " +
                 "Values ('" + p.desc1.Replace("'", "''") + "','" + p.desc2.Replace("'", "''") + "','" + p.amount + "'," +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "'," +
@@ -240,7 +243,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.pay_to_cus_id + "','" + p.pay_to_cus_name_t + "','" + p.pay_to_cus_addr + "'," +
                 "'" + p.pay_to_cus_tax + "','" + p.receipt_no + "','" + p.receipt_date + "', " +
                 "'" + p.status_page + "','" + p.status_hide + "','" + p.status_doc + "'," +
-                "'" + p.receipt_amount + "','" + p.erc_doc + "','" + p.status_erc + "' " +
+                "'" + p.receipt_amount + "','" + p.erc_doc + "','" + p.status_erc + "'," +
+                "'" + p.status_appv + "' " +
                 ")";
             try
             {
@@ -402,6 +406,18 @@ namespace Xtrim_ERP.objdb
             conn.ExecuteNonQuery(conn.conn, sql);
 
             return "";
+        }
+        public String updateStatusApprove(String id, String erc_doc, String pdid)
+        {
+            String re = "", sql = "";
+            sql = "Update " + expnC.table + " Set " +
+                " " + expnC.status_appv + "='1' " +
+                "," + expnC.erc_doc + "='" + erc_doc.Replace("RC", "") + "' " +
+                "," + expnC.expenses_pay_detail_id + "='" + pdid + "' " +
+                "Where " + expnC.pkField + "='" + id + "'";
+            re = conn.ExecuteNonQuery(conn.conn, sql);
+
+            return re;
         }
         public DataTable selectAll()
         {
@@ -655,6 +671,7 @@ namespace Xtrim_ERP.objdb
                 curr1.receipt_amount = dt.Rows[0][expnC.receipt_amount].ToString();
                 curr1.erc_doc = dt.Rows[0][expnC.erc_doc].ToString();
                 curr1.status_erc = dt.Rows[0][expnC.status_erc].ToString();
+                curr1.status_appv = dt.Rows[0][expnC.status_appv].ToString();
             }
             else
             {
@@ -708,6 +725,7 @@ namespace Xtrim_ERP.objdb
                 curr1.receipt_amount = "";
                 curr1.erc_doc = "";
                 curr1.status_erc = "";
+                curr1.status_appv = "";
             }
 
             return curr1;

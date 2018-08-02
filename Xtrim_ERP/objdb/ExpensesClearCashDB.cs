@@ -342,13 +342,15 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String updateStatusApprove(String id)
+        public String updateStatusApprove(String id, String erc_doc, String pdid)
         {
             DataTable dt = new DataTable();
             String re = "";
 
             String sql = "update " + ecc.table + " Set " +
-                "" + ecc.expense_clear_cash_date + "='2' " +
+                "" + ecc.status_appv + "='1' " +
+                "," + ecc.erc_doc + "='"+ erc_doc + "' " +
+                "," + ecc.expenses_pay_detail_id + "='" + pdid + "' " +
                 "Where " + ecc.pkField + "='" + id + "'";
             re = conn.ExecuteNonQuery(conn.conn, sql);
 

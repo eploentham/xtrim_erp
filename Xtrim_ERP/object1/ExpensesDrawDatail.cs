@@ -58,5 +58,6 @@ namespace Xtrim_ERP.object1
         public String receipt_amount { get; set; }
         public String erc_doc { get; set; }
         public String status_erc { get; set; }
+        public String status_appv { get; set; }
     }
 }

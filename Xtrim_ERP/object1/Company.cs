@@ -64,5 +64,6 @@ namespace Xtrim_ERP.object1
         public String prefix_billing_cover_doc { get; set; }
         public String prefix_tax_doc { get; set; }
         public String ecc_doc { get; set; }
+        public String erc_doc { get; set; }
     }
 }

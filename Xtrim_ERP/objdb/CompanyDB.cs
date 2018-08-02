@@ -84,6 +84,7 @@ namespace Xtrim_ERP.objdb
             cop.prefix_billing_cover_doc = "prefix_billing_cover_doc";
             cop.prefix_tax_doc = "prefix_tax_doc";
             cop.ecc_doc = "ecc_doc";
+            cop.erc_doc = "erc_doc";
 
             cop.table = "b_company";
             cop.pkField = "comp_id";
@@ -123,6 +124,7 @@ namespace Xtrim_ERP.objdb
             p.prefix_billing_cover_doc = p.prefix_billing_cover_doc == null ? "" : p.prefix_billing_cover_doc;
             p.prefix_tax_doc = p.prefix_tax_doc == null ? "" : p.prefix_tax_doc;
             p.ecc_doc = p.ecc_doc == null ? "" : p.ecc_doc;
+            p.erc_doc = p.erc_doc == null ? "" : p.erc_doc;
 
             p.amount_reserve = Decimal.TryParse(p.amount_reserve, out chk1) ? chk1.ToString() : "0";
             p.billing_doc = int.TryParse(p.billing_doc, out chk) ? chk.ToString() : "0";
@@ -519,6 +521,40 @@ namespace Xtrim_ERP.objdb
             doc = "CC" + year.Substring(year.Length - 2, 2) + doc;
             return doc;
         }
+        public String genErcDoc()
+        {
+            String doc = "", year = "", sql = "";
+            Company cop1 = new Company();
+            cop1 = selectByCode1("001");
+            year = DateTime.Now.ToString("yyyy");
+            if (!year.Equals(cop1.year_curr))
+            {
+                sql = "Update " + cop.table + " Set " +
+                    " " + cop.year_curr + "='" + year + "' " +
+                    "," + cop.erc_doc + "=1 " +
+                    "Where " + cop.pkField + "='" + cop1.comp_id + "'";
+                conn.ExecuteNonQuery(conn.conn, sql);
+                doc = "00001";
+            }
+            else
+            {
+                int chk = 0;
+                if (int.TryParse(cop1.erc_doc, out chk))
+                {
+                    chk++;
+                    doc = "00000" + chk;
+                    doc = doc.Substring(doc.Length - 5, 5);
+                    year = cop1.year_curr;
+
+                    sql = "Update " + cop.table + " Set " +
+                    "" + cop.erc_doc + "=" + chk +
+                    " Where " + cop.pkField + "='" + cop1.comp_id + "'";
+                    conn.ExecuteNonQuery(conn.conn, sql);
+                }
+            }
+            doc = "RC" + year.Substring(year.Length - 2, 2) + doc;
+            return doc;
+        }
         public String updateAmountReserve(String amt)
         {
             String sql = "",re="";
@@ -599,6 +635,7 @@ namespace Xtrim_ERP.objdb
                 cop1.prefix_billing_cover_doc = dt.Rows[0][cop.prefix_billing_cover_doc].ToString();
                 cop1.prefix_tax_doc = dt.Rows[0][cop.prefix_tax_doc].ToString();
                 cop1.ecc_doc = dt.Rows[0][cop.ecc_doc].ToString();
+                cop1.erc_doc = dt.Rows[0][cop.erc_doc].ToString();
             }
             else
             {
@@ -666,6 +703,7 @@ namespace Xtrim_ERP.objdb
                 cop1.prefix_billing_cover_doc = "";
                 cop1.prefix_tax_doc = "";
                 cop1.ecc_doc = "";
+                cop1.erc_doc = "";
             }
 
             return cop1;

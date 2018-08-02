@@ -56,6 +56,8 @@ namespace Xtrim_ERP.objdb
             expnP.expense_clear_cash_id = "expense_clear_cash_id";
             expnP.ecc_doc = "ecc_doc";
             expnP.erc_doc = "erc_doc";
+            expnP.status_appv = "status_appv";
+            expnP.appv_amt = "appv_amt";
 
             expnP.table = "t_expenses_pay_detail";
             expnP.pkField = "expenses_pay_detail_id";
@@ -99,7 +101,7 @@ namespace Xtrim_ERP.objdb
             p.pay_to_cus_tax = p.pay_to_cus_tax == null ? "" : p.pay_to_cus_tax;
             p.pay_cheque_no = p.pay_cheque_no == null ? "" : p.pay_cheque_no;
             p.erc_doc = p.erc_doc == null ? "" : p.erc_doc;
-            //p.remark1 = p.remark1 == null ? "" : p.remark1;
+            p.status_appv = p.status_appv == null ? "0" : p.status_appv;
             //p.remark1 = p.remark1 == null ? "" : p.remark1;
 
             p.staff_id = int.TryParse(p.staff_id, out chk) ? chk.ToString() : "0";
@@ -113,7 +115,7 @@ namespace Xtrim_ERP.objdb
             p.ecc_doc = int.TryParse(p.ecc_doc, out chk) ? chk.ToString() : "0";
 
             p.pay_amount = Decimal.TryParse(p.pay_amount, out chk1) ? chk1.ToString() : "0";
-            //p.amount_reserve = Decimal.TryParse(p.amount_reserve, out chk1) ? chk1.ToString() : "0";
+            p.appv_amt = Decimal.TryParse(p.appv_amt, out chk1) ? chk1.ToString() : "0";
             //p.amount_reserve = Decimal.TryParse(p.amount_reserve, out chk1) ? chk1.ToString() : "0";
         }
         public String insert(ExpensesPayDetail p, String userId)
@@ -133,7 +135,8 @@ namespace Xtrim_ERP.objdb
                 expnP.pay_staff_id + ", " + expnP.pay_date + ", " + expnP.comp_bank_id + ", " +
                 expnP.pay_bank_date + "," + expnP.expenses_draw_detail_id + "," + expnP.desc_dd + "," +
                 expnP.desc_d + "," + expnP.staff_id + "," + expnP.expense_clear_cash_id + "," +
-                expnP.ecc_doc + "," + expnP.erc_doc + " " +
+                expnP.ecc_doc + "," + expnP.erc_doc + "," + expnP.status_appv + "," +
+                expnP.appv_amt + " " +
                 ") " +
                 "Values ('" + p.expenses_pay_id + "','" + p.item_id + "','" + p.status_pay_type + "'," +
                 "'" + p.active + "','" + p.remark + "'," +
@@ -145,7 +148,8 @@ namespace Xtrim_ERP.objdb
                 "'" + p.pay_staff_id + "','" + p.pay_date + "','" + p.comp_bank_id + "'," +
                 "'" + p.pay_bank_date + "','" + p.expenses_draw_detail_id + "','" + p.desc_dd + "'," +
                 "'" + p.desc_d + "','" + p.staff_id + "','" + p.expense_clear_cash_id + "', " +
-                "'" + p.ecc_doc + "','" + p.erc_doc + "' " +
+                "'" + p.ecc_doc + "','" + p.erc_doc + "','" + p.status_appv + "'," +
+                "'" + p.appv_amt + "' " +
                 ")";            
             try
             {
@@ -233,6 +237,18 @@ namespace Xtrim_ERP.objdb
             sql = "Update " + expnP.table + " Set " +
                 " " + expnP.expense_clear_cash_id + "='"+ eccid.Replace("CC","") + "' " +
                 "," + expnP.ecc_doc + "='" + eccid.Replace("CC", "") + "' " +
+                "Where " + expnP.expenses_pay_detail_id + "='" + id + "'";
+            re = conn.ExecuteNonQuery(conn.conn, sql);
+
+            return re;
+        }
+        public String updateStatusApprove(String id, String erc_doc, String amt)
+        {
+            String re = "", sql = "";
+            sql = "Update " + expnP.table + " Set " +
+                " " + expnP.status_appv + "='1' " +
+                "," + expnP.erc_doc + "='" + erc_doc.Replace("CC", "") + "' " +
+                "," + expnP.appv_amt + "=" + expnP.appv_amt+"-"+ amt + " " +
                 "Where " + expnP.expenses_pay_detail_id + "='" + id + "'";
             re = conn.ExecuteNonQuery(conn.conn, sql);
 
@@ -451,6 +467,8 @@ namespace Xtrim_ERP.objdb
                 pd1.expense_clear_cash_id = dt.Rows[0][expnP.expense_clear_cash_id].ToString();
                 pd1.ecc_doc = dt.Rows[0][expnP.ecc_doc].ToString();
                 pd1.erc_doc = dt.Rows[0][expnP.erc_doc].ToString();
+                pd1.status_appv = dt.Rows[0][expnP.status_appv].ToString();
+                pd1.appv_amt = dt.Rows[0][expnP.appv_amt].ToString();
             }
             else
             {
@@ -487,6 +505,8 @@ namespace Xtrim_ERP.objdb
                 pd1.expense_clear_cash_id = "";
                 pd1.ecc_doc = "";
                 pd1.erc_doc = "";
+                pd1.status_appv = "";
+                pd1.appv_amt = "";
             }
 
             return pd1;

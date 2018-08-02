@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Xtrim_ERP.control;
 using Xtrim_ERP.object1;
+using Xtrim_ERP.Properties;
 
 namespace Xtrim_ERP.gui
 {
@@ -42,11 +43,12 @@ namespace Xtrim_ERP.gui
             btnRefund.Click += BtnRefund_Click;
             btnDNew.Click += BtnDNew_Click;
             btnCal.Click += BtnCal_Click;
+            btnSave.Click += BtnSave_Click;
 
             initGrfEcc();
             initGrPd();
-        }        
-
+        }
+        
         private void initGrPd()
         {
             grfPd = new C1FlexGrid();
@@ -334,41 +336,46 @@ namespace Xtrim_ERP.gui
             }
             txtPdAmt.Value = amt;
         }
-        private void calSave()
+        private Boolean calSave()
         {
-            calAmtEcc();
-            calAmtPd();
             Boolean chk = false;
+            calAmtEcc();
+            calAmtPd();            
             Decimal pd = 0, ecc = 0;
             Decimal.TryParse(txtEccAmt.Text.Replace("$", "").Replace(",", ""), out ecc);
             Decimal.TryParse(txtPdAmt.Text.Replace("$", "").Replace(",", ""), out pd);
-            if (ecc != pd)
+            if (ecc == pd)
             {
-                MessageBox.Show("ยอดเงินที่จ่าย กับเคลีย์เงิน ไม่เท่ากัน", "");
-                return;
-            }
-            foreach(Row rowPd in grfPd.Rows)
-            {
-                String amt = "";
-                Decimal amtPd = 0;
-                if(Decimal.TryParse(rowPd[colPdPayamt].ToString(), out amtPd))
+                foreach (Row rowPd in grfPd.Rows)
                 {
-                    foreach (Row rowEcc in grfEcc.Rows)
+                    String amt = "";
+                    Decimal amtPd = 0;
+                    if (Decimal.TryParse(rowPd[colPdPayamt].ToString(), out amtPd))
                     {
-                        Decimal amtEcc = 0;
-                        if (rowEcc[colEccPdId].ToString().Equals(""))
+                        foreach (Row rowEcc in grfEcc.Rows)
                         {
-                            Decimal.TryParse(rowEcc[colEccAmt].ToString(), out amtEcc);
-                            if (amtEcc <= amtPd)
+                            Decimal amtEcc = 0;
+                            if (rowEcc[colEccPdId].ToString().Equals(""))
                             {
-                                rowEcc[colEccPdId] = rowPd[colPdId];
-                                amtPd -= amtEcc;
+                                Decimal.TryParse(rowEcc[colEccAmt].ToString(), out amtEcc);
+                                if (amtEcc <= amtPd)
+                                {
+                                    rowEcc[colEccPdId] = rowPd[colPdId];
+                                    amtPd -= amtEcc;
+                                }
                             }
                         }
                     }
-                }
-                
+                }                
             }
+            else
+            {
+                MessageBox.Show("ยอดเงินที่จ่าย กับเคลีย์เงิน ไม่เท่ากัน", "");
+                chk = false;
+            }
+            
+            chk = true;
+            return chk;
         }
         private void CboStaff_SelectedItemChanged(object sender, EventArgs e)
         {
@@ -394,10 +401,76 @@ namespace Xtrim_ERP.gui
             frm.ShowDialog(this);
             setGrfEcc(cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "");
         }
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            if (calSave())
+            {
+                if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+                {
+                    String stfId = cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "";
+                    String ercDoc = "";
+                    ercDoc = xC.xtDB.copDB.genErcDoc();
+                    foreach(Row row in grfEcc.Rows)
+                    {
+                        if (row[colflag] == null) continue;
+                        if (row[colEccPdId] == null) continue;
+                        String flag = "", id="", re1 = "", pdid="", amt="";
+                        Decimal chk = 0;
+                        flag = row[colflag].ToString();
+                        id = row[colEccId].ToString();
+                        pdid = row[colEccPdId].ToString();
+                        amt = row[colEccAmt].ToString();
+                        if (!Decimal.TryParse(amt, out chk)) continue;
+                        if (flag.Equals("ecc"))
+                        {
+                            re1 = xC.xtDB.eccDB.updateStatusApprove(id, ercDoc, pdid);
+                            re1 = xC.xtDB.expnpdDB.updateStatusApprove(pdid, ercDoc, amt);
+                            re1 = xC.xtDB.expnddDB.updateStatusApprove(id, ercDoc, pdid);
+                        }
+                        else if (flag.Equals("erf"))
+                        {
+                            re1 = xC.xtDB.erfDB.updateStatusApprove(id, ercDoc, pdid);
+                            ReservePay rsp = new ReservePay();
+                            rsp = setReservePay(amt);
+                            String rspid = xC.xtDB.rspDB.insertReservePay(rsp, xC.user.staff_id);
+                            re1 = xC.xtDB.rspDB.updateAppv(rspid, xC.user.staff_id);
+                            re1 = xC.updateReserveAmt(rspid, xC.user.staff_id);
+                        }
+                        else if (flag.Equals("dd"))
+                        {
+                            re1 = xC.xtDB.expnddDB.updateStatusApprove(id, ercDoc, pdid);
+                        }
+                    }
+                    //String re = xC.updateClearCashComplete(cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "");
+                    //int chk = 0;
+                    //if (int.TryParse(re.Replace("CC", ""), out chk))
+                    //{
+                    //    txtErcDoc.Value = re;
+                    //    btnSave.Image = Resources.accept_database24;
+                    //}
+                    //else
+                    //{
+                    //    btnSave.Image = Resources.accept_database24;
+                    //}
+                }
+            }
+        }
         private void BtnCal_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
             calSave();
+        }
+        private ReservePay setReservePay(String amt)
+        {
+            ReservePay rsp = new ReservePay();
+            rsp.reserve_pay_id = "";
+            rsp.desc1 = "คืนเงินจากที่เบิก";
+            rsp.amount_draw = amt;
+            rsp.date_draw = xC.datetoDB(System.DateTime.Now);
+            rsp.staff_id = cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "";
+            rsp.status_appv = "1";
+            return rsp;
         }
         private void FrmExpenseReceiptCashAppv_Load(object sender, EventArgs e)
         {
