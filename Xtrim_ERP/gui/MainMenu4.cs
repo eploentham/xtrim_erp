@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Xtrim_ERP.control;
@@ -24,9 +25,27 @@ namespace Xtrim_ERP.gui
 
         public MainMenu4(XtrimControl x, FrmSplash splash)
         {
-            InitializeComponent();
+            InitializeComponent();             
             xC = x;
             login = new Login(xC, splash);
+            new Thread(() =>
+            {
+                Thread.CurrentThread.IsBackground = true;
+                /* run your code here */
+                xC.iniDB = new objdb.InitDB(xC.conn);
+            }).Start();
+            new Thread(() =>
+            {
+                Thread.CurrentThread.IsBackground = true;
+                /* run your code here */
+                xC.accDB = new objdb.AccDB(xC.conn);
+            }).Start();
+            new Thread(() =>
+            {
+                Thread.CurrentThread.IsBackground = true;
+                /* run your code here */
+                xC.manDB = new objdb.MainDB(xC.conn);
+            }).Start();
             login.ShowDialog(this);
             if (login.LogonSuccessful.Equals("1"))
             {

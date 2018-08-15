@@ -24,10 +24,12 @@ namespace Xtrim_ERP.objdb
         }
         private void initConfig()
         {
+            Console.WriteLine("xtDB start");
             stfDB = new StaffDB(conn);
             copDB = new CompanyDB(conn);
             mioDB = new MeiosysDB(conn);
             imgDB = new ImagesDB(conn);
+            Console.WriteLine("xtDB end");
         }
     }
 }

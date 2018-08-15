@@ -28,6 +28,7 @@ namespace Xtrim_ERP.objdb
         }
         private void initConfig()
         {
+            Console.WriteLine("manDB start");
             jclDB = new JobImportCheckListDB(conn);
             jceDB = new JobImportCheckExamDB(conn);
             jcsDB = new JobImportContainerListDB(conn);
@@ -38,6 +39,7 @@ namespace Xtrim_ERP.objdb
             jimDB = new JobImportDB(conn);
             jctDB = new JobImportContDB(conn);
             jblDB = new JobImportBlDB(conn);
+            Console.WriteLine("manDB end");
         }
     }
 }

@@ -37,6 +37,7 @@ namespace Xtrim_ERP.objdb
         }
         private void initConfig()
         {
+            Console.WriteLine("accDB start");
             copDB = new CompanyDB(conn);
             rspDB = new ReservePayDB(conn);
 
@@ -59,6 +60,7 @@ namespace Xtrim_ERP.objdb
             expndDB = new ExpensesDrawDB(conn);
             expnddDB = new ExpensesDrawDetailDB(conn);
             expndtDB = new ExpensesDrawTypeDB(conn);
+            Console.WriteLine("accDB end");
         }
         public String updateOnhand(String expnpdid, String userId, String amt, String name1, String name2)
         {

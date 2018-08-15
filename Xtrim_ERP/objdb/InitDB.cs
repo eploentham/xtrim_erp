@@ -60,6 +60,8 @@ namespace Xtrim_ERP.objdb
         }
         private void initConfig()
         {
+            Console.WriteLine("initDB start");
+            
             copDB = new CompanyDB(conn);
 
             impDB = new ImporterDB(conn);
@@ -104,6 +106,7 @@ namespace Xtrim_ERP.objdb
             fmtpDB = new FMethodPaymentDB(conn);
             fttDB = new FTaxTypeDB(conn);
             taxDB = new TaxDB(conn);
+            Console.WriteLine("initDB end");
         }
     }
 }
