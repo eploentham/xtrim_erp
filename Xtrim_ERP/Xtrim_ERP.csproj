@@ -70,46 +70,21 @@
     <ApplicationIcon>Double-J-Design-Origami-Colored-Pencil-Green-star.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="C1.C1Pdf.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da" />
-    <Reference Include="C1.C1Report.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=594a0605db190bb9, processorArchitecture=MSIL" />
-    <Reference Include="C1.C1Word.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
-    <Reference Include="C1.C1Zip.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
-    <Reference Include="C1.Data.Entity.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=64e78d493ac08671" />
-    <Reference Include="C1.LiveLinq.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=28cd8b3517c57673" />
     <Reference Include="C1.Win.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
-    <Reference Include="C1.Win.BarCode.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da" />
-    <Reference Include="C1.Win.Bitmap.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
-    <Reference Include="C1.Win.C1Chart.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=a22e16972c085838" />
-    <Reference Include="C1.Win.C1Chart3D.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=a22e16972c085838" />
     <Reference Include="C1.Win.C1Command.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Document.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
-    <Reference Include="C1.Win.C1DX.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
     <Reference Include="C1.Win.C1Editor.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1FlexGrid.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Input.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1InputPanel.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da" />
-    <Reference Include="C1.Win.C1Report.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=41780e2fc605e636, processorArchitecture=MSIL" />
-    <Reference Include="C1.Win.C1Ribbon.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
-    <Reference Include="C1.Win.C1SpellChecker.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
-    <Reference Include="C1.Win.C1SplitContainer.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1SuperTooltip.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Themes.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=594a0605db190bb9, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.Calendar.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
-    <Reference Include="C1.Win.Data.Entity.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=4e8cc5aec211257b, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.FlexChart.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=3aa2920c09e0aefd" />
-    <Reference Include="C1.Win.FlexReport.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
-    <Reference Include="C1.Win.FlexViewer.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04, processorArchitecture=MSIL" />
-    <Reference Include="C1.Win.ImportServices.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=944ae1ea0e47ca04" />
-    <Reference Include="C1.Win.Input.MultiSelect.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
-    <Reference Include="C1.Win.Map.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
-    <Reference Include="C1.Win.TreeView.4, Version=4.0.20181.296, Culture=neutral, PublicKeyToken=79882d576c6336da" />
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="Google.Maps, Version=0.22.213.0, Culture=neutral, PublicKeyToken=4aa992bb5d22d4ff, processorArchitecture=MSIL">
-      <HintPath>..\packages\gmaps-api-net.0.22.0\lib\net461\Google.Maps.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -137,18 +112,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="control\XtrimControl.cs" />
-    <Compile Include="gui\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="gui\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="gui\Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="gui\Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
     <Compile Include="gui\Form3.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,12 +153,6 @@
     </Compile>
     <Compile Include="gui\FrmCusAddr.Designer.cs">
       <DependentUpon>FrmCusAddr.cs</DependentUpon>
-    </Compile>
-    <Compile Include="gui\FrmCusMap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="gui\FrmCusMap.Designer.cs">
-      <DependentUpon>FrmCusMap.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmCusRemark.cs">
       <SubType>Form</SubType>
@@ -416,12 +373,6 @@
     <Compile Include="gui\FrmJobImpCheckListExp.Designer.cs">
       <DependentUpon>FrmJobImpCheckListExp.cs</DependentUpon>
     </Compile>
-    <Compile Include="gui\FrmJobImpNew1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="gui\FrmJobImpNew1.Designer.cs">
-      <DependentUpon>FrmJobImpNew1.cs</DependentUpon>
-    </Compile>
     <Compile Include="gui\FrmImportData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -457,12 +408,6 @@
     </Compile>
     <Compile Include="gui\FrmJobImpInv.Designer.cs">
       <DependentUpon>FrmJobImpInv.cs</DependentUpon>
-    </Compile>
-    <Compile Include="gui\FrmJobImpNew.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="gui\FrmJobImpNew.Designer.cs">
-      <DependentUpon>FrmJobImpNew.cs</DependentUpon>
     </Compile>
     <Compile Include="gui\FrmJobImpNew2.cs">
       <SubType>Form</SubType>
@@ -599,51 +544,13 @@
     <Compile Include="gui\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="gui\MainMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="gui\MainMenu.Designer.cs">
-      <DependentUpon>MainMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="gui\MainMenu1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="gui\MainMenu2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="gui\MainMenu2.Designer.cs">
-      <DependentUpon>MainMenu2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="gui\MainMenu3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="gui\MainMenu3.Designer.cs">
-      <DependentUpon>MainMenu3.cs</DependentUpon>
-    </Compile>
     <Compile Include="gui\MainMenu4.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="gui\MainMenu4.Designer.cs">
       <DependentUpon>MainMenu4.cs</DependentUpon>
     </Compile>
-    <Compile Include="gui\RibbonForm1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="gui\RibbonForm1.Designer.cs">
-      <DependentUpon>RibbonForm1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="gui\RibbonForm2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="gui\RibbonForm2.Designer.cs">
-      <DependentUpon>RibbonForm2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="gui\RibbonForm3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="gui\RibbonForm3.Designer.cs">
-      <DependentUpon>RibbonForm3.cs</DependentUpon>
-    </Compile>
+    <Compile Include="objdb\AccDB.cs" />
     <Compile Include="objdb\AddressDB.cs" />
     <Compile Include="objdb\AddressTypeDB.cs" />
     <Compile Include="objdb\BankDB.cs" />
@@ -661,6 +568,8 @@
     <Compile Include="objdb\ExpensesPayDB.cs" />
     <Compile Include="objdb\ExpensesPayDetailDB.cs" />
     <Compile Include="objdb\ExpensesRefundDB.cs" />
+    <Compile Include="objdb\InitDB.cs" />
+    <Compile Include="objdb\MainDB.cs" />
     <Compile Include="object1\ExpensesRefund.cs" />
     <Compile Include="objdb\FMethodPaymentDB.cs" />
     <Compile Include="objdb\FTaxTypeDB.cs" />
@@ -821,110 +730,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Tax.xsd</DependentUpon>
     </Compile>
-    <Compile Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabButton.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabButton.Designer.cs">
-      <DependentUpon>AppMenuTabButton.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabFileList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabFileList.Designer.cs">
-      <DependentUpon>AppMenuTabFileList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabItem.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabItem.Designer.cs">
-      <DependentUpon>AppMenuTabItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RichTextEditor\AppMenuTabs\OpenTab.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\AppMenuTabs\OpenTab.Designer.cs">
-      <DependentUpon>OpenTab.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RichTextEditor\AppMenuTabs\PrintTab.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\AppMenuTabs\PrintTab.Designer.cs">
-      <DependentUpon>PrintTab.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RichTextEditor\AppMenuTabs\SaveAsTab.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\AppMenuTabs\SaveAsTab.Designer.cs">
-      <DependentUpon>SaveAsTab.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RichTextEditor\C1PrintDocument.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\C1TextEditorRibbon.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\C1TextEditorRibbonTab.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\C1TextEditorXhtml.cs" />
-    <Compile Include="RichTextEditor\Dialogs\InsertDateTime.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\Dialogs\InsertDateTime.Designer.cs">
-      <DependentUpon>InsertDateTime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RichTextEditor\Dialogs\InsertSymbol.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\Dialogs\InsertSymbol.Designer.cs">
-      <DependentUpon>InsertSymbol.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RichTextEditor\Dialogs\SetLanguage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\Dialogs\SetLanguage.Designer.cs">
-      <DependentUpon>SetLanguage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RichTextEditor\Dialogs\WordCount.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\Dialogs\WordCount.Designer.cs">
-      <DependentUpon>WordCount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RichTextEditor\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\Form1.designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RichTextEditor\RecentDocumentList.cs" />
-    <Compile Include="RichTextEditor\Tabs\HomeTab.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\Tabs\InsertTab.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\Tabs\MailingsTab.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\Tabs\PageLayoutTab.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\Tabs\ReferencesTab.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\Tabs\ReviewTab.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="RichTextEditor\Tabs\ViewTab.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <EmbeddedResource Include="gui\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="gui\Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="gui\Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
     </EmbeddedResource>
@@ -945,9 +750,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmCusAddr.resx">
       <DependentUpon>FrmCusAddr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="gui\FrmCusMap.resx">
-      <DependentUpon>FrmCusMap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmCusRemark.resx">
       <DependentUpon>FrmCusRemark.cs</DependentUpon>
@@ -1076,12 +878,6 @@
     <EmbeddedResource Include="gui\FrmJobImpInv.resx">
       <DependentUpon>FrmJobImpInv.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gui\FrmJobImpNew.resx">
-      <DependentUpon>FrmJobImpNew.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="gui\FrmJobImpNew1.resx">
-      <DependentUpon>FrmJobImpNew1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="gui\FrmJobImpNew2.resx">
       <DependentUpon>FrmJobImpNew2.cs</DependentUpon>
     </EmbeddedResource>
@@ -1151,26 +947,8 @@
     <EmbeddedResource Include="gui\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="gui\MainMenu.resx">
-      <DependentUpon>MainMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="gui\MainMenu2.resx">
-      <DependentUpon>MainMenu2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="gui\MainMenu3.resx">
-      <DependentUpon>MainMenu3.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="gui\MainMenu4.resx">
       <DependentUpon>MainMenu4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="gui\RibbonForm1.resx">
-      <DependentUpon>RibbonForm1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="gui\RibbonForm2.resx">
-      <DependentUpon>RibbonForm2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="gui\RibbonForm3.resx">
-      <DependentUpon>RibbonForm3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -1183,37 +961,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabButton.resx">
-      <DependentUpon>AppMenuTabButton.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabFileList.resx">
-      <DependentUpon>AppMenuTabFileList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RichTextEditor\AppMenuTabs\Items\AppMenuTabItem.resx">
-      <DependentUpon>AppMenuTabItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RichTextEditor\AppMenuTabs\PrintTab.resx">
-      <DependentUpon>PrintTab.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RichTextEditor\Dialogs\InsertDateTime.resx">
-      <DependentUpon>InsertDateTime.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RichTextEditor\Dialogs\InsertSymbol.resx">
-      <DependentUpon>InsertSymbol.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RichTextEditor\Dialogs\SetLanguage.resx">
-      <DependentUpon>SetLanguage.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RichTextEditor\Dialogs\WordCount.resx">
-      <DependentUpon>WordCount.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RichTextEditor\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

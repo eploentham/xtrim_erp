@@ -44,8 +44,8 @@ namespace Xtrim_ERP.gui
             erf = new ExpensesRefund();
             xC.xtDB.stfDB.setCboStaff(cboStaff, userId);
             xC.setCboYear(cboYear);
-            jim = xC.xtDB.jimDB.selectByPk1(jobId);
-            ecc = xC.xtDB.eccDB.selectByPk1(eccDoc);
+            jim = xC.manDB.jimDB.selectByPk1(jobId);
+            ecc = xC.accDB.eccDB.selectByPk1(eccDoc);
             txtJobCode.Value = jim.job_import_code;
 
             DateTime erfDate = DateTime.Now;
@@ -94,7 +94,7 @@ namespace Xtrim_ERP.gui
             grfErf.Clear();
             grfErf.Rows.Count = 1;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.erfDB.selectAll();
+            dt = xC.accDB.erfDB.selectAll();
 
             grfErf.Cols[colDesc].Width = 200;
             grfErf.Cols[colAmt].Width = 100;
@@ -112,17 +112,17 @@ namespace Xtrim_ERP.gui
                 row[0] = i + 1;
                 if (i % 2 == 0)
                     row.StyleNew.BackColor = color;
-                row[colId] = dt.Rows[i][xC.xtDB.erfDB.erf.expenses_refund_id].ToString();
-                row[colDesc] = dt.Rows[i][xC.xtDB.erfDB.erf.desc1].ToString();
-                row[colAmt] = dt.Rows[i][xC.xtDB.erfDB.erf.amount].ToString();
-                row[colDate] = dt.Rows[i][xC.xtDB.erfDB.erf.expenses_refund_date].ToString();
+                row[colId] = dt.Rows[i][xC.accDB.erfDB.erf.expenses_refund_id].ToString();
+                row[colDesc] = dt.Rows[i][xC.accDB.erfDB.erf.desc1].ToString();
+                row[colAmt] = dt.Rows[i][xC.accDB.erfDB.erf.amount].ToString();
+                row[colDate] = dt.Rows[i][xC.accDB.erfDB.erf.expenses_refund_date].ToString();
                 
             }
             grfErf.Cols[colId].Visible = false;
         }
         private void setErf()
         {
-            jim = xC.xtDB.jimDB.selectByPk1(jobId);
+            jim = xC.manDB.jimDB.selectByPk1(jobId);
             erf.expenses_refund_id = txtId.Text;
             erf.expense_clear_cash_id = "";
             erf.expenses_pay_detail_id = pdid;
@@ -147,7 +147,7 @@ namespace Xtrim_ERP.gui
         }
         private void setControl(String erfId)
         {
-            erf = xC.xtDB.erfDB.selectByPk1(erfId);
+            erf = xC.accDB.erfDB.selectByPk1(erfId);
             txtId.Value = erf.expenses_refund_id;
             jobId = erf.job_id;
             eccDoc = erf.expense_clear_cash_id;
@@ -159,7 +159,7 @@ namespace Xtrim_ERP.gui
         }
         private void setControlEcc(String eccDoc)
         {
-            ecc = xC.xtDB.eccDB.selectToRefundByEccDoc(eccDoc);
+            ecc = xC.accDB.eccDB.selectToRefundByEccDoc(eccDoc);
             txtId.Value = "";
             
             jobId = ecc.job_id;
@@ -192,7 +192,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setErf();
-                String re = xC.xtDB.erfDB.insertExpensesRefund(erf, cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "");
+                String re = xC.accDB.erfDB.insertExpensesRefund(erf, cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "");
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

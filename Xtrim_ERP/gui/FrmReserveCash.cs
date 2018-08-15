@@ -89,7 +89,7 @@ namespace Xtrim_ERP.gui
             //DataTable dtP = new DataTable();
             DataTable dtC = new DataTable();
             //dtP = xC.xtDB.rspDB.selectAll();
-            dtC = xC.xtDB.rscDB.selectAll();
+            dtC = xC.accDB.rscDB.selectAll();
             grfView.Cols.Count = 5;
             grfView.Rows.Count = 1;
             C1TextBox txt = new C1TextBox();
@@ -122,9 +122,9 @@ namespace Xtrim_ERP.gui
                 if (i % 2 == 0)
                     row.StyleNew.BackColor = color;
                 String date = "";
-                date= dtC.Rows[i][xC.xtDB.rscDB.rsc.date_create].ToString();
+                date= dtC.Rows[i][xC.accDB.rscDB.rsc.date_create].ToString();
                 row[colDate] = date;
-                if (!dtC.Rows[i][xC.xtDB.rscDB.rsc.expenses_pay_detail_id].ToString().Equals("0"))
+                if (!dtC.Rows[i][xC.accDB.rscDB.rsc.expenses_pay_detail_id].ToString().Equals("0"))
                 {
                     row[colType] = "จ่าย";
                 }
@@ -133,8 +133,8 @@ namespace Xtrim_ERP.gui
                     row[colType] = "เบิกเงิน";
                 }
                 
-                row[colAmt] = dtC.Rows[i][xC.xtDB.rscDB.rsc.amount].ToString();
-                row[colDesc] = dtC.Rows[i][xC.xtDB.rscDB.rsc.desc1].ToString();
+                row[colAmt] = dtC.Rows[i][xC.accDB.rscDB.rsc.amount].ToString();
+                row[colDesc] = dtC.Rows[i][xC.accDB.rscDB.rsc.desc1].ToString();
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];

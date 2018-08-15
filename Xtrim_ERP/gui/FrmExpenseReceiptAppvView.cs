@@ -75,7 +75,7 @@ namespace Xtrim_ERP.gui
             grfEcc.Clear();
             grfEcc.Rows.Count = 1;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.eccDB.selectSumEccDocByStatusAppv(chkAppvWait.Checked ? objdb.ExpensesClearCashDB.StatusAppv.sendtoAppv : chkAppvOk.Checked ? objdb.ExpensesClearCashDB.StatusAppv.Appv : objdb.ExpensesClearCashDB.StatusAppv.All);
+            dt = xC.accDB.eccDB.selectSumEccDocByStatusAppv(chkAppvWait.Checked ? objdb.ExpensesClearCashDB.StatusAppv.sendtoAppv : chkAppvOk.Checked ? objdb.ExpensesClearCashDB.StatusAppv.Appv : objdb.ExpensesClearCashDB.StatusAppv.All);
 
             grfEcc.Cols[colEccDeccdoc].Width = 100;
             grfEcc.Cols[colEccDpayamt].Width = 200;
@@ -94,10 +94,10 @@ namespace Xtrim_ERP.gui
                 row[0] = i + 1;
                 if (i % 2 == 0)
                     grfEcc.Rows[i+1].StyleNew.BackColor = color;
-                eccDoc = xC.FixEccCode + dt.Rows[i][xC.xtDB.eccDB.ecc.ecc_doc].ToString();
+                eccDoc = xC.FixEccCode + dt.Rows[i][xC.accDB.eccDB.ecc.ecc_doc].ToString();
                 row[colEccDeccdoc] = eccDoc;
-                row[colEccDpayamt] = dt.Rows[i][xC.xtDB.eccDB.ecc.pay_amount].ToString();
-                amt = xC.xtDB.erfDB.selectSumByEccDoc(eccDoc.Replace(xC.FixEccCode,""));
+                row[colEccDpayamt] = dt.Rows[i][xC.accDB.eccDB.ecc.pay_amount].ToString();
+                amt = xC.accDB.erfDB.selectSumByEccDoc(eccDoc.Replace(xC.FixEccCode,""));
                 row[colEccRefund] = amt;
 
                 //if (dt.Rows[i][xC.xtDB.eccDB.ecc.status_appv].ToString().Equals("0"))
@@ -135,7 +135,7 @@ namespace Xtrim_ERP.gui
             grfPd.Rows.Count = 1;
             grfPd.Cols.Count = 4;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expnpdDB.selectByEccDoc(eccid.Replace(xC.FixEccCode,""));
+            dt = xC.accDB.expnpdDB.selectByEccDoc(eccid.Replace(xC.FixEccCode,""));
 
             grfPd.Cols[colPdItmNameT].Width = 200;
             grfPd.Cols[colPdPayamt].Width = 100;
@@ -151,9 +151,9 @@ namespace Xtrim_ERP.gui
                 row[0] = i + 1;
                 if (i % 2 == 0)
                     grfPd.Rows[i + 1].StyleNew.BackColor = color;
-                row[colPdId] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.expenses_pay_detail_id].ToString();
-                row[colPdItmNameT] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.item_name_t].ToString();
-                row[colPdPayamt] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_amount].ToString();                
+                row[colPdId] = dt.Rows[i][xC.accDB.expnpdDB.expnP.expenses_pay_detail_id].ToString();
+                row[colPdItmNameT] = dt.Rows[i][xC.accDB.expnpdDB.expnP.item_name_t].ToString();
+                row[colPdPayamt] = dt.Rows[i][xC.accDB.expnpdDB.expnP.pay_amount].ToString();                
             }
             grfPd.Cols[colPdId].Visible = false;
         }
@@ -193,7 +193,7 @@ namespace Xtrim_ERP.gui
             grfEccD.Rows.Count = 1;
             grfEccD.Cols.Count = 9;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.eccDB.selectByStatusAppv(eccdoc.Replace(xC.FixEccCode,""),chkAppvWait.Checked ? objdb.ExpensesClearCashDB.StatusAppv.sendtoAppv : chkAppvOk.Checked ? objdb.ExpensesClearCashDB.StatusAppv.Appv : objdb.ExpensesClearCashDB.StatusAppv.All);
+            dt = xC.accDB.eccDB.selectByStatusAppv(eccdoc.Replace(xC.FixEccCode,""),chkAppvWait.Checked ? objdb.ExpensesClearCashDB.StatusAppv.sendtoAppv : chkAppvOk.Checked ? objdb.ExpensesClearCashDB.StatusAppv.Appv : objdb.ExpensesClearCashDB.StatusAppv.All);
 
             grfEccD.Cols[colEccDoc].Width = 80;
             grfEccD.Cols[colItmNameT].Width = 200;
@@ -217,15 +217,15 @@ namespace Xtrim_ERP.gui
                 row[0] = i + 1;
                 if (i % 2 == 0)
                     grfEccD.Rows[i + 1].StyleNew.BackColor = color;
-                row[colId] = dt.Rows[i][xC.xtDB.eccDB.ecc.expense_clear_cash_id].ToString();
-                row[colEccDoc] = xC.FixEccCode + dt.Rows[i][xC.xtDB.eccDB.ecc.ecc_doc].ToString();
-                row[colItmNameT] = dt.Rows[i][xC.xtDB.eccDB.ecc.item_name_t].ToString();
-                row[colAmt] = dt.Rows[i][xC.xtDB.eccDB.ecc.pay_amount].ToString();
-                row[colReceiptNo] = dt.Rows[i][xC.xtDB.eccDB.ecc.receipt_no].ToString();
-                row[colReceiptDate] = dt.Rows[i][xC.xtDB.eccDB.ecc.receipt_date].ToString();
-                row[colJobCode] = dt.Rows[i][xC.xtDB.eccDB.ecc.job_code].ToString();
-                row[colexpnDdId] = dt.Rows[i][xC.xtDB.eccDB.ecc.expenses_draw_detail_id].ToString();
-                if (dt.Rows[i][xC.xtDB.eccDB.ecc.status_appv].ToString().Equals("0"))
+                row[colId] = dt.Rows[i][xC.accDB.eccDB.ecc.expense_clear_cash_id].ToString();
+                row[colEccDoc] = xC.FixEccCode + dt.Rows[i][xC.accDB.eccDB.ecc.ecc_doc].ToString();
+                row[colItmNameT] = dt.Rows[i][xC.accDB.eccDB.ecc.item_name_t].ToString();
+                row[colAmt] = dt.Rows[i][xC.accDB.eccDB.ecc.pay_amount].ToString();
+                row[colReceiptNo] = dt.Rows[i][xC.accDB.eccDB.ecc.receipt_no].ToString();
+                row[colReceiptDate] = dt.Rows[i][xC.accDB.eccDB.ecc.receipt_date].ToString();
+                row[colJobCode] = dt.Rows[i][xC.accDB.eccDB.ecc.job_code].ToString();
+                row[colexpnDdId] = dt.Rows[i][xC.accDB.eccDB.ecc.expenses_draw_detail_id].ToString();
+                if (dt.Rows[i][xC.accDB.eccDB.ecc.status_appv].ToString().Equals("0"))
                 {
                     row.StyleNew.BackColor = Color.Gray;
                 }
@@ -258,7 +258,7 @@ namespace Xtrim_ERP.gui
             grfDd.Rows.Count = 1;
             grfDd.Cols.Count = 4;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expnddDB.selectByPk(pdid);
+            dt = xC.accDB.expnddDB.selectByPk(pdid);
 
             grfDd.Cols[colDdItmNameT].Width = 200;
             grfDd.Cols[colDdPayamt].Width = 100;
@@ -274,9 +274,9 @@ namespace Xtrim_ERP.gui
                 row[0] = i + 1;
                 if (i % 2 == 0)
                     grfDd.Rows[i + 1].StyleNew.BackColor = color;
-                row[colDdId] = dt.Rows[i][xC.xtDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
-                row[colDdItmNameT] = dt.Rows[i][xC.xtDB.expnddDB.expnC.item_name_t].ToString();
-                row[colDdPayamt] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_amount].ToString();
+                row[colDdId] = dt.Rows[i][xC.accDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
+                row[colDdItmNameT] = dt.Rows[i][xC.accDB.expnddDB.expnC.item_name_t].ToString();
+                row[colDdPayamt] = dt.Rows[i][xC.accDB.expnddDB.expnC.pay_amount].ToString();
             }
             grfDd.Cols[colDdId].Visible = false;
         }
@@ -332,11 +332,11 @@ namespace Xtrim_ERP.gui
                 row[0] = i + 1;
                 if (i % 2 == 0)
                     grfErf.Rows[i + 1].StyleNew.BackColor = color;
-                row[colErfId] = dt.Rows[i][xC.xtDB.erfDB.erf.expenses_refund_id].ToString();
-                row[colErfDesc] = dt.Rows[i][xC.xtDB.erfDB.erf.desc1].ToString();
-                row[colErfAmt] = dt.Rows[i][xC.xtDB.erfDB.erf.amount].ToString();
-                row[colErfJobCode] = dt.Rows[i][xC.xtDB.erfDB.erf.job_id].ToString();
-                row[colErfRemark] = dt.Rows[i][xC.xtDB.erfDB.erf.remark].ToString();
+                row[colErfId] = dt.Rows[i][xC.accDB.erfDB.erf.expenses_refund_id].ToString();
+                row[colErfDesc] = dt.Rows[i][xC.accDB.erfDB.erf.desc1].ToString();
+                row[colErfAmt] = dt.Rows[i][xC.accDB.erfDB.erf.amount].ToString();
+                row[colErfJobCode] = dt.Rows[i][xC.accDB.erfDB.erf.job_id].ToString();
+                row[colErfRemark] = dt.Rows[i][xC.accDB.erfDB.erf.remark].ToString();
             }
             grfErf.Cols[colDdId].Visible = false;
         }
@@ -344,8 +344,8 @@ namespace Xtrim_ERP.gui
         {
             ExpensesClearCash ecc = new ExpensesClearCash();
             ExpensesPayDetail pd = new ExpensesPayDetail();
-            ecc = xC.xtDB.eccDB.selectByPk1(eccId);
-            pd = xC.xtDB.expnpdDB.selectByPk1(ecc.expenses_pay_detail_id);
+            ecc = xC.accDB.eccDB.selectByPk1(eccId);
+            pd = xC.accDB.expnpdDB.selectByPk1(ecc.expenses_pay_detail_id);
             txtID.Value = ecc.expense_clear_cash_id;
             txtEccDoc.Value = ecc.ecc_doc;
             txtItmNameT.Value = ecc.item_name_t;

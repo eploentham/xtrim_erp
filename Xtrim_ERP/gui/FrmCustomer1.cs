@@ -161,11 +161,11 @@ namespace Xtrim_ERP.gui
             if (txtInsrNameT.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.cusDB.selectByCodeLike(txtInsrNameT.Text);
+                dt = xC.iniDB.cusDB.selectByCodeLike(txtInsrNameT.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sInsr = new Customer();
-                    xC.sInsr = xC.xtDB.cusDB.setCustomer(dt);
+                    xC.sInsr = xC.iniDB.cusDB.setCustomer(dt);
                     setKeyUpF2Insr1(xC.sInsr);
                 }
                 else if (dt.Rows.Count > 1)
@@ -666,7 +666,7 @@ namespace Xtrim_ERP.gui
             {
 
             }
-            dt = xC.xtDB.cusDB.selectAll2(chkSCus.Checked==true ? "1" : "0", chkSImp.Checked == true ? "1" : "0", chkSExp.Checked == true ? "1" : "0", 
+            dt = xC.iniDB.cusDB.selectAll2(chkSCus.Checked==true ? "1" : "0", chkSImp.Checked == true ? "1" : "0", chkSExp.Checked == true ? "1" : "0", 
                 chkSConsImp.Checked == true ? "1" : "0", chkSConsExp.Checked == true ? "1" : "0", chkSInsr.Checked == true ? "1" : "0", chkSFwd.Checked == true ? "1" : "0", 
                 chkSSupp.Checked == true ? "1" : "0");
             //grfCus.Cols.Count = 2;
@@ -744,7 +744,7 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             if (e.KeyCode == Keys.Enter)
             {
-                userIdVoid = xC.xtDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
+                userIdVoid = xC.iniDB.stfDB.selectByPasswordAdmin(txtPasswordVoid.Text.Trim());
                 if (userIdVoid.Length > 0)
                 {
                     txtPasswordVoid.Hide();
@@ -761,7 +761,7 @@ namespace Xtrim_ERP.gui
         {
             if (MessageBox.Show("ต้องการยกเลิก รายการ", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                String re = xC.xtDB.cusDB.voidCustomer(txtID.Value.ToString());
+                String re = xC.iniDB.cusDB.voidCustomer(txtID.Value.ToString());
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -865,7 +865,7 @@ namespace Xtrim_ERP.gui
         }
         private void setGrfAddrH(String custId)
         {
-            grfAddr.DataSource = xC.xtDB.addrDB.selectByTableId1(custId);
+            grfAddr.DataSource = xC.iniDB.addrDB.selectByTableId1(custId);
             grfAddr.Cols[colAddrID].Width = 60;
             grfAddr.Cols[colAddrName].Width = 100;
             grfAddr.Cols[colAddrLine1].Width = 100;
@@ -897,7 +897,7 @@ namespace Xtrim_ERP.gui
         }
         private void setGrfContH(String custId)
         {
-            grfCont.DataSource = xC.xtDB.contDB.selectByCusId(custId);
+            grfCont.DataSource = xC.iniDB.contDB.selectByCusId(custId);
             grfCont.Cols[colContId].Width = 60;
             grfCont.Cols[colContFNameT].Width = 60;
             grfCont.Cols[colContLNameT].Width = 60;
@@ -921,7 +921,7 @@ namespace Xtrim_ERP.gui
         }
         private void setGrfRmkH(String custId)
         {
-            grfRmk.DataSource = xC.xtDB.cusrDB.selectByCusId(custId);
+            grfRmk.DataSource = xC.iniDB.cusrDB.selectByCusId(custId);
             grfRmk.Cols[colRmkId].Width = 60;
             grfRmk.Cols[colRmkRemark1].Width = 60;
             grfRmk.Cols[colRmkRemark2].Width = 60;            
@@ -933,7 +933,7 @@ namespace Xtrim_ERP.gui
         }
         private void setGrfTaxH(String custId)
         {
-            grfTax.DataSource = xC.xtDB.custDB.selectByCusId(custId);
+            grfTax.DataSource = xC.iniDB.custDB.selectByCusId(custId);
             grfTax.Cols[colTaxTaxId].Width = 60;
             grfTax.Cols[colTaxNameT].Width = 60;
             grfTax.Cols[colTaxNameE].Width = 60;
@@ -1080,8 +1080,8 @@ namespace Xtrim_ERP.gui
         {
             if (cusId.Equals("")) return;
             Customer cus = new Customer();
-            cus = xC.xtDB.cusDB.selectByPk1(cusId);
-            Customer insr = xC.xtDB.cusDB.selectByPk1(cus.insr_id);
+            cus = xC.iniDB.cusDB.selectByPk1(cusId);
+            Customer insr = xC.iniDB.cusDB.selectByPk1(cus.insr_id);
             insrId = insr.cust_id;
 
 
@@ -1277,7 +1277,7 @@ namespace Xtrim_ERP.gui
         {
             //Customer cus = new Customer();
             setCustomer();
-            String re = xC.xtDB.cusDB.insertCustomer(cus);
+            String re = xC.iniDB.cusDB.insertCustomer(cus);
             int chk = 0;
             if (int.TryParse(re, out chk))
             {
@@ -1324,7 +1324,7 @@ namespace Xtrim_ERP.gui
                     addr.web_site2 = "";
                     addr.google_map = "";
                     addr.status_defalut_customer = "1";
-                    String re1 = xC.xtDB.addrDB.insertAddress(addr);
+                    String re1 = xC.iniDB.addrDB.insertAddress(addr);
 
                 }
 

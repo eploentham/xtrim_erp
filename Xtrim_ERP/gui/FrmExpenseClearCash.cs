@@ -117,11 +117,11 @@ namespace Xtrim_ERP.gui
             expnpd = new ExpensesPayDetail();
             ecc = new ExpensesClearCash();
             JobImport jim = new JobImport();
-            ecc = xC.xtDB.eccDB.selectByPk1(id);
-            expnpd = xC.xtDB.expnpdDB.selectByPk1(pdid);
+            ecc = xC.accDB.eccDB.selectByPk1(id);
+            expnpd = xC.accDB.expnpdDB.selectByPk1(pdid);
             if (ecc.expense_clear_cash_id.Equals(""))
             {
-                jim = xC.xtDB.jimDB.selectByJobCode(jobcode);
+                jim = xC.manDB.jimDB.selectByJobCode(jobcode);
             }
             txtItmNamePd.Value = itmPd;
             txtId.Value = ecc.expense_clear_cash_id;
@@ -209,7 +209,7 @@ namespace Xtrim_ERP.gui
             {
 
             }
-            ecc = xC.xtDB.eccDB.selectByPk1(txtId.Text);
+            ecc = xC.accDB.eccDB.selectByPk1(txtId.Text);
             ecc.expense_clear_cash_id = txtId.Text;
             ecc.expenses_pay_detail_id = txtPdId.Text;
             ecc.job_id = txtJobId.Text;
@@ -261,7 +261,7 @@ namespace Xtrim_ERP.gui
                 setEcc();
                 //xC.sEcc = ecc;
                 int chk = 0;
-                String re = xC.xtDB.eccDB.insertExpenseReceiptCash(ecc, xC.userId);
+                String re = xC.accDB.eccDB.insertExpenseReceiptCash(ecc, xC.userId);
                 if (int.TryParse(re, out chk))
                 {
                     Close();

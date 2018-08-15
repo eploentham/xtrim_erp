@@ -83,7 +83,7 @@ namespace Xtrim_ERP.gui
         private void setGrfDeptH()
         {
             //grfDept.Rows.Count = 7;
-            grfExpn.DataSource = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text,objdb.ExpensesDrawDB.StatusPay.waitappv, objdb.ExpensesDrawDB.StatusPayType.all);
+            grfExpn.DataSource = xC.accDB.expndDB.selectToPayAll1(cboYear.Text,objdb.ExpensesDrawDB.StatusPay.waitappv, objdb.ExpensesDrawDB.StatusPayType.all);
             grfExpn.Cols.Count = 7;
             TextBox txt = new TextBox();
 
@@ -131,7 +131,7 @@ namespace Xtrim_ERP.gui
             xC.drawID = grfExpn[grfExpn.Row, colID] != null ? grfExpn[grfExpn.Row, colID].ToString() : "";
             ExpensesDraw expn = new ExpensesDraw();
             FrmExpenseDraw frm;
-            expn = xC.xtDB.expndDB.selectByPk1(xC.drawID);
+            expn = xC.accDB.expndDB.selectByPk1(xC.drawID);
             if (expn.status_pay_type.Equals("1"))
             {
                 frm = new FrmExpenseDraw(xC, xC.drawID, FrmExpenseDraw.flagForm2.Cash, FrmExpenseDraw.flagAction.pay);

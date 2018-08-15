@@ -461,7 +461,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setCustomer();
-                xC.xtDB.impDB.insertImporter(imp);
+                xC.iniDB.impDB.insertImporter(imp);
                 //setGrdView();
             }
         }

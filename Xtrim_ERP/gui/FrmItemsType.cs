@@ -62,7 +62,7 @@ namespace Xtrim_ERP.gui
             btnEdit.Click += BtnEdit_Click;
             btnSave.Click += BtnSave_Click;
 
-            xC.xtDB.itmGrpDB.setC1CboItmGrp(cboFItm, "");
+            xC.iniDB.itmGrpDB.setC1CboItmGrp(cboFItm, "");
             initGrfDept();
             setGrfDeptH();
             setControlEnable(false);
@@ -95,7 +95,7 @@ namespace Xtrim_ERP.gui
         private void setGrfDeptH()
         {
             //grfDept.Rows.Count = 7;
-            grfItemT.DataSource = xC.xtDB.itmtDB.selectAll();
+            grfItemT.DataSource = xC.iniDB.itmtDB.selectAll();
             grfItemT.Cols.Count = 5;
             TextBox txt = new TextBox();
 
@@ -151,7 +151,7 @@ namespace Xtrim_ERP.gui
         }
         private void setControl(String deptId)
         {
-            itmT = xC.xtDB.itmtDB.selectByPk1(deptId);
+            itmT = xC.iniDB.itmtDB.selectByPk1(deptId);
             txtID.Value = itmT.item_type_id;
             txtCode.Value = itmT.item_type_code;
             txtNameT.Value = itmT.item_type_name_t;
@@ -210,7 +210,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setDeptment();
-                String re = xC.xtDB.itmtDB.insertItemsType(itmT, xC.user.staff_id);
+                String re = xC.iniDB.itmtDB.insertItemsType(itmT, xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

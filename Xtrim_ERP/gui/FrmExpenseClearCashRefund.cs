@@ -38,8 +38,8 @@ namespace Xtrim_ERP.gui
             erf = new ExpensesRefund();
             xC.xtDB.stfDB.setCboStaff(cboStaff, userId);
             
-            jim = xC.xtDB.jimDB.selectByPk1(jobId);
-            ecc = xC.xtDB.eccDB.selectByPk1(erfId);
+            jim = xC.manDB.jimDB.selectByPk1(jobId);
+            ecc = xC.accDB.eccDB.selectByPk1(erfId);
             txtJobCode.Value = jim.job_import_code;
 
             DateTime erfDate = DateTime.Now;
@@ -51,7 +51,7 @@ namespace Xtrim_ERP.gui
         }
         private void setErf()
         {
-            jim = xC.xtDB.jimDB.selectByPk1(jobId);
+            jim = xC.manDB.jimDB.selectByPk1(jobId);
             erf.expenses_refund_id = txtId.Text;
             erf.expense_clear_cash_id = "";
             erf.expenses_pay_detail_id = pdid;
@@ -76,7 +76,7 @@ namespace Xtrim_ERP.gui
         }
         private void setControl(String erfId)
         {
-            erf = xC.xtDB.erfDB.selectByPk1(erfId);
+            erf = xC.accDB.erfDB.selectByPk1(erfId);
             txtId.Value = erf.expenses_refund_id;
             jobId = erf.job_id;
             this.erfId = erf.expense_clear_cash_id;
@@ -93,7 +93,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setErf();
-                String re = xC.xtDB.erfDB.insertExpensesRefund(erf, cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "");
+                String re = xC.accDB.erfDB.insertExpensesRefund(erf, cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "");
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

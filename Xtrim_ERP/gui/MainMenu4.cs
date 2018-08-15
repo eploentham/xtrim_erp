@@ -312,8 +312,8 @@ namespace Xtrim_ERP.gui
         {
             //throw new NotImplementedException();
             //RibbonForm2 frm = new RibbonForm2();
-            RichTextEditor.Form1 frm = new RichTextEditor.Form1();
-            frm.Show();
+            //RichTextEditor.Form1 frm = new RichTextEditor.Form1();
+            //frm.Show();
         }
 
         private void MenuPosi_Click(object sender, EventArgs e)

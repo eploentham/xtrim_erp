@@ -49,7 +49,7 @@ namespace Xtrim_ERP.gui
             theme1.Theme = C1ThemeController.ApplicationTheme;
             theme1.SetTheme(sB, "BeigeOne");
             expndd = new ExpensesDrawDatail();
-            expndd = xC.xtDB.expnddDB.selectByPk1(tableId);
+            expndd = xC.accDB.expnddDB.selectByPk1(tableId);
             txtTableId.Value = expndd.expenses_draw_detail_id;
             txtItmNameT.Value = expndd.item_name_t;
             txtJobId.Value = expndd.job_id;

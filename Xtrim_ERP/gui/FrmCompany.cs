@@ -148,9 +148,9 @@ namespace Xtrim_ERP.gui
                             copb.comp_bank_branch = grfCopBnk[i, colBBnkBranch] != null ? grfCopBnk[i, colBBnkBranch].ToString() : "";
                             copb.acc_number = grfCopBnk[i, colBaccnumber] != null ? grfCopBnk[i, colBaccnumber].ToString() : "";
                             copb.remark = grfCopBnk[i, colBRemark] != null ? grfCopBnk[i, colBRemark].ToString() : "";
-                            copb.bank_id = xC.xtDB.bnkDB.getIdByName(copb.comp_bank_name_t);
+                            copb.bank_id = xC.iniDB.bnkDB.getIdByName(copb.comp_bank_name_t);
                             copb.comp_id = txtID.Text;
-                            xC.xtDB.copbDB.insertCompany(copb, xC.userId);
+                            xC.iniDB.copbDB.insertCompany(copb, xC.userId);
                         }
                     }
                 }
@@ -194,14 +194,14 @@ namespace Xtrim_ERP.gui
         {
             grfCopBnk.Clear();
             DataTable dt = new DataTable();
-            dt = xC.xtDB.copbDB.selectBankByCop(copid);
+            dt = xC.iniDB.copbDB.selectBankByCop(copid);
             grfCopBnk.Cols.Count = 7;
             grfCopBnk.Rows.Count = dt.Rows.Count + 2;
 
             C1TextBox txt = new C1TextBox();
             txt.DataType = txtCopCode.DataType;
             C1ComboBox cbo = new C1ComboBox();
-            xC.xtDB.bnkDB.setC1CboItem(cbo);
+            xC.iniDB.bnkDB.setC1CboItem(cbo);
 
             grfCopBnk.Cols[colBBnkNameT].Editor = cbo;
             grfCopBnk.Cols[colBBnkBranch].Editor = txt;
@@ -226,11 +226,11 @@ namespace Xtrim_ERP.gui
                 grfCopBnk[i+1, 0] = i+1;
                 if (i % 2 == 0)
                     grfCopBnk.Rows[i+1].StyleNew.BackColor = color;
-                grfCopBnk[i + 1, colBID] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_id].ToString();
-                grfCopBnk[i + 1, colBBnkNameT] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_name_t].ToString();
-                grfCopBnk[i + 1, colBBnkBranch] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_branch].ToString();
-                grfCopBnk[i + 1, colBaccnumber] = dt.Rows[i][xC.xtDB.copbDB.copB.acc_number].ToString();
-                grfCopBnk[i + 1, colBRemark] = dt.Rows[i][xC.xtDB.copbDB.copB.remark].ToString();
+                grfCopBnk[i + 1, colBID] = dt.Rows[i][xC.iniDB.copbDB.copB.comp_bank_id].ToString();
+                grfCopBnk[i + 1, colBBnkNameT] = dt.Rows[i][xC.iniDB.copbDB.copB.comp_bank_name_t].ToString();
+                grfCopBnk[i + 1, colBBnkBranch] = dt.Rows[i][xC.iniDB.copbDB.copB.comp_bank_branch].ToString();
+                grfCopBnk[i + 1, colBaccnumber] = dt.Rows[i][xC.iniDB.copbDB.copB.acc_number].ToString();
+                grfCopBnk[i + 1, colBRemark] = dt.Rows[i][xC.iniDB.copbDB.copB.remark].ToString();
                 grfCopBnk[i + 1, colBedit] = "";
             }
             grfCopBnk.Cols[colBID].Visible = false;

@@ -228,7 +228,7 @@ namespace Xtrim_ERP.gui
         private void setKeyUpF2Payer1(Customer cus)
         {
             Address addr = new Address();
-            addr = xC.xtDB.addrDB.selectStatusTaxByCusId1(cus.cust_id);
+            addr = xC.iniDB.addrDB.selectStatusTaxByCusId1(cus.cust_id);
             txtPayerTaxId.Value = cus.cust_id;
             txtPayerTaxNameT.Value = cus.cust_name_t;
             txtPayerTaxAddr.Value = addr.line_t1;
@@ -267,7 +267,7 @@ namespace Xtrim_ERP.gui
         {
             //grfDept.Rows.Count = 7;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all, objdb.ExpensesDrawDB.StatusPayType.all);
+            dt = xC.accDB.expndDB.selectToPayAll1(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all, objdb.ExpensesDrawDB.StatusPayType.all);
             grfView.Cols.Count = dt.Columns.Count+1;
             grfView.Rows.Count = dt.Rows.Count + 2;
             TextBox txt = new TextBox();
@@ -299,41 +299,41 @@ namespace Xtrim_ERP.gui
                 grfView[i+2, 0] = i+1;
                 if (i % 2 == 0)
                     grfView.Rows[i].StyleNew.BackColor = color;
-                grfView[i + 2, colID] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_id].ToString();
-                grfView[i + 2, colCode] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_code].ToString();
-                grfView[i + 2, colDesc] = dt.Rows[i][xC.xtDB.expndDB.expnC.desc1].ToString();
-                grfView[i +2, colRemark] = dt.Rows[i][xC.xtDB.expndDB.expnC.remark].ToString();
-                grfView[i + 2, colAmt] = dt.Rows[i][xC.xtDB.expndDB.expnC.amount].ToString();
-                grfView[i + 2, colAmt] = dt.Rows[i][xC.xtDB.expndDB.expnC.amount].ToString();
-                if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("2"))
+                grfView[i + 2, colID] = dt.Rows[i][xC.accDB.expndDB.expnC.expenses_draw_id].ToString();
+                grfView[i + 2, colCode] = dt.Rows[i][xC.accDB.expndDB.expnC.expenses_draw_code].ToString();
+                grfView[i + 2, colDesc] = dt.Rows[i][xC.accDB.expndDB.expnC.desc1].ToString();
+                grfView[i +2, colRemark] = dt.Rows[i][xC.accDB.expndDB.expnC.remark].ToString();
+                grfView[i + 2, colAmt] = dt.Rows[i][xC.accDB.expndDB.expnC.amount].ToString();
+                grfView[i + 2, colAmt] = dt.Rows[i][xC.accDB.expndDB.expnC.amount].ToString();
+                if (dt.Rows[i][xC.accDB.expndDB.expnC.status_appv].ToString().Equals("2"))
                 {
                     grfView[i + 2, colStatus] = "อนุมัติแล้ว";
                 }
-                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("1"))
+                else if (dt.Rows[i][xC.accDB.expndDB.expnC.status_appv].ToString().Equals("1"))
                 {
                     grfView[i + 2, colStatus] = "รออนุมัติ";
                 }
                 else
                 {
-                    grfView[i + 2, colStatusPay] = dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString();
+                    grfView[i + 2, colStatusPay] = dt.Rows[i][xC.accDB.expndDB.expnC.status_appv].ToString();
                 }
-                if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay].ToString().Equals("2"))
+                if (dt.Rows[i][xC.accDB.expndDB.expnC.status_pay].ToString().Equals("2"))
                 {
                     grfView[i + 2, colStatusPay] = "จ่ายแล้ว";
                 }
-                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay].ToString().Equals("1"))
+                else if (dt.Rows[i][xC.accDB.expndDB.expnC.status_pay].ToString().Equals("1"))
                 {
                     grfView[i + 2, colStatusPay] = "รอจ่าย";
                 }
                 else
                 {
-                    grfView[i + 2, colStatusPay] = dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay].ToString();
+                    grfView[i + 2, colStatusPay] = dt.Rows[i][xC.accDB.expndDB.expnC.status_pay].ToString();
                 }
-                if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay_type].ToString().Equals("1"))
+                if (dt.Rows[i][xC.accDB.expndDB.expnC.status_pay_type].ToString().Equals("1"))
                 {
                     grfView[i + 2, colFlagForm] = "Cash";
                 }
-                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay_type].ToString().Equals("2"))
+                else if (dt.Rows[i][xC.accDB.expndDB.expnC.status_pay_type].ToString().Equals("2"))
                 {
                     grfView[i + 2, colFlagForm] = "Cheque";
                 }
@@ -351,7 +351,7 @@ namespace Xtrim_ERP.gui
             //grfDept.Rows.Count = 7;
             //grfView.Tree = 
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expndDB.selectAllFmtp1(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all);
+            dt = xC.accDB.expndDB.selectAllFmtp1(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all);
             //grfView.DataSource = ds.Tables[0];
             grfView.Rows.Count = 1;
             grfView.Cols.Count = 7;
@@ -430,7 +430,7 @@ namespace Xtrim_ERP.gui
         {
             //grfDept.Rows.Count = 7;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expnddDB.selectByChequeAppv("2");
+            dt = xC.accDB.expnddDB.selectByChequeAppv("2");
             //grfChequeView1.DataSource = dt;
             grfChequeView.Cols.Count = dt.Columns.Count+1;
             grfChequeView.Rows.Count = dt.Rows.Count + 1;
@@ -545,7 +545,7 @@ namespace Xtrim_ERP.gui
             grfChequeMake.Cols.Count = 12;
             TextBox txt = new TextBox();
             C1ComboBox cbo = new C1ComboBox();
-            xC.xtDB.copbDB.setC1CboItem(cbo);
+            xC.iniDB.copbDB.setC1CboItem(cbo);
             //C1DateEdit dtpDate = new C1DateEdit();
             txtDate.Value = DateTime.Now;
             //dtpDate.EditFormat = FormatInfo. 
@@ -616,7 +616,7 @@ namespace Xtrim_ERP.gui
             Company cop = new Company();
             cop = xC.xtDB.copDB.selectByCode1("001");
             DataTable dt = new DataTable();
-            dt = xC.xtDB.copbDB.selectBankByCop(cop.comp_id);
+            dt = xC.iniDB.copbDB.selectBankByCop(cop.comp_id);
 
             grfChequeBnk.Cols.Count = 6;
             grfChequeBnk.Rows.Count = dt.Rows.Count + 2;
@@ -645,10 +645,10 @@ namespace Xtrim_ERP.gui
 
             for(int i = 0; i < dt.Rows.Count; i++)
             {
-                grfChequeBnk[i + 1, colBID] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_id].ToString();
-                grfChequeBnk[i + 1, colBNameT] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_name_t].ToString();
-                grfChequeBnk[i + 1, colBbranch] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_branch].ToString();
-                grfChequeBnk[i + 1, colBaccnumber] = dt.Rows[i][xC.xtDB.copbDB.copB.acc_number].ToString();
+                grfChequeBnk[i + 1, colBID] = dt.Rows[i][xC.iniDB.copbDB.copB.comp_bank_id].ToString();
+                grfChequeBnk[i + 1, colBNameT] = dt.Rows[i][xC.iniDB.copbDB.copB.comp_bank_name_t].ToString();
+                grfChequeBnk[i + 1, colBbranch] = dt.Rows[i][xC.iniDB.copbDB.copB.comp_bank_branch].ToString();
+                grfChequeBnk[i + 1, colBaccnumber] = dt.Rows[i][xC.iniDB.copbDB.copB.acc_number].ToString();
                 grfChequeBnk[i + 1, colBAmt] = "0.00";
             }
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
@@ -705,7 +705,7 @@ namespace Xtrim_ERP.gui
         {
             //grfDept.Rows.Count = 7;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expnddDB.selectByCashAppv("2");
+            dt = xC.accDB.expnddDB.selectByCashAppv("2");
             //grfChequeView1.DataSource = dt;
             grfCashView.Cols.Count = dt.Columns.Count + 1;
             grfCashView.Rows.Count = dt.Rows.Count + 1;
@@ -820,7 +820,7 @@ namespace Xtrim_ERP.gui
             grfCashMake.Cols.Count = 12;
             TextBox txt = new TextBox();
             C1ComboBox cbo = new C1ComboBox();
-            xC.xtDB.copbDB.setC1CboItem(cbo);
+            xC.iniDB.copbDB.setC1CboItem(cbo);
             //C1DateEdit dtpDate = new C1DateEdit();
             txtDate.Value = DateTime.Now;
             //dtpDate.EditFormat = FormatInfo. 
@@ -907,10 +907,10 @@ namespace Xtrim_ERP.gui
                     item = grfTax[e.Row, colTItemNameT].ToString();
                     Items itm = new Items();
                     BTax btax = new BTax();
-                    itm = xC.xtDB.itmDB.selectByNameT1(item);
+                    itm = xC.iniDB.itmDB.selectByNameT1(item);
                     if (!itm.tax_id.Equals(""))
                     {
-                        btax = xC.xtDB.btaxDB.selectByPk1(itm.tax_id);
+                        btax = xC.iniDB.btaxDB.selectByPk1(itm.tax_id);
                         bname = btax.b_tax_name_t;
                         if (!Decimal.TryParse(btax.rate1, out rate))
                         {
@@ -957,7 +957,7 @@ namespace Xtrim_ERP.gui
             Company cop = new Company();
             cop = xC.xtDB.copDB.selectByCode1("001");
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expnpdDB.selectPrintCheque(expnpdid);
+            dt = xC.accDB.expnpdDB.selectPrintCheque(expnpdid);
             grfTax.Clear();
             grfTax.Cols.Count = 10;
             if (dt.Rows.Count > 0)
@@ -978,7 +978,7 @@ namespace Xtrim_ERP.gui
             C1TextBox txt1 = new C1TextBox();
             txt1.DataType = txtAmt.DataType;
             C1ComboBox cbo = new C1ComboBox();
-            xC.xtDB.itmDB.setC1CboItem(cbo);
+            xC.iniDB.itmDB.setC1CboItem(cbo);
             C1TextBox txt2 = new C1TextBox();
             txt2.DataType = txtTaxDate.DataType;
 
@@ -1004,13 +1004,13 @@ namespace Xtrim_ERP.gui
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                grfTax[i + 1, colTItemNameT] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_to_cus_name_t].ToString();
-                grfTax[i + 1, colTtaxdate] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_bank_date].ToString();
-                grfTax[i + 1, colTAmt] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_name_t].ToString();
-                grfTax[i + 1, colTtaxamt] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_branch].ToString();
-                grfTax[i + 1, colTID] = dt.Rows[i][xC.xtDB.copbDB.copB.acc_number].ToString();
-                grfTax[i + 1, colTitemid] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_amount].ToString();
-                grfTax[i + 1, colTbtaxid] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_amount].ToString();
+                grfTax[i + 1, colTItemNameT] = dt.Rows[i][xC.accDB.expnpdDB.expnP.pay_to_cus_name_t].ToString();
+                grfTax[i + 1, colTtaxdate] = dt.Rows[i][xC.accDB.expnpdDB.expnP.pay_bank_date].ToString();
+                grfTax[i + 1, colTAmt] = dt.Rows[i][xC.iniDB.copbDB.copB.comp_bank_name_t].ToString();
+                grfTax[i + 1, colTtaxamt] = dt.Rows[i][xC.iniDB.copbDB.copB.comp_bank_branch].ToString();
+                grfTax[i + 1, colTID] = dt.Rows[i][xC.iniDB.copbDB.copB.acc_number].ToString();
+                grfTax[i + 1, colTitemid] = dt.Rows[i][xC.accDB.expnpdDB.expnP.pay_amount].ToString();
+                grfTax[i + 1, colTbtaxid] = dt.Rows[i][xC.accDB.expnpdDB.expnP.pay_amount].ToString();
             }
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
             for (int i = 1; i < grfTax.Rows.Count; i++)
@@ -1037,7 +1037,7 @@ namespace Xtrim_ERP.gui
             C1TextBox txt1 = new C1TextBox();
             txt1.DataType = txtAmt.DataType;
             C1ComboBox cbo = new C1ComboBox();
-            xC.xtDB.itmDB.setC1CboItem(cbo);
+            xC.iniDB.itmDB.setC1CboItem(cbo);
             C1TextBox txt2 = new C1TextBox();
             txt2.DataType = txtTaxDate.DataType;
             grfTaxView.Cols.Count = 10;
@@ -1083,7 +1083,7 @@ namespace Xtrim_ERP.gui
             Company cop = new Company();
             cop = xC.xtDB.copDB.selectByCode1("001");
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expnpdDB.selectPrintCheque(expnpdid);
+            dt = xC.accDB.expnpdDB.selectPrintCheque(expnpdid);
 
             grfChequePrn.Cols.Count = 11;
             grfChequePrn.Rows.Count = dt.Rows.Count + 2;
@@ -1126,12 +1126,12 @@ namespace Xtrim_ERP.gui
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                grfChequePrn[i + 1, colPchequePayName] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_to_cus_name_t].ToString();
-                grfChequePrn[i + 1, colPchequeDate] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_bank_date].ToString();
-                grfChequePrn[i + 1, colPNameT] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_name_t].ToString();
-                grfChequePrn[i + 1, colPbranch] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_branch].ToString();
-                grfChequePrn[i + 1, colPaccnumber] = dt.Rows[i][xC.xtDB.copbDB.copB.acc_number].ToString();
-                grfChequePrn[i + 1, colPAmt] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_amount].ToString();
+                grfChequePrn[i + 1, colPchequePayName] = dt.Rows[i][xC.accDB.expnpdDB.expnP.pay_to_cus_name_t].ToString();
+                grfChequePrn[i + 1, colPchequeDate] = dt.Rows[i][xC.accDB.expnpdDB.expnP.pay_bank_date].ToString();
+                grfChequePrn[i + 1, colPNameT] = dt.Rows[i][xC.iniDB.copbDB.copB.comp_bank_name_t].ToString();
+                grfChequePrn[i + 1, colPbranch] = dt.Rows[i][xC.iniDB.copbDB.copB.comp_bank_branch].ToString();
+                grfChequePrn[i + 1, colPaccnumber] = dt.Rows[i][xC.iniDB.copbDB.copB.acc_number].ToString();
+                grfChequePrn[i + 1, colPAmt] = dt.Rows[i][xC.accDB.expnpdDB.expnP.pay_amount].ToString();
             }
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
             for (int i = 1; i < grfChequePrn.Rows.Count; i++)
@@ -1166,7 +1166,7 @@ namespace Xtrim_ERP.gui
                 if (!chk)
                 {
                     BTax btax = new BTax();
-                    btax = xC.xtDB.btaxDB.selectByPk1(btaxid);
+                    btax = xC.iniDB.btaxDB.selectByPk1(btaxid);
                     Row rowA = grfTaxView.Rows.Add();
                     rowA[colTItemNameT] = btax.b_tax_name_t;
                     rowA[colTtaxdate] = row[colTtaxdate];
@@ -1250,7 +1250,7 @@ namespace Xtrim_ERP.gui
                 String id = "";
                 id = grfCashPre[row, colCID] != null ? grfCashPre[row, colCID].ToString() : "";
                 ExpensesDrawDatail dd = new ExpensesDrawDatail();
-                dd = xC.xtDB.expnddDB.selectByPk1(id);
+                dd = xC.accDB.expnddDB.selectByPk1(id);
                 grfCashMake[row, 0] = row;
                 grfCashMake[row, colCID] = id;
                 grfCashMake[row, colCSubNameT] = grfCashPre[row, colCSubNameT];
@@ -1322,7 +1322,7 @@ namespace Xtrim_ERP.gui
                 String id = "";
                 id = grfChequePre[row, colCID] != null ? grfChequePre[row, colCID].ToString() : "";
                 ExpensesDrawDatail dd = new ExpensesDrawDatail();
-                dd = xC.xtDB.expnddDB.selectByPk1(id);
+                dd = xC.accDB.expnddDB.selectByPk1(id);
                 grfChequeMake[row, 0] = row;
                 grfChequeMake[row, colCID] = id;
                 grfChequeMake[row, colCSubNameT] = grfChequePre[row, colCSubNameT];
@@ -1363,8 +1363,8 @@ namespace Xtrim_ERP.gui
             tax.user_modi = "";
             tax.user_cancel = "";
             tax.cust_id = txtCusTaxId.Text;
-            cus = xC.xtDB.cusDB.selectByPk1(tax.cust_id);
-            addr = xC.xtDB.addrDB.selectStatusTaxByCusId1(cus.cust_id);
+            cus = xC.iniDB.cusDB.selectByPk1(tax.cust_id);
+            addr = xC.iniDB.addrDB.selectStatusTaxByCusId1(cus.cust_id);
             tax.year_id = "";
 
             tax.cust_name_t = txtCusTaxNameT.Text;
@@ -1373,16 +1373,16 @@ namespace Xtrim_ERP.gui
             tax.cust_tax_id = cus.tax_id;
 
             tax.agent_id = txtAgentTaxId.Text;
-            agent = xC.xtDB.cusDB.selectByPk1(tax.agent_id);
-            agentaddr = xC.xtDB.addrDB.selectStatusTaxByCusId1(agent.cust_id);
+            agent = xC.iniDB.cusDB.selectByPk1(tax.agent_id);
+            agentaddr = xC.iniDB.addrDB.selectStatusTaxByCusId1(agent.cust_id);
             tax.agent_name_t = txtAgentTaxNameT.Text;
             tax.agent_addr = agentaddr.line_t1;
             tax.agent_tele = agent.tele;
             tax.agent_tax_id = agent.tax_id;
 
             tax.payer_id = txtPayerTaxId.Text;
-            payer = xC.xtDB.cusDB.selectByPk1(tax.agent_id);
-            payeraddr = xC.xtDB.addrDB.selectStatusTaxByCusId1(payer.cust_id);
+            payer = xC.iniDB.cusDB.selectByPk1(tax.agent_id);
+            payeraddr = xC.iniDB.addrDB.selectStatusTaxByCusId1(payer.cust_id);
             tax.payer_name_t = txtPayerTaxNameT.Text;
             tax.payer_addr = payeraddr.line_t1;
             tax.payer_tax_id = payer.tax_id;
@@ -1483,7 +1483,7 @@ namespace Xtrim_ERP.gui
         {
             //throw new NotImplementedException();
             DataTable dt = new DataTable();
-            dt = xC.xtDB.taxDB.selectByPk(txtTaxId.Text);
+            dt = xC.iniDB.taxDB.selectByPk(txtTaxId.Text);
             //dt = xC.xtDB.taxDB.selectByPk("1700000003");
             FrmReport frm = new FrmReport(xC);
             frm.setReportTax(dt);
@@ -1495,7 +1495,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setTax();
-                String re = xC.xtDB.taxDB.insertTax(tax, xC.user.staff_id);
+                String re = xC.iniDB.taxDB.insertTax(tax, xC.user.staff_id);
                 int chk = 0, chkD = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -1510,7 +1510,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setExpensesPay("2");
-                String re = xC.xtDB.expnpDB.insertExpensesPay(expnp, xC.user.staff_id);
+                String re = xC.accDB.expnpDB.insertExpensesPay(expnp, xC.user.staff_id);
                 int chk = 0, chkD=0;
                 if (int.TryParse(re, out chk))
                 {
@@ -1523,7 +1523,7 @@ namespace Xtrim_ERP.gui
                         //JobImport jim = new JobImport();
                         //jim = xC.xtDB.jimDB.selectByPk1(jobId);
                         expnddid = grfChequeMake[i, colCID].ToString();
-                        expndd = xC.xtDB.expnddDB.selectByPk1(expnddid);
+                        expndd = xC.accDB.expnddDB.selectByPk1(expnddid);
 
                         expnPd.expenses_pay_detail_id = grfChequeMake[i, colCpayID] != null ? grfChequeMake[i, colCpayID].ToString() : "";//colCChequeNo
                         expnPd.expenses_pay_id = txtExpnpID.Text;
@@ -1546,10 +1546,10 @@ namespace Xtrim_ERP.gui
                         expnPd.pay_to_cus_addr = expndd.pay_to_cus_addr;
                         expnPd.pay_to_cus_tax = expndd.pay_to_cus_tax;
                         expnPd.pay_cheque_no = grfChequeMake[i, colCChequeNo] != null ? grfChequeMake[i, colCChequeNo].ToString() : "";
-                        expnPd.pay_cheque_bank_id = grfChequeMake[i, colCBank] != null ? xC.xtDB.copbDB.getIdByName(grfChequeMake[i, colCBank].ToString()) : "";
+                        expnPd.pay_cheque_bank_id = grfChequeMake[i, colCBank] != null ? xC.iniDB.copbDB.getIdByName(grfChequeMake[i, colCBank].ToString()) : "";
                         expnPd.pay_staff_id = xC.userId;
                         expnPd.pay_date = xC.datetoDB(txtDate.Text);
-                        expnPd.comp_bank_id = grfChequeMake[i, colCBank] != null ? xC.xtDB.copbDB.getIdByName(grfChequeMake[i, colCBank].ToString()) : "";
+                        expnPd.comp_bank_id = grfChequeMake[i, colCBank] != null ? xC.iniDB.copbDB.getIdByName(grfChequeMake[i, colCBank].ToString()) : "";
                         expnPd.pay_bank_date = grfChequeMake[i, colChequeDate] != null ? xC.datetoDB(grfChequeMake[i, colChequeDate].ToString()) : "";
                         expnPd.expenses_draw_detail_id = expndd.expenses_draw_detail_id;
 
@@ -1561,9 +1561,9 @@ namespace Xtrim_ERP.gui
                         expndd.pay_staff_id = expnPd.pay_staff_id;
                         expndd.pay_bank_date = expnPd.pay_bank_date;
                         
-                        String re1 = xC.xtDB.expnpdDB.insertExpensesPayDetail(expnPd, xC.userId);
+                        String re1 = xC.accDB.expnpdDB.insertExpensesPayDetail(expnPd, xC.userId);
                         expndd.expenses_pay_detail_id = re1;
-                        String re2 = xC.xtDB.expnddDB.updatePay(expndd, xC.userId);
+                        String re2 = xC.accDB.expnddDB.updatePay(expndd, xC.userId);
                         xC.updateStatusPay(expndd.expense_draw_id);
                         if (int.TryParse(re1, out chk))
                         {
@@ -1593,7 +1593,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setExpensesPay("1");
-                String re = xC.xtDB.expnpDB.insertExpensesPay(expnp, xC.user.staff_id);
+                String re = xC.accDB.expnpDB.insertExpensesPay(expnp, xC.user.staff_id);
                 int chk = 0, chkD = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -1606,8 +1606,8 @@ namespace Xtrim_ERP.gui
                         ReserveCash rsc = new ReserveCash();
                         String expnddid = "";
                         expnddid = grfCashMake[i, colCID].ToString();
-                        expndd = xC.xtDB.expnddDB.selectByPk1(expnddid);
-                        expnd = xC.xtDB.expndDB.selectByPk1(expndd.expense_draw_id);
+                        expndd = xC.accDB.expnddDB.selectByPk1(expnddid);
+                        expnd = xC.accDB.expndDB.selectByPk1(expndd.expense_draw_id);
 
                         expnPd.expenses_pay_detail_id = grfCashMake[i, colCpayID] != null ? grfCashMake[i, colCpayID].ToString() : "";//colCChequeNo
                         expnPd.expenses_pay_id = txtExpnpID.Text;
@@ -1630,10 +1630,10 @@ namespace Xtrim_ERP.gui
                         expnPd.pay_to_cus_addr = expndd.pay_to_cus_addr;
                         expnPd.pay_to_cus_tax = expndd.pay_to_cus_tax;
                         expnPd.pay_cheque_no = grfCashMake[i, colCChequeNo] != null ? grfCashMake[i, colCChequeNo].ToString() : "";
-                        expnPd.pay_cheque_bank_id = grfCashMake[i, colCBank] != null ? xC.xtDB.copbDB.getIdByName(grfCashMake[i, colCBank].ToString()) : "";
+                        expnPd.pay_cheque_bank_id = grfCashMake[i, colCBank] != null ? xC.iniDB.copbDB.getIdByName(grfCashMake[i, colCBank].ToString()) : "";
                         expnPd.pay_staff_id = expnd.staff_id;   //คนรับเงิน
                         expnPd.pay_date = xC.datetoDB(txtDate.Text);
-                        expnPd.comp_bank_id = grfCashMake[i, colCBank] != null ? xC.xtDB.copbDB.getIdByName(grfCashMake[i, colCBank].ToString()) : "";
+                        expnPd.comp_bank_id = grfCashMake[i, colCBank] != null ? xC.iniDB.copbDB.getIdByName(grfCashMake[i, colCBank].ToString()) : "";
                         expnPd.pay_bank_date = grfCashMake[i, colChequeDate] != null ? xC.datetoDB(grfCashMake[i, colChequeDate].ToString()) : "";
                         expnPd.expenses_draw_detail_id = expndd.expenses_draw_detail_id;
                         expnPd.desc_dd = expndd.desc1;
@@ -1648,14 +1648,14 @@ namespace Xtrim_ERP.gui
                         expndd.pay_staff_id = expnPd.pay_staff_id;
                         expndd.pay_bank_date = expnPd.pay_bank_date;
 
-                        String re1 = xC.xtDB.expnpdDB.insertExpensesPayDetail(expnPd, xC.userId);
+                        String re1 = xC.accDB.expnpdDB.insertExpensesPayDetail(expnPd, xC.userId);
                         expndd.expenses_pay_detail_id = re1;
-                        String re2 = xC.xtDB.expnddDB.updatePay(expndd, xC.userId);
+                        String re2 = xC.accDB.expnddDB.updatePay(expndd, xC.userId);
                         xC.updateStatusPay(expndd.expense_draw_id);
                         if (int.TryParse(re1, out chk))
                         {
                             chkD++;
-                            xC.xtDB.updateOnhand(re1, xC.userId, expnPd.pay_amount, expnPd.pay_to_cus_name_t, expnPd.item_name_t);
+                            xC.accDB.updateOnhand(re1, xC.userId, expnPd.pay_amount, expnPd.pay_to_cus_name_t, expnPd.item_name_t);
                         }
                     }
                     if (chkD == (grfCashMake.Rows.Count - 1))

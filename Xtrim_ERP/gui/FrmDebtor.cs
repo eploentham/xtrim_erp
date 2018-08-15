@@ -86,7 +86,7 @@ namespace Xtrim_ERP.gui
             grfDtr.Clear();
             //if (cusid.Equals("")) return;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.dtrDB.selectDebtor();
+            dt = xC.accDB.dtrDB.selectDebtor();
             //grfDtr.DataSource = xC.xtDB.jimDB.selectJimJblByJobYear2(cusid);
             //grfDtr.Cols.Count = dt.Columns.Count;
             grfDtr.Rows.Count = dt.Rows.Count + 1;
@@ -118,8 +118,8 @@ namespace Xtrim_ERP.gui
                 if (i % 2 == 0)
                     grfDtr.Rows[i].StyleNew.BackColor = color;
                 //grfDtr[i + 1, colID] = dt.Rows[i][xC.xtDB.dtrDB.dtr.debtor_id].ToString();
-                grfDtr[i + 1, colCusNameT] = dt.Rows[i][xC.xtDB.cusDB.cus.cust_name_t].ToString();
-                grfDtr[i + 1, colAmt] = dt.Rows[i][xC.xtDB.dtrDB.dtr.amount].ToString();
+                grfDtr[i + 1, colCusNameT] = dt.Rows[i][xC.iniDB.cusDB.cus.cust_name_t].ToString();
+                grfDtr[i + 1, colAmt] = dt.Rows[i][xC.accDB.dtrDB.dtr.amount].ToString();
                 //grfDtr[i + 1, colRemark] = dt.Rows[i][xC.xtDB.jimDB.jim.remark1].ToString();
                 //grfDtr[i + 1, colAmt] = dt.Rows[i][xC.xtDB.jimDB.jim.job_import_id].ToString();
             }

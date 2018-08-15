@@ -94,7 +94,7 @@ namespace Xtrim_ERP.gui
         private void setGrfDeptH()
         {
             //grfDept.Rows.Count = 7;
-            grfMtp.DataSource = xC.xtDB.mtpDB.selectAll();
+            grfMtp.DataSource = xC.iniDB.mtpDB.selectAll();
             grfMtp.Cols.Count = 5;
             TextBox txt = new TextBox();
 
@@ -150,7 +150,7 @@ namespace Xtrim_ERP.gui
         }
         private void setControl(String deptId)
         {
-            mtp = xC.xtDB.mtpDB.selectByPk1(deptId);
+            mtp = xC.iniDB.mtpDB.selectByPk1(deptId);
             txtID.Value = mtp.method_payment_id;
             txtCode.Value = mtp.method_payment_code;
             txtNameT.Value = mtp.method_payment_name_t;
@@ -208,7 +208,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setDeptment();
-                String re = xC.xtDB.mtpDB.insertMethodPayment(mtp, xC.user.staff_id);
+                String re = xC.iniDB.mtpDB.insertMethodPayment(mtp, xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

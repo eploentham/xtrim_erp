@@ -78,7 +78,7 @@ namespace Xtrim_ERP.gui
 
         private void setControl(String cusRId)
         {
-            cusT = xC.xtDB.custDB.selectByPk1(cusRId);
+            cusT = xC.iniDB.custDB.selectByPk1(cusRId);
             txtID.Value = cusT.tax_invoice_id;
             txtRemark.Value = cusT.remark;
             txtTaxId.Value = cusT.tax_id;
@@ -164,7 +164,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setCustomerTaxInvoice();
-                String re = xC.xtDB.custDB.insertCustomerTaxInvoice(cusT);
+                String re = xC.iniDB.custDB.insertCustomerTaxInvoice(cusT);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -183,7 +183,7 @@ namespace Xtrim_ERP.gui
         {
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                xC.xtDB.custDB.VoidTaxInvoice(txtID.Text, userIdVoid);
+                xC.iniDB.custDB.VoidTaxInvoice(txtID.Text, userIdVoid);
                 this.Dispose();
             }
         }

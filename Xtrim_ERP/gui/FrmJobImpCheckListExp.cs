@@ -13,7 +13,7 @@ using Xtrim_ERP.object1;
 
 namespace Xtrim_ERP.gui
 {
-    public partial class FrmJobImpCheckListExp : C1.Win.C1Ribbon.C1RibbonForm
+    public partial class FrmJobImpCheckListExp : Form
     {
         XtrimControl xC;
         ExpensesDrawDatail expndd;
@@ -60,9 +60,9 @@ namespace Xtrim_ERP.gui
             Items itm = new Items();
             expndd = new ExpensesDrawDatail();
             ecc = new ExpensesClearCash();
-            ecc = xC.xtDB.eccDB.selectByPk1(id);
-            expndd = xC.xtDB.expnddDB.selectByPk1(ecc.expenses_draw_detail_id);
-            itm = xC.xtDB.itmDB.selectByPk1(expndd.item_id);
+            ecc = xC.accDB.eccDB.selectByPk1(id);
+            expndd = xC.accDB.expnddDB.selectByPk1(ecc.expenses_draw_detail_id);
+            itm = xC.iniDB.itmDB.selectByPk1(expndd.item_id);
             txtTableId.Value = expndd.expenses_draw_detail_id;
             txtItmNameT1.Value = expndd.item_name_t;
             txtRcpAmt.Value = expndd.receipt_amount;
@@ -242,7 +242,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setExpnDD();
-                xC.xtDB.expnddDB.updateReceipt(expndd, xC.userId);
+                xC.accDB.expnddDB.updateReceipt(expndd, xC.userId);
             }
         }
         private void BtnImages_Click(object sender, EventArgs e)

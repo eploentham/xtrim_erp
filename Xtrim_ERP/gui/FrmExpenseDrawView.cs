@@ -126,11 +126,11 @@ namespace Xtrim_ERP.gui
             {
                 if(flagfom2 == flagForm2.Cash)
                 {
-                    dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.all, objdb.ExpensesDrawDB.StatusPayType.Cash);
+                    dt = xC.accDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.all, objdb.ExpensesDrawDB.StatusPayType.Cash);
                 }
                 else
                 {
-                    dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.all, objdb.ExpensesDrawDB.StatusPayType.Cheque);
+                    dt = xC.accDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.all, objdb.ExpensesDrawDB.StatusPayType.Cheque);
                 }
                 
             }
@@ -138,11 +138,11 @@ namespace Xtrim_ERP.gui
             {
                 if (flagfom2 == flagForm2.Cash)
                 {
-                    dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.waitappv, objdb.ExpensesDrawDB.StatusPayType.Cash);
+                    dt = xC.accDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.waitappv, objdb.ExpensesDrawDB.StatusPayType.Cash);
                 }
                 else
                 {
-                    dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.waitappv, objdb.ExpensesDrawDB.StatusPayType.Cheque);
+                    dt = xC.accDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.waitappv, objdb.ExpensesDrawDB.StatusPayType.Cheque);
                 }
                     
             }
@@ -150,11 +150,11 @@ namespace Xtrim_ERP.gui
             {
                 if (flagfom2 == flagForm2.Cash)
                 {
-                    dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.appv, objdb.ExpensesDrawDB.StatusPayType.Cash);
+                    dt = xC.accDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.appv, objdb.ExpensesDrawDB.StatusPayType.Cash);
                 }
                 else
                 {
-                    dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.appv, objdb.ExpensesDrawDB.StatusPayType.Cheque);
+                    dt = xC.accDB.expndDB.selectToPayAll1(cboYear.Text, objdb.ExpensesDrawDB.StatusPay.appv, objdb.ExpensesDrawDB.StatusPayType.Cheque);
                 }
             }
             //grfExpn.DataSource = xC.xtDB.expndDB.selectAll1(cboYear.Text);
@@ -194,25 +194,25 @@ namespace Xtrim_ERP.gui
                 //row[0] = (i+1);
                 //if (i % 2 == 0)
                 //    grfExpn.Rows[i+1].StyleNew.BackColor = color;
-                row[cola] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_id].ToString();
+                row[cola] = dt.Rows[i][xC.accDB.expndDB.expnC.expenses_draw_id].ToString();
                 //row[cola] = "A" ;
-                row[colCode] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_code].ToString();
-                row[colDesc] = dt.Rows[i][xC.xtDB.expndDB.expnC.desc1].ToString();
-                row[colRemark] = dt.Rows[i][xC.xtDB.expndDB.expnC.remark].ToString();
-                row[colAmt] = dt.Rows[i][xC.xtDB.expndDB.expnC.amount].ToString();
-                if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("1"))
+                row[colCode] = dt.Rows[i][xC.accDB.expndDB.expnC.expenses_draw_code].ToString();
+                row[colDesc] = dt.Rows[i][xC.accDB.expndDB.expnC.desc1].ToString();
+                row[colRemark] = dt.Rows[i][xC.accDB.expndDB.expnC.remark].ToString();
+                row[colAmt] = dt.Rows[i][xC.accDB.expndDB.expnC.amount].ToString();
+                if (dt.Rows[i][xC.accDB.expndDB.expnC.status_appv].ToString().Equals("1"))
                 {
                     row[colStatus] = "รอออนุมัติ";
                 }
-                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("2"))
+                else if (dt.Rows[i][xC.accDB.expndDB.expnC.status_appv].ToString().Equals("2"))
                 {
-                    if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay].ToString().Equals("2"))
+                    if (dt.Rows[i][xC.accDB.expndDB.expnC.status_pay].ToString().Equals("2"))
                     {
                         row[colStatus] = "รับเงินเรียบร้อย";
                     }
                     //grfExpn[i + 1, colStatus] = "อนุมัติแล้ว";
                 }
-                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("0"))
+                else if (dt.Rows[i][xC.accDB.expndDB.expnC.status_appv].ToString().Equals("0"))
                 {
                     row[colStatus] = "ป้อนใหม่";
                 }

@@ -88,7 +88,7 @@ namespace Xtrim_ERP.gui
         }
         private void setControl(String deptId)
         {
-            dept = xC.xtDB.deptDB.selectByPk1(deptId);
+            dept = xC.iniDB.deptDB.selectByPk1(deptId);
             txtID.Value = dept.dept_id;
             txtDeptCode.Value = dept.depart_code;
             txtDeptNameT.Value = dept.depart_name_t;
@@ -133,7 +133,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setDeptment();
-                String re = xC.xtDB.deptDB.insertDepartment(dept, xC.user.staff_id);
+                String re = xC.iniDB.deptDB.insertDepartment(dept, xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

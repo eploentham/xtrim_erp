@@ -96,7 +96,7 @@ namespace Xtrim_ERP.gui
 
             //grfDept.Rows.Count = 7;
 
-            grfDept.DataSource = xC.xtDB.deptDB.selectAll1();
+            grfDept.DataSource = xC.iniDB.deptDB.selectAll1();
             grfDept.Cols.Count = colCnt;
             CellStyle cs = grfDept.Styles.Add("btn");
             cs.DataType = typeof(Button);
@@ -182,14 +182,14 @@ namespace Xtrim_ERP.gui
         {
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                xC.xtDB.deptDB.VoidDepartment(txtID.Text, userIdVoid);
+                xC.iniDB.deptDB.VoidDepartment(txtID.Text, userIdVoid);
                 setGrfDeptH();
             }
         }
 
         private void setControl(String deptId)
         {
-            dept = xC.xtDB.deptDB.selectByPk1(deptId);
+            dept = xC.iniDB.deptDB.selectByPk1(deptId);
             txtID.Value = dept.dept_id;
             txtDeptCode.Value = dept.depart_code;
             txtDeptNameT.Value = dept.depart_name_t;
@@ -279,7 +279,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setDeptment();
-                String re = xC.xtDB.deptDB.insertDepartment(dept, xC.user.staff_id);
+                String re = xC.iniDB.deptDB.insertDepartment(dept, xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

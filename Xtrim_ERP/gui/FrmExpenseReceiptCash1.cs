@@ -41,7 +41,7 @@ namespace Xtrim_ERP.gui
             initGrfEcc();
             initGrfRefund();
 
-            txtUserAmt.Value = xC.xtDB.expnpdDB.selectSumPayAmtByJobIdStfIdNoClear("", xC.userId);
+            txtUserAmt.Value = xC.accDB.expnpdDB.selectSumPayAmtByJobIdStfIdNoClear("", xC.userId);
 
             btnDNew.Click += BtnDNew_Click;
             btnDoc.Click += BtnDoc_Click;
@@ -86,7 +86,7 @@ namespace Xtrim_ERP.gui
             grfPd.Clear();
             grfPd.Rows.Count = 1;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expnpdDB.selectByJobIdStfId("", stfid);
+            dt = xC.accDB.expnpdDB.selectByJobIdStfId("", stfid);
 
             grfPd.Cols[colItemNameT].Width = 200;
             grfPd.Cols[colPayAmt].Width = 100;
@@ -107,12 +107,12 @@ namespace Xtrim_ERP.gui
                 row[0] = i + 1;
                 if (i % 2 == 0)
                     row.StyleNew.BackColor = color;
-                row[colId] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.expenses_pay_detail_id].ToString();
-                row[colItemNameT] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.item_name_t].ToString();
-                row[colPayAmt] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_amount].ToString();
-                row[colExpnDdesc1] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.desc_d].ToString();
-                row[colExpnDDdesc1] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.desc_dd].ToString();
-                if (int.TryParse(dt.Rows[i][xC.xtDB.expnpdDB.expnP.expense_clear_cash_id].ToString(), out chk))
+                row[colId] = dt.Rows[i][xC.accDB.expnpdDB.expnP.expenses_pay_detail_id].ToString();
+                row[colItemNameT] = dt.Rows[i][xC.accDB.expnpdDB.expnP.item_name_t].ToString();
+                row[colPayAmt] = dt.Rows[i][xC.accDB.expnpdDB.expnP.pay_amount].ToString();
+                row[colExpnDdesc1] = dt.Rows[i][xC.accDB.expnpdDB.expnP.desc_d].ToString();
+                row[colExpnDDdesc1] = dt.Rows[i][xC.accDB.expnpdDB.expnP.desc_dd].ToString();
+                if (int.TryParse(dt.Rows[i][xC.accDB.expnpdDB.expnP.expense_clear_cash_id].ToString(), out chk))
                 {
                     if (chk > 0)
                     {
@@ -165,7 +165,7 @@ namespace Xtrim_ERP.gui
             grfEcc.Clear();
             grfEcc.Rows.Count = 1;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.eccDB.selectByStfIdClearCash(stfid);
+            dt = xC.accDB.eccDB.selectByStfIdClearCash(stfid);
 
             grfEcc.Cols[coleccItemet].Width = 200;
             grfEcc.Cols[colerrprice].Width = 100;
@@ -193,26 +193,26 @@ namespace Xtrim_ERP.gui
                 row[0] = i + 1;
                 if (i % 2 == 0)
                     row.StyleNew.BackColor = color;
-                row[coleccId] = dt.Rows[i][xC.xtDB.eccDB.ecc.expense_clear_cash_id].ToString();
-                row[coleccItemet] = dt.Rows[i][xC.xtDB.eccDB.ecc.item_name_t].ToString();
-                row[colerrprice] = dt.Rows[i][xC.xtDB.eccDB.ecc.price].ToString();
-                row[coleccqty] = dt.Rows[i][xC.xtDB.eccDB.ecc.qty].ToString();
-                row[coleccamt] = dt.Rows[i][xC.xtDB.eccDB.ecc.pay_amount].ToString();
-                row[coleccreceiptno] = dt.Rows[i][xC.xtDB.eccDB.ecc.receipt_no].ToString();
-                row[coleccreceiptdate] = dt.Rows[i][xC.xtDB.eccDB.ecc.receipt_date].ToString();
-                row[colecccusnamet] = dt.Rows[i][xC.xtDB.eccDB.ecc.pay_to_cus_name_t].ToString();
-                row[coleccremark] = dt.Rows[i][xC.xtDB.eccDB.ecc.remark].ToString();
-                if (Decimal.TryParse(dt.Rows[i][xC.xtDB.eccDB.ecc.pay_amount].ToString(), out chk))
+                row[coleccId] = dt.Rows[i][xC.accDB.eccDB.ecc.expense_clear_cash_id].ToString();
+                row[coleccItemet] = dt.Rows[i][xC.accDB.eccDB.ecc.item_name_t].ToString();
+                row[colerrprice] = dt.Rows[i][xC.accDB.eccDB.ecc.price].ToString();
+                row[coleccqty] = dt.Rows[i][xC.accDB.eccDB.ecc.qty].ToString();
+                row[coleccamt] = dt.Rows[i][xC.accDB.eccDB.ecc.pay_amount].ToString();
+                row[coleccreceiptno] = dt.Rows[i][xC.accDB.eccDB.ecc.receipt_no].ToString();
+                row[coleccreceiptdate] = dt.Rows[i][xC.accDB.eccDB.ecc.receipt_date].ToString();
+                row[colecccusnamet] = dt.Rows[i][xC.accDB.eccDB.ecc.pay_to_cus_name_t].ToString();
+                row[coleccremark] = dt.Rows[i][xC.accDB.eccDB.ecc.remark].ToString();
+                if (Decimal.TryParse(dt.Rows[i][xC.accDB.eccDB.ecc.pay_amount].ToString(), out chk))
                 {
                     eccamt += chk;
                 }
-                if (dt.Rows[i][xC.xtDB.eccDB.ecc.active].ToString().Equals("0"))
+                if (dt.Rows[i][xC.accDB.eccDB.ecc.active].ToString().Equals("0"))
                 {
                     row.StyleNew.BackColor = Color.Gray;
                 }
                 else
                 {
-                    if (dt.Rows[i][xC.xtDB.eccDB.ecc.status_doc].ToString().Equals("1"))
+                    if (dt.Rows[i][xC.accDB.eccDB.ecc.status_doc].ToString().Equals("1"))
                     {
                         row.StyleNew.BackColor = Color.PeachPuff;
                     }
@@ -289,7 +289,7 @@ namespace Xtrim_ERP.gui
             grfRefund.Rows.Count = 1;
             grfRefund.Cols.Count = 5;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.erfDB.selectByStfId(stfid);
+            dt = xC.accDB.erfDB.selectByStfId(stfid);
 
             grfRefund.Cols[colRefundDesc].Width = 200;
             grfRefund.Cols[colRefundAmt].Width = 100;
@@ -308,11 +308,11 @@ namespace Xtrim_ERP.gui
                 row[0] = i + 1;
                 if (i % 2 == 0)
                     row.StyleNew.BackColor = color;
-                row[colRefundDesc] = dt.Rows[i][xC.xtDB.erfDB.erf.desc1].ToString();
-                row[colRefundAmt] = dt.Rows[i][xC.xtDB.erfDB.erf.amount].ToString();
-                row[colRefundRemark] = dt.Rows[i][xC.xtDB.erfDB.erf.remark].ToString();
-                row[colRefundId] = dt.Rows[i][xC.xtDB.erfDB.erf.expenses_refund_id].ToString();
-                if (int.TryParse(dt.Rows[i][xC.xtDB.erfDB.erf.expenses_refund_id].ToString(), out chk))
+                row[colRefundDesc] = dt.Rows[i][xC.accDB.erfDB.erf.desc1].ToString();
+                row[colRefundAmt] = dt.Rows[i][xC.accDB.erfDB.erf.amount].ToString();
+                row[colRefundRemark] = dt.Rows[i][xC.accDB.erfDB.erf.remark].ToString();
+                row[colRefundId] = dt.Rows[i][xC.accDB.erfDB.erf.expenses_refund_id].ToString();
+                if (int.TryParse(dt.Rows[i][xC.accDB.erfDB.erf.expenses_refund_id].ToString(), out chk))
                 {
                     if (chk > 0)
                     {
@@ -347,7 +347,7 @@ namespace Xtrim_ERP.gui
                     MessageBox.Show("ไม่พบ ชื่อผู้ทำเคลีย์เงินสด", "");
                     return;
                 }
-                String re = xC.xtDB.eccDB.updateActive(stfid);
+                String re = xC.accDB.eccDB.updateActive(stfid);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

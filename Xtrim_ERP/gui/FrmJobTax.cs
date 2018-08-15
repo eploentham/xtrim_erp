@@ -91,7 +91,7 @@ namespace Xtrim_ERP.gui
         private void setKeyUpF2Payer1(Customer cus)
         {
             Address addr = new Address();
-            addr = xC.xtDB.addrDB.selectStatusTaxByCusId1(cus.cust_id);
+            addr = xC.iniDB.addrDB.selectStatusTaxByCusId1(cus.cust_id);
             txtPayerTaxId.Value = cus.cust_id;
             txtPayerTaxNameT.Value = cus.cust_name_t;
             txtPayerTaxAddr.Value = addr.line_t1;
@@ -141,7 +141,7 @@ namespace Xtrim_ERP.gui
                 if (!chk)
                 {
                     BTax btax = new BTax();
-                    btax = xC.xtDB.btaxDB.selectByPk1(btaxid);
+                    btax = xC.iniDB.btaxDB.selectByPk1(btaxid);
                     Row rowA = grfTaxView.Rows.Add();
                     rowA[colTItemNameT] = btax.b_tax_name_t;
                     rowA[colTtaxdate] = row[colTtaxdate];
@@ -210,8 +210,8 @@ namespace Xtrim_ERP.gui
             tax.user_modi = "";
             tax.user_cancel = "";
             tax.cust_id = txtCusTaxId.Text;
-            cus = xC.xtDB.cusDB.selectByPk1(tax.cust_id);
-            addr = xC.xtDB.addrDB.selectStatusTaxByCusId1(cus.cust_id);
+            cus = xC.iniDB.cusDB.selectByPk1(tax.cust_id);
+            addr = xC.iniDB.addrDB.selectStatusTaxByCusId1(cus.cust_id);
             tax.year_id = "";
 
             tax.cust_name_t = txtCusTaxNameT.Text;
@@ -220,16 +220,16 @@ namespace Xtrim_ERP.gui
             tax.cust_tax_id = cus.tax_id;
 
             tax.agent_id = txtAgentTaxId.Text;
-            agent = xC.xtDB.cusDB.selectByPk1(tax.agent_id);
-            agentaddr = xC.xtDB.addrDB.selectStatusTaxByCusId1(agent.cust_id);
+            agent = xC.iniDB.cusDB.selectByPk1(tax.agent_id);
+            agentaddr = xC.iniDB.addrDB.selectStatusTaxByCusId1(agent.cust_id);
             tax.agent_name_t = txtAgentTaxNameT.Text;
             tax.agent_addr = agentaddr.line_t1;
             tax.agent_tele = agent.tele;
             tax.agent_tax_id = agent.tax_id;
 
             tax.payer_id = txtPayerTaxId.Text;
-            payer = xC.xtDB.cusDB.selectByPk1(tax.agent_id);
-            payeraddr = xC.xtDB.addrDB.selectStatusTaxByCusId1(payer.cust_id);
+            payer = xC.iniDB.cusDB.selectByPk1(tax.agent_id);
+            payeraddr = xC.iniDB.addrDB.selectStatusTaxByCusId1(payer.cust_id);
             tax.payer_name_t = txtPayerTaxNameT.Text;
             tax.payer_addr = payeraddr.line_t1;
             tax.payer_tax_id = payer.tax_id;
@@ -334,7 +334,7 @@ namespace Xtrim_ERP.gui
                 for(int i = 1; i < int.Parse(txtNum.Text); i++)
                 {
                     setTax();
-                    String re = xC.xtDB.taxDB.insertTax(tax, xC.user.staff_id);
+                    String re = xC.iniDB.taxDB.insertTax(tax, xC.user.staff_id);
                     int chk = 0, chkD = 0;
                     if (int.TryParse(re, out chk))
                     {
@@ -351,11 +351,11 @@ namespace Xtrim_ERP.gui
             if (e.KeyCode == Keys.Enter)
             {
                 txtJobCode.Text = txtJobCode.Text.Replace(xC.FixJobCode, "");
-                jim = xC.xtDB.jimDB.selectByJobCode(txtJobCode.Text);
+                jim = xC.manDB.jimDB.selectByJobCode(txtJobCode.Text);
                 txtJobId.Value = jim.job_import_id;
                 txtJobCode.Value = xC.FixJobCode + jim.job_import_code;
                 Customer cus = new Customer();
-                cus = xC.xtDB.cusDB.selectByPk1(jim.cust_id);
+                cus = xC.iniDB.cusDB.selectByPk1(jim.cust_id);
                 txtCusTaxId.Value = cus.cust_id;
                 txtCusTaxNameT.Value = cus.cust_name_t;
                 Company cop = new Company();
@@ -423,10 +423,10 @@ namespace Xtrim_ERP.gui
                     item = grfTax[e.Row, colTItemNameT].ToString();
                     Items itm = new Items();
                     BTax btax = new BTax();
-                    itm = xC.xtDB.itmDB.selectByNameT1(item);
+                    itm = xC.iniDB.itmDB.selectByNameT1(item);
                     if (!itm.tax_id.Equals(""))
                     {
-                        btax = xC.xtDB.btaxDB.selectByPk1(itm.tax_id);
+                        btax = xC.iniDB.btaxDB.selectByPk1(itm.tax_id);
                         bname = btax.b_tax_name_t;
                         if (!Decimal.TryParse(btax.rate1, out rate))
                         {
@@ -455,7 +455,7 @@ namespace Xtrim_ERP.gui
             Company cop = new Company();
             cop = xC.xtDB.copDB.selectByCode1("001");
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expnpdDB.selectPrintCheque(expnpdid);
+            dt = xC.accDB.expnpdDB.selectPrintCheque(expnpdid);
             grfTax.Clear();
             grfTax.Cols.Count = 10;
             if (dt.Rows.Count > 0)
@@ -476,7 +476,7 @@ namespace Xtrim_ERP.gui
             C1TextBox txt1 = new C1TextBox();
             txt1.DataType = txtAmt.DataType;
             C1ComboBox cbo = new C1ComboBox();
-            xC.xtDB.itmDB.setC1CboItem(cbo);
+            xC.iniDB.itmDB.setC1CboItem(cbo);
             C1TextBox txt2 = new C1TextBox();
             txt2.DataType = txtTaxDate.DataType;
 
@@ -502,13 +502,13 @@ namespace Xtrim_ERP.gui
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                grfTax[i + 1, colTItemNameT] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_to_cus_name_t].ToString();
-                grfTax[i + 1, colTtaxdate] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_bank_date].ToString();
-                grfTax[i + 1, colTAmt] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_name_t].ToString();
-                grfTax[i + 1, colTtaxamt] = dt.Rows[i][xC.xtDB.copbDB.copB.comp_bank_branch].ToString();
-                grfTax[i + 1, colTID] = dt.Rows[i][xC.xtDB.copbDB.copB.acc_number].ToString();
-                grfTax[i + 1, colTitemid] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_amount].ToString();
-                grfTax[i + 1, colTbtaxid] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_amount].ToString();
+                grfTax[i + 1, colTItemNameT] = dt.Rows[i][xC.accDB.expnpdDB.expnP.pay_to_cus_name_t].ToString();
+                grfTax[i + 1, colTtaxdate] = dt.Rows[i][xC.accDB.expnpdDB.expnP.pay_bank_date].ToString();
+                grfTax[i + 1, colTAmt] = dt.Rows[i][xC.iniDB.copbDB.copB.comp_bank_name_t].ToString();
+                grfTax[i + 1, colTtaxamt] = dt.Rows[i][xC.iniDB.copbDB.copB.comp_bank_branch].ToString();
+                grfTax[i + 1, colTID] = dt.Rows[i][xC.iniDB.copbDB.copB.acc_number].ToString();
+                grfTax[i + 1, colTitemid] = dt.Rows[i][xC.accDB.expnpdDB.expnP.pay_amount].ToString();
+                grfTax[i + 1, colTbtaxid] = dt.Rows[i][xC.accDB.expnpdDB.expnP.pay_amount].ToString();
             }
             Color color = ColorTranslator.FromHtml(xC.iniC.grfRowColor);
             for (int i = 1; i < grfTax.Rows.Count; i++)
@@ -535,7 +535,7 @@ namespace Xtrim_ERP.gui
             C1TextBox txt1 = new C1TextBox();
             txt1.DataType = txtAmt.DataType;
             C1ComboBox cbo = new C1ComboBox();
-            xC.xtDB.itmDB.setC1CboItem(cbo);
+            xC.iniDB.itmDB.setC1CboItem(cbo);
             C1TextBox txt2 = new C1TextBox();
             txt2.DataType = txtTaxDate.DataType;
             grfTaxView.Cols.Count = 10;
@@ -570,7 +570,7 @@ namespace Xtrim_ERP.gui
             Company cop = new Company();
             cop = xC.xtDB.copDB.selectByCode1("001");
             DataTable dt = new DataTable();
-            dt = xC.xtDB.taxDB.selectByJobId(jobId);
+            dt = xC.iniDB.taxDB.selectByJobId(jobId);
             grfTaxJob.Clear();
             grfTaxJob.Cols.Count = 7;
 
@@ -619,12 +619,12 @@ namespace Xtrim_ERP.gui
                 row[0] = i+1;
                 if (i % 2 == 0)
                     row.StyleNew.BackColor = color;
-                row[colVCode] = dt.Rows[i][xC.xtDB.taxDB.tax.tax_code].ToString();
-                row[colVCusNameT] = dt.Rows[i][xC.xtDB.taxDB.tax.cust_name_t].ToString();
-                row[colVPayerNameT] = dt.Rows[i][xC.xtDB.taxDB.tax.payer_name_t].ToString();
-                row[colVTaxDate] = dt.Rows[i][xC.xtDB.taxDB.tax.tax_date].ToString();
-                row[colCAmt] = dt.Rows[i][xC.xtDB.taxDB.tax.line6_tax].ToString();
-                row[colVID] = dt.Rows[i][xC.xtDB.taxDB.tax.tax_id].ToString();
+                row[colVCode] = dt.Rows[i][xC.iniDB.taxDB.tax.tax_code].ToString();
+                row[colVCusNameT] = dt.Rows[i][xC.iniDB.taxDB.tax.cust_name_t].ToString();
+                row[colVPayerNameT] = dt.Rows[i][xC.iniDB.taxDB.tax.payer_name_t].ToString();
+                row[colVTaxDate] = dt.Rows[i][xC.iniDB.taxDB.tax.tax_date].ToString();
+                row[colCAmt] = dt.Rows[i][xC.iniDB.taxDB.tax.line6_tax].ToString();
+                row[colVID] = dt.Rows[i][xC.iniDB.taxDB.tax.tax_id].ToString();
                 
             }
             

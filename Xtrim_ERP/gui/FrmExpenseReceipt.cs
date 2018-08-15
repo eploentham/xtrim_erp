@@ -55,7 +55,7 @@ namespace Xtrim_ERP.gui
             if (e.KeyCode == Keys.Enter)
             {
                 txtJobCode.Text = txtJobCode.Text.Replace(xC.FixJobCode, "");
-                jim = xC.xtDB.jimDB.selectByJobCode(txtJobCode.Text);
+                jim = xC.manDB.jimDB.selectByJobCode(txtJobCode.Text);
                 txtID.Value = jim.job_import_id;
                 setGrfExpnD(txtID.Text);
             }
@@ -126,7 +126,7 @@ namespace Xtrim_ERP.gui
             grfExpnD.Clear();
             grfExpnD.Rows.Count = 1;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expnddDB.selectByJobId(jobid);
+            dt = xC.accDB.expnddDB.selectByJobId(jobid);
 
             grfExpnD.Cols[colDQty].Width = 80;
             grfExpnD.Cols[colDUnitNameT].Width = 140;
@@ -169,35 +169,35 @@ namespace Xtrim_ERP.gui
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 String hide = "";
-                hide = dt.Rows[i][xC.xtDB.expnddDB.expnC.status_hide] != null ? dt.Rows[i][xC.xtDB.expnddDB.expnC.status_hide].ToString() : "";
+                hide = dt.Rows[i][xC.accDB.expnddDB.expnC.status_hide] != null ? dt.Rows[i][xC.accDB.expnddDB.expnC.status_hide].ToString() : "";
                 if (hide.Equals("2")) continue;
                 Row row = grfExpnD.Rows.Add();
                 row[0] = i + 1;
                 if (i % 2 == 0)
                     grfExpnD.Rows[i+1].StyleNew.BackColor = color;
-                row[colDid] = dt.Rows[i][xC.xtDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
-                row[colDItemNamet] = dt.Rows[i][xC.xtDB.expnddDB.expnC.item_name_t].ToString();
-                row[colDQty] = dt.Rows[i][xC.xtDB.expnddDB.expnC.qty].ToString();
-                row[colDUnitNameT] = dt.Rows[i][xC.xtDB.expnddDB.expnC.unit_name_t].ToString();
-                row[colDamt] = dt.Rows[i][xC.xtDB.expnddDB.expnC.amount].ToString();
-                row[colDPrice] = dt.Rows[i][xC.xtDB.expnddDB.expnC.price].ToString();
-                row[colDwatx1] = dt.Rows[i][xC.xtDB.expnddDB.expnC.wtax1].ToString();
-                row[colDwatx3] = dt.Rows[i][xC.xtDB.expnddDB.expnC.wtax3].ToString();
-                row[colDvat] = dt.Rows[i][xC.xtDB.expnddDB.expnC.vat].ToString();
-                row[colDtotal] = dt.Rows[i][xC.xtDB.expnddDB.expnC.total].ToString();
-                row[colDremark] = dt.Rows[i][xC.xtDB.expnddDB.expnC.remark].ToString();
-                row[colDItemId] = dt.Rows[i][xC.xtDB.expnddDB.expnC.item_id].ToString();
+                row[colDid] = dt.Rows[i][xC.accDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
+                row[colDItemNamet] = dt.Rows[i][xC.accDB.expnddDB.expnC.item_name_t].ToString();
+                row[colDQty] = dt.Rows[i][xC.accDB.expnddDB.expnC.qty].ToString();
+                row[colDUnitNameT] = dt.Rows[i][xC.accDB.expnddDB.expnC.unit_name_t].ToString();
+                row[colDamt] = dt.Rows[i][xC.accDB.expnddDB.expnC.amount].ToString();
+                row[colDPrice] = dt.Rows[i][xC.accDB.expnddDB.expnC.price].ToString();
+                row[colDwatx1] = dt.Rows[i][xC.accDB.expnddDB.expnC.wtax1].ToString();
+                row[colDwatx3] = dt.Rows[i][xC.accDB.expnddDB.expnC.wtax3].ToString();
+                row[colDvat] = dt.Rows[i][xC.accDB.expnddDB.expnC.vat].ToString();
+                row[colDtotal] = dt.Rows[i][xC.accDB.expnddDB.expnC.total].ToString();
+                row[colDremark] = dt.Rows[i][xC.accDB.expnddDB.expnC.remark].ToString();
+                row[colDItemId] = dt.Rows[i][xC.accDB.expnddDB.expnC.item_id].ToString();
                 //if (flagfom2 == flagForm2.Cheque)
                 //{
-                row[colDpaytocusnamet] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_to_cus_name_t].ToString();
-                row[colDpaytocusaddr] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_to_cus_addr].ToString();
-                row[colDapaytocustax] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_to_cus_tax].ToString();
-                row[colDreceiptno] = dt.Rows[i][xC.xtDB.expnddDB.expnC.receipt_no].ToString();
-                row[colDreceiptdate] = dt.Rows[i][xC.xtDB.expnddDB.expnC.receipt_date].ToString();
-                row[colDpaytocusid] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_to_cus_id].ToString();
+                row[colDpaytocusnamet] = dt.Rows[i][xC.accDB.expnddDB.expnC.pay_to_cus_name_t].ToString();
+                row[colDpaytocusaddr] = dt.Rows[i][xC.accDB.expnddDB.expnC.pay_to_cus_addr].ToString();
+                row[colDapaytocustax] = dt.Rows[i][xC.accDB.expnddDB.expnC.pay_to_cus_tax].ToString();
+                row[colDreceiptno] = dt.Rows[i][xC.accDB.expnddDB.expnC.receipt_no].ToString();
+                row[colDreceiptdate] = dt.Rows[i][xC.accDB.expnddDB.expnC.receipt_date].ToString();
+                row[colDpaytocusid] = dt.Rows[i][xC.accDB.expnddDB.expnC.pay_to_cus_id].ToString();
                 row[colDedit] = "-";
-                row[colDstatuspage] = dt.Rows[i][xC.xtDB.expnddDB.expnC.status_page].ToString();
-                if (dt.Rows[i][xC.xtDB.expnddDB.expnC.status_page].ToString().Equals("2"))
+                row[colDstatuspage] = dt.Rows[i][xC.accDB.expnddDB.expnC.status_page].ToString();
+                if (dt.Rows[i][xC.accDB.expnddDB.expnC.status_page].ToString().Equals("2"))
                 {
                     grfExpnD.Rows[i].StyleNew.BackColor = xC.cTxtFocus;
                 }
@@ -258,11 +258,11 @@ namespace Xtrim_ERP.gui
                 expndd.expenses_draw_detail_id = grfExpnD[i, colDid] == null ? "" : grfExpnD[i, colDid].ToString();
 
                 expndd.qty = grfExpnD[i, colDQty] == null ? "" : grfExpnD[i, colDQty].ToString();
-                expndd.unit_id = grfExpnD[i, colDUnitNameT] == null ? "" : xC.xtDB.utpDB.getIdByName(grfExpnD[i, colDUnitNameT].ToString().Trim());
+                expndd.unit_id = grfExpnD[i, colDUnitNameT] == null ? "" : xC.iniDB.utpDB.getIdByName(grfExpnD[i, colDUnitNameT].ToString().Trim());
                 expndd.unit_name_t = grfExpnD[i, colDUnitNameT] == null ? "" : grfExpnD[i, colDUnitNameT].ToString();
                 expndd.amount = grfExpnD[i, colDamt] == null ? "" : grfExpnD[i, colDamt].ToString();
                 expndd.remark = grfExpnD[i, colDremark] == null ? "" : grfExpnD[i, colDremark].ToString();
-                expndd.item_id = grfExpnD[i, colDItemNamet] == null ? "" : xC.xtDB.itmDB.getIdByName(grfExpnD[i, colDItemNamet].ToString().Trim());
+                expndd.item_id = grfExpnD[i, colDItemNamet] == null ? "" : xC.iniDB.itmDB.getIdByName(grfExpnD[i, colDItemNamet].ToString().Trim());
                 expndd.item_name_t = grfExpnD[i, colDItemNamet] == null ? "" : grfExpnD[i, colDItemNamet].ToString();
                 expndd.price = grfExpnD[i, colDPrice] == null ? "" : grfExpnD[i, colDPrice].ToString();
                 expndd.wtax1 = grfExpnD[i, colDwatx1] == null ? "" : grfExpnD[i, colDwatx1].ToString();
@@ -288,7 +288,7 @@ namespace Xtrim_ERP.gui
                 if (!expndd.amount.Equals(""))
                 {
                     String re1 = "";
-                    re1 = xC.xtDB.expnddDB.insertExpenseDrawDetail(expndd, xC.userId);
+                    re1 = xC.accDB.expnddDB.insertExpenseDrawDetail(expndd, xC.userId);
                     if (int.TryParse(re1, out chk))
                     {
                         chkD++;

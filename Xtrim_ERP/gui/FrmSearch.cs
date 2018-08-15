@@ -1,5 +1,4 @@
 ﻿using C1.Win.C1FlexGrid;
-using C1.Win.C1Ribbon;
 
 using System;
 using System.Collections;
@@ -178,27 +177,27 @@ namespace Xtrim_ERP.object1
             //grdFlex.DataSource = xC.xtDB.cusDB.lCus;
             if (flag == Search.Customer)
             {
-                grfFlex.DataSource = xC.xtDB.cusDB.selectCusAll();
+                grfFlex.DataSource = xC.iniDB.cusDB.selectCusAll();
             }
             else if(flag == Search.Importer)
             {
-                grfFlex.DataSource = xC.xtDB.cusDB.selectImpAll();
+                grfFlex.DataSource = xC.iniDB.cusDB.selectImpAll();
             }
             else if (flag == Search.Forwarder)
             {
-                grfFlex.DataSource = xC.xtDB.fwdDB.dtFwd;
+                grfFlex.DataSource = xC.iniDB.fwdDB.dtFwd;
             }
             else if (flag == Search.EntryType)
             {
-                grfFlex.DataSource = xC.xtDB.ettDB.selectAll();
+                grfFlex.DataSource = xC.iniDB.ettDB.selectAll();
             }
             else if (flag == Search.PortOfLoading)
             {
-                grfFlex.DataSource = xC.xtDB.polDB.selectAll();
+                grfFlex.DataSource = xC.iniDB.polDB.selectAll();
             }
             else if (flag == Search.Privilege)
             {
-                grfFlex.DataSource = xC.xtDB.pvlDB.selectAll();
+                grfFlex.DataSource = xC.iniDB.pvlDB.selectAll();
             }
             else if (flag == Search.Staff)
             {
@@ -206,55 +205,55 @@ namespace Xtrim_ERP.object1
             }
             else if (flag == Search.Country)
             {
-                grfFlex.DataSource = xC.xtDB.cotDB.selectAll();
+                grfFlex.DataSource = xC.iniDB.cotDB.selectAll();
             }
             else if (flag == Search.EntryType)
             {
-                grfFlex.DataSource = xC.xtDB.ettDB.selectAll();
+                grfFlex.DataSource = xC.iniDB.ettDB.selectAll();
             }
             else if (flag == Search.PortImport)
             {
-                grfFlex.DataSource = xC.xtDB.ptiDB.selectAll();
+                grfFlex.DataSource = xC.iniDB.ptiDB.selectAll();
             }
             else if (flag == Search.IncoTerm)
             {
-                grfFlex.DataSource = xC.xtDB.ictDB.selectAll();
+                grfFlex.DataSource = xC.iniDB.ictDB.selectAll();
             }
             else if (flag == Search.TermPayment)
             {
-                grfFlex.DataSource = xC.xtDB.tpmDB.selectAll();
+                grfFlex.DataSource = xC.iniDB.tpmDB.selectAll();
             }
             else if (flag == Search.Insurance)
             {
-                grfFlex.DataSource = xC.xtDB.cusDB.selectInsrAll();
+                grfFlex.DataSource = xC.iniDB.cusDB.selectInsrAll();
             }
             else if (flag == Search.Currency)
             {
-                grfFlex.DataSource = xC.xtDB.currDB.selectAll();
+                grfFlex.DataSource = xC.iniDB.currDB.selectAll();
             }
             else if (flag == Search.Truck)
             {
-                grfFlex.DataSource = xC.xtDB.trkDB.selectAll();
+                grfFlex.DataSource = xC.iniDB.trkDB.selectAll();
             }
             else if (flag == Search.TruckCop)
             {
-                grfFlex.DataSource = xC.xtDB.cusDB.selectTrkCopAll();
+                grfFlex.DataSource = xC.iniDB.cusDB.selectTrkCopAll();
             }
             else if (flag == Search.AddressPlaceAddr)
             {
-                grfFlex.DataSource = xC.xtDB.cusDB.selectImpAll();
+                grfFlex.DataSource = xC.iniDB.cusDB.selectImpAll();
             }
             else if (flag == Search.AddressContainerYard)
             {
-                grfFlex.DataSource = xC.xtDB.cusDB.selectContainerYardAll();
+                grfFlex.DataSource = xC.iniDB.cusDB.selectContainerYardAll();
             }
             else if (flag == Search.ContainerYard)
             {
-                grfFlex.DataSource = xC.xtDB.cusDB.selectContainerYardAll();
+                grfFlex.DataSource = xC.iniDB.cusDB.selectContainerYardAll();
             }
             else if (flag == Search.Items)
             {
-                grfFlex.DataSource = xC.xtDB.itmDB.selectAll1("1");
+                grfFlex.DataSource = xC.iniDB.itmDB.selectAll1("1");
             }
             grfFlex.Cols[colID].Width = 60;
             grfFlex.Cols[colNameT].Width = 20;
@@ -321,7 +320,7 @@ namespace Xtrim_ERP.object1
             if (e.NewRange.Data == null) return;
             String cusId = "";
             cusId = grfFlex[e.NewRange.r1, colID] != null ? grfFlex[e.NewRange.r1, colID].ToString() : "";
-            grfAddr.DataSource = xC.xtDB.addrDB.selectByTableId1(cusId);
+            grfAddr.DataSource = xC.iniDB.addrDB.selectByTableId1(cusId);
         }
 
         private void grdFlex_LeaveCell(object sender, EventArgs e)
@@ -356,104 +355,104 @@ namespace Xtrim_ERP.object1
                 if (flag == Search.Customer)
                 {
                     xC.sCus = new Customer();
-                    xC.sCus = xC.xtDB.cusDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());                        
+                    xC.sCus = xC.iniDB.cusDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());                        
                 }
                 else if (flag == Search.Importer)
                 {
                     xC.sImp = new Customer();
-                    xC.sImp = xC.xtDB.cusDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
+                    xC.sImp = xC.iniDB.cusDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.Forwarder)
                 {
                     xC.sFwd = new Customer();
-                    xC.sFwd = xC.xtDB.cusDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
+                    xC.sFwd = xC.iniDB.cusDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.EntryType)
                 {
                     xC.sEtt = new EntryType();
-                    xC.sEtt = xC.xtDB.ettDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
+                    xC.sEtt = xC.iniDB.ettDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.PortOfLoading)
                 {
                     xC.sPol = new PortOfLoading();
-                    xC.sPol = xC.xtDB.polDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
+                    xC.sPol = xC.iniDB.polDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.Privilege)
                 {
                     xC.sPvl = new Privilege();
-                    xC.sPvl = xC.xtDB.pvlDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
+                    xC.sPvl = xC.iniDB.pvlDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.Staff)
                 {
                     xC.sStf = new Staff();
-                    xC.sStf = xC.xtDB.stfDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
+                    xC.sStf = xC.iniDB.stfDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.Country)
                 {
                     xC.sCot = new Country();
-                    xC.sCot = xC.xtDB.cotDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
+                    xC.sCot = xC.iniDB.cotDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.EntryType)
                 {
                     xC.sCot = new Country();
-                    xC.sEtt = xC.xtDB.ettDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
+                    xC.sEtt = xC.iniDB.ettDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.PortImport)
                 {
                     xC.sCot = new Country();
-                    xC.sPti = xC.xtDB.ptiDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
+                    xC.sPti = xC.iniDB.ptiDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.IncoTerm)
                 {
                     xC.sIct = new IncoTerms();
-                    xC.sIct = xC.xtDB.ictDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
+                    xC.sIct = xC.iniDB.ictDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.TermPayment)
                 {
                     xC.sTpm = new TermPayment();
-                    xC.sTpm = xC.xtDB.tpmDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
+                    xC.sTpm = xC.iniDB.tpmDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.Insurance)
                 {
                     xC.sInsr = new Customer();
-                    xC.sInsr = xC.xtDB.cusDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
+                    xC.sInsr = xC.iniDB.cusDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.Currency)
                 {
                     xC.sCurr = new Currency();
-                    xC.sCurr = xC.xtDB.currDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
+                    xC.sCurr = xC.iniDB.currDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.Truck)
                 {
                     xC.sTrk = new Truck();
-                    xC.sTrk = xC.xtDB.trkDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
+                    xC.sTrk = xC.iniDB.trkDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.TruckCop)
                 {
                     xC.sTrkCop = new Customer();
-                    xC.sTrkCop = xC.xtDB.cusDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
+                    xC.sTrkCop = xC.iniDB.cusDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                 }
                 else if (flag == Search.AddressPlaceAddr)
                 {
                     xC.sAddr = new Address();
-                    xC.sAddr = xC.xtDB.addrDB.selectByPk1(grfAddr[grfAddr.Row, colID].ToString());
+                    xC.sAddr = xC.iniDB.addrDB.selectByPk1(grfAddr[grfAddr.Row, colID].ToString());
                 }
                 else if (flag == Search.AddressContainerYard)
                 {
                     xC.sAddr = new Address();
-                    xC.sAddr = xC.xtDB.addrDB.selectByPk1(grfAddr[grfAddr.Row, colID].ToString());
+                    xC.sAddr = xC.iniDB.addrDB.selectByPk1(grfAddr[grfAddr.Row, colID].ToString());
                 }
                 else if (flag == Search.ContainerYard)
                 {
                     xC.sConY = new Customer();
-                    xC.sConY = xC.xtDB.cusDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
+                    xC.sConY = xC.iniDB.cusDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                     xC.sAddr = new Address();
-                    xC.sAddr = xC.xtDB.addrDB.selectByPk1(grfAddr[grfAddr.Row, colID].ToString());
+                    xC.sAddr = xC.iniDB.addrDB.selectByPk1(grfAddr[grfAddr.Row, colID].ToString());
                 }
                 else if (flag == Search.Items)
                 {
                     xC.sItm = new Items();
-                    xC.sItm = xC.xtDB.itmDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
+                    xC.sItm = xC.iniDB.itmDB.selectByPk1(grfFlex[grfFlex.Row, colID].ToString());
                 }
                 Close();
                 return true;

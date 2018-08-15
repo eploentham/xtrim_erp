@@ -63,7 +63,7 @@ namespace Xtrim_ERP.gui
             btnEdit.Click += BtnEdit_Click;
             btnSave.Click += BtnSave_Click;
 
-            xC.xtDB.fttDB.setC1CboFTax(cboFTax, "");
+            xC.iniDB.fttDB.setC1CboFTax(cboFTax, "");
             initGrfDept();
             setGrfDeptH();
             setControlEnable(false);
@@ -96,7 +96,7 @@ namespace Xtrim_ERP.gui
         private void setGrfDeptH()
         {
             //grfDept.Rows.Count = 7;
-            grfItemT.DataSource = xC.xtDB.btaxDB.selectAll();
+            grfItemT.DataSource = xC.iniDB.btaxDB.selectAll();
             grfItemT.Cols.Count = 5;
             TextBox txt = new TextBox();
 
@@ -167,7 +167,7 @@ namespace Xtrim_ERP.gui
         }
         private void setControl(String deptId)
         {
-            tax = xC.xtDB.btaxDB.selectByPk1(deptId);
+            tax = xC.iniDB.btaxDB.selectByPk1(deptId);
             txtID.Value = tax.b_tax_id;
             txtCode.Value = tax.b_tax_code;
             txtNameT.Value = tax.b_tax_name_t;
@@ -219,7 +219,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setTax();
-                String re = xC.xtDB.btaxDB.insertBTax(tax, xC.user.staff_id);
+                String re = xC.iniDB.btaxDB.insertBTax(tax, xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

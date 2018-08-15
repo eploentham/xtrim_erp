@@ -27,6 +27,9 @@ namespace Xtrim_ERP.control
         public List<Department> lDept;
 
         public XtrimDB xtDB;
+        public AccDB accDB;
+        public MainDB manDB;
+        public InitDB iniDB;
 
         public String userId="";
         public String copID = "", jobID="", cusID="",addrID="", contID="", cusrID="", custID="", stfID="", deptID="", posiID="", drawID="";
@@ -569,14 +572,14 @@ namespace Xtrim_ERP.control
         {
             String re = "";
             String doc = xtDB.copDB.genCashDrawDoc();
-            re = xtDB.expndDB.updateSendToApprove(doc, id);
+            re = accDB.expndDB.updateSendToApprove(doc, id);
             return re;
         }
         public String updateClearCashComplete(String stfid)
         {
             String re = "";
             String doc = xtDB.copDB.genEccDoc();
-            re = xtDB.eccDB.updateComplete(doc, stfid, this.userId);
+            re = accDB.eccDB.updateComplete(doc, stfid, this.userId);
             //xtDB.expnpdDB.updateEcc(pdid, doc);
             return doc;
         }
@@ -584,7 +587,7 @@ namespace Xtrim_ERP.control
         {
             String re = "";
             String doc = xtDB.copDB.genErcDoc();
-            re = xtDB.eccDB.updateComplete(doc, stfid, this.userId);
+            re = accDB.eccDB.updateComplete(doc, stfid, this.userId);
             //xtDB.expnpdDB.updateEcc(pdid, doc);
             return doc;
         }
@@ -592,10 +595,10 @@ namespace Xtrim_ERP.control
         {
             String re = "";
             ReservePay rsp = new ReservePay();
-            rsp = xtDB.rspDB.selectByPk1(rspid);
+            rsp = accDB.rspDB.selectByPk1(rspid);
             if (!rsp.reserve_pay_id.Equals(""))
             {
-                re = xtDB.rspDB.updateReserve(rspid, userid);
+                re = accDB.rspDB.updateReserve(rspid, userid);
                 ReserveCash rsc = new ReserveCash();
                 rsc.reserve_cash_id = "";
                 rsc.reserve_pay_id = rsp.reserve_pay_id;
@@ -611,26 +614,25 @@ namespace Xtrim_ERP.control
                 rsc.user_cancel = "";
                 rsc.status_reserve = "1";
                 rsc.desc1 = rsp.desc1;
-                re = xtDB.rscDB.insertReserveCash(rsc, userId);
+                re = accDB.rscDB.insertReserveCash(rsc, userId);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
                     re = xtDB.copDB.updateAmountReserve(rsp.amount_appv);
                 }
             }
-            
-                
+                            
             //re = xtDB.expndDB.updateSendToApprove(doc, id);
             return re;
         }
         public String updateStatusPay(String id)
         {
             String re = "", sql = "";
-            re = xtDB.expnddDB.selectStatusPayByDrawId(id);
+            re = accDB.expnddDB.selectStatusPayByDrawId(id);
 
             if (re.Equals("0"))
             {
-                re = xtDB.expndDB.updateStatusPay(id);
+                re = accDB.expndDB.updateStatusPay(id);
             }
 
             return re;
@@ -639,15 +641,15 @@ namespace Xtrim_ERP.control
         {
             String re = "", sql = "";
             ExpensesDraw expnD = new ExpensesDraw();
-            expnD = xtDB.expndDB.selectByPk1(drawId);
+            expnD = accDB.expndDB.selectByPk1(drawId);
             if (expnD.status_pay.Equals("2"))
             {
                 re = "ไม่สามารถยกเลิกได้ เพราะได้รับเงินไปแล้ว";
             }
             else
             {
-                re = xtDB.expndDB.VoidExpensesDraw(drawId, userid);
-                xtDB.expnddDB.VoidExpensesDrawDetailByDrawId(drawId, userid);
+                re = accDB.expndDB.VoidExpensesDraw(drawId, userid);
+                accDB.expnddDB.VoidExpensesDrawDetailByDrawId(drawId, userid);
                 re = "ยกเลิก เรียบร้อย";
             }
             return re;

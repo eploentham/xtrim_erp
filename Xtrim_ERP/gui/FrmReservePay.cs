@@ -147,7 +147,7 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             if (MessageBox.Show("ต้องการ อนุมัติช้อมูล เงินสำรองจ่าย", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                String re = xC.xtDB.rspDB.updateAppv(txtID.Text, xC.user.staff_id);
+                String re = xC.accDB.rspDB.updateAppv(txtID.Text, xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -169,7 +169,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setReservePay();
-                String re = xC.xtDB.rspDB.insertReservePay(rsp, xC.user.staff_id);
+                String re = xC.accDB.rspDB.insertReservePay(rsp, xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -240,7 +240,7 @@ namespace Xtrim_ERP.gui
             grfExpnD.Clear();
             //if (txtID.Text.Equals("")) return;
                
-            grfExpnD.DataSource = xC.xtDB.rspDB.selectAll1();
+            grfExpnD.DataSource = xC.accDB.rspDB.selectAll1();
             
 
             //grfExpnD.Rows.Count = 2;
@@ -420,7 +420,7 @@ namespace Xtrim_ERP.gui
             if (!rspid.Equals(""))
             {
                 ReservePay rsp = new ReservePay();
-                rsp = xC.xtDB.rspDB.selectByPk1(rspid);
+                rsp = xC.accDB.rspDB.selectByPk1(rspid);
                 txtID.Value = rsp.reserve_pay_id;
                 txtDesc.Value = rsp.desc1;
                 txtAmt.Value = rsp.amount_draw;
@@ -430,7 +430,7 @@ namespace Xtrim_ERP.gui
                 Company cop = new Company();
                 cop = xC.xtDB.copDB.selectByCode1("001");
                 txtAmtReserve.Value = cop.amount_reserve;
-                txtRspWait.Value = xC.xtDB.rspDB.selectAppvWait();
+                txtRspWait.Value = xC.accDB.rspDB.selectAppvWait();
                 if (rsp.status_appv.Equals("2"))
                 {
                     btnAppv.Enabled = false;
@@ -492,7 +492,7 @@ namespace Xtrim_ERP.gui
             Company cop = new Company();
             cop = xC.xtDB.copDB.selectByCode1("001");
             txtAmtReserve.Value = cop.amount_reserve;
-            txtRspWait.Value = xC.xtDB.rspDB.selectAppvWait();
+            txtRspWait.Value = xC.accDB.rspDB.selectAppvWait();
             //panel3.Hide();
         }
     }

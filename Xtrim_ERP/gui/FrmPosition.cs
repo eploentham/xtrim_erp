@@ -96,7 +96,7 @@ namespace Xtrim_ERP.gui
         {
             //grfDept.Rows.Count = 7;
 
-            grfPosi.DataSource = xC.xtDB.posiDB.selectAll1();
+            grfPosi.DataSource = xC.iniDB.posiDB.selectAll1();
             grfPosi.Cols.Count = colCnt;
             CellStyle cs = grfPosi.Styles.Add("btn");
             cs.DataType = typeof(Button);
@@ -163,7 +163,7 @@ namespace Xtrim_ERP.gui
         }
         private void setControl(String posiId)
         {
-            posi = xC.xtDB.posiDB.selectByPk1(posiId);
+            posi = xC.iniDB.posiDB.selectByPk1(posiId);
             txtID.Value = posi.posi_id;
             txtPosiCode.Value = posi.posi_code;
             txtPosiNameT.Value = posi.posi_name_t;
@@ -252,7 +252,7 @@ namespace Xtrim_ERP.gui
         {
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                xC.xtDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
+                xC.iniDB.posiDB.VoidPosition(txtID.Text, userIdVoid);
                 setGrfPosi();
             }
         }
@@ -261,7 +261,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setDeptment();
-                String re = xC.xtDB.posiDB.insertPosition(posi, xC.user.staff_id);
+                String re = xC.iniDB.posiDB.insertPosition(posi, xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

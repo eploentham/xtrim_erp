@@ -100,7 +100,7 @@ namespace Xtrim_ERP.gui
             grfContain.Dock = DockStyle.Fill;
             TextBox txt = new TextBox();
             C1ComboBox combo = new C1ComboBox();
-            combo = xC.xtDB.dctDB.setCboContainer(combo);
+            combo = xC.iniDB.dctDB.setCboContainer(combo);
 
             grfContain.Cols[colContainId].Editor = txt;
             grfContain.Cols[colContainQty].Editor = txt;
@@ -123,7 +123,7 @@ namespace Xtrim_ERP.gui
             grfGw.Dock = DockStyle.Fill;
             TextBox txt = new TextBox();
             C1ComboBox combo = new C1ComboBox();
-            combo = xC.xtDB.dctDB.setCboGW(combo);
+            combo = xC.iniDB.dctDB.setCboGW(combo);
 
             grfGw.Cols[colGwId].Editor = txt;
             grfGw.Cols[colGwQty].Editor = txt;
@@ -146,7 +146,7 @@ namespace Xtrim_ERP.gui
             grfPkg.Dock = DockStyle.Fill;
             TextBox txt = new TextBox();
             C1ComboBox combo = new C1ComboBox();
-            combo = xC.xtDB.dctDB.setCboGW(combo);
+            combo = xC.iniDB.dctDB.setCboGW(combo);
 
             grfPkg.Cols[colPKGId].Editor = txt;
             grfPkg.Cols[colPKGQty].Editor = txt;

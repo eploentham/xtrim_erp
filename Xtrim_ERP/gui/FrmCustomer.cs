@@ -413,7 +413,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setCustomer();
-                String re = xC.xtDB.cusDB.insertCustomer(cus);
+                String re = xC.iniDB.cusDB.insertCustomer(cus);
                 int chk = 0;
                 if(int.TryParse(re, out chk))
                 {

@@ -138,36 +138,36 @@ namespace Xtrim_ERP.gui
             xC.setCboTransMode(cboTransMode);
             //xC.setCboTaxMethod(cboTaxMethod);
             //xC.xtDB.ittDB.setCboImporterType(cboItt);
-            xC.xtDB.cemDB.setCboCheckExam(cboChkExam,"");
-            xC.xtDB.dctDB.setC1CboBLTYPE(cboBlType, "");
+            xC.iniDB.cemDB.setCboCheckExam(cboChkExam,"");
+            xC.iniDB.dctDB.setC1CboBLTYPE(cboBlType, "");
             //xC.xtDB.dctDB.setC1CboBLTYPE1(cboBlType,"");
-            xC.xtDB.dctDB.setC1CboContain(cboContain1,"");
-            xC.xtDB.dctDB.setC1CboContain(cboContain2, "");
-            xC.xtDB.dctDB.setC1CboContain(cboContain3, "");
-            xC.xtDB.dctDB.setC1CboContain(cboContain4, "");
-            xC.xtDB.dctDB.setC1CboContain(cboContain5, "");
-            xC.xtDB.dctDB.setC1CboContain(cboContain6, "");
+            xC.iniDB.dctDB.setC1CboContain(cboContain1,"");
+            xC.iniDB.dctDB.setC1CboContain(cboContain2, "");
+            xC.iniDB.dctDB.setC1CboContain(cboContain3, "");
+            xC.iniDB.dctDB.setC1CboContain(cboContain4, "");
+            xC.iniDB.dctDB.setC1CboContain(cboContain5, "");
+            xC.iniDB.dctDB.setC1CboContain(cboContain6, "");
 
-            xC.xtDB.dctDB.setC1CboTypeofBL(cboJclTypeofBl, "");
-            xC.xtDB.dctDB.setC1CboCl41(cboJclPrivi1, "");
-            xC.xtDB.dctDB.setC1CboCl42(cboJclPrivi2, "");
-            xC.xtDB.dctDB.setC1CboCl5(cboJclDocAuthen1, "");
-            xC.xtDB.dctDB.setC1CboCl5(cboJclDocAuthen2, "");
-            xC.xtDB.dctDB.setC1CboCl5(cboJclDocAuthen3, "");
+            xC.iniDB.dctDB.setC1CboTypeofBL(cboJclTypeofBl, "");
+            xC.iniDB.dctDB.setC1CboCl41(cboJclPrivi1, "");
+            xC.iniDB.dctDB.setC1CboCl42(cboJclPrivi2, "");
+            xC.iniDB.dctDB.setC1CboCl5(cboJclDocAuthen1, "");
+            xC.iniDB.dctDB.setC1CboCl5(cboJclDocAuthen2, "");
+            xC.iniDB.dctDB.setC1CboCl5(cboJclDocAuthen3, "");
 
-            xC.xtDB.ugwDB.setC1CboUgw(cboUgw, "");
-            xC.xtDB.ugwDB.setC1CboUgw(cboVolume, "");
+            xC.iniDB.ugwDB.setC1CboUgw(cboUgw, "");
+            xC.iniDB.ugwDB.setC1CboUgw(cboVolume, "");
             
             
-            xC.xtDB.utpDB.setC1CboUtp(cboUtp1, "");
-            xC.xtDB.utpDB.setC1CboUtp(cboUtp2, "");
-            xC.xtDB.utpDB.setC1CboUtp(cboUtp3, "");
-            xC.xtDB.utpDB.setC1CboUtp(cboUtp4, "");
-            xC.xtDB.utpDB.setC1CboUtp(cboUtp5, "");
-            xC.xtDB.utpDB.setC1CboUtp(cboDeliPkg, "");
-            xC.xtDB.trkDB.setCboTrkC1(cboDeliCarType);
-            xC.xtDB.ugwDB.setC1CboUgw(cboDeliVolume, "");
-            xC.xtDB.ugwDB.setC1CboUgw(cboDeliGw, "");
+            xC.iniDB.utpDB.setC1CboUtp(cboUtp1, "");
+            xC.iniDB.utpDB.setC1CboUtp(cboUtp2, "");
+            xC.iniDB.utpDB.setC1CboUtp(cboUtp3, "");
+            xC.iniDB.utpDB.setC1CboUtp(cboUtp4, "");
+            xC.iniDB.utpDB.setC1CboUtp(cboUtp5, "");
+            xC.iniDB.utpDB.setC1CboUtp(cboDeliPkg, "");
+            xC.iniDB.trkDB.setCboTrkC1(cboDeliCarType);
+            xC.iniDB.ugwDB.setC1CboUgw(cboDeliVolume, "");
+            xC.iniDB.ugwDB.setC1CboUgw(cboDeliGw, "");
             //xC.xtDB.trkDB.setC1CboUtp(cboDeliCarType, "");
             //initGrfMarsk();
             //initGrfRemark();
@@ -217,7 +217,7 @@ namespace Xtrim_ERP.gui
             expnD.amount = txtAmt.Value.ToString();
             expnD.year = DateTime.Now.Year.ToString();
             //imp = xC.xtDB.cusDB.selectIdByNameTLike(txtImpNameT.Text.Trim());
-            expnD.payer_id = xC.xtDB.cusDB.selectImpIdByNameTLike1(txtImpNameT.Text.Trim());
+            expnD.payer_id = xC.iniDB.cusDB.selectImpIdByNameTLike1(txtImpNameT.Text.Trim());
             //if (label8.Text.Equals("..."))
             //{
             //    expnD.status_appv = "0";
@@ -250,11 +250,11 @@ namespace Xtrim_ERP.gui
                 expndd.expenses_draw_detail_id = grfExpnD[i, colDid] == null ? "" : grfExpnD[i, colDid].ToString();
 
                 expndd.qty = grfExpnD[i, colDQty] == null ? "" : grfExpnD[i, colDQty].ToString();
-                expndd.unit_id = grfExpnD[i, colDUnitNameT] == null ? "" : xC.xtDB.utpDB.getIdByName(grfExpnD[i, colDUnitNameT].ToString().Trim());
+                expndd.unit_id = grfExpnD[i, colDUnitNameT] == null ? "" : xC.iniDB.utpDB.getIdByName(grfExpnD[i, colDUnitNameT].ToString().Trim());
                 expndd.unit_name_t = grfExpnD[i, colDUnitNameT] == null ? "" : grfExpnD[i, colDUnitNameT].ToString();
                 expndd.amount = grfExpnD[i, colDamt] == null ? "" : grfExpnD[i, colDamt].ToString();
                 expndd.remark = grfExpnD[i, colDremark] == null ? "" : grfExpnD[i, colDremark].ToString();
-                expndd.item_id = grfExpnD[i, colDItemNamet] == null ? "" : xC.xtDB.itmDB.getIdByName(grfExpnD[i, colDItemNamet].ToString().Trim());
+                expndd.item_id = grfExpnD[i, colDItemNamet] == null ? "" : xC.iniDB.itmDB.getIdByName(grfExpnD[i, colDItemNamet].ToString().Trim());
                 expndd.item_name_t = grfExpnD[i, colDItemNamet] == null ? "" : grfExpnD[i, colDItemNamet].ToString();
                 expndd.price = grfExpnD[i, colDPrice] == null ? "" : grfExpnD[i, colDPrice].ToString();
                 expndd.wtax1 = grfExpnD[i, colDwatx1] == null ? "" : grfExpnD[i, colDwatx1].ToString();
@@ -280,7 +280,7 @@ namespace Xtrim_ERP.gui
                 if (!expndd.amount.Equals(""))
                 {
                     String re1 = "";
-                    re1 = xC.xtDB.expnddDB.insertExpenseDrawDetail(expndd, xC.userId);
+                    re1 = xC.accDB.expnddDB.insertExpenseDrawDetail(expndd, xC.userId);
                     if (int.TryParse(re1, out chk))
                     {
                         chkD++;
@@ -309,11 +309,11 @@ namespace Xtrim_ERP.gui
                 expndd.expenses_draw_detail_id = grfExpnS[i, colDid] == null ? "" : grfExpnS[i, colDid].ToString();
 
                 expndd.qty = grfExpnS[i, colDQty] == null ? "" : grfExpnS[i, colDQty].ToString();
-                expndd.unit_id = grfExpnS[i, colDUnitNameT] == null ? "" : xC.xtDB.utpDB.getIdByName(grfExpnS[i, colDUnitNameT].ToString().Trim());
+                expndd.unit_id = grfExpnS[i, colDUnitNameT] == null ? "" : xC.iniDB.utpDB.getIdByName(grfExpnS[i, colDUnitNameT].ToString().Trim());
                 expndd.unit_name_t = grfExpnS[i, colDUnitNameT] == null ? "" : grfExpnS[i, colDUnitNameT].ToString();
                 expndd.amount = grfExpnS[i, colDamt] == null ? "" : grfExpnS[i, colDamt].ToString();
                 expndd.remark = grfExpnS[i, colDremark] == null ? "" : grfExpnS[i, colDremark].ToString();
-                expndd.item_id = grfExpnS[i, colDItemNamet] == null ? "" : xC.xtDB.itmDB.getIdByName(grfExpnS[i, colDItemNamet].ToString().Trim());
+                expndd.item_id = grfExpnS[i, colDItemNamet] == null ? "" : xC.iniDB.itmDB.getIdByName(grfExpnS[i, colDItemNamet].ToString().Trim());
                 expndd.item_name_t = grfExpnS[i, colDItemNamet] == null ? "" : grfExpnS[i, colDItemNamet].ToString();
                 expndd.price = grfExpnS[i, colDPrice] == null ? "" : grfExpnS[i, colDPrice].ToString();
                 expndd.wtax1 = grfExpnS[i, colDwatx1] == null ? "" : grfExpnS[i, colDwatx1].ToString();
@@ -339,7 +339,7 @@ namespace Xtrim_ERP.gui
                 if (!expndd.amount.Equals(""))
                 {
                     String re1 = "";
-                    re1 = xC.xtDB.expnddDB.insertExpenseDrawDetail(expndd, xC.userId);
+                    re1 = xC.accDB.expnddDB.insertExpenseDrawDetail(expndd, xC.userId);
                     if (int.TryParse(re1, out chk))
                     {
                         chkD++;
@@ -360,7 +360,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ค่าบริากร ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setExpensesDraw();
-                String re = xC.xtDB.expndDB.insertExpenseDraw(expnD, xC.user.staff_id);
+                String re = xC.accDB.expndDB.insertExpenseDraw(expnD, xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -369,7 +369,7 @@ namespace Xtrim_ERP.gui
                         btnSSave.Image = Resources.unit_completed16;
                         calSamount();
                     }
-                    String re1 = xC.xtDB.expndDB.updateStatusApprove(re);
+                    String re1 = xC.accDB.expndDB.updateStatusApprove(re);
                 }
                 else
                 {
@@ -386,7 +386,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ค่าใช้จ่าย ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setExpensesDraw();      //ใช้ด้วยกันได้
-                String re = xC.xtDB.expndDB.insertExpenseDraw(expnD, xC.user.staff_id);
+                String re = xC.accDB.expndDB.insertExpenseDraw(expnD, xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -583,7 +583,7 @@ namespace Xtrim_ERP.gui
             TextBox txt = new TextBox();
             //DataTable dt = new DataTable();
             //dt = xC.xtDB.jinDB.selectByJobId1(txtID.Text);
-            grfInv.DataSource = xC.xtDB.jinDB.selectByJobId1(txtID.Text);
+            grfInv.DataSource = xC.manDB.jinDB.selectByJobId1(txtID.Text);
             grfInv.Cols[colJobInvId].Editor = txt;
             grfInv.Cols[colJobInvNo].Editor = txt;
             grfInv.Cols[colJobInvDate].Editor = txt;
@@ -626,7 +626,7 @@ namespace Xtrim_ERP.gui
             TextBox txt = new TextBox();
             C1ComboBox cbo = new C1ComboBox();
 
-            xC.xtDB.dctDB.setC1CboContain(cbo, "");
+            xC.iniDB.dctDB.setC1CboContain(cbo, "");
             grfDeli.Cols[colJdcId].Editor = txt;
             grfDeli.Cols[colJdcContainerNo].Editor = txt;
             grfDeli.Cols[colJdcType].Editor = cbo;
@@ -660,7 +660,7 @@ namespace Xtrim_ERP.gui
             TextBox txt = new TextBox();
             C1ComboBox cbo = new C1ComboBox();
 
-            xC.xtDB.dctDB.setC1CboContain(cbo, "");
+            xC.iniDB.dctDB.setC1CboContain(cbo, "");
             grfJdc.Cols[colJdcId].Editor = txt;
             grfJdc.Cols[colJdcContainerNo].Editor = txt;
             grfJdc.Cols[colJdcType].Editor = cbo;
@@ -878,7 +878,7 @@ namespace Xtrim_ERP.gui
             grfExpnD.Clear();
             grfExpnD.Rows.Count = 1;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expnddDB.selectByJobId(jobid);
+            dt = xC.accDB.expnddDB.selectByJobId(jobid);
 
             grfExpnD.Cols[colDQty].Width = 80;
             grfExpnD.Cols[colDUnitNameT].Width = 140;
@@ -921,35 +921,35 @@ namespace Xtrim_ERP.gui
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 String hide = "";
-                hide = dt.Rows[i][xC.xtDB.expnddDB.expnC.status_hide] != null ? dt.Rows[i][xC.xtDB.expnddDB.expnC.status_hide].ToString() : "";
+                hide = dt.Rows[i][xC.accDB.expnddDB.expnC.status_hide] != null ? dt.Rows[i][xC.accDB.expnddDB.expnC.status_hide].ToString() : "";
                 if (hide.Equals("2")) continue;
                 Row row = grfExpnD.Rows.Add();
                 row[0] = i + 1;
                 if (i % 2 == 0)
                     grfExpnD.Rows[i].StyleNew.BackColor = color;
-                row[colDid] = dt.Rows[i][xC.xtDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
-                row[colDItemNamet] = dt.Rows[i][xC.xtDB.expnddDB.expnC.item_name_t].ToString();
-                row[colDQty] = dt.Rows[i][xC.xtDB.expnddDB.expnC.qty].ToString();
-                row[colDUnitNameT] = dt.Rows[i][xC.xtDB.expnddDB.expnC.unit_name_t].ToString();
-                row[colDamt] = dt.Rows[i][xC.xtDB.expnddDB.expnC.amount].ToString();
-                row[colDPrice] = dt.Rows[i][xC.xtDB.expnddDB.expnC.price].ToString();
-                row[colDwatx1] = dt.Rows[i][xC.xtDB.expnddDB.expnC.wtax1].ToString();
-                row[colDwatx3] = dt.Rows[i][xC.xtDB.expnddDB.expnC.wtax3].ToString();
-                row[colDvat] = dt.Rows[i][xC.xtDB.expnddDB.expnC.vat].ToString();
-                row[colDtotal] = dt.Rows[i][xC.xtDB.expnddDB.expnC.total].ToString();
-                row[colDremark] = dt.Rows[i][xC.xtDB.expnddDB.expnC.remark].ToString();
-                row[colDItemId] = dt.Rows[i][xC.xtDB.expnddDB.expnC.item_id].ToString();
+                row[colDid] = dt.Rows[i][xC.accDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
+                row[colDItemNamet] = dt.Rows[i][xC.accDB.expnddDB.expnC.item_name_t].ToString();
+                row[colDQty] = dt.Rows[i][xC.accDB.expnddDB.expnC.qty].ToString();
+                row[colDUnitNameT] = dt.Rows[i][xC.accDB.expnddDB.expnC.unit_name_t].ToString();
+                row[colDamt] = dt.Rows[i][xC.accDB.expnddDB.expnC.amount].ToString();
+                row[colDPrice] = dt.Rows[i][xC.accDB.expnddDB.expnC.price].ToString();
+                row[colDwatx1] = dt.Rows[i][xC.accDB.expnddDB.expnC.wtax1].ToString();
+                row[colDwatx3] = dt.Rows[i][xC.accDB.expnddDB.expnC.wtax3].ToString();
+                row[colDvat] = dt.Rows[i][xC.accDB.expnddDB.expnC.vat].ToString();
+                row[colDtotal] = dt.Rows[i][xC.accDB.expnddDB.expnC.total].ToString();
+                row[colDremark] = dt.Rows[i][xC.accDB.expnddDB.expnC.remark].ToString();
+                row[colDItemId] = dt.Rows[i][xC.accDB.expnddDB.expnC.item_id].ToString();
                 //if (flagfom2 == flagForm2.Cheque)
                 //{
-                row[colDpaytocusnamet] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_to_cus_name_t].ToString();
-                row[colDpaytocusaddr] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_to_cus_addr].ToString();
-                row[colDapaytocustax] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_to_cus_tax].ToString();
-                row[colDreceiptno] = dt.Rows[i][xC.xtDB.expnddDB.expnC.receipt_no].ToString();
-                row[colDreceiptdate] = dt.Rows[i][xC.xtDB.expnddDB.expnC.receipt_date].ToString();
-                row[colDpaytocusid] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_to_cus_id].ToString();
+                row[colDpaytocusnamet] = dt.Rows[i][xC.accDB.expnddDB.expnC.pay_to_cus_name_t].ToString();
+                row[colDpaytocusaddr] = dt.Rows[i][xC.accDB.expnddDB.expnC.pay_to_cus_addr].ToString();
+                row[colDapaytocustax] = dt.Rows[i][xC.accDB.expnddDB.expnC.pay_to_cus_tax].ToString();
+                row[colDreceiptno] = dt.Rows[i][xC.accDB.expnddDB.expnC.receipt_no].ToString();
+                row[colDreceiptdate] = dt.Rows[i][xC.accDB.expnddDB.expnC.receipt_date].ToString();
+                row[colDpaytocusid] = dt.Rows[i][xC.accDB.expnddDB.expnC.pay_to_cus_id].ToString();
                 row[colDedit] = "-";
-                row[colDstatuspage] = dt.Rows[i][xC.xtDB.expnddDB.expnC.status_page].ToString();
-                if (dt.Rows[i][xC.xtDB.expnddDB.expnC.status_page].ToString().Equals("2"))
+                row[colDstatuspage] = dt.Rows[i][xC.accDB.expnddDB.expnC.status_page].ToString();
+                if (dt.Rows[i][xC.accDB.expnddDB.expnC.status_page].ToString().Equals("2"))
                 {
                     grfExpnD.Rows[i].StyleNew.BackColor = xC.cTxtFocus;
                 }
@@ -967,7 +967,7 @@ namespace Xtrim_ERP.gui
             grfExpnS.Clear();
             grfExpnS.Rows.Count = 1;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expnddDB.selectByJobId(jobid);
+            dt = xC.accDB.expnddDB.selectByJobId(jobid);
 
             grfExpnS.Cols[colDQty].Width = 80;
             grfExpnS.Cols[colDUnitNameT].Width = 140;
@@ -1010,35 +1010,35 @@ namespace Xtrim_ERP.gui
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 String hide = "";
-                hide = dt.Rows[i][xC.xtDB.expnddDB.expnC.status_hide] != null ? dt.Rows[i][xC.xtDB.expnddDB.expnC.status_hide].ToString() : "";
+                hide = dt.Rows[i][xC.accDB.expnddDB.expnC.status_hide] != null ? dt.Rows[i][xC.accDB.expnddDB.expnC.status_hide].ToString() : "";
                 if (!hide.Equals("2")) continue;
                 Row row = grfExpnS.Rows.Add();
                 row[0] = i + 1;
                 if (i % 2 == 0)
                     row.StyleNew.BackColor = color;
-                row[colDid] = dt.Rows[i][xC.xtDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
-                row[colDItemNamet] = dt.Rows[i][xC.xtDB.expnddDB.expnC.item_name_t].ToString();
-                row[colDQty] = dt.Rows[i][xC.xtDB.expnddDB.expnC.qty].ToString();
-                row[colDUnitNameT] = dt.Rows[i][xC.xtDB.expnddDB.expnC.unit_name_t].ToString();
-                row[colDamt] = dt.Rows[i][xC.xtDB.expnddDB.expnC.amount].ToString();
-                row[colDPrice] = dt.Rows[i][xC.xtDB.expnddDB.expnC.price].ToString();
-                row[colDwatx1] = dt.Rows[i][xC.xtDB.expnddDB.expnC.wtax1].ToString();
-                row[colDwatx3] = dt.Rows[i][xC.xtDB.expnddDB.expnC.wtax3].ToString();
-                row[colDvat] = dt.Rows[i][xC.xtDB.expnddDB.expnC.vat].ToString();
-                row[colDtotal] = dt.Rows[i][xC.xtDB.expnddDB.expnC.total].ToString();
-                row[colDremark] = dt.Rows[i][xC.xtDB.expnddDB.expnC.remark].ToString();
-                row[colDItemId] = dt.Rows[i][xC.xtDB.expnddDB.expnC.item_id].ToString();
+                row[colDid] = dt.Rows[i][xC.accDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
+                row[colDItemNamet] = dt.Rows[i][xC.accDB.expnddDB.expnC.item_name_t].ToString();
+                row[colDQty] = dt.Rows[i][xC.accDB.expnddDB.expnC.qty].ToString();
+                row[colDUnitNameT] = dt.Rows[i][xC.accDB.expnddDB.expnC.unit_name_t].ToString();
+                row[colDamt] = dt.Rows[i][xC.accDB.expnddDB.expnC.amount].ToString();
+                row[colDPrice] = dt.Rows[i][xC.accDB.expnddDB.expnC.price].ToString();
+                row[colDwatx1] = dt.Rows[i][xC.accDB.expnddDB.expnC.wtax1].ToString();
+                row[colDwatx3] = dt.Rows[i][xC.accDB.expnddDB.expnC.wtax3].ToString();
+                row[colDvat] = dt.Rows[i][xC.accDB.expnddDB.expnC.vat].ToString();
+                row[colDtotal] = dt.Rows[i][xC.accDB.expnddDB.expnC.total].ToString();
+                row[colDremark] = dt.Rows[i][xC.accDB.expnddDB.expnC.remark].ToString();
+                row[colDItemId] = dt.Rows[i][xC.accDB.expnddDB.expnC.item_id].ToString();
                 //if (flagfom2 == flagForm2.Cheque)
                 //{
-                row[colDpaytocusnamet] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_to_cus_name_t].ToString();
-                row[colDpaytocusaddr] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_to_cus_addr].ToString();
-                row[colDapaytocustax] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_to_cus_tax].ToString();
-                row[colDreceiptno] = dt.Rows[i][xC.xtDB.expnddDB.expnC.receipt_no].ToString();
-                row[colDreceiptdate] = dt.Rows[i][xC.xtDB.expnddDB.expnC.receipt_date].ToString();
-                row[colDpaytocusid] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_to_cus_id].ToString();
+                row[colDpaytocusnamet] = dt.Rows[i][xC.accDB.expnddDB.expnC.pay_to_cus_name_t].ToString();
+                row[colDpaytocusaddr] = dt.Rows[i][xC.accDB.expnddDB.expnC.pay_to_cus_addr].ToString();
+                row[colDapaytocustax] = dt.Rows[i][xC.accDB.expnddDB.expnC.pay_to_cus_tax].ToString();
+                row[colDreceiptno] = dt.Rows[i][xC.accDB.expnddDB.expnC.receipt_no].ToString();
+                row[colDreceiptdate] = dt.Rows[i][xC.accDB.expnddDB.expnC.receipt_date].ToString();
+                row[colDpaytocusid] = dt.Rows[i][xC.accDB.expnddDB.expnC.pay_to_cus_id].ToString();
                 row[colDedit] = "-";
-                row[colDstatuspage] = dt.Rows[i][xC.xtDB.expnddDB.expnC.status_page].ToString();
-                if (dt.Rows[i][xC.xtDB.expnddDB.expnC.status_page].ToString().Equals("2"))
+                row[colDstatuspage] = dt.Rows[i][xC.accDB.expnddDB.expnC.status_page].ToString();
+                if (dt.Rows[i][xC.accDB.expnddDB.expnC.status_page].ToString().Equals("2"))
                 {
                     row.StyleNew.BackColor = xC.cTxtFocus;
                 }
@@ -1054,7 +1054,7 @@ namespace Xtrim_ERP.gui
         private void setGrfJdc()
         {
             DataTable dt = new DataTable();
-            dt = xC.xtDB.jcnDB.selectByJobId(txtID.Text);
+            dt = xC.manDB.jcnDB.selectByJobId(txtID.Text);
             if (dt.Rows.Count > 0)
             {
                 grfJdc.DataSource = dt;
@@ -1307,7 +1307,7 @@ namespace Xtrim_ERP.gui
             {
                 setJobImport();
                 
-                String re = xC.xtDB.jimDB.insertJobImport(jim);
+                String re = xC.manDB.jimDB.insertJobImport(jim);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -1317,7 +1317,7 @@ namespace Xtrim_ERP.gui
                     //}
                     
                     setJobImportBl();
-                    String re1 = xC.xtDB.jblDB.insertJobImportBl(jbl);
+                    String re1 = xC.manDB.jblDB.insertJobImportBl(jbl);
                     btnSave.Image = Resources.accept_database24;
                     if (txtJobCode.Text.Equals(""))
                     {
@@ -1348,7 +1348,7 @@ namespace Xtrim_ERP.gui
             {
                 setInvoice();
 
-                String re = xC.xtDB.jinDB.insertJobImportInv(jin);
+                String re = xC.manDB.jinDB.insertJobImportInv(jin);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -1373,7 +1373,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setJobImportContainYard();
-                String re = xC.xtDB.jimDB.updateContainerYard(jConY);
+                String re = xC.manDB.jimDB.updateContainerYard(jConY);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -1398,7 +1398,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setJobImportCheckExam();
-                String re = xC.xtDB.jceDB.insertJobImportCheckExam(jce);
+                String re = xC.manDB.jceDB.insertJobImportCheckExam(jce);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -1423,7 +1423,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setJobImportCheckList();
-                String re = xC.xtDB.jclDB.insertJobImportCheckList(jcl);
+                String re = xC.manDB.jclDB.insertJobImportCheckList(jcl);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -1454,9 +1454,9 @@ namespace Xtrim_ERP.gui
             com = xC.xtDB.copDB.selectByPk1("1020000001");
             Customer insr = new Customer();
             //cus = xC.xtDB.cusDB.selectByPk1(txtID.Text);
-            insr = xC.xtDB.cusDB.selectInsurByPk1(cusId);
+            insr = xC.iniDB.cusDB.selectInsurByPk1(cusId);
             Contact c = new Contact();
-            c = xC.xtDB.contDB.selectByCusId1(insr.cust_id);
+            c = xC.iniDB.contDB.selectByCusId1(insr.cust_id);
             txtTo.Text = c.email;
             txtSubject.Text = "จาก "+com.comp_name_t+" เรียน คุณ "+c.cont_fname_t + " "+c.cont_lname_t ;
         }
@@ -2642,11 +2642,11 @@ namespace Xtrim_ERP.gui
             if (txtPolNameT.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.polDB.selectByCodeLike(txtPolNameT.Text);
+                dt = xC.iniDB.polDB.selectByCodeLike(txtPolNameT.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sPol = new PortOfLoading();
-                    xC.sPol = xC.xtDB.polDB.setPortOfLoading(dt);
+                    xC.sPol = xC.iniDB.polDB.setPortOfLoading(dt);
                     setKeyUpF2Pol1(xC.sPol);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2660,11 +2660,11 @@ namespace Xtrim_ERP.gui
             if (txtEttNameT.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.ettDB.selectByCodeLike(txtEttNameT.Text);
+                dt = xC.iniDB.ettDB.selectByCodeLike(txtEttNameT.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sEtt = new EntryType();
-                    xC.sEtt = xC.xtDB.ettDB.setEntryType(dt);
+                    xC.sEtt = xC.iniDB.ettDB.setEntryType(dt);
                     setKeyUpF2Ett1(xC.sEtt);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2678,11 +2678,11 @@ namespace Xtrim_ERP.gui
             if (txtConsignmnt.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.cotDB.selectByCodeLike(txtConsignmnt.Text);
+                dt = xC.iniDB.cotDB.selectByCodeLike(txtConsignmnt.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sCot = new Country();
-                    xC.sCot = xC.xtDB.cotDB.setCountry(dt);
+                    xC.sCot = xC.iniDB.cotDB.setCountry(dt);
                     setKeyUpF2Cot1(xC.sCot);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2714,11 +2714,11 @@ namespace Xtrim_ERP.gui
             if (txtFwdNameT.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.cusDB.selectFwsIdByCodeLike(txtFwdNameT.Text);
+                dt = xC.iniDB.cusDB.selectFwsIdByCodeLike(txtFwdNameT.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sFwd = new Customer();
-                    xC.sFwd = xC.xtDB.cusDB.setCustomer(dt);
+                    xC.sFwd = xC.iniDB.cusDB.setCustomer(dt);
                     setKeyUpF2Fwd1(xC.sFwd);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2732,11 +2732,11 @@ namespace Xtrim_ERP.gui
             if (txtImpNameT.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.cusDB.selectImpIdByCodeLike(txtImpNameT.Text);
+                dt = xC.iniDB.cusDB.selectImpIdByCodeLike(txtImpNameT.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sImp = new Customer();
-                    xC.sImp = xC.xtDB.cusDB.setCustomer(dt);
+                    xC.sImp = xC.iniDB.cusDB.setCustomer(dt);
                     setKeyUpF2Imp1(xC.sImp);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2750,11 +2750,11 @@ namespace Xtrim_ERP.gui
             if (txtDeliImporter.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.cusDB.selectImpIdByCodeLike(txtDeliImporter.Text);
+                dt = xC.iniDB.cusDB.selectImpIdByCodeLike(txtDeliImporter.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sImp = new Customer();
-                    xC.sImp = xC.xtDB.cusDB.setCustomer(dt);
+                    xC.sImp = xC.iniDB.cusDB.setCustomer(dt);
                     setKeyUpF2DeliImp1(xC.sImp);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2768,11 +2768,11 @@ namespace Xtrim_ERP.gui
             if (txtDeliPlaceAddr.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.addrDB.selectByCodeLike(txtDeliPlaceAddr.Text);
+                dt = xC.iniDB.addrDB.selectByCodeLike(txtDeliPlaceAddr.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sAddr = new Address();
-                    xC.sAddr = xC.xtDB.addrDB.setAddress(dt);
+                    xC.sAddr = xC.iniDB.addrDB.setAddress(dt);
                     setKeyUpF2DeliPlaceAddr1(xC.sAddr);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2786,11 +2786,11 @@ namespace Xtrim_ERP.gui
             if (txtDeliContainYardNameT.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.addrDB.selectByCodeLike(txtDeliContainYardNameT.Text);
+                dt = xC.iniDB.addrDB.selectByCodeLike(txtDeliContainYardNameT.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sAddr = new Address();
-                    xC.sAddr = xC.xtDB.addrDB.setAddress(dt);
+                    xC.sAddr = xC.iniDB.addrDB.setAddress(dt);
                     setKeyUpF2DeliContainerYard1(xC.sAddr);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2804,11 +2804,11 @@ namespace Xtrim_ERP.gui
             if (txtConYCop1.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.cusDB.selectByCodeLike(txtConYCop1.Text);
+                dt = xC.iniDB.cusDB.selectByCodeLike(txtConYCop1.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sConY = new Customer();
-                    xC.sConY = xC.xtDB.cusDB.setCustomer(dt);
+                    xC.sConY = xC.iniDB.cusDB.setCustomer(dt);
                     setKeyUpF2ConYCop11(xC.sConY, null);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2822,11 +2822,11 @@ namespace Xtrim_ERP.gui
             if (txtConYCop2.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.cusDB.selectByCodeLike(txtConYCop2.Text);
+                dt = xC.iniDB.cusDB.selectByCodeLike(txtConYCop2.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sConY = new Customer();
-                    xC.sConY = xC.xtDB.cusDB.setCustomer(dt);
+                    xC.sConY = xC.iniDB.cusDB.setCustomer(dt);
                     setKeyUpF2ConYCop21(xC.sConY, null);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2840,11 +2840,11 @@ namespace Xtrim_ERP.gui
             if (txtConYCop2.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.cusDB.selectByCodeLike(txtConYCop3.Text);
+                dt = xC.iniDB.cusDB.selectByCodeLike(txtConYCop3.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sConY = new Customer();
-                    xC.sConY = xC.xtDB.cusDB.setCustomer(dt);
+                    xC.sConY = xC.iniDB.cusDB.setCustomer(dt);
                     setKeyUpF2ConYCop31(xC.sConY, null);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2858,11 +2858,11 @@ namespace Xtrim_ERP.gui
             if (txtConYCop2.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.cusDB.selectByCodeLike(txtConYCop4.Text);
+                dt = xC.iniDB.cusDB.selectByCodeLike(txtConYCop4.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sConY = new Customer();
-                    xC.sConY = xC.xtDB.cusDB.setCustomer(dt);
+                    xC.sConY = xC.iniDB.cusDB.setCustomer(dt);
                     setKeyUpF2ConYCop41(xC.sConY, null);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2876,11 +2876,11 @@ namespace Xtrim_ERP.gui
             if (txtCusNameT.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.cusDB.selectCusByCodeLike(txtCusNameT.Text);
+                dt = xC.iniDB.cusDB.selectCusByCodeLike(txtCusNameT.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sCus = new Customer();
-                    xC.sCus = xC.xtDB.cusDB.setCustomer(dt);
+                    xC.sCus = xC.iniDB.cusDB.setCustomer(dt);
                     setKeyUpF2Cus1(xC.sCus);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2895,11 +2895,11 @@ namespace Xtrim_ERP.gui
             if (txtPvlNameT.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.pvlDB.selectByCodeLike(txtPvlNameT.Text);
+                dt = xC.iniDB.pvlDB.selectByCodeLike(txtPvlNameT.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sPvl = new Privilege();
-                    xC.sPvl = xC.xtDB.pvlDB.setPrivilege(dt);
+                    xC.sPvl = xC.iniDB.pvlDB.setPrivilege(dt);
                     setKeyUpF2Pvl1(xC.sPvl);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2914,11 +2914,11 @@ namespace Xtrim_ERP.gui
             if (txtPtiNameT.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.ptiDB.selectByCodeLike(txtPtiNameT.Text);
+                dt = xC.iniDB.ptiDB.selectByCodeLike(txtPtiNameT.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sPti = new PortImport();
-                    xC.sPti = xC.xtDB.ptiDB.setPortImport(dt);
+                    xC.sPti = xC.iniDB.ptiDB.setPortImport(dt);
                     setKeyUpF2Pti1(xC.sPti);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2933,11 +2933,11 @@ namespace Xtrim_ERP.gui
             if (txtIctNameT.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.ictDB.selectByCodeLike(txtIctNameT.Text);
+                dt = xC.iniDB.ictDB.selectByCodeLike(txtIctNameT.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sIct = new IncoTerms();
-                    xC.sIct = xC.xtDB.ictDB.setIncoTeams(dt);
+                    xC.sIct = xC.iniDB.ictDB.setIncoTeams(dt);
                     setKeyUpF2Ict1(xC.sIct);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2952,11 +2952,11 @@ namespace Xtrim_ERP.gui
             if (txtTpmNameT.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.tpmDB.selectByCodeLike(txtTpmNameT.Text);
+                dt = xC.iniDB.tpmDB.selectByCodeLike(txtTpmNameT.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sTpm = new TermPayment();
-                    xC.sTpm = xC.xtDB.tpmDB.setTermPayment(dt);
+                    xC.sTpm = xC.iniDB.tpmDB.setTermPayment(dt);
                     setKeyUpF2Tpm1(xC.sTpm);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2971,11 +2971,11 @@ namespace Xtrim_ERP.gui
             if (txtCurrCode.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.currDB.selectByCodeLike(txtCurrCode.Text);
+                dt = xC.iniDB.currDB.selectByCodeLike(txtCurrCode.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sCurr = new Currency();
-                    xC.sCurr = xC.xtDB.currDB.setCurr(dt);
+                    xC.sCurr = xC.iniDB.currDB.setCurr(dt);
                     setKeyUpF2Curr1(xC.sCurr);
                 }
                 else if (dt.Rows.Count > 1)
@@ -2990,11 +2990,11 @@ namespace Xtrim_ERP.gui
             if (txtInsrNameT.Text.Length >= 2)
             {
                 DataTable dt = new DataTable();
-                dt = xC.xtDB.cusDB.selectInsrIdByCodeLike(txtInsrNameT.Text);
+                dt = xC.iniDB.cusDB.selectInsrIdByCodeLike(txtInsrNameT.Text);
                 if (dt.Rows.Count == 1)
                 {
                     xC.sInsr = new Customer();
-                    xC.sInsr = xC.xtDB.cusDB.setCustomer(dt);
+                    xC.sInsr = xC.iniDB.cusDB.setCustomer(dt);
                     setKeyUpF2Insr1(xC.sInsr);
                 }
                 else if (dt.Rows.Count > 1)
@@ -3165,7 +3165,7 @@ namespace Xtrim_ERP.gui
                 else if (sender.Equals(txtJobCode))
                 {
                     txtJobCode.Text = txtJobCode.Text.Replace(xC.FixJobCode, "");
-                    xC.jobID = xC.xtDB.jimDB.selectByJobCode1(txtJobCode.Text);
+                    xC.jobID = xC.manDB.jimDB.selectByJobCode1(txtJobCode.Text);
                     setControl();
                     initGrfInv();
                 }
@@ -3218,23 +3218,23 @@ namespace Xtrim_ERP.gui
         private void setControl()
         {
             if (xC.jobID.Equals("")) return;
-            jim = xC.xtDB.jimDB.selectByPk1(xC.jobID);
-            jbl = xC.xtDB.jblDB.selectByJobId(xC.jobID);
+            jim = xC.manDB.jimDB.selectByPk1(xC.jobID);
+            jbl = xC.manDB.jblDB.selectByJobId(xC.jobID);
             
 
             //jim = xC.xtDB.jimDB.selectByJobCode(txtJobCode.Text);
             //jbl = xC.xtDB.jblDB.selectByJobId(jim.job_import_id);
 
-            Customer cus = xC.xtDB.cusDB.selectByPk1(jim.cust_id);
-            Customer imp = xC.xtDB.cusDB.selectByPk1(jim.imp_id);
+            Customer cus = xC.iniDB.cusDB.selectByPk1(jim.cust_id);
+            Customer imp = xC.iniDB.cusDB.selectByPk1(jim.imp_id);
             Staff stf = xC.xtDB.stfDB.selectByPk1(jim.staff_id);
-            EntryType ett = xC.xtDB.ettDB.selectByPk1(jim.entry_type_id);
-            Privilege pvl = xC.xtDB.pvlDB.selectByPk1(jim.privi_id);
-            Customer fwd = xC.xtDB.cusDB.selectByPk1(jbl.forwarder_id);
-            PortOfLoading pol = xC.xtDB.polDB.selectByPk1(jbl.port_of_loading_id);
-            PortImport pti = xC.xtDB.ptiDB.selectByPk1(jbl.port_imp_id);
-            Country cst = xC.xtDB.cotDB.selectByPk1(jbl.consignmnt_id);
-            Customer trkCop = xC.xtDB.cusDB.selectByPk1(jbl.deli_truck_cop_id);
+            EntryType ett = xC.iniDB.ettDB.selectByPk1(jim.entry_type_id);
+            Privilege pvl = xC.iniDB.pvlDB.selectByPk1(jim.privi_id);
+            Customer fwd = xC.iniDB.cusDB.selectByPk1(jbl.forwarder_id);
+            PortOfLoading pol = xC.iniDB.polDB.selectByPk1(jbl.port_of_loading_id);
+            PortImport pti = xC.iniDB.ptiDB.selectByPk1(jbl.port_imp_id);
+            Country cst = xC.iniDB.cotDB.selectByPk1(jbl.consignmnt_id);
+            Customer trkCop = xC.iniDB.cusDB.selectByPk1(jbl.deli_truck_cop_id);
 
             txtID.Value = jim.job_import_id;
             txtBlId.Value = jbl.job_import_bl_id;
@@ -3317,7 +3317,7 @@ namespace Xtrim_ERP.gui
             if (!jbl.deli_imp_id.Equals(""))
             {
                 Customer deliImp = new Customer();
-                deliImp = xC.xtDB.cusDB.selectByPk1(jbl.deli_imp_id);
+                deliImp = xC.iniDB.cusDB.selectByPk1(jbl.deli_imp_id);
                 txtDeliImporter.Value = deliImp.cust_name_t;
                 txtDeliImporterAddr.Value = jbl.deli_imp_addr;
             }
@@ -3377,7 +3377,7 @@ namespace Xtrim_ERP.gui
             Customer conY = new Customer();
             if (!jim.container_yard1_id.Equals(""))
             {
-                conY = xC.xtDB.cusDB.selectByPk1(jim.container_yard1_id);
+                conY = xC.iniDB.cusDB.selectByPk1(jim.container_yard1_id);
                 setKeyUpF2ConYCop11(conY, null);
                 txtConYCop1Addr.Value = jim.container_yard1_addr;
                 txtConYCop1TimeOpen.Value = jim.time_open_close1;
@@ -3386,7 +3386,7 @@ namespace Xtrim_ERP.gui
             }
             if (!jim.container_yard2_id.Equals(""))
             {
-                conY = xC.xtDB.cusDB.selectByPk1(jim.container_yard2_id);
+                conY = xC.iniDB.cusDB.selectByPk1(jim.container_yard2_id);
                 setKeyUpF2ConYCop11(conY, null);
                 txtConYCop2Addr.Value = jim.container_yard2_addr;
                 txtConYCop2TimeOpen.Value = jim.time_open_close2;
@@ -3395,7 +3395,7 @@ namespace Xtrim_ERP.gui
             }
             if (!jim.container_yard3_id.Equals(""))
             {
-                conY = xC.xtDB.cusDB.selectByPk1(jim.container_yard3_id);
+                conY = xC.iniDB.cusDB.selectByPk1(jim.container_yard3_id);
                 setKeyUpF2ConYCop11(conY, null);
                 txtConYCop3Addr.Value = jim.container_yard3_addr;
                 txtConYCop3TimeOpen.Value = jim.time_open_close3;
@@ -3404,7 +3404,7 @@ namespace Xtrim_ERP.gui
             }
             if (!jim.container_yard4_id.Equals(""))
             {
-                conY = xC.xtDB.cusDB.selectByPk1(jim.container_yard4_id);
+                conY = xC.iniDB.cusDB.selectByPk1(jim.container_yard4_id);
                 setKeyUpF2ConYCop11(conY, null);
                 txtConYCop4Addr.Value = jim.container_yard4_addr;
                 txtConYCop4TimeOpen.Value = jim.time_open_close4;
@@ -3416,7 +3416,7 @@ namespace Xtrim_ERP.gui
         }
         private void setControlJcl()
         {
-            jcl = xC.xtDB.jclDB.selectByJobId(xC.jobID);
+            jcl = xC.manDB.jclDB.selectByJobId(xC.jobID);
 
             chkJclOriginal.Checked = jcl.status_original.Equals("2") ? true : false;
             chkJclCopy.Checked = jcl.status_original.Equals("1") ? true : false;
@@ -3459,7 +3459,7 @@ namespace Xtrim_ERP.gui
         }
         private void setControlJce()
         {
-            jce = xC.xtDB.jceDB.selectByJobId(xC.jobID);
+            jce = xC.manDB.jceDB.selectByJobId(xC.jobID);
 
             chkJceNoOpenGoods.Checked = jce.status_open_goods.Equals("2") ? true : false;
             chkJceOpenGoods.Checked = jce.status_open_goods.Equals("1") ? true : false;
@@ -3601,7 +3601,7 @@ namespace Xtrim_ERP.gui
             jim.job_import_id = txtID.Text;
             if (txtID.Text.Length > 0)
             {
-                jim = xC.xtDB.jimDB.selectByPk1(txtID.Text);
+                jim = xC.manDB.jimDB.selectByPk1(txtID.Text);
                 jim.job_import_code = txtJobCode.Text.Replace(xC.FixJobCode,"");
                 jim.job_year = jim.job_year.Equals("") ? DateTime.Now.Year.ToString() : jim.job_year;
             }
@@ -3680,7 +3680,7 @@ namespace Xtrim_ERP.gui
             
             if (txtID.Text.Length > 0)
             {
-                jbl = xC.xtDB.jblDB.selectByJobId(txtID.Text);
+                jbl = xC.manDB.jblDB.selectByJobId(txtID.Text);
             }
             if(jbl.job_import_bl_id==null) jbl.job_import_bl_id = "";
             jbl.job_import_id = txtID.Text;
@@ -3809,18 +3809,18 @@ namespace Xtrim_ERP.gui
                 jin.invoice_date = "";
             }
             String impId = "", ictId="", tmpId="", currId="", insrId="";
-            impId = xC.xtDB.cusDB.selectImpIdByNameTLike1(txtConsNameT.Text);
+            impId = xC.iniDB.cusDB.selectImpIdByNameTLike1(txtConsNameT.Text);
             jin.cons_id = impId;       // buyer = cons_id จริงๆ คือ importer
 
-            ictId = xC.xtDB.ictDB.selectByNameTLike(txtIctNameT.Text);
+            ictId = xC.iniDB.ictDB.selectByNameTLike(txtIctNameT.Text);
             jin.inco_terms_id = ictId;
-            tmpId = xC.xtDB.tpmDB.selectByNameTLike(txtTpmNameT.Text);
+            tmpId = xC.iniDB.tpmDB.selectByNameTLike(txtTpmNameT.Text);
             jin.term_pay_id = tmpId;
 
             jin.amount = txtInvAmt.Text;
-            currId = xC.xtDB.currDB.selectByNameTLike(txtCurrCode.Text);
+            currId = xC.iniDB.currDB.selectByNameTLike(txtCurrCode.Text);
             jin.curr_id = currId;
-            insrId = xC.xtDB.cusDB.selectInsrIdByNameTLike1(txtInsrNameT.Text);
+            insrId = xC.iniDB.cusDB.selectInsrIdByNameTLike1(txtInsrNameT.Text);
             jin.insr_id = insrId;
 
             jin.date_create = "";
@@ -3849,7 +3849,7 @@ namespace Xtrim_ERP.gui
             //Customer cus = new Customer();
             Customer insr = new Customer();
             //cus = xC.xtDB.cusDB.selectByPk1(txtID.Text);
-            insr = xC.xtDB.cusDB.selectInsurByPk1(cusId);
+            insr = xC.iniDB.cusDB.selectInsurByPk1(cusId);
             txtJinId.Value = "";
             txtInvDate.Value = DateTime.Now.Year.ToString()+"-"+DateTime.Now.ToString("MM-dd");
             txtInsrNameT.Value = insr.cust_name_t;

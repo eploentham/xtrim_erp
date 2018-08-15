@@ -105,7 +105,7 @@ namespace Xtrim_ERP.gui
             grfJob.Clear();
             if (cusid.Equals("")) return;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.jimDB.selectJimJblByJobYear2(cusid);
+            dt = xC.manDB.jimDB.selectJimJblByJobYear2(cusid);
             //grfJob.DataSource = xC.xtDB.jimDB.selectJimJblByJobYear2(cusid);
             //grfJob.Cols.Count = dt.Columns.Count;
             grfJob.Rows.Count = dt.Rows.Count + 1;
@@ -136,10 +136,10 @@ namespace Xtrim_ERP.gui
                 grfJob[i + 1, 0] = i;
                 if (i % 2 == 0)
                     grfJob.Rows[i].StyleNew.BackColor = color;
-                grfJob[i + 1, colID] = dt.Rows[i][xC.xtDB.jimDB.jim.job_import_id].ToString();
-                grfJob[i + 1, colCode] = dt.Rows[i][xC.xtDB.jimDB.jim.job_import_code].ToString();
-                grfJob[i + 1, colDesc] = dt.Rows[i][xC.xtDB.jblDB.jbl.description].ToString();
-                grfJob[i + 1, colRemark] = dt.Rows[i][xC.xtDB.jimDB.jim.remark1].ToString();
+                grfJob[i + 1, colID] = dt.Rows[i][xC.manDB.jimDB.jim.job_import_id].ToString();
+                grfJob[i + 1, colCode] = dt.Rows[i][xC.manDB.jimDB.jim.job_import_code].ToString();
+                grfJob[i + 1, colDesc] = dt.Rows[i][xC.manDB.jblDB.jbl.description].ToString();
+                grfJob[i + 1, colRemark] = dt.Rows[i][xC.manDB.jimDB.jim.remark1].ToString();
                 //grfJob[i + 1, colAmt] = dt.Rows[i][xC.xtDB.jimDB.jim.job_import_id].ToString();
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
@@ -152,7 +152,7 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             cus = xC.sCus;
             jim = new JobImport();
-            jim = xC.xtDB.jimDB.selectByPk1(grfJob[grfJob.Row, colID].ToString());
+            jim = xC.manDB.jimDB.selectByPk1(grfJob[grfJob.Row, colID].ToString());
             txtJobId.Value = jim.job_import_id;
             //txtCusNameT.Value = cus.cust_name_t;
             txtJobCode.Value = jim.job_import_code;
@@ -199,7 +199,7 @@ namespace Xtrim_ERP.gui
             grfBill.Cols[colBID].Visible = false;
 
             DataTable dt = new DataTable();
-            dt = xC.xtDB.bllDB.selectByJobId(jimId);
+            dt = xC.accDB.bllDB.selectByJobId(jimId);
             //grfChequeView1.DataSource = dt;
             grfBill.Cols.Count = 6;
             grfBill.Rows.Count = dt.Rows.Count + 1;
@@ -216,11 +216,11 @@ namespace Xtrim_ERP.gui
                 grfBill[i + 1, 0] = i + 1;
                 if (i % 2 == 0)
                     grfBill.Rows[i + 1].StyleNew.BackColor = color;
-                grfBill[i + 1, colBID] = dt.Rows[i][xC.xtDB.bllDB.bll.billing_id].ToString();
-                grfBill[i + 1, colBDocNo] = dt.Rows[i][xC.xtDB.bllDB.bll.billing_code].ToString();
-                grfBill[i + 1, colBAmt] = dt.Rows[i][xC.xtDB.bllDB.bll.amount].ToString();
-                grfBill[i + 1, colBBillDate] = xC.dateDBtoShow(dt.Rows[i][xC.xtDB.bllDB.bll.billing_date].ToString());
-                grfBill[i + 1, colBremark] = dt.Rows[i][xC.xtDB.bllDB.bll.remark].ToString();
+                grfBill[i + 1, colBID] = dt.Rows[i][xC.accDB.bllDB.bll.billing_id].ToString();
+                grfBill[i + 1, colBDocNo] = dt.Rows[i][xC.accDB.bllDB.bll.billing_code].ToString();
+                grfBill[i + 1, colBAmt] = dt.Rows[i][xC.accDB.bllDB.bll.amount].ToString();
+                grfBill[i + 1, colBBillDate] = xC.dateDBtoShow(dt.Rows[i][xC.accDB.bllDB.bll.billing_date].ToString());
+                grfBill[i + 1, colBremark] = dt.Rows[i][xC.accDB.bllDB.bll.remark].ToString();
             }
 
         }
@@ -269,7 +269,7 @@ namespace Xtrim_ERP.gui
             grfBillD.Cols[colBID].Visible = false;
 
             DataTable dt = new DataTable();
-            dt = xC.xtDB.blldDB.selectByBillId(blldId);
+            dt = xC.accDB.blldDB.selectByBillId(blldId);
             //grfChequeView1.DataSource = dt;
             grfBillD.Cols.Count = 5;
             grfBillD.Rows.Count = dt.Rows.Count + 1;
@@ -286,10 +286,10 @@ namespace Xtrim_ERP.gui
                 grfBillD[i + 1, 0] = i + 1;
                 if (i % 2 == 0)
                     grfBillD.Rows[i + 1].StyleNew.BackColor = color;
-                grfBillD[i + 1, colBdID] = dt.Rows[i][xC.xtDB.blldDB.blld.billing_detail_id].ToString();
-                grfBillD[i + 1, colBdNameT] = dt.Rows[i][xC.xtDB.blldDB.blld.item_name_t].ToString();
-                grfBillD[i + 1, colBdAmtD] = dt.Rows[i][xC.xtDB.blldDB.blld.amount_draw].ToString();
-                grfBillD[i + 1, colBdAmtI] = dt.Rows[i][xC.xtDB.blldDB.blld.amount_income].ToString();
+                grfBillD[i + 1, colBdID] = dt.Rows[i][xC.accDB.blldDB.blld.billing_detail_id].ToString();
+                grfBillD[i + 1, colBdNameT] = dt.Rows[i][xC.accDB.blldDB.blld.item_name_t].ToString();
+                grfBillD[i + 1, colBdAmtD] = dt.Rows[i][xC.accDB.blldDB.blld.amount_draw].ToString();
+                grfBillD[i + 1, colBdAmtI] = dt.Rows[i][xC.accDB.blldDB.blld.amount_income].ToString();
                 //grfBillD[i + 1, colBremark] = dt.Rows[i][xC.xtDB.bllDB.bll.remark].ToString();
             }
 

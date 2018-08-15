@@ -85,7 +85,7 @@ namespace Xtrim_ERP.gui
             
             //grfDept.Rows.Count = 7;
 
-            grfDept.DataSource = xC.xtDB.deptDB.selectAll1();
+            grfDept.DataSource = xC.iniDB.deptDB.selectAll1();
             grfDept.Cols.Count = colCnt;
             CellStyle cs = grfDept.Styles.Add("btn");
             cs.DataType = typeof(Button);

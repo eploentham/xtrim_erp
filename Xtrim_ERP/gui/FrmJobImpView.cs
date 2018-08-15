@@ -135,7 +135,7 @@ namespace Xtrim_ERP.gui
         {
             if (year.Equals("")) return;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.jimDB.selectJimJblByJobYear1(year);
+            dt = xC.manDB.jimDB.selectJimJblByJobYear1(year);
             grfView.DataSource = dt;
             grfView.Cols[colCode].Caption = "import job no";
             grfView.Cols[colCusT].Caption = "Customer";
@@ -273,12 +273,12 @@ namespace Xtrim_ERP.gui
 
             //grdView.Top = cboYear.Top+20;
 
-            cboYear.DataSource = new BindingSource(xC.xtDB.jimDB.getlJobYear(), null);
+            cboYear.DataSource = new BindingSource(xC.manDB.jimDB.getlJobYear(), null);
             cboYear.DisplayMember = "Value";
             cboYear.ValueMember = "Key";
 
             String year = "";
-            year = xC.xtDB.jimDB.getYearCurr();
+            year = xC.manDB.jimDB.getYearCurr();
             cboYear.Text = year;
             //setGrdView(year);
         }

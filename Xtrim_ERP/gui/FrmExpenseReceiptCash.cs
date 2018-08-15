@@ -39,7 +39,7 @@ namespace Xtrim_ERP.gui
             initGrfExpnD();
             initGrfEcc();
 
-            txtUserAmt.Value = xC.xtDB.expnpdDB.selectSumPayAmtByJobIdStfIdNoClear("", xC.userId);
+            txtUserAmt.Value = xC.accDB.expnpdDB.selectSumPayAmtByJobIdStfIdNoClear("", xC.userId);
 
             btnDNew.Click += BtnDNew_Click;
             btnDoc.Click += BtnDoc_Click;
@@ -83,7 +83,7 @@ namespace Xtrim_ERP.gui
             grfExpnD.Clear();
             grfExpnD.Rows.Count = 1;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expnpdDB.selectByJobIdStfId(jobid, stfid);
+            dt = xC.accDB.expnpdDB.selectByJobIdStfId(jobid, stfid);
 
             grfExpnD.Cols[colItemNameT].Width = 200;
             grfExpnD.Cols[colPayAmt].Width = 100;
@@ -104,12 +104,12 @@ namespace Xtrim_ERP.gui
                 row[0] = i + 1;
                 if (i % 2 == 0)
                     row.StyleNew.BackColor = color;
-                row[colId] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.expenses_pay_detail_id].ToString();
-                row[colItemNameT] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.item_name_t].ToString();
-                row[colPayAmt] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_amount].ToString();
-                row[colExpnDdesc1] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.desc_d].ToString();
-                row[colExpnDDdesc1] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.desc_dd].ToString();
-                if (int.TryParse(dt.Rows[i][xC.xtDB.expnpdDB.expnP.expense_clear_cash_id].ToString(), out chk))
+                row[colId] = dt.Rows[i][xC.accDB.expnpdDB.expnP.expenses_pay_detail_id].ToString();
+                row[colItemNameT] = dt.Rows[i][xC.accDB.expnpdDB.expnP.item_name_t].ToString();
+                row[colPayAmt] = dt.Rows[i][xC.accDB.expnpdDB.expnP.pay_amount].ToString();
+                row[colExpnDdesc1] = dt.Rows[i][xC.accDB.expnpdDB.expnP.desc_d].ToString();
+                row[colExpnDDdesc1] = dt.Rows[i][xC.accDB.expnpdDB.expnP.desc_dd].ToString();
+                if (int.TryParse(dt.Rows[i][xC.accDB.expnpdDB.expnP.expense_clear_cash_id].ToString(), out chk))
                 {
                     if (chk > 0)
                     {
@@ -162,7 +162,7 @@ namespace Xtrim_ERP.gui
             grfEcc.Clear();
             grfEcc.Rows.Count = 1;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.eccDB.selectByStfIdClearCash(pdid);
+            dt = xC.accDB.eccDB.selectByStfIdClearCash(pdid);
 
             grfEcc.Cols[coleccItemet].Width = 200;
             grfEcc.Cols[colerrprice].Width = 100;
@@ -190,26 +190,26 @@ namespace Xtrim_ERP.gui
                 row[0] = i + 1;
                 if (i % 2 == 0)
                     row.StyleNew.BackColor = color;
-                row[coleccId] = dt.Rows[i][xC.xtDB.eccDB.ecc.expense_clear_cash_id].ToString();
-                row[coleccItemet] = dt.Rows[i][xC.xtDB.eccDB.ecc.item_name_t].ToString();
-                row[colerrprice] = dt.Rows[i][xC.xtDB.eccDB.ecc.price].ToString();
-                row[coleccqty] = dt.Rows[i][xC.xtDB.eccDB.ecc.qty].ToString();
-                row[coleccamt] = dt.Rows[i][xC.xtDB.eccDB.ecc.pay_amount].ToString();
-                row[coleccreceiptno] = dt.Rows[i][xC.xtDB.eccDB.ecc.receipt_no].ToString();
-                row[coleccreceiptdate] = dt.Rows[i][xC.xtDB.eccDB.ecc.receipt_date].ToString();
-                row[colecccusnamet] = dt.Rows[i][xC.xtDB.eccDB.ecc.pay_to_cus_name_t].ToString();
-                row[coleccremark] = dt.Rows[i][xC.xtDB.eccDB.ecc.remark].ToString();
-                if(Decimal.TryParse(dt.Rows[i][xC.xtDB.eccDB.ecc.pay_amount].ToString(), out chk))
+                row[coleccId] = dt.Rows[i][xC.accDB.eccDB.ecc.expense_clear_cash_id].ToString();
+                row[coleccItemet] = dt.Rows[i][xC.accDB.eccDB.ecc.item_name_t].ToString();
+                row[colerrprice] = dt.Rows[i][xC.accDB.eccDB.ecc.price].ToString();
+                row[coleccqty] = dt.Rows[i][xC.accDB.eccDB.ecc.qty].ToString();
+                row[coleccamt] = dt.Rows[i][xC.accDB.eccDB.ecc.pay_amount].ToString();
+                row[coleccreceiptno] = dt.Rows[i][xC.accDB.eccDB.ecc.receipt_no].ToString();
+                row[coleccreceiptdate] = dt.Rows[i][xC.accDB.eccDB.ecc.receipt_date].ToString();
+                row[colecccusnamet] = dt.Rows[i][xC.accDB.eccDB.ecc.pay_to_cus_name_t].ToString();
+                row[coleccremark] = dt.Rows[i][xC.accDB.eccDB.ecc.remark].ToString();
+                if(Decimal.TryParse(dt.Rows[i][xC.accDB.eccDB.ecc.pay_amount].ToString(), out chk))
                 {
                     eccamt += chk;
                 }
-                if (dt.Rows[i][xC.xtDB.eccDB.ecc.active].ToString().Equals("0"))
+                if (dt.Rows[i][xC.accDB.eccDB.ecc.active].ToString().Equals("0"))
                 {
                     row.StyleNew.BackColor = Color.Gray;
                 }
                 else
                 {
-                    if (dt.Rows[i][xC.xtDB.eccDB.ecc.status_doc].ToString().Equals("1"))
+                    if (dt.Rows[i][xC.accDB.eccDB.ecc.status_doc].ToString().Equals("1"))
                     {
                         row.StyleNew.BackColor = Color.PeachPuff;
                     }
@@ -250,10 +250,10 @@ namespace Xtrim_ERP.gui
             if (e.KeyCode == Keys.Enter)
             {
                 txtJobCode.Text = txtJobCode.Text.Replace(xC.FixJobCode, "");
-                jim = xC.xtDB.jimDB.selectByJobCode(txtJobCode.Text);
+                jim = xC.manDB.jimDB.selectByJobCode(txtJobCode.Text);
                 txtJobCode.Value = xC.FixJobCode + jim.job_import_code;
                 txtJobId.Value = jim.job_import_id;
-                txtJobAmt.Value = xC.xtDB.expnpdDB.selectSumPayAmtByJobIdStfIdNoClear(txtJobId.Text, cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "");
+                txtJobAmt.Value = xC.accDB.expnpdDB.selectSumPayAmtByJobIdStfIdNoClear(txtJobId.Text, cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "");
                 setGrfExpnPd(txtJobId.Text, cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "");
             }
         }
@@ -269,7 +269,7 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                String re = xC.xtDB.eccDB.updateActive(txtPdId.Text);
+                String re = xC.accDB.eccDB.updateActive(txtPdId.Text);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -324,7 +324,7 @@ namespace Xtrim_ERP.gui
             if (grfExpnD[grfExpnD.Row, colId] == null) return;
             String pdid = "";
             pdid = grfExpnD[grfExpnD.Row, colId].ToString();
-            expnpd = xC.xtDB.expnpdDB.selectByPk1(pdid);
+            expnpd = xC.accDB.expnpdDB.selectByPk1(pdid);
             txtID.Value = "";
             txtPdId.Value = pdid;
             //txtItmNameT.Value = expnpd.item_name_t;

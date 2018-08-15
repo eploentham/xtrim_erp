@@ -79,7 +79,7 @@ namespace Xtrim_ERP.gui
             grfPd.Rows.Count = 1;
             grfPd.Cols.Count = 5;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expnpdDB.selectByStfIdEccDocNo(stfId);
+            dt = xC.accDB.expnpdDB.selectByStfIdEccDocNo(stfId);
 
             CellStyle cs = grfEcc.Styles.Add("bool");
             cs.DataType = typeof(bool);
@@ -103,9 +103,9 @@ namespace Xtrim_ERP.gui
                 row[0] = i + 1;
                 if (i % 2 == 0)
                     grfPd.Rows[i + 1].StyleNew.BackColor = color;
-                row[colPdId] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.expenses_pay_detail_id].ToString();
-                row[colPdItmNameT] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.item_name_t].ToString();
-                row[colPdPayamt] = dt.Rows[i][xC.xtDB.expnpdDB.expnP.pay_amount].ToString();
+                row[colPdId] = dt.Rows[i][xC.accDB.expnpdDB.expnP.expenses_pay_detail_id].ToString();
+                row[colPdItmNameT] = dt.Rows[i][xC.accDB.expnpdDB.expnP.item_name_t].ToString();
+                row[colPdPayamt] = dt.Rows[i][xC.accDB.expnpdDB.expnP.pay_amount].ToString();
             }
             //grfPd.Cols[colPdId].Visible = false;
         }
@@ -191,11 +191,11 @@ namespace Xtrim_ERP.gui
             grfEcc.Rows.Count = 1;
             grfEcc.Cols.Count = 11;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.eccDB.selectByStfIdStatusAppv(stfId, chkAppvWait.Checked ? objdb.ExpensesClearCashDB.StatusAppv.sendtoAppv : objdb.ExpensesClearCashDB.StatusAppv.All);
+            dt = xC.accDB.eccDB.selectByStfIdStatusAppv(stfId, chkAppvWait.Checked ? objdb.ExpensesClearCashDB.StatusAppv.sendtoAppv : objdb.ExpensesClearCashDB.StatusAppv.All);
             DataTable dtErf = new DataTable();
-            dtErf = xC.xtDB.erfDB.selectByEccStfid("",stfId);
+            dtErf = xC.accDB.erfDB.selectByEccStfid("",stfId);
             DataTable dtD = new DataTable();
-            dtD = xC.xtDB.expnddDB.selectStatusErcByStfId(stfId);
+            dtD = xC.accDB.expnddDB.selectStatusErcByStfId(stfId);
 
             CellStyle cs = grfEcc.Styles.Add("bool");
             //cs = grfEcc.Styles.Add("bool");
@@ -228,14 +228,14 @@ namespace Xtrim_ERP.gui
                 if (i % 2 == 0)
                     grfEcc.Rows[i + 1].StyleNew.BackColor = color;
                 row[colEccChk] = "เลือก";
-                row[colEccId] = dt.Rows[i][xC.xtDB.eccDB.ecc.expense_clear_cash_id].ToString();
-                row[colEccDoc] = xC.FixEccCode + dt.Rows[i][xC.xtDB.eccDB.ecc.ecc_doc].ToString();
-                row[colItmNameT] = dt.Rows[i][xC.xtDB.eccDB.ecc.item_name_t].ToString();
-                row[colEccAmt] = dt.Rows[i][xC.xtDB.eccDB.ecc.pay_amount].ToString();
-                row[colReceiptNo] = dt.Rows[i][xC.xtDB.eccDB.ecc.receipt_no].ToString();
-                row[colReceiptDate] = dt.Rows[i][xC.xtDB.eccDB.ecc.receipt_date].ToString();
-                row[colJobCode] = dt.Rows[i][xC.xtDB.eccDB.ecc.job_code].ToString();
-                row[colEccPdId] = dt.Rows[i][xC.xtDB.eccDB.ecc.expenses_pay_detail_id] != null ? dt.Rows[i][xC.xtDB.eccDB.ecc.expenses_pay_detail_id].ToString() : "";
+                row[colEccId] = dt.Rows[i][xC.accDB.eccDB.ecc.expense_clear_cash_id].ToString();
+                row[colEccDoc] = xC.FixEccCode + dt.Rows[i][xC.accDB.eccDB.ecc.ecc_doc].ToString();
+                row[colItmNameT] = dt.Rows[i][xC.accDB.eccDB.ecc.item_name_t].ToString();
+                row[colEccAmt] = dt.Rows[i][xC.accDB.eccDB.ecc.pay_amount].ToString();
+                row[colReceiptNo] = dt.Rows[i][xC.accDB.eccDB.ecc.receipt_no].ToString();
+                row[colReceiptDate] = dt.Rows[i][xC.accDB.eccDB.ecc.receipt_date].ToString();
+                row[colJobCode] = dt.Rows[i][xC.accDB.eccDB.ecc.job_code].ToString();
+                row[colEccPdId] = dt.Rows[i][xC.accDB.eccDB.ecc.expenses_pay_detail_id] != null ? dt.Rows[i][xC.accDB.eccDB.ecc.expenses_pay_detail_id].ToString() : "";
                 row[colflag] = "ecc";
                 //if (dt.Rows[i][xC.xtDB.eccDB.ecc.status_appv].ToString().Equals("0"))
                 //{
@@ -247,10 +247,10 @@ namespace Xtrim_ERP.gui
                 Row row = grfEcc.Rows.Add();
                 row[0] = i + 1;
                 row.StyleNew.BackColor = Color.Gold;
-                row[colEccId] = dtErf.Rows[i][xC.xtDB.erfDB.erf.expenses_refund_id].ToString();
-                row[colEccDoc] = xC.FixEccCode + dtErf.Rows[i][xC.xtDB.erfDB.erf.ecc_doc].ToString();
-                row[colItmNameT] = dtErf.Rows[i][xC.xtDB.erfDB.erf.desc1].ToString();
-                row[colEccAmt] = dtErf.Rows[i][xC.xtDB.erfDB.erf.amount].ToString();
+                row[colEccId] = dtErf.Rows[i][xC.accDB.erfDB.erf.expenses_refund_id].ToString();
+                row[colEccDoc] = xC.FixEccCode + dtErf.Rows[i][xC.accDB.erfDB.erf.ecc_doc].ToString();
+                row[colItmNameT] = dtErf.Rows[i][xC.accDB.erfDB.erf.desc1].ToString();
+                row[colEccAmt] = dtErf.Rows[i][xC.accDB.erfDB.erf.amount].ToString();
                 row[colEccPdId] = "";
                 row[colflag] = "erf";
             }
@@ -259,10 +259,10 @@ namespace Xtrim_ERP.gui
                 Row row = grfEcc.Rows.Add();
                 row[0] = i + 1;
                 row.StyleNew.BackColor = Color.Olive;
-                row[colEccId] = dtD.Rows[i][xC.xtDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
+                row[colEccId] = dtD.Rows[i][xC.accDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
                 //row[colEccDoc] = xC.FixEccCode + dtD.Rows[i][xC.xtDB.erfDB.erf.ecc_doc].ToString();
-                row[colItmNameT] = dtD.Rows[i][xC.xtDB.expnddDB.expnC.item_name_t].ToString();
-                row[colEccAmt] = dtD.Rows[i][xC.xtDB.expnddDB.expnC.pay_amount].ToString();
+                row[colItmNameT] = dtD.Rows[i][xC.accDB.expnddDB.expnC.item_name_t].ToString();
+                row[colEccAmt] = dtD.Rows[i][xC.accDB.expnddDB.expnC.pay_amount].ToString();
                 row[colEccPdId] = "";
                 row[colflag] = "dd";
             }
@@ -424,22 +424,22 @@ namespace Xtrim_ERP.gui
                         if (!Decimal.TryParse(amt, out chk)) continue;
                         if (flag.Equals("ecc"))
                         {
-                            re1 = xC.xtDB.eccDB.updateStatusApprove(id, ercDoc, pdid);
-                            re1 = xC.xtDB.expnpdDB.updateStatusApprove(pdid, ercDoc, amt);
-                            re1 = xC.xtDB.expnddDB.updateStatusApprove(id, ercDoc, pdid);
+                            re1 = xC.accDB.eccDB.updateStatusApprove(id, ercDoc, pdid);
+                            re1 = xC.accDB.expnpdDB.updateStatusApprove(pdid, ercDoc, amt);
+                            re1 = xC.accDB.expnddDB.updateStatusApprove(id, ercDoc, pdid);
                         }
                         else if (flag.Equals("erf"))
                         {
-                            re1 = xC.xtDB.erfDB.updateStatusApprove(id, ercDoc, pdid);
+                            re1 = xC.accDB.erfDB.updateStatusApprove(id, ercDoc, pdid);
                             ReservePay rsp = new ReservePay();
                             rsp = setReservePay(amt);
-                            String rspid = xC.xtDB.rspDB.insertReservePay(rsp, xC.user.staff_id);
-                            re1 = xC.xtDB.rspDB.updateAppv(rspid, xC.user.staff_id);
+                            String rspid = xC.accDB.rspDB.insertReservePay(rsp, xC.user.staff_id);
+                            re1 = xC.accDB.rspDB.updateAppv(rspid, xC.user.staff_id);
                             re1 = xC.updateReserveAmt(rspid, xC.user.staff_id);
                         }
                         else if (flag.Equals("dd"))
                         {
-                            re1 = xC.xtDB.expnddDB.updateStatusApprove(id, ercDoc, pdid);
+                            re1 = xC.accDB.expnddDB.updateStatusApprove(id, ercDoc, pdid);
                         }
                     }
                     //String re = xC.updateClearCashComplete(cboStaff.SelectedItem != null ? ((ComboBoxItem)(cboStaff.SelectedItem)).Value : "");

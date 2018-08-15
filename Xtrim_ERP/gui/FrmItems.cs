@@ -64,12 +64,12 @@ namespace Xtrim_ERP.gui
             cboItmts.SelectedItemChanged += CboItmts_SelectedItemChanged;
             chkTax53.Click += ChkTax53_Click;
 
-            xC.xtDB.itmcDB.setC1CboItmC(cboItmC, "");
-            xC.xtDB.itmtsDB.setC1CboItmTypeSub(cboItmts, "");
-            xC.xtDB.itmgDB.setC1CboExpnG(cboItmG, "");
-            xC.xtDB.fmtpDB.setC1CboMtp(cboFMtp, "");
-            xC.xtDB.utpDB.setC1CboUtp(cboUtp, "");
-            xC.xtDB.btaxDB.setC1CboItem(cboTax);
+            xC.iniDB.itmcDB.setC1CboItmC(cboItmC, "");
+            xC.iniDB.itmtsDB.setC1CboItmTypeSub(cboItmts, "");
+            xC.iniDB.itmgDB.setC1CboExpnG(cboItmG, "");
+            xC.iniDB.fmtpDB.setC1CboMtp(cboFMtp, "");
+            xC.iniDB.utpDB.setC1CboUtp(cboUtp, "");
+            xC.iniDB.btaxDB.setC1CboItem(cboTax);
             initGrfDept();
             setGrfDeptH();
             setControlEnable(false);
@@ -116,7 +116,7 @@ namespace Xtrim_ERP.gui
         private void setGrfDeptH()
         {
             //grfDept.Rows.Count = 7;
-            grfExpn.DataSource = xC.xtDB.itmDB.selectAll();
+            grfExpn.DataSource = xC.iniDB.itmDB.selectAll();
             grfExpn.Cols.Count = 5;
             TextBox txt = new TextBox();
 
@@ -190,7 +190,7 @@ namespace Xtrim_ERP.gui
         }
         private void setControl(String deptId)
         {
-            itm = xC.xtDB.itmDB.selectByPk1(deptId);
+            itm = xC.iniDB.itmDB.selectByPk1(deptId);
             txtID.Value = itm.item_id;
             txtItmGroupId.Value = itm.item_group_id;
             txtCode.Value = itm.item_code;
@@ -218,7 +218,7 @@ namespace Xtrim_ERP.gui
             }
 
             ItemsTypeSub itmts = new ItemsTypeSub();
-            itmts = xC.xtDB.itmtsDB.selectByPk1(itm.item_type_sub_id);
+            itmts = xC.iniDB.itmtsDB.selectByPk1(itm.item_type_sub_id);
             if (itmts.status_item_edit.Equals("1"))
             {
                 gBTypeSub.Enabled = true;
@@ -285,8 +285,8 @@ namespace Xtrim_ERP.gui
             {
                 ItemsTypeSub itmts = new ItemsTypeSub();
                 ItemsType itmt = new ItemsType();
-                itmts = xC.xtDB.itmtsDB.selectByPk1(itm.item_type_sub_id);
-                itmt = xC.xtDB.itmtDB.selectByPk1(itmts.item_type_id);
+                itmts = xC.iniDB.itmtsDB.selectByPk1(itm.item_type_sub_id);
+                itmt = xC.iniDB.itmtDB.selectByPk1(itmts.item_type_id);
                 itm.item_group_id = itmt.item_group_id;
             }
             itm.tax_id = cboTax.SelectedItem != null ? ((ComboBoxItem)(cboTax.SelectedItem)).Value : "";
@@ -330,7 +330,7 @@ namespace Xtrim_ERP.gui
             itmts1 = cboItmts.SelectedItem != null ? ((ComboBoxItem)(cboItmts.SelectedItem)).Value : "";
             if (itmts1.Equals("")) return;
             ItemsTypeSub itmts = new ItemsTypeSub();
-            itmts = xC.xtDB.itmtsDB.selectByPk1(itmts1);
+            itmts = xC.iniDB.itmtsDB.selectByPk1(itmts1);
             if (itmts.status_item_edit.Equals("1"))
             {
                 gBTypeSub.Enabled = true;
@@ -351,7 +351,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setItem();
-                String re = xC.xtDB.itmDB.insertItem(itm, xC.user.staff_id);
+                String re = xC.iniDB.itmDB.insertItem(itm, xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

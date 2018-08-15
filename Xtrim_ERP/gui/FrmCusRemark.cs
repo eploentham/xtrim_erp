@@ -66,7 +66,7 @@ namespace Xtrim_ERP.gui
         
         private void setControl(String cusRId)
         {
-            cusR = xC.xtDB.cusrDB.selectByPk1(cusRId);
+            cusR = xC.iniDB.cusrDB.selectByPk1(cusRId);
             txtID.Value = cusR.remark_id;
             txtRemark.Value = cusR.remark;
             txtRemark2.Value = cusR.remark2;
@@ -124,7 +124,7 @@ namespace Xtrim_ERP.gui
         {
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                xC.xtDB.cusrDB.VoidRemark(txtID.Text, userIdVoid);
+                xC.iniDB.cusrDB.VoidRemark(txtID.Text, userIdVoid);
                 this.Dispose();
             }
         }
@@ -170,7 +170,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setCustomerRemark();
-                String re = xC.xtDB.cusrDB.insertCustomerRemark(cusR);
+                String re = xC.iniDB.cusrDB.insertCustomerRemark(cusR);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

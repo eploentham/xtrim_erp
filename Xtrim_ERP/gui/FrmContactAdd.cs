@@ -69,7 +69,7 @@ namespace Xtrim_ERP.gui
             sB1.Text = "";
             cont = new Contact();
             setControlEnable(false);
-            cboPrefix = xC.xtDB.pfxDB.setCboPrefix(cboPrefix);
+            cboPrefix = xC.iniDB.pfxDB.setCboPrefix(cboPrefix);
             btnVoid.Hide();
             txtPasswordVoid.Hide();
             stt = new C1SuperTooltip();
@@ -118,14 +118,14 @@ namespace Xtrim_ERP.gui
         {
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                xC.xtDB.contDB.VoidContact(txtID.Text, userIdVoid);
+                xC.iniDB.contDB.VoidContact(txtID.Text, userIdVoid);
                 this.Dispose();
             }
         }
 
         private void setControl(String contId)
         {
-            cont = xC.xtDB.contDB.selectByPk1(contId);
+            cont = xC.iniDB.contDB.selectByPk1(contId);
             txtID.Value = cont.cont_id;
             txtContFNameT.Value = cont.cont_fname_t;
             txtContLNameT.Value = cont.cont_lname_t;
@@ -200,7 +200,7 @@ namespace Xtrim_ERP.gui
         private void setGrfInvH()
         {
             DataTable dt = new DataTable();
-            dt = xC.xtDB.contDB.selectAll1();
+            dt = xC.iniDB.contDB.selectAll1();
             //grfCont.Cols.Count = colCnt;
             //grfBank.Rows.Count = 7;
             grfCont.DataSource = dt;
@@ -311,21 +311,21 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setContact();
-                String re = xC.xtDB.contDB.insertContact(cont);
+                String re = xC.iniDB.contDB.insertContact(cont);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
                     //ถ้ามาจาก หน้าจอ address จะมี flagContact
                     if (flagContact.Equals("1"))
                     {
-                        String re1 = xC.xtDB.addrDB.updateContact1(txtID.Text, re, txtContFNameT.Text + " " + txtContLNameT.Text, txtMobile.Text);
+                        String re1 = xC.iniDB.addrDB.updateContact1(txtID.Text, re, txtContFNameT.Text + " " + txtContLNameT.Text, txtMobile.Text);
                         xC.rContactName = txtContFNameT.Text + " " + txtContLNameT.Text;
                         xC.rContacTel = txtMobile.Text;
                         xC.rContID = re;
                     }
                     else if (flagContact.Equals("2"))
                     {
-                        String re2 = xC.xtDB.addrDB.updateContact2(txtID.Text, re, txtContFNameT.Text + " " + txtContLNameT.Text, txtMobile.Text);
+                        String re2 = xC.iniDB.addrDB.updateContact2(txtID.Text, re, txtContFNameT.Text + " " + txtContLNameT.Text, txtMobile.Text);
                         xC.rContactName = txtContFNameT.Text + " " + txtContLNameT.Text;
                         xC.rContacTel = txtMobile.Text;
                         xC.rContID = re;

@@ -107,7 +107,7 @@ namespace Xtrim_ERP.gui
             //grfDept.Rows.Count = 7;
             grfExpn.Clear();
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expndDB.selectToPayAll1(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all, objdb.ExpensesDrawDB.StatusPayType.all);
+            dt = xC.accDB.expndDB.selectToPayAll1(cboYear.Text, chkAppvWait.Checked ? objdb.ExpensesDrawDB.StatusPay.waitappv : chkAppvOk.Checked ? objdb.ExpensesDrawDB.StatusPay.appv : objdb.ExpensesDrawDB.StatusPay.all, objdb.ExpensesDrawDB.StatusPayType.all);
             grfExpn.Cols.Count = 10;
             grfExpn.Rows.Count = 1;
             TextBox txt = new TextBox();
@@ -142,21 +142,21 @@ namespace Xtrim_ERP.gui
                 row[0] = (i+1);
                 if (i % 2 == 0)
                     grfExpn.Rows[i+1].StyleNew.BackColor = color;
-                row[colID] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_id].ToString();
-                row[cola] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_id].ToString();
-                row[colCode] = dt.Rows[i][xC.xtDB.expndDB.expnC.expenses_draw_code].ToString();
-                row[colDesc] = dt.Rows[i][xC.xtDB.expndDB.expnC.desc1].ToString();
-                row[colRemark] = dt.Rows[i][xC.xtDB.expndDB.expnC.remark].ToString();
-                row[colAmt] = dt.Rows[i][xC.xtDB.expndDB.expnC.amount].ToString();
-                if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("1"))
+                row[colID] = dt.Rows[i][xC.accDB.expndDB.expnC.expenses_draw_id].ToString();
+                row[cola] = dt.Rows[i][xC.accDB.expndDB.expnC.expenses_draw_id].ToString();
+                row[colCode] = dt.Rows[i][xC.accDB.expndDB.expnC.expenses_draw_code].ToString();
+                row[colDesc] = dt.Rows[i][xC.accDB.expndDB.expnC.desc1].ToString();
+                row[colRemark] = dt.Rows[i][xC.accDB.expndDB.expnC.remark].ToString();
+                row[colAmt] = dt.Rows[i][xC.accDB.expndDB.expnC.amount].ToString();
+                if (dt.Rows[i][xC.accDB.expndDB.expnC.status_appv].ToString().Equals("1"))
                 {
                     row[colStatus] = "รอออนุมัติ";
                 }
-                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("2"))
+                else if (dt.Rows[i][xC.accDB.expndDB.expnC.status_appv].ToString().Equals("2"))
                 {
                     row[colStatus] = "อนุมัติแล้ว";
                 }
-                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_appv].ToString().Equals("0"))
+                else if (dt.Rows[i][xC.accDB.expndDB.expnC.status_appv].ToString().Equals("0"))
                 {
                     row[colStatus] = "ป้อนใหม่";
                 }
@@ -164,11 +164,11 @@ namespace Xtrim_ERP.gui
                 {
                     row[colStatus] = "-";
                 }
-                if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay_type].ToString().Equals("1"))
+                if (dt.Rows[i][xC.accDB.expndDB.expnC.status_pay_type].ToString().Equals("1"))
                 {
                     row[colFlagForm] = "Cash";
                 }
-                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay_type].ToString().Equals("2"))
+                else if (dt.Rows[i][xC.accDB.expndDB.expnC.status_pay_type].ToString().Equals("2"))
                 {
                     row[colFlagForm] = "Cheque";
                 }
@@ -176,11 +176,11 @@ namespace Xtrim_ERP.gui
                 {
                     row[colFlagForm] = "-";
                 }
-                if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay].ToString().Equals("1"))
+                if (dt.Rows[i][xC.accDB.expndDB.expnC.status_pay].ToString().Equals("1"))
                 {
                     row[colStatusPay] = "รอจ่าย";
                 }
-                else if (dt.Rows[i][xC.xtDB.expndDB.expnC.status_pay].ToString().Equals("2"))
+                else if (dt.Rows[i][xC.accDB.expndDB.expnC.status_pay].ToString().Equals("2"))
                 {
                     row[colStatusPay] = "จ่ายแล้ว";
                 }
@@ -208,7 +208,7 @@ namespace Xtrim_ERP.gui
             xC.drawID = grfExpn[grfExpn.Row, cola] != null ? grfExpn[grfExpn.Row, cola].ToString() : "";
             ExpensesDraw expn = new ExpensesDraw();
             FrmExpenseDraw frm;
-            expn = xC.xtDB.expndDB.selectByPk1(xC.drawID);
+            expn = xC.accDB.expndDB.selectByPk1(xC.drawID);
             if (expn.status_pay_type.Equals("1"))
             {
                 frm = new FrmExpenseDraw(xC, xC.drawID, FrmExpenseDraw.flagForm2.Cash, FrmExpenseDraw.flagAction.appv);

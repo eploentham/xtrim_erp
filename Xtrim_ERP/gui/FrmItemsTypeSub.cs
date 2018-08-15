@@ -63,9 +63,9 @@ namespace Xtrim_ERP.gui
             btnSave.Click += BtnSave_Click;
             chkTax53.Click += ChkTax53_Click;
 
-            xC.xtDB.itmtDB.setC1CboItemsT(cboItmT, "");
-            xC.xtDB.fmtpDB.setC1CboMtp(cboFMtp, "");
-            xC.xtDB.btaxDB.setC1CboItem(cboTax);
+            xC.iniDB.itmtDB.setC1CboItemsT(cboItmT, "");
+            xC.iniDB.fmtpDB.setC1CboMtp(cboFMtp, "");
+            xC.iniDB.btaxDB.setC1CboItem(cboTax);
 
             initGrfDept();
             setGrfDeptH();
@@ -113,7 +113,7 @@ namespace Xtrim_ERP.gui
         private void setGrfDeptH()
         {
             //grfDept.Rows.Count = 7;
-            grfItmtS.DataSource = xC.xtDB.itmtsDB.selectAll1();
+            grfItmtS.DataSource = xC.iniDB.itmtsDB.selectAll1();
             grfItmtS.Cols.Count = 5;
             TextBox txt = new TextBox();
 
@@ -169,7 +169,7 @@ namespace Xtrim_ERP.gui
         }
         private void setControl(String deptId)
         {
-            itmtS = xC.xtDB.itmtsDB.selectByPk1(deptId);
+            itmtS = xC.iniDB.itmtsDB.selectByPk1(deptId);
             txtID.Value = itmtS.item_type_sub_id;
             txtCode.Value = itmtS.item_type_sub_code;
             txtNameT.Value = itmtS.item_type_sub_name_t;
@@ -251,7 +251,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setItemTypeSub();
-                String re = xC.xtDB.itmtsDB.insertItemsTypeSub(itmtS, xC.user.staff_id);
+                String re = xC.iniDB.itmtsDB.insertItemsTypeSub(itmtS, xC.user.staff_id);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {

@@ -173,7 +173,7 @@ namespace Xtrim_ERP.gui
         {
             grfBill.Clear();
             DataTable dt = new DataTable();
-            dt = xC.xtDB.blldDB.selectByBllId(bllId);
+            dt = xC.accDB.blldDB.selectByBllId(bllId);
             //grfChequeView1.DataSource = dt;
             grfBill.Cols.Count = 6;
             grfBill.Rows.Count = dt.Rows.Count + 1;
@@ -197,11 +197,11 @@ namespace Xtrim_ERP.gui
                 grfBill[i + 1, 0] = i + 1;
                 if (i % 2 == 0)
                     grfBill.Rows[i + 1].StyleNew.BackColor = color;
-                grfBill[i + 1, colID] = dt.Rows[i][xC.xtDB.blldDB.blld.billing_detail_id].ToString();
-                grfBill[i + 1, colItemNameT] = dt.Rows[i][xC.xtDB.blldDB.blld.item_name_t].ToString();
-                grfBill[i + 1, colExpn] = dt.Rows[i][xC.xtDB.blldDB.blld.amount_draw].ToString();
-                grfBill[i + 1, colimcome] = dt.Rows[i][xC.xtDB.blldDB.blld.amount_income].ToString();
-                grfBill[i + 1, colItemId] = dt.Rows[i][xC.xtDB.blldDB.blld.item_id].ToString();
+                grfBill[i + 1, colID] = dt.Rows[i][xC.accDB.blldDB.blld.billing_detail_id].ToString();
+                grfBill[i + 1, colItemNameT] = dt.Rows[i][xC.accDB.blldDB.blld.item_name_t].ToString();
+                grfBill[i + 1, colExpn] = dt.Rows[i][xC.accDB.blldDB.blld.amount_draw].ToString();
+                grfBill[i + 1, colimcome] = dt.Rows[i][xC.accDB.blldDB.blld.amount_income].ToString();
+                grfBill[i + 1, colItemId] = dt.Rows[i][xC.accDB.blldDB.blld.item_id].ToString();
             }
             grfBill.Cols[colID].Visible = false;
             grfBill.Cols[colItemId].Visible = false;
@@ -261,7 +261,7 @@ namespace Xtrim_ERP.gui
             }
             else if (e.KeyCode == Keys.Enter)
             {
-                bll = xC.xtDB.bllDB.selectByBillCode1(txtBllCode.Text);
+                bll = xC.accDB.bllDB.selectByBillCode1(txtBllCode.Text);
                 txtBllID.Value = bll.billing_id;
                 txtJobCode.Value = xC.FixJobCode + bll.job_code;
                 setGrfBill(bll.billing_id);

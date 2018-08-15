@@ -74,7 +74,7 @@ namespace Xtrim_ERP.gui
             chkItmServe.Click += ChkItmServe_Click;
 
             //xC.xtDB.itmDB.setC1CboItem(cboItm);
-            xC.xtDB.utpDB.setC1CboUtp(cboUtp, "");
+            xC.iniDB.utpDB.setC1CboUtp(cboUtp, "");
 
             setControlD();
             setFocusColor();
@@ -195,7 +195,7 @@ namespace Xtrim_ERP.gui
         {
             //throw new NotImplementedException();
             Items itm = new Items();
-            itm = xC.xtDB.itmDB.selectByPk1(txtID.Text);
+            itm = xC.iniDB.itmDB.selectByPk1(txtID.Text);
             xC.sItm = itm;
             xC.sItm.qty = txtQty.Text;
             xC.sItm.item_name_t = txtItmNameT.Text;
@@ -259,7 +259,7 @@ namespace Xtrim_ERP.gui
         private void setControlD()
         {
             if (drawdId.Equals("")) return;
-            expnDd = xC.xtDB.expnddDB.selectByPk1(drawdId);
+            expnDd = xC.accDB.expnddDB.selectByPk1(drawdId);
             txtID.Value = expnDd.item_id;
             txtItmNameT.Value = expnDd.item_name_t;
             txtQty.Value = expnDd.qty;
@@ -282,7 +282,7 @@ namespace Xtrim_ERP.gui
         {
             if (rspid.Equals("")) return;
             Items itm = new Items();
-            itm = xC.xtDB.itmDB.selectByPk1(rspid);
+            itm = xC.iniDB.itmDB.selectByPk1(rspid);
             txtID.Value = itm.item_id;
             txtItmNameT.Value = itm.item_name_t;
             txtQty.Value = "1";
@@ -312,7 +312,7 @@ namespace Xtrim_ERP.gui
             grfExpnD.Clear();
             //if (txtID.Text.Equals("")) return;
 
-            grfExpnD.DataSource = xC.xtDB.itmDB.selectAll1(chkCash.Checked ? "1" : chkCheque.Checked ? "2" : chkAll.Checked ? "" : chkItmServe.Checked ? "9" : "");
+            grfExpnD.DataSource = xC.iniDB.itmDB.selectAll1(chkCash.Checked ? "1" : chkCheque.Checked ? "2" : chkAll.Checked ? "" : chkItmServe.Checked ? "9" : "");
             C1TextBox txt = new C1TextBox();
             txt.DataType = txtID.DataType;
 

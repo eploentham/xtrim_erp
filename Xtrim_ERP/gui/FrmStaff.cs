@@ -81,9 +81,9 @@ namespace Xtrim_ERP.gui
             setGrfStfH();
             setFocusColor();
             setFocus();
-            cboPrefix = xC.xtDB.pfxDB.setCboPrefix(cboPrefix);
-            cboDept = xC.xtDB.deptDB.setCboDept(cboDept);
-            cboPosi = xC.xtDB.posiDB.setCboPosi(cboPosi);
+            cboPrefix = xC.iniDB.pfxDB.setCboPrefix(cboPrefix);
+            cboDept = xC.iniDB.deptDB.setCboDept(cboDept);
+            cboPosi = xC.iniDB.posiDB.setCboPosi(cboPosi);
             setControlEnable(false);
             btnVoid.Hide();
             btnPassword.Hide();
@@ -310,7 +310,7 @@ namespace Xtrim_ERP.gui
             xC.deptID = ((ComboBoxItem)cboDept.SelectedItem).Value;
             FrmDepartmentS frm = new FrmDepartmentS(xC);
             frm.Show(this);
-            cboDept = xC.xtDB.deptDB.setCboDept(cboDept);
+            cboDept = xC.iniDB.deptDB.setCboDept(cboDept);
             cboDept.Text = stf.dept_name_t;
         }
 
@@ -319,7 +319,7 @@ namespace Xtrim_ERP.gui
             xC.posiID = ((ComboBoxItem)cboPosi.SelectedItem).Value;
             FrmPositionS frm = new FrmPositionS(xC);
             frm.Show(this);
-            cboPosi = xC.xtDB.posiDB.setCboPosi(cboPosi);
+            cboPosi = xC.iniDB.posiDB.setCboPosi(cboPosi);
             cboPosi.Text = stf.posi_name_t;
         }
         

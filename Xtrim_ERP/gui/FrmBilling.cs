@@ -166,7 +166,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setBillingCover();
-                String re = xC.xtDB.bllcDB.insertBillingCover(bllC, xC.userId);
+                String re = xC.accDB.bllcDB.insertBillingCover(bllC, xC.userId);
                 int chk = 0, chkD = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -176,7 +176,7 @@ namespace Xtrim_ERP.gui
                         String bllId = "";
                         bllId = rowV[colVbllId].ToString();
                         String re1 = "";
-                        re1 = xC.xtDB.bllDB.updateBillingCover(bllId, bllC.billing_cover_code);
+                        re1 = xC.accDB.bllDB.updateBillingCover(bllId, bllC.billing_cover_code);
                         if (int.TryParse(re1, out chk))
                         {
                             chkD++;
@@ -196,7 +196,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setReceipt();
-                String re = xC.xtDB.rcpDB.insertReceipt(rcp, xC.userId);
+                String re = xC.accDB.rcpDB.insertReceipt(rcp, xC.userId);
                 int chk = 0, chkD = 0;
                 if (int.TryParse(re, out chk))
                 {
@@ -229,7 +229,7 @@ namespace Xtrim_ERP.gui
                         rcpD.price = "0";
                         rcpD.billing_detail_id = "";
                         String re1 = "";
-                        re1 = xC.xtDB.rcpdDB.insertReceiptDetail(rcpD, xC.userId);
+                        re1 = xC.accDB.rcpdDB.insertReceiptDetail(rcpD, xC.userId);
                         if (int.TryParse(re1, out chk))
                         {
                             chkD++;
@@ -249,7 +249,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setBilling();
-                String re = xC.xtDB.bllDB.insertBilling(bll, xC.userId);
+                String re = xC.accDB.bllDB.insertBilling(bll, xC.userId);
                 int chk = 0, chkD=0;
                 if (int.TryParse(re, out chk))
                 {
@@ -274,7 +274,7 @@ namespace Xtrim_ERP.gui
                         blld.user_cancel = "";
                         blld.amount_income = rowB[colBimcome] != null ? rowB[colBimcome].ToString() : "0";
                         String re1 = "";
-                        re1 = xC.xtDB.blldDB.insertBillingDetail(blld, xC.userId);
+                        re1 = xC.accDB.blldDB.insertBillingDetail(blld, xC.userId);
                         if (int.TryParse(re1, out chk))
                         {
                             chkD++;
@@ -301,7 +301,7 @@ namespace Xtrim_ERP.gui
                             dtr.remark = "";
                             dtr.status_debtor = "1";
                             dtr.comp_id = cop.comp_id;
-                            xC.xtDB.dtrDB.insertDebtor(dtr, xC.userId);
+                            xC.accDB.dtrDB.insertDebtor(dtr, xC.userId);
                         }
                     }
                     if (chkD == (grfBill.Rows.Count-1))
@@ -359,12 +359,12 @@ namespace Xtrim_ERP.gui
                     ItemsType itmt = new ItemsType();
                     ItemsTypeSub itmts = new ItemsTypeSub();
                     ddid = rowD[colCID].ToString();
-                    expndd = xC.xtDB.expnddDB.selectByPk1(ddid);
-                    itm = xC.xtDB.itmDB.selectByPk1(expndd.item_id);
+                    expndd = xC.accDB.expnddDB.selectByPk1(ddid);
+                    itm = xC.iniDB.itmDB.selectByPk1(expndd.item_id);
                     if (itm.item_group_id.Equals(""))
                     {
-                        itmts = xC.xtDB.itmtsDB.selectByPk1(itm.item_type_sub_id);
-                        itmt = xC.xtDB.itmtDB.selectByPk1(itmts.item_type_id);
+                        itmts = xC.iniDB.itmtsDB.selectByPk1(itm.item_type_sub_id);
+                        itmt = xC.iniDB.itmtDB.selectByPk1(itmts.item_type_id);
                         itm.item_group_id = itmt.item_group_id;
                     }
                     itm.item_name_t = rowD[colCItmNameT].ToString();
@@ -432,7 +432,7 @@ namespace Xtrim_ERP.gui
             grfJob.Clear();
             if (cusid.Equals("")) return;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.jimDB.selectJimJblByJobYear2(cusid);
+            dt = xC.manDB.jimDB.selectJimJblByJobYear2(cusid);
             //grfJob.DataSource = xC.xtDB.jimDB.selectJimJblByJobYear2(cusid);
             //grfJob.Cols.Count = dt.Columns.Count;
             grfJob.Rows.Count = dt.Rows.Count+1;
@@ -463,10 +463,10 @@ namespace Xtrim_ERP.gui
                 grfJob[i+1, 0] = i;
                 if (i % 2 == 0)
                     grfJob.Rows[i].StyleNew.BackColor = color;
-                grfJob[i + 1, colID] = dt.Rows[i][xC.xtDB.jimDB.jim.job_import_id].ToString();
-                grfJob[i + 1, colCode] = dt.Rows[i][xC.xtDB.jimDB.jim.job_import_code].ToString();
-                grfJob[i + 1, colDesc] = dt.Rows[i][xC.xtDB.jblDB.jbl.description].ToString();
-                grfJob[i + 1, colRemark] = dt.Rows[i][xC.xtDB.jimDB.jim.remark1].ToString();
+                grfJob[i + 1, colID] = dt.Rows[i][xC.manDB.jimDB.jim.job_import_id].ToString();
+                grfJob[i + 1, colCode] = dt.Rows[i][xC.manDB.jimDB.jim.job_import_code].ToString();
+                grfJob[i + 1, colDesc] = dt.Rows[i][xC.manDB.jblDB.jbl.description].ToString();
+                grfJob[i + 1, colRemark] = dt.Rows[i][xC.manDB.jimDB.jim.remark1].ToString();
                 //grfJob[i + 1, colAmt] = dt.Rows[i][xC.xtDB.jimDB.jim.job_import_id].ToString();
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
@@ -599,7 +599,7 @@ namespace Xtrim_ERP.gui
             grfDraw.Clear();
             //grfDept.Rows.Count = 7;
             DataTable dt = new DataTable();
-            dt = xC.xtDB.expnddDB.selectAllAppvByJobId(jimId);
+            dt = xC.accDB.expnddDB.selectAllAppvByJobId(jimId);
             //grfChequeView1.DataSource = dt;
             grfDraw.Cols.Count = dt.Columns.Count + 2;
             grfDraw.Rows.Count = dt.Rows.Count + 1;
@@ -637,12 +637,12 @@ namespace Xtrim_ERP.gui
                 grfDraw[i + 1, 0] = i+1;
                 if (i % 2 == 0)
                     grfDraw.Rows[i + 1].StyleNew.BackColor = color;
-                grfDraw[i + 1, colCID] = dt.Rows[i][xC.xtDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
+                grfDraw[i + 1, colCID] = dt.Rows[i][xC.accDB.expnddDB.expnC.expenses_draw_detail_id].ToString();
                 grfDraw[i + 1, colCChk] = "เลือก";
-                grfDraw[i + 1, colCSubNameT] = dt.Rows[i][xC.xtDB.itmtsDB.itmtS.item_type_sub_name_t].ToString();
-                grfDraw[i + 1, colCMtp] = dt.Rows[i][xC.xtDB.fmtpDB.fmtp.method_payment_name_t].ToString();
-                grfDraw[i + 1, colCItmNameT] = dt.Rows[i][xC.xtDB.itmDB.itm.item_name_t].ToString();
-                grfDraw[i + 1, colCAmt] = dt.Rows[i][xC.xtDB.expnddDB.expnC.pay_amount].ToString();
+                grfDraw[i + 1, colCSubNameT] = dt.Rows[i][xC.iniDB.itmtsDB.itmtS.item_type_sub_name_t].ToString();
+                grfDraw[i + 1, colCMtp] = dt.Rows[i][xC.iniDB.fmtpDB.fmtp.method_payment_name_t].ToString();
+                grfDraw[i + 1, colCItmNameT] = dt.Rows[i][xC.iniDB.itmDB.itm.item_name_t].ToString();
+                grfDraw[i + 1, colCAmt] = dt.Rows[i][xC.accDB.expnddDB.expnC.pay_amount].ToString();
             }
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
@@ -653,7 +653,7 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             cus = xC.sCus;
             jim = new JobImport();
-            jim = xC.xtDB.jimDB.selectByPk1(grfJob[grfJob.Row, colID].ToString());
+            jim = xC.manDB.jimDB.selectByPk1(grfJob[grfJob.Row, colID].ToString());
             txtJobId.Value = jim.job_import_id;
             txtCusNameT.Value = cus.cust_name_t;
             txtJobCode.Value = jim.job_import_code;

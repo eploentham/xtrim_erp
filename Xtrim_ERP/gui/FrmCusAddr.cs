@@ -349,7 +349,7 @@ namespace Xtrim_ERP.gui
         private void setControl()
         {
             txtID.Value = xC.addrID;
-            addr = xC.xtDB.addrDB.selectByPk1(xC.addrID);
+            addr = xC.iniDB.addrDB.selectByPk1(xC.addrID);
             txtAddrName.Value = addr.address_name;
             txtAddrT1.Value = addr.line_t1;
             txtAddrT2.Value = addr.line_t2;
@@ -477,14 +477,14 @@ namespace Xtrim_ERP.gui
             //throw new NotImplementedException();
             if (MessageBox.Show("ต้องการ ยกเลิกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
-                xC.xtDB.addrDB.VoidAddress(txtID.Text, userIdVoid);
+                xC.iniDB.addrDB.VoidAddress(txtID.Text, userIdVoid);
                 this.Dispose();
             }
         }
         private void btnMap_Click(object sender, EventArgs e)
         {
-            FrmCusMap frm = new FrmCusMap(xC);
-            frm.ShowDialog(this);
+            //FrmCusMap frm = new FrmCusMap(xC);
+            //frm.ShowDialog(this);
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -509,7 +509,7 @@ namespace Xtrim_ERP.gui
             if (MessageBox.Show("ต้องการ บันทึกช้อมูล ", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.OK)
             {
                 setAddress();
-                String re = xC.xtDB.addrDB.insertAddress(addr);
+                String re = xC.iniDB.addrDB.insertAddress(addr);
                 int chk = 0;
                 if (int.TryParse(re, out chk))
                 {
