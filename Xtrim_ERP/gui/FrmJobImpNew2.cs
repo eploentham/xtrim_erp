@@ -51,8 +51,8 @@ namespace Xtrim_ERP.gui
         private void BtnJobSearch_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            Form3 frm = new Form3();
-            frm.Show();
+            //Form3 frm = new Form3();
+            //frm.Show();
         }
 
         private void initGrfMarsk()

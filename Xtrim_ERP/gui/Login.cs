@@ -43,7 +43,7 @@ namespace Xtrim_ERP.gui
             //theme1.SetTheme(label2, "Office2010Blue");
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
-            stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
+            //stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
             //stt.
         }
 
@@ -77,7 +77,7 @@ namespace Xtrim_ERP.gui
             if (stf1.staff_fname_t.Length > 0)
             {
                 btnOk.Image = Resources.Accept_Male_User24;
-                stt.Show("<p><b>สวัสดี</b></p>คุณ " + stf1.staff_fname_t + " " + stf1.staff_lname_t + "<br> กรุณา ป้อนรหัสผ่าน", txtUserName);
+                //stt.Show("<p><b>สวัสดี</b></p>คุณ " + stf1.staff_fname_t + " " + stf1.staff_lname_t + "<br> กรุณา ป้อนรหัสผ่าน", txtUserName);
 
                 //stt.SetToolTip(txtUserName, "<p><b>สวัสดี</b></p>คุณ " + stf1.staff_fname_t + " " + stf1.staff_lname_t + "<br> กรุณา ป้อนรหัสผ่าน");
                 sep.Clear();
@@ -86,7 +86,7 @@ namespace Xtrim_ERP.gui
             else
             {
                 btnOk.Image = Resources.Male_User_Warning24;
-                stt.Show("ไม่พบ username ", txtUserName);
+                //stt.Show("ไม่พบ username ", txtUserName);
                 //stt.SetToolTip(txtUserName, "ไม่พบ username ");
                 sep.SetError(txtUserName, "333");
             }
@@ -105,7 +105,7 @@ namespace Xtrim_ERP.gui
             }
             else
             {
-                stt.Show("ไม่พบ username หรือ password", txtPassword);
+                //stt.Show("ไม่พบ username หรือ password", txtPassword);
                 sep.SetError(txtPassword, "333");
                 LogonSuccessful = "0";
             }

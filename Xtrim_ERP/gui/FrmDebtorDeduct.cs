@@ -79,7 +79,7 @@ namespace Xtrim_ERP.gui
             txtOldvat.Value = cop.vat;
             //txtOldvat.Value = cop.vat;
 
-            stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
+            //stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
 
             //chkAll.Checked = true;
             //xC.setCboYear(cboYear);

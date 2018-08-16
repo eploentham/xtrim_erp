@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmJobImpNew3));
             this.theme1 = new C1.Win.C1Themes.C1ThemeController();
-            this.sB = new System.Windows.Forms.StatusStrip();
-            this.sB1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tC1 = new C1.Win.C1Command.C1DockingTab();
             this.tabJob = new C1.Win.C1Command.C1DockingTabPage();
@@ -428,7 +426,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.cDMain = new C1.Win.C1Command.C1CommandDock();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
-            this.sB.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tC1)).BeginInit();
             this.tC1.SuspendLayout();
@@ -705,24 +702,6 @@
             // 
             this.theme1.Theme = "Office2013Red";
             // 
-            // sB
-            // 
-            this.sB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.sB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sB1});
-            this.sB.Location = new System.Drawing.Point(0, 699);
-            this.sB.Name = "sB";
-            this.sB.Size = new System.Drawing.Size(1354, 22);
-            this.sB.TabIndex = 4;
-            this.sB.Text = "statusStrip1";
-            this.theme1.SetTheme(this.sB, "(default)");
-            // 
-            // sB1
-            // 
-            this.sB1.Name = "sB1";
-            this.sB1.Size = new System.Drawing.Size(118, 17);
-            this.sB1.Text = "toolStripStatusLabel1";
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
@@ -731,7 +710,7 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1354, 699);
+            this.panel1.Size = new System.Drawing.Size(1354, 721);
             this.panel1.TabIndex = 5;
             this.theme1.SetTheme(this.panel1, "(default)");
             // 
@@ -748,7 +727,7 @@
             this.tC1.Location = new System.Drawing.Point(0, 0);
             this.tC1.Name = "tC1";
             this.tC1.SelectedIndex = 1;
-            this.tC1.Size = new System.Drawing.Size(1354, 699);
+            this.tC1.Size = new System.Drawing.Size(1354, 721);
             this.tC1.TabIndex = 0;
             this.tC1.TabSizeMode = C1.Win.C1Command.TabSizeModeEnum.Fit;
             this.tC1.TabsShowFocusCues = false;
@@ -762,7 +741,7 @@
             this.tabJob.Image = global::Xtrim_ERP.Properties.Resources.unit_completed16;
             this.tabJob.Location = new System.Drawing.Point(1, 25);
             this.tabJob.Name = "tabJob";
-            this.tabJob.Size = new System.Drawing.Size(1352, 673);
+            this.tabJob.Size = new System.Drawing.Size(1352, 695);
             this.tabJob.TabIndex = 0;
             this.tabJob.Text = "Customs Info.";
             // 
@@ -850,7 +829,7 @@
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1352, 673);
+            this.panel2.Size = new System.Drawing.Size(1352, 695);
             this.panel2.TabIndex = 0;
             this.theme1.SetTheme(this.panel2, "(default)");
             // 
@@ -877,7 +856,7 @@
             this.cDRight.Id = 10;
             this.cDRight.Location = new System.Drawing.Point(644, 0);
             this.cDRight.Name = "cDRight";
-            this.cDRight.Size = new System.Drawing.Size(708, 673);
+            this.cDRight.Size = new System.Drawing.Size(708, 695);
             this.theme1.SetTheme(this.cDRight, "(default)");
             // 
             // tC2
@@ -6397,7 +6376,7 @@
             this.tabInv.Image = global::Xtrim_ERP.Properties.Resources.ordering16;
             this.tabInv.Location = new System.Drawing.Point(1, 25);
             this.tabInv.Name = "tabInv";
-            this.tabInv.Size = new System.Drawing.Size(1352, 673);
+            this.tabInv.Size = new System.Drawing.Size(1352, 695);
             this.tabInv.TabIndex = 1;
             this.tabInv.Text = "Invoice";
             // 
@@ -6423,8 +6402,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.panel7);
             this.splitContainer1.Panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.theme1.SetTheme(this.splitContainer1.Panel2, "(default)");
-            this.splitContainer1.Size = new System.Drawing.Size(1352, 673);
-            this.splitContainer1.SplitterDistance = 395;
+            this.splitContainer1.Size = new System.Drawing.Size(1352, 695);
+            this.splitContainer1.SplitterDistance = 407;
             this.splitContainer1.TabIndex = 1;
             this.theme1.SetTheme(this.splitContainer1, "(default)");
             // 
@@ -6437,7 +6416,7 @@
             this.panel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1352, 395);
+            this.panel6.Size = new System.Drawing.Size(1352, 407);
             this.panel6.TabIndex = 0;
             this.theme1.SetTheme(this.panel6, "(default)");
             // 
@@ -6459,7 +6438,7 @@
             this.panel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel9.Location = new System.Drawing.Point(824, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(528, 395);
+            this.panel9.Size = new System.Drawing.Size(528, 407);
             this.panel9.TabIndex = 1;
             this.theme1.SetTheme(this.panel9, "(default)");
             // 
@@ -6468,7 +6447,7 @@
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.panel10.Location = new System.Drawing.Point(0, 142);
+            this.panel10.Location = new System.Drawing.Point(0, 154);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(528, 98);
             this.panel10.TabIndex = 499;
@@ -6509,7 +6488,7 @@
             this.txtBody.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtBody.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBody.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.txtBody.Location = new System.Drawing.Point(0, 240);
+            this.txtBody.Location = new System.Drawing.Point(0, 252);
             this.txtBody.Margin = new System.Windows.Forms.Padding(2);
             this.txtBody.MinimumSize = new System.Drawing.Size(0, 0);
             this.txtBody.Name = "txtBody";
@@ -6639,7 +6618,7 @@
             this.panel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(824, 395);
+            this.panel8.Size = new System.Drawing.Size(824, 407);
             this.panel8.TabIndex = 0;
             this.theme1.SetTheme(this.panel8, "(default)");
             // 
@@ -7073,7 +7052,7 @@
             this.panel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1352, 274);
+            this.panel7.Size = new System.Drawing.Size(1352, 284);
             this.panel7.TabIndex = 0;
             this.theme1.SetTheme(this.panel7, "(default)");
             // 
@@ -7084,7 +7063,7 @@
             this.panel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1352, 673);
+            this.panel5.Size = new System.Drawing.Size(1352, 695);
             this.panel5.TabIndex = 0;
             this.theme1.SetTheme(this.panel5, "(default)");
             // 
@@ -7117,13 +7096,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 721);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.sB);
             this.Name = "FrmJobImpNew3";
             this.Text = "FrmJobImpNew3";
             this.Load += new System.EventHandler(this.FrmJobImpNew3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).EndInit();
-            this.sB.ResumeLayout(false);
-            this.sB.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tC1)).EndInit();
             this.tC1.ResumeLayout(false);
@@ -7414,13 +7390,10 @@
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cDMain)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.StatusStrip sB;
-        private System.Windows.Forms.ToolStripStatusLabel sB1;
         private C1.Win.C1Themes.C1ThemeController theme1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;

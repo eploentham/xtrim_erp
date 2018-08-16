@@ -74,7 +74,7 @@ namespace Xtrim_ERP.gui
             txtPasswordVoid.Hide();
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
-            stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
+            //stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
         }
         private void initGrfContH()
         {
@@ -110,7 +110,7 @@ namespace Xtrim_ERP.gui
             {
                 txtPasswordVoid.Show();
                 txtPasswordVoid.Focus();
-                stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> กรุณาป้อนรหัสผ่าน", txtPasswordVoid);
+                //stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> กรุณาป้อนรหัสผ่าน", txtPasswordVoid);
             }
         }
 
@@ -298,7 +298,7 @@ namespace Xtrim_ERP.gui
                 {
                     txtPasswordVoid.Hide();
                     btnVoid.Show();
-                    stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> รหัสผ่านถูกต้อง", btnVoid);
+                    //stt.Show("<p><b>ต้องการยกเลิก</b></p> <br> รหัสผ่านถูกต้อง", btnVoid);
                 }
                 else
                 {

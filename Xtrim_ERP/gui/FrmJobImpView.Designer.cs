@@ -38,14 +38,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // c1SuperTooltip1
-            // 
-            this.c1SuperTooltip1.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.None;
-            this.c1SuperTooltip1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(101)))), ((int)(((byte)(101)))));
-            this.c1SuperTooltip1.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.c1SuperTooltip1.RightToLeft = System.Windows.Forms.RightToLeft.Inherit;
-            this.theme1.SetTheme(this.c1SuperTooltip1, "(default)");
+            
             // 
             // cboYear
             // 

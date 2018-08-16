@@ -59,7 +59,7 @@ namespace Xtrim_ERP.gui
             sB1.Text = "";
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
-            stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
+            //stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
         }
         private void initGrfView()
         {

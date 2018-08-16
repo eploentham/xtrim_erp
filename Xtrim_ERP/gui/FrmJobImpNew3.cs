@@ -81,7 +81,7 @@ namespace Xtrim_ERP.gui
 
             C1ThemeController.ApplicationTheme = xC.iniC.themeApplication;
             theme1.Theme = C1ThemeController.ApplicationTheme;
-            theme1.SetTheme(sB, "BeigeOne");
+            //theme1.SetTheme(sB, "BeigeOne");
             theme1.SetTheme(tC2, "VS2013Light");
             theme1.SetTheme(panel8, "VS2013Light");
             theme1.SetTheme(cDRight, "BeigeOne");
@@ -179,7 +179,7 @@ namespace Xtrim_ERP.gui
             tC1.SelectedTab = tabJob;
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
-            stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Silver;
+            //stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Silver;
             setLabelRed();
             tC2.AutoHiding = true;
             tC2.CanAutoHide = true;
@@ -1297,8 +1297,8 @@ namespace Xtrim_ERP.gui
         private void BtnJobSearch_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            Form3 frm = new Form3();
-            frm.Show();
+            //Form3 frm = new Form3();
+            //frm.Show();
         }
         private void BtnSave_Click(object sender, EventArgs e)
         {

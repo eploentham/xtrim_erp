@@ -46,6 +46,12 @@ namespace Xtrim_ERP.gui
                 /* run your code here */
                 xC.manDB = new objdb.MainDB(xC.conn);
             }).Start();
+            //BackgroundWorker bw = new BackgroundWorker();
+            //bw.WorkerReportsProgress = true;
+            //bw.DoWork += Bw_DoWork;
+            //bw.RunWorkerCompleted += Bw_RunWorkerCompleted;
+            //bw.RunWorkerAsync();
+
             login.ShowDialog(this);
             if (login.LogonSuccessful.Equals("1"))
             {
@@ -56,6 +62,22 @@ namespace Xtrim_ERP.gui
                 Application.Exit();
             }
         }
+
+        //private void Bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        //{
+        //    //throw new NotImplementedException();
+
+        //}
+
+        //private void Bw_DoWork(object sender, DoWorkEventArgs e)
+        //{
+        //    //throw new NotImplementedException();
+        //    xC.iniDB = new objdb.InitDB(xC.conn);
+        //    xC.accDB = new objdb.AccDB(xC.conn);
+        //    xC.manDB = new objdb.MainDB(xC.conn);
+
+        //}
+
         private void initConfig()
         {
             this.FormClosing += MainMenu4_FormClosing;
@@ -553,7 +575,7 @@ namespace Xtrim_ERP.gui
                     menuDrawReserve.Visible = true;
                 }
             }
-            this.Text = xC.user.staff_fname_t+" "+xC.user.staff_lname_t + " Last Update 2018-08-01";
+            this.Text = xC.user.staff_fname_t+" "+xC.user.staff_lname_t + " Last Update 2018-08-16";
         }
     }
 }
