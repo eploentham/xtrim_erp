@@ -86,6 +86,7 @@ namespace Xtrim_ERP.gui
             txtPayerTaxNameT.KeyUp += TxtCusTaxNameT_KeyUp;
             chkTax.Click += ChkTax_Click;
             chkItem.Click += ChkItem_Click;
+            btnNew.Click += BtnNew_Click;
 
 
             stt = new C1SuperTooltip();
@@ -165,7 +166,13 @@ namespace Xtrim_ERP.gui
             //}
             txtAmtReserve.Value = cop.amount_reserve;
         }
-        
+
+        private void BtnNew_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            setControlTaxNew();
+        }
+
         private void ChkItem_Click(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
@@ -1701,6 +1708,35 @@ namespace Xtrim_ERP.gui
             {
                 setGrfView();
             }
+        }
+        private void setControlTaxNew()
+        {
+            txtCusTaxNameT.Value = "";
+            txtAgentTaxNameT.Value = "";
+            txtPayerTaxNameT.Value = "";
+            txtPayerTaxAddr.Value = "";
+            txtPayerTaxTele.Value = "";
+            txtPayerTaxTaxid.Value = "";
+            txtPayerTaxPid.Value = "";
+            txtTaxCode.Value = "";
+            txtTaxDate.Value = "";
+            txtPayerTaxDate.Value = "";
+            txtRefDate.Value = "";
+            txtRowNo.Value = "";
+            chkTax3.Checked = false;
+            chkTax53.Checked = false;
+            chkTax1.Checked = false;
+            chkItem.Checked = false;
+            chkTax.Checked = false;
+            chkStatusTax1.Checked = false;
+            chkStatusTax2.Checked = false;
+            chkStatusTax3.Checked = false;
+            chkStatusTax4.Checked = false;
+            txtPayerOther.Value = "";
+            chkStatusTaxNormal.Checked = false;
+            chkStatusTaxAdd.Checked = false;
+            txtStatusTaxAdd.Value = "";
+            txtReceiptDoc.Value = "";
         }
         private void ChkViewFmtp_Click(object sender, EventArgs e)
         {
