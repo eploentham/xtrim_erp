@@ -87,8 +87,7 @@ namespace Xtrim_ERP.gui
             chkTax.Click += ChkTax_Click;
             chkItem.Click += ChkItem_Click;
             btnNew.Click += BtnNew_Click;
-
-
+            
             stt = new C1SuperTooltip();
             sep = new C1SuperErrorProvider();
             //stt.BackgroundGradient = C1.Win.C1SuperTooltip.BackgroundGradient.Gold;
