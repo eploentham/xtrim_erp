@@ -472,7 +472,7 @@ namespace Xtrim_ERP.gui
             //CellRange rg1 = grfBank.GetCellRange(1, colE, grfBank.Rows.Count, colE);
             //rg1.Style = grfBank.Styles["date"];
             grfJob.Cols[colID].Visible = false;
-
+            
         }
         private void initGrfBill()
         {

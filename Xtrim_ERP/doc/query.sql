@@ -35,6 +35,7 @@ ALTER TABLE t_reserve_cash AUTO_INCREMENT = 1730000000;
 ALTER TABLE t_images AUTO_INCREMENT = 1740000000;
 ALTER TABLE t_expenses_clear_cash AUTO_INCREMENT = 1750000000;
 ALTER TABLE t_expenses_refund AUTO_INCREMENT = 1760000000;
+ALTER TABLE b_iisue AUTO_INCREMENT = 1770000000;
 
 
 INSERT INTO `xtrim_erp`.`f_doc_type` (`doc_type_code`, `doc_type_name`, `active`, `status_combo`) VALUES ('ไม่ต้อง', 'ORIGIANL', '1', 'BL_TYPE');

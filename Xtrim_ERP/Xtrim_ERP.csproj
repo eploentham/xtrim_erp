@@ -550,6 +550,7 @@
     <Compile Include="objdb\ExpensesPayDetailDB.cs" />
     <Compile Include="objdb\ExpensesRefundDB.cs" />
     <Compile Include="objdb\InitDB.cs" />
+    <Compile Include="objdb\IssueDB.cs" />
     <Compile Include="objdb\MainDB.cs" />
     <Compile Include="object1\ExpensesRefund.cs" />
     <Compile Include="objdb\FMethodPaymentDB.cs" />
@@ -586,6 +587,7 @@
     <Compile Include="object1\FTaxType.cs" />
     <Compile Include="object1\FtpClient.cs" />
     <Compile Include="object1\Images.cs" />
+    <Compile Include="object1\Issue.cs" />
     <Compile Include="object1\PaymentDetail.cs" />
     <Compile Include="objdb\PaymentDetailDB.cs" />
     <Compile Include="objdb\PositionDB.cs" />
