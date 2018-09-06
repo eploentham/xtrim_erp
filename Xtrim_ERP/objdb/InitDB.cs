@@ -52,6 +52,7 @@ namespace Xtrim_ERP.objdb
         public FTaxTypeDB fttDB;
         public TaxDB taxDB;
         public ImporterDB impDB;
+        public IssueDB issDB;
 
         public InitDB(ConnectDB c)
         {
@@ -106,6 +107,8 @@ namespace Xtrim_ERP.objdb
             fmtpDB = new FMethodPaymentDB(conn);
             fttDB = new FTaxTypeDB(conn);
             taxDB = new TaxDB(conn);
+            issDB = new IssueDB(conn);
+
             Console.WriteLine("initDB end");
         }
     }

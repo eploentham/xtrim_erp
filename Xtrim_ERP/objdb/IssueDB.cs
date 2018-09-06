@@ -107,7 +107,7 @@ namespace Xtrim_ERP.objdb
             p.remark = p.remark == null ? "" : p.remark;
 
         }
-        public String insert(Issue p)
+        public String insert(Issue p, String userId)
         {
             String re = "";
             String sql = "";
@@ -123,7 +123,7 @@ namespace Xtrim_ERP.objdb
                 ") " +
                 "Values ('" + p.issue_name_t.Replace("'", "''") + "','" + p.issue_name_e.Replace("'", "''") + "','" + p.remark.Replace("'", "''") + "','" +
                 "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "', " +
-                "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "', " +
+                "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "', " +
                 "'" + p.active + "' " +
                 ")";
             try
@@ -137,7 +137,7 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String update(Issue p)
+        public String update(Issue p, String userId)
         {
             String re = "";
             String sql = "";
@@ -146,10 +146,8 @@ namespace Xtrim_ERP.objdb
             chkNull(p);
             sql = "Update " + iss.table + " Set " +
                 " " + iss.issue_name_t + " = '" + p.issue_name_t.Replace("'", "''") + "'" +
-                "," + iss.issue_name_e + " = '" + p.issue_name_e.Replace("'", "''") + "'" +
-                "," + iss.remark + " = '" + p.remark.Replace("'", "''") + "'" +
                 "," + iss.date_modi + " = now()" +
-
+                "," + iss.user_modi + " ='"+ userId + "'" +
                 "Where " + iss.pkField + "='" + p.issue_id + "'"
                 ;
 
@@ -164,17 +162,17 @@ namespace Xtrim_ERP.objdb
 
             return re;
         }
-        public String insertAddressType(Issue p)
+        public String insertIssue(Issue p, String userId)
         {
             String re = "";
 
             if (p.issue_id.Equals(""))
             {
-                re = insert(p);
+                re = insert(p, userId);
             }
             else
             {
-                re = update(p);
+                re = update(p, userId);
             }
 
             return re;
@@ -190,15 +188,48 @@ namespace Xtrim_ERP.objdb
         public DataTable selectAll()
         {
             DataTable dt = new DataTable();
-            String sql = "select cop.*  " +
-                "From " + iss.table + " cop " +
+            String sql = "select iss.*  " +
+                "From " + iss.table + " iss " +
                 " " +
-                "Where cop." + iss.active + " ='1' ";
+                "Where iss." + iss.active + " ='1' ";
             dt = conn.selectData(conn.conn, sql);
 
             return dt;
         }
-        private Issue setAddress(DataTable dt)
+        public DataTable selectAll1()
+        {
+            DataTable dt = new DataTable();
+            String sql = "select iss."+iss.issue_id+","+iss.issue_name_t+" " +
+                "From " + iss.table + " iss " +
+                " " +
+                "Where iss." + iss.active + " ='1' ";
+            dt = conn.selectData(conn.conn, sql);
+
+            return dt;
+        }
+        public DataTable selectByPk(String copId)
+        {
+            DataTable dt = new DataTable();
+            String sql = "select iss.* " +
+                "From " + iss.table + " iss " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where iss." + iss.pkField + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            return dt;
+        }
+        public Issue selectByPk1(String copId)
+        {
+            Issue cop1 = new Issue();
+            DataTable dt = new DataTable();
+            String sql = "select iss.* " +
+                "From " + iss.table + " iss " +
+                //"Left Join t_ssdata_visit ssv On ssv.ssdata_visit_id = bd.ssdata_visit_id " +
+                "Where iss." + iss.pkField + " ='" + copId + "' ";
+            dt = conn.selectData(conn.conn, sql);
+            cop1 = setIssue(dt);
+            return cop1;
+        }
+        private Issue setIssue(DataTable dt)
         {
             Issue iss1 = new Issue();
             if (dt.Rows.Count > 0)
