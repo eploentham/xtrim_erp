@@ -26,6 +26,24 @@ namespace Xtrim_ERP.gui
         C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
         C1ThemeController theme1;
 
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // FrmDepartment
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "FrmDepartment";
+            this.Load += new System.EventHandler(this.FrmDepartment_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void FrmDepartment_Load(object sender, EventArgs e)
+        {
+
+        }
+
         StatusStrip sB;
         ToolStripStatusLabel sB1;
         Panel panel1;

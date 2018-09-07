@@ -116,8 +116,16 @@ namespace Xtrim_ERP.gui
             menuExpnReceipt1.Click += MenuExpnReceipt1_Click;
             menuEcc.Click += MenuEcc_Click;
             menuReceiptAppv.Click += MenuReceiptAppv_Click;
-
+            menuIssue.Click += MenuIssue_Click;
             
+        }
+
+        private void MenuIssue_Click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            FrmIssue frm = new FrmIssue(xC);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            AddNewTab(frm, menuIssue.Text + " ");
         }
 
         private void MenuReceiptAppv_Click(object sender, EventArgs e)

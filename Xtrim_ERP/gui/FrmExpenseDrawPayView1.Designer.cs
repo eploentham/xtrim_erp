@@ -1867,7 +1867,7 @@
             this.c1TextBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.c1TextBox11.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.c1TextBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.c1TextBox11.Location = new System.Drawing.Point(556, 9);
+            this.c1TextBox11.Location = new System.Drawing.Point(556, 3);
             this.c1TextBox11.Name = "c1TextBox11";
             this.c1TextBox11.Size = new System.Drawing.Size(24, 20);
             this.c1TextBox11.TabIndex = 541;
@@ -2750,7 +2750,7 @@
             this.txtTaxCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTaxCode.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtTaxCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtTaxCode.Location = new System.Drawing.Point(617, 11);
+            this.txtTaxCode.Location = new System.Drawing.Point(617, 8);
             this.txtTaxCode.Name = "txtTaxCode";
             this.txtTaxCode.Size = new System.Drawing.Size(118, 24);
             this.txtTaxCode.TabIndex = 525;
@@ -3503,7 +3503,7 @@
             this.txtCusTaxNameT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCusTaxNameT.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
             this.txtCusTaxNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtCusTaxNameT.Location = new System.Drawing.Point(146, 9);
+            this.txtCusTaxNameT.Location = new System.Drawing.Point(146, 10);
             this.txtCusTaxNameT.Name = "txtCusTaxNameT";
             this.txtCusTaxNameT.Size = new System.Drawing.Size(309, 20);
             this.txtCusTaxNameT.TabIndex = 492;
