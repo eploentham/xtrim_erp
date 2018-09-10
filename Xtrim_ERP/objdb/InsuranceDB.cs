@@ -188,7 +188,7 @@ namespace Xtrim_ERP.objdb
                 "'" + p.email + "','" + p.tax_id + "','" + p.remark.Replace("'", "''") + "'," +
                 "'" + p.contact_name1.Replace("'", "''") + "','" + p.contact_name2.Replace("'", "''") + "','" + p.contact_name1_tel + "', " +
                 "'" + p.contact_name2_tel + "','" + p.status_company + "','" + p.status_vendor + "', " +
-                "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "', " +
+                "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + p.user_create + "','" + p.user_modi + "','" + p.user_cancel + "', " +
                 "'" + p.remark2.Replace("'", "''") + "','" + p.po_due_period + "','" + p.taddr1 + "', " +
                 "'" + p.taddr2.Replace("'", "''") + "','" + p.taddr3.Replace("'", "''") + "','" + p.taddr4.Replace("'", "''") + "', " +

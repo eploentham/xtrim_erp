@@ -1,4 +1,5 @@
-﻿using System;
+﻿using C1.Win.C1Input;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -9,7 +10,7 @@ using Xtrim_ERP.object1;
 
 namespace Xtrim_ERP.objdb
 {
-    public class IssueDB
+    public class IssueDB:Persistent
     {
         public Issue iss;
         ConnectDB conn;
@@ -59,15 +60,15 @@ namespace Xtrim_ERP.objdb
                 lIss.Add(addrT1);
             }
         }
-        public void setCboCus(ComboBox c, String selected)
+        public void setCboCusC1(C1ComboBox c, String selected)
         {
             ComboBoxItem item = new ComboBoxItem();
-            //DataTable dt = selectWard();
-            foreach (Issue cus1 in lIss)
+            DataTable dt = selectAll();
+            foreach (DataRow row in dt.Rows)
             {
                 item = new ComboBoxItem();
-                item.Value = cus1.issue_id;
-                item.Text = cus1.issue_name_t;
+                item.Value = row[iss.issue_id].ToString();
+                item.Text = row[iss.issue_name_t].ToString();
                 c.Items.Add(item);
                 if (item.Value.Equals(selected))
                 {
@@ -116,13 +117,13 @@ namespace Xtrim_ERP.objdb
             int chk = 0;
 
             chkNull(p);
-            sql = "Insert Into " + iss.table + "(" + iss.issue_name_t + "," + iss.issue_name_e + "," + iss.remark + "," +
+            sql = "Insert Into " + iss.table + "(" + iss.issue_name_t + "," + iss.issue_name_e + "," + 
                 iss.date_create + "," + iss.date_modi + ", " + iss.date_cancel + ", " +
                 iss.user_create + "," + iss.user_modi + ", " + iss.user_cancel + ", " +
                 iss.active + " " +
                 ") " +
-                "Values ('" + p.issue_name_t.Replace("'", "''") + "','" + p.issue_name_e.Replace("'", "''") + "','" + p.remark.Replace("'", "''") + "','" +
-                "'" + p.date_create + "','" + p.date_modi + "','" + p.date_cancel + "', " +
+                "Values ('" + p.issue_name_t.Replace("'", "''") + "','" + p.issue_name_e.Replace("'", "''") + "',"+ 
+                "now(),'" + p.date_modi + "','" + p.date_cancel + "', " +
                 "'" + userId + "','" + p.user_modi + "','" + p.user_cancel + "', " +
                 "'" + p.active + "' " +
                 ")";
@@ -246,7 +247,7 @@ namespace Xtrim_ERP.objdb
 
                 iss1.active = dt.Rows[0][iss.active].ToString();
 
-                iss1.remark = dt.Rows[0][iss.remark].ToString();
+                //iss1.remark = dt.Rows[0][iss.remark].ToString();
 
             }
 
