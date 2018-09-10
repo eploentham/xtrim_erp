@@ -583,7 +583,7 @@ namespace Xtrim_ERP.gui
                     menuDrawReserve.Visible = true;
                 }
             }
-            this.Text = xC.user.staff_fname_t+" "+xC.user.staff_lname_t + " Last Update 2018-08-16";
+            this.Text = xC.user.staff_fname_t+" "+xC.user.staff_lname_t + " Last Update 2018-09-10";
         }
     }
 }

@@ -746,6 +746,21 @@ delete from t_expenses_clear_cash;
 delete from t_expenses_refund;
 update b_company set amount_reserve =0 where comp_code = '001'
 
+
+61-09-10
+ALTER TABLE `xtrim_erp`.`t_expenses_draw_detail` 
+ADD COLUMN `wtax5` DECIMAL(17,2) NULL COMMENT 'WTAX 5%' AFTER `status_appv`;
+ALTER TABLE `xtrim_erp`.`t_expenses_draw_detail` 
+ADD COLUMN `amt_wtax1` DECIMAL(17,2) NULL AFTER `wtax5`,
+ADD COLUMN `amt_wtax3` DECIMAL(17,2) NULL AFTER `amt_wtax1`,
+ADD COLUMN `amt_wtax5` DECIMAL(17,2) NULL AFTER `amt_wtax3`;
+
+
+
+
+
+
+
   รับดูแลระบบ ก็เหมือนผู้กำกับ
 ตอนจบก็แฮปปี้เอ็นดิ้ง 
 โปรเจคที่ทำก็เหมือนละครเรื่องหนึ่งที่เรากำกับ

@@ -54,6 +54,13 @@ namespace Xtrim_ERP.objdb
             expnC.payer_id = "payer_id";
             expnC.status_page = "status_page";
             expnC.status_doc = "status_doc";
+            expnC.issue_date = "issue_date";
+            expnC.issue_id = "issue_id";
+            expnC.issue_name_t = "issue_name_t";
+            expnC.issue_person = "issue_person";
+            expnC.issue_place = "issue_place";
+            expnC.issue_status_express = "issue_status_express";
+            expnC.issue_status_time = "issue_status_time";
 
             expnC.table = "t_expenses_draw";
             expnC.pkField = "expenses_draw_id";
@@ -144,6 +151,8 @@ namespace Xtrim_ERP.objdb
             p.status_pay_type = p.status_pay_type == null ? "0" : p.status_pay_type;
             p.status_page = p.status_page == null ? "0" : p.status_page;
             p.status_doc = p.status_doc == null ? "0" : p.status_doc;
+            p.issue_status_express = p.issue_status_express == null ? "0" : p.status_doc;
+            p.issue_status_time = p.issue_status_time == null ? "0" : p.status_doc;
 
 
             p.job_id = int.TryParse(p.job_id, out chk) ? chk.ToString() : "0";
