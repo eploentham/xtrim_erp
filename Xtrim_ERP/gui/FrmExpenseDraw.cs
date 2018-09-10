@@ -78,6 +78,8 @@ namespace Xtrim_ERP.gui
             fc = txtCode.ForeColor;
             ff = txtCode.Font;
             xC.xtDB.stfDB.setCboStaff(cboStaff,xC.userId);
+            xC.xtDB.stfDB.setCboStaff(cboDraw, "");
+            xC.iniDB.issDB.setCboCusC1(cboIssue, "");
             DateTime jobDate = DateTime.Now;
             txtExpndDrawDate.Value = jobDate.Year.ToString() + "-" + jobDate.ToString("MM-dd");
             jobDate = jobDate.AddDays(7);
