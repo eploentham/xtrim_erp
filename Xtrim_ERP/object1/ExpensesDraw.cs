@@ -35,5 +35,12 @@ namespace Xtrim_ERP.object1
         public String payer_id { get; set; }
         public String status_page { get; set; }
         public String status_doc { get; set; }
+        public String issue_id { get; set; }
+        public String issue_name_t { get; set; }
+        public String issue_place { get; set; }
+        public String issue_person { get; set; }
+        public String issue_date { get; set; }
+        public String issue_status_time { get; set; }
+        public String issue_status_express { get; set; }
     }
 }

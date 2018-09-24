@@ -59,5 +59,9 @@ namespace Xtrim_ERP.object1
         public String erc_doc { get; set; }
         public String status_erc { get; set; }
         public String status_appv { get; set; }
+        public String wtax5 { get; set; }
+        public String amt_wtax1 { get; set; }
+        public String amt_wtax3 { get; set; }
+        public String amt_wtax5 { get; set; }
     }
 }

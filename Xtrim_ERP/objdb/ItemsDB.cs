@@ -71,7 +71,10 @@ namespace Xtrim_ERP.objdb
             itm.receipt_date = "";
             itm.receipt_no = "";
             itm.total = "";
-
+            itm.wtax5 = "";
+            itm.amt_wtax1 = "";
+            itm.amt_wtax3 = "";
+            itm.amt_wtax5 = "";
 
             itm.table = "b_items";
             itm.pkField = "item_id";
@@ -442,6 +445,10 @@ namespace Xtrim_ERP.objdb
                 itm1.item_group_id = "";
                 itm1.tax_id = "";
                 itm1.status_hide = "";
+                itm1.wtax5 = "";
+                itm1.amt_wtax1 = "";
+                itm1.amt_wtax3 = "";
+                itm1.amt_wtax5 = "";
             }
 
             return itm1;

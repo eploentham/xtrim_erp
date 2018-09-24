@@ -56,11 +56,29 @@ namespace Xtrim_ERP.gui
             C1ThemeController.ApplicationTheme = xC.iniC.themeApplication;
             theme1.Theme = C1ThemeController.ApplicationTheme;
             theme1.SetTheme(sB, "BeigeOne");
-            foreach (Control c in panel1.Controls)
-            {
-                theme1.SetTheme(c, "Office2013Red");
-            }
-
+            //theme1.SetTheme(panel4, "Office2010Red");
+            //theme1.SetTheme(panel3, "Office2010Red");
+            //theme1.SetTheme(panel7, "Office2010Red");
+            //foreach (Control con in panel1.Controls)
+            //{
+            //    theme1.SetTheme(con, "Office2010Red");
+            //}
+            ////theme1.SetTheme(panel4, "Office2010Red");
+            //foreach (Control con1 in panel3.Controls)
+            //{
+            //    //if (con1 is C1TextBox)
+            //        theme1.SetTheme(con1, "Office2010Red");
+            //}
+            ////theme1.SetTheme(panel4, "Office2010Red");
+            //foreach (Control con1 in panel4.Controls)
+            //{
+            //    theme1.SetTheme(con1, "Office2010Red");
+            //}
+            //foreach (Control con1 in panel7.Controls)
+            //{
+            //    //if (con1 is C1TextBox)
+            //        theme1.SetTheme(con1, "Office2010Red");
+            //}
             bg = txtQty.BackColor;
             fc = txtQty.ForeColor;
             ff = txtQty.Font;
@@ -78,8 +96,8 @@ namespace Xtrim_ERP.gui
 
             setControlD();
             setFocusColor();
-            
-            if(statusPage == StatusPage.AppvPay)
+
+            if (statusPage == StatusPage.AppvPay)
             {
                 label15.Text = "ป้อนค่าใช้จ่าย";
             }
@@ -190,6 +208,18 @@ namespace Xtrim_ERP.gui
 
             this.txtRemark.Leave += new System.EventHandler(this.textBox_Leave);
             this.txtRemark.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtWtax5.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtWtax5.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtAmtWtax1.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtAmtWtax1.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtAmtWtax3.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtAmtWtax3.Enter += new System.EventHandler(this.textBox_Enter);
+
+            this.txtAmtWtax5.Leave += new System.EventHandler(this.textBox_Leave);
+            this.txtAmtWtax5.Enter += new System.EventHandler(this.textBox_Enter);
         }
         private void BtnSave_Click(object sender, EventArgs e)
         {
@@ -214,6 +244,10 @@ namespace Xtrim_ERP.gui
             xC.sItm.receipt_no = txtReceipt.Text;
             xC.sItm.remark = txtRemark.Text;
 
+            xC.sItm.wtax5 = txtWtax5.Text;
+            xC.sItm.amt_wtax1 = txtAmtWtax1.Text;
+            xC.sItm.amt_wtax3 = txtAmtWtax3.Text;
+            xC.sItm.amt_wtax5 = txtAmtWtax5.Text;
             Close();
         }
 

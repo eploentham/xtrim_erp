@@ -26,8 +26,8 @@ namespace Xtrim_ERP.gui
         Color bg, fc;
         Font ff, ffB;
         int colID = 1, colCode = 2, colDesc = 3, colAmt=4, colRemark = 5;
-        int colDid = 1, colDItemNamet = 2, colDQty = 3, colDUnitNameT = 4, colDPrice = 5, colDamt = 6, colDwatx1 = 7, colDwatx3 = 8, colDvat = 9;
-        int colDtotal = 10, colDremark = 11, colDItemId = 12, colDUnitId = 13, colDpaytocusnamet = 14, colDpaytocusaddr = 15, colDapaytocustax = 16, colDreceiptno = 17;
+        int colDid = 1, colDItemNamet = 2, colDQty = 3, colDUnitNameT = 4, colDPrice = 5, colDamt = 6, colDwatx1 = 7, colDamtwtax1=8, colDwatx3 = 9, colDamtwtax3= 10, colDwatx5= 11, colDamtwtax5=12, colDvat = 13;
+        int colDtotal = 14, colDremark = 15, colDItemId = 16, colDUnitId = 17, colDpaytocusnamet = 18, colDpaytocusaddr = 19, colDapaytocustax = 20, colDreceiptno = 21;
         int colDreceiptdate=18,colDpaytocusid=19, colDedit=20;
         C1FlexGrid grfExpnD, grfExpnD1;
         //C1TextBox txtPassword = new C1.Win.C1Input.C1TextBox();
@@ -258,6 +258,10 @@ namespace Xtrim_ERP.gui
                 grfExpnD[row, colDpaytocusid] = xC.sItm.cust_id;
                 grfExpnD[row, colDremark] = xC.sItm.vat;
                 grfExpnD[row, colDedit] = "1";
+                grfExpnD[row, colDwatx5] = xC.sItm.wtax5;
+                grfExpnD[row, colDamtwtax1] = xC.sItm.amt_wtax1;
+                grfExpnD[row, colDamtwtax3] = xC.sItm.amt_wtax3;
+                grfExpnD[row, colDamtwtax5] = xC.sItm.amt_wtax5;
                 calAmount();
             }
         }
