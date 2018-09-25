@@ -41,6 +41,8 @@
             this.chkCash = new System.Windows.Forms.RadioButton();
             this.chkAll = new System.Windows.Forms.RadioButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtJobNo = new C1.Win.C1Input.C1TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.txtAmtWtax5 = new C1.Win.C1Input.C1TextBox();
@@ -86,8 +88,6 @@
             this.txtID = new C1.Win.C1Input.C1TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.txtJobNo = new C1.Win.C1Input.C1TextBox();
-            this.label20 = new System.Windows.Forms.Label();
             this.sB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.theme1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -98,6 +98,7 @@
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJobNo)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmtWtax5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmtWtax3)).BeginInit();
@@ -123,7 +124,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtItmNameT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtJobNo)).BeginInit();
             this.SuspendLayout();
             // 
             // sB
@@ -310,6 +310,32 @@
             this.panel3.Size = new System.Drawing.Size(453, 520);
             this.panel3.TabIndex = 594;
             this.theme1.SetTheme(this.panel3, "(default)");
+            // 
+            // txtJobNo
+            // 
+            this.txtJobNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtJobNo.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
+            this.txtJobNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.txtJobNo.Location = new System.Drawing.Point(74, 32);
+            this.txtJobNo.Name = "txtJobNo";
+            this.txtJobNo.Size = new System.Drawing.Size(147, 20);
+            this.txtJobNo.TabIndex = 636;
+            this.txtJobNo.Tag = null;
+            this.theme1.SetTheme(this.txtJobNo, "(default)");
+            this.txtJobNo.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.label20.Location = new System.Drawing.Point(12, 34);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(55, 16);
+            this.label20.TabIndex = 635;
+            this.label20.Text = "Job no :";
+            this.theme1.SetTheme(this.label20, "(default)");
             // 
             // panel4
             // 
@@ -968,32 +994,6 @@
             this.label15.Text = "wtax 5%  :";
             this.theme1.SetTheme(this.label15, "(default)");
             // 
-            // txtJobNo
-            // 
-            this.txtJobNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtJobNo.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(152)))), ((int)(((byte)(152)))));
-            this.txtJobNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtJobNo.Location = new System.Drawing.Point(74, 32);
-            this.txtJobNo.Name = "txtJobNo";
-            this.txtJobNo.Size = new System.Drawing.Size(329, 20);
-            this.txtJobNo.TabIndex = 636;
-            this.txtJobNo.Tag = null;
-            this.theme1.SetTheme(this.txtJobNo, "(default)");
-            this.txtJobNo.VisualStyleBaseStyle = C1.Win.C1Input.VisualStyle.Office2010Blue;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.label20.Location = new System.Drawing.Point(12, 34);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(55, 16);
-            this.label20.TabIndex = 635;
-            this.label20.Text = "Job no :";
-            this.theme1.SetTheme(this.label20, "(default)");
-            // 
             // FrmExpenseDrawD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1018,6 +1018,7 @@
             this.panel5.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJobNo)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmtWtax5)).EndInit();
@@ -1046,7 +1047,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtItmNameT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtJobNo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

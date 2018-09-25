@@ -1445,7 +1445,7 @@ namespace Xtrim_ERP.gui
             {
                 if(grfEmail[i, colEmailPath]!=null) lfile.Add(grfEmail[i, colEmailPath].ToString());
             }
-            sendEmailViaOutlook("eploentham@xtrim-logistics.com", txtTo.Text, "", txtSubject.Text, txtBody.Text, BodyType.HTML, lfile, null);
+            //sendEmailViaOutlook("eploentham@xtrim-logistics.com", txtTo.Text, "", txtSubject.Text, txtBody.Text, BodyType.HTML, lfile, null);
         }
         private void BtnEmail_Click(object sender, EventArgs e)
         {
@@ -3860,139 +3860,139 @@ namespace Xtrim_ERP.gui
             txtCurrCode.Value = "";
             
         }
-        public static bool sendEmailViaOutlook(string sFromAddress, string sToAddress, string sCc, string sSubject, string sBody, BodyType bodyType, List<string> arrAttachments = null, string sBcc = null)
-        {
-            bool bRes = false;
-            try
-            {
-                //Get Outlook COM objects
-                Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
-                Microsoft.Office.Interop.Outlook.NameSpace nameSpace = app.GetNamespace("MAPI");
-                nameSpace.Logon("eploentham@xtrim-logistics.com", "Ekartc2c5", Missing.Value, Missing.Value);
-                Microsoft.Office.Interop.Outlook.MailItem newMail = (Microsoft.Office.Interop.Outlook.MailItem)app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+        //public static bool sendEmailViaOutlook(string sFromAddress, string sToAddress, string sCc, string sSubject, string sBody, BodyType bodyType, List<string> arrAttachments = null, string sBcc = null)
+        //{
+        //    bool bRes = false;
+        //    try
+        //    {
+        //        //Get Outlook COM objects
+        //        Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
+        //        Microsoft.Office.Interop.Outlook.NameSpace nameSpace = app.GetNamespace("MAPI");
+        //        nameSpace.Logon("eploentham@xtrim-logistics.com", "Ekartc2c5", Missing.Value, Missing.Value);
+        //        Microsoft.Office.Interop.Outlook.MailItem newMail = (Microsoft.Office.Interop.Outlook.MailItem)app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
 
-                //Parse 'sToAddress'
-                if (!string.IsNullOrWhiteSpace(sToAddress))
-                {
-                    string[] arrAddTos = sToAddress.Split(new char[] { ';', ',' });
-                    foreach (string strAddr in arrAddTos)
-                    {
-                        if (!string.IsNullOrWhiteSpace(strAddr) &&
-                            strAddr.IndexOf('@') != -1)
-                        {
-                            newMail.Recipients.Add(strAddr.Trim());
-                        }
-                        else
-                            throw new Exception("Bad to-address: " + sToAddress);
-                    }
-                }
-                else
-                    throw new Exception("Must specify to-address");
+        //        //Parse 'sToAddress'
+        //        if (!string.IsNullOrWhiteSpace(sToAddress))
+        //        {
+        //            string[] arrAddTos = sToAddress.Split(new char[] { ';', ',' });
+        //            foreach (string strAddr in arrAddTos)
+        //            {
+        //                if (!string.IsNullOrWhiteSpace(strAddr) &&
+        //                    strAddr.IndexOf('@') != -1)
+        //                {
+        //                    newMail.Recipients.Add(strAddr.Trim());
+        //                }
+        //                else
+        //                    throw new Exception("Bad to-address: " + sToAddress);
+        //            }
+        //        }
+        //        else
+        //            throw new Exception("Must specify to-address");
 
-                //Parse 'sCc'
-                if (!string.IsNullOrWhiteSpace(sCc))
-                {
-                    string[] arrAddTos = sCc.Split(new char[] { ';', ',' });
-                    foreach (string strAddr in arrAddTos)
-                    {
-                        if (!string.IsNullOrWhiteSpace(strAddr) &&
-                            strAddr.IndexOf('@') != -1)
-                        {
-                            newMail.Recipients.Add(strAddr.Trim());
-                        }
-                        else
-                            throw new Exception("Bad CC-address: " + sCc);
-                    }
-                }
+        //        //Parse 'sCc'
+        //        if (!string.IsNullOrWhiteSpace(sCc))
+        //        {
+        //            string[] arrAddTos = sCc.Split(new char[] { ';', ',' });
+        //            foreach (string strAddr in arrAddTos)
+        //            {
+        //                if (!string.IsNullOrWhiteSpace(strAddr) &&
+        //                    strAddr.IndexOf('@') != -1)
+        //                {
+        //                    newMail.Recipients.Add(strAddr.Trim());
+        //                }
+        //                else
+        //                    throw new Exception("Bad CC-address: " + sCc);
+        //            }
+        //        }
 
-                //Is BCC empty?
-                if (!string.IsNullOrWhiteSpace(sBcc))
-                {
-                    newMail.BCC = sBcc.Trim();
-                }
+        //        //Is BCC empty?
+        //        if (!string.IsNullOrWhiteSpace(sBcc))
+        //        {
+        //            newMail.BCC = sBcc.Trim();
+        //        }
 
-                //Resolve all recepients
-                if (!newMail.Recipients.ResolveAll())
-                {
-                    throw new Exception("Failed to resolve all recipients: " + sToAddress + ";" + sCc);
-                }
-
-
-                //Set type of message
-                switch (bodyType)
-                {
-                    case BodyType.HTML:
-                        newMail.HTMLBody = sBody;
-                        break;
-                    case BodyType.RTF:
-                        newMail.RTFBody = sBody;
-                        break;
-                    case BodyType.PlainText:
-                        newMail.Body = sBody;
-                        break;
-                    default:
-                        throw new Exception("Bad email body type: " + bodyType);
-                }
+        //        //Resolve all recepients
+        //        if (!newMail.Recipients.ResolveAll())
+        //        {
+        //            throw new Exception("Failed to resolve all recipients: " + sToAddress + ";" + sCc);
+        //        }
 
 
-                if (arrAttachments != null)
-                {
-                    //Add attachments
-                    foreach (string strPath in arrAttachments)
-                    {
-                        if (File.Exists(strPath))
-                        {
-                            newMail.Attachments.Add(strPath);
-                        }
-                        else
-                            throw new Exception("Attachment file is not found: \"" + strPath + "\"");
-                    }
-                }
+        //        //Set type of message
+        //        switch (bodyType)
+        //        {
+        //            case BodyType.HTML:
+        //                newMail.HTMLBody = sBody;
+        //                break;
+        //            case BodyType.RTF:
+        //                newMail.RTFBody = sBody;
+        //                break;
+        //            case BodyType.PlainText:
+        //                newMail.Body = sBody;
+        //                break;
+        //            default:
+        //                throw new Exception("Bad email body type: " + bodyType);
+        //        }
 
-                //Add subject
-                if (!string.IsNullOrWhiteSpace(sSubject))
-                    newMail.Subject = sSubject;
 
-                Microsoft.Office.Interop.Outlook.Accounts accounts = app.Session.Accounts;
-                Microsoft.Office.Interop.Outlook.Account acc = null;
+        //        if (arrAttachments != null)
+        //        {
+        //            //Add attachments
+        //            foreach (string strPath in arrAttachments)
+        //            {
+        //                if (File.Exists(strPath))
+        //                {
+        //                    newMail.Attachments.Add(strPath);
+        //                }
+        //                else
+        //                    throw new Exception("Attachment file is not found: \"" + strPath + "\"");
+        //            }
+        //        }
 
-                //Look for our account in the Outlook
-                foreach (Microsoft.Office.Interop.Outlook.Account account in accounts)
-                {
-                    if (account.SmtpAddress.Equals(sFromAddress, StringComparison.CurrentCultureIgnoreCase))
-                    {
-                        //Use it
-                        acc = account;
-                        break;
-                    }
-                }
+        //        //Add subject
+        //        if (!string.IsNullOrWhiteSpace(sSubject))
+        //            newMail.Subject = sSubject;
 
-                //Did we get the account
-                if (acc != null)
-                {
-                    //Use this account to send the e-mail. 
-                    newMail.SendUsingAccount = acc;
+        //        Microsoft.Office.Interop.Outlook.Accounts accounts = app.Session.Accounts;
+        //        Microsoft.Office.Interop.Outlook.Account acc = null;
 
-                    //And send it
+        //        //Look for our account in the Outlook
+        //        foreach (Microsoft.Office.Interop.Outlook.Account account in accounts)
+        //        {
+        //            if (account.SmtpAddress.Equals(sFromAddress, StringComparison.CurrentCultureIgnoreCase))
+        //            {
+        //                //Use it
+        //                acc = account;
+        //                break;
+        //            }
+        //        }
 
-                    ((Microsoft.Office.Interop.Outlook._MailItem)newMail).Display();
-                    //((Microsoft.Office.Interop.Outlook._MailItem)newMail).Send();
+        //        //Did we get the account
+        //        if (acc != null)
+        //        {
+        //            //Use this account to send the e-mail. 
+        //            newMail.SendUsingAccount = acc;
 
-                    //Done
-                    bRes = true;
-                }
-                else
-                {
-                    throw new Exception("Account does not exist in Outlook: " + sFromAddress);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("ERROR: Failed to send mail: " + ex.Message);
-            }
+        //            //And send it
 
-            return bRes;
-        }
+        //            ((Microsoft.Office.Interop.Outlook._MailItem)newMail).Display();
+        //            //((Microsoft.Office.Interop.Outlook._MailItem)newMail).Send();
+
+        //            //Done
+        //            bRes = true;
+        //        }
+        //        else
+        //        {
+        //            throw new Exception("Account does not exist in Outlook: " + sFromAddress);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine("ERROR: Failed to send mail: " + ex.Message);
+        //    }
+
+        //    return bRes;
+        //}
 
         private void FrmJobImpNew3_Load(object sender, EventArgs e)
         {

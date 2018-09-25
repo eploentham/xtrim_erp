@@ -826,6 +826,7 @@ namespace Xtrim_ERP.gui
             txtJobCode.Enabled = flag;
             cboStaff.Enabled = flag;
             grfExpnD.Enabled = flag;
+            cboDraw.Enabled = flag;
             btnEdit.Image = !flag ? Resources.lock24 : Resources.open24;
         }
         private void setControlAppv()
